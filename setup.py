@@ -55,6 +55,8 @@ def build_extensions():
     elif sys.platform == "win32":
         # Windows specific flags
         extra_compile_args.extend(["/O2"])
+        # Link Windows socket library
+        extra_link_args.extend(["ws2_32.lib"])
 
     include_dirs = ["thirdparty/mongoose"]
 
