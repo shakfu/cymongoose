@@ -17,6 +17,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.5]
+
+### Fixed
+
+- **Windows build support**: Fixed missing Windows case in `ntohs` declaration
+  - The preprocessor block for `ntohs` only handled macOS and Linux, falling through to `<arpa/inet.h>` which doesn't exist on Windows
+  - Added `#elif defined(_WIN32)` case to include `<winsock2.h>` for Windows builds
+  - This fixes compilation errors on Windows where `<arpa/inet.h>` is not available
+
 ## [0.1.4]
 
 ### Added
@@ -26,13 +35,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   - Builds on macOS (macos-14), Linux (ubuntu-22.04), Windows (windows-2022)
   - Uses `uv build --wheel` instead of cibuildwheel for simplicity
   - Uploads wheel artifacts with 10-day retention
-
-### Fixed
-
-- **Windows build support**: Fixed missing Windows case in `ntohs` declaration
-  - The preprocessor block for `ntohs` only handled macOS and Linux, falling through to `<arpa/inet.h>` which doesn't exist on Windows
-  - Added `#elif defined(_WIN32)` case to include `<winsock2.h>` for Windows builds
-  - This fixes compilation errors on Windows where `<arpa/inet.h>` is not available
 
 ## [0.1.3]
 
