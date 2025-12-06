@@ -32,6 +32,7 @@ class TestWebSocketBasic:
     def test_websocket_echo_text(self):
         """Test WebSocket text message echo."""
         received_messages = []
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -46,7 +47,7 @@ class TestWebSocketBasic:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -67,11 +68,14 @@ class TestWebSocketBasic:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
     def test_websocket_echo_binary(self):
         """Test WebSocket binary message echo."""
         received_messages = []
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -85,7 +89,7 @@ class TestWebSocketBasic:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -107,11 +111,14 @@ class TestWebSocketBasic:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
     def test_websocket_multiple_messages(self):
         """Test sending multiple WebSocket messages."""
         received_count = [0]
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -125,7 +132,7 @@ class TestWebSocketBasic:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(50):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -147,6 +154,8 @@ class TestWebSocketBasic:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
 
@@ -156,6 +165,7 @@ class TestWebSocketHandshake:
     def test_websocket_open_event(self):
         """Test MG_EV_WS_OPEN event fires on connection."""
         events = []
+        stop = threading.Event()
 
         def handler(conn, event, data):
             events.append(event)
@@ -169,7 +179,7 @@ class TestWebSocketHandshake:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -187,12 +197,15 @@ class TestWebSocketHandshake:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
     def test_websocket_connection_upgrade(self):
         """Test HTTP to WebSocket upgrade."""
         http_requests = [0]
         ws_connections = [0]
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -208,7 +221,7 @@ class TestWebSocketHandshake:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -228,6 +241,8 @@ class TestWebSocketHandshake:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
 
@@ -237,6 +252,7 @@ class TestWebSocketMessage:
     def test_ws_message_text_property(self):
         """Test WsMessage.text property."""
         received_data = {}
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -252,7 +268,7 @@ class TestWebSocketMessage:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -274,11 +290,14 @@ class TestWebSocketMessage:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
     def test_ws_message_binary_data(self):
         """Test WsMessage with binary data."""
         received_data = {}
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -292,7 +311,7 @@ class TestWebSocketMessage:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -313,6 +332,8 @@ class TestWebSocketMessage:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
 
@@ -330,6 +351,7 @@ class TestWebSocketOpcodes:
     def test_ws_send_with_text_opcode(self):
         """Test ws_send with explicit text opcode."""
         sent_opcode = [None]
+        stop = threading.Event()
 
         def handler(conn, event, data):
             if event == MG_EV_HTTP_MSG:
@@ -343,7 +365,7 @@ class TestWebSocketOpcodes:
         manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
-            for _ in range(30):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -362,4 +384,6 @@ class TestWebSocketOpcodes:
 
             ws.close()
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()

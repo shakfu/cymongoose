@@ -1,4 +1,5 @@
-.PHONY: help install build clean test test-verbose test-coverage lint format type-check docs docs-serve dev snap
+.PHONY: all help install build clean test test-verbose test-coverage lint format \
+		type-check docs docs-serve dev snap
 
 # Default target
 .DEFAULT_GOAL := help
@@ -11,6 +12,8 @@ SPHINX = uv run sphinx-build
 RUFF = uv run ruff
 MYPY = uv run mypy
 
+all: build
+
 help: ## Show this help message
 	@echo "$(PROJECT) - Makefile commands"
 	@echo ""
@@ -18,24 +21,24 @@ help: ## Show this help message
 
 # Installation and Building
 install: ## Install package in development mode
-	uv sync
+	@uv sync
 
 build: clean ## Rebuild the package (forces reinstall)
-	uv sync --reinstall-package $(PROJECT)
+	@uv sync --reinstall-package $(PROJECT)
 
 clean: ## Remove build artifacts
-	rm -rf build/
-	rm -rf dist/
-	rm -rf *.egg-info
-	rm -rf .*_cache
-	rm -rf htmlcov/
-	rm -rf .coverage
-	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
-	find . -type f -name "*.pyc" -delete
-	find . -type f -name "*.pyo" -delete
-	find . -type f -name "*.so" -delete
-	rm -f src/$(PROJECT)/_mongoose.c
-	rm -rf docs/_build/
+	@rm -rf build/
+	@rm -rf dist/
+	@rm -rf *.egg-info
+	@rm -rf .*_cache
+	@rm -rf htmlcov/
+	@rm -rf .coverage
+	@find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+	@find . -type f -name "*.pyc" -delete
+	@find . -type f -name "*.pyo" -delete
+	@find . -type f -name "*.so" -delete
+	@rm -f src/$(PROJECT)/_mongoose.c
+	@rm -rf docs/_build/
 
 # Testing
 test: ## Run tests with pytest
@@ -73,10 +76,10 @@ check: lint format-check type-check ## Run all code quality checks
 
 # Documentation
 docs: ## Build Sphinx documentation
-	cd docs && $(SPHINX) -b html . _build/html
+	@cd docs && $(SPHINX) -b html . _build/html
 
 docs-clean: ## Clean documentation build
-	rm -rf docs/_build/
+	@rm -rf docs/_build/
 
 docs-serve: docs ## Build and serve documentation locally
 	@echo "Opening documentation in browser..."
@@ -100,32 +103,32 @@ version: ## Show current version
 	@grep '^version = ' pyproject.toml | cut -d'"' -f2
 
 bump-patch: ## Bump patch version (requires bump2version)
-	uv run bump2version patch
+	@uv run bump2version patch
 
 bump-minor: ## Bump minor version (requires bump2version)
-	uv run bump2version minor
+	@uv run bump2version minor
 
 bump-major: ## Bump major version (requires bump2version)
-	uv run bump2version major
+	@uv run bump2version major
 
 # Git shortcuts
 snap: ## Quick git commit and push (dev only)
-	git add --all . && git commit -m 'snap' && git push
+	@git add --all . && git commit -m 'snap' && git push
 
 commit: ## Interactive git commit
-	git add --all .
-	git status
+	@git add --all .
+	@git status
 	@read -p "Commit message: " msg; git commit -m "$$msg"
 
 # Distribution
 dist: clean ## Build distribution packages
-	uv build
+	@uv build
 
 publish-test: dist ## Upload to TestPyPI
-	uv publish --publish-url https://test.pypi.org/legacy/
+	@uv publish --publish-url https://test.pypi.org/legacy/
 
 publish: dist ## Upload to PyPI (production)
-	uv publish
+	@uv publish
 
 # Benchmarks
 bench: ## Run performance benchmarks
@@ -144,10 +147,10 @@ run-mqtt-client: ## Run MQTT client example
 
 # Maintenance
 update-deps: ## Update dependencies
-	uv sync --upgrade
+	@uv sync --upgrade
 
 lock: ## Update lock file
-	uv lock
+	@uv lock
 
 info: ## Show project information
 	@echo "Project: $(PROJECT)"

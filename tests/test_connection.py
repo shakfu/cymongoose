@@ -45,6 +45,7 @@ class TestConnectionProperties:
     def test_per_connection_handler(self):
         """Test per-connection handler override on listener."""
         handler_called = []
+        stop = threading.Event()
 
         def default_handler(conn, event, data):
             handler_called.append("default")
@@ -65,7 +66,7 @@ class TestConnectionProperties:
         listener.set_handler(listener_handler)
 
         def run_poll():
-            for _ in range(20):
+            while not stop.is_set():
                 manager.poll(100)
 
         thread = threading.Thread(target=run_poll, daemon=True)
@@ -83,6 +84,8 @@ class TestConnectionProperties:
             assert "listener" in handler_called or "default" in handler_called
             assert body in ["Default", "Listener"]
         finally:
+            stop.set()
+            thread.join(timeout=1)
             manager.close()
 
 

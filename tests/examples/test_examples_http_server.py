@@ -8,6 +8,8 @@ import time
 import threading
 from pathlib import Path
 
+import pytest
+
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
@@ -51,22 +53,21 @@ def test_http_server():
     except Exception as e:
         print(f" Request failed: {e}")
         stop.set()
+        poll_thread.join(timeout=1)
         manager.close()
-        return False
+        pytest.fail(f"Request failed: {e}")
 
     # Stop server
     stop.set()
-    time.sleep(0.1)
+    poll_thread.join(timeout=1)
     manager.close()
 
     # Verify request was received
     assert "/test" in received, f"Expected /test in {received}"
     print(f"[x] Server received request: {received}")
 
-    return True
-
 
 if __name__ == "__main__":
-    success = test_http_server()
-    print("\nHTTP server test:", "PASSED" if success else "FAILED")
-    sys.exit(0 if success else 1)
+    import pytest as _pytest
+    result = _pytest.main([__file__, "-v"])
+    sys.exit(result)
