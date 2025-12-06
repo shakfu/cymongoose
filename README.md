@@ -45,13 +45,10 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 # Clone the repository
 git clone https://github.com/shakfu/pymongoose
 cd pymongoose
-
-# Install with uv (recommended)
-uv sync
-
-# Or with pip
-pip install -e .
+make
 ```
+
+Also type `make help` gives you a list of commands
 
 ### Requirements
 
@@ -442,11 +439,14 @@ pytest tests/examples/ -v              # Run example tests only
 ### Build
 
 ```bash
-make build          # Build with CMake
-make build CONFIG=Debug UNIVERSAL=1  # Debug build, universal binary (macOS)
+make build          # Rebuild the Cython extension
+
+# or just
+
+make
 
 # Force rebuild
-uv pip install -e . --force-reinstall --no-deps
+uv sync --reinstall-package pymongoose
 ```
 
 ### Test

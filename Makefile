@@ -2,7 +2,7 @@
 		type-check docs docs-serve dev snap
 
 # Default target
-.DEFAULT_GOAL := help
+# .DEFAULT_GOAL := help
 
 # Variables
 PROJECT = pymongoose
