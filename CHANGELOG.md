@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.4]
+
 ### Added
 
 - **Simple build workflow**: Added `.github/workflows/build-simple.yml` for quick wheel builds
