@@ -32,6 +32,8 @@ cdef extern from *:
     #include <machine/endian.h>
     #include <libkern/OSByteOrder.h>
     #define ntohs(x) OSSwapBigToHostInt16(x)
+    #elif defined(_WIN32)
+    #include <winsock2.h>
     #else
     #include <arpa/inet.h>
     #endif
