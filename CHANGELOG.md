@@ -17,6 +17,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **CI workflow** (`ci.yml`):
+  - Triggered on tag pushes (`v*`) and pull requests to `main`
+  - Test matrix: 3 OS (ubuntu, macos, windows) x 5 Python versions (3.9-3.13)
+  - Lint job using `ruff check`
+  - Type check job using `mypy`
+
+### Changed
+
+- **CI/CD improvements** (`build-wheels.yml`):
+  - Added QEMU emulation setup for cross-architecture Linux aarch64 builds
+  - Enabled test execution on Linux and macOS (skipped on Windows due to path/subprocess issues)
+  - Added `collect_artifacts` job to combine all wheels and sdist into single `all-dist` artifact
+  - Removed redundant `test-wheels.yml` workflow
+
 ## [0.1.5]
 
 ### Fixed
