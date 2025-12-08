@@ -32,7 +32,7 @@ Key differences from TCP:
 import argparse
 import signal
 import time
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_OPEN,
     MG_EV_READ,

@@ -14,7 +14,7 @@ Simple JSON API Server
     """Simple REST API with JSON responses."""
     import signal
     import json
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     shutdown_requested = False
 
@@ -99,7 +99,7 @@ File Upload Server
     """HTTP server with file upload support."""
     import signal
     import os
-    from pymongoose import Manager, MG_EV_HTTP_MSG, http_parse_multipart
+    from cymongoose import Manager, MG_EV_HTTP_MSG, http_parse_multipart
 
     shutdown_requested = False
 
@@ -155,7 +155,7 @@ Server-Sent Events (SSE)
     """Real-time updates using Server-Sent Events."""
     import signal
     import time
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     shutdown_requested = False
 
@@ -244,7 +244,7 @@ Chat Room Server
 
     """WebSocket-based chat room."""
     import signal
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_HTTP_MSG,
         MG_EV_WS_MSG,
@@ -329,7 +329,7 @@ Temperature Monitor
     import signal
     import random
     import time
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_MQTT_OPEN,
         MG_EV_MQTT_MSG,

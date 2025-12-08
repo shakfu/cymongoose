@@ -25,7 +25,7 @@ from pathlib import Path
 # Add src to path for development
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_CONNECT,
     MG_EV_HTTP_MSG,

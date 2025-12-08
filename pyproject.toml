@@ -1,5 +1,5 @@
 [project]
-name = "pymongoose"
+name = "cymongoose"
 version = "0.1.5"
 description = "High-performance Python bindings for Mongoose embedded networking library"
 readme = "README.md"
@@ -93,20 +93,20 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["pymongoose"]
+packages = ["cymongoose"]
 include-package-data = false
 
 # [tool.setuptools.package-dir]
-# pymongoose = "src/pymongoose"
+# cymongoose = "src/cymongoose"
 
 # [tool.setuptools.package-data]
-# pymongoose = ["*.pxd", "*.pyx"]
+# cymongoose = ["*.pxd", "*.pyx"]
 
 
 [project.urls]
-Homepage = "https://github.com/shakfu/pymongoose"
-Repository = "https://github.com/shakfu/pymongoose"
-Documentation = "https://github.com/shakfu/pymongoose"
+Homepage = "https://github.com/shakfu/cymongoose"
+Repository = "https://github.com/shakfu/cymongoose"
+Documentation = "https://github.com/shakfu/cymongoose"
 
 
 [tool.pytest.ini_options]
@@ -117,7 +117,7 @@ python_functions = ["test_*"]
 addopts = "-v --tb=short --strict-markers"
 
 [tool.coverage.run]
-source = ["pymongoose"]
+source = ["cymongoose"]
 
 [tool.mypy]
 python_version = "3.9"

@@ -1,6 +1,6 @@
 # Security Considerations
 
-This document outlines security considerations when using pymongoose for network applications.
+This document outlines security considerations when using cymongoose for network applications.
 
 ## HTTP Basic Authentication
 
@@ -52,7 +52,7 @@ When using TLS connections, Mongoose validates server certificates by default. T
 # For now, certificate validation is handled by Mongoose internally
 ```
 
-**Note:** TLS configuration (`mg_tls_opts`) is not yet wrapped in pymongoose. When implemented:
+**Note:** TLS configuration (`mg_tls_opts`) is not yet wrapped in cymongoose. When implemented:
 
 - Always validate certificates in production (`skip_verification=False`)
 - Only skip verification for development/testing with trusted local servers
@@ -332,7 +332,7 @@ conn.reply(200, f"<html>Hello {safe_input}</html>")
 
 ## Reporting Security Issues
 
-If you discover a security vulnerability in pymongoose:
+If you discover a security vulnerability in cymongoose:
 
 1. **Do not** open a public issue
 2. Email security concerns to the maintainers

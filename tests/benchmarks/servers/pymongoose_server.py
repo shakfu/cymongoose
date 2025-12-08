@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""pymongoose HTTP server for performance benchmarking."""
+"""cymongoose HTTP server for performance benchmarking."""
 
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 
@@ -14,7 +14,7 @@ def signal_handler(sig, frame):
 
 
 def run_server(port: int = 8001):
-    """Run pymongoose HTTP server."""
+    """Run cymongoose HTTP server."""
     global shutdown_requested
 
     # Register signal handlers
@@ -30,7 +30,7 @@ def run_server(port: int = 8001):
 
     manager = Manager(handler)
     manager.listen(f"http://0.0.0.0:{port}", http=True)
-    print(f"pymongoose server listening on http://0.0.0.0:{port}", flush=True)
+    print(f"cymongoose server listening on http://0.0.0.0:{port}", flush=True)
 
     # Run event loop
     try:

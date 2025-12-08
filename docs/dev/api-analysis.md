@@ -1,6 +1,6 @@
 # Mongoose API Wrapper Analysis
 
-This document tracks which Mongoose C library features are wrapped in pymongoose and prioritizes future work.
+This document tracks which Mongoose C library features are wrapped in cymongoose and prioritizes future work.
 
 ## Currently Wrapped Features
 

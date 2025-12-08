@@ -2,7 +2,7 @@
 
 import pytest
 import urllib.request
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 
 def test_is_tls_property_exists():

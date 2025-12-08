@@ -1,7 +1,7 @@
 Performance Optimization Guide
 ===============================
 
-This guide covers performance tuning and optimization for pymongoose applications.
+This guide covers performance tuning and optimization for cymongoose applications.
 
 Performance Characteristics
 ---------------------------
@@ -17,8 +17,8 @@ Benchmarked with ``wrk -t4 -c100 -d10s`` on Apple Silicon:
    * - Framework
      - Req/sec
      - Latency (avg)
-     - vs pymongoose
-   * - **pymongoose**
+     - vs cymongoose
+   * - **cymongoose**
      - **60,973**
      - **1.67ms**
      - **baseline**
@@ -123,7 +123,7 @@ Use Mongoose's lightweight JSON parser for extraction:
 
 .. code-block:: python
 
-    from pymongoose import json_get_num, json_get_str
+    from cymongoose import json_get_num, json_get_str
 
     # Fast: Direct extraction without full parse
     user_id = json_get_num(json_str, "$.user.id")
@@ -311,7 +311,7 @@ Scalability
 Single Process
 ~~~~~~~~~~~~~~
 
-pymongoose can handle 60k+ req/sec in a single process with nogil optimization.
+cymongoose can handle 60k+ req/sec in a single process with nogil optimization.
 
 Multi-Process
 ~~~~~~~~~~~~~

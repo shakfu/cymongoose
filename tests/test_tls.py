@@ -1,7 +1,7 @@
 """Tests for TLS configuration."""
 
 import pytest
-from pymongoose import Manager, TlsOpts, MG_EV_HTTP_MSG
+from cymongoose import Manager, TlsOpts, MG_EV_HTTP_MSG
 
 
 def test_tls_opts_creation():

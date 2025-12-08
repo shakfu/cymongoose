@@ -11,7 +11,7 @@ try:
 except ImportError:
     HAS_WEBSOCKET = False
 
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_WS_OPEN,
     MG_EV_WS_MSG,

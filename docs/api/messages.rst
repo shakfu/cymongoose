@@ -1,7 +1,7 @@
 Message View Classes
 ====================
 
-.. currentmodule:: pymongoose
+.. currentmodule:: cymongoose
 
 Message view classes provide zero-copy access to protocol-specific data structures.
 
@@ -25,7 +25,7 @@ Example
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_HTTP_MSG
+    from cymongoose import MG_EV_HTTP_MSG
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -68,7 +68,7 @@ Example
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         MG_EV_WS_MSG,
         WEBSOCKET_OP_TEXT,
         WEBSOCKET_OP_BINARY,
@@ -107,7 +107,7 @@ Example
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_MQTT_MSG, MG_EV_MQTT_CMD
+    from cymongoose import MG_EV_MQTT_MSG, MG_EV_MQTT_CMD
 
     def handler(conn, ev, data):
         if ev == MG_EV_MQTT_MSG:
@@ -144,7 +144,7 @@ Example
 
 .. code-block:: python
 
-    from pymongoose import TlsOpts, MG_EV_ACCEPT
+    from cymongoose import TlsOpts, MG_EV_ACCEPT
 
     # Server with certificate
     cert = open("server.crt", "rb").read()

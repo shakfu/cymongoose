@@ -127,7 +127,7 @@ jobs:
       github.event.inputs.publish_target == 'both'
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/pymongoose
+      url: https://test.pypi.org/p/cymongoose
     permissions:
       id-token: write  # Required for trusted publishing
 
@@ -160,7 +160,7 @@ jobs:
       github.event.inputs.publish_target == 'both'
     environment:
       name: pypi
-      url: https://pypi.org/p/pymongoose
+      url: https://pypi.org/p/cymongoose
     permissions:
       id-token: write  # Required for trusted publishing
 

@@ -24,7 +24,7 @@ by handling MG_EV_READ events directly.
 import argparse
 import signal
 import sys
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_CONNECT,
     MG_EV_READ,

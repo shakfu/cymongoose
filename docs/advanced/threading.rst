@@ -1,12 +1,12 @@
 Multi-Threading Guide
 =====================
 
-This guide covers thread-safe patterns for multi-threaded pymongoose applications.
+This guide covers thread-safe patterns for multi-threaded cymongoose applications.
 
 Overview
 --------
 
-pymongoose supports multi-threading through the ``wakeup()`` mechanism, which allows background worker threads to communicate with the event loop thread safely.
+cymongoose supports multi-threading through the ``wakeup()`` mechanism, which allows background worker threads to communicate with the event loop thread safely.
 
 **Use Cases:**
 
@@ -22,7 +22,7 @@ Basic Pattern
 
     import threading
     import queue
-    from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WAKEUP
+    from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WAKEUP
 
     # Enable wakeup support
     manager = Manager(handler, enable_wakeup=True)
@@ -79,7 +79,7 @@ Image Processing Server
     import threading
     import queue
     import time
-    from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WAKEUP
+    from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WAKEUP
 
     # Connection tracking
     connections = {}  # {conn_id: conn}

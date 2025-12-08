@@ -13,7 +13,7 @@ import urllib.parse
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT
 
 
 def test_http_server_static_files(tmp_path):
@@ -100,7 +100,7 @@ def test_http_server_api_endpoint(tmp_path):
 
 def test_http_server_multipart_upload(tmp_path):
     """Test multipart file upload handling."""
-    from pymongoose import http_parse_multipart
+    from cymongoose import http_parse_multipart
 
     upload_dir = tmp_path / "uploads"
     upload_dir.mkdir()

@@ -1,9 +1,9 @@
 Utility Functions
 =================
 
-.. currentmodule:: pymongoose
+.. currentmodule:: cymongoose
 
-pymongoose provides utility functions for JSON parsing, URL encoding, and multipart form handling.
+cymongoose provides utility functions for JSON parsing, URL encoding, and multipart form handling.
 
 JSON Utilities
 --------------
@@ -91,7 +91,7 @@ Complete JSON Parsing Example
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         json_get,
         json_get_num,
         json_get_bool,
@@ -155,7 +155,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_HTTP_MSG, http_parse_multipart
+    from cymongoose import MG_EV_HTTP_MSG, http_parse_multipart
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG and data.method == "POST":
@@ -192,7 +192,7 @@ File Upload Server Example
 .. code-block:: python
 
     import os
-    from pymongoose import Manager, MG_EV_HTTP_MSG, http_parse_multipart
+    from cymongoose import Manager, MG_EV_HTTP_MSG, http_parse_multipart
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -254,7 +254,7 @@ See :doc:`../guide/index` for event handling details.
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         MG_EV_ERROR,
         MG_EV_OPEN,
         MG_EV_POLL,
@@ -283,7 +283,7 @@ WebSocket Opcodes
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         WEBSOCKET_OP_TEXT,
         WEBSOCKET_OP_BINARY,
         WEBSOCKET_OP_PING,

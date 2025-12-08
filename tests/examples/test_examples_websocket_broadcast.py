@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 sys.path.insert(0, str(Path(__file__).parent / "websocket"))
 from websocket_broadcast import BroadcastServer
 
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG, MG_EV_WS_OPEN, MG_EV_CLOSE
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG, MG_EV_WS_OPEN, MG_EV_CLOSE
 
 # Check if websocket-client is available
 try:

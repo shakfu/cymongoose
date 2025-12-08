@@ -24,7 +24,7 @@ Translation from C tutorial: thirdparty/mongoose/tutorials/mqtt/mqtt-server/main
 import argparse
 import signal
 import sys
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_ACCEPT,
     MG_EV_MQTT_CMD,

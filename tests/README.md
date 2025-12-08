@@ -1,6 +1,6 @@
-# pymongoose Tests
+# cymongoose Tests
 
-This directory contains pytest-based tests for pymongoose.
+This directory contains pytest-based tests for cymongoose.
 
 ## Running Tests
 

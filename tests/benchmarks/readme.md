@@ -1,8 +1,8 @@
-# pymongoose Performance Benchmarks
+# cymongoose Performance Benchmarks
 
-HTTP server performance benchmarks comparing pymongoose against popular Python web frameworks.
+HTTP server performance benchmarks comparing cymongoose against popular Python web frameworks.
 
-##  Quick Start (2 minutes)
+## Quick Start (2 minutes)
 
 ```bash
 # 1. Install wrk
@@ -61,14 +61,14 @@ python benchmarks/run_benchmark.py
 
 ## Servers Tested
 
-1. **pymongoose**: Cython wrapper around Mongoose C library
+1. **cymongoose**: Cython wrapper around Mongoose C library
 2. **aiohttp**: Async HTTP server/client framework
 3. **uvicorn/FastAPI**: ASGI server with FastAPI framework
 4. **Flask**: WSGI framework (sync, threaded mode)
 
 ## Expected Performance Characteristics
 
-- **pymongoose**: High throughput, low latency (C-based event loop)
+- **cymongoose**: High throughput, low latency (C-based event loop)
 - **aiohttp/uvicorn**: Good async performance, pure Python overhead
 - **Flask**: Lower throughput (sync, thread overhead)
 

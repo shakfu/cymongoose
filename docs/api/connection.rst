@@ -1,7 +1,7 @@
 Connection Class
 ================
 
-.. currentmodule:: pymongoose
+.. currentmodule:: cymongoose
 
 .. autoclass:: Connection
    :members:
@@ -223,7 +223,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         MG_EV_HTTP_MSG,
         MG_EV_WS_MSG,
         WEBSOCKET_OP_TEXT,
@@ -267,7 +267,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
+    from cymongoose import MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
 
     def handler(conn, ev, data):
         if ev == MG_EV_MQTT_OPEN:
@@ -303,7 +303,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_ACCEPT, TlsOpts
+    from cymongoose import MG_EV_ACCEPT, TlsOpts
 
     # Load certificates
     cert = open("server.crt", "rb").read()
@@ -330,7 +330,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_RESOLVE
+    from cymongoose import MG_EV_RESOLVE
 
     def handler(conn, ev, data):
         if ev == MG_EV_OPEN:
@@ -350,7 +350,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_SNTP_TIME
+    from cymongoose import MG_EV_SNTP_TIME
 
     def handler(conn, ev, data):
         if ev == MG_EV_CONNECT:
@@ -372,7 +372,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_CONNECT
+    from cymongoose import MG_EV_CONNECT
 
     def handler(conn, ev, data):
         if ev == MG_EV_CONNECT:
@@ -390,7 +390,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_READ
+    from cymongoose import MG_EV_READ
 
     def handler(conn, ev, data):
         if ev == MG_EV_READ:
@@ -480,7 +480,7 @@ Example:
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_ERROR
+    from cymongoose import MG_EV_ERROR
 
     def handler(conn, ev, data):
         if ev == MG_EV_ERROR:

@@ -36,7 +36,7 @@ This example shows how to:
 import argparse
 import signal
 import time
-from pymongoose import (
+from cymongoose import (
     Manager,
     TlsOpts,
     MG_EV_HTTP_MSG,

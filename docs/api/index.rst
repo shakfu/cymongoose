@@ -1,7 +1,7 @@
 API Reference
 =============
 
-Complete API documentation for all pymongoose classes, functions, and constants.
+Complete API documentation for all cymongoose classes, functions, and constants.
 
 Core Classes
 ------------
@@ -20,11 +20,11 @@ Quick Reference
 Manager
 ~~~~~~~
 
-The :class:`~pymongoose.Manager` class manages the event loop and connections:
+The :class:`~cymongoose.Manager` class manages the event loop and connections:
 
 .. code-block:: python
 
-    from pymongoose import Manager
+    from cymongoose import Manager
 
     # Create manager
     manager = Manager(default_handler)
@@ -50,7 +50,7 @@ The :class:`~pymongoose.Manager` class manages the event loop and connections:
 Connection
 ~~~~~~~~~~
 
-The :class:`~pymongoose.Connection` class represents a network connection:
+The :class:`~cymongoose.Connection` class represents a network connection:
 
 .. code-block:: python
 
@@ -115,7 +115,7 @@ Event types for the event handler:
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         MG_EV_ERROR,      # Error occurred
         MG_EV_OPEN,       # Connection opened
         MG_EV_POLL,       # Poll event
@@ -144,7 +144,7 @@ Protocol Constants
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         WEBSOCKET_OP_TEXT,
         WEBSOCKET_OP_BINARY,
         WEBSOCKET_OP_PING,
@@ -156,7 +156,7 @@ Utility Functions
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         json_get,
         json_get_num,
         json_get_bool,

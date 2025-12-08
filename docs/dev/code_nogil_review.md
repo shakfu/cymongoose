@@ -1,4 +1,4 @@
-# Code Review: pymongoose Cython Wrapper
+# Code Review: cymongoose Cython Wrapper
 
 ## Performance Optimization: `nogil` Opportunities
 
@@ -10,7 +10,7 @@ The wrapper currently only uses `nogil` in **one location** (`Manager.poll()` li
 
 These functions are declared `nogil` in the `.pxd` but not utilized:
 
-**1. Network Operations** (src/pymongoose/_mongoose.pyx)
+**1. Network Operations** (src/cymongoose/_mongoose.pyx)
 
 - `mg_send()` - Line 536: `Connection.send()`
 - `mg_close_conn()` - Line 890: `Connection.close()`

@@ -17,8 +17,8 @@ Clone and Install
 .. code-block:: bash
 
     # Clone repository
-    git clone --recursive https://github.com/your-username/pymongoose.git
-    cd pymongoose
+    git clone --recursive https://github.com/your-username/cymongoose.git
+    cd cymongoose
 
     # Install with uv (recommended)
     uv sync
@@ -41,7 +41,7 @@ Running Tests
     PYTHONPATH=src pytest tests/test_http_server.py -v
 
     # Run with coverage
-    PYTHONPATH=src pytest tests/ --cov=pymongoose --cov-report=html
+    PYTHONPATH=src pytest tests/ --cov=cymongoose --cov-report=html
 
 Build System
 ------------
@@ -81,9 +81,9 @@ Code Structure
 
 .. code-block:: text
 
-    pymongoose/
+    cymongoose/
     ├── src/
-    │   └── pymongoose/
+    │   └── cymongoose/
     │       ├── __init__.py
     │       ├── _mongoose.pyx      # Cython implementation
     │       ├── _mongoose.pyi      # Type stubs

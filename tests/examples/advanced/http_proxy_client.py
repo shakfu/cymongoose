@@ -36,7 +36,7 @@ import argparse
 import signal
 import sys
 import time
-from pymongoose import (
+from cymongoose import (
     Manager,
     TlsOpts,
     MG_EV_HTTP_MSG,

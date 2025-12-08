@@ -2,7 +2,7 @@
 
 import pytest
 import urllib.request
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 from tests.conftest import ServerThread
 
 
@@ -80,7 +80,7 @@ def test_http_header_var_not_found():
 def test_http_status_none_when_invalid():
     """Test status() returns value for invalid/null message."""
     # Create an HttpMessage that's not assigned to anything
-    from pymongoose._mongoose import HttpMessage
+    from cymongoose._mongoose import HttpMessage
 
     msg = HttpMessage.__new__(HttpMessage)
     # _msg is NULL, so status() should return None
@@ -89,7 +89,7 @@ def test_http_status_none_when_invalid():
 
 def test_connection_error_method_exists():
     """Test that Connection.error() method exists."""
-    from pymongoose import Manager, MG_EV_ERROR
+    from cymongoose import Manager, MG_EV_ERROR
 
     manager = Manager()
     errors = []

@@ -2,7 +2,7 @@
 
 import pytest
 import time
-from pymongoose import Manager, MG_EV_RESOLVE, MG_EV_ERROR
+from cymongoose import Manager, MG_EV_RESOLVE, MG_EV_ERROR
 
 
 def test_dns_resolve_basic():

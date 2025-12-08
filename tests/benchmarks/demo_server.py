@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Demo pymongoose HTTP server.
+Demo cymongoose HTTP server.
 
 Run this and visit http://localhost:8765/ in your browser or use curl.
 Press Ctrl+C to stop.
 """
 
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 
@@ -27,7 +27,7 @@ def handler(conn, ev, data):
         # Send JSON response
         conn.reply(
             200,
-            b'{"message":"Hello from pymongoose!","server":"C-based event loop"}',
+            b'{"message":"Hello from cymongoose!","server":"C-based event loop"}',
             headers={"Content-Type": "application/json"},
         )
 
@@ -43,7 +43,7 @@ def main():
     manager = Manager(handler)
     manager.listen(f"http://0.0.0.0:{port}", http=True)
 
-    print(f" pymongoose HTTP server running on http://localhost:{port}/")
+    print(f" cymongoose HTTP server running on http://localhost:{port}/")
     print(f"   Press Ctrl+C to stop")
     print(f"   USE_NOGIL optimization enabled")
     print()

@@ -1,7 +1,7 @@
 """Tests for exported constants."""
 
 import pytest
-from pymongoose import (
+from cymongoose import (
     MG_EV_ERROR,
     MG_EV_OPEN,
     MG_EV_POLL,

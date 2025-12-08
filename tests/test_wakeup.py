@@ -3,7 +3,7 @@
 import pytest
 import threading
 import time
-from pymongoose import Manager, MG_EV_WAKEUP, MG_EV_OPEN
+from cymongoose import Manager, MG_EV_WAKEUP, MG_EV_OPEN
 
 
 def test_wakeup_basic():

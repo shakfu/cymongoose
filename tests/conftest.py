@@ -25,7 +25,7 @@ class ServerThread:
         self.port = get_free_port()
 
     def __enter__(self):
-        from pymongoose import Manager
+        from cymongoose import Manager
 
         def run_server():
             self.manager = Manager(self.handler)

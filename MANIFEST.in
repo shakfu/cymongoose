@@ -1,6 +1,6 @@
-include src/pymongoose/*.pxd
-include src/pymongoose/*.pyx
-include src/pymongoose/*.pxi
-include src/pymongoose/*.c
-include src/pymongoose/*.h
-include src/pymongoose/py.typed
+include src/cymongoose/*.pxd
+include src/cymongoose/*.pyx
+include src/cymongoose/*.pxi
+include src/cymongoose/*.c
+include src/cymongoose/*.h
+include src/cymongoose/py.typed

@@ -5,7 +5,7 @@ import signal
 import os
 import time
 import threading
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 

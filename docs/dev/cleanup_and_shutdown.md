@@ -1,6 +1,6 @@
 # Cleanup and Shutdown Guide
 
-Best practices for properly shutting down pymongoose servers and cleaning up resources.
+Best practices for properly shutting down cymongoose servers and cleaning up resources.
 
 ## Why Cleanup Matters
 
@@ -22,7 +22,7 @@ The `Manager` object owns C resources that must be explicitly freed:
 Always use `try`/`finally` to ensure cleanup:
 
 ```python
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 def handler(conn, ev, data):
     if ev == MG_EV_HTTP_MSG:
@@ -66,7 +66,7 @@ For production servers, handle both SIGINT (Ctrl+C) and SIGTERM (systemd, docker
 
 ```python
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 
@@ -109,7 +109,7 @@ When using background threads with polling:
 
 ```python
 import threading
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 def handler(conn, ev, data):
     if ev == MG_EV_HTTP_MSG:
@@ -164,11 +164,11 @@ For cleaner code, use a context manager:
 
 ```python
 from contextlib import contextmanager
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 @contextmanager
 def http_server(port, handler):
-    """Context manager for pymongoose HTTP server."""
+    """Context manager for cymongoose HTTP server."""
     manager = Manager(handler)
     manager.listen(f'http://0.0.0.0:{port}', http=True)
 
@@ -276,12 +276,12 @@ manager.close()  # [x] Safe to close now
 
 ```python
 #!/usr/bin/env python3
-"""Production-ready pymongoose HTTP server with proper cleanup."""
+"""Production-ready cymongoose HTTP server with proper cleanup."""
 
 import signal
 import sys
 import logging
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 # Configure logging
 logging.basicConfig(
@@ -305,7 +305,7 @@ def handler(conn, ev, data):
         logger.debug(f"{data.method} {data.uri}")
         conn.reply(
             200,
-            b'{"status":"ok","message":"Hello from pymongoose"}',
+            b'{"status":"ok","message":"Hello from cymongoose"}',
             headers={"Content-Type": "application/json"}
         )
 

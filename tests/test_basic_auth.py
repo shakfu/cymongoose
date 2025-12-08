@@ -2,7 +2,7 @@
 
 import pytest
 import base64
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 from tests.conftest import ServerThread
 
 

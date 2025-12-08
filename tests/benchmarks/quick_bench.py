@@ -9,7 +9,7 @@ import threading
 import socket
 import urllib.request
 
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 
 def get_free_port():
@@ -21,7 +21,7 @@ def get_free_port():
 
 
 def main():
-    print(" pymongoose Quick Benchmark")
+    print(" cymongoose Quick Benchmark")
     print("=" * 60)
 
     # Start server

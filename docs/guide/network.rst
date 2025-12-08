@@ -11,7 +11,7 @@ TCP Server
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_ACCEPT, MG_EV_READ
+    from cymongoose import Manager, MG_EV_ACCEPT, MG_EV_READ
 
     def handler(conn, ev, data):
         if ev == MG_EV_ACCEPT:
@@ -36,7 +36,7 @@ TCP Client
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_READ
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_READ
 
     def handler(conn, ev, data):
         if ev == MG_EV_CONNECT:
@@ -64,7 +64,7 @@ UDP Server
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_READ
+    from cymongoose import Manager, MG_EV_READ
 
     def handler(conn, ev, data):
         if ev == MG_EV_READ:
@@ -86,7 +86,7 @@ UDP Client
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_READ
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_READ
 
     def handler(conn, ev, data):
         if ev == MG_EV_CONNECT:
@@ -112,7 +112,7 @@ Async DNS Lookup
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_OPEN, MG_EV_RESOLVE
+    from cymongoose import Manager, MG_EV_OPEN, MG_EV_RESOLVE
 
     def handler(conn, ev, data):
         if ev == MG_EV_OPEN:
@@ -154,7 +154,7 @@ Get Network Time
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_SNTP_TIME
+    from cymongoose import Manager, MG_EV_SNTP_TIME
     import datetime
 
     def handler(conn, ev, data):

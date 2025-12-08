@@ -1,7 +1,7 @@
 HTTP/HTTPS Guide
 ================
 
-This guide covers HTTP and HTTPS servers and clients using pymongoose.
+This guide covers HTTP and HTTPS servers and clients using cymongoose.
 
 HTTP Server
 -----------
@@ -11,7 +11,7 @@ Basic Server
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -34,7 +34,7 @@ Basic Server
 Request Data
 ~~~~~~~~~~~~
 
-Access request details from the :class:`~pymongoose.HttpMessage`:
+Access request details from the :class:`~cymongoose.HttpMessage`:
 
 .. code-block:: python
 
@@ -245,7 +245,7 @@ Handle multipart form uploads:
 
 .. code-block:: python
 
-    from pymongoose import http_parse_multipart
+    from cymongoose import http_parse_multipart
     import os
 
     def handler(conn, ev, data):
@@ -279,7 +279,7 @@ Make HTTP Requests
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG
 
     def client_handler(conn, ev, data):
         if ev == MG_EV_CONNECT:
@@ -331,7 +331,7 @@ Setup TLS
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_ACCEPT, MG_EV_HTTP_MSG, TlsOpts
+    from cymongoose import Manager, MG_EV_ACCEPT, MG_EV_HTTP_MSG, TlsOpts
 
     # Load certificates
     cert = open("server.crt", "rb").read()
@@ -368,7 +368,7 @@ HTTPS Client
 
 .. code-block:: python
 
-    from pymongoose import TlsOpts
+    from cymongoose import TlsOpts
 
     # Client with custom CA
     ca = open("custom-ca.crt", "rb").read()

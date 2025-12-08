@@ -29,7 +29,7 @@ import os
 import signal
 import sys
 from pathlib import Path
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_HDRS,
     MG_EV_HTTP_MSG,

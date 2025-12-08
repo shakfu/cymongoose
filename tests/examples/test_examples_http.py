@@ -19,7 +19,7 @@ import urllib.request
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_MSG,
     MG_EV_HTTP_HDRS,

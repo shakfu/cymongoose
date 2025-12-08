@@ -5,7 +5,7 @@ import threading
 import time
 import urllib.request
 import urllib.error
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT, MG_EV_CLOSE
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT, MG_EV_CLOSE
 from .conftest import ServerThread
 
 
@@ -105,12 +105,12 @@ class TestHTTPHeaders:
         url = f"http://localhost:{port}/"
 
         req = urllib.request.Request(url)
-        req.add_header("User-Agent", "PyMongoose-Test/1.0")
+        req.add_header("User-Agent", "CyMongoose-Test/1.0")
 
         urllib.request.urlopen(req, timeout=5)
         time.sleep(0.2)  # Give handler time to process
 
-        assert "PyMongoose-Test/1.0" in data["user_agent"]
+        assert "CyMongoose-Test/1.0" in data["user_agent"]
 
 
 class TestHTTPMessage:

@@ -1,7 +1,7 @@
 WebSocket Guide
 ===============
 
-This guide covers WebSocket communication using pymongoose.
+This guide covers WebSocket communication using cymongoose.
 
 WebSocket Server
 ----------------
@@ -11,7 +11,7 @@ Basic WebSocket Server
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_HTTP_MSG,
         MG_EV_WS_MSG,
@@ -75,7 +75,7 @@ Text Messages
 
 .. code-block:: python
 
-    from pymongoose import WEBSOCKET_OP_TEXT
+    from cymongoose import WEBSOCKET_OP_TEXT
 
     # Send UTF-8 text
     conn.ws_send("Hello, WebSocket!", WEBSOCKET_OP_TEXT)
@@ -90,7 +90,7 @@ Binary Messages
 
 .. code-block:: python
 
-    from pymongoose import WEBSOCKET_OP_BINARY
+    from cymongoose import WEBSOCKET_OP_BINARY
 
     # Send binary data
     binary_data = bytes([0x00, 0x01, 0x02, 0xFF])
@@ -127,7 +127,7 @@ Text vs Binary
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         MG_EV_WS_MSG,
         WEBSOCKET_OP_TEXT,
         WEBSOCKET_OP_BINARY,
@@ -199,7 +199,7 @@ Complete chat room implementation:
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_HTTP_MSG,
         MG_EV_WS_MSG,
@@ -332,7 +332,7 @@ Secure WebSocket (WSS)
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_ACCEPT, TlsOpts
+    from cymongoose import MG_EV_ACCEPT, TlsOpts
 
     cert = open("server.crt", "rb").read()
     key = open("server.key", "rb").read()

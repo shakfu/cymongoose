@@ -13,7 +13,7 @@ brew install wrk
 git clone https://github.com/wg/wrk && cd wrk && make
 ```
 
-### Run pymongoose server
+### Run cymongoose server
 ```bash
 # Terminal 1
 uv run python benchmarks/servers/pymongoose_server.py 8001
@@ -64,11 +64,11 @@ wrk -t4 -c100 -d30s http://localhost:8004/
 
 ## Expected Results
 
-Based on pymongoose architecture (C event loop, nogil optimization):
+Based on cymongoose architecture (C event loop, nogil optimization):
 
 | Framework | Requests/sec | Latency (avg) |
 |-----------|-------------|---------------|
-| **pymongoose** | **20,000-40,000+** | **2-5ms** |
+| **cymongoose** | **20,000-40,000+** | **2-5ms** |
 | aiohttp | 10,000-20,000 | 5-10ms |
 | uvicorn/FastAPI | 8,000-15,000 | 6-12ms |
 | Flask (threaded) | 3,000-8,000 | 12-30ms |
@@ -85,7 +85,7 @@ Actual performance depends on:
 The servers all work correctly - verified with:
 
 ```bash
-# Test pymongoose
+# Test cymongoose
 curl http://localhost:8001/
 # {"message":"Hello, World!"}
 ```

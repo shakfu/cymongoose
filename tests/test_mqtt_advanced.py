@@ -2,7 +2,7 @@
 
 import pytest
 import time
-from pymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG, MG_EV_CLOSE
+from cymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG, MG_EV_CLOSE
 
 
 def test_mqtt_disconnect_method_exists():

@@ -1,10 +1,10 @@
-# pymongoose
+# cymongoose
 
 Python bindings for the Mongoose embedded networking library, built with Cython.
 
 ## Overview
 
-**pymongoose** provides Pythonic access to [Mongoose](https://github.com/cesanta/mongoose), a lightweight embedded networking library written in C. It supports HTTP servers, WebSocket, TCP/UDP sockets, and more through a clean, event-driven API.
+**cymongoose** provides Pythonic access to [Mongoose](https://github.com/cesanta/mongoose), a lightweight embedded networking library written in C. It supports HTTP servers, WebSocket, TCP/UDP sockets, and more through a clean, event-driven API.
 
 ## Features
 
@@ -43,8 +43,8 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 
 ```bash
 # Clone the repository
-git clone https://github.com/shakfu/pymongoose
-cd pymongoose
+git clone https://github.com/shakfu/cymongoose
+cd cymongoose
 make
 ```
 
@@ -62,7 +62,7 @@ Also type `make help` gives you a list of commands
 
 ```python
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 
@@ -93,7 +93,7 @@ finally:
 
 ```python
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 
@@ -122,7 +122,7 @@ finally:
 
 ```python
 import signal
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG
 
 shutdown_requested = False
 
@@ -446,7 +446,7 @@ make build          # Rebuild the Cython extension
 make
 
 # Force rebuild
-uv sync --reinstall-package pymongoose
+uv sync --reinstall-package cymongoose
 ```
 
 ### Test
@@ -465,8 +465,8 @@ make clean          # Remove build artifacts
 
 ## Architecture
 
-- **Cython bindings** (`src/pymongoose/_mongoose.pyx`): Python wrapper classes
-- **C declarations** (`src/pymongoose/mongoose.pxd`): Cython interface to Mongoose C API
+- **Cython bindings** (`src/cymongoose/_mongoose.pyx`): Python wrapper classes
+- **C declarations** (`src/cymongoose/mongoose.pxd`): Cython interface to Mongoose C API
 - **Vendored Mongoose** (`thirdparty/mongoose/`): Embedded C library
 
 ### Performance Optimization
@@ -493,7 +493,7 @@ The wrapper achieves **C-level performance** through aggressive optimization:
 
 **Benchmark Results** (Apple Silicon, `wrk -t4 -c100 -d10s`):
 
-- **pymongoose**: 60,973 req/sec (1.67ms latency)
+- **cymongoose**: 60,973 req/sec (1.67ms latency)
 - aiohttp: 42,452 req/sec (1.44x slower)
 - FastAPI/uvicorn: 9,989 req/sec (6.1x slower)
 - Flask: 1,627 req/sec (37.5x slower)
@@ -507,4 +507,4 @@ MIT
 ## Links
 
 - [Mongoose Documentation](https://mongoose.ws/)
-- [GitHub Repository](https://github.com/shakfu/pymongoose)
+- [GitHub Repository](https://github.com/shakfu/cymongoose)

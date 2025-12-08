@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Performance benchmark runner for pymongoose HTTP server.
+Performance benchmark runner for cymongoose HTTP server.
 
-Compares pymongoose against popular Python web frameworks:
+Compares cymongoose against popular Python web frameworks:
 - aiohttp (async)
 - FastAPI/uvicorn (async)
 - Flask (sync)
@@ -19,7 +19,7 @@ from typing import Dict, List, Optional
 
 
 SERVERS = {
-    "pymongoose": {"script": "pymongoose_server.py", "port": 8001},
+    "cymongoose": {"script": "pymongoose_server.py", "port": 8001},
     "aiohttp": {"script": "aiohttp_server.py", "port": 8002},
     "uvicorn": {"script": "uvicorn_server.py", "port": 8003},
     "flask": {"script": "flask_server.py", "port": 8004},
@@ -188,7 +188,7 @@ def main():
     """Run benchmarks for all servers."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Benchmark pymongoose HTTP server")
+    parser = argparse.ArgumentParser(description="Benchmark cymongoose HTTP server")
     parser.add_argument(
         "-n",
         "--requests",

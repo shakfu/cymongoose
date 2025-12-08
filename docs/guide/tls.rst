@@ -11,7 +11,7 @@ TlsOpts Class
 
 .. code-block:: python
 
-    from pymongoose import TlsOpts
+    from cymongoose import TlsOpts
 
     # Server with certificate and key
     server_opts = TlsOpts(
@@ -36,7 +36,7 @@ Basic HTTPS Server
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_ACCEPT, MG_EV_HTTP_MSG, TlsOpts
+    from cymongoose import Manager, MG_EV_ACCEPT, MG_EV_HTTP_MSG, TlsOpts
 
     # Load certificates
     cert = open("server.crt", "rb").read()
@@ -75,7 +75,7 @@ Client with Custom CA
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG, TlsOpts
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG, TlsOpts
 
     ca = open("custom-ca.crt", "rb").read()
 
@@ -112,7 +112,7 @@ WSS Server
 
 .. code-block:: python
 
-    from pymongoose import MG_EV_ACCEPT, MG_EV_HTTP_MSG, MG_EV_WS_MSG
+    from cymongoose import MG_EV_ACCEPT, MG_EV_HTTP_MSG, MG_EV_WS_MSG
 
     cert = open("server.crt", "rb").read()
     key = open("server.key", "rb").read()
@@ -139,7 +139,7 @@ MQTTS Client
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_MQTT_OPEN, TlsOpts
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_MQTT_OPEN, TlsOpts
 
     ca = open("ca.crt", "rb").read()
 

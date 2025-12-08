@@ -1,10 +1,10 @@
-# pymongoose Performance Benchmark Summary
+# cymongoose Performance Benchmark Summary
 
 ## Status
 
 [x] **Benchmark infrastructure created and verified**
 
-The pymongoose HTTP server works correctly and is ready for performance testing. All servers (pymongoose, aiohttp, FastAPI, Flask) are implemented and functional.
+The cymongoose HTTP server works correctly and is ready for performance testing. All servers (cymongoose, aiohttp, FastAPI, Flask) are implemented and functional.
 
 ## What Was Built
 
@@ -50,7 +50,7 @@ See `MANUAL_BENCHMARK.md` for complete instructions and comparison with other fr
 
 ## Expected Performance
 
-Based on pymongoose's architecture:
+Based on cymongoose's architecture:
 
 - **C event loop**: Mongoose library (used by major C projects)
 - **Cython bindings**: Minimal Python overhead
@@ -58,7 +58,7 @@ Based on pymongoose's architecture:
 - **Zero-copy views**: HttpMessage/WsMessage wrap C pointers directly
 
 ### Projected Results
-| Metric | pymongoose | aiohttp | FastAPI | Flask |
+| Metric | cymongoose | aiohttp | FastAPI | Flask |
 |--------|------------|---------|---------|-------|
 | Requests/sec | **20k-40k+** | 10k-20k | 8k-15k | 3k-8k |
 | Latency (avg) | **2-5ms** | 5-10ms | 6-12ms | 12-30ms |

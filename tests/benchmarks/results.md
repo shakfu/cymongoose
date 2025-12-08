@@ -1,6 +1,6 @@
 # Benchmark Results
 
-Official performance comparison of pymongoose vs popular Python web frameworks.
+Official performance comparison of cymongoose vs popular Python web frameworks.
 
 ## Test Configuration
 
@@ -14,14 +14,14 @@ Official performance comparison of pymongoose vs popular Python web frameworks.
 
 | Framework | Req/sec | Speedup | Latency (avg) | Architecture |
 |-----------|---------|---------|---------------|--------------|
-| **pymongoose** | **60,973** | **1.00x** | **1.67ms** | C event loop + Cython + nogil |
+| **cymongoose** | **60,973** | **1.00x** | **1.67ms** | C event loop + Cython + nogil |
 | aiohttp | 42,452 | 0.70x | 2.56ms | Python async (asyncio) |
 | FastAPI | 9,989 | 0.16x | 9.96ms | Python ASGI (uvicorn) |
 | Flask | 1,627 | 0.03x | 22.15ms | Python WSGI (threaded) |
 
 ## Detailed Results
 
-### pymongoose: 60,973 req/sec
+### cymongoose: 60,973 req/sec
 
 ```
 wrk -t4 -c100 -d10s http://localhost:8765/
@@ -58,7 +58,7 @@ Transfer/sec:      7.57MB
 
 **Analysis**:
 - Good async Python performance
-- **1.44x slower** than pymongoose
+- **1.44x slower** than cymongoose
 - 53% higher latency (2.56ms vs 1.67ms)
 - Pure Python asyncio overhead visible
 
@@ -77,7 +77,7 @@ Transfer/sec:      1.45MB
 ```
 
 **Analysis**:
-- **6.1x slower** than pymongoose
+- **6.1x slower** than cymongoose
 - **6.0x higher latency** (9.96ms vs 1.67ms)
 - ASGI + Pydantic validation overhead
 - Popular but significant performance penalty
@@ -98,7 +98,7 @@ Transfer/sec:    306.68KB
 ```
 
 **Analysis**:
-- **37.5x slower** than pymongoose
+- **37.5x slower** than cymongoose
 - **13.3x higher latency** (22.15ms vs 1.67ms)
 - **81 connection errors** - can't handle concurrent load
 - Thread-based WSGI doesn't scale
@@ -108,7 +108,7 @@ Transfer/sec:    306.68KB
 ```
 Requests/sec (higher = better):
 
-pymongoose  ████████████████████████████████████████  60,973
+cymongoose  ████████████████████████████████████████  60,973
 aiohttp     ███████████████████████████              42,452
 FastAPI     ██████                                     9,989
 Flask       ▌                                          1,627
@@ -118,7 +118,7 @@ Flask       ▌                                          1,627
 ```
 Latency (lower = better):
 
-pymongoose  █▌                                         1.67ms
+cymongoose  █▌                                         1.67ms
 aiohttp     ██▌                                        2.56ms
 FastAPI     █████████▉                                 9.96ms
 Flask       ██████████████████████▏                   22.15ms
@@ -127,9 +127,9 @@ Flask       ██████████████████████�
 
 ## Key Findings
 
-### 1. pymongoose Delivers C-Level Performance in Python
+### 1. cymongoose Delivers C-Level Performance in Python
 
-- **60,973 req/sec** puts pymongoose in the same league as:
+- **60,973 req/sec** puts cymongoose in the same league as:
   - **nginx** (C web server): 50k-100k req/sec
   - **Go net/http**: 40k-80k req/sec
   - **Node.js**: 20k-40k req/sec
@@ -153,7 +153,7 @@ Flask       ██████████████████████�
 
 ### 5. Zero Errors Under Load
 
-- pymongoose: 0 errors
+- cymongoose: 0 errors
 - aiohttp: 0 errors
 - FastAPI: 0 errors
 - Flask: **81 connection errors** - can't handle 100 concurrent connections
@@ -164,9 +164,9 @@ Flask       ██████████████████████�
 
 For a service handling 50,000 req/sec:
 
-| Framework | Servers Needed | Monthly Cost (AWS c5.xlarge) | vs pymongoose |
+| Framework | Servers Needed | Monthly Cost (AWS c5.xlarge) | vs cymongoose |
 |-----------|----------------|------------------------------|---------------|
-| pymongoose | 1 server | $146/month | baseline |
+| cymongoose | 1 server | $146/month | baseline |
 | aiohttp | 2 servers | $292/month | 2x cost |
 | FastAPI | 6 servers | $876/month | **6x cost** |
 | Flask | 31 servers | $4,526/month | **31x cost** |
@@ -177,12 +177,12 @@ For user-facing APIs where latency matters:
 
 | Framework | Avg Latency | User Experience |
 |-----------|-------------|-----------------|
-| pymongoose | 1.67ms |  Instant |
+| cymongoose | 1.67ms |  Instant |
 | aiohttp | 2.56ms |  Very fast |
 | FastAPI | 9.96ms | [x] Acceptable |
 | Flask | 22.15ms | [!] Noticeable delay |
 
-## Why pymongoose Is So Fast
+## Why cymongoose Is So Fast
 
 1. **Mongoose C Library**
    - Battle-tested embedded networking library
@@ -211,7 +211,7 @@ For user-facing APIs where latency matters:
 
 ## Conclusion
 
-**pymongoose provides C-level HTTP performance with Python convenience.**
+**cymongoose provides C-level HTTP performance with Python convenience.**
 
 Key metrics:
 - [x] **60,973 req/sec** - 6-37x faster than pure Python frameworks
@@ -219,7 +219,7 @@ Key metrics:
 - [x] **Zero errors** - Production-ready stability
 - [x] **6-31x cost savings** - Massive infrastructure reduction
 
-For high-performance HTTP servers in Python, pymongoose is the clear choice.
+For high-performance HTTP servers in Python, cymongoose is the clear choice.
 
 ---
 

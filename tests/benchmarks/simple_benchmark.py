@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simple standalone benchmark for pymongoose HTTP server."""
+"""Simple standalone benchmark for cymongoose HTTP server."""
 
 import subprocess
 import sys
@@ -20,9 +20,9 @@ def get_free_port():
 def main():
     """Run a simple benchmark."""
     # Start server in this process using threading
-    print("Starting pymongoose server...")
+    print("Starting cymongoose server...")
 
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     port = get_free_port()
     json_response = b'{"message":"Hello, World!"}'

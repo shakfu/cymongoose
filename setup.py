@@ -62,9 +62,9 @@ def build_extensions():
 
     extensions = [
         Extension(
-            "pymongoose._mongoose",
+            "cymongoose._mongoose",
             sources=[
-                "src/pymongoose/_mongoose.pyx",
+                "src/cymongoose/_mongoose.pyx",
                 "thirdparty/mongoose/mongoose.c",
             ],
             include_dirs=include_dirs,

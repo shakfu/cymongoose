@@ -27,7 +27,7 @@ import argparse
 import signal
 import time
 from datetime import datetime
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_MSG,
 )

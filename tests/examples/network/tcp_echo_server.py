@@ -22,7 +22,7 @@ This demonstrates raw TCP without HTTP layer - useful for custom protocols.
 import argparse
 import signal
 import time
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_OPEN,
     MG_EV_ACCEPT,

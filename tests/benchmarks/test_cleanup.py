@@ -3,7 +3,7 @@
 
 import signal
 import time
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown = False
 
@@ -19,7 +19,7 @@ def handler(conn, ev, data):
         conn.reply(200, b'{"ok":true}')
 
 
-print("Testing pymongoose cleanup...")
+print("Testing cymongoose cleanup...")
 print("Server will auto-shutdown in 2 seconds")
 
 signal.signal(signal.SIGINT, signal_handler)

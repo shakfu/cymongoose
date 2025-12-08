@@ -27,7 +27,7 @@ from pathlib import Path
 # Add src to path for development
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_MSG,
     MG_EV_ACCEPT,
@@ -82,7 +82,7 @@ def handle_api_info(conn):
     """Handle /api/info endpoint - return JSON."""
     import json
 
-    info = {"server": "pymongoose", "version": "0.1.1", "protocol": "HTTP/1.1"}
+    info = {"server": "cymongoose", "version": "0.1.1", "protocol": "HTTP/1.1"}
     json_str = json.dumps(info)
     conn.reply(200, json_str, headers={"Content-Type": "application/json"})
 
@@ -161,10 +161,10 @@ def main():
     if not index_file.exists():
         index_file.write_text("""<!DOCTYPE html>
 <html>
-<head><title>pymongoose HTTP Server</title></head>
+<head><title>cymongoose HTTP Server</title></head>
 <body>
-    <h1>pymongoose HTTP Server</h1>
-    <p>This is a demonstration server running on pymongoose.</p>
+    <h1>cymongoose HTTP Server</h1>
+    <p>This is a demonstration server running on cymongoose.</p>
     <ul>
         <li><a href="/api/info">API Info</a></li>
         <li><a href="/upload.html">File Upload</a></li>

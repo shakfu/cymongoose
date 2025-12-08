@@ -4,7 +4,7 @@
 import signal
 import os
 import time
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 
 def handler(conn, ev, data):

@@ -24,13 +24,13 @@
             "thirdparty/mongoose"
         ],
         "language": "c",
-        "name": "pymongoose._mongoose",
+        "name": "cymongoose._mongoose",
         "sources": [
-            "src/pymongoose/_mongoose.pyx",
+            "src/cymongoose/_mongoose.pyx",
             "thirdparty/mongoose/mongoose.c"
         ]
     },
-    "module_name": "pymongoose._mongoose"
+    "module_name": "cymongoose._mongoose"
 }
 END: Cython Metadata */
 
@@ -1375,7 +1375,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char* const __pyx_f[] = {
-  "src/pymongoose/_mongoose.pyx",
+  "src/cymongoose/_mongoose.pyx",
   "<stringsource>",
   "cpython/type.pxd",
 };
@@ -1575,7 +1575,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_Manager;
 struct __pyx_obj_10pymongoose_9_mongoose_Timer;
 struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
 
-/* "pymongoose/_mongoose.pyx":235
+/* "cymongoose/_mongoose.pyx":235
  * 
  * 
  * cdef class HttpMessage:             # <<<<<<<<<<<<<<
@@ -1589,7 +1589,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage {
 };
 
 
-/* "pymongoose/_mongoose.pyx":350
+/* "cymongoose/_mongoose.pyx":350
  * 
  * 
  * cdef class WsMessage:             # <<<<<<<<<<<<<<
@@ -1603,7 +1603,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_WsMessage {
 };
 
 
-/* "pymongoose/_mongoose.pyx":371
+/* "cymongoose/_mongoose.pyx":371
  * 
  * 
  * cdef class MqttMessage:             # <<<<<<<<<<<<<<
@@ -1617,7 +1617,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage {
 };
 
 
-/* "pymongoose/_mongoose.pyx":408
+/* "cymongoose/_mongoose.pyx":408
  * 
  * 
  * cdef class TlsOpts:             # <<<<<<<<<<<<<<
@@ -1634,7 +1634,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts {
 };
 
 
-/* "pymongoose/_mongoose.pyx":452
+/* "cymongoose/_mongoose.pyx":452
  * 
  * 
  * cdef class Connection:             # <<<<<<<<<<<<<<
@@ -1651,7 +1651,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_Connection {
 };
 
 
-/* "pymongoose/_mongoose.pyx":1118
+/* "cymongoose/_mongoose.pyx":1118
  * 
  * 
  * cdef class Manager:             # <<<<<<<<<<<<<<
@@ -1669,7 +1669,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_Manager {
 };
 
 
-/* "pymongoose/_mongoose.pyx":1655
+/* "cymongoose/_mongoose.pyx":1655
  * 
  * 
  * cdef class Timer:             # <<<<<<<<<<<<<<
@@ -1685,7 +1685,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_Timer {
 };
 
 
-/* "pymongoose/_mongoose.pyx":669
+/* "cymongoose/_mongoose.pyx":669
  *         cdef bytes headers_b
  *         if extra_headers:
  *             headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items())             # <<<<<<<<<<<<<<
@@ -1701,7 +1701,7 @@ struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr {
 
 
 
-/* "pymongoose/_mongoose.pyx":235
+/* "cymongoose/_mongoose.pyx":235
  * 
  * 
  * cdef class HttpMessage:             # <<<<<<<<<<<<<<
@@ -1715,7 +1715,7 @@ struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage {
 static struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *__pyx_vtabptr_10pymongoose_9_mongoose_HttpMessage;
 
 
-/* "pymongoose/_mongoose.pyx":350
+/* "cymongoose/_mongoose.pyx":350
  * 
  * 
  * cdef class WsMessage:             # <<<<<<<<<<<<<<
@@ -1729,7 +1729,7 @@ struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage {
 static struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *__pyx_vtabptr_10pymongoose_9_mongoose_WsMessage;
 
 
-/* "pymongoose/_mongoose.pyx":371
+/* "cymongoose/_mongoose.pyx":371
  * 
  * 
  * cdef class MqttMessage:             # <<<<<<<<<<<<<<
@@ -1743,7 +1743,7 @@ struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage {
 static struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *__pyx_vtabptr_10pymongoose_9_mongoose_MqttMessage;
 
 
-/* "pymongoose/_mongoose.pyx":452
+/* "cymongoose/_mongoose.pyx":452
  * 
  * 
  * cdef class Connection:             # <<<<<<<<<<<<<<
@@ -1758,7 +1758,7 @@ struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection {
 static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *__pyx_vtabptr_10pymongoose_9_mongoose_Connection;
 
 
-/* "pymongoose/_mongoose.pyx":1118
+/* "cymongoose/_mongoose.pyx":1118
  * 
  * 
  * cdef class Manager:             # <<<<<<<<<<<<<<
@@ -1775,7 +1775,7 @@ struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager {
 static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *__pyx_vtabptr_10pymongoose_9_mongoose_Manager;
 
 
-/* "pymongoose/_mongoose.pyx":1655
+/* "cymongoose/_mongoose.pyx":1655
  * 
  * 
  * cdef class Timer:             # <<<<<<<<<<<<<<
@@ -3051,9 +3051,9 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 
 /* Module declarations from "libcpp" */
 
-/* Module declarations from "pymongoose.mongoose" */
+/* Module declarations from "cymongoose.mongoose" */
 
-/* Module declarations from "pymongoose._mongoose" */
+/* Module declarations from "cymongoose._mongoose" */
 static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(struct mg_str); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(struct mg_str); /*proto*/
 static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *, int, void *); /*proto*/
@@ -3061,11 +3061,11 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *); /*proto*/
 static PyObject *__pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *, PyObject *); /*proto*/
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "pymongoose._mongoose"
+#define __Pyx_MODULE_NAME "cymongoose._mongoose"
 extern int __pyx_module_is_main_pymongoose___mongoose;
 int __pyx_module_is_main_pymongoose___mongoose = 0;
 
-/* Implementation of "pymongoose._mongoose" */
+/* Implementation of "cymongoose._mongoose" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_print;
 /* #### Code section: string_decls ### */
@@ -3787,7 +3787,7 @@ return 0;
 #endif
 /* #### Code section: module_code ### */
 
-/* "pymongoose/_mongoose.pyx":221
+/* "cymongoose/_mongoose.pyx":221
  * 
  * 
  * cdef inline bytes _mg_str_to_bytes(mg_str value):             # <<<<<<<<<<<<<<
@@ -3806,7 +3806,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_mg_str_to_bytes", 0);
 
-  /* "pymongoose/_mongoose.pyx":223
+  /* "cymongoose/_mongoose.pyx":223
  * cdef inline bytes _mg_str_to_bytes(mg_str value):
  *     """Return a bytes copy of an mg_str."""
  *     if value.buf == NULL or value.len == 0:             # <<<<<<<<<<<<<<
@@ -3824,7 +3824,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":224
+    /* "cymongoose/_mongoose.pyx":224
  *     """Return a bytes copy of an mg_str."""
  *     if value.buf == NULL or value.len == 0:
  *         return b""             # <<<<<<<<<<<<<<
@@ -3836,7 +3836,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
     __pyx_r = __pyx_mstate_global->__pyx_kp_b_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":223
+    /* "cymongoose/_mongoose.pyx":223
  * cdef inline bytes _mg_str_to_bytes(mg_str value):
  *     """Return a bytes copy of an mg_str."""
  *     if value.buf == NULL or value.len == 0:             # <<<<<<<<<<<<<<
@@ -3845,7 +3845,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":225
+  /* "cymongoose/_mongoose.pyx":225
  *     if value.buf == NULL or value.len == 0:
  *         return b""
  *     return PyBytes_FromStringAndSize(value.buf, value.len)             # <<<<<<<<<<<<<<
@@ -3859,7 +3859,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":221
+  /* "cymongoose/_mongoose.pyx":221
  * 
  * 
  * cdef inline bytes _mg_str_to_bytes(mg_str value):             # <<<<<<<<<<<<<<
@@ -3870,7 +3870,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose._mg_str_to_bytes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose._mg_str_to_bytes", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3878,7 +3878,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":228
+/* "cymongoose/_mongoose.pyx":228
  * 
  * 
  * cdef inline str _mg_str_to_text(mg_str value):             # <<<<<<<<<<<<<<
@@ -3897,7 +3897,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_mg_str_to_text", 0);
 
-  /* "pymongoose/_mongoose.pyx":230
+  /* "cymongoose/_mongoose.pyx":230
  * cdef inline str _mg_str_to_text(mg_str value):
  *     """Return a Unicode string, decoding with UTF-8 and surrogate escape."""
  *     if value.buf == NULL or value.len == 0:             # <<<<<<<<<<<<<<
@@ -3915,7 +3915,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":231
+    /* "cymongoose/_mongoose.pyx":231
  *     """Return a Unicode string, decoding with UTF-8 and surrogate escape."""
  *     if value.buf == NULL or value.len == 0:
  *         return ""             # <<<<<<<<<<<<<<
@@ -3927,7 +3927,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
     __pyx_r = __pyx_mstate_global->__pyx_kp_u_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":230
+    /* "cymongoose/_mongoose.pyx":230
  * cdef inline str _mg_str_to_text(mg_str value):
  *     """Return a Unicode string, decoding with UTF-8 and surrogate escape."""
  *     if value.buf == NULL or value.len == 0:             # <<<<<<<<<<<<<<
@@ -3936,7 +3936,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":232
+  /* "cymongoose/_mongoose.pyx":232
  *     if value.buf == NULL or value.len == 0:
  *         return ""
  *     return PyUnicode_DecodeUTF8(value.buf, value.len, "surrogateescape")             # <<<<<<<<<<<<<<
@@ -3950,7 +3950,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":228
+  /* "cymongoose/_mongoose.pyx":228
  * 
  * 
  * cdef inline str _mg_str_to_text(mg_str value):             # <<<<<<<<<<<<<<
@@ -3961,7 +3961,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose._mg_str_to_text", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose._mg_str_to_text", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3969,7 +3969,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":240
+/* "cymongoose/_mongoose.pyx":240
  *     cdef mg_http_message *_msg
  * 
  *     cdef void _assign(self, mg_http_message *msg):             # <<<<<<<<<<<<<<
@@ -3979,7 +3979,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
 
 static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, struct mg_http_message *__pyx_v_msg) {
 
-  /* "pymongoose/_mongoose.pyx":241
+  /* "cymongoose/_mongoose.pyx":241
  * 
  *     cdef void _assign(self, mg_http_message *msg):
  *         self._msg = msg             # <<<<<<<<<<<<<<
@@ -3988,7 +3988,7 @@ static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_o
 */
   __pyx_v_self->_msg = __pyx_v_msg;
 
-  /* "pymongoose/_mongoose.pyx":240
+  /* "cymongoose/_mongoose.pyx":240
  *     cdef mg_http_message *_msg
  * 
  *     cdef void _assign(self, mg_http_message *msg):             # <<<<<<<<<<<<<<
@@ -3999,7 +3999,7 @@ static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_o
   /* function exit code */
 }
 
-/* "pymongoose/_mongoose.pyx":243
+/* "cymongoose/_mongoose.pyx":243
  *         self._msg = msg
  * 
  *     def __bool__(self):             # <<<<<<<<<<<<<<
@@ -4025,7 +4025,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_1__bool__(PyObject *__
 static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   int __pyx_r;
 
-  /* "pymongoose/_mongoose.pyx":244
+  /* "cymongoose/_mongoose.pyx":244
  * 
  *     def __bool__(self):
  *         return self._msg != NULL             # <<<<<<<<<<<<<<
@@ -4035,7 +4035,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_
   __pyx_r = (__pyx_v_self->_msg != NULL);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":243
+  /* "cymongoose/_mongoose.pyx":243
  *         self._msg = msg
  * 
  *     def __bool__(self):             # <<<<<<<<<<<<<<
@@ -4048,7 +4048,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":247
+/* "cymongoose/_mongoose.pyx":247
  * 
  *     property method:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4082,7 +4082,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":248
+  /* "cymongoose/_mongoose.pyx":248
  *     property method:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.method) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -4104,7 +4104,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":247
+  /* "cymongoose/_mongoose.pyx":247
  * 
  *     property method:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4116,7 +4116,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.method.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.method.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4124,7 +4124,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":251
+/* "cymongoose/_mongoose.pyx":251
  * 
  *     property uri:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4158,7 +4158,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":252
+  /* "cymongoose/_mongoose.pyx":252
  *     property uri:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.uri) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -4180,7 +4180,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":251
+  /* "cymongoose/_mongoose.pyx":251
  * 
  *     property uri:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4192,7 +4192,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.uri.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.uri.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4200,7 +4200,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":255
+/* "cymongoose/_mongoose.pyx":255
  * 
  *     property query:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4234,7 +4234,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":256
+  /* "cymongoose/_mongoose.pyx":256
  *     property query:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.query) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -4256,7 +4256,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":255
+  /* "cymongoose/_mongoose.pyx":255
  * 
  *     property query:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4268,7 +4268,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.query.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.query.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4276,7 +4276,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":259
+/* "cymongoose/_mongoose.pyx":259
  * 
  *     property proto:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4310,7 +4310,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":260
+  /* "cymongoose/_mongoose.pyx":260
  *     property proto:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.proto) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -4332,7 +4332,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":259
+  /* "cymongoose/_mongoose.pyx":259
  * 
  *     property proto:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4344,7 +4344,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.proto.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.proto.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4352,7 +4352,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":263
+/* "cymongoose/_mongoose.pyx":263
  * 
  *     property body_bytes:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4386,7 +4386,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":264
+  /* "cymongoose/_mongoose.pyx":264
  *     property body_bytes:
  *         def __get__(self):
  *             return _mg_str_to_bytes(self._msg.body) if self._msg != NULL else b""             # <<<<<<<<<<<<<<
@@ -4408,7 +4408,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":263
+  /* "cymongoose/_mongoose.pyx":263
  * 
  *     property body_bytes:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4420,7 +4420,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.body_bytes.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.body_bytes.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4428,7 +4428,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":267
+/* "cymongoose/_mongoose.pyx":267
  * 
  *     property body_text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4462,7 +4462,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":268
+  /* "cymongoose/_mongoose.pyx":268
  *     property body_text:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -4484,7 +4484,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":267
+  /* "cymongoose/_mongoose.pyx":267
  * 
  *     property body_text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4496,7 +4496,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.body_text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.body_text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4504,7 +4504,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":270
+/* "cymongoose/_mongoose.pyx":270
  *             return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
  * 
  *     def header(self, name: str, default=None):             # <<<<<<<<<<<<<<
@@ -4599,7 +4599,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -4636,7 +4636,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("header", 0);
 
-  /* "pymongoose/_mongoose.pyx":272
+  /* "cymongoose/_mongoose.pyx":272
  *     def header(self, name: str, default=None):
  *         """Return a HTTP header value or default when not present."""
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -4646,7 +4646,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   __pyx_t_1 = (__pyx_v_self->_msg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":273
+    /* "cymongoose/_mongoose.pyx":273
  *         """Return a HTTP header value or default when not present."""
  *         if self._msg == NULL:
  *             return default             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
     __pyx_r = __pyx_v_default;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":272
+    /* "cymongoose/_mongoose.pyx":272
  *     def header(self, name: str, default=None):
  *         """Return a HTTP header value or default when not present."""
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -4667,7 +4667,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":274
+  /* "cymongoose/_mongoose.pyx":274
  *         if self._msg == NULL:
  *             return default
  *         cdef bytes lookup = name.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -4679,7 +4679,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   __pyx_v_lookup = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":275
+  /* "cymongoose/_mongoose.pyx":275
  *             return default
  *         cdef bytes lookup = name.encode("utf-8")
  *         cdef mg_str *result = mg_http_get_header(self._msg, lookup)             # <<<<<<<<<<<<<<
@@ -4689,7 +4689,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_lookup); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 275, __pyx_L1_error)
   __pyx_v_result = mg_http_get_header(__pyx_v_self->_msg, __pyx_t_3);
 
-  /* "pymongoose/_mongoose.pyx":276
+  /* "cymongoose/_mongoose.pyx":276
  *         cdef bytes lookup = name.encode("utf-8")
  *         cdef mg_str *result = mg_http_get_header(self._msg, lookup)
  *         if result == NULL:             # <<<<<<<<<<<<<<
@@ -4699,7 +4699,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   __pyx_t_1 = (__pyx_v_result == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":277
+    /* "cymongoose/_mongoose.pyx":277
  *         cdef mg_str *result = mg_http_get_header(self._msg, lookup)
  *         if result == NULL:
  *             return default             # <<<<<<<<<<<<<<
@@ -4711,7 +4711,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
     __pyx_r = __pyx_v_default;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":276
+    /* "cymongoose/_mongoose.pyx":276
  *         cdef bytes lookup = name.encode("utf-8")
  *         cdef mg_str *result = mg_http_get_header(self._msg, lookup)
  *         if result == NULL:             # <<<<<<<<<<<<<<
@@ -4720,7 +4720,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":278
+  /* "cymongoose/_mongoose.pyx":278
  *         if result == NULL:
  *             return default
  *         return _mg_str_to_text(result[0])             # <<<<<<<<<<<<<<
@@ -4734,7 +4734,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":270
+  /* "cymongoose/_mongoose.pyx":270
  *             return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
  * 
  *     def header(self, name: str, default=None):             # <<<<<<<<<<<<<<
@@ -4745,7 +4745,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.header", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.header", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_lookup);
@@ -4754,7 +4754,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":280
+/* "cymongoose/_mongoose.pyx":280
  *         return _mg_str_to_text(result[0])
  * 
  *     def headers(self):             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("headers", 0);
 
-  /* "pymongoose/_mongoose.pyx":282
+  /* "cymongoose/_mongoose.pyx":282
  *     def headers(self):
  *         """Return all HTTP headers as a list of (name, value) tuples."""
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -4832,7 +4832,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   __pyx_t_1 = (__pyx_v_self->_msg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":283
+    /* "cymongoose/_mongoose.pyx":283
  *         """Return all HTTP headers as a list of (name, value) tuples."""
  *         if self._msg == NULL:
  *             return []             # <<<<<<<<<<<<<<
@@ -4846,7 +4846,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":282
+    /* "cymongoose/_mongoose.pyx":282
  *     def headers(self):
  *         """Return all HTTP headers as a list of (name, value) tuples."""
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -4855,7 +4855,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":286
+  /* "cymongoose/_mongoose.pyx":286
  *         cdef mg_http_header header
  *         cdef size_t idx
  *         result = []             # <<<<<<<<<<<<<<
@@ -4867,7 +4867,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   __pyx_v_result = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":287
+  /* "cymongoose/_mongoose.pyx":287
  *         cdef size_t idx
  *         result = []
  *         for idx in range(30):             # <<<<<<<<<<<<<<
@@ -4877,7 +4877,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   for (__pyx_t_3 = 0; __pyx_t_3 < 30; __pyx_t_3+=1) {
     __pyx_v_idx = __pyx_t_3;
 
-    /* "pymongoose/_mongoose.pyx":288
+    /* "cymongoose/_mongoose.pyx":288
  *         result = []
  *         for idx in range(30):
  *             header = self._msg.headers[idx]             # <<<<<<<<<<<<<<
@@ -4886,7 +4886,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
 */
     __pyx_v_header = (__pyx_v_self->_msg->headers[__pyx_v_idx]);
 
-    /* "pymongoose/_mongoose.pyx":289
+    /* "cymongoose/_mongoose.pyx":289
  *         for idx in range(30):
  *             header = self._msg.headers[idx]
  *             if header.name.len == 0:             # <<<<<<<<<<<<<<
@@ -4896,7 +4896,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
     __pyx_t_1 = (__pyx_v_header.name.len == 0);
     if (__pyx_t_1) {
 
-      /* "pymongoose/_mongoose.pyx":290
+      /* "cymongoose/_mongoose.pyx":290
  *             header = self._msg.headers[idx]
  *             if header.name.len == 0:
  *                 break             # <<<<<<<<<<<<<<
@@ -4905,7 +4905,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
 */
       goto __pyx_L5_break;
 
-      /* "pymongoose/_mongoose.pyx":289
+      /* "cymongoose/_mongoose.pyx":289
  *         for idx in range(30):
  *             header = self._msg.headers[idx]
  *             if header.name.len == 0:             # <<<<<<<<<<<<<<
@@ -4914,7 +4914,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
 */
     }
 
-    /* "pymongoose/_mongoose.pyx":291
+    /* "cymongoose/_mongoose.pyx":291
  *             if header.name.len == 0:
  *                 break
  *             result.append((_mg_str_to_text(header.name), _mg_str_to_text(header.value)))             # <<<<<<<<<<<<<<
@@ -4938,7 +4938,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   }
   __pyx_L5_break:;
 
-  /* "pymongoose/_mongoose.pyx":292
+  /* "cymongoose/_mongoose.pyx":292
  *                 break
  *             result.append((_mg_str_to_text(header.name), _mg_str_to_text(header.value)))
  *         return result             # <<<<<<<<<<<<<<
@@ -4950,7 +4950,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":280
+  /* "cymongoose/_mongoose.pyx":280
  *         return _mg_str_to_text(result[0])
  * 
  *     def headers(self):             # <<<<<<<<<<<<<<
@@ -4963,7 +4963,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.headers", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.headers", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_result);
@@ -4972,7 +4972,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":294
+/* "cymongoose/_mongoose.pyx":294
  *         return result
  * 
  *     def query_var(self, name: str):             # <<<<<<<<<<<<<<
@@ -5052,7 +5052,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.query_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.query_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -5090,7 +5090,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("query_var", 0);
 
-  /* "pymongoose/_mongoose.pyx":299
+  /* "cymongoose/_mongoose.pyx":299
  *         Note: Parameter values are limited to 256 bytes. Longer values will be truncated.
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5100,7 +5100,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   __pyx_t_1 = (__pyx_v_self->_msg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":300
+    /* "cymongoose/_mongoose.pyx":300
  *         """
  *         if self._msg == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -5111,7 +5111,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":299
+    /* "cymongoose/_mongoose.pyx":299
  *         Note: Parameter values are limited to 256 bytes. Longer values will be truncated.
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5120,7 +5120,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":301
+  /* "cymongoose/_mongoose.pyx":301
  *         if self._msg == NULL:
  *             return None
  *         cdef bytes name_b = name.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -5132,7 +5132,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   __pyx_v_name_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":303
+  /* "cymongoose/_mongoose.pyx":303
  *         cdef bytes name_b = name.encode("utf-8")
  *         cdef char buffer[256]
  *         cdef int rc = mg_http_get_var(&self._msg.query, name_b, buffer, sizeof(buffer))             # <<<<<<<<<<<<<<
@@ -5142,7 +5142,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_name_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 303, __pyx_L1_error)
   __pyx_v_rc = mg_http_get_var((&__pyx_v_self->_msg->query), __pyx_t_3, __pyx_v_buffer, (sizeof(__pyx_v_buffer)));
 
-  /* "pymongoose/_mongoose.pyx":304
+  /* "cymongoose/_mongoose.pyx":304
  *         cdef char buffer[256]
  *         cdef int rc = mg_http_get_var(&self._msg.query, name_b, buffer, sizeof(buffer))
  *         if rc <= 0:             # <<<<<<<<<<<<<<
@@ -5152,7 +5152,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   __pyx_t_1 = (__pyx_v_rc <= 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":305
+    /* "cymongoose/_mongoose.pyx":305
  *         cdef int rc = mg_http_get_var(&self._msg.query, name_b, buffer, sizeof(buffer))
  *         if rc <= 0:
  *             return None             # <<<<<<<<<<<<<<
@@ -5163,7 +5163,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":304
+    /* "cymongoose/_mongoose.pyx":304
  *         cdef char buffer[256]
  *         cdef int rc = mg_http_get_var(&self._msg.query, name_b, buffer, sizeof(buffer))
  *         if rc <= 0:             # <<<<<<<<<<<<<<
@@ -5172,7 +5172,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":306
+  /* "cymongoose/_mongoose.pyx":306
  *         if rc <= 0:
  *             return None
  *         return buffer[:rc].decode("utf-8", "surrogateescape")             # <<<<<<<<<<<<<<
@@ -5186,7 +5186,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":294
+  /* "cymongoose/_mongoose.pyx":294
  *         return result
  * 
  *     def query_var(self, name: str):             # <<<<<<<<<<<<<<
@@ -5197,7 +5197,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.query_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.query_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_name_b);
@@ -5206,7 +5206,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":308
+/* "cymongoose/_mongoose.pyx":308
  *         return buffer[:rc].decode("utf-8", "surrogateescape")
  * 
  *     def status(self):             # <<<<<<<<<<<<<<
@@ -5267,7 +5267,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("status", 0);
 
-  /* "pymongoose/_mongoose.pyx":314
+  /* "cymongoose/_mongoose.pyx":314
  *             int: Status code (e.g., 200, 404) or None if not available
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5277,7 +5277,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
   __pyx_t_1 = (__pyx_v_self->_msg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":315
+    /* "cymongoose/_mongoose.pyx":315
  *         """
  *         if self._msg == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -5288,7 +5288,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":314
+    /* "cymongoose/_mongoose.pyx":314
  *             int: Status code (e.g., 200, 404) or None if not available
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5297,7 +5297,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":316
+  /* "cymongoose/_mongoose.pyx":316
  *         if self._msg == NULL:
  *             return None
  *         return mg_http_status(self._msg)             # <<<<<<<<<<<<<<
@@ -5311,7 +5311,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":308
+  /* "cymongoose/_mongoose.pyx":308
  *         return buffer[:rc].decode("utf-8", "surrogateescape")
  * 
  *     def status(self):             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.status", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.status", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5330,7 +5330,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":318
+/* "cymongoose/_mongoose.pyx":318
  *         return mg_http_status(self._msg)
  * 
  *     def header_var(self, header_name: str, var_name: str):             # <<<<<<<<<<<<<<
@@ -5418,7 +5418,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.header_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.header_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -5461,7 +5461,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("header_var", 0);
 
-  /* "pymongoose/_mongoose.pyx":331
+  /* "cymongoose/_mongoose.pyx":331
  *             str: The variable value or None if not found
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_t_1 = (__pyx_v_self->_msg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":332
+    /* "cymongoose/_mongoose.pyx":332
  *         """
  *         if self._msg == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -5482,7 +5482,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":331
+    /* "cymongoose/_mongoose.pyx":331
  *             str: The variable value or None if not found
  *         """
  *         if self._msg == NULL:             # <<<<<<<<<<<<<<
@@ -5491,7 +5491,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":335
+  /* "cymongoose/_mongoose.pyx":335
  * 
  *         # Get the header value first
  *         cdef bytes header_name_b = header_name.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -5503,7 +5503,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_v_header_name_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":336
+  /* "cymongoose/_mongoose.pyx":336
  *         # Get the header value first
  *         cdef bytes header_name_b = header_name.encode("utf-8")
  *         cdef mg_str *header_value = mg_http_get_header(self._msg, header_name_b)             # <<<<<<<<<<<<<<
@@ -5513,7 +5513,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_header_name_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 336, __pyx_L1_error)
   __pyx_v_header_value = mg_http_get_header(__pyx_v_self->_msg, __pyx_t_3);
 
-  /* "pymongoose/_mongoose.pyx":337
+  /* "cymongoose/_mongoose.pyx":337
  *         cdef bytes header_name_b = header_name.encode("utf-8")
  *         cdef mg_str *header_value = mg_http_get_header(self._msg, header_name_b)
  *         if header_value == NULL:             # <<<<<<<<<<<<<<
@@ -5523,7 +5523,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_t_1 = (__pyx_v_header_value == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":338
+    /* "cymongoose/_mongoose.pyx":338
  *         cdef mg_str *header_value = mg_http_get_header(self._msg, header_name_b)
  *         if header_value == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -5534,7 +5534,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":337
+    /* "cymongoose/_mongoose.pyx":337
  *         cdef bytes header_name_b = header_name.encode("utf-8")
  *         cdef mg_str *header_value = mg_http_get_header(self._msg, header_name_b)
  *         if header_value == NULL:             # <<<<<<<<<<<<<<
@@ -5543,7 +5543,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":341
+  /* "cymongoose/_mongoose.pyx":341
  * 
  *         # Parse variable from header value
  *         cdef bytes var_name_b = var_name.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -5555,7 +5555,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_v_var_name_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":342
+  /* "cymongoose/_mongoose.pyx":342
  *         # Parse variable from header value
  *         cdef bytes var_name_b = var_name.encode("utf-8")
  *         cdef mg_str var_value_str = mg_http_get_header_var(header_value[0], mg_str_n(var_name_b, len(var_name_b)))             # <<<<<<<<<<<<<<
@@ -5566,7 +5566,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_t_5 = __Pyx_PyBytes_GET_SIZE(__pyx_v_var_name_b); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 342, __pyx_L1_error)
   __pyx_v_var_value_str = mg_http_get_header_var((__pyx_v_header_value[0]), mg_str_n(__pyx_t_4, __pyx_t_5));
 
-  /* "pymongoose/_mongoose.pyx":344
+  /* "cymongoose/_mongoose.pyx":344
  *         cdef mg_str var_value_str = mg_http_get_header_var(header_value[0], mg_str_n(var_name_b, len(var_name_b)))
  * 
  *         if var_value_str.buf == NULL or var_value_str.len == 0:             # <<<<<<<<<<<<<<
@@ -5584,7 +5584,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_L6_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":345
+    /* "cymongoose/_mongoose.pyx":345
  * 
  *         if var_value_str.buf == NULL or var_value_str.len == 0:
  *             return None             # <<<<<<<<<<<<<<
@@ -5595,7 +5595,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":344
+    /* "cymongoose/_mongoose.pyx":344
  *         cdef mg_str var_value_str = mg_http_get_header_var(header_value[0], mg_str_n(var_name_b, len(var_name_b)))
  * 
  *         if var_value_str.buf == NULL or var_value_str.len == 0:             # <<<<<<<<<<<<<<
@@ -5604,7 +5604,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":347
+  /* "cymongoose/_mongoose.pyx":347
  *             return None
  * 
  *         return _mg_str_to_text(var_value_str)             # <<<<<<<<<<<<<<
@@ -5618,7 +5618,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":318
+  /* "cymongoose/_mongoose.pyx":318
  *         return mg_http_status(self._msg)
  * 
  *     def header_var(self, header_name: str, var_name: str):             # <<<<<<<<<<<<<<
@@ -5629,7 +5629,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.header_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.header_var", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_header_name_b);
@@ -5713,7 +5713,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cytho
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -5799,7 +5799,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -5838,14 +5838,14 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cyt
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.HttpMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.HttpMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":355
+/* "cymongoose/_mongoose.pyx":355
  *     cdef mg_ws_message *_msg
  * 
  *     cdef void _assign(self, mg_ws_message *msg):             # <<<<<<<<<<<<<<
@@ -5855,7 +5855,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cyt
 
 static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self, struct mg_ws_message *__pyx_v_msg) {
 
-  /* "pymongoose/_mongoose.pyx":356
+  /* "cymongoose/_mongoose.pyx":356
  * 
  *     cdef void _assign(self, mg_ws_message *msg):
  *         self._msg = msg             # <<<<<<<<<<<<<<
@@ -5864,7 +5864,7 @@ static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_
 */
   __pyx_v_self->_msg = __pyx_v_msg;
 
-  /* "pymongoose/_mongoose.pyx":355
+  /* "cymongoose/_mongoose.pyx":355
  *     cdef mg_ws_message *_msg
  * 
  *     cdef void _assign(self, mg_ws_message *msg):             # <<<<<<<<<<<<<<
@@ -5875,7 +5875,7 @@ static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_
   /* function exit code */
 }
 
-/* "pymongoose/_mongoose.pyx":359
+/* "cymongoose/_mongoose.pyx":359
  * 
  *     property data:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -5909,7 +5909,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":360
+  /* "cymongoose/_mongoose.pyx":360
  *     property data:
  *         def __get__(self):
  *             return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""             # <<<<<<<<<<<<<<
@@ -5931,7 +5931,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":359
+  /* "cymongoose/_mongoose.pyx":359
  * 
  *     property data:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -5943,7 +5943,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5951,7 +5951,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":363
+/* "cymongoose/_mongoose.pyx":363
  * 
  *     property text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -5985,7 +5985,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":364
+  /* "cymongoose/_mongoose.pyx":364
  *     property text:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -6007,7 +6007,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":363
+  /* "cymongoose/_mongoose.pyx":363
  * 
  *     property text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6019,7 +6019,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6027,7 +6027,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":367
+/* "cymongoose/_mongoose.pyx":367
  * 
  *     property flags:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6061,7 +6061,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":368
+  /* "cymongoose/_mongoose.pyx":368
  *     property flags:
  *         def __get__(self):
  *             return self._msg.flags if self._msg != NULL else 0             # <<<<<<<<<<<<<<
@@ -6083,7 +6083,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(stru
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":367
+  /* "cymongoose/_mongoose.pyx":367
  * 
  *     property flags:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6095,7 +6095,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(stru
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.flags.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.flags.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6177,7 +6177,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage___reduce_cython__(C
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -6263,7 +6263,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -6302,14 +6302,14 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.WsMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.WsMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":376
+/* "cymongoose/_mongoose.pyx":376
  *     cdef mg_mqtt_message *_msg
  * 
  *     cdef void _assign(self, mg_mqtt_message *msg):             # <<<<<<<<<<<<<<
@@ -6319,7 +6319,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython_
 
 static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self, struct mg_mqtt_message *__pyx_v_msg) {
 
-  /* "pymongoose/_mongoose.pyx":377
+  /* "cymongoose/_mongoose.pyx":377
  * 
  *     cdef void _assign(self, mg_mqtt_message *msg):
  *         self._msg = msg             # <<<<<<<<<<<<<<
@@ -6328,7 +6328,7 @@ static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_o
 */
   __pyx_v_self->_msg = __pyx_v_msg;
 
-  /* "pymongoose/_mongoose.pyx":376
+  /* "cymongoose/_mongoose.pyx":376
  *     cdef mg_mqtt_message *_msg
  * 
  *     cdef void _assign(self, mg_mqtt_message *msg):             # <<<<<<<<<<<<<<
@@ -6339,7 +6339,7 @@ static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_o
   /* function exit code */
 }
 
-/* "pymongoose/_mongoose.pyx":380
+/* "cymongoose/_mongoose.pyx":380
  * 
  *     property topic:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6373,7 +6373,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":381
+  /* "cymongoose/_mongoose.pyx":381
  *     property topic:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.topic) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -6395,7 +6395,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":380
+  /* "cymongoose/_mongoose.pyx":380
  * 
  *     property topic:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6407,7 +6407,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.topic.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.topic.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6415,7 +6415,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":384
+/* "cymongoose/_mongoose.pyx":384
  * 
  *     property data:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6449,7 +6449,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":385
+  /* "cymongoose/_mongoose.pyx":385
  *     property data:
  *         def __get__(self):
  *             return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""             # <<<<<<<<<<<<<<
@@ -6471,7 +6471,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":384
+  /* "cymongoose/_mongoose.pyx":384
  * 
  *     property data:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6483,7 +6483,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6491,7 +6491,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":388
+/* "cymongoose/_mongoose.pyx":388
  * 
  *     property text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6525,7 +6525,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":389
+  /* "cymongoose/_mongoose.pyx":389
  *     property text:
  *         def __get__(self):
  *             return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""             # <<<<<<<<<<<<<<
@@ -6547,7 +6547,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":388
+  /* "cymongoose/_mongoose.pyx":388
  * 
  *     property text:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6559,7 +6559,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.text.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6567,7 +6567,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":392
+/* "cymongoose/_mongoose.pyx":392
  * 
  *     property id:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6601,7 +6601,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":393
+  /* "cymongoose/_mongoose.pyx":393
  *     property id:
  *         def __get__(self):
  *             return self._msg.id if self._msg != NULL else 0             # <<<<<<<<<<<<<<
@@ -6623,7 +6623,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(stru
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":392
+  /* "cymongoose/_mongoose.pyx":392
  * 
  *     property id:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6635,7 +6635,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(stru
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.id.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.id.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6643,7 +6643,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":396
+/* "cymongoose/_mongoose.pyx":396
  * 
  *     property cmd:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6677,7 +6677,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":397
+  /* "cymongoose/_mongoose.pyx":397
  *     property cmd:
  *         def __get__(self):
  *             return self._msg.cmd if self._msg != NULL else 0             # <<<<<<<<<<<<<<
@@ -6699,7 +6699,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(str
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":396
+  /* "cymongoose/_mongoose.pyx":396
  * 
  *     property cmd:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6711,7 +6711,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(str
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.cmd.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.cmd.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6719,7 +6719,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(str
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":400
+/* "cymongoose/_mongoose.pyx":400
  * 
  *     property qos:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6753,7 +6753,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":401
+  /* "cymongoose/_mongoose.pyx":401
  *     property qos:
  *         def __get__(self):
  *             return self._msg.qos if self._msg != NULL else 0             # <<<<<<<<<<<<<<
@@ -6775,7 +6775,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(str
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":400
+  /* "cymongoose/_mongoose.pyx":400
  * 
  *     property qos:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6787,7 +6787,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(str
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.qos.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.qos.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6795,7 +6795,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(str
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":404
+/* "cymongoose/_mongoose.pyx":404
  * 
  *     property ack:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6829,7 +6829,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":405
+  /* "cymongoose/_mongoose.pyx":405
  *     property ack:
  *         def __get__(self):
  *             return self._msg.ack if self._msg != NULL else 0             # <<<<<<<<<<<<<<
@@ -6851,7 +6851,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(str
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":404
+  /* "cymongoose/_mongoose.pyx":404
  * 
  *     property ack:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -6863,7 +6863,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(str
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.ack.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.ack.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6945,7 +6945,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage___reduce_cython_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -7031,7 +7031,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -7070,14 +7070,14 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cyth
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.MqttMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.MqttMessage.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":419
+/* "cymongoose/_mongoose.pyx":419
  *     cdef public bint skip_verification
  * 
  *     def __init__(self, ca=None, cert=None, key=None, name=None, skip_verification=False):             # <<<<<<<<<<<<<<
@@ -7194,7 +7194,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
@@ -7222,7 +7222,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "pymongoose/_mongoose.pyx":445
+  /* "cymongoose/_mongoose.pyx":445
  *             opts = TlsOpts(skip_verification=True)
  *         """
  *         self.ca = ca.encode('utf-8') if isinstance(ca, str) else (ca if ca else b'')             # <<<<<<<<<<<<<<
@@ -7265,7 +7265,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __pyx_v_self->ca = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":446
+  /* "cymongoose/_mongoose.pyx":446
  *         """
  *         self.ca = ca.encode('utf-8') if isinstance(ca, str) else (ca if ca else b'')
  *         self.cert = cert.encode('utf-8') if isinstance(cert, str) else (cert if cert else b'')             # <<<<<<<<<<<<<<
@@ -7308,7 +7308,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __pyx_v_self->cert = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":447
+  /* "cymongoose/_mongoose.pyx":447
  *         self.ca = ca.encode('utf-8') if isinstance(ca, str) else (ca if ca else b'')
  *         self.cert = cert.encode('utf-8') if isinstance(cert, str) else (cert if cert else b'')
  *         self.key = key.encode('utf-8') if isinstance(key, str) else (key if key else b'')             # <<<<<<<<<<<<<<
@@ -7351,7 +7351,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __pyx_v_self->key = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":448
+  /* "cymongoose/_mongoose.pyx":448
  *         self.cert = cert.encode('utf-8') if isinstance(cert, str) else (cert if cert else b'')
  *         self.key = key.encode('utf-8') if isinstance(key, str) else (key if key else b'')
  *         self.name = name.encode('utf-8') if isinstance(name, str) else (name if name else b'')             # <<<<<<<<<<<<<<
@@ -7394,7 +7394,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __pyx_v_self->name = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":449
+  /* "cymongoose/_mongoose.pyx":449
  *         self.key = key.encode('utf-8') if isinstance(key, str) else (key if key else b'')
  *         self.name = name.encode('utf-8') if isinstance(name, str) else (name if name else b'')
  *         self.skip_verification = skip_verification             # <<<<<<<<<<<<<<
@@ -7404,7 +7404,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_skip_verification); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 449, __pyx_L1_error)
   __pyx_v_self->skip_verification = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":419
+  /* "cymongoose/_mongoose.pyx":419
  *     cdef public bint skip_verification
  * 
  *     def __init__(self, ca=None, cert=None, key=None, name=None, skip_verification=False):             # <<<<<<<<<<<<<<
@@ -7419,14 +7419,14 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":413
+/* "cymongoose/_mongoose.pyx":413
  *     Used to configure TLS/SSL settings for HTTPS, WSS, MQTTS, etc.
  *     """
  *     cdef public bytes ca             # <<<<<<<<<<<<<<
@@ -7502,7 +7502,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_o
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.ca.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.ca.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -7540,7 +7540,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":414
+/* "cymongoose/_mongoose.pyx":414
  *     """
  *     cdef public bytes ca
  *     cdef public bytes cert             # <<<<<<<<<<<<<<
@@ -7616,7 +7616,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.cert.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.cert.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -7654,7 +7654,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":415
+/* "cymongoose/_mongoose.pyx":415
  *     cdef public bytes ca
  *     cdef public bytes cert
  *     cdef public bytes key             # <<<<<<<<<<<<<<
@@ -7730,7 +7730,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.key.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.key.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -7768,7 +7768,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":416
+/* "cymongoose/_mongoose.pyx":416
  *     cdef public bytes cert
  *     cdef public bytes key
  *     cdef public bytes name             # <<<<<<<<<<<<<<
@@ -7844,7 +7844,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.name.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.name.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -7882,7 +7882,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":417
+/* "cymongoose/_mongoose.pyx":417
  *     cdef public bytes key
  *     cdef public bytes name
  *     cdef public bint skip_verification             # <<<<<<<<<<<<<<
@@ -7923,7 +7923,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification__
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.skip_verification.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.skip_verification.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7959,7 +7959,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set_
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.skip_verification.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.skip_verification.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   return __pyx_r;
@@ -8239,7 +8239,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(st
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -8328,7 +8328,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -8382,7 +8382,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.TlsOpts.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.TlsOpts.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -8390,7 +8390,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":460
+/* "cymongoose/_mongoose.pyx":460
  *     cdef object _userdata
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -8428,7 +8428,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pymongoose/_mongoose.pyx":461
+  /* "cymongoose/_mongoose.pyx":461
  * 
  *     def __cinit__(self):
  *         self._conn = NULL             # <<<<<<<<<<<<<<
@@ -8437,7 +8437,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
 */
   __pyx_v_self->_conn = NULL;
 
-  /* "pymongoose/_mongoose.pyx":462
+  /* "cymongoose/_mongoose.pyx":462
  *     def __cinit__(self):
  *         self._conn = NULL
  *         self._manager = None             # <<<<<<<<<<<<<<
@@ -8450,7 +8450,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   __Pyx_DECREF((PyObject *)__pyx_v_self->_manager);
   __pyx_v_self->_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)Py_None);
 
-  /* "pymongoose/_mongoose.pyx":463
+  /* "cymongoose/_mongoose.pyx":463
  *         self._conn = NULL
  *         self._manager = None
  *         self._handler = None             # <<<<<<<<<<<<<<
@@ -8463,7 +8463,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   __Pyx_DECREF(__pyx_v_self->_handler);
   __pyx_v_self->_handler = Py_None;
 
-  /* "pymongoose/_mongoose.pyx":464
+  /* "cymongoose/_mongoose.pyx":464
  *         self._manager = None
  *         self._handler = None
  *         self._userdata = None             # <<<<<<<<<<<<<<
@@ -8476,7 +8476,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   __Pyx_DECREF(__pyx_v_self->_userdata);
   __pyx_v_self->_userdata = Py_None;
 
-  /* "pymongoose/_mongoose.pyx":460
+  /* "cymongoose/_mongoose.pyx":460
  *     cdef object _userdata
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -8490,7 +8490,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":466
+/* "cymongoose/_mongoose.pyx":466
  *         self._userdata = None
  * 
  *     cdef void _bind(self, Manager manager, mg_connection *conn, object handler):             # <<<<<<<<<<<<<<
@@ -8502,7 +8502,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_bind", 0);
 
-  /* "pymongoose/_mongoose.pyx":467
+  /* "cymongoose/_mongoose.pyx":467
  * 
  *     cdef void _bind(self, Manager manager, mg_connection *conn, object handler):
  *         self._manager = manager             # <<<<<<<<<<<<<<
@@ -8515,7 +8515,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
   __Pyx_DECREF((PyObject *)__pyx_v_self->_manager);
   __pyx_v_self->_manager = __pyx_v_manager;
 
-  /* "pymongoose/_mongoose.pyx":468
+  /* "cymongoose/_mongoose.pyx":468
  *     cdef void _bind(self, Manager manager, mg_connection *conn, object handler):
  *         self._manager = manager
  *         self._conn = conn             # <<<<<<<<<<<<<<
@@ -8524,7 +8524,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
 */
   __pyx_v_self->_conn = __pyx_v_conn;
 
-  /* "pymongoose/_mongoose.pyx":469
+  /* "cymongoose/_mongoose.pyx":469
  *         self._manager = manager
  *         self._conn = conn
  *         self._handler = handler             # <<<<<<<<<<<<<<
@@ -8537,7 +8537,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
   __Pyx_DECREF(__pyx_v_self->_handler);
   __pyx_v_self->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":466
+  /* "cymongoose/_mongoose.pyx":466
  *         self._userdata = None
  * 
  *     cdef void _bind(self, Manager manager, mg_connection *conn, object handler):             # <<<<<<<<<<<<<<
@@ -8549,7 +8549,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pymongoose/_mongoose.pyx":471
+/* "cymongoose/_mongoose.pyx":471
  *         self._handler = handler
  * 
  *     cdef mg_connection *_ptr(self):             # <<<<<<<<<<<<<<
@@ -8569,7 +8569,7 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_ptr", 0);
 
-  /* "pymongoose/_mongoose.pyx":472
+  /* "cymongoose/_mongoose.pyx":472
  * 
  *     cdef mg_connection *_ptr(self):
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -8579,7 +8579,7 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pymongoose/_mongoose.pyx":473
+    /* "cymongoose/_mongoose.pyx":473
  *     cdef mg_connection *_ptr(self):
  *         if self._conn == NULL:
  *             raise RuntimeError("Connection has been closed")             # <<<<<<<<<<<<<<
@@ -8599,7 +8599,7 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 473, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":472
+    /* "cymongoose/_mongoose.pyx":472
  * 
  *     cdef mg_connection *_ptr(self):
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -8608,7 +8608,7 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":474
+  /* "cymongoose/_mongoose.pyx":474
  *         if self._conn == NULL:
  *             raise RuntimeError("Connection has been closed")
  *         return self._conn             # <<<<<<<<<<<<<<
@@ -8618,7 +8618,7 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
   __pyx_r = __pyx_v_self->_conn;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":471
+  /* "cymongoose/_mongoose.pyx":471
  *         self._handler = handler
  * 
  *     cdef mg_connection *_ptr(self):             # <<<<<<<<<<<<<<
@@ -8630,14 +8630,14 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection._ptr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection._ptr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":476
+/* "cymongoose/_mongoose.pyx":476
  *         return self._conn
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8665,7 +8665,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":478
+  /* "cymongoose/_mongoose.pyx":478
  *     @property
  *     def handler(self):
  *         return self._handler             # <<<<<<<<<<<<<<
@@ -8677,7 +8677,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(
   __pyx_r = __pyx_v_self->_handler;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":476
+  /* "cymongoose/_mongoose.pyx":476
  *         return self._conn
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8692,7 +8692,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":480
+/* "cymongoose/_mongoose.pyx":480
  *         return self._handler
  * 
  *     def set_handler(self, handler):             # <<<<<<<<<<<<<<
@@ -8772,7 +8772,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.set_handler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.set_handler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -8791,7 +8791,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(stru
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_handler", 0);
 
-  /* "pymongoose/_mongoose.pyx":482
+  /* "cymongoose/_mongoose.pyx":482
  *     def set_handler(self, handler):
  *         """Assign a per-connection event handler."""
  *         self._handler = handler             # <<<<<<<<<<<<<<
@@ -8804,7 +8804,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(stru
   __Pyx_DECREF(__pyx_v_self->_handler);
   __pyx_v_self->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":480
+  /* "cymongoose/_mongoose.pyx":480
  *         return self._handler
  * 
  *     def set_handler(self, handler):             # <<<<<<<<<<<<<<
@@ -8819,7 +8819,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":484
+/* "cymongoose/_mongoose.pyx":484
  *         self._handler = handler
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8847,7 +8847,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":486
+  /* "cymongoose/_mongoose.pyx":486
  *     @property
  *     def userdata(self):
  *         return self._userdata             # <<<<<<<<<<<<<<
@@ -8859,7 +8859,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__
   __pyx_r = __pyx_v_self->_userdata;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":484
+  /* "cymongoose/_mongoose.pyx":484
  *         self._handler = handler
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8874,7 +8874,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":488
+/* "cymongoose/_mongoose.pyx":488
  *         return self._userdata
  * 
  *     @userdata.setter             # <<<<<<<<<<<<<<
@@ -8902,7 +8902,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(stru
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "pymongoose/_mongoose.pyx":490
+  /* "cymongoose/_mongoose.pyx":490
  *     @userdata.setter
  *     def userdata(self, value):
  *         self._userdata = value             # <<<<<<<<<<<<<<
@@ -8915,7 +8915,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(stru
   __Pyx_DECREF(__pyx_v_self->_userdata);
   __pyx_v_self->_userdata = __pyx_v_value;
 
-  /* "pymongoose/_mongoose.pyx":488
+  /* "cymongoose/_mongoose.pyx":488
  *         return self._userdata
  * 
  *     @userdata.setter             # <<<<<<<<<<<<<<
@@ -8929,7 +8929,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":492
+/* "cymongoose/_mongoose.pyx":492
  *         self._userdata = value
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8963,7 +8963,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":495
+  /* "cymongoose/_mongoose.pyx":495
  *     def id(self):
  *         """Return connection ID."""
  *         return self._conn.id if self._conn != NULL else 0             # <<<<<<<<<<<<<<
@@ -8985,7 +8985,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struc
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":492
+  /* "cymongoose/_mongoose.pyx":492
  *         self._userdata = value
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -8997,7 +8997,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struc
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.id.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.id.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9005,7 +9005,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":497
+/* "cymongoose/_mongoose.pyx":497
  *         return self._conn.id if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9039,7 +9039,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":499
+  /* "cymongoose/_mongoose.pyx":499
  *     @property
  *     def is_listening(self):
  *         return self._conn.is_listening != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -9061,7 +9061,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":497
+  /* "cymongoose/_mongoose.pyx":497
  *         return self._conn.id if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9073,7 +9073,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_listening.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_listening.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9081,7 +9081,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":501
+/* "cymongoose/_mongoose.pyx":501
  *         return self._conn.is_listening != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9115,7 +9115,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___ge
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":503
+  /* "cymongoose/_mongoose.pyx":503
  *     @property
  *     def is_closing(self):
  *         return self._conn.is_closing != 0 if self._conn != NULL else True             # <<<<<<<<<<<<<<
@@ -9137,7 +9137,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___ge
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":501
+  /* "cymongoose/_mongoose.pyx":501
  *         return self._conn.is_listening != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9149,7 +9149,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___ge
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_closing.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_closing.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9157,7 +9157,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___ge
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":505
+/* "cymongoose/_mongoose.pyx":505
  *         return self._conn.is_closing != 0 if self._conn != NULL else True
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9207,7 +9207,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":508
+  /* "cymongoose/_mongoose.pyx":508
  *     def local_addr(self):
  *         """Return local address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -9217,7 +9217,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":509
+    /* "cymongoose/_mongoose.pyx":509
  *         """Return local address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -9228,7 +9228,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":508
+    /* "cymongoose/_mongoose.pyx":508
  *     def local_addr(self):
  *         """Return local address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -9237,7 +9237,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":516
+  /* "cymongoose/_mongoose.pyx":516
  * 
  *         # Copy addr struct and convert port
  *         addr = self._conn.loc             # <<<<<<<<<<<<<<
@@ -9247,7 +9247,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __pyx_t_2 = __pyx_v_self->_conn->loc;
   __pyx_v_addr = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":517
+  /* "cymongoose/_mongoose.pyx":517
  *         # Copy addr struct and convert port
  *         addr = self._conn.loc
  *         net_port = addr.port             # <<<<<<<<<<<<<<
@@ -9257,7 +9257,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __pyx_t_3 = __pyx_v_addr.port;
   __pyx_v_net_port = __pyx_t_3;
 
-  /* "pymongoose/_mongoose.pyx":518
+  /* "cymongoose/_mongoose.pyx":518
  *         addr = self._conn.loc
  *         net_port = addr.port
  *         host_port = ntohs(net_port)             # <<<<<<<<<<<<<<
@@ -9266,7 +9266,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
 */
   __pyx_v_host_port = ntohs(__pyx_v_net_port);
 
-  /* "pymongoose/_mongoose.pyx":519
+  /* "cymongoose/_mongoose.pyx":519
  *         net_port = addr.port
  *         host_port = ntohs(net_port)
  *         is_ipv6 = addr.is_ip6             # <<<<<<<<<<<<<<
@@ -9276,7 +9276,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __pyx_t_1 = __pyx_v_addr.is_ip6;
   __pyx_v_is_ipv6 = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":521
+  /* "cymongoose/_mongoose.pyx":521
  *         is_ipv6 = addr.is_ip6
  * 
  *         if is_ipv6:             # <<<<<<<<<<<<<<
@@ -9285,7 +9285,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
 */
   if (__pyx_v_is_ipv6) {
 
-    /* "pymongoose/_mongoose.pyx":523
+    /* "cymongoose/_mongoose.pyx":523
  *         if is_ipv6:
  *             # IPv6 address formatting
  *             parts = []             # <<<<<<<<<<<<<<
@@ -9297,7 +9297,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
     __pyx_v_parts = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "pymongoose/_mongoose.pyx":524
+    /* "cymongoose/_mongoose.pyx":524
  *             # IPv6 address formatting
  *             parts = []
  *             for i in range(8):             # <<<<<<<<<<<<<<
@@ -9310,7 +9310,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pymongoose/_mongoose.pyx":525
+      /* "cymongoose/_mongoose.pyx":525
  *             parts = []
  *             for i in range(8):
  *                 parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")             # <<<<<<<<<<<<<<
@@ -9340,7 +9340,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
 
-    /* "pymongoose/_mongoose.pyx":526
+    /* "cymongoose/_mongoose.pyx":526
  *             for i in range(8):
  *                 parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")
  *             ip_str = ":".join(parts)             # <<<<<<<<<<<<<<
@@ -9352,7 +9352,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
     __pyx_v_ip_str = ((PyObject*)__pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "pymongoose/_mongoose.pyx":521
+    /* "cymongoose/_mongoose.pyx":521
  *         is_ipv6 = addr.is_ip6
  * 
  *         if is_ipv6:             # <<<<<<<<<<<<<<
@@ -9362,7 +9362,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
     goto __pyx_L4;
   }
 
-  /* "pymongoose/_mongoose.pyx":529
+  /* "cymongoose/_mongoose.pyx":529
  *         else:
  *             # IPv4 address
  *             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"             # <<<<<<<<<<<<<<
@@ -9397,7 +9397,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   }
   __pyx_L4:;
 
-  /* "pymongoose/_mongoose.pyx":530
+  /* "cymongoose/_mongoose.pyx":530
  *             # IPv4 address
  *             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
  *         return (ip_str, host_port, bool(is_ipv6))             # <<<<<<<<<<<<<<
@@ -9425,7 +9425,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":505
+  /* "cymongoose/_mongoose.pyx":505
  *         return self._conn.is_closing != 0 if self._conn != NULL else True
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9440,7 +9440,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.local_addr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.local_addr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_parts);
@@ -9451,7 +9451,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":532
+/* "cymongoose/_mongoose.pyx":532
  *         return (ip_str, host_port, bool(is_ipv6))
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9501,7 +9501,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":535
+  /* "cymongoose/_mongoose.pyx":535
  *     def remote_addr(self):
  *         """Return remote address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -9511,7 +9511,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":536
+    /* "cymongoose/_mongoose.pyx":536
  *         """Return remote address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:
  *             return None             # <<<<<<<<<<<<<<
@@ -9522,7 +9522,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":535
+    /* "cymongoose/_mongoose.pyx":535
  *     def remote_addr(self):
  *         """Return remote address as (ip, port, is_ipv6) tuple."""
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -9531,7 +9531,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":543
+  /* "cymongoose/_mongoose.pyx":543
  * 
  *         # Copy addr struct and convert port
  *         addr = self._conn.rem             # <<<<<<<<<<<<<<
@@ -9541,7 +9541,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __pyx_t_2 = __pyx_v_self->_conn->rem;
   __pyx_v_addr = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":544
+  /* "cymongoose/_mongoose.pyx":544
  *         # Copy addr struct and convert port
  *         addr = self._conn.rem
  *         net_port = addr.port             # <<<<<<<<<<<<<<
@@ -9551,7 +9551,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __pyx_t_3 = __pyx_v_addr.port;
   __pyx_v_net_port = __pyx_t_3;
 
-  /* "pymongoose/_mongoose.pyx":545
+  /* "cymongoose/_mongoose.pyx":545
  *         addr = self._conn.rem
  *         net_port = addr.port
  *         host_port = ntohs(net_port)             # <<<<<<<<<<<<<<
@@ -9560,7 +9560,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
 */
   __pyx_v_host_port = ntohs(__pyx_v_net_port);
 
-  /* "pymongoose/_mongoose.pyx":546
+  /* "cymongoose/_mongoose.pyx":546
  *         net_port = addr.port
  *         host_port = ntohs(net_port)
  *         is_ipv6 = addr.is_ip6             # <<<<<<<<<<<<<<
@@ -9570,7 +9570,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __pyx_t_1 = __pyx_v_addr.is_ip6;
   __pyx_v_is_ipv6 = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":548
+  /* "cymongoose/_mongoose.pyx":548
  *         is_ipv6 = addr.is_ip6
  * 
  *         if is_ipv6:             # <<<<<<<<<<<<<<
@@ -9579,7 +9579,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
 */
   if (__pyx_v_is_ipv6) {
 
-    /* "pymongoose/_mongoose.pyx":550
+    /* "cymongoose/_mongoose.pyx":550
  *         if is_ipv6:
  *             # IPv6 address formatting
  *             parts = []             # <<<<<<<<<<<<<<
@@ -9591,7 +9591,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
     __pyx_v_parts = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "pymongoose/_mongoose.pyx":551
+    /* "cymongoose/_mongoose.pyx":551
  *             # IPv6 address formatting
  *             parts = []
  *             for i in range(8):             # <<<<<<<<<<<<<<
@@ -9604,7 +9604,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
       __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pymongoose/_mongoose.pyx":552
+      /* "cymongoose/_mongoose.pyx":552
  *             parts = []
  *             for i in range(8):
  *                 parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")             # <<<<<<<<<<<<<<
@@ -9634,7 +9634,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
 
-    /* "pymongoose/_mongoose.pyx":553
+    /* "cymongoose/_mongoose.pyx":553
  *             for i in range(8):
  *                 parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")
  *             ip_str = ":".join(parts)             # <<<<<<<<<<<<<<
@@ -9646,7 +9646,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
     __pyx_v_ip_str = ((PyObject*)__pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "pymongoose/_mongoose.pyx":548
+    /* "cymongoose/_mongoose.pyx":548
  *         is_ipv6 = addr.is_ip6
  * 
  *         if is_ipv6:             # <<<<<<<<<<<<<<
@@ -9656,7 +9656,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
     goto __pyx_L4;
   }
 
-  /* "pymongoose/_mongoose.pyx":556
+  /* "cymongoose/_mongoose.pyx":556
  *         else:
  *             # IPv4 address
  *             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"             # <<<<<<<<<<<<<<
@@ -9691,7 +9691,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   }
   __pyx_L4:;
 
-  /* "pymongoose/_mongoose.pyx":557
+  /* "cymongoose/_mongoose.pyx":557
  *             # IPv4 address
  *             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
  *         return (ip_str, host_port, bool(is_ipv6))             # <<<<<<<<<<<<<<
@@ -9719,7 +9719,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":532
+  /* "cymongoose/_mongoose.pyx":532
  *         return (ip_str, host_port, bool(is_ipv6))
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -9734,7 +9734,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.remote_addr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.remote_addr.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_parts);
@@ -9745,7 +9745,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":559
+/* "cymongoose/_mongoose.pyx":559
  *         return (ip_str, host_port, bool(is_ipv6))
  * 
  *     def send(self, data):             # <<<<<<<<<<<<<<
@@ -9825,7 +9825,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -9859,7 +9859,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("send", 0);
 
-  /* "pymongoose/_mongoose.pyx":562
+  /* "cymongoose/_mongoose.pyx":562
  *         """Send raw bytes to the peer."""
  *         cdef bytes payload
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -9869,7 +9869,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":563
+    /* "cymongoose/_mongoose.pyx":563
  *         cdef bytes payload
  *         if isinstance(data, str):
  *             payload = (<str>data).encode("utf-8")             # <<<<<<<<<<<<<<
@@ -9885,7 +9885,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
     __pyx_v_payload = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":562
+    /* "cymongoose/_mongoose.pyx":562
  *         """Send raw bytes to the peer."""
  *         cdef bytes payload
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -9895,7 +9895,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":565
+  /* "cymongoose/_mongoose.pyx":565
  *             payload = (<str>data).encode("utf-8")
  *         else:
  *             payload = bytes(data)             # <<<<<<<<<<<<<<
@@ -9917,7 +9917,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":566
+  /* "cymongoose/_mongoose.pyx":566
  *         else:
  *             payload = bytes(data)
  *         cdef const char *buf = payload             # <<<<<<<<<<<<<<
@@ -9927,7 +9927,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_t_5 = __Pyx_PyBytes_AsString(__pyx_v_payload); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(0, 566, __pyx_L1_error)
   __pyx_v_buf = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":567
+  /* "cymongoose/_mongoose.pyx":567
  *             payload = bytes(data)
  *         cdef const char *buf = payload
  *         cdef size_t length = len(payload)             # <<<<<<<<<<<<<<
@@ -9937,7 +9937,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_payload); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 567, __pyx_L1_error)
   __pyx_v_length = __pyx_t_6;
 
-  /* "pymongoose/_mongoose.pyx":568
+  /* "cymongoose/_mongoose.pyx":568
  *         cdef const char *buf = payload
  *         cdef size_t length = len(payload)
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -9947,7 +9947,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 568, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
-  /* "pymongoose/_mongoose.pyx":571
+  /* "cymongoose/_mongoose.pyx":571
  *         cdef bint result
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -9960,7 +9960,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":572
+        /* "cymongoose/_mongoose.pyx":572
  *         IF USE_NOGIL:
  *             with nogil:
  *                 result = mg_send(conn, buf, length)             # <<<<<<<<<<<<<<
@@ -9970,7 +9970,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
         __pyx_v_result = mg_send(__pyx_v_conn, __pyx_v_buf, __pyx_v_length);
       }
 
-      /* "pymongoose/_mongoose.pyx":571
+      /* "cymongoose/_mongoose.pyx":571
  *         cdef bint result
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -9987,7 +9987,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":575
+  /* "cymongoose/_mongoose.pyx":575
  *         ELSE:
  *             result = mg_send(conn, buf, length)
  *         if not result:             # <<<<<<<<<<<<<<
@@ -9997,7 +9997,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_t_1 = (!__pyx_v_result);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pymongoose/_mongoose.pyx":576
+    /* "cymongoose/_mongoose.pyx":576
  *             result = mg_send(conn, buf, length)
  *         if not result:
  *             raise RuntimeError("mg_send failed")             # <<<<<<<<<<<<<<
@@ -10017,7 +10017,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 576, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":575
+    /* "cymongoose/_mongoose.pyx":575
  *         ELSE:
  *             result = mg_send(conn, buf, length)
  *         if not result:             # <<<<<<<<<<<<<<
@@ -10026,7 +10026,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":559
+  /* "cymongoose/_mongoose.pyx":559
  *         return (ip_str, host_port, bool(is_ipv6))
  * 
  *     def send(self, data):             # <<<<<<<<<<<<<<
@@ -10040,7 +10040,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_payload);
@@ -10049,7 +10049,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":578
+/* "cymongoose/_mongoose.pyx":578
  *             raise RuntimeError("mg_send failed")
  * 
  *     def reply(self, int status_code, body=b"", headers=None):             # <<<<<<<<<<<<<<
@@ -10156,7 +10156,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.reply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.reply", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -10205,7 +10205,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reply", 0);
 
-  /* "pymongoose/_mongoose.pyx":580
+  /* "cymongoose/_mongoose.pyx":580
  *     def reply(self, int status_code, body=b"", headers=None):
  *         """Send a HTTP reply (final response)."""
  *         if isinstance(body, str):             # <<<<<<<<<<<<<<
@@ -10215,7 +10215,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_t_1 = PyUnicode_Check(__pyx_v_body); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":581
+    /* "cymongoose/_mongoose.pyx":581
  *         """Send a HTTP reply (final response)."""
  *         if isinstance(body, str):
  *             body_bytes = body.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10235,7 +10235,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
     __pyx_v_body_bytes = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":580
+    /* "cymongoose/_mongoose.pyx":580
  *     def reply(self, int status_code, body=b"", headers=None):
  *         """Send a HTTP reply (final response)."""
  *         if isinstance(body, str):             # <<<<<<<<<<<<<<
@@ -10245,7 +10245,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":583
+  /* "cymongoose/_mongoose.pyx":583
  *             body_bytes = body.encode("utf-8")
  *         else:
  *             body_bytes = bytes(body)             # <<<<<<<<<<<<<<
@@ -10267,7 +10267,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":584
+  /* "cymongoose/_mongoose.pyx":584
  *         else:
  *             body_bytes = bytes(body)
  *         if headers is None:             # <<<<<<<<<<<<<<
@@ -10277,7 +10277,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_t_1 = (__pyx_v_headers == Py_None);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":585
+    /* "cymongoose/_mongoose.pyx":585
  *             body_bytes = bytes(body)
  *         if headers is None:
  *             header_lines = ["Content-Type: text/plain\r\n"]             # <<<<<<<<<<<<<<
@@ -10292,7 +10292,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
     __pyx_v_header_lines = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":584
+    /* "cymongoose/_mongoose.pyx":584
  *         else:
  *             body_bytes = bytes(body)
  *         if headers is None:             # <<<<<<<<<<<<<<
@@ -10302,7 +10302,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
     goto __pyx_L4;
   }
 
-  /* "pymongoose/_mongoose.pyx":587
+  /* "cymongoose/_mongoose.pyx":587
  *             header_lines = ["Content-Type: text/plain\r\n"]
  *         else:
  *             header_lines = [f"{k}: {v}\r\n" for k, v in headers.items()]             # <<<<<<<<<<<<<<
@@ -10364,7 +10364,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   }
   __pyx_L4:;
 
-  /* "pymongoose/_mongoose.pyx":588
+  /* "cymongoose/_mongoose.pyx":588
  *         else:
  *             header_lines = [f"{k}: {v}\r\n" for k, v in headers.items()]
  *         headers_bytes = "".join(header_lines).encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10379,7 +10379,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_v_headers_bytes = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":590
+  /* "cymongoose/_mongoose.pyx":590
  *         headers_bytes = "".join(header_lines).encode("utf-8")
  *         # Keep Python bytes objects alive during nogil C call - pointers reference their buffers
  *         cdef bytes headers_b = headers_bytes             # <<<<<<<<<<<<<<
@@ -10389,7 +10389,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __Pyx_INCREF(__pyx_v_headers_bytes);
   __pyx_v_headers_b = __pyx_v_headers_bytes;
 
-  /* "pymongoose/_mongoose.pyx":591
+  /* "cymongoose/_mongoose.pyx":591
  *         # Keep Python bytes objects alive during nogil C call - pointers reference their buffers
  *         cdef bytes headers_b = headers_bytes
  *         cdef bytes body_b = body_bytes             # <<<<<<<<<<<<<<
@@ -10402,7 +10402,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_v_body_b = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":592
+  /* "cymongoose/_mongoose.pyx":592
  *         cdef bytes headers_b = headers_bytes
  *         cdef bytes body_b = body_bytes
  *         cdef const char *headers_c = headers_b if headers_b else b""             # <<<<<<<<<<<<<<
@@ -10423,7 +10423,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   }
   __pyx_v_headers_c = __pyx_t_13;
 
-  /* "pymongoose/_mongoose.pyx":593
+  /* "cymongoose/_mongoose.pyx":593
  *         cdef bytes body_b = body_bytes
  *         cdef const char *headers_c = headers_b if headers_b else b""
  *         cdef const char *body_fmt_c = b"%s"             # <<<<<<<<<<<<<<
@@ -10432,7 +10432,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
 */
   __pyx_v_body_fmt_c = __pyx_k_s;
 
-  /* "pymongoose/_mongoose.pyx":594
+  /* "cymongoose/_mongoose.pyx":594
  *         cdef const char *headers_c = headers_b if headers_b else b""
  *         cdef const char *body_fmt_c = b"%s"
  *         cdef const char *body_c = body_b             # <<<<<<<<<<<<<<
@@ -10446,7 +10446,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_t_15 = __Pyx_PyBytes_AsString(__pyx_v_body_b); if (unlikely((!__pyx_t_15) && PyErr_Occurred())) __PYX_ERR(0, 594, __pyx_L1_error)
   __pyx_v_body_c = __pyx_t_15;
 
-  /* "pymongoose/_mongoose.pyx":595
+  /* "cymongoose/_mongoose.pyx":595
  *         cdef const char *body_fmt_c = b"%s"
  *         cdef const char *body_c = body_b
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -10456,7 +10456,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __pyx_t_16 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 595, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_16;
 
-  /* "pymongoose/_mongoose.pyx":597
+  /* "cymongoose/_mongoose.pyx":597
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -10469,7 +10469,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":598
+        /* "cymongoose/_mongoose.pyx":598
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)             # <<<<<<<<<<<<<<
@@ -10479,7 +10479,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
         mg_http_reply(__pyx_v_conn, __pyx_v_status_code, __pyx_v_headers_c, __pyx_v_body_fmt_c, __pyx_v_body_c);
       }
 
-      /* "pymongoose/_mongoose.pyx":597
+      /* "cymongoose/_mongoose.pyx":597
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -10496,7 +10496,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":578
+  /* "cymongoose/_mongoose.pyx":578
  *             raise RuntimeError("mg_send failed")
  * 
  *     def reply(self, int status_code, body=b"", headers=None):             # <<<<<<<<<<<<<<
@@ -10513,7 +10513,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.reply", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.reply", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_body_bytes);
@@ -10528,7 +10528,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":602
+/* "cymongoose/_mongoose.pyx":602
  *             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
  * 
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):             # <<<<<<<<<<<<<<
@@ -10655,7 +10655,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.serve_dir", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.serve_dir", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -10708,7 +10708,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("serve_dir", 0);
 
-  /* "pymongoose/_mongoose.pyx":604
+  /* "cymongoose/_mongoose.pyx":604
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):
  *         """Serve files from a directory using Mongoose's built-in static handler."""
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -10718,7 +10718,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_t_1 = (__pyx_v_message->_msg == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pymongoose/_mongoose.pyx":605
+    /* "cymongoose/_mongoose.pyx":605
  *         """Serve files from a directory using Mongoose's built-in static handler."""
  *         if message._msg == NULL:
  *             raise ValueError("HttpMessage is not valid for this event")             # <<<<<<<<<<<<<<
@@ -10738,7 +10738,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 605, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":604
+    /* "cymongoose/_mongoose.pyx":604
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):
  *         """Serve files from a directory using Mongoose's built-in static handler."""
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -10747,7 +10747,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":607
+  /* "cymongoose/_mongoose.pyx":607
  *             raise ValueError("HttpMessage is not valid for this event")
  *         cdef mg_http_serve_opts opts
  *         memset(&opts, 0, sizeof(mg_http_serve_opts))             # <<<<<<<<<<<<<<
@@ -10756,7 +10756,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(struct mg_http_serve_opts))));
 
-  /* "pymongoose/_mongoose.pyx":609
+  /* "cymongoose/_mongoose.pyx":609
  *         memset(&opts, 0, sizeof(mg_http_serve_opts))
  *         # Keep Python bytes objects alive - opts struct contains pointers to their buffers
  *         cdef bytes root_b = root_dir.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10768,7 +10768,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_v_root_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":610
+  /* "cymongoose/_mongoose.pyx":610
  *         # Keep Python bytes objects alive - opts struct contains pointers to their buffers
  *         cdef bytes root_b = root_dir.encode("utf-8")
  *         opts.root_dir = root_b             # <<<<<<<<<<<<<<
@@ -10778,7 +10778,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_t_5 = __Pyx_PyBytes_AsString(__pyx_v_root_b); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(0, 610, __pyx_L1_error)
   __pyx_v_opts.root_dir = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":614
+  /* "cymongoose/_mongoose.pyx":614
  *         cdef bytes mime_types_b
  *         cdef bytes page404_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -10793,7 +10793,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":615
+    /* "cymongoose/_mongoose.pyx":615
  *         cdef bytes page404_b
  *         if extra_headers:
  *             extra_headers_b = extra_headers.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10805,7 +10805,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_v_extra_headers_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":616
+    /* "cymongoose/_mongoose.pyx":616
  *         if extra_headers:
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b             # <<<<<<<<<<<<<<
@@ -10815,7 +10815,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_t_6 = __Pyx_PyBytes_AsString(__pyx_v_extra_headers_b); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 616, __pyx_L1_error)
     __pyx_v_opts.extra_headers = __pyx_t_6;
 
-    /* "pymongoose/_mongoose.pyx":614
+    /* "cymongoose/_mongoose.pyx":614
  *         cdef bytes mime_types_b
  *         cdef bytes page404_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -10824,7 +10824,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":617
+  /* "cymongoose/_mongoose.pyx":617
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:             # <<<<<<<<<<<<<<
@@ -10839,7 +10839,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":618
+    /* "cymongoose/_mongoose.pyx":618
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:
  *             mime_types_b = mime_types.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10851,7 +10851,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_v_mime_types_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":619
+    /* "cymongoose/_mongoose.pyx":619
  *         if mime_types:
  *             mime_types_b = mime_types.encode("utf-8")
  *             opts.mime_types = mime_types_b             # <<<<<<<<<<<<<<
@@ -10861,7 +10861,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_mime_types_b); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 619, __pyx_L1_error)
     __pyx_v_opts.mime_types = __pyx_t_7;
 
-    /* "pymongoose/_mongoose.pyx":617
+    /* "cymongoose/_mongoose.pyx":617
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:             # <<<<<<<<<<<<<<
@@ -10870,7 +10870,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":620
+  /* "cymongoose/_mongoose.pyx":620
  *             mime_types_b = mime_types.encode("utf-8")
  *             opts.mime_types = mime_types_b
  *         if page404:             # <<<<<<<<<<<<<<
@@ -10885,7 +10885,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":621
+    /* "cymongoose/_mongoose.pyx":621
  *             opts.mime_types = mime_types_b
  *         if page404:
  *             page404_b = page404.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -10897,7 +10897,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_v_page404_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":622
+    /* "cymongoose/_mongoose.pyx":622
  *         if page404:
  *             page404_b = page404.encode("utf-8")
  *             opts.page404 = page404_b             # <<<<<<<<<<<<<<
@@ -10907,7 +10907,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
     __pyx_t_8 = __Pyx_PyBytes_AsString(__pyx_v_page404_b); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) __PYX_ERR(0, 622, __pyx_L1_error)
     __pyx_v_opts.page404 = __pyx_t_8;
 
-    /* "pymongoose/_mongoose.pyx":620
+    /* "cymongoose/_mongoose.pyx":620
  *             mime_types_b = mime_types.encode("utf-8")
  *             opts.mime_types = mime_types_b
  *         if page404:             # <<<<<<<<<<<<<<
@@ -10916,7 +10916,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":623
+  /* "cymongoose/_mongoose.pyx":623
  *             page404_b = page404.encode("utf-8")
  *             opts.page404 = page404_b
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -10926,7 +10926,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_t_9 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 623, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_9;
 
-  /* "pymongoose/_mongoose.pyx":624
+  /* "cymongoose/_mongoose.pyx":624
  *             opts.page404 = page404_b
  *         cdef mg_connection *conn = self._ptr()
  *         cdef mg_http_message *msg = message._msg             # <<<<<<<<<<<<<<
@@ -10936,7 +10936,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_t_10 = __pyx_v_message->_msg;
   __pyx_v_msg = __pyx_t_10;
 
-  /* "pymongoose/_mongoose.pyx":626
+  /* "cymongoose/_mongoose.pyx":626
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -10949,7 +10949,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":627
+        /* "cymongoose/_mongoose.pyx":627
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_http_serve_dir(conn, msg, &opts)             # <<<<<<<<<<<<<<
@@ -10959,7 +10959,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
         mg_http_serve_dir(__pyx_v_conn, __pyx_v_msg, (&__pyx_v_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":626
+      /* "cymongoose/_mongoose.pyx":626
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -10976,7 +10976,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":602
+  /* "cymongoose/_mongoose.pyx":602
  *             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
  * 
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):             # <<<<<<<<<<<<<<
@@ -10990,7 +10990,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.serve_dir", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.serve_dir", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_root_b);
@@ -11002,7 +11002,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":631
+/* "cymongoose/_mongoose.pyx":631
  *             mg_http_serve_dir(conn, msg, &opts)
  * 
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):             # <<<<<<<<<<<<<<
@@ -11117,7 +11117,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.serve_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.serve_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -11168,7 +11168,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("serve_file", 0);
 
-  /* "pymongoose/_mongoose.pyx":633
+  /* "cymongoose/_mongoose.pyx":633
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):
  *         """Serve a single file using Mongoose's built-in static handler."""
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -11178,7 +11178,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_t_1 = (__pyx_v_message->_msg == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pymongoose/_mongoose.pyx":634
+    /* "cymongoose/_mongoose.pyx":634
  *         """Serve a single file using Mongoose's built-in static handler."""
  *         if message._msg == NULL:
  *             raise ValueError("HttpMessage is not valid for this event")             # <<<<<<<<<<<<<<
@@ -11198,7 +11198,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 634, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":633
+    /* "cymongoose/_mongoose.pyx":633
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):
  *         """Serve a single file using Mongoose's built-in static handler."""
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -11207,7 +11207,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":636
+  /* "cymongoose/_mongoose.pyx":636
  *             raise ValueError("HttpMessage is not valid for this event")
  *         cdef mg_http_serve_opts opts
  *         memset(&opts, 0, sizeof(mg_http_serve_opts))             # <<<<<<<<<<<<<<
@@ -11216,7 +11216,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(struct mg_http_serve_opts))));
 
-  /* "pymongoose/_mongoose.pyx":638
+  /* "cymongoose/_mongoose.pyx":638
  *         memset(&opts, 0, sizeof(mg_http_serve_opts))
  *         # Keep Python bytes objects alive - path_b and opts struct pointers reference their buffers
  *         cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -11228,7 +11228,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":641
+  /* "cymongoose/_mongoose.pyx":641
  *         cdef bytes extra_headers_b
  *         cdef bytes mime_types_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -11243,7 +11243,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":642
+    /* "cymongoose/_mongoose.pyx":642
  *         cdef bytes mime_types_b
  *         if extra_headers:
  *             extra_headers_b = extra_headers.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -11255,7 +11255,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
     __pyx_v_extra_headers_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":643
+    /* "cymongoose/_mongoose.pyx":643
  *         if extra_headers:
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b             # <<<<<<<<<<<<<<
@@ -11265,7 +11265,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
     __pyx_t_5 = __Pyx_PyBytes_AsString(__pyx_v_extra_headers_b); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(0, 643, __pyx_L1_error)
     __pyx_v_opts.extra_headers = __pyx_t_5;
 
-    /* "pymongoose/_mongoose.pyx":641
+    /* "cymongoose/_mongoose.pyx":641
  *         cdef bytes extra_headers_b
  *         cdef bytes mime_types_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -11274,7 +11274,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":644
+  /* "cymongoose/_mongoose.pyx":644
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:             # <<<<<<<<<<<<<<
@@ -11289,7 +11289,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":645
+    /* "cymongoose/_mongoose.pyx":645
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:
  *             mime_types_b = mime_types.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -11301,7 +11301,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
     __pyx_v_mime_types_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":646
+    /* "cymongoose/_mongoose.pyx":646
  *         if mime_types:
  *             mime_types_b = mime_types.encode("utf-8")
  *             opts.mime_types = mime_types_b             # <<<<<<<<<<<<<<
@@ -11311,7 +11311,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
     __pyx_t_6 = __Pyx_PyBytes_AsString(__pyx_v_mime_types_b); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 646, __pyx_L1_error)
     __pyx_v_opts.mime_types = __pyx_t_6;
 
-    /* "pymongoose/_mongoose.pyx":644
+    /* "cymongoose/_mongoose.pyx":644
  *             extra_headers_b = extra_headers.encode("utf-8")
  *             opts.extra_headers = extra_headers_b
  *         if mime_types:             # <<<<<<<<<<<<<<
@@ -11320,7 +11320,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":647
+  /* "cymongoose/_mongoose.pyx":647
  *             mime_types_b = mime_types.encode("utf-8")
  *             opts.mime_types = mime_types_b
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -11330,7 +11330,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 647, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
-  /* "pymongoose/_mongoose.pyx":648
+  /* "cymongoose/_mongoose.pyx":648
  *             opts.mime_types = mime_types_b
  *         cdef mg_connection *conn = self._ptr()
  *         cdef mg_http_message *msg = message._msg             # <<<<<<<<<<<<<<
@@ -11340,7 +11340,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_t_8 = __pyx_v_message->_msg;
   __pyx_v_msg = __pyx_t_8;
 
-  /* "pymongoose/_mongoose.pyx":649
+  /* "cymongoose/_mongoose.pyx":649
  *         cdef mg_connection *conn = self._ptr()
  *         cdef mg_http_message *msg = message._msg
  *         cdef const char *path_c = path_b             # <<<<<<<<<<<<<<
@@ -11350,7 +11350,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_t_9 = __Pyx_PyBytes_AsString(__pyx_v_path_b); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 649, __pyx_L1_error)
   __pyx_v_path_c = __pyx_t_9;
 
-  /* "pymongoose/_mongoose.pyx":651
+  /* "cymongoose/_mongoose.pyx":651
  *         cdef const char *path_c = path_b
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -11363,7 +11363,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":652
+        /* "cymongoose/_mongoose.pyx":652
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_http_serve_file(conn, msg, path_c, &opts)             # <<<<<<<<<<<<<<
@@ -11373,7 +11373,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
         mg_http_serve_file(__pyx_v_conn, __pyx_v_msg, __pyx_v_path_c, (&__pyx_v_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":651
+      /* "cymongoose/_mongoose.pyx":651
  *         cdef const char *path_c = path_b
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -11390,7 +11390,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":631
+  /* "cymongoose/_mongoose.pyx":631
  *             mg_http_serve_dir(conn, msg, &opts)
  * 
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):             # <<<<<<<<<<<<<<
@@ -11404,7 +11404,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.serve_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.serve_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_path_b);
@@ -11415,7 +11415,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":656
+/* "cymongoose/_mongoose.pyx":656
  *             mg_http_serve_file(conn, msg, path_c, &opts)
  * 
  *     def ws_upgrade(self, HttpMessage message, extra_headers=None):             # <<<<<<<<<<<<<<
@@ -11510,7 +11510,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.ws_upgrade", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.ws_upgrade", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -11535,7 +11535,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "pymongoose/_mongoose.pyx":669
+/* "cymongoose/_mongoose.pyx":669
  *         cdef bytes headers_b
  *         if extra_headers:
  *             headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items())             # <<<<<<<<<<<<<<
@@ -11571,7 +11571,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_gene
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.ws_upgrade.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.ws_upgrade.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -11673,7 +11673,7 @@ static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2gen
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":656
+/* "cymongoose/_mongoose.pyx":656
  *             mg_http_serve_file(conn, msg, path_c, &opts)
  * 
  *     def ws_upgrade(self, HttpMessage message, extra_headers=None):             # <<<<<<<<<<<<<<
@@ -11702,7 +11702,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_upgrade", 0);
 
-  /* "pymongoose/_mongoose.pyx":663
+  /* "cymongoose/_mongoose.pyx":663
  *             extra_headers: Optional dict of extra headers to send in upgrade response
  *         """
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -11712,7 +11712,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_t_1 = (__pyx_v_message->_msg == NULL);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pymongoose/_mongoose.pyx":664
+    /* "cymongoose/_mongoose.pyx":664
  *         """
  *         if message._msg == NULL:
  *             raise ValueError("HttpMessage is not valid for this event")             # <<<<<<<<<<<<<<
@@ -11732,7 +11732,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 664, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":663
+    /* "cymongoose/_mongoose.pyx":663
  *             extra_headers: Optional dict of extra headers to send in upgrade response
  *         """
  *         if message._msg == NULL:             # <<<<<<<<<<<<<<
@@ -11741,7 +11741,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":666
+  /* "cymongoose/_mongoose.pyx":666
  *             raise ValueError("HttpMessage is not valid for this event")
  * 
  *         cdef const char *fmt = NULL             # <<<<<<<<<<<<<<
@@ -11750,7 +11750,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
 */
   __pyx_v_fmt = NULL;
 
-  /* "pymongoose/_mongoose.pyx":668
+  /* "cymongoose/_mongoose.pyx":668
  *         cdef const char *fmt = NULL
  *         cdef bytes headers_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -11760,7 +11760,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_extra_headers); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 668, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":669
+    /* "cymongoose/_mongoose.pyx":669
  *         cdef bytes headers_b
  *         if extra_headers:
  *             headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items())             # <<<<<<<<<<<<<<
@@ -11778,7 +11778,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
     __pyx_v_headers_str = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":671
+    /* "cymongoose/_mongoose.pyx":671
  *             headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items())
  *             # Keep Python bytes object alive - fmt pointer references its buffer
  *             headers_b = headers_str.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -11794,7 +11794,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
     __pyx_v_headers_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":672
+    /* "cymongoose/_mongoose.pyx":672
  *             # Keep Python bytes object alive - fmt pointer references its buffer
  *             headers_b = headers_str.encode("utf-8")
  *             fmt = headers_b             # <<<<<<<<<<<<<<
@@ -11804,7 +11804,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
     __pyx_t_5 = __Pyx_PyBytes_AsString(__pyx_v_headers_b); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(0, 672, __pyx_L1_error)
     __pyx_v_fmt = __pyx_t_5;
 
-    /* "pymongoose/_mongoose.pyx":668
+    /* "cymongoose/_mongoose.pyx":668
  *         cdef const char *fmt = NULL
  *         cdef bytes headers_b
  *         if extra_headers:             # <<<<<<<<<<<<<<
@@ -11813,7 +11813,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":674
+  /* "cymongoose/_mongoose.pyx":674
  *             fmt = headers_b
  * 
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -11823,7 +11823,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_t_6 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_6;
 
-  /* "pymongoose/_mongoose.pyx":675
+  /* "cymongoose/_mongoose.pyx":675
  * 
  *         cdef mg_connection *conn = self._ptr()
  *         cdef mg_http_message *msg = message._msg             # <<<<<<<<<<<<<<
@@ -11833,7 +11833,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_t_7 = __pyx_v_message->_msg;
   __pyx_v_msg = __pyx_t_7;
 
-  /* "pymongoose/_mongoose.pyx":677
+  /* "cymongoose/_mongoose.pyx":677
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -11846,7 +11846,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":678
+        /* "cymongoose/_mongoose.pyx":678
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_ws_upgrade(conn, msg, fmt)             # <<<<<<<<<<<<<<
@@ -11856,7 +11856,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
         mg_ws_upgrade(__pyx_v_conn, __pyx_v_msg, __pyx_v_fmt);
       }
 
-      /* "pymongoose/_mongoose.pyx":677
+      /* "cymongoose/_mongoose.pyx":677
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -11873,7 +11873,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":656
+  /* "cymongoose/_mongoose.pyx":656
  *             mg_http_serve_file(conn, msg, path_c, &opts)
  * 
  *     def ws_upgrade(self, HttpMessage message, extra_headers=None):             # <<<<<<<<<<<<<<
@@ -11887,7 +11887,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.ws_upgrade", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.ws_upgrade", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_headers_b);
@@ -11898,7 +11898,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":682
+/* "cymongoose/_mongoose.pyx":682
  *             mg_ws_upgrade(conn, msg, fmt)
  * 
  *     def ws_send(self, data, op=WEBSOCKET_OP_TEXT):             # <<<<<<<<<<<<<<
@@ -11993,7 +11993,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.ws_send", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.ws_send", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -12029,7 +12029,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("ws_send", 0);
 
-  /* "pymongoose/_mongoose.pyx":684
+  /* "cymongoose/_mongoose.pyx":684
  *     def ws_send(self, data, op=WEBSOCKET_OP_TEXT):
  *         """Send a WebSocket frame."""
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -12039,7 +12039,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":685
+    /* "cymongoose/_mongoose.pyx":685
  *         """Send a WebSocket frame."""
  *         if isinstance(data, str):
  *             payload = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -12059,7 +12059,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
     __pyx_v_payload = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":684
+    /* "cymongoose/_mongoose.pyx":684
  *     def ws_send(self, data, op=WEBSOCKET_OP_TEXT):
  *         """Send a WebSocket frame."""
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -12069,7 +12069,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":687
+  /* "cymongoose/_mongoose.pyx":687
  *             payload = data.encode("utf-8")
  *         else:
  *             payload = bytes(data)             # <<<<<<<<<<<<<<
@@ -12091,7 +12091,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":688
+  /* "cymongoose/_mongoose.pyx":688
  *         else:
  *             payload = bytes(data)
  *         cdef bytes payload_b = payload             # <<<<<<<<<<<<<<
@@ -12104,7 +12104,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_v_payload_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":689
+  /* "cymongoose/_mongoose.pyx":689
  *             payload = bytes(data)
  *         cdef bytes payload_b = payload
  *         cdef const char *buf = payload_b             # <<<<<<<<<<<<<<
@@ -12118,7 +12118,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_t_5 = __Pyx_PyBytes_AsString(__pyx_v_payload_b); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) __PYX_ERR(0, 689, __pyx_L1_error)
   __pyx_v_buf = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":690
+  /* "cymongoose/_mongoose.pyx":690
  *         cdef bytes payload_b = payload
  *         cdef const char *buf = payload_b
  *         cdef size_t length = len(payload_b)             # <<<<<<<<<<<<<<
@@ -12132,7 +12132,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_payload_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 690, __pyx_L1_error)
   __pyx_v_length = __pyx_t_6;
 
-  /* "pymongoose/_mongoose.pyx":691
+  /* "cymongoose/_mongoose.pyx":691
  *         cdef const char *buf = payload_b
  *         cdef size_t length = len(payload_b)
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -12142,7 +12142,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 691, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
-  /* "pymongoose/_mongoose.pyx":692
+  /* "cymongoose/_mongoose.pyx":692
  *         cdef size_t length = len(payload_b)
  *         cdef mg_connection *conn = self._ptr()
  *         cdef int op_c = op             # <<<<<<<<<<<<<<
@@ -12152,7 +12152,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_t_8 = __Pyx_PyLong_As_int(__pyx_v_op); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 692, __pyx_L1_error)
   __pyx_v_op_c = __pyx_t_8;
 
-  /* "pymongoose/_mongoose.pyx":694
+  /* "cymongoose/_mongoose.pyx":694
  *         cdef int op_c = op
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12165,7 +12165,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":695
+        /* "cymongoose/_mongoose.pyx":695
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_ws_send(conn, buf, length, op_c)             # <<<<<<<<<<<<<<
@@ -12175,7 +12175,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
         (void)(mg_ws_send(__pyx_v_conn, __pyx_v_buf, __pyx_v_length, __pyx_v_op_c));
       }
 
-      /* "pymongoose/_mongoose.pyx":694
+      /* "cymongoose/_mongoose.pyx":694
  *         cdef int op_c = op
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12192,7 +12192,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":682
+  /* "cymongoose/_mongoose.pyx":682
  *             mg_ws_upgrade(conn, msg, fmt)
  * 
  *     def ws_send(self, data, op=WEBSOCKET_OP_TEXT):             # <<<<<<<<<<<<<<
@@ -12206,7 +12206,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.ws_send", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.ws_send", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_payload);
@@ -12216,7 +12216,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":699
+/* "cymongoose/_mongoose.pyx":699
  *             mg_ws_send(conn, buf, length, op_c)
  * 
  *     def mqtt_pub(self, topic: str, message, qos=0, retain=False):             # <<<<<<<<<<<<<<
@@ -12331,7 +12331,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_pub", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_pub", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -12376,7 +12376,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_pub", 0);
 
-  /* "pymongoose/_mongoose.pyx":712
+  /* "cymongoose/_mongoose.pyx":712
  *         """
  *         cdef mg_mqtt_opts opts
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))             # <<<<<<<<<<<<<<
@@ -12385,7 +12385,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(struct mg_mqtt_opts))));
 
-  /* "pymongoose/_mongoose.pyx":714
+  /* "cymongoose/_mongoose.pyx":714
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))
  * 
  *         cdef bytes topic_b = topic.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -12397,7 +12397,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_v_topic_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":716
+  /* "cymongoose/_mongoose.pyx":716
  *         cdef bytes topic_b = topic.encode("utf-8")
  *         cdef bytes msg_b
  *         if isinstance(message, str):             # <<<<<<<<<<<<<<
@@ -12407,7 +12407,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_2 = PyUnicode_Check(__pyx_v_message); 
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":717
+    /* "cymongoose/_mongoose.pyx":717
  *         cdef bytes msg_b
  *         if isinstance(message, str):
  *             msg_b = message.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -12428,7 +12428,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
     __pyx_v_msg_b = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pymongoose/_mongoose.pyx":716
+    /* "cymongoose/_mongoose.pyx":716
  *         cdef bytes topic_b = topic.encode("utf-8")
  *         cdef bytes msg_b
  *         if isinstance(message, str):             # <<<<<<<<<<<<<<
@@ -12438,7 +12438,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":719
+  /* "cymongoose/_mongoose.pyx":719
  *             msg_b = message.encode("utf-8")
  *         else:
  *             msg_b = bytes(message)             # <<<<<<<<<<<<<<
@@ -12460,7 +12460,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":721
+  /* "cymongoose/_mongoose.pyx":721
  *             msg_b = bytes(message)
  * 
  *         opts.topic = mg_str_n(topic_b, len(topic_b))             # <<<<<<<<<<<<<<
@@ -12471,7 +12471,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_topic_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 721, __pyx_L1_error)
   __pyx_v_opts.topic = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":722
+  /* "cymongoose/_mongoose.pyx":722
  * 
  *         opts.topic = mg_str_n(topic_b, len(topic_b))
  *         opts.message = mg_str_n(msg_b, len(msg_b))             # <<<<<<<<<<<<<<
@@ -12490,7 +12490,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_msg_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 722, __pyx_L1_error)
   __pyx_v_opts.message = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":723
+  /* "cymongoose/_mongoose.pyx":723
  *         opts.topic = mg_str_n(topic_b, len(topic_b))
  *         opts.message = mg_str_n(msg_b, len(msg_b))
  *         opts.qos = qos             # <<<<<<<<<<<<<<
@@ -12500,7 +12500,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_7 = __Pyx_PyLong_As_uint8_t(__pyx_v_qos); if (unlikely((__pyx_t_7 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 723, __pyx_L1_error)
   __pyx_v_opts.qos = __pyx_t_7;
 
-  /* "pymongoose/_mongoose.pyx":724
+  /* "cymongoose/_mongoose.pyx":724
  *         opts.message = mg_str_n(msg_b, len(msg_b))
  *         opts.qos = qos
  *         opts.retain = retain             # <<<<<<<<<<<<<<
@@ -12510,7 +12510,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_retain); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 724, __pyx_L1_error)
   __pyx_v_opts.retain = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":726
+  /* "cymongoose/_mongoose.pyx":726
  *         opts.retain = retain
  * 
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -12520,7 +12520,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_8 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 726, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_8;
 
-  /* "pymongoose/_mongoose.pyx":729
+  /* "cymongoose/_mongoose.pyx":729
  *         cdef uint16_t msg_id
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12533,7 +12533,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":730
+        /* "cymongoose/_mongoose.pyx":730
  *         IF USE_NOGIL:
  *             with nogil:
  *                 msg_id = mg_mqtt_pub(conn, &opts)             # <<<<<<<<<<<<<<
@@ -12543,7 +12543,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
         __pyx_v_msg_id = mg_mqtt_pub(__pyx_v_conn, (&__pyx_v_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":729
+      /* "cymongoose/_mongoose.pyx":729
  *         cdef uint16_t msg_id
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12560,7 +12560,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":733
+  /* "cymongoose/_mongoose.pyx":733
  *         ELSE:
  *             msg_id = mg_mqtt_pub(conn, &opts)
  *         return msg_id             # <<<<<<<<<<<<<<
@@ -12574,7 +12574,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":699
+  /* "cymongoose/_mongoose.pyx":699
  *             mg_ws_send(conn, buf, length, op_c)
  * 
  *     def mqtt_pub(self, topic: str, message, qos=0, retain=False):             # <<<<<<<<<<<<<<
@@ -12586,7 +12586,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_pub", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_pub", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_topic_b);
@@ -12596,7 +12596,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":735
+/* "cymongoose/_mongoose.pyx":735
  *         return msg_id
  * 
  *     def mqtt_sub(self, topic: str, qos=0):             # <<<<<<<<<<<<<<
@@ -12691,7 +12691,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_sub", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_sub", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -12731,7 +12731,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_sub", 0);
 
-  /* "pymongoose/_mongoose.pyx":743
+  /* "cymongoose/_mongoose.pyx":743
  *         """
  *         cdef mg_mqtt_opts opts
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))             # <<<<<<<<<<<<<<
@@ -12740,7 +12740,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(struct mg_mqtt_opts))));
 
-  /* "pymongoose/_mongoose.pyx":745
+  /* "cymongoose/_mongoose.pyx":745
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))
  * 
  *         cdef bytes topic_b = topic.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -12752,7 +12752,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   __pyx_v_topic_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":746
+  /* "cymongoose/_mongoose.pyx":746
  * 
  *         cdef bytes topic_b = topic.encode("utf-8")
  *         opts.topic = mg_str_n(topic_b, len(topic_b))             # <<<<<<<<<<<<<<
@@ -12763,7 +12763,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   __pyx_t_3 = __Pyx_PyBytes_GET_SIZE(__pyx_v_topic_b); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 746, __pyx_L1_error)
   __pyx_v_opts.topic = mg_str_n(__pyx_t_2, __pyx_t_3);
 
-  /* "pymongoose/_mongoose.pyx":747
+  /* "cymongoose/_mongoose.pyx":747
  *         cdef bytes topic_b = topic.encode("utf-8")
  *         opts.topic = mg_str_n(topic_b, len(topic_b))
  *         opts.qos = qos             # <<<<<<<<<<<<<<
@@ -12773,7 +12773,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   __pyx_t_4 = __Pyx_PyLong_As_uint8_t(__pyx_v_qos); if (unlikely((__pyx_t_4 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L1_error)
   __pyx_v_opts.qos = __pyx_t_4;
 
-  /* "pymongoose/_mongoose.pyx":749
+  /* "cymongoose/_mongoose.pyx":749
  *         opts.qos = qos
  * 
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -12783,7 +12783,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   __pyx_t_5 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":751
+  /* "cymongoose/_mongoose.pyx":751
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12796,7 +12796,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":752
+        /* "cymongoose/_mongoose.pyx":752
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_mqtt_sub(conn, &opts)             # <<<<<<<<<<<<<<
@@ -12806,7 +12806,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
         mg_mqtt_sub(__pyx_v_conn, (&__pyx_v_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":751
+      /* "cymongoose/_mongoose.pyx":751
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12823,7 +12823,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":735
+  /* "cymongoose/_mongoose.pyx":735
  *         return msg_id
  * 
  *     def mqtt_sub(self, topic: str, qos=0):             # <<<<<<<<<<<<<<
@@ -12836,7 +12836,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_sub", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_sub", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_topic_b);
@@ -12845,7 +12845,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":756
+/* "cymongoose/_mongoose.pyx":756
  *             mg_mqtt_sub(conn, &opts)
  * 
  *     def mqtt_ping(self):             # <<<<<<<<<<<<<<
@@ -12906,7 +12906,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_ping", 0);
 
-  /* "pymongoose/_mongoose.pyx":758
+  /* "cymongoose/_mongoose.pyx":758
  *     def mqtt_ping(self):
  *         """Send MQTT ping."""
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -12916,7 +12916,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 758, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":760
+  /* "cymongoose/_mongoose.pyx":760
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12929,7 +12929,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":761
+        /* "cymongoose/_mongoose.pyx":761
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_mqtt_ping(conn)             # <<<<<<<<<<<<<<
@@ -12939,7 +12939,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
         mg_mqtt_ping(__pyx_v_conn);
       }
 
-      /* "pymongoose/_mongoose.pyx":760
+      /* "cymongoose/_mongoose.pyx":760
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -12956,7 +12956,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":756
+  /* "cymongoose/_mongoose.pyx":756
  *             mg_mqtt_sub(conn, &opts)
  * 
  *     def mqtt_ping(self):             # <<<<<<<<<<<<<<
@@ -12968,7 +12968,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_ping", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_ping", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12976,7 +12976,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":765
+/* "cymongoose/_mongoose.pyx":765
  *             mg_mqtt_ping(conn)
  * 
  *     def mqtt_pong(self):             # <<<<<<<<<<<<<<
@@ -13037,7 +13037,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_pong", 0);
 
-  /* "pymongoose/_mongoose.pyx":767
+  /* "cymongoose/_mongoose.pyx":767
  *     def mqtt_pong(self):
  *         """Send MQTT pong."""
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -13047,7 +13047,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 767, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":769
+  /* "cymongoose/_mongoose.pyx":769
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -13060,7 +13060,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":770
+        /* "cymongoose/_mongoose.pyx":770
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_mqtt_pong(conn)             # <<<<<<<<<<<<<<
@@ -13070,7 +13070,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
         mg_mqtt_pong(__pyx_v_conn);
       }
 
-      /* "pymongoose/_mongoose.pyx":769
+      /* "cymongoose/_mongoose.pyx":769
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -13087,7 +13087,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":765
+  /* "cymongoose/_mongoose.pyx":765
  *             mg_mqtt_ping(conn)
  * 
  *     def mqtt_pong(self):             # <<<<<<<<<<<<<<
@@ -13099,7 +13099,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_pong", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_pong", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13107,7 +13107,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":774
+/* "cymongoose/_mongoose.pyx":774
  *             mg_mqtt_pong(conn)
  * 
  *     def mqtt_disconnect(self):             # <<<<<<<<<<<<<<
@@ -13169,7 +13169,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_disconnect", 0);
 
-  /* "pymongoose/_mongoose.pyx":780
+  /* "cymongoose/_mongoose.pyx":780
  *         """
  *         cdef mg_mqtt_opts opts
  *         memset(&opts, 0, sizeof(opts))             # <<<<<<<<<<<<<<
@@ -13178,7 +13178,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(__pyx_v_opts))));
 
-  /* "pymongoose/_mongoose.pyx":781
+  /* "cymongoose/_mongoose.pyx":781
  *         cdef mg_mqtt_opts opts
  *         memset(&opts, 0, sizeof(opts))
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -13188,7 +13188,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":783
+  /* "cymongoose/_mongoose.pyx":783
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -13201,7 +13201,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":784
+        /* "cymongoose/_mongoose.pyx":784
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_mqtt_disconnect(conn, &opts)             # <<<<<<<<<<<<<<
@@ -13211,7 +13211,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
         mg_mqtt_disconnect(__pyx_v_conn, (&__pyx_v_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":783
+      /* "cymongoose/_mongoose.pyx":783
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -13228,7 +13228,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":774
+  /* "cymongoose/_mongoose.pyx":774
  *             mg_mqtt_pong(conn)
  * 
  *     def mqtt_disconnect(self):             # <<<<<<<<<<<<<<
@@ -13240,7 +13240,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.mqtt_disconnect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.mqtt_disconnect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13248,7 +13248,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":788
+/* "cymongoose/_mongoose.pyx":788
  *             mg_mqtt_disconnect(conn, &opts)
  * 
  *     def error(self, message: str):             # <<<<<<<<<<<<<<
@@ -13328,7 +13328,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.error", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.error", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -13366,7 +13366,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("error", 0);
 
-  /* "pymongoose/_mongoose.pyx":794
+  /* "cymongoose/_mongoose.pyx":794
  *             message: Error message
  *         """
  *         cdef bytes msg_b = message.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -13378,7 +13378,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   __pyx_v_msg_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":795
+  /* "cymongoose/_mongoose.pyx":795
  *         """
  *         cdef bytes msg_b = message.encode("utf-8")
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -13388,7 +13388,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 795, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":796
+  /* "cymongoose/_mongoose.pyx":796
  *         cdef bytes msg_b = message.encode("utf-8")
  *         cdef mg_connection *conn = self._ptr()
  *         cdef const char *msg_ptr = msg_b             # <<<<<<<<<<<<<<
@@ -13398,7 +13398,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_msg_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 796, __pyx_L1_error)
   __pyx_v_msg_ptr = __pyx_t_3;
 
-  /* "pymongoose/_mongoose.pyx":797
+  /* "cymongoose/_mongoose.pyx":797
  *         cdef mg_connection *conn = self._ptr()
  *         cdef const char *msg_ptr = msg_b
  *         mg_error(conn, b"%s", <char*>msg_ptr)             # <<<<<<<<<<<<<<
@@ -13407,7 +13407,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
 */
   mg_error(__pyx_v_conn, __pyx_k_s, ((char *)__pyx_v_msg_ptr));
 
-  /* "pymongoose/_mongoose.pyx":788
+  /* "cymongoose/_mongoose.pyx":788
  *             mg_mqtt_disconnect(conn, &opts)
  * 
  *     def error(self, message: str):             # <<<<<<<<<<<<<<
@@ -13420,7 +13420,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.error", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.error", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_msg_b);
@@ -13429,7 +13429,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":799
+/* "cymongoose/_mongoose.pyx":799
  *         mg_error(conn, b"%s", <char*>msg_ptr)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13463,7 +13463,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":802
+  /* "cymongoose/_mongoose.pyx":802
  *     def is_client(self):
  *         """Return True if this is a client connection."""
  *         return self._conn.is_client != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13485,7 +13485,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":799
+  /* "cymongoose/_mongoose.pyx":799
  *         mg_error(conn, b"%s", <char*>msg_ptr)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13497,7 +13497,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_client.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_client.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13505,7 +13505,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":804
+/* "cymongoose/_mongoose.pyx":804
  *         return self._conn.is_client != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13539,7 +13539,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":807
+  /* "cymongoose/_mongoose.pyx":807
  *     def is_tls(self):
  *         """Return True if this connection uses TLS."""
  *         return self._conn.is_tls != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13561,7 +13561,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":804
+  /* "cymongoose/_mongoose.pyx":804
  *         return self._conn.is_client != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13573,7 +13573,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_tls.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_tls.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13581,7 +13581,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":809
+/* "cymongoose/_mongoose.pyx":809
  *         return self._conn.is_tls != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13615,7 +13615,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":812
+  /* "cymongoose/_mongoose.pyx":812
  *     def is_udp(self):
  *         """Return True if this is a UDP connection."""
  *         return self._conn.is_udp != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13637,7 +13637,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(s
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":809
+  /* "cymongoose/_mongoose.pyx":809
  *         return self._conn.is_tls != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13649,7 +13649,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(s
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_udp.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_udp.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13657,7 +13657,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(s
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":814
+/* "cymongoose/_mongoose.pyx":814
  *         return self._conn.is_udp != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13691,7 +13691,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":817
+  /* "cymongoose/_mongoose.pyx":817
  *     def is_websocket(self):
  *         """Return True if this is a WebSocket connection."""
  *         return self._conn.is_websocket != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13713,7 +13713,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":814
+  /* "cymongoose/_mongoose.pyx":814
  *         return self._conn.is_udp != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13725,7 +13725,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_websocket.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_websocket.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13733,7 +13733,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":819
+/* "cymongoose/_mongoose.pyx":819
  *         return self._conn.is_websocket != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13767,7 +13767,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":822
+  /* "cymongoose/_mongoose.pyx":822
  *     def is_readable(self):
  *         """Return True if connection has data to read."""
  *         return self._conn.is_readable != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13789,7 +13789,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___g
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":819
+  /* "cymongoose/_mongoose.pyx":819
  *         return self._conn.is_websocket != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13801,7 +13801,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___g
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_readable.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_readable.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13809,7 +13809,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___g
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":824
+/* "cymongoose/_mongoose.pyx":824
  *         return self._conn.is_readable != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13843,7 +13843,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":827
+  /* "cymongoose/_mongoose.pyx":827
  *     def is_writable(self):
  *         """Return True if connection can be written to."""
  *         return self._conn.is_writable != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13865,7 +13865,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___g
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":824
+  /* "cymongoose/_mongoose.pyx":824
  *         return self._conn.is_readable != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13877,7 +13877,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___g
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_writable.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_writable.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13885,7 +13885,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___g
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":829
+/* "cymongoose/_mongoose.pyx":829
  *         return self._conn.is_writable != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13919,7 +13919,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":832
+  /* "cymongoose/_mongoose.pyx":832
  *     def is_full(self):
  *         """Return True if receive buffer is full (backpressure - stop reads)."""
  *         return self._conn.is_full != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -13941,7 +13941,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":829
+  /* "cymongoose/_mongoose.pyx":829
  *         return self._conn.is_writable != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13953,7 +13953,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_full.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_full.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13961,7 +13961,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":834
+/* "cymongoose/_mongoose.pyx":834
  *         return self._conn.is_full != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -13995,7 +13995,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___g
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":837
+  /* "cymongoose/_mongoose.pyx":837
  *     def is_draining(self):
  *         """Return True if connection is draining (sending remaining data before close)."""
  *         return self._conn.is_draining != 0 if self._conn != NULL else False             # <<<<<<<<<<<<<<
@@ -14017,7 +14017,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___g
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":834
+  /* "cymongoose/_mongoose.pyx":834
  *         return self._conn.is_full != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14029,7 +14029,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___g
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.is_draining.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.is_draining.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14037,7 +14037,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___g
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":839
+/* "cymongoose/_mongoose.pyx":839
  *         return self._conn.is_draining != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14071,7 +14071,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":842
+  /* "cymongoose/_mongoose.pyx":842
  *     def recv_len(self):
  *         """Return number of bytes in receive buffer."""
  *         return self._conn.recv.len if self._conn != NULL else 0             # <<<<<<<<<<<<<<
@@ -14093,7 +14093,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":839
+  /* "cymongoose/_mongoose.pyx":839
  *         return self._conn.is_draining != 0 if self._conn != NULL else False
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14105,7 +14105,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.recv_len.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.recv_len.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14113,7 +14113,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":844
+/* "cymongoose/_mongoose.pyx":844
  *         return self._conn.recv.len if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14147,7 +14147,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":847
+  /* "cymongoose/_mongoose.pyx":847
  *     def send_len(self):
  *         """Return number of bytes in send buffer."""
  *         return self._conn.send.len if self._conn != NULL else 0             # <<<<<<<<<<<<<<
@@ -14169,7 +14169,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":844
+  /* "cymongoose/_mongoose.pyx":844
  *         return self._conn.recv.len if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14181,7 +14181,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send_len.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send_len.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14189,7 +14189,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":849
+/* "cymongoose/_mongoose.pyx":849
  *         return self._conn.send.len if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14223,7 +14223,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":852
+  /* "cymongoose/_mongoose.pyx":852
  *     def recv_size(self):
  *         """Return total allocated size of receive buffer."""
  *         return self._conn.recv.size if self._conn != NULL else 0             # <<<<<<<<<<<<<<
@@ -14245,7 +14245,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":849
+  /* "cymongoose/_mongoose.pyx":849
  *         return self._conn.send.len if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14257,7 +14257,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.recv_size.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.recv_size.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14265,7 +14265,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":854
+/* "cymongoose/_mongoose.pyx":854
  *         return self._conn.recv.size if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14299,7 +14299,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "pymongoose/_mongoose.pyx":857
+  /* "cymongoose/_mongoose.pyx":857
  *     def send_size(self):
  *         """Return total allocated size of send buffer."""
  *         return self._conn.send.size if self._conn != NULL else 0             # <<<<<<<<<<<<<<
@@ -14321,7 +14321,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":854
+  /* "cymongoose/_mongoose.pyx":854
  *         return self._conn.recv.size if self._conn != NULL else 0
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -14333,7 +14333,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send_size.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send_size.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14341,7 +14341,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":859
+/* "cymongoose/_mongoose.pyx":859
  *         return self._conn.send.size if self._conn != NULL else 0
  * 
  *     def recv_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -14425,7 +14425,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.recv_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.recv_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -14462,7 +14462,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("recv_data", 0);
 
-  /* "pymongoose/_mongoose.pyx":868
+  /* "cymongoose/_mongoose.pyx":868
  *             bytes: Data from receive buffer
  *         """
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -14472,7 +14472,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":869
+    /* "cymongoose/_mongoose.pyx":869
  *         """
  *         if self._conn == NULL:
  *             return b""             # <<<<<<<<<<<<<<
@@ -14484,7 +14484,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
     __pyx_r = __pyx_mstate_global->__pyx_kp_b_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":868
+    /* "cymongoose/_mongoose.pyx":868
  *             bytes: Data from receive buffer
  *         """
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -14493,7 +14493,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":870
+  /* "cymongoose/_mongoose.pyx":870
  *         if self._conn == NULL:
  *             return b""
  *         cdef size_t read_len = self._conn.recv.len             # <<<<<<<<<<<<<<
@@ -14503,7 +14503,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   __pyx_t_2 = __pyx_v_self->_conn->recv.len;
   __pyx_v_read_len = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":871
+  /* "cymongoose/_mongoose.pyx":871
  *             return b""
  *         cdef size_t read_len = self._conn.recv.len
  *         if length >= 0 and <size_t>length < read_len:             # <<<<<<<<<<<<<<
@@ -14524,7 +14524,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":872
+    /* "cymongoose/_mongoose.pyx":872
  *         cdef size_t read_len = self._conn.recv.len
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length             # <<<<<<<<<<<<<<
@@ -14534,7 +14534,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
     __pyx_t_2 = __Pyx_PyLong_As_size_t(__pyx_v_length); if (unlikely((__pyx_t_2 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 872, __pyx_L1_error)
     __pyx_v_read_len = ((size_t)__pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":871
+    /* "cymongoose/_mongoose.pyx":871
  *             return b""
  *         cdef size_t read_len = self._conn.recv.len
  *         if length >= 0 and <size_t>length < read_len:             # <<<<<<<<<<<<<<
@@ -14543,7 +14543,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":873
+  /* "cymongoose/_mongoose.pyx":873
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length
  *         if read_len == 0:             # <<<<<<<<<<<<<<
@@ -14553,7 +14553,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   __pyx_t_1 = (__pyx_v_read_len == 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":874
+    /* "cymongoose/_mongoose.pyx":874
  *             read_len = <size_t>length
  *         if read_len == 0:
  *             return b""             # <<<<<<<<<<<<<<
@@ -14565,7 +14565,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
     __pyx_r = __pyx_mstate_global->__pyx_kp_b_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":873
+    /* "cymongoose/_mongoose.pyx":873
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length
  *         if read_len == 0:             # <<<<<<<<<<<<<<
@@ -14574,7 +14574,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":875
+  /* "cymongoose/_mongoose.pyx":875
  *         if read_len == 0:
  *             return b""
  *         return (<char*>self._conn.recv.buf)[:read_len]             # <<<<<<<<<<<<<<
@@ -14588,7 +14588,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":859
+  /* "cymongoose/_mongoose.pyx":859
  *         return self._conn.send.size if self._conn != NULL else 0
  * 
  *     def recv_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -14599,7 +14599,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.recv_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.recv_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14607,7 +14607,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":877
+/* "cymongoose/_mongoose.pyx":877
  *         return (<char*>self._conn.recv.buf)[:read_len]
  * 
  *     def send_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -14691,7 +14691,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -14728,7 +14728,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("send_data", 0);
 
-  /* "pymongoose/_mongoose.pyx":886
+  /* "cymongoose/_mongoose.pyx":886
  *             bytes: Data from send buffer
  *         """
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -14738,7 +14738,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":887
+    /* "cymongoose/_mongoose.pyx":887
  *         """
  *         if self._conn == NULL:
  *             return b""             # <<<<<<<<<<<<<<
@@ -14750,7 +14750,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
     __pyx_r = __pyx_mstate_global->__pyx_kp_b_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":886
+    /* "cymongoose/_mongoose.pyx":886
  *             bytes: Data from send buffer
  *         """
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -14759,7 +14759,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":888
+  /* "cymongoose/_mongoose.pyx":888
  *         if self._conn == NULL:
  *             return b""
  *         cdef size_t read_len = self._conn.send.len             # <<<<<<<<<<<<<<
@@ -14769,7 +14769,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   __pyx_t_2 = __pyx_v_self->_conn->send.len;
   __pyx_v_read_len = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":889
+  /* "cymongoose/_mongoose.pyx":889
  *             return b""
  *         cdef size_t read_len = self._conn.send.len
  *         if length >= 0 and <size_t>length < read_len:             # <<<<<<<<<<<<<<
@@ -14790,7 +14790,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":890
+    /* "cymongoose/_mongoose.pyx":890
  *         cdef size_t read_len = self._conn.send.len
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length             # <<<<<<<<<<<<<<
@@ -14800,7 +14800,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
     __pyx_t_2 = __Pyx_PyLong_As_size_t(__pyx_v_length); if (unlikely((__pyx_t_2 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 890, __pyx_L1_error)
     __pyx_v_read_len = ((size_t)__pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":889
+    /* "cymongoose/_mongoose.pyx":889
  *             return b""
  *         cdef size_t read_len = self._conn.send.len
  *         if length >= 0 and <size_t>length < read_len:             # <<<<<<<<<<<<<<
@@ -14809,7 +14809,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":891
+  /* "cymongoose/_mongoose.pyx":891
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length
  *         if read_len == 0:             # <<<<<<<<<<<<<<
@@ -14819,7 +14819,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   __pyx_t_1 = (__pyx_v_read_len == 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":892
+    /* "cymongoose/_mongoose.pyx":892
  *             read_len = <size_t>length
  *         if read_len == 0:
  *             return b""             # <<<<<<<<<<<<<<
@@ -14831,7 +14831,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
     __pyx_r = __pyx_mstate_global->__pyx_kp_b_;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":891
+    /* "cymongoose/_mongoose.pyx":891
  *         if length >= 0 and <size_t>length < read_len:
  *             read_len = <size_t>length
  *         if read_len == 0:             # <<<<<<<<<<<<<<
@@ -14840,7 +14840,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":893
+  /* "cymongoose/_mongoose.pyx":893
  *         if read_len == 0:
  *             return b""
  *         return (<char*>self._conn.send.buf)[:read_len]             # <<<<<<<<<<<<<<
@@ -14854,7 +14854,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":877
+  /* "cymongoose/_mongoose.pyx":877
  *         return (<char*>self._conn.recv.buf)[:read_len]
  * 
  *     def send_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -14865,7 +14865,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.send_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.send_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14873,7 +14873,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":895
+/* "cymongoose/_mongoose.pyx":895
  *         return (<char*>self._conn.send.buf)[:read_len]
  * 
  *     def resolve(self, url: str):             # <<<<<<<<<<<<<<
@@ -14953,7 +14953,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.resolve", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.resolve", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -14991,7 +14991,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("resolve", 0);
 
-  /* "pymongoose/_mongoose.pyx":903
+  /* "cymongoose/_mongoose.pyx":903
  *             url: URL to resolve (e.g., "google.com" or "tcp://example.com:80")
  *         """
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -15003,7 +15003,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":904
+  /* "cymongoose/_mongoose.pyx":904
  *         """
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef const char *url_c = url_b             # <<<<<<<<<<<<<<
@@ -15013,7 +15013,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 904, __pyx_L1_error)
   __pyx_v_url_c = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":905
+  /* "cymongoose/_mongoose.pyx":905
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef const char *url_c = url_b
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -15023,7 +15023,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   __pyx_t_3 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 905, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_3;
 
-  /* "pymongoose/_mongoose.pyx":907
+  /* "cymongoose/_mongoose.pyx":907
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15036,7 +15036,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":908
+        /* "cymongoose/_mongoose.pyx":908
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_resolve(conn, url_c)             # <<<<<<<<<<<<<<
@@ -15046,7 +15046,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
         mg_resolve(__pyx_v_conn, __pyx_v_url_c);
       }
 
-      /* "pymongoose/_mongoose.pyx":907
+      /* "cymongoose/_mongoose.pyx":907
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15063,7 +15063,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":895
+  /* "cymongoose/_mongoose.pyx":895
  *         return (<char*>self._conn.send.buf)[:read_len]
  * 
  *     def resolve(self, url: str):             # <<<<<<<<<<<<<<
@@ -15076,7 +15076,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.resolve", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.resolve", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_url_b);
@@ -15085,7 +15085,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":912
+/* "cymongoose/_mongoose.pyx":912
  *             mg_resolve(conn, url_c)
  * 
  *     def resolve_cancel(self):             # <<<<<<<<<<<<<<
@@ -15146,7 +15146,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("resolve_cancel", 0);
 
-  /* "pymongoose/_mongoose.pyx":914
+  /* "cymongoose/_mongoose.pyx":914
  *     def resolve_cancel(self):
  *         """Cancel an ongoing DNS resolution."""
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -15156,7 +15156,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 914, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":916
+  /* "cymongoose/_mongoose.pyx":916
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15169,7 +15169,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":917
+        /* "cymongoose/_mongoose.pyx":917
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_resolve_cancel(conn)             # <<<<<<<<<<<<<<
@@ -15179,7 +15179,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
         mg_resolve_cancel(__pyx_v_conn);
       }
 
-      /* "pymongoose/_mongoose.pyx":916
+      /* "cymongoose/_mongoose.pyx":916
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15196,7 +15196,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":912
+  /* "cymongoose/_mongoose.pyx":912
  *             mg_resolve(conn, url_c)
  * 
  *     def resolve_cancel(self):             # <<<<<<<<<<<<<<
@@ -15208,7 +15208,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.resolve_cancel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.resolve_cancel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -15216,7 +15216,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":921
+/* "cymongoose/_mongoose.pyx":921
  *             mg_resolve_cancel(conn)
  * 
  *     def http_basic_auth(self, username: str, password: str):             # <<<<<<<<<<<<<<
@@ -15304,7 +15304,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_basic_auth", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_basic_auth", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -15344,7 +15344,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("http_basic_auth", 0);
 
-  /* "pymongoose/_mongoose.pyx":930
+  /* "cymongoose/_mongoose.pyx":930
  *             password: Password for basic auth
  *         """
  *         cdef bytes user_b = username.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -15356,7 +15356,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   __pyx_v_user_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":931
+  /* "cymongoose/_mongoose.pyx":931
  *         """
  *         cdef bytes user_b = username.encode("utf-8")
  *         cdef bytes pass_b = password.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -15368,7 +15368,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   __pyx_v_pass_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":932
+  /* "cymongoose/_mongoose.pyx":932
  *         cdef bytes user_b = username.encode("utf-8")
  *         cdef bytes pass_b = password.encode("utf-8")
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -15378,7 +15378,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":933
+  /* "cymongoose/_mongoose.pyx":933
  *         cdef bytes pass_b = password.encode("utf-8")
  *         cdef mg_connection *conn = self._ptr()
  *         mg_http_bauth(conn, user_b, pass_b)             # <<<<<<<<<<<<<<
@@ -15389,7 +15389,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   __pyx_t_4 = __Pyx_PyBytes_AsString(__pyx_v_pass_b); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 933, __pyx_L1_error)
   mg_http_bauth(__pyx_v_conn, __pyx_t_3, __pyx_t_4);
 
-  /* "pymongoose/_mongoose.pyx":921
+  /* "cymongoose/_mongoose.pyx":921
  *             mg_resolve_cancel(conn)
  * 
  *     def http_basic_auth(self, username: str, password: str):             # <<<<<<<<<<<<<<
@@ -15402,7 +15402,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_basic_auth", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_basic_auth", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_b);
@@ -15412,7 +15412,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":935
+/* "cymongoose/_mongoose.pyx":935
  *         mg_http_bauth(conn, user_b, pass_b)
  * 
  *     def sntp_request(self):             # <<<<<<<<<<<<<<
@@ -15473,7 +15473,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sntp_request", 0);
 
-  /* "pymongoose/_mongoose.pyx":941
+  /* "cymongoose/_mongoose.pyx":941
  *         Triggers MG_EV_SNTP_TIME event when response is received.
  *         """
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -15483,7 +15483,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 941, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":943
+  /* "cymongoose/_mongoose.pyx":943
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15496,7 +15496,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":944
+        /* "cymongoose/_mongoose.pyx":944
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_sntp_request(conn)             # <<<<<<<<<<<<<<
@@ -15506,7 +15506,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
         mg_sntp_request(__pyx_v_conn);
       }
 
-      /* "pymongoose/_mongoose.pyx":943
+      /* "cymongoose/_mongoose.pyx":943
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -15523,7 +15523,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":935
+  /* "cymongoose/_mongoose.pyx":935
  *         mg_http_bauth(conn, user_b, pass_b)
  * 
  *     def sntp_request(self):             # <<<<<<<<<<<<<<
@@ -15535,7 +15535,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.sntp_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.sntp_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -15543,7 +15543,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":948
+/* "cymongoose/_mongoose.pyx":948
  *             mg_sntp_request(conn)
  * 
  *     def http_chunk(self, data):             # <<<<<<<<<<<<<<
@@ -15623,7 +15623,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_chunk", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_chunk", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -15656,7 +15656,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("http_chunk", 0);
 
-  /* "pymongoose/_mongoose.pyx":966
+  /* "cymongoose/_mongoose.pyx":966
  *         """
  *         cdef bytes chunk_data
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -15666,7 +15666,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":967
+    /* "cymongoose/_mongoose.pyx":967
  *         cdef bytes chunk_data
  *         if isinstance(data, str):
  *             chunk_data = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -15687,7 +15687,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
     __pyx_v_chunk_data = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":966
+    /* "cymongoose/_mongoose.pyx":966
  *         """
  *         cdef bytes chunk_data
  *         if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -15697,7 +15697,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":969
+  /* "cymongoose/_mongoose.pyx":969
  *             chunk_data = data.encode("utf-8")
  *         else:
  *             chunk_data = bytes(data)             # <<<<<<<<<<<<<<
@@ -15719,7 +15719,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":971
+  /* "cymongoose/_mongoose.pyx":971
  *             chunk_data = bytes(data)
  * 
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -15729,7 +15729,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   __pyx_t_5 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 971, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":975
+  /* "cymongoose/_mongoose.pyx":975
  *         cdef size_t buf_len
  * 
  *         if len(chunk_data) == 0:             # <<<<<<<<<<<<<<
@@ -15744,7 +15744,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   __pyx_t_1 = (__pyx_t_6 == 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":978
+    /* "cymongoose/_mongoose.pyx":978
  *             # Empty chunk signals end
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -15757,7 +15757,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
         __Pyx_FastGIL_Remember();
         /*try:*/ {
 
-          /* "pymongoose/_mongoose.pyx":979
+          /* "cymongoose/_mongoose.pyx":979
  *             IF USE_NOGIL:
  *                 with nogil:
  *                     mg_http_write_chunk(conn, NULL, 0)             # <<<<<<<<<<<<<<
@@ -15767,7 +15767,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
           mg_http_write_chunk(__pyx_v_conn, NULL, 0);
         }
 
-        /* "pymongoose/_mongoose.pyx":978
+        /* "cymongoose/_mongoose.pyx":978
  *             # Empty chunk signals end
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -15784,7 +15784,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
         }
     }
 
-    /* "pymongoose/_mongoose.pyx":975
+    /* "cymongoose/_mongoose.pyx":975
  *         cdef size_t buf_len
  * 
  *         if len(chunk_data) == 0:             # <<<<<<<<<<<<<<
@@ -15794,7 +15794,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
     goto __pyx_L4;
   }
 
-  /* "pymongoose/_mongoose.pyx":983
+  /* "cymongoose/_mongoose.pyx":983
  *                 mg_http_write_chunk(conn, NULL, 0)
  *         else:
  *             buf_ptr = chunk_data             # <<<<<<<<<<<<<<
@@ -15809,7 +15809,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
     __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_chunk_data); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 983, __pyx_L1_error)
     __pyx_v_buf_ptr = __pyx_t_7;
 
-    /* "pymongoose/_mongoose.pyx":984
+    /* "cymongoose/_mongoose.pyx":984
  *         else:
  *             buf_ptr = chunk_data
  *             buf_len = len(chunk_data)             # <<<<<<<<<<<<<<
@@ -15823,7 +15823,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
     __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_chunk_data); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 984, __pyx_L1_error)
     __pyx_v_buf_len = __pyx_t_6;
 
-    /* "pymongoose/_mongoose.pyx":986
+    /* "cymongoose/_mongoose.pyx":986
  *             buf_len = len(chunk_data)
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -15836,7 +15836,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
         __Pyx_FastGIL_Remember();
         /*try:*/ {
 
-          /* "pymongoose/_mongoose.pyx":987
+          /* "cymongoose/_mongoose.pyx":987
  *             IF USE_NOGIL:
  *                 with nogil:
  *                     mg_http_write_chunk(conn, buf_ptr, buf_len)             # <<<<<<<<<<<<<<
@@ -15846,7 +15846,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
           mg_http_write_chunk(__pyx_v_conn, __pyx_v_buf_ptr, __pyx_v_buf_len);
         }
 
-        /* "pymongoose/_mongoose.pyx":986
+        /* "cymongoose/_mongoose.pyx":986
  *             buf_len = len(chunk_data)
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -15865,7 +15865,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   }
   __pyx_L4:;
 
-  /* "pymongoose/_mongoose.pyx":948
+  /* "cymongoose/_mongoose.pyx":948
  *             mg_sntp_request(conn)
  * 
  *     def http_chunk(self, data):             # <<<<<<<<<<<<<<
@@ -15879,7 +15879,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_chunk", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_chunk", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_chunk_data);
@@ -15888,7 +15888,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":991
+/* "cymongoose/_mongoose.pyx":991
  *                 mg_http_write_chunk(conn, buf_ptr, buf_len)
  * 
  *     def http_sse(self, event_type: str, data: str):             # <<<<<<<<<<<<<<
@@ -15976,7 +15976,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_sse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_sse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -16020,7 +16020,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("http_sse", 0);
 
-  /* "pymongoose/_mongoose.pyx":1011
+  /* "cymongoose/_mongoose.pyx":1011
  *                     conn.http_sse("update", "Status: OK")
  *         """
  *         cdef bytes event_b = event_type.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -16032,7 +16032,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_v_event_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1012
+  /* "cymongoose/_mongoose.pyx":1012
  *         """
  *         cdef bytes event_b = event_type.encode("utf-8")
  *         cdef bytes data_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -16044,7 +16044,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_v_data_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1014
+  /* "cymongoose/_mongoose.pyx":1014
  *         cdef bytes data_b = data.encode("utf-8")
  *         # SSE format: "event: <type>\ndata: <data>\n\n"
  *         cdef bytes sse_msg = b"event: " + event_b + b"\ndata: " + data_b + b"\n\n"             # <<<<<<<<<<<<<<
@@ -16065,7 +16065,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_v_sse_msg = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1015
+  /* "cymongoose/_mongoose.pyx":1015
  *         # SSE format: "event: <type>\ndata: <data>\n\n"
  *         cdef bytes sse_msg = b"event: " + event_b + b"\ndata: " + data_b + b"\n\n"
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -16075,7 +16075,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_t_3 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1015, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_3;
 
-  /* "pymongoose/_mongoose.pyx":1016
+  /* "cymongoose/_mongoose.pyx":1016
  *         cdef bytes sse_msg = b"event: " + event_b + b"\ndata: " + data_b + b"\n\n"
  *         cdef mg_connection *conn = self._ptr()
  *         cdef const char *msg_ptr = sse_msg             # <<<<<<<<<<<<<<
@@ -16085,7 +16085,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_t_4 = __Pyx_PyBytes_AsString(__pyx_v_sse_msg); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 1016, __pyx_L1_error)
   __pyx_v_msg_ptr = __pyx_t_4;
 
-  /* "pymongoose/_mongoose.pyx":1017
+  /* "cymongoose/_mongoose.pyx":1017
  *         cdef mg_connection *conn = self._ptr()
  *         cdef const char *msg_ptr = sse_msg
  *         cdef size_t msg_len = len(sse_msg)             # <<<<<<<<<<<<<<
@@ -16095,7 +16095,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_t_5 = __Pyx_PyBytes_GET_SIZE(__pyx_v_sse_msg); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1017, __pyx_L1_error)
   __pyx_v_msg_len = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":1019
+  /* "cymongoose/_mongoose.pyx":1019
  *         cdef size_t msg_len = len(sse_msg)
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16108,7 +16108,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":1020
+        /* "cymongoose/_mongoose.pyx":1020
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_http_write_chunk(conn, msg_ptr, msg_len)             # <<<<<<<<<<<<<<
@@ -16118,7 +16118,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
         mg_http_write_chunk(__pyx_v_conn, __pyx_v_msg_ptr, __pyx_v_msg_len);
       }
 
-      /* "pymongoose/_mongoose.pyx":1019
+      /* "cymongoose/_mongoose.pyx":1019
  *         cdef size_t msg_len = len(sse_msg)
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16135,7 +16135,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":991
+  /* "cymongoose/_mongoose.pyx":991
  *                 mg_http_write_chunk(conn, buf_ptr, buf_len)
  * 
  *     def http_sse(self, event_type: str, data: str):             # <<<<<<<<<<<<<<
@@ -16149,7 +16149,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.http_sse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.http_sse", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_event_b);
@@ -16160,7 +16160,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1024
+/* "cymongoose/_mongoose.pyx":1024
  *             mg_http_write_chunk(conn, msg_ptr, msg_len)
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -16219,7 +16219,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("close", 0);
 
-  /* "pymongoose/_mongoose.pyx":1029
+  /* "cymongoose/_mongoose.pyx":1029
  *         For graceful shutdown, use drain() instead to let buffered data flush first.
  *         """
  *         cdef mg_connection *conn = self._conn             # <<<<<<<<<<<<<<
@@ -16229,7 +16229,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
   __pyx_t_1 = __pyx_v_self->_conn;
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":1030
+  /* "cymongoose/_mongoose.pyx":1030
  *         """
  *         cdef mg_connection *conn = self._conn
  *         if conn != NULL:             # <<<<<<<<<<<<<<
@@ -16239,7 +16239,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
   __pyx_t_2 = (__pyx_v_conn != NULL);
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1032
+    /* "cymongoose/_mongoose.pyx":1032
  *         if conn != NULL:
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -16252,7 +16252,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
         __Pyx_FastGIL_Remember();
         /*try:*/ {
 
-          /* "pymongoose/_mongoose.pyx":1033
+          /* "cymongoose/_mongoose.pyx":1033
  *             IF USE_NOGIL:
  *                 with nogil:
  *                     mg_close_conn(conn)             # <<<<<<<<<<<<<<
@@ -16262,7 +16262,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
           mg_close_conn(__pyx_v_conn);
         }
 
-        /* "pymongoose/_mongoose.pyx":1032
+        /* "cymongoose/_mongoose.pyx":1032
  *         if conn != NULL:
  *             IF USE_NOGIL:
  *                 with nogil:             # <<<<<<<<<<<<<<
@@ -16279,7 +16279,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
         }
     }
 
-    /* "pymongoose/_mongoose.pyx":1030
+    /* "cymongoose/_mongoose.pyx":1030
  *         """
  *         cdef mg_connection *conn = self._conn
  *         if conn != NULL:             # <<<<<<<<<<<<<<
@@ -16288,7 +16288,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1024
+  /* "cymongoose/_mongoose.pyx":1024
  *             mg_http_write_chunk(conn, msg_ptr, msg_len)
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -16303,7 +16303,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1037
+/* "cymongoose/_mongoose.pyx":1037
  *                 mg_close_conn(conn)
  * 
  *     def drain(self):             # <<<<<<<<<<<<<<
@@ -16362,7 +16362,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("drain", 0);
 
-  /* "pymongoose/_mongoose.pyx":1054
+  /* "cymongoose/_mongoose.pyx":1054
  *                     conn.drain()  # Close after response is sent
  *         """
  *         cdef mg_connection *conn = self._conn             # <<<<<<<<<<<<<<
@@ -16372,7 +16372,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
   __pyx_t_1 = __pyx_v_self->_conn;
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":1055
+  /* "cymongoose/_mongoose.pyx":1055
  *         """
  *         cdef mg_connection *conn = self._conn
  *         if conn != NULL:             # <<<<<<<<<<<<<<
@@ -16382,7 +16382,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
   __pyx_t_2 = (__pyx_v_conn != NULL);
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1056
+    /* "cymongoose/_mongoose.pyx":1056
  *         cdef mg_connection *conn = self._conn
  *         if conn != NULL:
  *             conn.is_draining = 1             # <<<<<<<<<<<<<<
@@ -16391,7 +16391,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
 */
     __pyx_v_conn->is_draining = 1;
 
-    /* "pymongoose/_mongoose.pyx":1055
+    /* "cymongoose/_mongoose.pyx":1055
  *         """
  *         cdef mg_connection *conn = self._conn
  *         if conn != NULL:             # <<<<<<<<<<<<<<
@@ -16400,7 +16400,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1037
+  /* "cymongoose/_mongoose.pyx":1037
  *                 mg_close_conn(conn)
  * 
  *     def drain(self):             # <<<<<<<<<<<<<<
@@ -16415,7 +16415,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1058
+/* "cymongoose/_mongoose.pyx":1058
  *             conn.is_draining = 1
  * 
  *     def tls_init(self, TlsOpts opts):             # <<<<<<<<<<<<<<
@@ -16495,7 +16495,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.tls_init", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.tls_init", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -16535,7 +16535,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("tls_init", 0);
 
-  /* "pymongoose/_mongoose.pyx":1079
+  /* "cymongoose/_mongoose.pyx":1079
  *         """
  *         cdef mg_tls_opts c_opts
  *         memset(&c_opts, 0, sizeof(c_opts))             # <<<<<<<<<<<<<<
@@ -16544,7 +16544,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
   (void)(memset((&__pyx_v_c_opts), 0, (sizeof(__pyx_v_c_opts))));
 
-  /* "pymongoose/_mongoose.pyx":1082
+  /* "cymongoose/_mongoose.pyx":1082
  * 
  *         # Set certificate fields
  *         if len(opts.ca) > 0:             # <<<<<<<<<<<<<<
@@ -16562,7 +16562,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   __pyx_t_3 = (__pyx_t_2 > 0);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1083
+    /* "cymongoose/_mongoose.pyx":1083
  *         # Set certificate fields
  *         if len(opts.ca) > 0:
  *             c_opts.ca = mg_str_n(opts.ca, len(opts.ca))             # <<<<<<<<<<<<<<
@@ -16584,7 +16584,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_c_opts.ca = mg_str_n(__pyx_t_4, __pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":1082
+    /* "cymongoose/_mongoose.pyx":1082
  * 
  *         # Set certificate fields
  *         if len(opts.ca) > 0:             # <<<<<<<<<<<<<<
@@ -16593,7 +16593,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1084
+  /* "cymongoose/_mongoose.pyx":1084
  *         if len(opts.ca) > 0:
  *             c_opts.ca = mg_str_n(opts.ca, len(opts.ca))
  *         if len(opts.cert) > 0:             # <<<<<<<<<<<<<<
@@ -16611,7 +16611,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   __pyx_t_3 = (__pyx_t_2 > 0);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1085
+    /* "cymongoose/_mongoose.pyx":1085
  *             c_opts.ca = mg_str_n(opts.ca, len(opts.ca))
  *         if len(opts.cert) > 0:
  *             c_opts.cert = mg_str_n(opts.cert, len(opts.cert))             # <<<<<<<<<<<<<<
@@ -16633,7 +16633,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_c_opts.cert = mg_str_n(__pyx_t_4, __pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":1084
+    /* "cymongoose/_mongoose.pyx":1084
  *         if len(opts.ca) > 0:
  *             c_opts.ca = mg_str_n(opts.ca, len(opts.ca))
  *         if len(opts.cert) > 0:             # <<<<<<<<<<<<<<
@@ -16642,7 +16642,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1086
+  /* "cymongoose/_mongoose.pyx":1086
  *         if len(opts.cert) > 0:
  *             c_opts.cert = mg_str_n(opts.cert, len(opts.cert))
  *         if len(opts.key) > 0:             # <<<<<<<<<<<<<<
@@ -16660,7 +16660,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   __pyx_t_3 = (__pyx_t_2 > 0);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1087
+    /* "cymongoose/_mongoose.pyx":1087
  *             c_opts.cert = mg_str_n(opts.cert, len(opts.cert))
  *         if len(opts.key) > 0:
  *             c_opts.key = mg_str_n(opts.key, len(opts.key))             # <<<<<<<<<<<<<<
@@ -16682,7 +16682,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_c_opts.key = mg_str_n(__pyx_t_4, __pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":1086
+    /* "cymongoose/_mongoose.pyx":1086
  *         if len(opts.cert) > 0:
  *             c_opts.cert = mg_str_n(opts.cert, len(opts.cert))
  *         if len(opts.key) > 0:             # <<<<<<<<<<<<<<
@@ -16691,7 +16691,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1088
+  /* "cymongoose/_mongoose.pyx":1088
  *         if len(opts.key) > 0:
  *             c_opts.key = mg_str_n(opts.key, len(opts.key))
  *         if len(opts.name) > 0:             # <<<<<<<<<<<<<<
@@ -16709,7 +16709,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   __pyx_t_3 = (__pyx_t_2 > 0);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1089
+    /* "cymongoose/_mongoose.pyx":1089
  *             c_opts.key = mg_str_n(opts.key, len(opts.key))
  *         if len(opts.name) > 0:
  *             c_opts.name = mg_str_n(opts.name, len(opts.name))             # <<<<<<<<<<<<<<
@@ -16731,7 +16731,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_c_opts.name = mg_str_n(__pyx_t_4, __pyx_t_2);
 
-    /* "pymongoose/_mongoose.pyx":1088
+    /* "cymongoose/_mongoose.pyx":1088
  *         if len(opts.key) > 0:
  *             c_opts.key = mg_str_n(opts.key, len(opts.key))
  *         if len(opts.name) > 0:             # <<<<<<<<<<<<<<
@@ -16740,7 +16740,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1091
+  /* "cymongoose/_mongoose.pyx":1091
  *             c_opts.name = mg_str_n(opts.name, len(opts.name))
  * 
  *         c_opts.skip_verification = 1 if opts.skip_verification else 0             # <<<<<<<<<<<<<<
@@ -16754,7 +16754,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   }
   __pyx_v_c_opts.skip_verification = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":1093
+  /* "cymongoose/_mongoose.pyx":1093
  *         c_opts.skip_verification = 1 if opts.skip_verification else 0
  * 
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -16764,7 +16764,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   __pyx_t_6 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1093, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_6;
 
-  /* "pymongoose/_mongoose.pyx":1095
+  /* "cymongoose/_mongoose.pyx":1095
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16777,7 +16777,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":1096
+        /* "cymongoose/_mongoose.pyx":1096
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_tls_init(conn, &c_opts)             # <<<<<<<<<<<<<<
@@ -16787,7 +16787,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
         mg_tls_init(__pyx_v_conn, (&__pyx_v_c_opts));
       }
 
-      /* "pymongoose/_mongoose.pyx":1095
+      /* "cymongoose/_mongoose.pyx":1095
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16804,7 +16804,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":1058
+  /* "cymongoose/_mongoose.pyx":1058
  *             conn.is_draining = 1
  * 
  *     def tls_init(self, TlsOpts opts):             # <<<<<<<<<<<<<<
@@ -16817,7 +16817,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.tls_init", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.tls_init", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -16825,7 +16825,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1100
+/* "cymongoose/_mongoose.pyx":1100
  *             mg_tls_init(conn, &c_opts)
  * 
  *     def tls_free(self):             # <<<<<<<<<<<<<<
@@ -16886,7 +16886,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("tls_free", 0);
 
-  /* "pymongoose/_mongoose.pyx":1105
+  /* "cymongoose/_mongoose.pyx":1105
  *         Typically not needed as TLS is automatically freed when connection closes.
  *         """
  *         cdef mg_connection *conn = self._ptr()             # <<<<<<<<<<<<<<
@@ -16896,7 +16896,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
   __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1105, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
-  /* "pymongoose/_mongoose.pyx":1107
+  /* "cymongoose/_mongoose.pyx":1107
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16909,7 +16909,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":1108
+        /* "cymongoose/_mongoose.pyx":1108
  *         IF USE_NOGIL:
  *             with nogil:
  *                 mg_tls_free(conn)             # <<<<<<<<<<<<<<
@@ -16919,7 +16919,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
         mg_tls_free(__pyx_v_conn);
       }
 
-      /* "pymongoose/_mongoose.pyx":1107
+      /* "cymongoose/_mongoose.pyx":1107
  *         cdef mg_connection *conn = self._ptr()
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -16936,7 +16936,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":1100
+  /* "cymongoose/_mongoose.pyx":1100
  *             mg_tls_init(conn, &c_opts)
  * 
  *     def tls_free(self):             # <<<<<<<<<<<<<<
@@ -16948,7 +16948,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.tls_free", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.tls_free", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -16956,7 +16956,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1112
+/* "cymongoose/_mongoose.pyx":1112
  *             mg_tls_free(conn)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -16993,7 +16993,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "pymongoose/_mongoose.pyx":1113
+  /* "cymongoose/_mongoose.pyx":1113
  * 
  *     def __repr__(self):
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -17003,7 +17003,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
   __pyx_t_1 = (__pyx_v_self->_conn == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1114
+    /* "cymongoose/_mongoose.pyx":1114
  *     def __repr__(self):
  *         if self._conn == NULL:
  *             return "<Connection closed>"             # <<<<<<<<<<<<<<
@@ -17015,7 +17015,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
     __pyx_r = __pyx_mstate_global->__pyx_kp_u_Connection_closed;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1113
+    /* "cymongoose/_mongoose.pyx":1113
  * 
  *     def __repr__(self):
  *         if self._conn == NULL:             # <<<<<<<<<<<<<<
@@ -17024,7 +17024,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1115
+  /* "cymongoose/_mongoose.pyx":1115
  *         if self._conn == NULL:
  *             return "<Connection closed>"
  *         return f"<Connection id={self._conn.id} readable={bool(self._conn.is_readable)} writable={bool(self._conn.is_writable)}>"             # <<<<<<<<<<<<<<
@@ -17061,7 +17061,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1112
+  /* "cymongoose/_mongoose.pyx":1112
  *             mg_tls_free(conn)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -17075,7 +17075,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -17157,7 +17157,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_54__reduce_cython
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -17243,7 +17243,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -17282,14 +17282,14 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_56__setstate_cyth
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Connection.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Connection.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1127
+/* "cymongoose/_mongoose.pyx":1127
  *     cdef bint _freed
  * 
  *     def __cinit__(self, handler=None, enable_wakeup=False):             # <<<<<<<<<<<<<<
@@ -17366,7 +17366,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
@@ -17392,7 +17392,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pymongoose/_mongoose.pyx":1128
+  /* "cymongoose/_mongoose.pyx":1128
  * 
  *     def __cinit__(self, handler=None, enable_wakeup=False):
  *         self._default_handler = handler             # <<<<<<<<<<<<<<
@@ -17405,7 +17405,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   __Pyx_DECREF(__pyx_v_self->_default_handler);
   __pyx_v_self->_default_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1129
+  /* "cymongoose/_mongoose.pyx":1129
  *     def __cinit__(self, handler=None, enable_wakeup=False):
  *         self._default_handler = handler
  *         self._connections = {}             # <<<<<<<<<<<<<<
@@ -17420,7 +17420,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   __pyx_v_self->_connections = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1130
+  /* "cymongoose/_mongoose.pyx":1130
  *         self._default_handler = handler
  *         self._connections = {}
  *         self._self_ref = <PyObject*> self             # <<<<<<<<<<<<<<
@@ -17429,7 +17429,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
   __pyx_v_self->_self_ref = ((PyObject *)__pyx_v_self);
 
-  /* "pymongoose/_mongoose.pyx":1131
+  /* "cymongoose/_mongoose.pyx":1131
  *         self._connections = {}
  *         self._self_ref = <PyObject*> self
  *         Py_INCREF(<object>self._self_ref)             # <<<<<<<<<<<<<<
@@ -17441,7 +17441,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   Py_INCREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1132
+  /* "cymongoose/_mongoose.pyx":1132
  *         self._self_ref = <PyObject*> self
  *         Py_INCREF(<object>self._self_ref)
  *         mg_mgr_init(&self._mgr)             # <<<<<<<<<<<<<<
@@ -17450,7 +17450,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
   mg_mgr_init((&__pyx_v_self->_mgr));
 
-  /* "pymongoose/_mongoose.pyx":1133
+  /* "cymongoose/_mongoose.pyx":1133
  *         Py_INCREF(<object>self._self_ref)
  *         mg_mgr_init(&self._mgr)
  *         self._mgr.userdata = <void*> self             # <<<<<<<<<<<<<<
@@ -17459,7 +17459,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
   __pyx_v_self->_mgr.userdata = ((void *)__pyx_v_self);
 
-  /* "pymongoose/_mongoose.pyx":1134
+  /* "cymongoose/_mongoose.pyx":1134
  *         mg_mgr_init(&self._mgr)
  *         self._mgr.userdata = <void*> self
  *         self._freed = False             # <<<<<<<<<<<<<<
@@ -17468,7 +17468,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
   __pyx_v_self->_freed = 0;
 
-  /* "pymongoose/_mongoose.pyx":1135
+  /* "cymongoose/_mongoose.pyx":1135
  *         self._mgr.userdata = <void*> self
  *         self._freed = False
  *         if enable_wakeup:             # <<<<<<<<<<<<<<
@@ -17478,7 +17478,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_enable_wakeup); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1135, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1136
+    /* "cymongoose/_mongoose.pyx":1136
  *         self._freed = False
  *         if enable_wakeup:
  *             if not mg_wakeup_init(&self._mgr):             # <<<<<<<<<<<<<<
@@ -17488,7 +17488,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
     __pyx_t_2 = (!mg_wakeup_init((&__pyx_v_self->_mgr)));
     if (unlikely(__pyx_t_2)) {
 
-      /* "pymongoose/_mongoose.pyx":1137
+      /* "cymongoose/_mongoose.pyx":1137
  *         if enable_wakeup:
  *             if not mg_wakeup_init(&self._mgr):
  *                 raise RuntimeError("Failed to initialize wakeup support")             # <<<<<<<<<<<<<<
@@ -17508,7 +17508,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __PYX_ERR(0, 1137, __pyx_L1_error)
 
-      /* "pymongoose/_mongoose.pyx":1136
+      /* "cymongoose/_mongoose.pyx":1136
  *         self._freed = False
  *         if enable_wakeup:
  *             if not mg_wakeup_init(&self._mgr):             # <<<<<<<<<<<<<<
@@ -17517,7 +17517,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
     }
 
-    /* "pymongoose/_mongoose.pyx":1135
+    /* "cymongoose/_mongoose.pyx":1135
  *         self._mgr.userdata = <void*> self
  *         self._freed = False
  *         if enable_wakeup:             # <<<<<<<<<<<<<<
@@ -17526,7 +17526,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1127
+  /* "cymongoose/_mongoose.pyx":1127
  *     cdef bint _freed
  * 
  *     def __cinit__(self, handler=None, enable_wakeup=False):             # <<<<<<<<<<<<<<
@@ -17540,14 +17540,14 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1139
+/* "cymongoose/_mongoose.pyx":1139
  *                 raise RuntimeError("Failed to initialize wakeup support")
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -17574,7 +17574,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pymongoose/_mongoose.pyx":1140
+  /* "cymongoose/_mongoose.pyx":1140
  * 
  *     def __dealloc__(self):
  *         if not self._freed:             # <<<<<<<<<<<<<<
@@ -17584,7 +17584,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
   __pyx_t_1 = (!__pyx_v_self->_freed);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1141
+    /* "cymongoose/_mongoose.pyx":1141
  *     def __dealloc__(self):
  *         if not self._freed:
  *             mg_mgr_free(&self._mgr)             # <<<<<<<<<<<<<<
@@ -17593,7 +17593,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
     mg_mgr_free((&__pyx_v_self->_mgr));
 
-    /* "pymongoose/_mongoose.pyx":1142
+    /* "cymongoose/_mongoose.pyx":1142
  *         if not self._freed:
  *             mg_mgr_free(&self._mgr)
  *             self._freed = True             # <<<<<<<<<<<<<<
@@ -17602,7 +17602,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
     __pyx_v_self->_freed = 1;
 
-    /* "pymongoose/_mongoose.pyx":1140
+    /* "cymongoose/_mongoose.pyx":1140
  * 
  *     def __dealloc__(self):
  *         if not self._freed:             # <<<<<<<<<<<<<<
@@ -17611,7 +17611,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1143
+  /* "cymongoose/_mongoose.pyx":1143
  *             mg_mgr_free(&self._mgr)
  *             self._freed = True
  *         self._mgr.userdata = NULL             # <<<<<<<<<<<<<<
@@ -17620,7 +17620,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
   __pyx_v_self->_mgr.userdata = NULL;
 
-  /* "pymongoose/_mongoose.pyx":1144
+  /* "cymongoose/_mongoose.pyx":1144
  *             self._freed = True
  *         self._mgr.userdata = NULL
  *         if self._self_ref != NULL:             # <<<<<<<<<<<<<<
@@ -17630,7 +17630,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
   __pyx_t_1 = (__pyx_v_self->_self_ref != NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1145
+    /* "cymongoose/_mongoose.pyx":1145
  *         self._mgr.userdata = NULL
  *         if self._self_ref != NULL:
  *             Py_DECREF(<object>self._self_ref)             # <<<<<<<<<<<<<<
@@ -17642,7 +17642,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
     Py_DECREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1146
+    /* "cymongoose/_mongoose.pyx":1146
  *         if self._self_ref != NULL:
  *             Py_DECREF(<object>self._self_ref)
  *             self._self_ref = NULL             # <<<<<<<<<<<<<<
@@ -17651,7 +17651,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
     __pyx_v_self->_self_ref = NULL;
 
-    /* "pymongoose/_mongoose.pyx":1144
+    /* "cymongoose/_mongoose.pyx":1144
  *             self._freed = True
  *         self._mgr.userdata = NULL
  *         if self._self_ref != NULL:             # <<<<<<<<<<<<<<
@@ -17660,7 +17660,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1139
+  /* "cymongoose/_mongoose.pyx":1139
  *                 raise RuntimeError("Failed to initialize wakeup support")
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -17672,7 +17672,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pymongoose/_mongoose.pyx":1148
+/* "cymongoose/_mongoose.pyx":1148
  *             self._self_ref = NULL
  * 
  *     cdef Connection _ensure_connection(self, mg_connection *conn):             # <<<<<<<<<<<<<<
@@ -17693,7 +17693,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_ensure_connection", 0);
 
-  /* "pymongoose/_mongoose.pyx":1149
+  /* "cymongoose/_mongoose.pyx":1149
  * 
  *     cdef Connection _ensure_connection(self, mg_connection *conn):
  *         cdef uintptr_t key = <uintptr_t> conn             # <<<<<<<<<<<<<<
@@ -17702,7 +17702,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
 */
   __pyx_v_key = ((uintptr_t)__pyx_v_conn);
 
-  /* "pymongoose/_mongoose.pyx":1151
+  /* "cymongoose/_mongoose.pyx":1151
  *         cdef uintptr_t key = <uintptr_t> conn
  *         cdef Connection py_conn
  *         py_conn = self._connections.get(key, None)             # <<<<<<<<<<<<<<
@@ -17722,7 +17722,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1152
+  /* "cymongoose/_mongoose.pyx":1152
  *         cdef Connection py_conn
  *         py_conn = self._connections.get(key, None)
  *         if py_conn is None:             # <<<<<<<<<<<<<<
@@ -17732,7 +17732,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_t_3 = (((PyObject *)__pyx_v_py_conn) == Py_None);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1153
+    /* "cymongoose/_mongoose.pyx":1153
  *         py_conn = self._connections.get(key, None)
  *         if py_conn is None:
  *             py_conn = Connection.__new__(Connection)             # <<<<<<<<<<<<<<
@@ -17744,7 +17744,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
     __Pyx_DECREF_SET(__pyx_v_py_conn, ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1154
+    /* "cymongoose/_mongoose.pyx":1154
  *         if py_conn is None:
  *             py_conn = Connection.__new__(Connection)
  *             py_conn._bind(self, conn, None)             # <<<<<<<<<<<<<<
@@ -17753,7 +17753,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
 */
     ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_py_conn->__pyx_vtab)->_bind(__pyx_v_py_conn, __pyx_v_self, __pyx_v_conn, Py_None); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1154, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1155
+    /* "cymongoose/_mongoose.pyx":1155
  *             py_conn = Connection.__new__(Connection)
  *             py_conn._bind(self, conn, None)
  *             self._connections[key] = py_conn             # <<<<<<<<<<<<<<
@@ -17769,7 +17769,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
     if (unlikely((PyDict_SetItem(__pyx_v_self->_connections, __pyx_t_2, ((PyObject *)__pyx_v_py_conn)) < 0))) __PYX_ERR(0, 1155, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1152
+    /* "cymongoose/_mongoose.pyx":1152
  *         cdef Connection py_conn
  *         py_conn = self._connections.get(key, None)
  *         if py_conn is None:             # <<<<<<<<<<<<<<
@@ -17779,7 +17779,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1156
+  /* "cymongoose/_mongoose.pyx":1156
  *             py_conn._bind(self, conn, None)
  *             self._connections[key] = py_conn
  *         elif py_conn._conn == NULL:             # <<<<<<<<<<<<<<
@@ -17789,7 +17789,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_t_3 = (__pyx_v_py_conn->_conn == NULL);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1157
+    /* "cymongoose/_mongoose.pyx":1157
  *             self._connections[key] = py_conn
  *         elif py_conn._conn == NULL:
  *             py_conn._conn = conn             # <<<<<<<<<<<<<<
@@ -17798,7 +17798,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
 */
     __pyx_v_py_conn->_conn = __pyx_v_conn;
 
-    /* "pymongoose/_mongoose.pyx":1156
+    /* "cymongoose/_mongoose.pyx":1156
  *             py_conn._bind(self, conn, None)
  *             self._connections[key] = py_conn
  *         elif py_conn._conn == NULL:             # <<<<<<<<<<<<<<
@@ -17808,7 +17808,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1158
+  /* "cymongoose/_mongoose.pyx":1158
  *         elif py_conn._conn == NULL:
  *             py_conn._conn = conn
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -17820,7 +17820,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_r = __pyx_v_py_conn;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1148
+  /* "cymongoose/_mongoose.pyx":1148
  *             self._self_ref = NULL
  * 
  *     cdef Connection _ensure_connection(self, mg_connection *conn):             # <<<<<<<<<<<<<<
@@ -17832,7 +17832,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager._ensure_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager._ensure_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_py_conn);
@@ -17841,7 +17841,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1160
+/* "cymongoose/_mongoose.pyx":1160
  *         return py_conn
  * 
  *     cdef void _drop_connection(self, mg_connection *conn):             # <<<<<<<<<<<<<<
@@ -17861,7 +17861,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_drop_connection", 0);
 
-  /* "pymongoose/_mongoose.pyx":1161
+  /* "cymongoose/_mongoose.pyx":1161
  * 
  *     cdef void _drop_connection(self, mg_connection *conn):
  *         cdef uintptr_t key = <uintptr_t> conn             # <<<<<<<<<<<<<<
@@ -17870,7 +17870,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
 */
   __pyx_v_key = ((uintptr_t)__pyx_v_conn);
 
-  /* "pymongoose/_mongoose.pyx":1163
+  /* "cymongoose/_mongoose.pyx":1163
  *         cdef uintptr_t key = <uintptr_t> conn
  *         cdef Connection py_conn
  *         py_conn = self._connections.pop(key, None)             # <<<<<<<<<<<<<<
@@ -17890,7 +17890,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1164
+  /* "cymongoose/_mongoose.pyx":1164
  *         cdef Connection py_conn
  *         py_conn = self._connections.pop(key, None)
  *         if py_conn is not None:             # <<<<<<<<<<<<<<
@@ -17900,7 +17900,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
   __pyx_t_3 = (((PyObject *)__pyx_v_py_conn) != Py_None);
   if (__pyx_t_3) {
 
-    /* "pymongoose/_mongoose.pyx":1165
+    /* "cymongoose/_mongoose.pyx":1165
  *         py_conn = self._connections.pop(key, None)
  *         if py_conn is not None:
  *             py_conn._conn = <mg_connection*>NULL             # <<<<<<<<<<<<<<
@@ -17909,7 +17909,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
 */
     __pyx_v_py_conn->_conn = ((struct mg_connection *)NULL);
 
-    /* "pymongoose/_mongoose.pyx":1164
+    /* "cymongoose/_mongoose.pyx":1164
  *         cdef Connection py_conn
  *         py_conn = self._connections.pop(key, None)
  *         if py_conn is not None:             # <<<<<<<<<<<<<<
@@ -17918,7 +17918,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1160
+  /* "cymongoose/_mongoose.pyx":1160
  *         return py_conn
  * 
  *     cdef void _drop_connection(self, mg_connection *conn):             # <<<<<<<<<<<<<<
@@ -17931,13 +17931,13 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager._drop_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager._drop_connection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_py_conn);
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pymongoose/_mongoose.pyx":1167
+/* "cymongoose/_mongoose.pyx":1167
  *             py_conn._conn = <mg_connection*>NULL
  * 
  *     cdef object _resolve_handler(self, Connection conn):             # <<<<<<<<<<<<<<
@@ -17951,7 +17951,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("_resolve_handler", 0);
 
-  /* "pymongoose/_mongoose.pyx":1168
+  /* "cymongoose/_mongoose.pyx":1168
  * 
  *     cdef object _resolve_handler(self, Connection conn):
  *         if conn._handler is not None:             # <<<<<<<<<<<<<<
@@ -17961,7 +17961,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
   __pyx_t_1 = (__pyx_v_conn->_handler != Py_None);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1169
+    /* "cymongoose/_mongoose.pyx":1169
  *     cdef object _resolve_handler(self, Connection conn):
  *         if conn._handler is not None:
  *             return conn._handler             # <<<<<<<<<<<<<<
@@ -17973,7 +17973,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
     __pyx_r = __pyx_v_conn->_handler;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1168
+    /* "cymongoose/_mongoose.pyx":1168
  * 
  *     cdef object _resolve_handler(self, Connection conn):
  *         if conn._handler is not None:             # <<<<<<<<<<<<<<
@@ -17982,7 +17982,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1170
+  /* "cymongoose/_mongoose.pyx":1170
  *         if conn._handler is not None:
  *             return conn._handler
  *         return self._default_handler             # <<<<<<<<<<<<<<
@@ -17994,7 +17994,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
   __pyx_r = __pyx_v_self->_default_handler;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1167
+  /* "cymongoose/_mongoose.pyx":1167
  *             py_conn._conn = <mg_connection*>NULL
  * 
  *     cdef object _resolve_handler(self, Connection conn):             # <<<<<<<<<<<<<<
@@ -18009,7 +18009,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1172
+/* "cymongoose/_mongoose.pyx":1172
  *         return self._default_handler
  * 
  *     cdef object _wrap_event_data(self, int ev, void *ev_data):             # <<<<<<<<<<<<<<
@@ -18036,7 +18036,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_wrap_event_data", 0);
 
-  /* "pymongoose/_mongoose.pyx":1177
+  /* "cymongoose/_mongoose.pyx":1177
  *         cdef MqttMessage mqtt
  *         cdef mg_str *wakeup_data
  *         if ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS or ev == MG_EV_WS_OPEN:             # <<<<<<<<<<<<<<
@@ -18084,7 +18084,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1178
+    /* "cymongoose/_mongoose.pyx":1178
  *         cdef mg_str *wakeup_data
  *         if ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS or ev == MG_EV_WS_OPEN:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18094,7 +18094,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_1 = (__pyx_v_ev_data != NULL);
     if (__pyx_t_1) {
 
-      /* "pymongoose/_mongoose.pyx":1179
+      /* "cymongoose/_mongoose.pyx":1179
  *         if ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS or ev == MG_EV_WS_OPEN:
  *             if ev_data != NULL:
  *                 view = HttpMessage.__new__(HttpMessage)             # <<<<<<<<<<<<<<
@@ -18106,7 +18106,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_v_view = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1180
+      /* "cymongoose/_mongoose.pyx":1180
  *             if ev_data != NULL:
  *                 view = HttpMessage.__new__(HttpMessage)
  *                 view._assign(<mg_http_message*> ev_data)             # <<<<<<<<<<<<<<
@@ -18115,7 +18115,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
       ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_view->__pyx_vtab)->_assign(__pyx_v_view, ((struct mg_http_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1180, __pyx_L1_error)
 
-      /* "pymongoose/_mongoose.pyx":1181
+      /* "cymongoose/_mongoose.pyx":1181
  *                 view = HttpMessage.__new__(HttpMessage)
  *                 view._assign(<mg_http_message*> ev_data)
  *                 return view             # <<<<<<<<<<<<<<
@@ -18127,7 +18127,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_r = ((PyObject *)__pyx_v_view);
       goto __pyx_L0;
 
-      /* "pymongoose/_mongoose.pyx":1178
+      /* "cymongoose/_mongoose.pyx":1178
  *         cdef mg_str *wakeup_data
  *         if ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS or ev == MG_EV_WS_OPEN:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18136,7 +18136,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
     }
 
-    /* "pymongoose/_mongoose.pyx":1182
+    /* "cymongoose/_mongoose.pyx":1182
  *                 view._assign(<mg_http_message*> ev_data)
  *                 return view
  *             return None             # <<<<<<<<<<<<<<
@@ -18147,7 +18147,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1177
+    /* "cymongoose/_mongoose.pyx":1177
  *         cdef MqttMessage mqtt
  *         cdef mg_str *wakeup_data
  *         if ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS or ev == MG_EV_WS_OPEN:             # <<<<<<<<<<<<<<
@@ -18156,7 +18156,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1183
+  /* "cymongoose/_mongoose.pyx":1183
  *                 return view
  *             return None
  *         elif ev == MG_EV_WS_MSG:             # <<<<<<<<<<<<<<
@@ -18174,7 +18174,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1184
+    /* "cymongoose/_mongoose.pyx":1184
  *             return None
  *         elif ev == MG_EV_WS_MSG:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18184,7 +18184,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_1 = (__pyx_v_ev_data != NULL);
     if (__pyx_t_1) {
 
-      /* "pymongoose/_mongoose.pyx":1185
+      /* "cymongoose/_mongoose.pyx":1185
  *         elif ev == MG_EV_WS_MSG:
  *             if ev_data != NULL:
  *                 ws = WsMessage.__new__(WsMessage)             # <<<<<<<<<<<<<<
@@ -18196,7 +18196,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_v_ws = ((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1186
+      /* "cymongoose/_mongoose.pyx":1186
  *             if ev_data != NULL:
  *                 ws = WsMessage.__new__(WsMessage)
  *                 ws._assign(<mg_ws_message*> ev_data)             # <<<<<<<<<<<<<<
@@ -18205,7 +18205,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
       ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *)__pyx_v_ws->__pyx_vtab)->_assign(__pyx_v_ws, ((struct mg_ws_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1186, __pyx_L1_error)
 
-      /* "pymongoose/_mongoose.pyx":1187
+      /* "cymongoose/_mongoose.pyx":1187
  *                 ws = WsMessage.__new__(WsMessage)
  *                 ws._assign(<mg_ws_message*> ev_data)
  *                 return ws             # <<<<<<<<<<<<<<
@@ -18217,7 +18217,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_r = ((PyObject *)__pyx_v_ws);
       goto __pyx_L0;
 
-      /* "pymongoose/_mongoose.pyx":1184
+      /* "cymongoose/_mongoose.pyx":1184
  *             return None
  *         elif ev == MG_EV_WS_MSG:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18226,7 +18226,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
     }
 
-    /* "pymongoose/_mongoose.pyx":1188
+    /* "cymongoose/_mongoose.pyx":1188
  *                 ws._assign(<mg_ws_message*> ev_data)
  *                 return ws
  *             return None             # <<<<<<<<<<<<<<
@@ -18237,7 +18237,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1183
+    /* "cymongoose/_mongoose.pyx":1183
  *                 return view
  *             return None
  *         elif ev == MG_EV_WS_MSG:             # <<<<<<<<<<<<<<
@@ -18246,7 +18246,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1189
+  /* "cymongoose/_mongoose.pyx":1189
  *                 return ws
  *             return None
  *         elif ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD:             # <<<<<<<<<<<<<<
@@ -18280,7 +18280,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L9_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1190
+    /* "cymongoose/_mongoose.pyx":1190
  *             return None
  *         elif ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18290,7 +18290,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_1 = (__pyx_v_ev_data != NULL);
     if (__pyx_t_1) {
 
-      /* "pymongoose/_mongoose.pyx":1191
+      /* "cymongoose/_mongoose.pyx":1191
  *         elif ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD:
  *             if ev_data != NULL:
  *                 mqtt = MqttMessage.__new__(MqttMessage)             # <<<<<<<<<<<<<<
@@ -18302,7 +18302,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_v_mqtt = ((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1192
+      /* "cymongoose/_mongoose.pyx":1192
  *             if ev_data != NULL:
  *                 mqtt = MqttMessage.__new__(MqttMessage)
  *                 mqtt._assign(<mg_mqtt_message*> ev_data)             # <<<<<<<<<<<<<<
@@ -18311,7 +18311,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
       ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_mqtt->__pyx_vtab)->_assign(__pyx_v_mqtt, ((struct mg_mqtt_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1192, __pyx_L1_error)
 
-      /* "pymongoose/_mongoose.pyx":1193
+      /* "cymongoose/_mongoose.pyx":1193
  *                 mqtt = MqttMessage.__new__(MqttMessage)
  *                 mqtt._assign(<mg_mqtt_message*> ev_data)
  *                 return mqtt             # <<<<<<<<<<<<<<
@@ -18323,7 +18323,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
       __pyx_r = ((PyObject *)__pyx_v_mqtt);
       goto __pyx_L0;
 
-      /* "pymongoose/_mongoose.pyx":1190
+      /* "cymongoose/_mongoose.pyx":1190
  *             return None
  *         elif ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD:
  *             if ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18332,7 +18332,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
     }
 
-    /* "pymongoose/_mongoose.pyx":1194
+    /* "cymongoose/_mongoose.pyx":1194
  *                 mqtt._assign(<mg_mqtt_message*> ev_data)
  *                 return mqtt
  *             return None             # <<<<<<<<<<<<<<
@@ -18343,7 +18343,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1189
+    /* "cymongoose/_mongoose.pyx":1189
  *                 return ws
  *             return None
  *         elif ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD:             # <<<<<<<<<<<<<<
@@ -18352,7 +18352,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1195
+  /* "cymongoose/_mongoose.pyx":1195
  *                 return mqtt
  *             return None
  *         elif ev == MG_EV_MQTT_OPEN and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18378,7 +18378,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L12_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1197
+    /* "cymongoose/_mongoose.pyx":1197
  *         elif ev == MG_EV_MQTT_OPEN and ev_data != NULL:
  *             # MQTT_OPEN provides a pointer to connection status code
  *             return (<int*> ev_data)[0]             # <<<<<<<<<<<<<<
@@ -18392,7 +18392,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1195
+    /* "cymongoose/_mongoose.pyx":1195
  *                 return mqtt
  *             return None
  *         elif ev == MG_EV_MQTT_OPEN and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18401,7 +18401,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1198
+  /* "cymongoose/_mongoose.pyx":1198
  *             # MQTT_OPEN provides a pointer to connection status code
  *             return (<int*> ev_data)[0]
  *         elif ev == MG_EV_ERROR and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18427,7 +18427,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L14_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1199
+    /* "cymongoose/_mongoose.pyx":1199
  *             return (<int*> ev_data)[0]
  *         elif ev == MG_EV_ERROR and ev_data != NULL:
  *             return (<char*> ev_data).decode("utf-8", "ignore")             # <<<<<<<<<<<<<<
@@ -18444,7 +18444,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1198
+    /* "cymongoose/_mongoose.pyx":1198
  *             # MQTT_OPEN provides a pointer to connection status code
  *             return (<int*> ev_data)[0]
  *         elif ev == MG_EV_ERROR and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18453,7 +18453,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1200
+  /* "cymongoose/_mongoose.pyx":1200
  *         elif ev == MG_EV_ERROR and ev_data != NULL:
  *             return (<char*> ev_data).decode("utf-8", "ignore")
  *         elif ev == MG_EV_WAKEUP and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18479,7 +18479,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L16_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1201
+    /* "cymongoose/_mongoose.pyx":1201
  *             return (<char*> ev_data).decode("utf-8", "ignore")
  *         elif ev == MG_EV_WAKEUP and ev_data != NULL:
  *             wakeup_data = <mg_str*> ev_data             # <<<<<<<<<<<<<<
@@ -18488,7 +18488,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
     __pyx_v_wakeup_data = ((struct mg_str *)__pyx_v_ev_data);
 
-    /* "pymongoose/_mongoose.pyx":1202
+    /* "cymongoose/_mongoose.pyx":1202
  *         elif ev == MG_EV_WAKEUP and ev_data != NULL:
  *             wakeup_data = <mg_str*> ev_data
  *             return _mg_str_to_bytes(wakeup_data[0])             # <<<<<<<<<<<<<<
@@ -18502,7 +18502,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1200
+    /* "cymongoose/_mongoose.pyx":1200
  *         elif ev == MG_EV_ERROR and ev_data != NULL:
  *             return (<char*> ev_data).decode("utf-8", "ignore")
  *         elif ev == MG_EV_WAKEUP and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18511,7 +18511,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1203
+  /* "cymongoose/_mongoose.pyx":1203
  *             wakeup_data = <mg_str*> ev_data
  *             return _mg_str_to_bytes(wakeup_data[0])
  *         elif ev == C_MG_EV_SNTP_TIME and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18529,7 +18529,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_L18_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1205
+    /* "cymongoose/_mongoose.pyx":1205
  *         elif ev == C_MG_EV_SNTP_TIME and ev_data != NULL:
  *             # SNTP provides uint64_t* epoch milliseconds
  *             return (<uint64_t*> ev_data)[0]             # <<<<<<<<<<<<<<
@@ -18543,7 +18543,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1203
+    /* "cymongoose/_mongoose.pyx":1203
  *             wakeup_data = <mg_str*> ev_data
  *             return _mg_str_to_bytes(wakeup_data[0])
  *         elif ev == C_MG_EV_SNTP_TIME and ev_data != NULL:             # <<<<<<<<<<<<<<
@@ -18552,7 +18552,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1206
+  /* "cymongoose/_mongoose.pyx":1206
  *             # SNTP provides uint64_t* epoch milliseconds
  *             return (<uint64_t*> ev_data)[0]
  *         return None             # <<<<<<<<<<<<<<
@@ -18563,7 +18563,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1172
+  /* "cymongoose/_mongoose.pyx":1172
  *         return self._default_handler
  * 
  *     cdef object _wrap_event_data(self, int ev, void *ev_data):             # <<<<<<<<<<<<<<
@@ -18576,7 +18576,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager._wrap_event_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager._wrap_event_data", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_view);
@@ -18587,7 +18587,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1208
+/* "cymongoose/_mongoose.pyx":1208
  *         return None
  * 
  *     def poll(self, int timeout_ms=0):             # <<<<<<<<<<<<<<
@@ -18672,7 +18672,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.poll", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.poll", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -18699,7 +18699,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("poll", 0);
 
-  /* "pymongoose/_mongoose.pyx":1214
+  /* "cymongoose/_mongoose.pyx":1214
  *         use close() only after all polling threads have stopped to avoid race conditions.
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -18708,7 +18708,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
 */
   if (unlikely(__pyx_v_self->_freed)) {
 
-    /* "pymongoose/_mongoose.pyx":1215
+    /* "cymongoose/_mongoose.pyx":1215
  *         """
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")             # <<<<<<<<<<<<<<
@@ -18728,7 +18728,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1215, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1214
+    /* "cymongoose/_mongoose.pyx":1214
  *         use close() only after all polling threads have stopped to avoid race conditions.
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -18737,7 +18737,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1216
+  /* "cymongoose/_mongoose.pyx":1216
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -18750,7 +18750,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":1217
+        /* "cymongoose/_mongoose.pyx":1217
  *             raise RuntimeError("Manager has been freed")
  *         with nogil:
  *             mg_mgr_poll(&self._mgr, timeout_ms)             # <<<<<<<<<<<<<<
@@ -18760,7 +18760,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
         mg_mgr_poll((&__pyx_v_self->_mgr), __pyx_v_timeout_ms);
       }
 
-      /* "pymongoose/_mongoose.pyx":1216
+      /* "cymongoose/_mongoose.pyx":1216
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -18777,7 +18777,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":1221
+  /* "cymongoose/_mongoose.pyx":1221
  *         # This ensures signals received during nogil section are processed
  *         # PyErr_CheckSignals() returns -1 if a signal is pending and raises the exception
  *         if PyErr_CheckSignals() < 0:             # <<<<<<<<<<<<<<
@@ -18789,7 +18789,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
   if (__pyx_t_5) {
   }
 
-  /* "pymongoose/_mongoose.pyx":1208
+  /* "cymongoose/_mongoose.pyx":1208
  *         return None
  * 
  *     def poll(self, int timeout_ms=0):             # <<<<<<<<<<<<<<
@@ -18803,7 +18803,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.poll", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.poll", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -18811,7 +18811,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1225
+/* "cymongoose/_mongoose.pyx":1225
  *             pass
  * 
  *     def listen(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -18910,7 +18910,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -18953,7 +18953,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("listen", 0);
 
-  /* "pymongoose/_mongoose.pyx":1227
+  /* "cymongoose/_mongoose.pyx":1227
  *     def listen(self, url: str, handler=None, *, http=False):
  *         """Listen on a URL; handler is optional per-listener override."""
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -18965,7 +18965,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1229
+  /* "cymongoose/_mongoose.pyx":1229
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn
  *         if http:             # <<<<<<<<<<<<<<
@@ -18975,7 +18975,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_http); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1229, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1230
+    /* "cymongoose/_mongoose.pyx":1230
  *         cdef mg_connection *conn
  *         if http:
  *             conn = mg_http_listen(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -18985,7 +18985,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
     __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 1230, __pyx_L1_error)
     __pyx_v_conn = mg_http_listen((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
 
-    /* "pymongoose/_mongoose.pyx":1229
+    /* "cymongoose/_mongoose.pyx":1229
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn
  *         if http:             # <<<<<<<<<<<<<<
@@ -18995,7 +18995,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1232
+  /* "cymongoose/_mongoose.pyx":1232
  *             conn = mg_http_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         else:
  *             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -19008,7 +19008,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1233
+  /* "cymongoose/_mongoose.pyx":1233
  *         else:
  *             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19018,7 +19018,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __pyx_t_2 = (__pyx_v_conn == NULL);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pymongoose/_mongoose.pyx":1234
+    /* "cymongoose/_mongoose.pyx":1234
  *             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to listen on '{url}'")             # <<<<<<<<<<<<<<
@@ -19045,7 +19045,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1234, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1233
+    /* "cymongoose/_mongoose.pyx":1233
  *         else:
  *             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19054,7 +19054,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1235
+  /* "cymongoose/_mongoose.pyx":1235
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to listen on '{url}'")
  *         py_conn = self._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -19066,7 +19066,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1236
+  /* "cymongoose/_mongoose.pyx":1236
  *             raise RuntimeError(f"Failed to listen on '{url}'")
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler             # <<<<<<<<<<<<<<
@@ -19079,7 +19079,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __Pyx_DECREF(__pyx_v_py_conn->_handler);
   __pyx_v_py_conn->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1237
+  /* "cymongoose/_mongoose.pyx":1237
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -19091,7 +19091,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __pyx_r = ((PyObject *)__pyx_v_py_conn);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1225
+  /* "cymongoose/_mongoose.pyx":1225
  *             pass
  * 
  *     def listen(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -19104,7 +19104,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_url_b);
@@ -19114,7 +19114,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1239
+/* "cymongoose/_mongoose.pyx":1239
  *         return py_conn
  * 
  *     def connect(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -19213,7 +19213,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -19256,7 +19256,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("connect", 0);
 
-  /* "pymongoose/_mongoose.pyx":1241
+  /* "cymongoose/_mongoose.pyx":1241
  *     def connect(self, url: str, handler=None, *, http=False):
  *         """Create an outbound connection and return immediately."""
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -19268,7 +19268,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1243
+  /* "cymongoose/_mongoose.pyx":1243
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn
  *         if http:             # <<<<<<<<<<<<<<
@@ -19278,7 +19278,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_http); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 1243, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1244
+    /* "cymongoose/_mongoose.pyx":1244
  *         cdef mg_connection *conn
  *         if http:
  *             conn = mg_http_connect(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -19288,7 +19288,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
     __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 1244, __pyx_L1_error)
     __pyx_v_conn = mg_http_connect((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
 
-    /* "pymongoose/_mongoose.pyx":1243
+    /* "cymongoose/_mongoose.pyx":1243
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn
  *         if http:             # <<<<<<<<<<<<<<
@@ -19298,7 +19298,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1246
+  /* "cymongoose/_mongoose.pyx":1246
  *             conn = mg_http_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         else:
  *             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -19311,7 +19311,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1247
+  /* "cymongoose/_mongoose.pyx":1247
  *         else:
  *             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19321,7 +19321,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __pyx_t_2 = (__pyx_v_conn == NULL);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pymongoose/_mongoose.pyx":1248
+    /* "cymongoose/_mongoose.pyx":1248
  *             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to connect to '{url}'")             # <<<<<<<<<<<<<<
@@ -19348,7 +19348,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1248, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1247
+    /* "cymongoose/_mongoose.pyx":1247
  *         else:
  *             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19357,7 +19357,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1249
+  /* "cymongoose/_mongoose.pyx":1249
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to connect to '{url}'")
  *         py_conn = self._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -19369,7 +19369,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1250
+  /* "cymongoose/_mongoose.pyx":1250
  *             raise RuntimeError(f"Failed to connect to '{url}'")
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler             # <<<<<<<<<<<<<<
@@ -19382,7 +19382,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __Pyx_DECREF(__pyx_v_py_conn->_handler);
   __pyx_v_py_conn->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1251
+  /* "cymongoose/_mongoose.pyx":1251
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -19394,7 +19394,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __pyx_r = ((PyObject *)__pyx_v_py_conn);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1239
+  /* "cymongoose/_mongoose.pyx":1239
  *         return py_conn
  * 
  *     def connect(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -19407,7 +19407,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_url_b);
@@ -19417,7 +19417,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1253
+/* "cymongoose/_mongoose.pyx":1253
  *         return py_conn
  * 
  *     def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60):             # <<<<<<<<<<<<<<
@@ -19572,7 +19572,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.mqtt_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.mqtt_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -19621,7 +19621,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_connect", 0);
 
-  /* "pymongoose/_mongoose.pyx":1269
+  /* "cymongoose/_mongoose.pyx":1269
  *         """
  *         cdef mg_mqtt_opts opts
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))             # <<<<<<<<<<<<<<
@@ -19630,7 +19630,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   (void)(memset((&__pyx_v_opts), 0, (sizeof(struct mg_mqtt_opts))));
 
-  /* "pymongoose/_mongoose.pyx":1271
+  /* "cymongoose/_mongoose.pyx":1271
  *         memset(&opts, 0, sizeof(mg_mqtt_opts))
  * 
  *         cdef bytes client_id_b = client_id.encode("utf-8") if client_id else b""             # <<<<<<<<<<<<<<
@@ -19659,7 +19659,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_v_client_id_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1272
+  /* "cymongoose/_mongoose.pyx":1272
  * 
  *         cdef bytes client_id_b = client_id.encode("utf-8") if client_id else b""
  *         cdef bytes user_b = username.encode("utf-8") if username else b""             # <<<<<<<<<<<<<<
@@ -19688,7 +19688,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_v_user_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1273
+  /* "cymongoose/_mongoose.pyx":1273
  *         cdef bytes client_id_b = client_id.encode("utf-8") if client_id else b""
  *         cdef bytes user_b = username.encode("utf-8") if username else b""
  *         cdef bytes pass_b = password.encode("utf-8") if password else b""             # <<<<<<<<<<<<<<
@@ -19717,7 +19717,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_v_pass_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1275
+  /* "cymongoose/_mongoose.pyx":1275
  *         cdef bytes pass_b = password.encode("utf-8") if password else b""
  * 
  *         if client_id_b:             # <<<<<<<<<<<<<<
@@ -19734,7 +19734,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1276
+    /* "cymongoose/_mongoose.pyx":1276
  * 
  *         if client_id_b:
  *             opts.client_id = mg_str_n(client_id_b, len(client_id_b))             # <<<<<<<<<<<<<<
@@ -19753,7 +19753,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
     __pyx_t_7 = __Pyx_PyBytes_GET_SIZE(__pyx_v_client_id_b); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1276, __pyx_L1_error)
     __pyx_v_opts.client_id = mg_str_n(__pyx_t_6, __pyx_t_7);
 
-    /* "pymongoose/_mongoose.pyx":1275
+    /* "cymongoose/_mongoose.pyx":1275
  *         cdef bytes pass_b = password.encode("utf-8") if password else b""
  * 
  *         if client_id_b:             # <<<<<<<<<<<<<<
@@ -19762,7 +19762,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1277
+  /* "cymongoose/_mongoose.pyx":1277
  *         if client_id_b:
  *             opts.client_id = mg_str_n(client_id_b, len(client_id_b))
  *         if user_b:             # <<<<<<<<<<<<<<
@@ -19779,7 +19779,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1278
+    /* "cymongoose/_mongoose.pyx":1278
  *             opts.client_id = mg_str_n(client_id_b, len(client_id_b))
  *         if user_b:
  *             opts.user = mg_str_n(user_b, len(user_b))             # <<<<<<<<<<<<<<
@@ -19798,7 +19798,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
     __pyx_t_7 = __Pyx_PyBytes_GET_SIZE(__pyx_v_user_b); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1278, __pyx_L1_error)
     __pyx_v_opts.user = mg_str_n(__pyx_t_6, __pyx_t_7);
 
-    /* "pymongoose/_mongoose.pyx":1277
+    /* "cymongoose/_mongoose.pyx":1277
  *         if client_id_b:
  *             opts.client_id = mg_str_n(client_id_b, len(client_id_b))
  *         if user_b:             # <<<<<<<<<<<<<<
@@ -19807,7 +19807,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1279
+  /* "cymongoose/_mongoose.pyx":1279
  *         if user_b:
  *             opts.user = mg_str_n(user_b, len(user_b))
  *         if pass_b:             # <<<<<<<<<<<<<<
@@ -19824,7 +19824,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 
   if (__pyx_t_2) {
 
-    /* "pymongoose/_mongoose.pyx":1280
+    /* "cymongoose/_mongoose.pyx":1280
  *             opts.user = mg_str_n(user_b, len(user_b))
  *         if pass_b:
  *             opts.password = mg_str_n(pass_b, len(pass_b))             # <<<<<<<<<<<<<<
@@ -19843,7 +19843,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
     __pyx_t_7 = __Pyx_PyBytes_GET_SIZE(__pyx_v_pass_b); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1280, __pyx_L1_error)
     __pyx_v_opts.pass = mg_str_n(__pyx_t_6, __pyx_t_7);
 
-    /* "pymongoose/_mongoose.pyx":1279
+    /* "cymongoose/_mongoose.pyx":1279
  *         if user_b:
  *             opts.user = mg_str_n(user_b, len(user_b))
  *         if pass_b:             # <<<<<<<<<<<<<<
@@ -19852,7 +19852,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1282
+  /* "cymongoose/_mongoose.pyx":1282
  *             opts.password = mg_str_n(pass_b, len(pass_b))
  * 
  *         opts.clean = clean_session             # <<<<<<<<<<<<<<
@@ -19862,7 +19862,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_clean_session); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1282, __pyx_L1_error)
   __pyx_v_opts.clean = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":1283
+  /* "cymongoose/_mongoose.pyx":1283
  * 
  *         opts.clean = clean_session
  *         opts.keepalive = keepalive             # <<<<<<<<<<<<<<
@@ -19872,7 +19872,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_t_8 = __Pyx_PyLong_As_uint16_t(__pyx_v_keepalive); if (unlikely((__pyx_t_8 == ((uint16_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1283, __pyx_L1_error)
   __pyx_v_opts.keepalive = __pyx_t_8;
 
-  /* "pymongoose/_mongoose.pyx":1284
+  /* "cymongoose/_mongoose.pyx":1284
  *         opts.clean = clean_session
  *         opts.keepalive = keepalive
  *         opts.version = 4  # MQTT 3.1.1             # <<<<<<<<<<<<<<
@@ -19881,7 +19881,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   __pyx_v_opts.version = 4;
 
-  /* "pymongoose/_mongoose.pyx":1286
+  /* "cymongoose/_mongoose.pyx":1286
  *         opts.version = 4  # MQTT 3.1.1
  * 
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -19893,7 +19893,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1287
+  /* "cymongoose/_mongoose.pyx":1287
  * 
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_connect(&self._mgr, url_b, &opts, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -19903,7 +19903,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_t_9 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 1287, __pyx_L1_error)
   __pyx_v_conn = mg_mqtt_connect((&__pyx_v_self->_mgr), __pyx_t_9, (&__pyx_v_opts), __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
 
-  /* "pymongoose/_mongoose.pyx":1288
+  /* "cymongoose/_mongoose.pyx":1288
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_connect(&self._mgr, url_b, &opts, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19913,7 +19913,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_t_2 = (__pyx_v_conn == NULL);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pymongoose/_mongoose.pyx":1289
+    /* "cymongoose/_mongoose.pyx":1289
  *         cdef mg_connection *conn = mg_mqtt_connect(&self._mgr, url_b, &opts, _event_bridge, NULL)
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to connect to MQTT broker '{url}'")             # <<<<<<<<<<<<<<
@@ -19940,7 +19940,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1289, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1288
+    /* "cymongoose/_mongoose.pyx":1288
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_connect(&self._mgr, url_b, &opts, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -19949,7 +19949,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1291
+  /* "cymongoose/_mongoose.pyx":1291
  *             raise RuntimeError(f"Failed to connect to MQTT broker '{url}'")
  * 
  *         py_conn = self._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -19961,7 +19961,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1292
+  /* "cymongoose/_mongoose.pyx":1292
  * 
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler             # <<<<<<<<<<<<<<
@@ -19974,7 +19974,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __Pyx_DECREF(__pyx_v_py_conn->_handler);
   __pyx_v_py_conn->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1293
+  /* "cymongoose/_mongoose.pyx":1293
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -19986,7 +19986,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __pyx_r = ((PyObject *)__pyx_v_py_conn);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1253
+  /* "cymongoose/_mongoose.pyx":1253
  *         return py_conn
  * 
  *     def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60):             # <<<<<<<<<<<<<<
@@ -19999,7 +19999,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.mqtt_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.mqtt_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_client_id_b);
@@ -20012,7 +20012,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1295
+/* "cymongoose/_mongoose.pyx":1295
  *         return py_conn
  * 
  *     def mqtt_listen(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -20107,7 +20107,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.mqtt_listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.mqtt_listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -20149,7 +20149,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("mqtt_listen", 0);
 
-  /* "pymongoose/_mongoose.pyx":1305
+  /* "cymongoose/_mongoose.pyx":1305
  *             Listener connection object
  *         """
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -20161,7 +20161,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1306
+  /* "cymongoose/_mongoose.pyx":1306
  *         """
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_listen(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -20171,7 +20171,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1306, __pyx_L1_error)
   __pyx_v_conn = mg_mqtt_listen((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
 
-  /* "pymongoose/_mongoose.pyx":1307
+  /* "cymongoose/_mongoose.pyx":1307
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -20181,7 +20181,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __pyx_t_3 = (__pyx_v_conn == NULL);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pymongoose/_mongoose.pyx":1308
+    /* "cymongoose/_mongoose.pyx":1308
  *         cdef mg_connection *conn = mg_mqtt_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to listen for MQTT on '{url}'")             # <<<<<<<<<<<<<<
@@ -20208,7 +20208,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1308, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1307
+    /* "cymongoose/_mongoose.pyx":1307
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_mqtt_listen(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -20217,7 +20217,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1310
+  /* "cymongoose/_mongoose.pyx":1310
  *             raise RuntimeError(f"Failed to listen for MQTT on '{url}'")
  * 
  *         py_conn = self._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -20229,7 +20229,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1311
+  /* "cymongoose/_mongoose.pyx":1311
  * 
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler             # <<<<<<<<<<<<<<
@@ -20242,7 +20242,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __Pyx_DECREF(__pyx_v_py_conn->_handler);
   __pyx_v_py_conn->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1312
+  /* "cymongoose/_mongoose.pyx":1312
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -20254,7 +20254,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __pyx_r = ((PyObject *)__pyx_v_py_conn);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1295
+  /* "cymongoose/_mongoose.pyx":1295
  *         return py_conn
  * 
  *     def mqtt_listen(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -20267,7 +20267,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.mqtt_listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.mqtt_listen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_url_b);
@@ -20277,7 +20277,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1314
+/* "cymongoose/_mongoose.pyx":1314
  *         return py_conn
  * 
  *     def sntp_connect(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -20372,7 +20372,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.sntp_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.sntp_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -20414,7 +20414,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sntp_connect", 0);
 
-  /* "pymongoose/_mongoose.pyx":1335
+  /* "cymongoose/_mongoose.pyx":1335
  *             conn.sntp_request()  # Request time
  *         """
  *         cdef bytes url_b = url.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -20426,7 +20426,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __pyx_v_url_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1336
+  /* "cymongoose/_mongoose.pyx":1336
  *         """
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_sntp_connect(&self._mgr, url_b, _event_bridge, NULL)             # <<<<<<<<<<<<<<
@@ -20436,7 +20436,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1336, __pyx_L1_error)
   __pyx_v_conn = mg_sntp_connect((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
 
-  /* "pymongoose/_mongoose.pyx":1337
+  /* "cymongoose/_mongoose.pyx":1337
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_sntp_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -20446,7 +20446,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __pyx_t_3 = (__pyx_v_conn == NULL);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pymongoose/_mongoose.pyx":1338
+    /* "cymongoose/_mongoose.pyx":1338
  *         cdef mg_connection *conn = mg_sntp_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:
  *             raise RuntimeError(f"Failed to connect to SNTP server '{url}'")             # <<<<<<<<<<<<<<
@@ -20473,7 +20473,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1338, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1337
+    /* "cymongoose/_mongoose.pyx":1337
  *         cdef bytes url_b = url.encode("utf-8")
  *         cdef mg_connection *conn = mg_sntp_connect(&self._mgr, url_b, _event_bridge, NULL)
  *         if conn == NULL:             # <<<<<<<<<<<<<<
@@ -20482,7 +20482,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1340
+  /* "cymongoose/_mongoose.pyx":1340
  *             raise RuntimeError(f"Failed to connect to SNTP server '{url}'")
  * 
  *         py_conn = self._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -20494,7 +20494,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1341
+  /* "cymongoose/_mongoose.pyx":1341
  * 
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler             # <<<<<<<<<<<<<<
@@ -20507,7 +20507,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __Pyx_DECREF(__pyx_v_py_conn->_handler);
   __pyx_v_py_conn->_handler = __pyx_v_handler;
 
-  /* "pymongoose/_mongoose.pyx":1342
+  /* "cymongoose/_mongoose.pyx":1342
  *         py_conn = self._ensure_connection(conn)
  *         py_conn._handler = handler
  *         return py_conn             # <<<<<<<<<<<<<<
@@ -20519,7 +20519,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __pyx_r = ((PyObject *)__pyx_v_py_conn);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1314
+  /* "cymongoose/_mongoose.pyx":1314
  *         return py_conn
  * 
  *     def sntp_connect(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -20532,7 +20532,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.sntp_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.sntp_connect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_url_b);
@@ -20542,7 +20542,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1344
+/* "cymongoose/_mongoose.pyx":1344
  *         return py_conn
  * 
  *     def wakeup(self, connection_id: int, data: bytes = b""):             # <<<<<<<<<<<<<<
@@ -20638,7 +20638,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.wakeup", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.wakeup", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -20684,7 +20684,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wakeup", 0);
 
-  /* "pymongoose/_mongoose.pyx":1357
+  /* "cymongoose/_mongoose.pyx":1357
  *         use close() only after all polling threads have stopped to avoid race conditions.
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -20693,7 +20693,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
 */
   if (unlikely(__pyx_v_self->_freed)) {
 
-    /* "pymongoose/_mongoose.pyx":1358
+    /* "cymongoose/_mongoose.pyx":1358
  *         """
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")             # <<<<<<<<<<<<<<
@@ -20713,7 +20713,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1358, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1357
+    /* "cymongoose/_mongoose.pyx":1357
  *         use close() only after all polling threads have stopped to avoid race conditions.
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -20722,7 +20722,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1359
+  /* "cymongoose/_mongoose.pyx":1359
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")
  *         cdef bytes data_b = data             # <<<<<<<<<<<<<<
@@ -20732,7 +20732,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   __Pyx_INCREF(__pyx_v_data);
   __pyx_v_data_b = __pyx_v_data;
 
-  /* "pymongoose/_mongoose.pyx":1360
+  /* "cymongoose/_mongoose.pyx":1360
  *             raise RuntimeError("Manager has been freed")
  *         cdef bytes data_b = data
  *         cdef const void *buf = <const void*><char*>data_b if len(data_b) > 0 else NULL             # <<<<<<<<<<<<<<
@@ -20749,7 +20749,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   }
   __pyx_v_buf = __pyx_t_4;
 
-  /* "pymongoose/_mongoose.pyx":1361
+  /* "cymongoose/_mongoose.pyx":1361
  *         cdef bytes data_b = data
  *         cdef const void *buf = <const void*><char*>data_b if len(data_b) > 0 else NULL
  *         cdef size_t len_data = len(data_b)             # <<<<<<<<<<<<<<
@@ -20759,7 +20759,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   __pyx_t_5 = __Pyx_PyBytes_GET_SIZE(__pyx_v_data_b); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1361, __pyx_L1_error)
   __pyx_v_len_data = __pyx_t_5;
 
-  /* "pymongoose/_mongoose.pyx":1362
+  /* "cymongoose/_mongoose.pyx":1362
  *         cdef const void *buf = <const void*><char*>data_b if len(data_b) > 0 else NULL
  *         cdef size_t len_data = len(data_b)
  *         cdef unsigned long conn_id = <unsigned long>connection_id             # <<<<<<<<<<<<<<
@@ -20769,7 +20769,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   __pyx_t_8 = __Pyx_PyLong_As_unsigned_long(__pyx_v_connection_id); if (unlikely((__pyx_t_8 == (unsigned long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1362, __pyx_L1_error)
   __pyx_v_conn_id = ((unsigned long)__pyx_t_8);
 
-  /* "pymongoose/_mongoose.pyx":1365
+  /* "cymongoose/_mongoose.pyx":1365
  *         cdef bint result
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -20782,7 +20782,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "pymongoose/_mongoose.pyx":1366
+        /* "cymongoose/_mongoose.pyx":1366
  *         IF USE_NOGIL:
  *             with nogil:
  *                 result = mg_wakeup(&self._mgr, conn_id, buf, len_data)             # <<<<<<<<<<<<<<
@@ -20792,7 +20792,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
         __pyx_v_result = mg_wakeup((&__pyx_v_self->_mgr), __pyx_v_conn_id, __pyx_v_buf, __pyx_v_len_data);
       }
 
-      /* "pymongoose/_mongoose.pyx":1365
+      /* "cymongoose/_mongoose.pyx":1365
  *         cdef bint result
  *         IF USE_NOGIL:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -20809,7 +20809,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
       }
   }
 
-  /* "pymongoose/_mongoose.pyx":1369
+  /* "cymongoose/_mongoose.pyx":1369
  *         ELSE:
  *             result = mg_wakeup(&self._mgr, conn_id, buf, len_data)
  *         return result             # <<<<<<<<<<<<<<
@@ -20823,7 +20823,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1344
+  /* "cymongoose/_mongoose.pyx":1344
  *         return py_conn
  * 
  *     def wakeup(self, connection_id: int, data: bytes = b""):             # <<<<<<<<<<<<<<
@@ -20835,7 +20835,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.wakeup", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.wakeup", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_data_b);
@@ -20844,7 +20844,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1371
+/* "cymongoose/_mongoose.pyx":1371
  *         return result
  * 
  *     def timer_add(self, milliseconds: int, callback, *, repeat=False, run_now=False):             # <<<<<<<<<<<<<<
@@ -20941,7 +20941,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.timer_add", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.timer_add", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -20981,7 +20981,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("timer_add", 0);
 
-  /* "pymongoose/_mongoose.pyx":1392
+  /* "cymongoose/_mongoose.pyx":1392
  *             timer = manager.timer_add(1000, heartbeat, repeat=True)
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -20990,7 +20990,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   if (unlikely(__pyx_v_self->_freed)) {
 
-    /* "pymongoose/_mongoose.pyx":1393
+    /* "cymongoose/_mongoose.pyx":1393
  *         """
  *         if self._freed:
  *             raise RuntimeError("Manager has been freed")             # <<<<<<<<<<<<<<
@@ -21010,7 +21010,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1393, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1392
+    /* "cymongoose/_mongoose.pyx":1392
  *             timer = manager.timer_add(1000, heartbeat, repeat=True)
  *         """
  *         if self._freed:             # <<<<<<<<<<<<<<
@@ -21019,7 +21019,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1395
+  /* "cymongoose/_mongoose.pyx":1395
  *             raise RuntimeError("Manager has been freed")
  * 
  *         cdef unsigned flags = MG_TIMER_AUTODELETE             # <<<<<<<<<<<<<<
@@ -21028,7 +21028,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   __pyx_v_flags = MG_TIMER_AUTODELETE;
 
-  /* "pymongoose/_mongoose.pyx":1396
+  /* "cymongoose/_mongoose.pyx":1396
  * 
  *         cdef unsigned flags = MG_TIMER_AUTODELETE
  *         if repeat:             # <<<<<<<<<<<<<<
@@ -21038,7 +21038,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_repeat); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 1396, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "pymongoose/_mongoose.pyx":1397
+    /* "cymongoose/_mongoose.pyx":1397
  *         cdef unsigned flags = MG_TIMER_AUTODELETE
  *         if repeat:
  *             flags |= MG_TIMER_REPEAT             # <<<<<<<<<<<<<<
@@ -21047,7 +21047,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
     __pyx_v_flags = (__pyx_v_flags | MG_TIMER_REPEAT);
 
-    /* "pymongoose/_mongoose.pyx":1396
+    /* "cymongoose/_mongoose.pyx":1396
  * 
  *         cdef unsigned flags = MG_TIMER_AUTODELETE
  *         if repeat:             # <<<<<<<<<<<<<<
@@ -21056,7 +21056,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1398
+  /* "cymongoose/_mongoose.pyx":1398
  *         if repeat:
  *             flags |= MG_TIMER_REPEAT
  *         if run_now:             # <<<<<<<<<<<<<<
@@ -21066,7 +21066,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_run_now); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 1398, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "pymongoose/_mongoose.pyx":1399
+    /* "cymongoose/_mongoose.pyx":1399
  *             flags |= MG_TIMER_REPEAT
  *         if run_now:
  *             flags |= MG_TIMER_RUN_NOW             # <<<<<<<<<<<<<<
@@ -21075,7 +21075,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
     __pyx_v_flags = (__pyx_v_flags | MG_TIMER_RUN_NOW);
 
-    /* "pymongoose/_mongoose.pyx":1398
+    /* "cymongoose/_mongoose.pyx":1398
  *         if repeat:
  *             flags |= MG_TIMER_REPEAT
  *         if run_now:             # <<<<<<<<<<<<<<
@@ -21084,7 +21084,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1402
+  /* "cymongoose/_mongoose.pyx":1402
  * 
  *         # Create Timer wrapper
  *         cdef Timer timer = Timer.__new__(Timer)             # <<<<<<<<<<<<<<
@@ -21096,7 +21096,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_v_timer = ((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1407
+  /* "cymongoose/_mongoose.pyx":1407
  *         cdef mg_timer *timer_ptr = mg_timer_add(
  *             &self._mgr,
  *             <uint64_t>milliseconds,             # <<<<<<<<<<<<<<
@@ -21105,7 +21105,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   __pyx_t_5 = __Pyx_PyLong_As_uint64_t(__pyx_v_milliseconds); if (unlikely((__pyx_t_5 == ((uint64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1407, __pyx_L1_error)
 
-  /* "pymongoose/_mongoose.pyx":1405
+  /* "cymongoose/_mongoose.pyx":1405
  * 
  *         # Add timer with callback bridge
  *         cdef mg_timer *timer_ptr = mg_timer_add(             # <<<<<<<<<<<<<<
@@ -21114,7 +21114,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   __pyx_v_timer_ptr = mg_timer_add((&__pyx_v_self->_mgr), ((uint64_t)__pyx_t_5), __pyx_v_flags, __pyx_f_10pymongoose_9_mongoose__timer_callback, ((void *)((PyObject *)__pyx_v_callback)));
 
-  /* "pymongoose/_mongoose.pyx":1413
+  /* "cymongoose/_mongoose.pyx":1413
  *         )
  * 
  *         if timer_ptr == NULL:             # <<<<<<<<<<<<<<
@@ -21124,7 +21124,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_t_4 = (__pyx_v_timer_ptr == NULL);
   if (unlikely(__pyx_t_4)) {
 
-    /* "pymongoose/_mongoose.pyx":1414
+    /* "cymongoose/_mongoose.pyx":1414
  * 
  *         if timer_ptr == NULL:
  *             raise RuntimeError("Failed to add timer")             # <<<<<<<<<<<<<<
@@ -21144,7 +21144,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1414, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1413
+    /* "cymongoose/_mongoose.pyx":1413
  *         )
  * 
  *         if timer_ptr == NULL:             # <<<<<<<<<<<<<<
@@ -21153,7 +21153,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1417
+  /* "cymongoose/_mongoose.pyx":1417
  * 
  *         # Setup Timer object - call cdef method directly
  *         timer._timer = timer_ptr             # <<<<<<<<<<<<<<
@@ -21162,7 +21162,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   __pyx_v_timer->_timer = __pyx_v_timer_ptr;
 
-  /* "pymongoose/_mongoose.pyx":1418
+  /* "cymongoose/_mongoose.pyx":1418
  *         # Setup Timer object - call cdef method directly
  *         timer._timer = timer_ptr
  *         timer._callback = callback             # <<<<<<<<<<<<<<
@@ -21175,7 +21175,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __Pyx_DECREF(__pyx_v_timer->_callback);
   __pyx_v_timer->_callback = __pyx_v_callback;
 
-  /* "pymongoose/_mongoose.pyx":1419
+  /* "cymongoose/_mongoose.pyx":1419
  *         timer._timer = timer_ptr
  *         timer._callback = callback
  *         timer._callback_ref = <PyObject*>callback             # <<<<<<<<<<<<<<
@@ -21184,7 +21184,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   __pyx_v_timer->_callback_ref = ((PyObject *)__pyx_v_callback);
 
-  /* "pymongoose/_mongoose.pyx":1420
+  /* "cymongoose/_mongoose.pyx":1420
  *         timer._callback = callback
  *         timer._callback_ref = <PyObject*>callback
  *         Py_INCREF(callback)             # <<<<<<<<<<<<<<
@@ -21193,7 +21193,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
   Py_INCREF(__pyx_v_callback);
 
-  /* "pymongoose/_mongoose.pyx":1422
+  /* "cymongoose/_mongoose.pyx":1422
  *         Py_INCREF(callback)
  * 
  *         return timer             # <<<<<<<<<<<<<<
@@ -21205,7 +21205,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_r = ((PyObject *)__pyx_v_timer);
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1371
+  /* "cymongoose/_mongoose.pyx":1371
  *         return result
  * 
  *     def timer_add(self, milliseconds: int, callback, *, repeat=False, run_now=False):             # <<<<<<<<<<<<<<
@@ -21217,7 +21217,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.timer_add", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.timer_add", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_timer);
@@ -21226,7 +21226,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1424
+/* "cymongoose/_mongoose.pyx":1424
  *         return timer
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -21287,7 +21287,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("close", 0);
 
-  /* "pymongoose/_mongoose.pyx":1426
+  /* "cymongoose/_mongoose.pyx":1426
  *     def close(self):
  *         """Free the underlying manager and release resources."""
  *         if not self._freed:             # <<<<<<<<<<<<<<
@@ -21297,7 +21297,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
   __pyx_t_1 = (!__pyx_v_self->_freed);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1427
+    /* "cymongoose/_mongoose.pyx":1427
  *         """Free the underlying manager and release resources."""
  *         if not self._freed:
  *             mg_mgr_free(&self._mgr)             # <<<<<<<<<<<<<<
@@ -21306,7 +21306,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
 */
     mg_mgr_free((&__pyx_v_self->_mgr));
 
-    /* "pymongoose/_mongoose.pyx":1428
+    /* "cymongoose/_mongoose.pyx":1428
  *         if not self._freed:
  *             mg_mgr_free(&self._mgr)
  *             self._freed = True             # <<<<<<<<<<<<<<
@@ -21315,7 +21315,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
 */
     __pyx_v_self->_freed = 1;
 
-    /* "pymongoose/_mongoose.pyx":1429
+    /* "cymongoose/_mongoose.pyx":1429
  *             mg_mgr_free(&self._mgr)
  *             self._freed = True
  *             self._connections.clear()             # <<<<<<<<<<<<<<
@@ -21328,7 +21328,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
     }
     __pyx_t_2 = __Pyx_PyDict_Clear(__pyx_v_self->_connections); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1429, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1430
+    /* "cymongoose/_mongoose.pyx":1430
  *             self._freed = True
  *             self._connections.clear()
  *             self._mgr.userdata = NULL             # <<<<<<<<<<<<<<
@@ -21337,7 +21337,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
 */
     __pyx_v_self->_mgr.userdata = NULL;
 
-    /* "pymongoose/_mongoose.pyx":1426
+    /* "cymongoose/_mongoose.pyx":1426
  *     def close(self):
  *         """Free the underlying manager and release resources."""
  *         if not self._freed:             # <<<<<<<<<<<<<<
@@ -21346,7 +21346,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1424
+  /* "cymongoose/_mongoose.pyx":1424
  *         return timer
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -21358,7 +21358,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -21440,7 +21440,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_22__reduce_cython__(C
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -21526,7 +21526,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -21565,14 +21565,14 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_24__setstate_cython__
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Manager.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Manager.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1433
+/* "cymongoose/_mongoose.pyx":1433
  * 
  * 
  * cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept with gil:             # <<<<<<<<<<<<<<
@@ -21606,7 +21606,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
   __Pyx_RefNannySetupContext("_event_bridge", 0);
 
-  /* "pymongoose/_mongoose.pyx":1436
+  /* "cymongoose/_mongoose.pyx":1436
  *     """Global callback that routes events back into Python."""
  *     cdef Manager manager
  *     cdef PyObject *manager_obj = NULL             # <<<<<<<<<<<<<<
@@ -21615,7 +21615,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   __pyx_v_manager_obj = NULL;
 
-  /* "pymongoose/_mongoose.pyx":1438
+  /* "cymongoose/_mongoose.pyx":1438
  *     cdef PyObject *manager_obj = NULL
  *     cdef Connection py_conn
  *     if conn.mgr == NULL:             # <<<<<<<<<<<<<<
@@ -21625,7 +21625,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_t_1 = (__pyx_v_conn->mgr == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1439
+    /* "cymongoose/_mongoose.pyx":1439
  *     cdef Connection py_conn
  *     if conn.mgr == NULL:
  *         return             # <<<<<<<<<<<<<<
@@ -21634,7 +21634,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1438
+    /* "cymongoose/_mongoose.pyx":1438
  *     cdef PyObject *manager_obj = NULL
  *     cdef Connection py_conn
  *     if conn.mgr == NULL:             # <<<<<<<<<<<<<<
@@ -21643,7 +21643,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1440
+  /* "cymongoose/_mongoose.pyx":1440
  *     if conn.mgr == NULL:
  *         return
  *     manager_obj = <PyObject*> conn.mgr.userdata             # <<<<<<<<<<<<<<
@@ -21652,7 +21652,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   __pyx_v_manager_obj = ((PyObject *)__pyx_v_conn->mgr->userdata);
 
-  /* "pymongoose/_mongoose.pyx":1441
+  /* "cymongoose/_mongoose.pyx":1441
  *         return
  *     manager_obj = <PyObject*> conn.mgr.userdata
  *     if manager_obj == NULL:             # <<<<<<<<<<<<<<
@@ -21662,7 +21662,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_t_1 = (__pyx_v_manager_obj == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1442
+    /* "cymongoose/_mongoose.pyx":1442
  *     manager_obj = <PyObject*> conn.mgr.userdata
  *     if manager_obj == NULL:
  *         return             # <<<<<<<<<<<<<<
@@ -21671,7 +21671,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1441
+    /* "cymongoose/_mongoose.pyx":1441
  *         return
  *     manager_obj = <PyObject*> conn.mgr.userdata
  *     if manager_obj == NULL:             # <<<<<<<<<<<<<<
@@ -21680,7 +21680,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1443
+  /* "cymongoose/_mongoose.pyx":1443
  *     if manager_obj == NULL:
  *         return
  *     manager = <Manager> manager_obj             # <<<<<<<<<<<<<<
@@ -21692,7 +21692,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_v_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1444
+  /* "cymongoose/_mongoose.pyx":1444
  *         return
  *     manager = <Manager> manager_obj
  *     py_conn = manager._ensure_connection(conn)             # <<<<<<<<<<<<<<
@@ -21704,7 +21704,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1445
+  /* "cymongoose/_mongoose.pyx":1445
  *     manager = <Manager> manager_obj
  *     py_conn = manager._ensure_connection(conn)
  *     handler = manager._resolve_handler(py_conn)             # <<<<<<<<<<<<<<
@@ -21716,7 +21716,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_v_handler = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1446
+  /* "cymongoose/_mongoose.pyx":1446
  *     py_conn = manager._ensure_connection(conn)
  *     handler = manager._resolve_handler(py_conn)
  *     payload = manager._wrap_event_data(ev, ev_data)             # <<<<<<<<<<<<<<
@@ -21728,7 +21728,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_v_payload = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1447
+  /* "cymongoose/_mongoose.pyx":1447
  *     handler = manager._resolve_handler(py_conn)
  *     payload = manager._wrap_event_data(ev, ev_data)
  *     if handler is None:             # <<<<<<<<<<<<<<
@@ -21738,7 +21738,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __pyx_t_1 = (__pyx_v_handler == Py_None);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1448
+    /* "cymongoose/_mongoose.pyx":1448
  *     payload = manager._wrap_event_data(ev, ev_data)
  *     if handler is None:
  *         return             # <<<<<<<<<<<<<<
@@ -21747,7 +21747,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1447
+    /* "cymongoose/_mongoose.pyx":1447
  *     handler = manager._resolve_handler(py_conn)
  *     payload = manager._wrap_event_data(ev, ev_data)
  *     if handler is None:             # <<<<<<<<<<<<<<
@@ -21756,7 +21756,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1449
+  /* "cymongoose/_mongoose.pyx":1449
  *     if handler is None:
  *         return
  *     try:             # <<<<<<<<<<<<<<
@@ -21772,7 +21772,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
     __Pyx_XGOTREF(__pyx_t_5);
     /*try:*/ {
 
-      /* "pymongoose/_mongoose.pyx":1450
+      /* "cymongoose/_mongoose.pyx":1450
  *         return
  *     try:
  *         handler(py_conn, ev, payload)             # <<<<<<<<<<<<<<
@@ -21807,7 +21807,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1449
+      /* "cymongoose/_mongoose.pyx":1449
  *     if handler is None:
  *         return
  *     try:             # <<<<<<<<<<<<<<
@@ -21825,7 +21825,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1451
+    /* "cymongoose/_mongoose.pyx":1451
  *     try:
  *         handler(py_conn, ev, payload)
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -21834,13 +21834,13 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
     __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_10) {
-      __Pyx_AddTraceback("pymongoose._mongoose._event_bridge", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("cymongoose._mongoose._event_bridge", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_7, &__pyx_t_8) < 0) __PYX_ERR(0, 1451, __pyx_L8_except_error)
       __Pyx_XGOTREF(__pyx_t_2);
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_8);
 
-      /* "pymongoose/_mongoose.pyx":1452
+      /* "cymongoose/_mongoose.pyx":1452
  *         handler(py_conn, ev, payload)
  *     except Exception:
  *         traceback.print_exc()             # <<<<<<<<<<<<<<
@@ -21881,7 +21881,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
     }
     goto __pyx_L8_except_error;
 
-    /* "pymongoose/_mongoose.pyx":1449
+    /* "cymongoose/_mongoose.pyx":1449
  *     if handler is None:
  *         return
  *     try:             # <<<<<<<<<<<<<<
@@ -21902,7 +21902,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
     __pyx_L11_try_end:;
   }
 
-  /* "pymongoose/_mongoose.pyx":1453
+  /* "cymongoose/_mongoose.pyx":1453
  *     except Exception:
  *         traceback.print_exc()
  *     if ev == MG_EV_CLOSE:             # <<<<<<<<<<<<<<
@@ -21920,7 +21920,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1454
+    /* "cymongoose/_mongoose.pyx":1454
  *         traceback.print_exc()
  *     if ev == MG_EV_CLOSE:
  *         manager._drop_connection(conn)             # <<<<<<<<<<<<<<
@@ -21929,7 +21929,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
     ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_drop_connection(__pyx_v_manager, __pyx_v_conn); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1454, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1453
+    /* "cymongoose/_mongoose.pyx":1453
  *     except Exception:
  *         traceback.print_exc()
  *     if ev == MG_EV_CLOSE:             # <<<<<<<<<<<<<<
@@ -21938,7 +21938,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1433
+  /* "cymongoose/_mongoose.pyx":1433
  * 
  * 
  * cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept with gil:             # <<<<<<<<<<<<<<
@@ -21956,7 +21956,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_WriteUnraisable("pymongoose._mongoose._event_bridge", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cymongoose._mongoose._event_bridge", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_manager);
   __Pyx_XDECREF((PyObject *)__pyx_v_py_conn);
@@ -21966,7 +21966,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
   __Pyx_PyGILState_Release(__pyx_gilstate_save);
 }
 
-/* "pymongoose/_mongoose.pyx":1458
+/* "cymongoose/_mongoose.pyx":1458
  * 
  * # JSON utilities
  * def json_get(data, path: str):             # <<<<<<<<<<<<<<
@@ -22054,7 +22054,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -22097,7 +22097,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("json_get", 0);
 
-  /* "pymongoose/_mongoose.pyx":1469
+  /* "cymongoose/_mongoose.pyx":1469
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22107,7 +22107,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1470
+    /* "cymongoose/_mongoose.pyx":1470
  *     cdef bytes json_b
  *     if isinstance(data, str):
  *         json_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22128,7 +22128,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
     __pyx_v_json_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1469
+    /* "cymongoose/_mongoose.pyx":1469
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22138,7 +22138,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1472
+  /* "cymongoose/_mongoose.pyx":1472
  *         json_b = data.encode("utf-8")
  *     else:
  *         json_b = bytes(data)             # <<<<<<<<<<<<<<
@@ -22160,7 +22160,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1473
+  /* "cymongoose/_mongoose.pyx":1473
  *     else:
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22172,7 +22172,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1474
+  /* "cymongoose/_mongoose.pyx":1474
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))             # <<<<<<<<<<<<<<
@@ -22191,7 +22191,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_json_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1474, __pyx_L1_error)
   __pyx_v_json_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1475
+  /* "cymongoose/_mongoose.pyx":1475
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef mg_str result = mg_json_get_tok(json_str, path_b)             # <<<<<<<<<<<<<<
@@ -22201,7 +22201,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_path_b); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1475, __pyx_L1_error)
   __pyx_v_result = mg_json_get_tok(__pyx_v_json_str, __pyx_t_7);
 
-  /* "pymongoose/_mongoose.pyx":1476
+  /* "cymongoose/_mongoose.pyx":1476
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef mg_str result = mg_json_get_tok(json_str, path_b)
  *     if result.buf == NULL:             # <<<<<<<<<<<<<<
@@ -22211,7 +22211,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_t_1 = (__pyx_v_result.buf == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1477
+    /* "cymongoose/_mongoose.pyx":1477
  *     cdef mg_str result = mg_json_get_tok(json_str, path_b)
  *     if result.buf == NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -22222,7 +22222,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1476
+    /* "cymongoose/_mongoose.pyx":1476
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef mg_str result = mg_json_get_tok(json_str, path_b)
  *     if result.buf == NULL:             # <<<<<<<<<<<<<<
@@ -22231,7 +22231,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1478
+  /* "cymongoose/_mongoose.pyx":1478
  *     if result.buf == NULL:
  *         return None
  *     return _mg_str_to_text(result)             # <<<<<<<<<<<<<<
@@ -22245,7 +22245,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1458
+  /* "cymongoose/_mongoose.pyx":1458
  * 
  * # JSON utilities
  * def json_get(data, path: str):             # <<<<<<<<<<<<<<
@@ -22257,7 +22257,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_json_b);
@@ -22267,7 +22267,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1481
+/* "cymongoose/_mongoose.pyx":1481
  * 
  * 
  * def json_get_num(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -22370,7 +22370,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_num", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_num", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -22413,7 +22413,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("json_get_num", 0);
 
-  /* "pymongoose/_mongoose.pyx":1493
+  /* "cymongoose/_mongoose.pyx":1493
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22423,7 +22423,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1494
+    /* "cymongoose/_mongoose.pyx":1494
  *     cdef bytes json_b
  *     if isinstance(data, str):
  *         json_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22444,7 +22444,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
     __pyx_v_json_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1493
+    /* "cymongoose/_mongoose.pyx":1493
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22454,7 +22454,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1496
+  /* "cymongoose/_mongoose.pyx":1496
  *         json_b = data.encode("utf-8")
  *     else:
  *         json_b = bytes(data)             # <<<<<<<<<<<<<<
@@ -22476,7 +22476,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1497
+  /* "cymongoose/_mongoose.pyx":1497
  *     else:
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22488,7 +22488,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1498
+  /* "cymongoose/_mongoose.pyx":1498
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))             # <<<<<<<<<<<<<<
@@ -22507,7 +22507,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_json_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1498, __pyx_L1_error)
   __pyx_v_json_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1500
+  /* "cymongoose/_mongoose.pyx":1500
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef double value
  *     if mg_json_get_num(json_str, path_b, &value):             # <<<<<<<<<<<<<<
@@ -22518,7 +22518,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_t_1 = (mg_json_get_num(__pyx_v_json_str, __pyx_t_7, (&__pyx_v_value)) != 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1501
+    /* "cymongoose/_mongoose.pyx":1501
  *     cdef double value
  *     if mg_json_get_num(json_str, path_b, &value):
  *         return value             # <<<<<<<<<<<<<<
@@ -22532,7 +22532,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1500
+    /* "cymongoose/_mongoose.pyx":1500
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef double value
  *     if mg_json_get_num(json_str, path_b, &value):             # <<<<<<<<<<<<<<
@@ -22541,7 +22541,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1502
+  /* "cymongoose/_mongoose.pyx":1502
  *     if mg_json_get_num(json_str, path_b, &value):
  *         return value
  *     return default             # <<<<<<<<<<<<<<
@@ -22553,7 +22553,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_r = __pyx_v_default;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1481
+  /* "cymongoose/_mongoose.pyx":1481
  * 
  * 
  * def json_get_num(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -22565,7 +22565,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_num", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_num", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_json_b);
@@ -22575,7 +22575,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1505
+/* "cymongoose/_mongoose.pyx":1505
  * 
  * 
  * def json_get_bool(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -22678,7 +22678,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_bool", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_bool", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -22721,7 +22721,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("json_get_bool", 0);
 
-  /* "pymongoose/_mongoose.pyx":1517
+  /* "cymongoose/_mongoose.pyx":1517
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22731,7 +22731,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1518
+    /* "cymongoose/_mongoose.pyx":1518
  *     cdef bytes json_b
  *     if isinstance(data, str):
  *         json_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22752,7 +22752,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
     __pyx_v_json_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1517
+    /* "cymongoose/_mongoose.pyx":1517
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -22762,7 +22762,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1520
+  /* "cymongoose/_mongoose.pyx":1520
  *         json_b = data.encode("utf-8")
  *     else:
  *         json_b = bytes(data)             # <<<<<<<<<<<<<<
@@ -22784,7 +22784,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1521
+  /* "cymongoose/_mongoose.pyx":1521
  *     else:
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -22796,7 +22796,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1522
+  /* "cymongoose/_mongoose.pyx":1522
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))             # <<<<<<<<<<<<<<
@@ -22815,7 +22815,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_json_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1522, __pyx_L1_error)
   __pyx_v_json_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1523
+  /* "cymongoose/_mongoose.pyx":1523
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef cbool value = False             # <<<<<<<<<<<<<<
@@ -22824,7 +22824,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
 */
   __pyx_v_value = 0;
 
-  /* "pymongoose/_mongoose.pyx":1524
+  /* "cymongoose/_mongoose.pyx":1524
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef cbool value = False
  *     if mg_json_get_bool(json_str, path_b, &value):             # <<<<<<<<<<<<<<
@@ -22835,7 +22835,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_t_1 = (mg_json_get_bool(__pyx_v_json_str, __pyx_t_7, (&__pyx_v_value)) != 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1526
+    /* "cymongoose/_mongoose.pyx":1526
  *     if mg_json_get_bool(json_str, path_b, &value):
  *         # mg_json_get_bool returns true on success, value contains the actual boolean
  *         return value != 0             # <<<<<<<<<<<<<<
@@ -22849,7 +22849,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1524
+    /* "cymongoose/_mongoose.pyx":1524
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef cbool value = False
  *     if mg_json_get_bool(json_str, path_b, &value):             # <<<<<<<<<<<<<<
@@ -22858,7 +22858,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1527
+  /* "cymongoose/_mongoose.pyx":1527
  *         # mg_json_get_bool returns true on success, value contains the actual boolean
  *         return value != 0
  *     return default             # <<<<<<<<<<<<<<
@@ -22870,7 +22870,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_r = __pyx_v_default;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1505
+  /* "cymongoose/_mongoose.pyx":1505
  * 
  * 
  * def json_get_bool(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -22882,7 +22882,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_bool", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_bool", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_json_b);
@@ -22892,7 +22892,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1530
+/* "cymongoose/_mongoose.pyx":1530
  * 
  * 
  * def json_get_long(data, path: str, default=0):             # <<<<<<<<<<<<<<
@@ -22995,7 +22995,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_long", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_long", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -23038,7 +23038,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("json_get_long", 0);
 
-  /* "pymongoose/_mongoose.pyx":1542
+  /* "cymongoose/_mongoose.pyx":1542
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -23048,7 +23048,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1543
+    /* "cymongoose/_mongoose.pyx":1543
  *     cdef bytes json_b
  *     if isinstance(data, str):
  *         json_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -23069,7 +23069,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
     __pyx_v_json_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1542
+    /* "cymongoose/_mongoose.pyx":1542
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -23079,7 +23079,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1545
+  /* "cymongoose/_mongoose.pyx":1545
  *         json_b = data.encode("utf-8")
  *     else:
  *         json_b = bytes(data)             # <<<<<<<<<<<<<<
@@ -23101,7 +23101,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1546
+  /* "cymongoose/_mongoose.pyx":1546
  *     else:
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -23113,7 +23113,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1547
+  /* "cymongoose/_mongoose.pyx":1547
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))             # <<<<<<<<<<<<<<
@@ -23132,7 +23132,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_json_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1547, __pyx_L1_error)
   __pyx_v_json_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1548
+  /* "cymongoose/_mongoose.pyx":1548
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     return mg_json_get_long(json_str, path_b, default)             # <<<<<<<<<<<<<<
@@ -23148,7 +23148,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1530
+  /* "cymongoose/_mongoose.pyx":1530
  * 
  * 
  * def json_get_long(data, path: str, default=0):             # <<<<<<<<<<<<<<
@@ -23160,7 +23160,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_long", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_long", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_json_b);
@@ -23170,7 +23170,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1551
+/* "cymongoose/_mongoose.pyx":1551
  * 
  * 
  * def json_get_str(data, path: str):             # <<<<<<<<<<<<<<
@@ -23258,7 +23258,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_str", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_str", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -23310,7 +23310,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("json_get_str", 0);
 
-  /* "pymongoose/_mongoose.pyx":1562
+  /* "cymongoose/_mongoose.pyx":1562
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -23320,7 +23320,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_t_1 = PyUnicode_Check(__pyx_v_data); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1563
+    /* "cymongoose/_mongoose.pyx":1563
  *     cdef bytes json_b
  *     if isinstance(data, str):
  *         json_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -23341,7 +23341,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
     __pyx_v_json_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1562
+    /* "cymongoose/_mongoose.pyx":1562
  *     """
  *     cdef bytes json_b
  *     if isinstance(data, str):             # <<<<<<<<<<<<<<
@@ -23351,7 +23351,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1565
+  /* "cymongoose/_mongoose.pyx":1565
  *         json_b = data.encode("utf-8")
  *     else:
  *         json_b = bytes(data)             # <<<<<<<<<<<<<<
@@ -23373,7 +23373,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1566
+  /* "cymongoose/_mongoose.pyx":1566
  *     else:
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -23385,7 +23385,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_v_path_b = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1567
+  /* "cymongoose/_mongoose.pyx":1567
  *         json_b = bytes(data)
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))             # <<<<<<<<<<<<<<
@@ -23404,7 +23404,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_json_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1567, __pyx_L1_error)
   __pyx_v_json_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1568
+  /* "cymongoose/_mongoose.pyx":1568
  *     cdef bytes path_b = path.encode("utf-8")
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef char *result = mg_json_get_str(json_str, path_b)             # <<<<<<<<<<<<<<
@@ -23414,7 +23414,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_t_7 = __Pyx_PyBytes_AsString(__pyx_v_path_b); if (unlikely((!__pyx_t_7) && PyErr_Occurred())) __PYX_ERR(0, 1568, __pyx_L1_error)
   __pyx_v_result = mg_json_get_str(__pyx_v_json_str, __pyx_t_7);
 
-  /* "pymongoose/_mongoose.pyx":1569
+  /* "cymongoose/_mongoose.pyx":1569
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef char *result = mg_json_get_str(json_str, path_b)
  *     if result == NULL:             # <<<<<<<<<<<<<<
@@ -23424,7 +23424,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_t_1 = (__pyx_v_result == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1570
+    /* "cymongoose/_mongoose.pyx":1570
  *     cdef char *result = mg_json_get_str(json_str, path_b)
  *     if result == NULL:
  *         return None             # <<<<<<<<<<<<<<
@@ -23435,7 +23435,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1569
+    /* "cymongoose/_mongoose.pyx":1569
  *     cdef mg_str json_str = mg_str_n(json_b, len(json_b))
  *     cdef char *result = mg_json_get_str(json_str, path_b)
  *     if result == NULL:             # <<<<<<<<<<<<<<
@@ -23444,7 +23444,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1571
+  /* "cymongoose/_mongoose.pyx":1571
  *     if result == NULL:
  *         return None
  *     try:             # <<<<<<<<<<<<<<
@@ -23453,7 +23453,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
 */
   /*try:*/ {
 
-    /* "pymongoose/_mongoose.pyx":1572
+    /* "cymongoose/_mongoose.pyx":1572
  *         return None
  *     try:
  *         return result.decode("utf-8", "surrogateescape")             # <<<<<<<<<<<<<<
@@ -23469,7 +23469,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
     goto __pyx_L5_return;
   }
 
-  /* "pymongoose/_mongoose.pyx":1574
+  /* "cymongoose/_mongoose.pyx":1574
  *         return result.decode("utf-8", "surrogateescape")
  *     finally:
  *         free(result)             # <<<<<<<<<<<<<<
@@ -23518,7 +23518,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
     }
   }
 
-  /* "pymongoose/_mongoose.pyx":1551
+  /* "cymongoose/_mongoose.pyx":1551
  * 
  * 
  * def json_get_str(data, path: str):             # <<<<<<<<<<<<<<
@@ -23530,7 +23530,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.json_get_str", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.json_get_str", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_json_b);
@@ -23540,7 +23540,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1578
+/* "cymongoose/_mongoose.pyx":1578
  * 
  * # URL encoding
  * def url_encode(data: str) -> str:             # <<<<<<<<<<<<<<
@@ -23620,7 +23620,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.url_encode", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.url_encode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -23673,7 +23673,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("url_encode", 0);
 
-  /* "pymongoose/_mongoose.pyx":1587
+  /* "cymongoose/_mongoose.pyx":1587
  *         URL-encoded string
  *     """
  *     cdef bytes data_b = data.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -23685,7 +23685,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   __pyx_v_data_b = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1588
+  /* "cymongoose/_mongoose.pyx":1588
  *     """
  *     cdef bytes data_b = data.encode("utf-8")
  *     cdef size_t src_len = len(data_b)             # <<<<<<<<<<<<<<
@@ -23695,7 +23695,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   __pyx_t_2 = __Pyx_PyBytes_GET_SIZE(__pyx_v_data_b); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1588, __pyx_L1_error)
   __pyx_v_src_len = __pyx_t_2;
 
-  /* "pymongoose/_mongoose.pyx":1590
+  /* "cymongoose/_mongoose.pyx":1590
  *     cdef size_t src_len = len(data_b)
  *     # URL encoding can expand up to 3x (worst case: every byte becomes %XX)
  *     cdef size_t buf_len = src_len * 3 + 1             # <<<<<<<<<<<<<<
@@ -23704,7 +23704,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
 */
   __pyx_v_buf_len = ((__pyx_v_src_len * 3) + 1);
 
-  /* "pymongoose/_mongoose.pyx":1591
+  /* "cymongoose/_mongoose.pyx":1591
  *     # URL encoding can expand up to 3x (worst case: every byte becomes %XX)
  *     cdef size_t buf_len = src_len * 3 + 1
  *     cdef char *buf = <char*>malloc(buf_len)             # <<<<<<<<<<<<<<
@@ -23713,7 +23713,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
 */
   __pyx_v_buf = ((char *)malloc(__pyx_v_buf_len));
 
-  /* "pymongoose/_mongoose.pyx":1594
+  /* "cymongoose/_mongoose.pyx":1594
  *     cdef size_t result_len
  * 
  *     if buf == NULL:             # <<<<<<<<<<<<<<
@@ -23723,7 +23723,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   __pyx_t_3 = (__pyx_v_buf == NULL);
   if (unlikely(__pyx_t_3)) {
 
-    /* "pymongoose/_mongoose.pyx":1595
+    /* "cymongoose/_mongoose.pyx":1595
  * 
  *     if buf == NULL:
  *         raise MemoryError("Failed to allocate buffer for URL encoding")             # <<<<<<<<<<<<<<
@@ -23743,7 +23743,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 1595, __pyx_L1_error)
 
-    /* "pymongoose/_mongoose.pyx":1594
+    /* "cymongoose/_mongoose.pyx":1594
  *     cdef size_t result_len
  * 
  *     if buf == NULL:             # <<<<<<<<<<<<<<
@@ -23752,7 +23752,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1597
+  /* "cymongoose/_mongoose.pyx":1597
  *         raise MemoryError("Failed to allocate buffer for URL encoding")
  * 
  *     try:             # <<<<<<<<<<<<<<
@@ -23761,7 +23761,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
 */
   /*try:*/ {
 
-    /* "pymongoose/_mongoose.pyx":1598
+    /* "cymongoose/_mongoose.pyx":1598
  * 
  *     try:
  *         result_len = mg_url_encode(data_b, src_len, buf, buf_len)             # <<<<<<<<<<<<<<
@@ -23771,7 +23771,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
     __pyx_t_6 = __Pyx_PyBytes_AsString(__pyx_v_data_b); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) __PYX_ERR(0, 1598, __pyx_L5_error)
     __pyx_v_result_len = mg_url_encode(__pyx_t_6, __pyx_v_src_len, __pyx_v_buf, __pyx_v_buf_len);
 
-    /* "pymongoose/_mongoose.pyx":1599
+    /* "cymongoose/_mongoose.pyx":1599
  *     try:
  *         result_len = mg_url_encode(data_b, src_len, buf, buf_len)
  *         return buf[:result_len].decode("ascii")             # <<<<<<<<<<<<<<
@@ -23786,7 +23786,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
     goto __pyx_L4_return;
   }
 
-  /* "pymongoose/_mongoose.pyx":1601
+  /* "cymongoose/_mongoose.pyx":1601
  *         return buf[:result_len].decode("ascii")
  *     finally:
  *         free(buf)             # <<<<<<<<<<<<<<
@@ -23835,7 +23835,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
     }
   }
 
-  /* "pymongoose/_mongoose.pyx":1578
+  /* "cymongoose/_mongoose.pyx":1578
  * 
  * # URL encoding
  * def url_encode(data: str) -> str:             # <<<<<<<<<<<<<<
@@ -23847,7 +23847,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pymongoose._mongoose.url_encode", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.url_encode", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_data_b);
@@ -23856,7 +23856,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1605
+/* "cymongoose/_mongoose.pyx":1605
  * 
  * # Multipart form parsing
  * def http_parse_multipart(body, offset=0):             # <<<<<<<<<<<<<<
@@ -23951,7 +23951,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.http_parse_multipart", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.http_parse_multipart", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -23984,7 +23984,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("http_parse_multipart", 0);
 
-  /* "pymongoose/_mongoose.pyx":1620
+  /* "cymongoose/_mongoose.pyx":1620
  *     """
  *     cdef bytes body_b
  *     if isinstance(body, str):             # <<<<<<<<<<<<<<
@@ -23994,7 +23994,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_t_1 = PyUnicode_Check(__pyx_v_body); 
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1621
+    /* "cymongoose/_mongoose.pyx":1621
  *     cdef bytes body_b
  *     if isinstance(body, str):
  *         body_b = body.encode("utf-8")             # <<<<<<<<<<<<<<
@@ -24015,7 +24015,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
     __pyx_v_body_b = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1620
+    /* "cymongoose/_mongoose.pyx":1620
  *     """
  *     cdef bytes body_b
  *     if isinstance(body, str):             # <<<<<<<<<<<<<<
@@ -24025,7 +24025,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
     goto __pyx_L3;
   }
 
-  /* "pymongoose/_mongoose.pyx":1623
+  /* "cymongoose/_mongoose.pyx":1623
  *         body_b = body.encode("utf-8")
  *     else:
  *         body_b = bytes(body)             # <<<<<<<<<<<<<<
@@ -24047,7 +24047,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   }
   __pyx_L3:;
 
-  /* "pymongoose/_mongoose.pyx":1625
+  /* "cymongoose/_mongoose.pyx":1625
  *         body_b = bytes(body)
  * 
  *     cdef mg_str body_str = mg_str_n(body_b, len(body_b))             # <<<<<<<<<<<<<<
@@ -24066,7 +24066,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_t_6 = __Pyx_PyBytes_GET_SIZE(__pyx_v_body_b); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1625, __pyx_L1_error)
   __pyx_v_body_str = mg_str_n(__pyx_t_5, __pyx_t_6);
 
-  /* "pymongoose/_mongoose.pyx":1627
+  /* "cymongoose/_mongoose.pyx":1627
  *     cdef mg_str body_str = mg_str_n(body_b, len(body_b))
  *     cdef mg_http_part part
  *     cdef size_t next_offset = mg_http_next_multipart(body_str, offset, &part)             # <<<<<<<<<<<<<<
@@ -24076,7 +24076,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_t_4 = __Pyx_PyLong_As_size_t(__pyx_v_offset); if (unlikely((__pyx_t_4 == (size_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1627, __pyx_L1_error)
   __pyx_v_next_offset = mg_http_next_multipart(__pyx_v_body_str, __pyx_t_4, (&__pyx_v_part));
 
-  /* "pymongoose/_mongoose.pyx":1629
+  /* "cymongoose/_mongoose.pyx":1629
  *     cdef size_t next_offset = mg_http_next_multipart(body_str, offset, &part)
  * 
  *     if next_offset == 0:             # <<<<<<<<<<<<<<
@@ -24086,7 +24086,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_t_1 = (__pyx_v_next_offset == 0);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1630
+    /* "cymongoose/_mongoose.pyx":1630
  * 
  *     if next_offset == 0:
  *         return (0, None)             # <<<<<<<<<<<<<<
@@ -24098,7 +24098,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
     __pyx_r = __pyx_mstate_global->__pyx_tuple[1];
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1629
+    /* "cymongoose/_mongoose.pyx":1629
  *     cdef size_t next_offset = mg_http_next_multipart(body_str, offset, &part)
  * 
  *     if next_offset == 0:             # <<<<<<<<<<<<<<
@@ -24107,7 +24107,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1633
+  /* "cymongoose/_mongoose.pyx":1633
  * 
  *     part_dict = {
  *         'name': _mg_str_to_text(part.name),             # <<<<<<<<<<<<<<
@@ -24121,7 +24121,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name, __pyx_t_3) < (0)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1634
+  /* "cymongoose/_mongoose.pyx":1634
  *     part_dict = {
  *         'name': _mg_str_to_text(part.name),
  *         'filename': _mg_str_to_text(part.filename),             # <<<<<<<<<<<<<<
@@ -24133,7 +24133,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_filename, __pyx_t_3) < (0)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1635
+  /* "cymongoose/_mongoose.pyx":1635
  *         'name': _mg_str_to_text(part.name),
  *         'filename': _mg_str_to_text(part.filename),
  *         'body': _mg_str_to_bytes(part.body),             # <<<<<<<<<<<<<<
@@ -24147,7 +24147,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_v_part_dict = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1638
+  /* "cymongoose/_mongoose.pyx":1638
  *     }
  * 
  *     return (next_offset, part_dict)             # <<<<<<<<<<<<<<
@@ -24169,7 +24169,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pymongoose/_mongoose.pyx":1605
+  /* "cymongoose/_mongoose.pyx":1605
  * 
  * # Multipart form parsing
  * def http_parse_multipart(body, offset=0):             # <<<<<<<<<<<<<<
@@ -24181,7 +24181,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.http_parse_multipart", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.http_parse_multipart", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_body_b);
@@ -24191,7 +24191,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1641
+/* "cymongoose/_mongoose.pyx":1641
  * 
  * # Timer callback bridge - called from C, needs to acquire GIL
  * cdef void _timer_callback(void *arg) noexcept with gil:             # <<<<<<<<<<<<<<
@@ -24222,7 +24222,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
   PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
   __Pyx_RefNannySetupContext("_timer_callback", 0);
 
-  /* "pymongoose/_mongoose.pyx":1643
+  /* "cymongoose/_mongoose.pyx":1643
  * cdef void _timer_callback(void *arg) noexcept with gil:
  *     """C callback that bridges to Python timer handler."""
  *     if arg == NULL:             # <<<<<<<<<<<<<<
@@ -24232,7 +24232,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
   __pyx_t_1 = (__pyx_v_arg == NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1644
+    /* "cymongoose/_mongoose.pyx":1644
  *     """C callback that bridges to Python timer handler."""
  *     if arg == NULL:
  *         return             # <<<<<<<<<<<<<<
@@ -24241,7 +24241,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
 */
     goto __pyx_L0;
 
-    /* "pymongoose/_mongoose.pyx":1643
+    /* "cymongoose/_mongoose.pyx":1643
  * cdef void _timer_callback(void *arg) noexcept with gil:
  *     """C callback that bridges to Python timer handler."""
  *     if arg == NULL:             # <<<<<<<<<<<<<<
@@ -24250,7 +24250,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1646
+  /* "cymongoose/_mongoose.pyx":1646
  *         return
  * 
  *     cdef PyObject *py_callback = <PyObject*> arg             # <<<<<<<<<<<<<<
@@ -24259,7 +24259,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
 */
   __pyx_v_py_callback = ((PyObject *)__pyx_v_arg);
 
-  /* "pymongoose/_mongoose.pyx":1647
+  /* "cymongoose/_mongoose.pyx":1647
  * 
  *     cdef PyObject *py_callback = <PyObject*> arg
  *     try:             # <<<<<<<<<<<<<<
@@ -24275,7 +24275,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "pymongoose/_mongoose.pyx":1648
+      /* "cymongoose/_mongoose.pyx":1648
  *     cdef PyObject *py_callback = <PyObject*> arg
  *     try:
  *         callback = <object> py_callback             # <<<<<<<<<<<<<<
@@ -24287,7 +24287,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
       __pyx_v_callback = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1649
+      /* "cymongoose/_mongoose.pyx":1649
  *     try:
  *         callback = <object> py_callback
  *         callback()             # <<<<<<<<<<<<<<
@@ -24319,7 +24319,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1647
+      /* "cymongoose/_mongoose.pyx":1647
  * 
  *     cdef PyObject *py_callback = <PyObject*> arg
  *     try:             # <<<<<<<<<<<<<<
@@ -24336,7 +24336,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1650
+    /* "cymongoose/_mongoose.pyx":1650
  *         callback = <object> py_callback
  *         callback()
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -24345,13 +24345,13 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
 */
     __pyx_t_9 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_9) {
-      __Pyx_AddTraceback("pymongoose._mongoose._timer_callback", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("cymongoose._mongoose._timer_callback", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_7, &__pyx_t_6) < 0) __PYX_ERR(0, 1650, __pyx_L6_except_error)
       __Pyx_XGOTREF(__pyx_t_5);
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_6);
 
-      /* "pymongoose/_mongoose.pyx":1651
+      /* "cymongoose/_mongoose.pyx":1651
  *         callback()
  *     except Exception:
  *         import traceback             # <<<<<<<<<<<<<<
@@ -24364,7 +24364,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
       __pyx_v_traceback = __pyx_t_10;
       __pyx_t_10 = 0;
 
-      /* "pymongoose/_mongoose.pyx":1652
+      /* "cymongoose/_mongoose.pyx":1652
  *     except Exception:
  *         import traceback
  *         traceback.print_exc()             # <<<<<<<<<<<<<<
@@ -24389,7 +24389,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
     }
     goto __pyx_L6_except_error;
 
-    /* "pymongoose/_mongoose.pyx":1647
+    /* "cymongoose/_mongoose.pyx":1647
  * 
  *     cdef PyObject *py_callback = <PyObject*> arg
  *     try:             # <<<<<<<<<<<<<<
@@ -24410,7 +24410,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
     __pyx_L9_try_end:;
   }
 
-  /* "pymongoose/_mongoose.pyx":1641
+  /* "cymongoose/_mongoose.pyx":1641
  * 
  * # Timer callback bridge - called from C, needs to acquire GIL
  * cdef void _timer_callback(void *arg) noexcept with gil:             # <<<<<<<<<<<<<<
@@ -24426,7 +24426,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_WriteUnraisable("pymongoose._mongoose._timer_callback", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("cymongoose._mongoose._timer_callback", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_callback);
   __Pyx_XDECREF(__pyx_v_traceback);
@@ -24434,7 +24434,7 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
   __Pyx_PyGILState_Release(__pyx_gilstate_save);
 }
 
-/* "pymongoose/_mongoose.pyx":1665
+/* "cymongoose/_mongoose.pyx":1665
  *     cdef PyObject *_callback_ref
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -24472,7 +24472,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pymongoose/_mongoose.pyx":1666
+  /* "cymongoose/_mongoose.pyx":1666
  * 
  *     def __cinit__(self):
  *         self._timer = NULL             # <<<<<<<<<<<<<<
@@ -24481,7 +24481,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
 */
   __pyx_v_self->_timer = NULL;
 
-  /* "pymongoose/_mongoose.pyx":1667
+  /* "cymongoose/_mongoose.pyx":1667
  *     def __cinit__(self):
  *         self._timer = NULL
  *         self._callback = None             # <<<<<<<<<<<<<<
@@ -24494,7 +24494,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
   __Pyx_DECREF(__pyx_v_self->_callback);
   __pyx_v_self->_callback = Py_None;
 
-  /* "pymongoose/_mongoose.pyx":1668
+  /* "cymongoose/_mongoose.pyx":1668
  *         self._timer = NULL
  *         self._callback = None
  *         self._callback_ref = NULL             # <<<<<<<<<<<<<<
@@ -24503,7 +24503,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
 */
   __pyx_v_self->_callback_ref = NULL;
 
-  /* "pymongoose/_mongoose.pyx":1665
+  /* "cymongoose/_mongoose.pyx":1665
  *     cdef PyObject *_callback_ref
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -24517,7 +24517,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "pymongoose/_mongoose.pyx":1670
+/* "cymongoose/_mongoose.pyx":1670
  *         self._callback_ref = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -24544,7 +24544,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pymongoose/_mongoose.pyx":1672
+  /* "cymongoose/_mongoose.pyx":1672
  *     def __dealloc__(self):
  *         # Release callback reference (mg_timer is auto-freed by Mongoose)
  *         if self._callback_ref != NULL:             # <<<<<<<<<<<<<<
@@ -24554,7 +24554,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
   __pyx_t_1 = (__pyx_v_self->_callback_ref != NULL);
   if (__pyx_t_1) {
 
-    /* "pymongoose/_mongoose.pyx":1673
+    /* "cymongoose/_mongoose.pyx":1673
  *         # Release callback reference (mg_timer is auto-freed by Mongoose)
  *         if self._callback_ref != NULL:
  *             Py_DECREF(<object>self._callback_ref)             # <<<<<<<<<<<<<<
@@ -24566,7 +24566,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
     Py_DECREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pymongoose/_mongoose.pyx":1674
+    /* "cymongoose/_mongoose.pyx":1674
  *         if self._callback_ref != NULL:
  *             Py_DECREF(<object>self._callback_ref)
  *             self._callback_ref = NULL             # <<<<<<<<<<<<<<
@@ -24575,7 +24575,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
 */
     __pyx_v_self->_callback_ref = NULL;
 
-    /* "pymongoose/_mongoose.pyx":1672
+    /* "cymongoose/_mongoose.pyx":1672
  *     def __dealloc__(self):
  *         # Release callback reference (mg_timer is auto-freed by Mongoose)
  *         if self._callback_ref != NULL:             # <<<<<<<<<<<<<<
@@ -24584,7 +24584,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
 */
   }
 
-  /* "pymongoose/_mongoose.pyx":1670
+  /* "cymongoose/_mongoose.pyx":1670
  *         self._callback_ref = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -24596,7 +24596,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pymongoose/_mongoose.pyx":1676
+/* "cymongoose/_mongoose.pyx":1676
  *             self._callback_ref = NULL
  * 
  *     cdef void _set_timer(self, mg_timer *timer, object callback):             # <<<<<<<<<<<<<<
@@ -24608,7 +24608,7 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_set_timer", 0);
 
-  /* "pymongoose/_mongoose.pyx":1677
+  /* "cymongoose/_mongoose.pyx":1677
  * 
  *     cdef void _set_timer(self, mg_timer *timer, object callback):
  *         self._timer = timer             # <<<<<<<<<<<<<<
@@ -24617,7 +24617,7 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 */
   __pyx_v_self->_timer = __pyx_v_timer;
 
-  /* "pymongoose/_mongoose.pyx":1678
+  /* "cymongoose/_mongoose.pyx":1678
  *     cdef void _set_timer(self, mg_timer *timer, object callback):
  *         self._timer = timer
  *         self._callback = callback             # <<<<<<<<<<<<<<
@@ -24630,7 +24630,7 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
   __Pyx_DECREF(__pyx_v_self->_callback);
   __pyx_v_self->_callback = __pyx_v_callback;
 
-  /* "pymongoose/_mongoose.pyx":1680
+  /* "cymongoose/_mongoose.pyx":1680
  *         self._callback = callback
  *         # Keep callback alive
  *         self._callback_ref = <PyObject*> callback             # <<<<<<<<<<<<<<
@@ -24639,7 +24639,7 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 */
   __pyx_v_self->_callback_ref = ((PyObject *)__pyx_v_callback);
 
-  /* "pymongoose/_mongoose.pyx":1681
+  /* "cymongoose/_mongoose.pyx":1681
  *         # Keep callback alive
  *         self._callback_ref = <PyObject*> callback
  *         Py_INCREF(callback)             # <<<<<<<<<<<<<<
@@ -24648,7 +24648,7 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 */
   Py_INCREF(__pyx_v_callback);
 
-  /* "pymongoose/_mongoose.pyx":1676
+  /* "cymongoose/_mongoose.pyx":1676
  *             self._callback_ref = NULL
  * 
  *     cdef void _set_timer(self, mg_timer *timer, object callback):             # <<<<<<<<<<<<<<
@@ -24734,7 +24734,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTH
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Timer.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Timer.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -24820,7 +24820,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.Timer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Timer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -24859,7 +24859,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_6__setstate_cython__(CY
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pymongoose._mongoose.Timer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.Timer.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -24962,7 +24962,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("pymongoose._mongoose.__pyx_unpickle_TlsOpts", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.__pyx_unpickle_TlsOpts", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -25087,7 +25087,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHO
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pymongoose._mongoose.__pyx_unpickle_TlsOpts", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.__pyx_unpickle_TlsOpts", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_result);
@@ -25176,7 +25176,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_sta
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pymongoose._mongoose.__pyx_unpickle_TlsOpts__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("cymongoose._mongoose.__pyx_unpickle_TlsOpts__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -25273,7 +25273,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_HttpMessage_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_HttpMessage_spec = {
-  "pymongoose._mongoose.HttpMessage",
+  "cymongoose._mongoose.HttpMessage",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
@@ -25322,7 +25322,7 @@ static PyNumberMethods __pyx_tp_as_number_HttpMessage = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_HttpMessage = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""HttpMessage", /*tp_name*/
+  "cymongoose._mongoose.""HttpMessage", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage, /*tp_dealloc*/
@@ -25460,7 +25460,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_WsMessage_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_WsMessage_spec = {
-  "pymongoose._mongoose.WsMessage",
+  "cymongoose._mongoose.WsMessage",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
@@ -25470,7 +25470,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_WsMessage_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_WsMessage = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""WsMessage", /*tp_name*/
+  "cymongoose._mongoose.""WsMessage", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage, /*tp_dealloc*/
@@ -25628,7 +25628,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_MqttMessage_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_MqttMessage_spec = {
-  "pymongoose._mongoose.MqttMessage",
+  "cymongoose._mongoose.MqttMessage",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
@@ -25638,7 +25638,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_MqttMessage_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_MqttMessage = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""MqttMessage", /*tp_name*/
+  "cymongoose._mongoose.""MqttMessage", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage, /*tp_dealloc*/
@@ -25840,7 +25840,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_TlsOpts_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_TlsOpts_spec = {
-  "pymongoose._mongoose.TlsOpts",
+  "cymongoose._mongoose.TlsOpts",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
@@ -25850,7 +25850,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_TlsOpts_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_TlsOpts = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""TlsOpts", /*tp_name*/
+  "cymongoose._mongoose.""TlsOpts", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts, /*tp_dealloc*/
@@ -26152,7 +26152,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Connection_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Connection_spec = {
-  "pymongoose._mongoose.Connection",
+  "cymongoose._mongoose.Connection",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Connection),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
@@ -26162,7 +26162,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Connection_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Connection = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""Connection", /*tp_name*/
+  "cymongoose._mongoose.""Connection", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Connection), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_Connection, /*tp_dealloc*/
@@ -26337,7 +26337,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Manager_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Manager_spec = {
-  "pymongoose._mongoose.Manager",
+  "cymongoose._mongoose.Manager",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Manager),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
@@ -26347,7 +26347,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Manager_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Manager = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""Manager", /*tp_name*/
+  "cymongoose._mongoose.""Manager", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Manager), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager, /*tp_dealloc*/
@@ -26505,7 +26505,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Timer_slots[] = {
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Timer_spec = {
-  "pymongoose._mongoose.Timer",
+  "cymongoose._mongoose.Timer",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Timer),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
@@ -26515,7 +26515,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Timer_spec = {
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Timer = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""Timer", /*tp_name*/
+  "cymongoose._mongoose.""Timer", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Timer), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer, /*tp_dealloc*/
@@ -26672,7 +26672,7 @@ static PyType_Slot __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexp
   {0, 0},
 };
 static PyType_Spec __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_spec = {
-  "pymongoose._mongoose.__pyx_scope_struct__genexpr",
+  "cymongoose._mongoose.__pyx_scope_struct__genexpr",
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
@@ -26682,7 +26682,7 @@ static PyType_Spec __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexp
 
 static PyTypeObject __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pymongoose._mongoose.""__pyx_scope_struct__genexpr", /*tp_name*/
+  "cymongoose._mongoose.""__pyx_scope_struct__genexpr", /*tp_name*/
   sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_dealloc*/
@@ -27314,8 +27314,8 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pymongoose._mongoose")) {
-      if (unlikely((PyDict_SetItemString(modules, "pymongoose._mongoose", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "cymongoose._mongoose")) {
+      if (unlikely((PyDict_SetItemString(modules, "cymongoose._mongoose", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -27333,7 +27333,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "pymongoose/_mongoose.pyx":14
+  /* "cymongoose/_mongoose.pyx":14
  * # NOTE: Mongoose's built-in TLS is event-loop based with no locks, so nogil is safe with TLS
  * IF USE_NOGIL:
  *     print("USE_NOGIL=1")             # <<<<<<<<<<<<<<
@@ -27351,7 +27351,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":149
+  /* "cymongoose/_mongoose.pyx":149
  * )
  * 
  * import traceback             # <<<<<<<<<<<<<<
@@ -27364,7 +27364,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_traceback, __pyx_t_2) < (0)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":151
+  /* "cymongoose/_mongoose.pyx":151
  * import traceback
  * 
  * __all__ = [             # <<<<<<<<<<<<<<
@@ -27376,7 +27376,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_all, __pyx_t_2) < (0)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":193
+  /* "cymongoose/_mongoose.pyx":193
  * ]
  * 
  * MG_EV_ERROR = C_MG_EV_ERROR             # <<<<<<<<<<<<<<
@@ -27388,7 +27388,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_ERROR, __pyx_t_2) < (0)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":194
+  /* "cymongoose/_mongoose.pyx":194
  * 
  * MG_EV_ERROR = C_MG_EV_ERROR
  * MG_EV_OPEN = C_MG_EV_OPEN             # <<<<<<<<<<<<<<
@@ -27400,7 +27400,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_OPEN, __pyx_t_2) < (0)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":195
+  /* "cymongoose/_mongoose.pyx":195
  * MG_EV_ERROR = C_MG_EV_ERROR
  * MG_EV_OPEN = C_MG_EV_OPEN
  * MG_EV_POLL = C_MG_EV_POLL             # <<<<<<<<<<<<<<
@@ -27412,7 +27412,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_POLL, __pyx_t_2) < (0)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":196
+  /* "cymongoose/_mongoose.pyx":196
  * MG_EV_OPEN = C_MG_EV_OPEN
  * MG_EV_POLL = C_MG_EV_POLL
  * MG_EV_RESOLVE = C_MG_EV_RESOLVE             # <<<<<<<<<<<<<<
@@ -27424,7 +27424,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_RESOLVE, __pyx_t_2) < (0)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":197
+  /* "cymongoose/_mongoose.pyx":197
  * MG_EV_POLL = C_MG_EV_POLL
  * MG_EV_RESOLVE = C_MG_EV_RESOLVE
  * MG_EV_CONNECT = C_MG_EV_CONNECT             # <<<<<<<<<<<<<<
@@ -27436,7 +27436,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_CONNECT, __pyx_t_2) < (0)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":198
+  /* "cymongoose/_mongoose.pyx":198
  * MG_EV_RESOLVE = C_MG_EV_RESOLVE
  * MG_EV_CONNECT = C_MG_EV_CONNECT
  * MG_EV_ACCEPT = C_MG_EV_ACCEPT             # <<<<<<<<<<<<<<
@@ -27448,7 +27448,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_ACCEPT, __pyx_t_2) < (0)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":199
+  /* "cymongoose/_mongoose.pyx":199
  * MG_EV_CONNECT = C_MG_EV_CONNECT
  * MG_EV_ACCEPT = C_MG_EV_ACCEPT
  * MG_EV_TLS_HS = C_MG_EV_TLS_HS             # <<<<<<<<<<<<<<
@@ -27460,7 +27460,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_TLS_HS, __pyx_t_2) < (0)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":200
+  /* "cymongoose/_mongoose.pyx":200
  * MG_EV_ACCEPT = C_MG_EV_ACCEPT
  * MG_EV_TLS_HS = C_MG_EV_TLS_HS
  * MG_EV_READ = C_MG_EV_READ             # <<<<<<<<<<<<<<
@@ -27472,7 +27472,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_READ, __pyx_t_2) < (0)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":201
+  /* "cymongoose/_mongoose.pyx":201
  * MG_EV_TLS_HS = C_MG_EV_TLS_HS
  * MG_EV_READ = C_MG_EV_READ
  * MG_EV_WRITE = C_MG_EV_WRITE             # <<<<<<<<<<<<<<
@@ -27484,7 +27484,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_WRITE, __pyx_t_2) < (0)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":202
+  /* "cymongoose/_mongoose.pyx":202
  * MG_EV_READ = C_MG_EV_READ
  * MG_EV_WRITE = C_MG_EV_WRITE
  * MG_EV_CLOSE = C_MG_EV_CLOSE             # <<<<<<<<<<<<<<
@@ -27496,7 +27496,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_CLOSE, __pyx_t_2) < (0)) __PYX_ERR(0, 202, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":203
+  /* "cymongoose/_mongoose.pyx":203
  * MG_EV_WRITE = C_MG_EV_WRITE
  * MG_EV_CLOSE = C_MG_EV_CLOSE
  * MG_EV_HTTP_HDRS = C_MG_EV_HTTP_HDRS             # <<<<<<<<<<<<<<
@@ -27508,7 +27508,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_HTTP_HDRS, __pyx_t_2) < (0)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":204
+  /* "cymongoose/_mongoose.pyx":204
  * MG_EV_CLOSE = C_MG_EV_CLOSE
  * MG_EV_HTTP_HDRS = C_MG_EV_HTTP_HDRS
  * MG_EV_HTTP_MSG = C_MG_EV_HTTP_MSG             # <<<<<<<<<<<<<<
@@ -27520,7 +27520,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_HTTP_MSG, __pyx_t_2) < (0)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":205
+  /* "cymongoose/_mongoose.pyx":205
  * MG_EV_HTTP_HDRS = C_MG_EV_HTTP_HDRS
  * MG_EV_HTTP_MSG = C_MG_EV_HTTP_MSG
  * MG_EV_WS_OPEN = C_MG_EV_WS_OPEN             # <<<<<<<<<<<<<<
@@ -27532,7 +27532,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_WS_OPEN, __pyx_t_2) < (0)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":206
+  /* "cymongoose/_mongoose.pyx":206
  * MG_EV_HTTP_MSG = C_MG_EV_HTTP_MSG
  * MG_EV_WS_OPEN = C_MG_EV_WS_OPEN
  * MG_EV_WS_MSG = C_MG_EV_WS_MSG             # <<<<<<<<<<<<<<
@@ -27544,7 +27544,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_WS_MSG, __pyx_t_2) < (0)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":207
+  /* "cymongoose/_mongoose.pyx":207
  * MG_EV_WS_OPEN = C_MG_EV_WS_OPEN
  * MG_EV_WS_MSG = C_MG_EV_WS_MSG
  * MG_EV_WS_CTL = C_MG_EV_WS_CTL             # <<<<<<<<<<<<<<
@@ -27556,7 +27556,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_WS_CTL, __pyx_t_2) < (0)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":208
+  /* "cymongoose/_mongoose.pyx":208
  * MG_EV_WS_MSG = C_MG_EV_WS_MSG
  * MG_EV_WS_CTL = C_MG_EV_WS_CTL
  * MG_EV_MQTT_CMD = C_MG_EV_MQTT_CMD             # <<<<<<<<<<<<<<
@@ -27568,7 +27568,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_MQTT_CMD, __pyx_t_2) < (0)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":209
+  /* "cymongoose/_mongoose.pyx":209
  * MG_EV_WS_CTL = C_MG_EV_WS_CTL
  * MG_EV_MQTT_CMD = C_MG_EV_MQTT_CMD
  * MG_EV_MQTT_MSG = C_MG_EV_MQTT_MSG             # <<<<<<<<<<<<<<
@@ -27580,7 +27580,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_MQTT_MSG, __pyx_t_2) < (0)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":210
+  /* "cymongoose/_mongoose.pyx":210
  * MG_EV_MQTT_CMD = C_MG_EV_MQTT_CMD
  * MG_EV_MQTT_MSG = C_MG_EV_MQTT_MSG
  * MG_EV_MQTT_OPEN = C_MG_EV_MQTT_OPEN             # <<<<<<<<<<<<<<
@@ -27592,7 +27592,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_MQTT_OPEN, __pyx_t_2) < (0)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":211
+  /* "cymongoose/_mongoose.pyx":211
  * MG_EV_MQTT_MSG = C_MG_EV_MQTT_MSG
  * MG_EV_MQTT_OPEN = C_MG_EV_MQTT_OPEN
  * MG_EV_SNTP_TIME = C_MG_EV_SNTP_TIME             # <<<<<<<<<<<<<<
@@ -27604,7 +27604,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_SNTP_TIME, __pyx_t_2) < (0)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":212
+  /* "cymongoose/_mongoose.pyx":212
  * MG_EV_MQTT_OPEN = C_MG_EV_MQTT_OPEN
  * MG_EV_SNTP_TIME = C_MG_EV_SNTP_TIME
  * MG_EV_WAKEUP = C_MG_EV_WAKEUP             # <<<<<<<<<<<<<<
@@ -27616,7 +27616,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_WAKEUP, __pyx_t_2) < (0)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":213
+  /* "cymongoose/_mongoose.pyx":213
  * MG_EV_SNTP_TIME = C_MG_EV_SNTP_TIME
  * MG_EV_WAKEUP = C_MG_EV_WAKEUP
  * MG_EV_USER = C_MG_EV_USER             # <<<<<<<<<<<<<<
@@ -27628,7 +27628,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MG_EV_USER, __pyx_t_2) < (0)) __PYX_ERR(0, 213, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":215
+  /* "cymongoose/_mongoose.pyx":215
  * MG_EV_USER = C_MG_EV_USER
  * 
  * WEBSOCKET_OP_TEXT = C_WEBSOCKET_OP_TEXT             # <<<<<<<<<<<<<<
@@ -27640,7 +27640,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_WEBSOCKET_OP_TEXT, __pyx_t_2) < (0)) __PYX_ERR(0, 215, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":216
+  /* "cymongoose/_mongoose.pyx":216
  * 
  * WEBSOCKET_OP_TEXT = C_WEBSOCKET_OP_TEXT
  * WEBSOCKET_OP_BINARY = C_WEBSOCKET_OP_BINARY             # <<<<<<<<<<<<<<
@@ -27652,7 +27652,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_WEBSOCKET_OP_BINARY, __pyx_t_2) < (0)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":217
+  /* "cymongoose/_mongoose.pyx":217
  * WEBSOCKET_OP_TEXT = C_WEBSOCKET_OP_TEXT
  * WEBSOCKET_OP_BINARY = C_WEBSOCKET_OP_BINARY
  * WEBSOCKET_OP_PING = C_WEBSOCKET_OP_PING             # <<<<<<<<<<<<<<
@@ -27664,7 +27664,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_WEBSOCKET_OP_PING, __pyx_t_2) < (0)) __PYX_ERR(0, 217, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":218
+  /* "cymongoose/_mongoose.pyx":218
  * WEBSOCKET_OP_BINARY = C_WEBSOCKET_OP_BINARY
  * WEBSOCKET_OP_PING = C_WEBSOCKET_OP_PING
  * WEBSOCKET_OP_PONG = C_WEBSOCKET_OP_PONG             # <<<<<<<<<<<<<<
@@ -27676,7 +27676,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_WEBSOCKET_OP_PONG, __pyx_t_2) < (0)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":270
+  /* "cymongoose/_mongoose.pyx":270
  *             return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
  * 
  *     def header(self, name: str, default=None):             # <<<<<<<<<<<<<<
@@ -27697,7 +27697,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_header, __pyx_t_3) < (0)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":280
+  /* "cymongoose/_mongoose.pyx":280
  *         return _mg_str_to_text(result[0])
  * 
  *     def headers(self):             # <<<<<<<<<<<<<<
@@ -27712,7 +27712,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_headers, __pyx_t_3) < (0)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":294
+  /* "cymongoose/_mongoose.pyx":294
  *         return result
  * 
  *     def query_var(self, name: str):             # <<<<<<<<<<<<<<
@@ -27732,7 +27732,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_query_var, __pyx_t_2) < (0)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":308
+  /* "cymongoose/_mongoose.pyx":308
  *         return buffer[:rc].decode("utf-8", "surrogateescape")
  * 
  *     def status(self):             # <<<<<<<<<<<<<<
@@ -27747,7 +27747,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_status, __pyx_t_2) < (0)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":318
+  /* "cymongoose/_mongoose.pyx":318
  *         return mg_http_status(self._msg)
  * 
  *     def header_var(self, header_name: str, var_name: str):             # <<<<<<<<<<<<<<
@@ -27876,7 +27876,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":480
+  /* "cymongoose/_mongoose.pyx":480
  *         return self._handler
  * 
  *     def set_handler(self, handler):             # <<<<<<<<<<<<<<
@@ -27891,7 +27891,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_set_handler, __pyx_t_3) < (0)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":559
+  /* "cymongoose/_mongoose.pyx":559
  *         return (ip_str, host_port, bool(is_ipv6))
  * 
  *     def send(self, data):             # <<<<<<<<<<<<<<
@@ -27906,7 +27906,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send, __pyx_t_3) < (0)) __PYX_ERR(0, 559, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":578
+  /* "cymongoose/_mongoose.pyx":578
  *             raise RuntimeError("mg_send failed")
  * 
  *     def reply(self, int status_code, body=b"", headers=None):             # <<<<<<<<<<<<<<
@@ -27922,7 +27922,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_reply, __pyx_t_3) < (0)) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":602
+  /* "cymongoose/_mongoose.pyx":602
  *             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
  * 
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):             # <<<<<<<<<<<<<<
@@ -27946,7 +27946,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_dir, __pyx_t_2) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":631
+  /* "cymongoose/_mongoose.pyx":631
  *             mg_http_serve_dir(conn, msg, &opts)
  * 
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):             # <<<<<<<<<<<<<<
@@ -27969,7 +27969,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_file, __pyx_t_3) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":656
+  /* "cymongoose/_mongoose.pyx":656
  *             mg_http_serve_file(conn, msg, path_c, &opts)
  * 
  *     def ws_upgrade(self, HttpMessage message, extra_headers=None):             # <<<<<<<<<<<<<<
@@ -27985,7 +27985,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_upgrade, __pyx_t_3) < (0)) __PYX_ERR(0, 656, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":682
+  /* "cymongoose/_mongoose.pyx":682
  *             mg_ws_upgrade(conn, msg, fmt)
  * 
  *     def ws_send(self, data, op=WEBSOCKET_OP_TEXT):             # <<<<<<<<<<<<<<
@@ -28012,7 +28012,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_send, __pyx_t_3) < (0)) __PYX_ERR(0, 682, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":699
+  /* "cymongoose/_mongoose.pyx":699
  *             mg_ws_send(conn, buf, length, op_c)
  * 
  *     def mqtt_pub(self, topic: str, message, qos=0, retain=False):             # <<<<<<<<<<<<<<
@@ -28033,7 +28033,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pub, __pyx_t_2) < (0)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":735
+  /* "cymongoose/_mongoose.pyx":735
  *         return msg_id
  * 
  *     def mqtt_sub(self, topic: str, qos=0):             # <<<<<<<<<<<<<<
@@ -28054,7 +28054,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_sub, __pyx_t_3) < (0)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":756
+  /* "cymongoose/_mongoose.pyx":756
  *             mg_mqtt_sub(conn, &opts)
  * 
  *     def mqtt_ping(self):             # <<<<<<<<<<<<<<
@@ -28069,7 +28069,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_ping, __pyx_t_3) < (0)) __PYX_ERR(0, 756, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":765
+  /* "cymongoose/_mongoose.pyx":765
  *             mg_mqtt_ping(conn)
  * 
  *     def mqtt_pong(self):             # <<<<<<<<<<<<<<
@@ -28084,7 +28084,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pong, __pyx_t_3) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":774
+  /* "cymongoose/_mongoose.pyx":774
  *             mg_mqtt_pong(conn)
  * 
  *     def mqtt_disconnect(self):             # <<<<<<<<<<<<<<
@@ -28099,7 +28099,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_disconnect, __pyx_t_3) < (0)) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":788
+  /* "cymongoose/_mongoose.pyx":788
  *             mg_mqtt_disconnect(conn, &opts)
  * 
  *     def error(self, message: str):             # <<<<<<<<<<<<<<
@@ -28119,7 +28119,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_error, __pyx_t_2) < (0)) __PYX_ERR(0, 788, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":859
+  /* "cymongoose/_mongoose.pyx":859
  *         return self._conn.send.size if self._conn != NULL else 0
  * 
  *     def recv_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -28140,7 +28140,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_recv_data, __pyx_t_3) < (0)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":877
+  /* "cymongoose/_mongoose.pyx":877
  *         return (<char*>self._conn.recv.buf)[:read_len]
  * 
  *     def send_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -28161,7 +28161,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send_data, __pyx_t_2) < (0)) __PYX_ERR(0, 877, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":895
+  /* "cymongoose/_mongoose.pyx":895
  *         return (<char*>self._conn.send.buf)[:read_len]
  * 
  *     def resolve(self, url: str):             # <<<<<<<<<<<<<<
@@ -28181,7 +28181,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve, __pyx_t_3) < (0)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":912
+  /* "cymongoose/_mongoose.pyx":912
  *             mg_resolve(conn, url_c)
  * 
  *     def resolve_cancel(self):             # <<<<<<<<<<<<<<
@@ -28196,7 +28196,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve_cancel, __pyx_t_3) < (0)) __PYX_ERR(0, 912, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":921
+  /* "cymongoose/_mongoose.pyx":921
  *             mg_resolve_cancel(conn)
  * 
  *     def http_basic_auth(self, username: str, password: str):             # <<<<<<<<<<<<<<
@@ -28217,7 +28217,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_basic_auth, __pyx_t_2) < (0)) __PYX_ERR(0, 921, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":935
+  /* "cymongoose/_mongoose.pyx":935
  *         mg_http_bauth(conn, user_b, pass_b)
  * 
  *     def sntp_request(self):             # <<<<<<<<<<<<<<
@@ -28232,7 +28232,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_sntp_request, __pyx_t_2) < (0)) __PYX_ERR(0, 935, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":948
+  /* "cymongoose/_mongoose.pyx":948
  *             mg_sntp_request(conn)
  * 
  *     def http_chunk(self, data):             # <<<<<<<<<<<<<<
@@ -28247,7 +28247,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_chunk, __pyx_t_2) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":991
+  /* "cymongoose/_mongoose.pyx":991
  *                 mg_http_write_chunk(conn, buf_ptr, buf_len)
  * 
  *     def http_sse(self, event_type: str, data: str):             # <<<<<<<<<<<<<<
@@ -28268,7 +28268,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_sse, __pyx_t_3) < (0)) __PYX_ERR(0, 991, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1024
+  /* "cymongoose/_mongoose.pyx":1024
  *             mg_http_write_chunk(conn, msg_ptr, msg_len)
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -28283,7 +28283,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_3) < (0)) __PYX_ERR(0, 1024, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1037
+  /* "cymongoose/_mongoose.pyx":1037
  *                 mg_close_conn(conn)
  * 
  *     def drain(self):             # <<<<<<<<<<<<<<
@@ -28298,7 +28298,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_drain, __pyx_t_3) < (0)) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1058
+  /* "cymongoose/_mongoose.pyx":1058
  *             conn.is_draining = 1
  * 
  *     def tls_init(self, TlsOpts opts):             # <<<<<<<<<<<<<<
@@ -28313,7 +28313,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_tls_init, __pyx_t_3) < (0)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1100
+  /* "cymongoose/_mongoose.pyx":1100
  *             mg_tls_init(conn, &c_opts)
  * 
  *     def tls_free(self):             # <<<<<<<<<<<<<<
@@ -28355,7 +28355,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1208
+  /* "cymongoose/_mongoose.pyx":1208
  *         return None
  * 
  *     def poll(self, int timeout_ms=0):             # <<<<<<<<<<<<<<
@@ -28371,7 +28371,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_poll, __pyx_t_3) < (0)) __PYX_ERR(0, 1208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1225
+  /* "cymongoose/_mongoose.pyx":1225
  *             pass
  * 
  *     def listen(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -28397,7 +28397,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_listen, __pyx_t_5) < (0)) __PYX_ERR(0, 1225, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1239
+  /* "cymongoose/_mongoose.pyx":1239
  *         return py_conn
  * 
  *     def connect(self, url: str, handler=None, *, http=False):             # <<<<<<<<<<<<<<
@@ -28423,7 +28423,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_connect, __pyx_t_3) < (0)) __PYX_ERR(0, 1239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1253
+  /* "cymongoose/_mongoose.pyx":1253
  *         return py_conn
  * 
  *     def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60):             # <<<<<<<<<<<<<<
@@ -28444,7 +28444,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1253, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1295
+  /* "cymongoose/_mongoose.pyx":1295
  *         return py_conn
  * 
  *     def mqtt_listen(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -28465,7 +28465,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_listen, __pyx_t_3) < (0)) __PYX_ERR(0, 1295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1314
+  /* "cymongoose/_mongoose.pyx":1314
  *         return py_conn
  * 
  *     def sntp_connect(self, url: str, handler=None):             # <<<<<<<<<<<<<<
@@ -28486,7 +28486,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_sntp_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1344
+  /* "cymongoose/_mongoose.pyx":1344
  *         return py_conn
  * 
  *     def wakeup(self, connection_id: int, data: bytes = b""):             # <<<<<<<<<<<<<<
@@ -28508,7 +28508,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_wakeup, __pyx_t_3) < (0)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1371
+  /* "cymongoose/_mongoose.pyx":1371
  *         return result
  * 
  *     def timer_add(self, milliseconds: int, callback, *, repeat=False, run_now=False):             # <<<<<<<<<<<<<<
@@ -28534,7 +28534,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_timer_add, __pyx_t_5) < (0)) __PYX_ERR(0, 1371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1424
+  /* "cymongoose/_mongoose.pyx":1424
  *         return timer
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
@@ -28576,7 +28576,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_5) < (0)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1458
+  /* "cymongoose/_mongoose.pyx":1458
  * 
  * # JSON utilities
  * def json_get(data, path: str):             # <<<<<<<<<<<<<<
@@ -28596,7 +28596,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_json_get, __pyx_t_2) < (0)) __PYX_ERR(0, 1458, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1481
+  /* "cymongoose/_mongoose.pyx":1481
  * 
  * 
  * def json_get_num(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -28617,7 +28617,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_json_get_num, __pyx_t_5) < (0)) __PYX_ERR(0, 1481, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1505
+  /* "cymongoose/_mongoose.pyx":1505
  * 
  * 
  * def json_get_bool(data, path: str, default=None):             # <<<<<<<<<<<<<<
@@ -28638,7 +28638,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_json_get_bool, __pyx_t_2) < (0)) __PYX_ERR(0, 1505, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1530
+  /* "cymongoose/_mongoose.pyx":1530
  * 
  * 
  * def json_get_long(data, path: str, default=0):             # <<<<<<<<<<<<<<
@@ -28659,7 +28659,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_json_get_long, __pyx_t_5) < (0)) __PYX_ERR(0, 1530, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1551
+  /* "cymongoose/_mongoose.pyx":1551
  * 
  * 
  * def json_get_str(data, path: str):             # <<<<<<<<<<<<<<
@@ -28679,7 +28679,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_json_get_str, __pyx_t_2) < (0)) __PYX_ERR(0, 1551, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1578
+  /* "cymongoose/_mongoose.pyx":1578
  * 
  * # URL encoding
  * def url_encode(data: str) -> str:             # <<<<<<<<<<<<<<
@@ -28700,7 +28700,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_url_encode, __pyx_t_5) < (0)) __PYX_ERR(0, 1578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1605
+  /* "cymongoose/_mongoose.pyx":1605
  * 
  * # Multipart form parsing
  * def http_parse_multipart(body, offset=0):             # <<<<<<<<<<<<<<
@@ -28758,7 +28758,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_pyx_unpickle_TlsOpts, __pyx_t_5) < (0)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pymongoose/_mongoose.pyx":1
+  /* "cymongoose/_mongoose.pyx":1
  * # cython: language_level=3, boundscheck=False, wraparound=False, cdivision=True             # <<<<<<<<<<<<<<
  * # distutils: language = c
  * """
@@ -28777,7 +28777,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_XDECREF(__pyx_t_5);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init pymongoose._mongoose", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init cymongoose._mongoose", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -28791,7 +28791,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pymongoose._mongoose");
+    PyErr_SetString(PyExc_ImportError, "init cymongoose._mongoose");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -28839,7 +28839,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "pymongoose/_mongoose.pyx":1630
+  /* "cymongoose/_mongoose.pyx":1630
  * 
  *     if next_offset == 0:
  *         return (0, None)             # <<<<<<<<<<<<<<
@@ -28850,7 +28850,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
 
-  /* "pymongoose/_mongoose.pyx":270
+  /* "cymongoose/_mongoose.pyx":270
  *             return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
  * 
  *     def header(self, name: str, default=None):             # <<<<<<<<<<<<<<
@@ -28861,7 +28861,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[2]);
 
-  /* "pymongoose/_mongoose.pyx":578
+  /* "cymongoose/_mongoose.pyx":578
  *             raise RuntimeError("mg_send failed")
  * 
  *     def reply(self, int status_code, body=b"", headers=None):             # <<<<<<<<<<<<<<
@@ -28872,7 +28872,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[3]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[3]);
 
-  /* "pymongoose/_mongoose.pyx":602
+  /* "cymongoose/_mongoose.pyx":602
  *             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
  * 
  *     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):             # <<<<<<<<<<<<<<
@@ -28883,7 +28883,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[4]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[4]);
 
-  /* "pymongoose/_mongoose.pyx":631
+  /* "cymongoose/_mongoose.pyx":631
  *             mg_http_serve_dir(conn, msg, &opts)
  * 
  *     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):             # <<<<<<<<<<<<<<
@@ -28894,7 +28894,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[5]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[5]);
 
-  /* "pymongoose/_mongoose.pyx":699
+  /* "cymongoose/_mongoose.pyx":699
  *             mg_ws_send(conn, buf, length, op_c)
  * 
  *     def mqtt_pub(self, topic: str, message, qos=0, retain=False):             # <<<<<<<<<<<<<<
@@ -28905,7 +28905,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[6]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[6]);
 
-  /* "pymongoose/_mongoose.pyx":735
+  /* "cymongoose/_mongoose.pyx":735
  *         return msg_id
  * 
  *     def mqtt_sub(self, topic: str, qos=0):             # <<<<<<<<<<<<<<
@@ -28916,7 +28916,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[7]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[7]);
 
-  /* "pymongoose/_mongoose.pyx":859
+  /* "cymongoose/_mongoose.pyx":859
  *         return self._conn.send.size if self._conn != NULL else 0
  * 
  *     def recv_data(self, length: int = -1):             # <<<<<<<<<<<<<<
@@ -28927,7 +28927,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[8]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[8]);
 
-  /* "pymongoose/_mongoose.pyx":1253
+  /* "cymongoose/_mongoose.pyx":1253
  *         return py_conn
  * 
  *     def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60):             # <<<<<<<<<<<<<<
@@ -28938,7 +28938,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[9]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[9]);
 
-  /* "pymongoose/_mongoose.pyx":1344
+  /* "cymongoose/_mongoose.pyx":1344
  *         return py_conn
  * 
  *     def wakeup(self, connection_id: int, data: bytes = b""):             # <<<<<<<<<<<<<<
@@ -28989,7 +28989,7 @@ const char* const cstring = "x\332\255WKW\333X\266\206*\023\034\002!&\201\220\02
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
     #else /* compression: none (8271 bytes) */
-const char* const bytes = "02x<Connection closed>Connection has been closed<Connection id=Content-Type: text/plain\r\nFailed to add timerFailed to allocate buffer for URL encodingFailed to connect to 'Failed to connect to MQTT broker 'Failed to connect to SNTP server 'Failed to initialize wakeup supportFailed to listen for MQTT on 'Failed to listen on 'HttpMessage is not valid for this eventManager has been freedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.USE_NOGIL=1?:.: \r\n>'add_notedisableenablegcisenabledmg_send failedno default __reduce__ due to non-trivial __cinit__ readable=self._msg cannot be converted to a Python object for picklingself.ca is not None or self.cert is not None or self.key is not None or self.name is not Nonesrc/pymongoose/_mongoose.pyx<stringsource>utf-8 writable=ConnectionConnection.__reduce_cython__Connection.__setstate_cython__Connection.closeConnection.drainConnection.errorConnection.http_basic_authConnection.http_chunkConnection.http_sseConnection.mqtt_disconnectConnection.mqtt_pingConnection.mqtt_pongConnection.mqtt_pubConnection.mqtt_subConnection.recv_dataConnection.replyConnection.resolveConnection.resolve_cancelConnection.sendConnection.send_dataConnection.serve_dirConnection.serve_fileConnection.set_handlerConnection.sntp_requestConnection.tls_freeConnection.tls_initConnection.ws_sendConnection.ws_upgradeHttpMessageHttpMessage.__reduce_cython__HttpMessage.__setstate_cython__HttpMessage.headerHttpMessage.header_varHttpMessage.headersHttpMessage.query_varHttpMessage.statusMG_EV_ACCEPTMG_EV_CLOSEMG_EV_CONNECTMG_EV_ERRORMG_EV_HTTP_HDRSMG_EV_HTTP_MSGMG_EV_MQTT_CMDMG_EV_MQTT_MSGMG_EV_MQTT_OPENMG_EV_OPENMG_EV_POLLMG_EV_READMG_EV_RESOLVEMG_EV_SNTP_TIMEMG_EV_TLS_HSMG_EV_USERMG_EV_WAKEUPMG_EV_WRITEMG_EV_WS_CTLMG_EV_WS_MSGMG_EV_WS_OPENManagerManager.__reduce_cython__Manager.__setstate_cython__Manager.closeManager.connectManager.listenM""anager.mqtt_connectManager.mqtt_listenManager.pollManager.sntp_connectManager.timer_addManager.wakeupMqttMessageMqttMessage.__reduce_cython__MqttMessage.__setstate_cython____Pyx_PyDict_NextRefTimerTimer.__reduce_cython__Timer.__setstate_cython__TlsOptsTlsOpts.__reduce_cython__TlsOpts.__setstate_cython__WEBSOCKET_OP_BINARYWEBSOCKET_OP_PINGWEBSOCKET_OP_PONGWEBSOCKET_OP_TEXTWsMessageWsMessage.__reduce_cython__WsMessage.__setstate_cython____all__asyncio.coroutinesbodybody_bbody_bytesbody_cbody_fmt_cbody_strbufbuf_lenbuf_ptrbufferbytesc_optscacallbackcertchunk_dataclean_sessionclient_idclient_id_bcline_in_tracebackcloseconnconn_idconnectconnection_iddatadata_bdefault__dict___dictdrainenable_wakeupencodeerrorevent_bevent_typeextra_headersextra_headers_bfilenameflagsfmt__func__genexprget__getstate__handlerheaderheader_linesheader_nameheader_name_bheader_valueheader_varheadersheaders_bheaders_bytesheaders_cheaders_strhttphttp_basic_authhttp_chunkhttp_parse_multiparthttp_sseidxint_is_coroutineitemsjson_bjson_getjson_get_booljson_get_longjson_get_numjson_get_strjson_strkkeepalivekeylen_datalengthlistenlookup__main__messagemillisecondsmime_typesmime_types_b__module__mqtt_connectmqtt_disconnectmqtt_listenmqtt_pingmqtt_pongmqtt_pubmqtt_submsgmsg_bmsg_idmsg_lenmsg_ptrname__name__name_b__new__nextnext_offsetoffsetopop_coptspage404page404_bpartpart_dictpass_bpasswordpathpath_bpath_cpayloadpayload_bpollpopprintprint_excpy_connpymongoose._mongoose__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_TlsOpts__pyx_vtable__qos__qualname__query_varrcread_lenrecv_data__reduce____reduce_cython____reduce_ex__repeatreplyresolveresolve_cancelresultresult_lenretainreturnroot_broot_dirrun_nowselfsendsend_dataserve_dirserve_fileset_handler__set_name__setdefault__setstate____setstate_cython__skip_verificationsntp_connectsntp_requestsrc_lensse_msgstatestatusstatus_codestr__test__throwtimeout_mstimertimer_addtimer_ptrtls_freetls_inittopictopic_btracebackupdateurlurl_burl_curl_encodeuse_sets""tateuser_busernamevvaluevaluesvar_namevar_name_bvar_value_strwakeupws_sendws_upgradews_upgrade.<locals>.genexpr\n\n\ndata: event: \320\004\036\320\0360\260\n\270!\360\032\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\340\010\013\210:\220Q\220i\230q\330\014\024\220G\2307\240!\2401\340\014\024\220E\230\021\230!\340\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210K\220x\230q\240\007\240s\250!\2501\330\010\014\210G\2201\330\010\014\210J\220a\340\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\033\240A\240V\2501\250A\360\006\000\t\020\210q\320\004\033\2301\360\020\000\t\034\2303\230g\240Q\240a\330\010!\240\021\330\010#\2404\240u\250A\340\021\022\330\020\032\230!\2306\240\021\320\0044\3204H\310\006\320N^\320^d\320de\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230D\240\007\240q\250\001\360\006\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010#\2404\240u\250A\330\010$\240G\2501\330\010\"\240!\340\021\022\330\020\"\240!\2406\250\025\250h\260a\260q\320\004\"\240!\360\014\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\r\016\330\014\027\220q\230\001\230\024\230W\240A\360\010\000\t\014\320\013\035\230S\240\002\240!\320\004\033\230=\250\001\340\010\013\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\330\010\036\320\0360\260\001\260\024\260W\270A\330\010\013\2107\220#\220Q\330\014\023\2201\330\010\017\210\177\230a\230v\240Q\240a\320\0047\3207K\3106\320Qa\320ag\320gt\320tz\320z{\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230H\240G\2501\250A\330\010\014\210L\230\001\360\010\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010\013\2101\330\014\030""\230\007\230w\240a\240q\330\014\020\220\013\2301\330\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020!\240\021\240&\250\005\250Q\250a\320\004\037\230}\250A\360\024\000\t\034\2303\230g\240Q\240a\330\010#\240>\260\021\260!\2604\260w\270g\300_\320TU\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037@\300\001\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\200A\360\n\000\t$\2404\240q\330\010\013\2105\220\003\2201\340\025\026\330\024!\240\021\240!\200A\360\"\000\t$\2404\240q\330\010\013\2105\220\003\2201\330\014\020\220\017\230q\200A\340\010\013\2104\210t\2201\330\014\027\220q\230\001\230\024\230Q\330\014\020\220\n\230!\330\014\020\220\r\230V\2401\330\014\020\220\005\220\\\240\021\200A\340\010#\2404\240u\250A\340\021\022\330\020!\240\021\240!\200A\360\n\000\t$\2404\240u\250A\340\021\022\330\020\033\2301\230A\200A\340\010#\2404\240u\250A\340\021\022\330\020\034\230A\230Q\200A\360\014\000\t$\2404\240u\250A\340\021\022\330\020\037\230q\240\001\200A\340\010\013\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t\022\220\021\330\010\014\210G\2205\230\001\230\021\330\014\025\220T\230\025\230h\240a\240q\330\014\017\210v\220U\230%\230s\240!\330\020\021\330\014\022\220'\230\022\230?\250!\2506\260\030\270\037\310\001\310\026\310q\330\010\017\210q\200A\360\014\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\017\210~\230Q\230d\240!\320\004<\270A\360\016\000\t\014\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\037\230q\340\010\013\2101\330\014\032\230&\240\005\240Q\240a\340\014\030\230\013\2407\250!\2501\330\014\022\220!\340\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020\035\230Q\230f\240E\250\021\200A\340\010\014\210L\230\001\200A\360$\000\t\014\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\340\010#\2404\240u\250A\360\010\000\t\014\2103\210a\210|\2303\230a\360\006\000\026\027\330\024'\240q\250\006\250f\260A\360\010\000\r\027\220a\330\014\026\220c\230\021\230!""\340\025\026\330\024'\240q\250\006\250i\260q\200A\360\006\000\t\014\210:\220Q\220f\230A\330\014\027\220u\230E\240\027\250\001\250\021\340\014\026\220e\2301\230A\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\027\240\001\240\026\240u\250A\360\006\000\t\014\2104\210q\330\014\022\220,\230a\230q\200A\360*\000\t\017\210a\210q\220\010\230\003\2307\240!\360\006\000\t\014\2103\210a\210t\2205\230\002\230!\330\014\022\220&\230\010\240\001\240\024\240U\250#\250Q\250d\260!\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\330\010\013\2103\210a\210t\2206\230\022\2301\330\014\022\220'\230\030\240\021\240$\240f\250C\250q\260\004\260A\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\340\010\016\320\016#\2405\250\004\320,D\300A\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\200A\360\014\000\t\017\210a\210q\220\006\220c\230\027\240\001\330\010#\2404\240u\250A\340\021\022\330\020\"\240!\2406\250\021\250!\320\004$\240K\250x\260q\360\032\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\010\034\230A\330\010\037\230}\250G\260:\270S\300\001\300\030\310\022\3107\320RS\330\010\037\230s\240!\2401\330\010%\240_\260A\360\006\000\022\023\330\020\031\230\031\240!\2401\240D\250\007\250y\270\005\270Q\360\006\000\t\020\210q\200\001\330\004\n\210+\220Q\320\004 \240\r\250Q\360*\000\t\034\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300o\320UV\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004\032\230-\240~\260Q\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220>\240\021\240!\2404\240w\250g\260_\300A\340\014\023\2209\230A\230Q\230d\240'\250\027\260\017\270q\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0377\260q\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301""\330\010\017\210q\320\004\035\230Q\360\014\000\t\034\2307\240'\250\021\250!\330\010#\2404\240u\250A\330\010#\2401\330\010\020\220\001\220\026\220w\230g\240Q\320\000\035\230Q\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\030\230\017\240q\250\n\260!\330\004\007\200w\210c\220\021\330\010\017\210q\330\004\005\330\010\017\210v\220W\230A\230Y\240a\340\010\014\210A\210Q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\025\220d\230'\240\024\240V\2504\250w\260d\270!\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\030\230\001\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\320\000\035\230U\240!\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\340\004\007\200\177\220a\220z\240\030\250\021\250!\330\010\017\210q\330\004\013\2101\320\004 \240\r\320-=\270]\310-\320Wi\320iy\320yz\360 \000\t\017\210a\210q\220\006\220c\230\021\340\010!\240\031\250'\260\021\260,\270o\310Q\330\010\034\230H\240G\2501\250L\270\016\300a\330\010\034\230H\240G\2501\250L\270\016\300a\340\010\013\2101\330\014\020\220\r\230X\240Q\240m\2603\260a\260q\330\010\013\2101\330\014\020\220\010\230\010\240\001\240\030\250\023\250A\250Q\330\010\013\2101\330\014\020\220\014\230H\240A\240X\250S\260\001\260\021\340\010\014\210I\220Q\330\010\014\210M\230\021\330\010\014\210K\220q\340\010\033\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300a\300v\310_\320\\]\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\000\025\220X\230Q\360\022\000\005\031\230\004\230G\2401""\240A\330\004\032\230#\230Q\230a\340\004\032\230(\240\"\240B\240b\250\001\330\004\025\220W\230F\240!\2401\360\006\000\005\010\200t\2103\210a\330\010\016\210k\230\021\230!\340\004\005\330\010\025\220]\240!\2408\2509\260E\270\021\330\010\017\210s\220\"\220K\230w\240a\240q\340\010\014\210A\210Q\240a\320\004\033\230=\250\016\260a\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220?\240!\2401\240D\250\007\250w\260o\300Q\340\014\023\220:\230Q\230a\230t\2407\250'\260\037\300\001\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0378\270\001\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004&\320&?\270\177\310a\360*\000\t\014\2104\210q\330\014\022\220,\230a\230q\340\010\036\230a\330\010\013\2101\330\014\025\220Q\330\010\013\2101\330\014\025\220Q\360\006\000\t\034\2305\240\010\250\001\250\021\360\006\000\t$\240<\250q\330\014\r\210T\220\021\330\014\026\220a\330\014\r\330\014\r\330\014\023\220;\230a\360\006\000\t\014\210:\220S\230\001\330\014\022\220,\230a\230q\360\006\000\t\016\210Z\220q\330\010\r\210]\230!\330\010\r\320\r\036\230k\250\021\330\010\021\220\021\220!\340\010\017\210q\320\004\036\230a\360\n\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\340\010\026\220o\240Q\240a\240t\2505\260\010\270\010\300\010\310\007\310q\330\010\013\2103\210c\220\021\330\014\023\2201\330\010\017\210v\220R\220s\230'\240\021\240)\2501\320\004#\240;\250a\360(\000\t\036\230Z\240w\250a\250q\330\010\034\230D\240\007\240q\250\001\340\010\035\230[\250\002\250(\260\"\260L\300\002\300'\310\022\3101\330\010#\2404\240u\250A\330\010#\2401\330\010\036\230c\240\021\240!\340\021\022\330\020#\2401\240F\250)\2601\320\000\036\230e\2401\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\013\320\013\033\2301\230J\240h\250a\320\000\036\230e\2401\360\030\000\005\010\200z\220""\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\027\220q\330\004\007\320\007\027\220q\230\n\240(\250!\2501\340\010\017\210v\220S\230\001\330\004\013\2101\320\004\036\230i\240q\360\020\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\330\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210G\2201\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\320\004&\240o\260Q\360\032\000\t\014\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t$\240;\250g\260Q\260a\330\010$\320$6\260a\260t\2707\300!\330\010\013\210=\230\003\2301\330\014\023\2201\360\006\000\t!\240\010\250\007\250q\260\001\330\010$\320$:\270!\270<\300q\310\004\310H\320TU\320Ua\320ad\320de\320ef\340\010\013\210=\230\005\230S\240\005\240S\250\r\260U\270#\270Q\330\014\023\2201\340\010\017\210\177\230a\230q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\320\004 \240\007\240q\360\022\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\037\230t\2406\250\025\250a\330\010\013\2107\220#\220R\220t\2308\2407\250\"\250A\330\014\027\220x\230q\330\010\013\2109\220C\220q\330\014\023\2201\330\010\020\220\007\220t\2306\240\025\240e\2502\250Q\320\004(\250\017\260q\360\022\000\t\035\230H\240G\2501\250A\330\010\034\230H\240G\2501\250A\330\010#\2404\240u\250A\330\010\025\220Q\220f\230H\240A\320\004*\250-\260q\340\010\013\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\330\010\013\2108\2203\220a\330\014\033\2301\230A\340\014\033\2301\230B\230a\230t\2401\240H\250D\260\003\2605\270\007\270v\300Q\330\010\030\230\002\230%\230q\240\r\250W\260A\260Q\340\010\037\230q\330\010\034\230A\330\010%\240]\260/\300\021\330\010&\240a\330\010\"\240!\330\010#\2404\240u\250A\340\021\022\330\020\035\230Q\230f\240M\260\033\270L""\310\001\320\004\037\230q\340\010\013\210:\220Q\220f\230A\330\014\026\220d\230'\240\021\240!\340\014\026\220e\2301\230A\330\010\037\230q\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\330\010\030\230\001\340\021\022\330\020\032\230!\2306\240\025\240h\250a\320\000\037\230q\360\036\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\340\004\033\2308\2401\240H\250C\250q\260\001\340\004\036\320\0364\260A\260Z\270x\300q\310\001\340\004\007\200|\2203\220a\330\010\020\220\003\2201\340\004\005\330\010\020\220\017\230q\240\004\240A\330\010\024\220O\2401\240D\250\001\330\010\020\320\020 \240\001\240\024\240Q\360\006\000\005\r\210M\230\021\320\000\031\230\021\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\031\230\037\250\001\250\032\2601\330\004\007\200v\210U\220#\220Q\330\010\017\210q\330\004\013\210?\230!\2301";
+const char* const bytes = "02x<Connection closed>Connection has been closed<Connection id=Content-Type: text/plain\r\nFailed to add timerFailed to allocate buffer for URL encodingFailed to connect to 'Failed to connect to MQTT broker 'Failed to connect to SNTP server 'Failed to initialize wakeup supportFailed to listen for MQTT on 'Failed to listen on 'HttpMessage is not valid for this eventManager has been freedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.USE_NOGIL=1?:.: \r\n>'add_notedisableenablegcisenabledmg_send failedno default __reduce__ due to non-trivial __cinit__ readable=self._msg cannot be converted to a Python object for picklingself.ca is not None or self.cert is not None or self.key is not None or self.name is not Nonesrc/cymongoose/_mongoose.pyx<stringsource>utf-8 writable=ConnectionConnection.__reduce_cython__Connection.__setstate_cython__Connection.closeConnection.drainConnection.errorConnection.http_basic_authConnection.http_chunkConnection.http_sseConnection.mqtt_disconnectConnection.mqtt_pingConnection.mqtt_pongConnection.mqtt_pubConnection.mqtt_subConnection.recv_dataConnection.replyConnection.resolveConnection.resolve_cancelConnection.sendConnection.send_dataConnection.serve_dirConnection.serve_fileConnection.set_handlerConnection.sntp_requestConnection.tls_freeConnection.tls_initConnection.ws_sendConnection.ws_upgradeHttpMessageHttpMessage.__reduce_cython__HttpMessage.__setstate_cython__HttpMessage.headerHttpMessage.header_varHttpMessage.headersHttpMessage.query_varHttpMessage.statusMG_EV_ACCEPTMG_EV_CLOSEMG_EV_CONNECTMG_EV_ERRORMG_EV_HTTP_HDRSMG_EV_HTTP_MSGMG_EV_MQTT_CMDMG_EV_MQTT_MSGMG_EV_MQTT_OPENMG_EV_OPENMG_EV_POLLMG_EV_READMG_EV_RESOLVEMG_EV_SNTP_TIMEMG_EV_TLS_HSMG_EV_USERMG_EV_WAKEUPMG_EV_WRITEMG_EV_WS_CTLMG_EV_WS_MSGMG_EV_WS_OPENManagerManager.__reduce_cython__Manager.__setstate_cython__Manager.closeManager.connectManager.listenM""anager.mqtt_connectManager.mqtt_listenManager.pollManager.sntp_connectManager.timer_addManager.wakeupMqttMessageMqttMessage.__reduce_cython__MqttMessage.__setstate_cython____Pyx_PyDict_NextRefTimerTimer.__reduce_cython__Timer.__setstate_cython__TlsOptsTlsOpts.__reduce_cython__TlsOpts.__setstate_cython__WEBSOCKET_OP_BINARYWEBSOCKET_OP_PINGWEBSOCKET_OP_PONGWEBSOCKET_OP_TEXTWsMessageWsMessage.__reduce_cython__WsMessage.__setstate_cython____all__asyncio.coroutinesbodybody_bbody_bytesbody_cbody_fmt_cbody_strbufbuf_lenbuf_ptrbufferbytesc_optscacallbackcertchunk_dataclean_sessionclient_idclient_id_bcline_in_tracebackcloseconnconn_idconnectconnection_iddatadata_bdefault__dict___dictdrainenable_wakeupencodeerrorevent_bevent_typeextra_headersextra_headers_bfilenameflagsfmt__func__genexprget__getstate__handlerheaderheader_linesheader_nameheader_name_bheader_valueheader_varheadersheaders_bheaders_bytesheaders_cheaders_strhttphttp_basic_authhttp_chunkhttp_parse_multiparthttp_sseidxint_is_coroutineitemsjson_bjson_getjson_get_booljson_get_longjson_get_numjson_get_strjson_strkkeepalivekeylen_datalengthlistenlookup__main__messagemillisecondsmime_typesmime_types_b__module__mqtt_connectmqtt_disconnectmqtt_listenmqtt_pingmqtt_pongmqtt_pubmqtt_submsgmsg_bmsg_idmsg_lenmsg_ptrname__name__name_b__new__nextnext_offsetoffsetopop_coptspage404page404_bpartpart_dictpass_bpasswordpathpath_bpath_cpayloadpayload_bpollpopprintprint_excpy_connpymongoose._mongoose__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_TlsOpts__pyx_vtable__qos__qualname__query_varrcread_lenrecv_data__reduce____reduce_cython____reduce_ex__repeatreplyresolveresolve_cancelresultresult_lenretainreturnroot_broot_dirrun_nowselfsendsend_dataserve_dirserve_fileset_handler__set_name__setdefault__setstate____setstate_cython__skip_verificationsntp_connectsntp_requestsrc_lensse_msgstatestatusstatus_codestr__test__throwtimeout_mstimertimer_addtimer_ptrtls_freetls_inittopictopic_btracebackupdateurlurl_burl_curl_encodeuse_sets""tateuser_busernamevvaluevaluesvar_namevar_name_bvar_value_strwakeupws_sendws_upgradews_upgrade.<locals>.genexpr\n\n\ndata: event: \320\004\036\320\0360\260\n\270!\360\032\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\340\010\013\210:\220Q\220i\230q\330\014\024\220G\2307\240!\2401\340\014\024\220E\230\021\230!\340\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210K\220x\230q\240\007\240s\250!\2501\330\010\014\210G\2201\330\010\014\210J\220a\340\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\033\240A\240V\2501\250A\360\006\000\t\020\210q\320\004\033\2301\360\020\000\t\034\2303\230g\240Q\240a\330\010!\240\021\330\010#\2404\240u\250A\340\021\022\330\020\032\230!\2306\240\021\320\0044\3204H\310\006\320N^\320^d\320de\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230D\240\007\240q\250\001\360\006\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010#\2404\240u\250A\330\010$\240G\2501\330\010\"\240!\340\021\022\330\020\"\240!\2406\250\025\250h\260a\260q\320\004\"\240!\360\014\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\r\016\330\014\027\220q\230\001\230\024\230W\240A\360\010\000\t\014\320\013\035\230S\240\002\240!\320\004\033\230=\250\001\340\010\013\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\330\010\036\320\0360\260\001\260\024\260W\270A\330\010\013\2107\220#\220Q\330\014\023\2201\330\010\017\210\177\230a\230v\240Q\240a\320\0047\3207K\3106\320Qa\320ag\320gt\320tz\320z{\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230H\240G\2501\250A\330\010\014\210L\230\001\360\010\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010\013\2101\330\014\030""\230\007\230w\240a\240q\330\014\020\220\013\2301\330\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020!\240\021\240&\250\005\250Q\250a\320\004\037\230}\250A\360\024\000\t\034\2303\230g\240Q\240a\330\010#\240>\260\021\260!\2604\260w\270g\300_\320TU\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037@\300\001\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\200A\360\n\000\t$\2404\240q\330\010\013\2105\220\003\2201\340\025\026\330\024!\240\021\240!\200A\360\"\000\t$\2404\240q\330\010\013\2105\220\003\2201\330\014\020\220\017\230q\200A\340\010\013\2104\210t\2201\330\014\027\220q\230\001\230\024\230Q\330\014\020\220\n\230!\330\014\020\220\r\230V\2401\330\014\020\220\005\220\\\240\021\200A\340\010#\2404\240u\250A\340\021\022\330\020!\240\021\240!\200A\360\n\000\t$\2404\240u\250A\340\021\022\330\020\033\2301\230A\200A\340\010#\2404\240u\250A\340\021\022\330\020\034\230A\230Q\200A\360\014\000\t$\2404\240u\250A\340\021\022\330\020\037\230q\240\001\200A\340\010\013\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t\022\220\021\330\010\014\210G\2205\230\001\230\021\330\014\025\220T\230\025\230h\240a\240q\330\014\017\210v\220U\230%\230s\240!\330\020\021\330\014\022\220'\230\022\230?\250!\2506\260\030\270\037\310\001\310\026\310q\330\010\017\210q\200A\360\014\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\017\210~\230Q\230d\240!\320\004<\270A\360\016\000\t\014\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\037\230q\340\010\013\2101\330\014\032\230&\240\005\240Q\240a\340\014\030\230\013\2407\250!\2501\330\014\022\220!\340\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020\035\230Q\230f\240E\250\021\200A\340\010\014\210L\230\001\200A\360$\000\t\014\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\340\010#\2404\240u\250A\360\010\000\t\014\2103\210a\210|\2303\230a\360\006\000\026\027\330\024'\240q\250\006\250f\260A\360\010\000\r\027\220a\330\014\026\220c\230\021\230!""\340\025\026\330\024'\240q\250\006\250i\260q\200A\360\006\000\t\014\210:\220Q\220f\230A\330\014\027\220u\230E\240\027\250\001\250\021\340\014\026\220e\2301\230A\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\027\240\001\240\026\240u\250A\360\006\000\t\014\2104\210q\330\014\022\220,\230a\230q\200A\360*\000\t\017\210a\210q\220\010\230\003\2307\240!\360\006\000\t\014\2103\210a\210t\2205\230\002\230!\330\014\022\220&\230\010\240\001\240\024\240U\250#\250Q\250d\260!\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\330\010\013\2103\210a\210t\2206\230\022\2301\330\014\022\220'\230\030\240\021\240$\240f\250C\250q\260\004\260A\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\340\010\016\320\016#\2405\250\004\320,D\300A\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\200A\360\014\000\t\017\210a\210q\220\006\220c\230\027\240\001\330\010#\2404\240u\250A\340\021\022\330\020\"\240!\2406\250\021\250!\320\004$\240K\250x\260q\360\032\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\010\034\230A\330\010\037\230}\250G\260:\270S\300\001\300\030\310\022\3107\320RS\330\010\037\230s\240!\2401\330\010%\240_\260A\360\006\000\022\023\330\020\031\230\031\240!\2401\240D\250\007\250y\270\005\270Q\360\006\000\t\020\210q\200\001\330\004\n\210+\220Q\320\004 \240\r\250Q\360*\000\t\034\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300o\320UV\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004\032\230-\240~\260Q\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220>\240\021\240!\2404\240w\250g\260_\300A\340\014\023\2209\230A\230Q\230d\240'\250\027\260\017\270q\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0377\260q\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301""\330\010\017\210q\320\004\035\230Q\360\014\000\t\034\2307\240'\250\021\250!\330\010#\2404\240u\250A\330\010#\2401\330\010\020\220\001\220\026\220w\230g\240Q\320\000\035\230Q\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\030\230\017\240q\250\n\260!\330\004\007\200w\210c\220\021\330\010\017\210q\330\004\005\330\010\017\210v\220W\230A\230Y\240a\340\010\014\210A\210Q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\025\220d\230'\240\024\240V\2504\250w\260d\270!\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\030\230\001\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\320\000\035\230U\240!\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\340\004\007\200\177\220a\220z\240\030\250\021\250!\330\010\017\210q\330\004\013\2101\320\004 \240\r\320-=\270]\310-\320Wi\320iy\320yz\360 \000\t\017\210a\210q\220\006\220c\230\021\340\010!\240\031\250'\260\021\260,\270o\310Q\330\010\034\230H\240G\2501\250L\270\016\300a\330\010\034\230H\240G\2501\250L\270\016\300a\340\010\013\2101\330\014\020\220\r\230X\240Q\240m\2603\260a\260q\330\010\013\2101\330\014\020\220\010\230\010\240\001\240\030\250\023\250A\250Q\330\010\013\2101\330\014\020\220\014\230H\240A\240X\250S\260\001\260\021\340\010\014\210I\220Q\330\010\014\210M\230\021\330\010\014\210K\220q\340\010\033\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300a\300v\310_\320\\]\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\000\025\220X\230Q\360\022\000\005\031\230\004\230G\2401""\240A\330\004\032\230#\230Q\230a\340\004\032\230(\240\"\240B\240b\250\001\330\004\025\220W\230F\240!\2401\360\006\000\005\010\200t\2103\210a\330\010\016\210k\230\021\230!\340\004\005\330\010\025\220]\240!\2408\2509\260E\270\021\330\010\017\210s\220\"\220K\230w\240a\240q\340\010\014\210A\210Q\240a\320\004\033\230=\250\016\260a\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220?\240!\2401\240D\250\007\250w\260o\300Q\340\014\023\220:\230Q\230a\230t\2407\250'\260\037\300\001\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0378\270\001\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004&\320&?\270\177\310a\360*\000\t\014\2104\210q\330\014\022\220,\230a\230q\340\010\036\230a\330\010\013\2101\330\014\025\220Q\330\010\013\2101\330\014\025\220Q\360\006\000\t\034\2305\240\010\250\001\250\021\360\006\000\t$\240<\250q\330\014\r\210T\220\021\330\014\026\220a\330\014\r\330\014\r\330\014\023\220;\230a\360\006\000\t\014\210:\220S\230\001\330\014\022\220,\230a\230q\360\006\000\t\016\210Z\220q\330\010\r\210]\230!\330\010\r\320\r\036\230k\250\021\330\010\021\220\021\220!\340\010\017\210q\320\004\036\230a\360\n\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\340\010\026\220o\240Q\240a\240t\2505\260\010\270\010\300\010\310\007\310q\330\010\013\2103\210c\220\021\330\014\023\2201\330\010\017\210v\220R\220s\230'\240\021\240)\2501\320\004#\240;\250a\360(\000\t\036\230Z\240w\250a\250q\330\010\034\230D\240\007\240q\250\001\340\010\035\230[\250\002\250(\260\"\260L\300\002\300'\310\022\3101\330\010#\2404\240u\250A\330\010#\2401\330\010\036\230c\240\021\240!\340\021\022\330\020#\2401\240F\250)\2601\320\000\036\230e\2401\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\013\320\013\033\2301\230J\240h\250a\320\000\036\230e\2401\360\030\000\005\010\200z\220""\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\027\220q\330\004\007\320\007\027\220q\230\n\240(\250!\2501\340\010\017\210v\220S\230\001\330\004\013\2101\320\004\036\230i\240q\360\020\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\330\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210G\2201\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\320\004&\240o\260Q\360\032\000\t\014\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t$\240;\250g\260Q\260a\330\010$\320$6\260a\260t\2707\300!\330\010\013\210=\230\003\2301\330\014\023\2201\360\006\000\t!\240\010\250\007\250q\260\001\330\010$\320$:\270!\270<\300q\310\004\310H\320TU\320Ua\320ad\320de\320ef\340\010\013\210=\230\005\230S\240\005\240S\250\r\260U\270#\270Q\330\014\023\2201\340\010\017\210\177\230a\230q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\320\004 \240\007\240q\360\022\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\037\230t\2406\250\025\250a\330\010\013\2107\220#\220R\220t\2308\2407\250\"\250A\330\014\027\220x\230q\330\010\013\2109\220C\220q\330\014\023\2201\330\010\020\220\007\220t\2306\240\025\240e\2502\250Q\320\004(\250\017\260q\360\022\000\t\035\230H\240G\2501\250A\330\010\034\230H\240G\2501\250A\330\010#\2404\240u\250A\330\010\025\220Q\220f\230H\240A\320\004*\250-\260q\340\010\013\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\330\010\013\2108\2203\220a\330\014\033\2301\230A\340\014\033\2301\230B\230a\230t\2401\240H\250D\260\003\2605\270\007\270v\300Q\330\010\030\230\002\230%\230q\240\r\250W\260A\260Q\340\010\037\230q\330\010\034\230A\330\010%\240]\260/\300\021\330\010&\240a\330\010\"\240!\330\010#\2404\240u\250A\340\021\022\330\020\035\230Q\230f\240M\260\033\270L""\310\001\320\004\037\230q\340\010\013\210:\220Q\220f\230A\330\014\026\220d\230'\240\021\240!\340\014\026\220e\2301\230A\330\010\037\230q\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\330\010\030\230\001\340\021\022\330\020\032\230!\2306\240\025\240h\250a\320\000\037\230q\360\036\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\340\004\033\2308\2401\240H\250C\250q\260\001\340\004\036\320\0364\260A\260Z\270x\300q\310\001\340\004\007\200|\2203\220a\330\010\020\220\003\2201\340\004\005\330\010\020\220\017\230q\240\004\240A\330\010\024\220O\2401\240D\250\001\330\010\020\320\020 \240\001\240\024\240Q\360\006\000\005\r\210M\230\021\320\000\031\230\021\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\031\230\037\250\001\250\032\2601\330\004\007\200v\210U\220#\220Q\330\010\017\210q\330\004\013\210?\230!\2301";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif

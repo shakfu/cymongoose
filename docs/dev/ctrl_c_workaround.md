@@ -116,7 +116,7 @@ Removing `nogil` from `poll()` would fix Ctrl+C but:
 
 The tradeoff isn't worth it - use Solution 1 instead.
 
-## Implementation in pymongoose
+## Implementation in cymongoose
 
 Currently `poll()` calls `PyErr_CheckSignals()` after returning from nogil section:
 
@@ -140,7 +140,7 @@ Always use signal handlers for production code:
 #!/usr/bin/env python3
 import signal
 import sys
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 shutdown_requested = False
 

@@ -1,4 +1,4 @@
-# Quick Start: Benchmark pymongoose
+# Quick Start: Benchmark cymongoose
 
 ## The Right Way: Use wrk (2 minutes)
 
@@ -14,7 +14,7 @@ uv run python benchmarks/demo_server.py
 
 You should see:
 ```
- pymongoose HTTP server running on http://localhost:8765/
+ cymongoose HTTP server running on http://localhost:8765/
    Press Ctrl+C to stop
    USE_NOGIL optimization enabled
 ```
@@ -23,7 +23,7 @@ You should see:
 ```bash
 # In another terminal
 curl http://localhost:8765/
-# {"message":"Hello from pymongoose!","server":"C-based event loop"}
+# {"message":"Hello from cymongoose!","server":"C-based event loop"}
 ```
 
 ### Step 4: Run benchmark (Terminal 2)
@@ -45,14 +45,14 @@ Transfer/sec:      6.12MB
 
 ## What This Measures
 
-- **Requests/sec**: How many HTTP requests pymongoose can handle per second
+- **Requests/sec**: How many HTTP requests cymongoose can handle per second
 - **Latency**: How long each request takes (avg/max)
 - **Transfer rate**: Data throughput
 
 ## Typical Results
 
 On a modern Mac (M1/M2/M3):
-- **pymongoose**: 20,000-40,000 req/sec
+- **cymongoose**: 20,000-40,000 req/sec
 - **aiohttp**: 10,000-20,000 req/sec
 - **FastAPI**: 8,000-15,000 req/sec
 - **Flask**: 3,000-8,000 req/sec
@@ -91,7 +91,7 @@ Compare the "Requests/sec" numbers!
 
 ### Server won't start
 - Port already in use: Change port number in demo_server.py
-- Import error: Run `uv sync` to install pymongoose
+- Import error: Run `uv sync` to install cymongoose
 
 ### wrk not found
 ```bash

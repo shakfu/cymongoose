@@ -1,7 +1,7 @@
 Manager Class
 =============
 
-.. currentmodule:: pymongoose
+.. currentmodule:: cymongoose
 
 .. autoclass:: Manager
    :members:
@@ -12,14 +12,14 @@ Manager Class
 Overview
 --------
 
-The :class:`Manager` class is the core of pymongoose. It manages the Mongoose event loop and all network connections.
+The :class:`Manager` class is the core of cymongoose. It manages the Mongoose event loop and all network connections.
 
 Creating a Manager
 ------------------
 
 .. code-block:: python
 
-    from pymongoose import Manager
+    from cymongoose import Manager
 
     # With default handler for all connections
     def handler(conn, ev, data):

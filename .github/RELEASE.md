@@ -1,10 +1,10 @@
 # Release Process Guide
 
-This document explains how to build and publish pymongoose wheels using the automated GitHub Actions workflow.
+This document explains how to build and publish cymongoose wheels using the automated GitHub Actions workflow.
 
 ## Overview
 
-The `build-wheels.yml` workflow uses cibuildwheel to build cross-platform binary wheels for pymongoose. It supports:
+The `build-wheels.yml` workflow uses cibuildwheel to build cross-platform binary wheels for cymongoose. It supports:
 
 - **Platforms**: Linux (x86_64, aarch64), macOS (x86_64, arm64), Windows (AMD64)
 - **Python versions**: 3.9, 3.10, 3.11, 3.12, 3.13
@@ -19,9 +19,9 @@ Before publishing to TestPyPI, configure trusted publishing:
 1. Go to https://test.pypi.org/manage/account/publishing/
 2. Click "Add a new publisher"
 3. Fill in the form:
-   - **PyPI Project Name**: `pymongoose`
+   - **PyPI Project Name**: `cymongoose`
    - **Owner**: `shakfu` (or your GitHub username)
-   - **Repository name**: `pymongoose`
+   - **Repository name**: `cymongoose`
    - **Workflow name**: `build-wheels.yml`
    - **Environment name**: `testpypi`
 4. Save the publisher
@@ -34,13 +34,13 @@ Once you've tested with TestPyPI, configure production publishing:
 2. Click "Add a new publisher"
 3. Fill in the same information as above, but use environment name: `pypi`
 
-**Note**: You must already have the `pymongoose` package registered on PyPI. If not, you'll need to do an initial upload manually using an API token.
+**Note**: You must already have the `cymongoose` package registered on PyPI. If not, you'll need to do an initial upload manually using an API token.
 
 ## Usage
 
 ### Step 1: Trigger the Workflow
 
-1. Go to your GitHub repository: https://github.com/shakfu/pymongoose
+1. Go to your GitHub repository: https://github.com/shakfu/cymongoose
 2. Click on the "Actions" tab
 3. Select "Build Wheels" from the left sidebar
 4. Click "Run workflow" button
@@ -65,23 +65,23 @@ After publishing to TestPyPI, test the installation:
 
 ```bash
 # Install from TestPyPI
-pip install --index-url https://test.pypi.org/simple/ pymongoose
+pip install --index-url https://test.pypi.org/simple/ cymongoose
 
 # Or with dependencies from PyPI
-pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pymongoose
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ cymongoose
 ```
 
 Verify it works:
 
 ```python
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 def handler(conn, ev, data):
     if ev == MG_EV_HTTP_MSG:
-        conn.reply(200, b"Hello from pymongoose!")
+        conn.reply(200, b"Hello from cymongoose!")
 
 manager = Manager(handler)
-print("pymongoose imported successfully!")
+print("cymongoose imported successfully!")
 ```
 
 ### Step 4: Publish to Production (PyPI)
@@ -90,7 +90,7 @@ Once you've verified the TestPyPI build works correctly:
 
 1. Update version in `pyproject.toml` if needed
 2. Run the workflow again with `publish_target: pypi`
-3. Verify at https://pypi.org/project/pymongoose/
+3. Verify at https://pypi.org/project/cymongoose/
 
 ## Recommended Workflow
 

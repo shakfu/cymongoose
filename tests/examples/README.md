@@ -1,6 +1,6 @@
-# pymongoose Examples
+# cymongoose Examples
 
-This directory contains **17 complete, production-ready examples** demonstrating how to use pymongoose for various networking scenarios. Each example is a runnable Python script that translates C tutorials from the Mongoose library.
+This directory contains **17 complete, production-ready examples** demonstrating how to use cymongoose for various networking scenarios. Each example is a runnable Python script that translates C tutorials from the Mongoose library.
 
  **All 17/17 examples complete** with 210 tests passing!
 
@@ -98,7 +98,7 @@ python http/http_client.py https://httpbin.org/get
 python http/http_client.py https://httpbin.org/post --method POST --data "hello=world"
 
 # With custom headers
-python http/http_client.py https://api.github.com/users/shakfu --header "User-Agent: pymongoose"
+python http/http_client.py https://api.github.com/users/shakfu --header "User-Agent: cymongoose"
 
 # With timeout
 python http/http_client.py https://example.com --timeout 5
@@ -605,8 +605,8 @@ wait
 ### Prerequisites
 
 ```bash
-# Install pymongoose in development mode
-cd /path/to/pymongoose
+# Install cymongoose in development mode
+cd /path/to/cymongoose
 uv sync
 
 # Or with pip
@@ -665,7 +665,7 @@ python advanced/multithreaded_server.py
 
 Each example follows this pattern:
 
-1. **Imports**: Standard library + pymongoose imports
+1. **Imports**: Standard library + cymongoose imports
 2. **Event Handler**: Main event processing function
 3. **Helper Functions**: Protocol-specific logic
 4. **Main Function**: Argument parsing and setup
@@ -780,4 +780,4 @@ If you'd like to contribute additional examples or improvements:
 
 ## License
 
-MIT (same as pymongoose)
+MIT (same as cymongoose)

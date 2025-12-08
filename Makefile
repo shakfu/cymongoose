@@ -5,7 +5,7 @@
 # .DEFAULT_GOAL := help
 
 # Variables
-PROJECT = pymongoose
+PROJECT = cymongoose
 PYTHON = uv run python
 PYTEST = uv run pytest
 SPHINX = uv run sphinx-build

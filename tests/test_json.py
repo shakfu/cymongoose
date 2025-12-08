@@ -1,7 +1,7 @@
 """Tests for JSON parsing utilities."""
 
 import pytest
-from pymongoose import json_get, json_get_num, json_get_bool, json_get_long, json_get_str
+from cymongoose import json_get, json_get_num, json_get_bool, json_get_long, json_get_str
 
 
 def test_json_get():

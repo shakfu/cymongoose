@@ -1,1 +1,1 @@
-# Tests for pymongoose
+# Tests for cymongoose

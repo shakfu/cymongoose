@@ -1,7 +1,7 @@
 Graceful Shutdown Guide
 =======================
 
-This guide covers proper shutdown handling for production pymongoose applications.
+This guide covers proper shutdown handling for production cymongoose applications.
 
 Why Signal Handlers?
 --------------------
@@ -38,7 +38,7 @@ Basic Pattern
 .. code-block:: python
 
     import signal
-    from pymongoose import Manager
+    from cymongoose import Manager
 
     shutdown_requested = False
 
@@ -208,7 +208,7 @@ Service File
 
     # /etc/systemd/system/myapp.service
     [Unit]
-    Description=pymongoose Application
+    Description=cymongoose Application
     After=network.target
 
     [Service]

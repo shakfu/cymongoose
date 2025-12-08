@@ -1,7 +1,7 @@
 """Tests for connection flow control flags."""
 
 import pytest
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 
 def test_is_full_flag():

@@ -1,7 +1,7 @@
 """Tests for URL encoding."""
 
 import pytest
-from pymongoose import url_encode
+from cymongoose import url_encode
 
 
 def test_url_encode_basic():

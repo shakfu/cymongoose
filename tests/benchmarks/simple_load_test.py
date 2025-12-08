@@ -8,7 +8,7 @@ import urllib.request
 import urllib.error
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from pymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_HTTP_MSG
 
 
 def get_free_port():
@@ -78,7 +78,7 @@ def run_load_test(url, num_requests=1000, concurrency=10):
 
 
 def main():
-    print("Starting pymongoose server...")
+    print("Starting cymongoose server...")
 
     port = get_free_port()
     json_response = b'{"message":"Hello, World!"}'

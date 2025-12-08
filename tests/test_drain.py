@@ -3,7 +3,7 @@
 import pytest
 import time
 import urllib.request
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_CLOSE
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_CLOSE
 from .conftest import ServerThread
 
 

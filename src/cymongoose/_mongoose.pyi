@@ -1,4 +1,4 @@
-"""Type stubs for pymongoose._mongoose module.
+"""Type stubs for cymongoose._mongoose module.
 
 This stub file provides type hints for the Cython extension module.
 """

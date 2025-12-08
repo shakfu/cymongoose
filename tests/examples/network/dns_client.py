@@ -28,7 +28,7 @@ an actual connection - useful for network utilities and diagnostics.
 import argparse
 import signal
 import time
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_RESOLVE,
     MG_EV_ERROR,

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-All notable changes to pymongoose will be documented here.
+All notable changes to cymongoose will be documented here.
 
 Version 0.1.4 (Current)
 -----------------------

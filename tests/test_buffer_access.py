@@ -3,7 +3,7 @@
 import pytest
 import urllib.request
 import time
-from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_READ
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_READ
 
 
 def test_buffer_properties_exist():

@@ -1,7 +1,7 @@
 Troubleshooting Guide
 =====================
 
-Common issues and solutions for pymongoose applications.
+Common issues and solutions for cymongoose applications.
 
 Build Issues
 ------------
@@ -52,7 +52,7 @@ Mongoose is vendored in ``thirdparty/mongoose/``. Ensure complete clone:
 
 .. code-block:: bash
 
-    git clone --recursive https://github.com/your-username/pymongoose.git
+    git clone --recursive https://github.com/your-username/cymongoose.git
 
 Import Errors
 -------------
@@ -81,7 +81,7 @@ Import Errors
 
 .. code-block:: bash
 
-    pip uninstall pymongoose
+    pip uninstall cymongoose
     pip install -e . --no-cache-dir
 
 Runtime Issues
@@ -187,7 +187,7 @@ Low Throughput
 
    .. code-block:: bash
 
-       rm src/pymongoose/_mongoose.c
+       rm src/cymongoose/_mongoose.c
        pip install -e . --force-reinstall
 
 2. **Check poll timeout**:
@@ -402,9 +402,9 @@ Getting Help
 ------------
 
 1. **Check logs**: Enable verbose logging
-2. **Search issues**: https://github.com/your-username/pymongoose/issues
+2. **Search issues**: https://github.com/your-username/cymongoose/issues
 3. **Minimal reproduction**: Create smallest example that shows the issue
-4. **System info**: Python version, OS, pymongoose version
+4. **System info**: Python version, OS, cymongoose version
 
 Reporting Issues:
 
@@ -412,7 +412,7 @@ Reporting Issues:
 
     # Include this info
     python --version
-    uv run python -c "import pymongoose; print(pymongoose.__version__)"
+    uv run python -c "import cymongoose; print(cymongoose.__version__)"
     uname -a
 
 See Also

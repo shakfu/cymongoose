@@ -1668,7 +1668,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pymongoose"
+name = "cymongoose"
 version = "0.1.4"
 source = { editable = "." }
 

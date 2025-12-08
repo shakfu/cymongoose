@@ -45,7 +45,7 @@ import argparse
 import signal
 import time
 import threading
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_MSG,
     MG_EV_WAKEUP,

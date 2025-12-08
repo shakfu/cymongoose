@@ -1,7 +1,7 @@
 User Guide
 ==========
 
-This guide covers protocol-specific usage patterns and best practices for pymongoose.
+This guide covers protocol-specific usage patterns and best practices for cymongoose.
 
 .. toctree::
    :maxdepth: 2
@@ -15,17 +15,17 @@ This guide covers protocol-specific usage patterns and best practices for pymong
 Overview
 --------
 
-pymongoose is organized around an event-driven architecture. Your application creates a :class:`~pymongoose.Manager`, registers event handlers, and runs the event loop.
+cymongoose is organized around an event-driven architecture. Your application creates a :class:`~cymongoose.Manager`, registers event handlers, and runs the event loop.
 
 Basic Pattern
 -------------
 
-All pymongoose applications follow this pattern:
+All cymongoose applications follow this pattern:
 
 .. code-block:: python
 
     import signal
-    from pymongoose import Manager
+    from cymongoose import Manager
 
     shutdown_requested = False
 

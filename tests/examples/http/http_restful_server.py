@@ -31,7 +31,7 @@ import argparse
 import json
 import signal
 import sys
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_HTTP_MSG,
 )

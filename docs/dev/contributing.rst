@@ -1,7 +1,7 @@
 Contributing Guide
 ==================
 
-We welcome contributions to pymongoose! This guide will help you get started.
+We welcome contributions to cymongoose! This guide will help you get started.
 
 Ways to Contribute
 ------------------
@@ -22,8 +22,8 @@ Getting Started
 .. code-block:: bash
 
     # Fork on GitHub, then clone
-    git clone https://github.com/YOUR-USERNAME/pymongoose.git
-    cd pymongoose
+    git clone https://github.com/YOUR-USERNAME/cymongoose.git
+    cd cymongoose
 
 2. Set Up Development Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -196,7 +196,7 @@ Rebuilding After Changes
 .. code-block:: bash
 
     # Force rebuild after Cython changes
-    rm src/pymongoose/_mongoose.c
+    rm src/cymongoose/_mongoose.c
     pip install -e . --force-reinstall
 
 Debug Build
@@ -242,4 +242,4 @@ Feel free to open an issue or discussion on GitHub.
 Thank You!
 ----------
 
-Thank you for contributing to pymongoose!
+Thank you for contributing to cymongoose!

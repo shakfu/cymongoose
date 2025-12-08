@@ -1,7 +1,7 @@
 GIL-Free Performance Optimization
 ==================================
 
-pymongoose achieves C-level performance through the ``nogil`` optimization.
+cymongoose achieves C-level performance through the ``nogil`` optimization.
 
 Overview
 --------
@@ -80,7 +80,7 @@ The following 21 methods release the GIL for parallel execution:
 Checking nogil Status
 ----------------------
 
-At startup, pymongoose prints:
+At startup, cymongoose prints:
 
 .. code-block:: text
 
@@ -107,7 +107,7 @@ Rebuild After Changes
 .. code-block:: bash
 
     # Force recompilation
-    rm src/pymongoose/_mongoose.c
+    rm src/cymongoose/_mongoose.c
     pip install -e . --force-reinstall
 
 Performance Comparison
@@ -236,7 +236,7 @@ Rebuild if needed:
 
 .. code-block:: bash
 
-    rm src/pymongoose/_mongoose.c
+    rm src/cymongoose/_mongoose.c
     pip install -e . --force-reinstall
 
 Performance Lower Than Expected

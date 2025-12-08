@@ -15,7 +15,7 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from pymongoose import (
+from cymongoose import (
     Manager,
     MG_EV_SNTP_TIME,
     MG_EV_RESOLVE,

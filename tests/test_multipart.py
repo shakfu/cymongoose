@@ -1,7 +1,7 @@
 """Tests for multipart form parsing."""
 
 import pytest
-from pymongoose import http_parse_multipart
+from cymongoose import http_parse_multipart
 
 
 def test_multipart_single_field():

@@ -1,7 +1,7 @@
 Quickstart Guide
 ================
 
-This guide will help you create your first pymongoose application in just a few minutes.
+This guide will help you create your first cymongoose application in just a few minutes.
 
 Basic HTTP Server
 -----------------
@@ -11,7 +11,7 @@ Let's create a simple HTTP server that responds to requests:
 .. code-block:: python
 
     import signal
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     shutdown_requested = False
 
@@ -77,11 +77,11 @@ Understanding the Code
 
 2. **Event Handler**: The ``handler()`` function receives:
 
-   - ``conn``: :class:`~pymongoose.Connection` object
+   - ``conn``: :class:`~cymongoose.Connection` object
    - ``ev``: Event type constant (``MG_EV_HTTP_MSG``, etc.)
    - ``data``: Event-specific data (``HttpMessage`` for HTTP events)
 
-3. **Manager**: The :class:`~pymongoose.Manager` manages the event loop.
+3. **Manager**: The :class:`~cymongoose.Manager` manages the event loop.
 
 4. **Graceful Shutdown**: ``conn.drain()`` ensures the response is sent before closing.
 
@@ -146,7 +146,7 @@ Serve static files from a directory:
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -174,7 +174,7 @@ Upgrade HTTP to WebSocket and echo messages:
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_HTTP_MSG,
         MG_EV_WS_MSG,
@@ -215,7 +215,7 @@ Make HTTP requests:
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_CONNECT, MG_EV_HTTP_MSG
     import signal
 
     shutdown_requested = False
@@ -254,7 +254,7 @@ Connect to MQTT broker and subscribe to topics:
 
 .. code-block:: python
 
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         MG_EV_MQTT_OPEN,
         MG_EV_MQTT_MSG,
@@ -277,7 +277,7 @@ Connect to MQTT broker and subscribe to topics:
     manager = Manager(handler)
     manager.mqtt_connect(
         "mqtt://broker.hivemq.com:1883",
-        client_id="pymongoose-client",
+        client_id="cymongoose-client",
         clean_session=True,
         keepalive=60,
     )
@@ -291,7 +291,7 @@ Create an HTTPS server with self-signed certificates:
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT, TlsOpts
+    from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT, TlsOpts
 
     # Load certificates
     cert = open("server.crt", "rb").read()
@@ -322,7 +322,7 @@ Generate self-signed cert for testing:
 Next Steps
 ----------
 
-Now that you've built your first pymongoose application, explore:
+Now that you've built your first cymongoose application, explore:
 
 - :doc:`examples` - More complete examples for all protocols
 - :doc:`guide/index` - In-depth protocol guides

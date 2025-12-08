@@ -2,7 +2,7 @@
 
 import pytest
 import time
-from pymongoose import Manager, MG_EV_ERROR, MG_EV_OPEN, MG_EV_HTTP_MSG
+from cymongoose import Manager, MG_EV_ERROR, MG_EV_OPEN, MG_EV_HTTP_MSG
 
 
 def test_connection_state_listener():

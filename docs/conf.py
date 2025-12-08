@@ -1,4 +1,4 @@
-"""Sphinx configuration file for pymongoose documentation."""
+"""Sphinx configuration file for cymongoose documentation."""
 
 import os
 import sys
@@ -7,7 +7,7 @@ import sys
 sys.path.insert(0, os.path.abspath('../src'))
 
 # -- Project information -----------------------------------------------------
-project = 'pymongoose'
+project = 'cymongoose'
 copyright = '2025, S. Alireza'
 author = 'S. Alireza'
 release = '0.1.5'
@@ -108,7 +108,7 @@ html_theme_options = {
 html_context = {
     'display_github': True,
     'github_user': 'your-github-username',  # Update this
-    'github_repo': 'pymongoose',
+    'github_repo': 'cymongoose',
     'github_version': 'main',
     'conf_py_path': '/docs/',
 }
@@ -123,22 +123,22 @@ latex_elements = {
 }
 
 latex_documents = [
-    (master_doc, 'pymongoose.tex', 'pymongoose Documentation',
+    (master_doc, 'cymongoose.tex', 'cymongoose Documentation',
      author, 'manual'),
 ]
 
 # -- Options for manual page output ------------------------------------------
 
 man_pages = [
-    (master_doc, 'pymongoose', 'pymongoose Documentation',
+    (master_doc, 'cymongoose', 'cymongoose Documentation',
      [author], 1)
 ]
 
 # -- Options for Texinfo output ----------------------------------------------
 
 texinfo_documents = [
-    (master_doc, 'pymongoose', 'pymongoose Documentation',
-     author, 'pymongoose', 'Python bindings for Mongoose embedded networking library.',
+    (master_doc, 'cymongoose', 'cymongoose Documentation',
+     author, 'cymongoose', 'Python bindings for Mongoose embedded networking library.',
      'Miscellaneous'),
 ]
 

@@ -3,7 +3,7 @@
 import pytest
 import time
 import threading
-from pymongoose import Manager
+from cymongoose import Manager
 
 
 def test_timer_single_shot():

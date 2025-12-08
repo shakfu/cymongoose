@@ -1,7 +1,7 @@
 MQTT Guide
 ==========
 
-This guide covers MQTT publish/subscribe messaging using pymongoose.
+This guide covers MQTT publish/subscribe messaging using cymongoose.
 
 MQTT Client
 -----------
@@ -11,7 +11,7 @@ Basic Connection
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
+    from cymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
 
     def handler(conn, ev, data):
         if ev == MG_EV_MQTT_OPEN:
@@ -45,7 +45,7 @@ Connection Options
     conn = manager.mqtt_connect(
         url='mqtt://broker.example.com:1883',
         handler=mqtt_handler,
-        client_id='pymongoose-client',  # Auto-generated if empty
+        client_id='cymongoose-client',  # Auto-generated if empty
         username='user',                 # Optional
         password='pass',                 # Optional
         clean_session=True,              # Clean session flag
@@ -200,7 +200,7 @@ Temperature Monitoring System
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
+    from cymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG
     import json
     import time
     import random
@@ -269,7 +269,7 @@ Simple broker implementation:
 
 .. code-block:: python
 
-    from pymongoose import Manager, MG_EV_MQTT_MSG
+    from cymongoose import Manager, MG_EV_MQTT_MSG
 
     # Track subscriptions
     subscriptions = {}  # {topic: [conn1, conn2, ...]}
@@ -301,7 +301,7 @@ With TLS/SSL:
 
 .. code-block:: python
 
-    from pymongoose import TlsOpts, MG_EV_CONNECT
+    from cymongoose import TlsOpts, MG_EV_CONNECT
 
     ca = open("ca.crt", "rb").read()
 

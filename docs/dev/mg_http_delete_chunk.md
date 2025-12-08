@@ -117,7 +117,7 @@ def handler(conn, ev, data):
 ### 3. Use Multipart Form Uploads
 
 ```python
-from pymongoose import http_parse_multipart
+from cymongoose import http_parse_multipart
 
 def handler(conn, ev, data):
     if ev == MG_EV_HTTP_MSG:
@@ -184,7 +184,7 @@ def handler(conn, ev, data):
 4. **Monitor buffer usage** with `conn.recv_len` and `conn.is_full`
 5. **Handle backpressure** appropriately in high-volume scenarios
 
-### For pymongoose Maintainers
+### For cymongoose Maintainers
 
 1. **Do not implement a stub** - the function doesn't exist in Mongoose
 2. **Document this limitation** clearly (this file)
@@ -193,7 +193,7 @@ def handler(conn, ev, data):
 
 ## Upstream Status
 
-This is an **upstream Mongoose issue**, not a pymongoose wrapper issue.
+This is an **upstream Mongoose issue**, not a cymongoose wrapper issue.
 
 ### Potential Actions
 
@@ -203,13 +203,13 @@ This is an **upstream Mongoose issue**, not a pymongoose wrapper issue.
 
 ### Related Mongoose Functions
 
-Available alternatives in Mongoose/pymongoose:
+Available alternatives in Mongoose/cymongoose:
 
 - `mg_http_write_chunk()` [x] - Send chunked responses (implemented)
 - `mg_http_printf_chunk()` [x] - Send formatted chunks (declared, not wrapped)
-- `conn.recv_data()` [x] - Read receive buffer (pymongoose extension)
-- `conn.recv_len` [x] - Check buffer size (pymongoose extension)
-- `conn.is_full` [x] - Check backpressure (pymongoose extension)
+- `conn.recv_data()` [x] - Read receive buffer (cymongoose extension)
+- `conn.recv_len` [x] - Check buffer size (cymongoose extension)
+- `conn.is_full` [x] - Check backpressure (cymongoose extension)
 
 ## Conclusion
 
@@ -219,7 +219,7 @@ The absence of `mg_http_delete_chunk` is a **known limitation** of the underlyin
 - Use **WebSocket** for streaming data
 - Implement **size limits** and **backpressure handling**
 
-This limitation should be tracked upstream with the Mongoose project, as it affects all Mongoose users, not just pymongoose.
+This limitation should be tracked upstream with the Mongoose project, as it affects all Mongoose users, not just cymongoose.
 
 ## References
 

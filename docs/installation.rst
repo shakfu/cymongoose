@@ -11,7 +11,7 @@ Requirements
 Dependencies
 ~~~~~~~~~~~~
 
-pymongoose has minimal dependencies:
+cymongoose has minimal dependencies:
 
 - **Cython** (>=3.0) - Used for building the extension
 - **setuptools** - Build system
@@ -25,11 +25,11 @@ Optional dependencies for development:
 Install from PyPI
 -----------------
 
-The easiest way to install pymongoose is from PyPI:
+The easiest way to install cymongoose is from PyPI:
 
 .. code-block:: bash
 
-    pip install pymongoose
+    pip install cymongoose
 
 This will download and install the latest stable release along with all required dependencies.
 
@@ -43,8 +43,8 @@ To install the latest development version from the repository:
 
 .. code-block:: bash
 
-    git clone https://github.com/your-username/pymongoose.git
-    cd pymongoose
+    git clone https://github.com/your-username/cymongoose.git
+    cd cymongoose
     pip install -e .
 
 Using uv (Recommended for Development)
@@ -54,8 +54,8 @@ Using uv (Recommended for Development)
 
 .. code-block:: bash
 
-    git clone https://github.com/your-username/pymongoose.git
-    cd pymongoose
+    git clone https://github.com/your-username/cymongoose.git
+    cd cymongoose
     uv sync
 
 This will:
@@ -63,7 +63,7 @@ This will:
 1. Create a virtual environment
 2. Install all dependencies
 3. Build the Cython extension
-4. Install pymongoose in editable mode
+4. Install cymongoose in editable mode
 
 Using CMake (Alternative)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,8 +72,8 @@ For advanced users who prefer CMake:
 
 .. code-block:: bash
 
-    git clone https://github.com/your-username/pymongoose.git
-    cd pymongoose
+    git clone https://github.com/your-username/cymongoose.git
+    cd cymongoose
     make build
 
 Build Options
@@ -102,11 +102,11 @@ After installation, verify it works:
 
 .. code-block:: python
 
-    import pymongoose
-    print(pymongoose.__version__)
+    import cymongoose
+    print(cymongoose.__version__)
 
     # Check available constants
-    from pymongoose import (
+    from cymongoose import (
         Manager,
         Connection,
         MG_EV_HTTP_MSG,
@@ -134,7 +134,7 @@ To run the test suite:
     # Using pytest directly
     PYTHONPATH=src pytest tests/ -v
 
-All 210 tests should pass. If you encounter failures, please report them on the `issue tracker <https://github.com/your-username/pymongoose/issues>`_.
+All 210 tests should pass. If you encounter failures, please report them on the `issue tracker <https://github.com/your-username/cymongoose/issues>`_.
 
 Common Makefile Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -178,7 +178,7 @@ The Mongoose library is vendored in ``thirdparty/mongoose/``. Ensure you've clon
 
 .. code-block:: bash
 
-    git clone --recursive https://github.com/your-username/pymongoose.git
+    git clone --recursive https://github.com/your-username/cymongoose.git
 
 Import Errors
 ~~~~~~~~~~~~~
@@ -197,7 +197,7 @@ Rebuild with:
 
 .. code-block:: bash
 
-    pip uninstall pymongoose
+    pip uninstall cymongoose
     pip install -e . --no-cache-dir
 
 Performance Issues

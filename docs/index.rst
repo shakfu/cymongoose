@@ -1,15 +1,15 @@
-pymongoose: Python Bindings for the Mongoose Networking Library
+cymongoose: Python Bindings for the Mongoose Networking Library
 ===============================================================
 
-.. image:: https://img.shields.io/pypi/v/pymongoose.svg
-   :target: https://pypi.org/project/pymongoose/
+.. image:: https://img.shields.io/pypi/v/cymongoose.svg
+   :target: https://pypi.org/project/cymongoose/
    :alt: PyPI version
 
-.. image:: https://img.shields.io/pypi/pyversions/pymongoose.svg
-   :target: https://pypi.org/project/pymongoose/
+.. image:: https://img.shields.io/pypi/pyversions/cymongoose.svg
+   :target: https://pypi.org/project/cymongoose/
    :alt: Python versions
 
-**pymongoose** is a high-performance Cython-based Python wrapper around the `Mongoose <https://github.com/cesanta/mongoose>`_ embedded networking library. It provides Pythonic bindings to Mongoose's comprehensive networking capabilities with C-level performance.
+**cymongoose** is a high-performance Cython-based Python wrapper around the `Mongoose <https://github.com/cesanta/mongoose>`_ embedded networking library. It provides Pythonic bindings to Mongoose's comprehensive networking capabilities with C-level performance.
 
 Key Features
 ------------
@@ -28,7 +28,7 @@ Quick Example
 .. code-block:: python
 
     import signal
-    from pymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import Manager, MG_EV_HTTP_MSG
 
     shutdown_requested = False
 
@@ -74,8 +74,8 @@ Benchmarked with ``wrk -t4 -c100 -d10s`` on an M1 Macbook Air laptop:
    * - Framework
      - Req/sec
      - Latency (avg)
-     - vs pymongoose
-   * - **pymongoose**
+     - vs cymongoose
+   * - **cymongoose**
      - **60,973**
      - **1.67ms**
      - **baseline**
@@ -152,9 +152,9 @@ Indices and Tables
 Project Links
 -------------
 
-- **GitHub**: https://github.com/your-username/pymongoose
-- **PyPI**: https://pypi.org/project/pymongoose/
-- **Issue Tracker**: https://github.com/your-username/pymongoose/issues
+- **GitHub**: https://github.com/your-username/cymongoose
+- **PyPI**: https://pypi.org/project/cymongoose/
+- **Issue Tracker**: https://github.com/your-username/cymongoose/issues
 - **Mongoose Library**: https://github.com/cesanta/mongoose
 
 License
