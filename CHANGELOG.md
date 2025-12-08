@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.6]
+
 ### Added
 
 - **CI workflow** (`ci.yml`):
@@ -26,6 +28,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   - Type check job using `mypy`
 
 ### Changed
+
+- **Project name changed**: the project was renamed to `cymongoose` because the prior name was already taken on pypi.
 
 - **CI/CD improvements** (`build-wheels.yml`):
   - Added QEMU emulation setup for cross-architecture Linux aarch64 builds

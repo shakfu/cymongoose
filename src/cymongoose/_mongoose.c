@@ -1148,8 +1148,8 @@ static int __Pyx_init_co_variables(void) {
   #endif
 #endif
 
-#define __PYX_HAVE__pymongoose___mongoose
-#define __PYX_HAVE_API__pymongoose___mongoose
+#define __PYX_HAVE__cymongoose___mongoose
+#define __PYX_HAVE_API__cymongoose___mongoose
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -1566,14 +1566,14 @@ static const char* const __pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage;
-struct __pyx_obj_10pymongoose_9_mongoose_WsMessage;
-struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage;
-struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts;
-struct __pyx_obj_10pymongoose_9_mongoose_Connection;
-struct __pyx_obj_10pymongoose_9_mongoose_Manager;
-struct __pyx_obj_10pymongoose_9_mongoose_Timer;
-struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
+struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage;
+struct __pyx_obj_10cymongoose_9_mongoose_WsMessage;
+struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage;
+struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts;
+struct __pyx_obj_10cymongoose_9_mongoose_Connection;
+struct __pyx_obj_10cymongoose_9_mongoose_Manager;
+struct __pyx_obj_10cymongoose_9_mongoose_Timer;
+struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr;
 
 /* "cymongoose/_mongoose.pyx":235
  * 
@@ -1582,9 +1582,9 @@ struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
  *     """Lightweight view over a struct mg_http_message."""
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage {
+struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_HttpMessage *__pyx_vtab;
   struct mg_http_message *_msg;
 };
 
@@ -1596,9 +1596,9 @@ struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage {
  *     """View over an incoming WebSocket frame."""
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_WsMessage {
+struct __pyx_obj_10cymongoose_9_mongoose_WsMessage {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_WsMessage *__pyx_vtab;
   struct mg_ws_message *_msg;
 };
 
@@ -1610,9 +1610,9 @@ struct __pyx_obj_10pymongoose_9_mongoose_WsMessage {
  *     """View over an incoming MQTT message."""
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage {
+struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_MqttMessage *__pyx_vtab;
   struct mg_mqtt_message *_msg;
 };
 
@@ -1624,7 +1624,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage {
  *     """TLS configuration options for secure connections.
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts {
+struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts {
   PyObject_HEAD
   PyObject *ca;
   PyObject *cert;
@@ -1641,11 +1641,11 @@ struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts {
  *     """Wrapper around mg_connection pointers."""
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_Connection {
+struct __pyx_obj_10cymongoose_9_mongoose_Connection {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *__pyx_vtab;
   struct mg_connection *_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *_manager;
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *_manager;
   PyObject *_handler;
   PyObject *_userdata;
 };
@@ -1658,9 +1658,9 @@ struct __pyx_obj_10pymongoose_9_mongoose_Connection {
  *     """Manage Mongoose event loop and provide Python callbacks."""
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_Manager {
+struct __pyx_obj_10cymongoose_9_mongoose_Manager {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *__pyx_vtab;
   struct mg_mgr _mgr;
   PyObject *_default_handler;
   PyObject *_connections;
@@ -1676,9 +1676,9 @@ struct __pyx_obj_10pymongoose_9_mongoose_Manager {
  *     """Wrapper for Mongoose timer.
  * 
 */
-struct __pyx_obj_10pymongoose_9_mongoose_Timer {
+struct __pyx_obj_10cymongoose_9_mongoose_Timer {
   PyObject_HEAD
-  struct __pyx_vtabstruct_10pymongoose_9_mongoose_Timer *__pyx_vtab;
+  struct __pyx_vtabstruct_10cymongoose_9_mongoose_Timer *__pyx_vtab;
   struct mg_timer *_timer;
   PyObject *_callback;
   PyObject *_callback_ref;
@@ -1692,7 +1692,7 @@ struct __pyx_obj_10pymongoose_9_mongoose_Timer {
  *             # Keep Python bytes object alive - fmt pointer references its buffer
  *             headers_b = headers_str.encode("utf-8")
 */
-struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr {
+struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr {
   PyObject_HEAD
   PyObject *__pyx_genexpr_arg_0;
   PyObject *__pyx_v_k;
@@ -1709,10 +1709,10 @@ struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr {
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage {
-  void (*_assign)(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *, struct mg_http_message *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_HttpMessage {
+  void (*_assign)(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *, struct mg_http_message *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *__pyx_vtabptr_10pymongoose_9_mongoose_HttpMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_HttpMessage *__pyx_vtabptr_10cymongoose_9_mongoose_HttpMessage;
 
 
 /* "cymongoose/_mongoose.pyx":350
@@ -1723,10 +1723,10 @@ static struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *__pyx_vtabpt
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage {
-  void (*_assign)(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *, struct mg_ws_message *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_WsMessage {
+  void (*_assign)(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *, struct mg_ws_message *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *__pyx_vtabptr_10pymongoose_9_mongoose_WsMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_WsMessage *__pyx_vtabptr_10cymongoose_9_mongoose_WsMessage;
 
 
 /* "cymongoose/_mongoose.pyx":371
@@ -1737,10 +1737,10 @@ static struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *__pyx_vtabptr_
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage {
-  void (*_assign)(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *, struct mg_mqtt_message *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_MqttMessage {
+  void (*_assign)(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *, struct mg_mqtt_message *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *__pyx_vtabptr_10pymongoose_9_mongoose_MqttMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_MqttMessage *__pyx_vtabptr_10cymongoose_9_mongoose_MqttMessage;
 
 
 /* "cymongoose/_mongoose.pyx":452
@@ -1751,11 +1751,11 @@ static struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *__pyx_vtabpt
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection {
-  void (*_bind)(struct __pyx_obj_10pymongoose_9_mongoose_Connection *, struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *, PyObject *);
-  struct mg_connection *(*_ptr)(struct __pyx_obj_10pymongoose_9_mongoose_Connection *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection {
+  void (*_bind)(struct __pyx_obj_10cymongoose_9_mongoose_Connection *, struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *, PyObject *);
+  struct mg_connection *(*_ptr)(struct __pyx_obj_10cymongoose_9_mongoose_Connection *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *__pyx_vtabptr_10pymongoose_9_mongoose_Connection;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *__pyx_vtabptr_10cymongoose_9_mongoose_Connection;
 
 
 /* "cymongoose/_mongoose.pyx":1118
@@ -1766,13 +1766,13 @@ static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *__pyx_vtabptr
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager {
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *(*_ensure_connection)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *);
-  void (*_drop_connection)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *);
-  PyObject *(*_resolve_handler)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct __pyx_obj_10pymongoose_9_mongoose_Connection *);
-  PyObject *(*_wrap_event_data)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, int, void *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager {
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *(*_ensure_connection)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *);
+  void (*_drop_connection)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *);
+  PyObject *(*_resolve_handler)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct __pyx_obj_10cymongoose_9_mongoose_Connection *);
+  PyObject *(*_wrap_event_data)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, int, void *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *__pyx_vtabptr_10pymongoose_9_mongoose_Manager;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *__pyx_vtabptr_10cymongoose_9_mongoose_Manager;
 
 
 /* "cymongoose/_mongoose.pyx":1655
@@ -1783,10 +1783,10 @@ static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *__pyx_vtabptr_10
  * 
 */
 
-struct __pyx_vtabstruct_10pymongoose_9_mongoose_Timer {
-  void (*_set_timer)(struct __pyx_obj_10pymongoose_9_mongoose_Timer *, struct mg_timer *, PyObject *);
+struct __pyx_vtabstruct_10cymongoose_9_mongoose_Timer {
+  void (*_set_timer)(struct __pyx_obj_10cymongoose_9_mongoose_Timer *, struct mg_timer *, PyObject *);
 };
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Timer *__pyx_vtabptr_10pymongoose_9_mongoose_Timer;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Timer *__pyx_vtabptr_10cymongoose_9_mongoose_Timer;
 /* #### Code section: utility_code_proto ### */
 
 /* --- Runtime support code (head) --- */
@@ -3012,16 +3012,16 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_ABI_MODULE_NAME "_cython_" CYTHON_ABI
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
-static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, struct mg_http_message *__pyx_v_msg); /* proto*/
-static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self, struct mg_ws_message *__pyx_v_msg); /* proto*/
-static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self, struct mg_mqtt_message *__pyx_v_msg); /* proto*/
-static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_manager, struct mg_connection *__pyx_v_conn, PyObject *__pyx_v_handler); /* proto*/
-static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto*/
-static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose_9_mongoose_7Manager__ensure_connection(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn); /* proto*/
-static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn); /* proto*/
-static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_conn); /* proto*/
-static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_ev, void *__pyx_v_ev_data); /* proto*/
-static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self, struct mg_timer *__pyx_v_timer, PyObject *__pyx_v_callback); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, struct mg_http_message *__pyx_v_msg); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self, struct mg_ws_message *__pyx_v_msg); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self, struct mg_mqtt_message *__pyx_v_msg); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_manager, struct mg_connection *__pyx_v_conn, PyObject *__pyx_v_handler); /* proto*/
+static struct mg_connection *__pyx_f_10cymongoose_9_mongoose_10Connection__ptr(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto*/
+static struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_f_10cymongoose_9_mongoose_7Manager__ensure_connection(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_7Manager__drop_connection(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn); /* proto*/
+static PyObject *__pyx_f_10cymongoose_9_mongoose_7Manager__resolve_handler(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_conn); /* proto*/
+static PyObject *__pyx_f_10cymongoose_9_mongoose_7Manager__wrap_event_data(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_ev, void *__pyx_v_ev_data); /* proto*/
+static void __pyx_f_10cymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self, struct mg_timer *__pyx_v_timer, PyObject *__pyx_v_callback); /* proto*/
 
 /* Module declarations from "libc.string" */
 
@@ -3054,16 +3054,16 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 /* Module declarations from "cymongoose.mongoose" */
 
 /* Module declarations from "cymongoose._mongoose" */
-static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(struct mg_str); /*proto*/
-static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(struct mg_str); /*proto*/
-static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *, int, void *); /*proto*/
-static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *); /*proto*/
-static PyObject *__pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *, PyObject *); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(struct mg_str); /*proto*/
+static CYTHON_INLINE PyObject *__pyx_f_10cymongoose_9_mongoose__mg_str_to_text(struct mg_str); /*proto*/
+static void __pyx_f_10cymongoose_9_mongoose__event_bridge(struct mg_connection *, int, void *); /*proto*/
+static void __pyx_f_10cymongoose_9_mongoose__timer_callback(void *); /*proto*/
+static PyObject *__pyx_f_10cymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *, PyObject *); /*proto*/
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
 #define __Pyx_MODULE_NAME "cymongoose._mongoose"
-extern int __pyx_module_is_main_pymongoose___mongoose;
-int __pyx_module_is_main_pymongoose___mongoose = 0;
+extern int __pyx_module_is_main_cymongoose___mongoose;
+int __pyx_module_is_main_cymongoose___mongoose = 0;
 
 /* Implementation of "cymongoose._mongoose" */
 /* #### Code section: global_var ### */
@@ -3076,134 +3076,134 @@ static const char __pyx_k_surrogateescape[] = "surrogateescape";
 static const char __pyx_k_Cython_bindings_that_expose_a_P[] = "\nCython bindings that expose a Python-friendly interface to the Mongoose\nembedded networking library.\n";
 static const char __pyx_k_ca_cert_key_name_skip_verificati[] = "ca, cert, key, name, skip_verification";
 /* #### Code section: decls ### */
-static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_default); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_header_name, PyObject *__pyx_v_var_name); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_ca, PyObject *__pyx_v_cert, PyObject *__pyx_v_key, PyObject *__pyx_v_name, PyObject *__pyx_v_skip_verification); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_handler); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, int __pyx_v_status_code, PyObject *__pyx_v_body, PyObject *__pyx_v_headers); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_root_dir, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types, PyObject *__pyx_v_page404); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_path, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_extra_headers); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_op); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_message, PyObject *__pyx_v_qos, PyObject *__pyx_v_retain); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_qos); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_message); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_url); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_username, PyObject *__pyx_v_password); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_event_type, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_opts); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_54__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_56__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_handler, PyObject *__pyx_v_enable_wakeup); /* proto */
-static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_timeout_ms); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_client_id, PyObject *__pyx_v_username, PyObject *__pyx_v_password, PyObject *__pyx_v_clean_session, PyObject *__pyx_v_keepalive); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_connection_id, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_milliseconds, PyObject *__pyx_v_callback, PyObject *__pyx_v_repeat, PyObject *__pyx_v_run_now); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_22__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_24__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_body, PyObject *__pyx_v_offset); /* proto */
-static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
-static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_HttpMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_WsMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_MqttMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_TlsOpts(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Connection(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Manager(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Timer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_10cymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6method___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_3uri___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5query___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5proto___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_9body_text___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_2header(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_default); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_4headers(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6query_var(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_8status(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10header_var(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_header_name, PyObject *__pyx_v_var_name); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_4data___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_4text___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_5flags___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_5topic___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4data___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4text___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2id___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3cmd___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3qos___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3ack___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_ca, PyObject *__pyx_v_cert, PyObject *__pyx_v_key, PyObject *__pyx_v_name, PyObject *__pyx_v_skip_verification); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_10Connection___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_7handler___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_2set_handler(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_handler); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_2id___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12is_listening___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10is_closing___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10local_addr___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11remote_addr___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_4send(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6reply(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, int __pyx_v_status_code, PyObject *__pyx_v_body, PyObject *__pyx_v_headers); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8serve_dir(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_root_dir, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types, PyObject *__pyx_v_page404); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10serve_file(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_path, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12ws_upgrade(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_extra_headers); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_14ws_send(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_op); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_16mqtt_pub(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_message, PyObject *__pyx_v_qos, PyObject *__pyx_v_retain); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_18mqtt_sub(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_qos); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_20mqtt_ping(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_22mqtt_pong(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_26error(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_message); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9is_client___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6is_tls___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6is_udp___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12is_websocket___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_readable___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_writable___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_7is_full___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_draining___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8recv_len___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8send_len___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9recv_size___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9send_size___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_28recv_data(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_30send_data(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_32resolve(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_url); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_34resolve_cancel(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_36http_basic_auth(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_username, PyObject *__pyx_v_password); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_38sntp_request(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_40http_chunk(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_42http_sse(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_event_type, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_44close(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_46drain(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_48tls_init(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_opts); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_50tls_free(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_52__repr__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_54__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_56__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_handler, PyObject *__pyx_v_enable_wakeup); /* proto */
+static void __pyx_pf_10cymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_4poll(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_timeout_ms); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_6listen(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_8connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_10mqtt_connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_client_id, PyObject *__pyx_v_username, PyObject *__pyx_v_password, PyObject *__pyx_v_clean_session, PyObject *__pyx_v_keepalive); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_12mqtt_listen(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_14sntp_connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_16wakeup(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_connection_id, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_18timer_add(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_milliseconds, PyObject *__pyx_v_callback, PyObject *__pyx_v_repeat, PyObject *__pyx_v_run_now); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_20close(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_22__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_24__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_12http_parse_multipart(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_body, PyObject *__pyx_v_offset); /* proto */
+static int __pyx_pf_10cymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
+static void __pyx_pf_10cymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_5Timer_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_HttpMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_WsMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_MqttMessage(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_TlsOpts(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Connection(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Manager(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Timer(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose___pyx_scope_struct__genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -3225,22 +3225,22 @@ typedef struct {
   PyObject *__pyx_empty_bytes;
   PyObject *__pyx_empty_unicode;
   PyTypeObject *__pyx_ptype_7cpython_4type_type;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_HttpMessage;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_WsMessage;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_MqttMessage;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_TlsOpts;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_Connection;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_Manager;
-  PyObject *__pyx_type_10pymongoose_9_mongoose_Timer;
-  PyObject *__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_HttpMessage;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_WsMessage;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_MqttMessage;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_TlsOpts;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_Connection;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_Manager;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose_Timer;
-  PyTypeObject *__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_HttpMessage;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_WsMessage;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_MqttMessage;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_TlsOpts;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_Connection;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_Manager;
+  PyObject *__pyx_type_10cymongoose_9_mongoose_Timer;
+  PyObject *__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_HttpMessage;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_WsMessage;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_MqttMessage;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_TlsOpts;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_Connection;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_Manager;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose_Timer;
+  PyTypeObject *__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_get;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_items;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
@@ -3253,8 +3253,8 @@ typedef struct {
 /* #### Code section: module_state_contents ### */
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_freelist_10pymongoose_9_mongoose___pyx_scope_struct__genexpr[8];
-int __pyx_freecount_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
+struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_freelist_10cymongoose_9_mongoose___pyx_scope_struct__genexpr[8];
+int __pyx_freecount_10cymongoose_9_mongoose___pyx_scope_struct__genexpr;
 #endif
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -3338,7 +3338,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_readable __pyx_string_tab[32]
 #define __pyx_kp_u_self__msg_cannot_be_converted_to __pyx_string_tab[33]
 #define __pyx_kp_u_self_ca_is_not_None_or_self_cert __pyx_string_tab[34]
-#define __pyx_kp_u_src_pymongoose__mongoose_pyx __pyx_string_tab[35]
+#define __pyx_kp_u_src_cymongoose__mongoose_pyx __pyx_string_tab[35]
 #define __pyx_kp_u_stringsource __pyx_string_tab[36]
 #define __pyx_kp_u_utf_8 __pyx_string_tab[37]
 #define __pyx_kp_u_writable __pyx_string_tab[38]
@@ -3455,106 +3455,106 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_conn_id __pyx_string_tab[149]
 #define __pyx_n_u_connect __pyx_string_tab[150]
 #define __pyx_n_u_connection_id __pyx_string_tab[151]
-#define __pyx_n_u_data __pyx_string_tab[152]
-#define __pyx_n_u_data_b __pyx_string_tab[153]
-#define __pyx_n_u_default __pyx_string_tab[154]
-#define __pyx_n_u_dict __pyx_string_tab[155]
-#define __pyx_n_u_dict_2 __pyx_string_tab[156]
-#define __pyx_n_u_drain __pyx_string_tab[157]
-#define __pyx_n_u_enable_wakeup __pyx_string_tab[158]
-#define __pyx_n_u_encode __pyx_string_tab[159]
-#define __pyx_n_u_error __pyx_string_tab[160]
-#define __pyx_n_u_event_b __pyx_string_tab[161]
-#define __pyx_n_u_event_type __pyx_string_tab[162]
-#define __pyx_n_u_extra_headers __pyx_string_tab[163]
-#define __pyx_n_u_extra_headers_b __pyx_string_tab[164]
-#define __pyx_n_u_filename __pyx_string_tab[165]
-#define __pyx_n_u_flags __pyx_string_tab[166]
-#define __pyx_n_u_fmt __pyx_string_tab[167]
-#define __pyx_n_u_func __pyx_string_tab[168]
-#define __pyx_n_u_genexpr __pyx_string_tab[169]
-#define __pyx_n_u_get __pyx_string_tab[170]
-#define __pyx_n_u_getstate __pyx_string_tab[171]
-#define __pyx_n_u_handler __pyx_string_tab[172]
-#define __pyx_n_u_header __pyx_string_tab[173]
-#define __pyx_n_u_header_lines __pyx_string_tab[174]
-#define __pyx_n_u_header_name __pyx_string_tab[175]
-#define __pyx_n_u_header_name_b __pyx_string_tab[176]
-#define __pyx_n_u_header_value __pyx_string_tab[177]
-#define __pyx_n_u_header_var __pyx_string_tab[178]
-#define __pyx_n_u_headers __pyx_string_tab[179]
-#define __pyx_n_u_headers_b __pyx_string_tab[180]
-#define __pyx_n_u_headers_bytes __pyx_string_tab[181]
-#define __pyx_n_u_headers_c __pyx_string_tab[182]
-#define __pyx_n_u_headers_str __pyx_string_tab[183]
-#define __pyx_n_u_http __pyx_string_tab[184]
-#define __pyx_n_u_http_basic_auth __pyx_string_tab[185]
-#define __pyx_n_u_http_chunk __pyx_string_tab[186]
-#define __pyx_n_u_http_parse_multipart __pyx_string_tab[187]
-#define __pyx_n_u_http_sse __pyx_string_tab[188]
-#define __pyx_n_u_idx __pyx_string_tab[189]
-#define __pyx_n_u_int __pyx_string_tab[190]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[191]
-#define __pyx_n_u_items __pyx_string_tab[192]
-#define __pyx_n_u_json_b __pyx_string_tab[193]
-#define __pyx_n_u_json_get __pyx_string_tab[194]
-#define __pyx_n_u_json_get_bool __pyx_string_tab[195]
-#define __pyx_n_u_json_get_long __pyx_string_tab[196]
-#define __pyx_n_u_json_get_num __pyx_string_tab[197]
-#define __pyx_n_u_json_get_str __pyx_string_tab[198]
-#define __pyx_n_u_json_str __pyx_string_tab[199]
-#define __pyx_n_u_k __pyx_string_tab[200]
-#define __pyx_n_u_keepalive __pyx_string_tab[201]
-#define __pyx_n_u_key __pyx_string_tab[202]
-#define __pyx_n_u_len_data __pyx_string_tab[203]
-#define __pyx_n_u_length __pyx_string_tab[204]
-#define __pyx_n_u_listen __pyx_string_tab[205]
-#define __pyx_n_u_lookup __pyx_string_tab[206]
-#define __pyx_n_u_main __pyx_string_tab[207]
-#define __pyx_n_u_message __pyx_string_tab[208]
-#define __pyx_n_u_milliseconds __pyx_string_tab[209]
-#define __pyx_n_u_mime_types __pyx_string_tab[210]
-#define __pyx_n_u_mime_types_b __pyx_string_tab[211]
-#define __pyx_n_u_module __pyx_string_tab[212]
-#define __pyx_n_u_mqtt_connect __pyx_string_tab[213]
-#define __pyx_n_u_mqtt_disconnect __pyx_string_tab[214]
-#define __pyx_n_u_mqtt_listen __pyx_string_tab[215]
-#define __pyx_n_u_mqtt_ping __pyx_string_tab[216]
-#define __pyx_n_u_mqtt_pong __pyx_string_tab[217]
-#define __pyx_n_u_mqtt_pub __pyx_string_tab[218]
-#define __pyx_n_u_mqtt_sub __pyx_string_tab[219]
-#define __pyx_n_u_msg __pyx_string_tab[220]
-#define __pyx_n_u_msg_b __pyx_string_tab[221]
-#define __pyx_n_u_msg_id __pyx_string_tab[222]
-#define __pyx_n_u_msg_len __pyx_string_tab[223]
-#define __pyx_n_u_msg_ptr __pyx_string_tab[224]
-#define __pyx_n_u_name __pyx_string_tab[225]
-#define __pyx_n_u_name_2 __pyx_string_tab[226]
-#define __pyx_n_u_name_b __pyx_string_tab[227]
-#define __pyx_n_u_new __pyx_string_tab[228]
-#define __pyx_n_u_next __pyx_string_tab[229]
-#define __pyx_n_u_next_offset __pyx_string_tab[230]
-#define __pyx_n_u_offset __pyx_string_tab[231]
-#define __pyx_n_u_op __pyx_string_tab[232]
-#define __pyx_n_u_op_c __pyx_string_tab[233]
-#define __pyx_n_u_opts __pyx_string_tab[234]
-#define __pyx_n_u_page404 __pyx_string_tab[235]
-#define __pyx_n_u_page404_b __pyx_string_tab[236]
-#define __pyx_n_u_part __pyx_string_tab[237]
-#define __pyx_n_u_part_dict __pyx_string_tab[238]
-#define __pyx_n_u_pass_b __pyx_string_tab[239]
-#define __pyx_n_u_password __pyx_string_tab[240]
-#define __pyx_n_u_path __pyx_string_tab[241]
-#define __pyx_n_u_path_b __pyx_string_tab[242]
-#define __pyx_n_u_path_c __pyx_string_tab[243]
-#define __pyx_n_u_payload __pyx_string_tab[244]
-#define __pyx_n_u_payload_b __pyx_string_tab[245]
-#define __pyx_n_u_poll __pyx_string_tab[246]
-#define __pyx_n_u_pop __pyx_string_tab[247]
-#define __pyx_n_u_print __pyx_string_tab[248]
-#define __pyx_n_u_print_exc __pyx_string_tab[249]
-#define __pyx_n_u_py_conn __pyx_string_tab[250]
-#define __pyx_n_u_pymongoose__mongoose __pyx_string_tab[251]
+#define __pyx_n_u_cymongoose__mongoose __pyx_string_tab[152]
+#define __pyx_n_u_data __pyx_string_tab[153]
+#define __pyx_n_u_data_b __pyx_string_tab[154]
+#define __pyx_n_u_default __pyx_string_tab[155]
+#define __pyx_n_u_dict __pyx_string_tab[156]
+#define __pyx_n_u_dict_2 __pyx_string_tab[157]
+#define __pyx_n_u_drain __pyx_string_tab[158]
+#define __pyx_n_u_enable_wakeup __pyx_string_tab[159]
+#define __pyx_n_u_encode __pyx_string_tab[160]
+#define __pyx_n_u_error __pyx_string_tab[161]
+#define __pyx_n_u_event_b __pyx_string_tab[162]
+#define __pyx_n_u_event_type __pyx_string_tab[163]
+#define __pyx_n_u_extra_headers __pyx_string_tab[164]
+#define __pyx_n_u_extra_headers_b __pyx_string_tab[165]
+#define __pyx_n_u_filename __pyx_string_tab[166]
+#define __pyx_n_u_flags __pyx_string_tab[167]
+#define __pyx_n_u_fmt __pyx_string_tab[168]
+#define __pyx_n_u_func __pyx_string_tab[169]
+#define __pyx_n_u_genexpr __pyx_string_tab[170]
+#define __pyx_n_u_get __pyx_string_tab[171]
+#define __pyx_n_u_getstate __pyx_string_tab[172]
+#define __pyx_n_u_handler __pyx_string_tab[173]
+#define __pyx_n_u_header __pyx_string_tab[174]
+#define __pyx_n_u_header_lines __pyx_string_tab[175]
+#define __pyx_n_u_header_name __pyx_string_tab[176]
+#define __pyx_n_u_header_name_b __pyx_string_tab[177]
+#define __pyx_n_u_header_value __pyx_string_tab[178]
+#define __pyx_n_u_header_var __pyx_string_tab[179]
+#define __pyx_n_u_headers __pyx_string_tab[180]
+#define __pyx_n_u_headers_b __pyx_string_tab[181]
+#define __pyx_n_u_headers_bytes __pyx_string_tab[182]
+#define __pyx_n_u_headers_c __pyx_string_tab[183]
+#define __pyx_n_u_headers_str __pyx_string_tab[184]
+#define __pyx_n_u_http __pyx_string_tab[185]
+#define __pyx_n_u_http_basic_auth __pyx_string_tab[186]
+#define __pyx_n_u_http_chunk __pyx_string_tab[187]
+#define __pyx_n_u_http_parse_multipart __pyx_string_tab[188]
+#define __pyx_n_u_http_sse __pyx_string_tab[189]
+#define __pyx_n_u_idx __pyx_string_tab[190]
+#define __pyx_n_u_int __pyx_string_tab[191]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[192]
+#define __pyx_n_u_items __pyx_string_tab[193]
+#define __pyx_n_u_json_b __pyx_string_tab[194]
+#define __pyx_n_u_json_get __pyx_string_tab[195]
+#define __pyx_n_u_json_get_bool __pyx_string_tab[196]
+#define __pyx_n_u_json_get_long __pyx_string_tab[197]
+#define __pyx_n_u_json_get_num __pyx_string_tab[198]
+#define __pyx_n_u_json_get_str __pyx_string_tab[199]
+#define __pyx_n_u_json_str __pyx_string_tab[200]
+#define __pyx_n_u_k __pyx_string_tab[201]
+#define __pyx_n_u_keepalive __pyx_string_tab[202]
+#define __pyx_n_u_key __pyx_string_tab[203]
+#define __pyx_n_u_len_data __pyx_string_tab[204]
+#define __pyx_n_u_length __pyx_string_tab[205]
+#define __pyx_n_u_listen __pyx_string_tab[206]
+#define __pyx_n_u_lookup __pyx_string_tab[207]
+#define __pyx_n_u_main __pyx_string_tab[208]
+#define __pyx_n_u_message __pyx_string_tab[209]
+#define __pyx_n_u_milliseconds __pyx_string_tab[210]
+#define __pyx_n_u_mime_types __pyx_string_tab[211]
+#define __pyx_n_u_mime_types_b __pyx_string_tab[212]
+#define __pyx_n_u_module __pyx_string_tab[213]
+#define __pyx_n_u_mqtt_connect __pyx_string_tab[214]
+#define __pyx_n_u_mqtt_disconnect __pyx_string_tab[215]
+#define __pyx_n_u_mqtt_listen __pyx_string_tab[216]
+#define __pyx_n_u_mqtt_ping __pyx_string_tab[217]
+#define __pyx_n_u_mqtt_pong __pyx_string_tab[218]
+#define __pyx_n_u_mqtt_pub __pyx_string_tab[219]
+#define __pyx_n_u_mqtt_sub __pyx_string_tab[220]
+#define __pyx_n_u_msg __pyx_string_tab[221]
+#define __pyx_n_u_msg_b __pyx_string_tab[222]
+#define __pyx_n_u_msg_id __pyx_string_tab[223]
+#define __pyx_n_u_msg_len __pyx_string_tab[224]
+#define __pyx_n_u_msg_ptr __pyx_string_tab[225]
+#define __pyx_n_u_name __pyx_string_tab[226]
+#define __pyx_n_u_name_2 __pyx_string_tab[227]
+#define __pyx_n_u_name_b __pyx_string_tab[228]
+#define __pyx_n_u_new __pyx_string_tab[229]
+#define __pyx_n_u_next __pyx_string_tab[230]
+#define __pyx_n_u_next_offset __pyx_string_tab[231]
+#define __pyx_n_u_offset __pyx_string_tab[232]
+#define __pyx_n_u_op __pyx_string_tab[233]
+#define __pyx_n_u_op_c __pyx_string_tab[234]
+#define __pyx_n_u_opts __pyx_string_tab[235]
+#define __pyx_n_u_page404 __pyx_string_tab[236]
+#define __pyx_n_u_page404_b __pyx_string_tab[237]
+#define __pyx_n_u_part __pyx_string_tab[238]
+#define __pyx_n_u_part_dict __pyx_string_tab[239]
+#define __pyx_n_u_pass_b __pyx_string_tab[240]
+#define __pyx_n_u_password __pyx_string_tab[241]
+#define __pyx_n_u_path __pyx_string_tab[242]
+#define __pyx_n_u_path_b __pyx_string_tab[243]
+#define __pyx_n_u_path_c __pyx_string_tab[244]
+#define __pyx_n_u_payload __pyx_string_tab[245]
+#define __pyx_n_u_payload_b __pyx_string_tab[246]
+#define __pyx_n_u_poll __pyx_string_tab[247]
+#define __pyx_n_u_pop __pyx_string_tab[248]
+#define __pyx_n_u_print __pyx_string_tab[249]
+#define __pyx_n_u_print_exc __pyx_string_tab[250]
+#define __pyx_n_u_py_conn __pyx_string_tab[251]
 #define __pyx_n_u_pyx_checksum __pyx_string_tab[252]
 #define __pyx_n_u_pyx_result __pyx_string_tab[253]
 #define __pyx_n_u_pyx_state __pyx_string_tab[254]
@@ -3703,22 +3703,22 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   Py_CLEAR(clear_module_state->__pyx_ptype_7cpython_4type_type);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_HttpMessage);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_WsMessage);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_WsMessage);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_MqttMessage);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_TlsOpts);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_Connection);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_Connection);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_Manager);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_Manager);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose_Timer);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose_Timer);
-  Py_CLEAR(clear_module_state->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr);
-  Py_CLEAR(clear_module_state->__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_HttpMessage);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_WsMessage);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_WsMessage);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_MqttMessage);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_TlsOpts);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_Connection);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_Connection);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_Manager);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_Manager);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose_Timer);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose_Timer);
+  Py_CLEAR(clear_module_state->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr);
+  Py_CLEAR(clear_module_state->__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr);
   Py_CLEAR(clear_module_state->__pyx_k__6);
   for (int i=0; i<11; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<62; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
@@ -3750,22 +3750,22 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_bytes);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_unicode);
   Py_VISIT(traverse_module_state->__pyx_ptype_7cpython_4type_type);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_HttpMessage);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_WsMessage);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_WsMessage);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_MqttMessage);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_TlsOpts);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_Connection);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_Connection);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_Manager);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_Manager);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose_Timer);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose_Timer);
-  Py_VISIT(traverse_module_state->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr);
-  Py_VISIT(traverse_module_state->__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_HttpMessage);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_WsMessage);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_WsMessage);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_MqttMessage);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_TlsOpts);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_Connection);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_Connection);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_Manager);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_Manager);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose_Timer);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose_Timer);
+  Py_VISIT(traverse_module_state->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr);
+  Py_VISIT(traverse_module_state->__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr);
   Py_VISIT(traverse_module_state->__pyx_k__6);
   for (int i=0; i<11; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<62; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
@@ -3795,7 +3795,7 @@ return 0;
  *     if value.buf == NULL or value.len == 0:
 */
 
-static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(struct mg_str __pyx_v_value) {
+static CYTHON_INLINE PyObject *__pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(struct mg_str __pyx_v_value) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -3886,7 +3886,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(
  *     if value.buf == NULL or value.len == 0:
 */
 
-static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(struct mg_str __pyx_v_value) {
+static CYTHON_INLINE PyObject *__pyx_f_10cymongoose_9_mongoose__mg_str_to_text(struct mg_str __pyx_v_value) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -3977,7 +3977,7 @@ static CYTHON_INLINE PyObject *__pyx_f_10pymongoose_9_mongoose__mg_str_to_text(s
  * 
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, struct mg_http_message *__pyx_v_msg) {
+static void __pyx_f_10cymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, struct mg_http_message *__pyx_v_msg) {
 
   /* "cymongoose/_mongoose.pyx":241
  * 
@@ -4008,21 +4008,21 @@ static void __pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign(struct __pyx_o
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_1__bool__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_1__bool__(PyObject *__pyx_v_self) {
+static int __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_1__bool__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_1__bool__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__bool__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage___bool__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   int __pyx_r;
 
   /* "cymongoose/_mongoose.pyx":244
@@ -4057,21 +4057,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_11HttpMessage___bool__(struct __pyx_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_6method_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_6method_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_6method_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_6method_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6method___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6method___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4092,7 +4092,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->method); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 248, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->method); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4133,21 +4133,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6method___get__(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3uri_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3uri_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3uri_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3uri_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_3uri___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_3uri___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4168,7 +4168,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->uri); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->uri); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4209,21 +4209,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_3uri___get__(str
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5query_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5query_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5query_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5query_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5query___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5query___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4244,7 +4244,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->query); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->query); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4285,21 +4285,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5query___get__(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5proto_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5proto_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5proto_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5proto_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5proto___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_5proto___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4320,7 +4320,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->proto); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->proto); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4361,21 +4361,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_5proto___get__(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10body_bytes___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4396,7 +4396,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4437,21 +4437,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10body_bytes___g
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_9body_text___get__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get__(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_9body_text___get__(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4472,7 +4472,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -4513,16 +4513,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_9body_text___get
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3header(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_2header, "HttpMessage.header(self, str name: str, default=None)\n\nReturn a HTTP header value or default when not present.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_3header = {"header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_2header};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3header(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_2header, "HttpMessage.header(self, str name: str, default=None)\n\nReturn a HTTP header value or default when not present.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_3header = {"header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_2header};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3header(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4604,7 +4604,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 2))) __PYX_ERR(0, 270, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_name, __pyx_v_default);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_2header(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_name, __pyx_v_default);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4623,7 +4623,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_default) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_2header(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_default) {
   PyObject *__pyx_v_lookup = 0;
   struct mg_str *__pyx_v_result;
   PyObject *__pyx_r = NULL;
@@ -4728,7 +4728,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
  *     def headers(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text((__pyx_v_result[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text((__pyx_v_result[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -4763,16 +4763,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_2header(struct _
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5headers(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5headers(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_4headers, "HttpMessage.headers(self)\n\nReturn all HTTP headers as a list of (name, value) tuples.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_5headers = {"headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_4headers};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5headers(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_4headers, "HttpMessage.headers(self)\n\nReturn all HTTP headers as a list of (name, value) tuples.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_5headers = {"headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_4headers};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5headers(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4798,14 +4798,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("headers", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_4headers(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_4headers(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   struct mg_http_header __pyx_v_header;
   size_t __pyx_v_idx;
   PyObject *__pyx_v_result = NULL;
@@ -4921,9 +4921,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
  *         return result
  * 
 */
-    __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_header.name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_header.name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_header.value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_header.value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 291, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
@@ -4981,16 +4981,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_4headers(struct 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_7query_var(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_7query_var(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_6query_var, "HttpMessage.query_var(self, str name: str)\n\nExtract a query string parameter.\n\nNote: Parameter values are limited to 256 bytes. Longer values will be truncated.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_7query_var = {"query_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_6query_var};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_7query_var(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_6query_var, "HttpMessage.query_var(self, str name: str)\n\nExtract a query string parameter.\n\nNote: Parameter values are limited to 256 bytes. Longer values will be truncated.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_7query_var = {"query_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_6query_var};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_7query_var(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5057,7 +5057,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 2))) __PYX_ERR(0, 294, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_name);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6query_var(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_name);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5076,7 +5076,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_6query_var(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_name) {
   PyObject *__pyx_v_name_b = 0;
   char __pyx_v_buffer[256];
   int __pyx_v_rc;
@@ -5215,16 +5215,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_6query_var(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9status(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9status(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_8status, "HttpMessage.status(self)\n\nReturn HTTP status code from response message.\n\nReturns:\n    int: Status code (e.g., 200, 404) or None if not available");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_9status = {"status", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9status, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_8status};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9status(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_8status, "HttpMessage.status(self)\n\nReturn HTTP status code from response message.\n\nReturns:\n    int: Status code (e.g., 200, 404) or None if not available");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_9status = {"status", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9status, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_8status};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9status(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5250,14 +5250,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("status", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_8status(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_8status(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -5339,16 +5339,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_8status(struct _
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_11header_var(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_11header_var(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_10header_var, "HttpMessage.header_var(self, str header_name: str, str var_name: str)\n\nParse a variable from a header value.\n\nUseful for parsing sub-values like charset from Content-Type header.\nExample: header_var(\"Content-Type\", \"charset\") -> \"utf-8\"\n\nArgs:\n    header_name: Name of the header (e.g., \"Content-Type\")\n    var_name: Name of the variable to extract (e.g., \"charset\")\n\nReturns:\n    str: The variable value or None if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_11header_var = {"header_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_10header_var};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_11header_var(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_10header_var, "HttpMessage.header_var(self, str header_name: str, str var_name: str)\n\nParse a variable from a header value.\n\nUseful for parsing sub-values like charset from Content-Type header.\nExample: header_var(\"Content-Type\", \"charset\") -> \"utf-8\"\n\nArgs:\n    header_name: Name of the header (e.g., \"Content-Type\")\n    var_name: Name of the variable to extract (e.g., \"charset\")\n\nReturns:\n    str: The variable value or None if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_11header_var = {"header_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_10header_var};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_11header_var(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5424,7 +5424,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_header_name), (&PyUnicode_Type), 0, "header_name", 2))) __PYX_ERR(0, 318, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_var_name), (&PyUnicode_Type), 0, "var_name", 2))) __PYX_ERR(0, 318, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_header_name, __pyx_v_var_name);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10header_var(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v_header_name, __pyx_v_var_name);
 
   /* function exit code */
   goto __pyx_L0;
@@ -5443,7 +5443,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_header_name, PyObject *__pyx_v_var_name) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_10header_var(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, PyObject *__pyx_v_header_name, PyObject *__pyx_v_var_name) {
   PyObject *__pyx_v_header_name_b = 0;
   struct mg_str *__pyx_v_header_value;
   PyObject *__pyx_v_var_name_b = 0;
@@ -5612,7 +5612,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_var_value_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_var_value_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -5646,16 +5646,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_10header_var(str
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__, "HttpMessage.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__, "HttpMessage.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5681,14 +5681,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -5728,16 +5728,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cytho
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__, "HttpMessage.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__, "HttpMessage.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5803,7 +5803,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5813,7 +5813,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -5853,7 +5853,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cyt
  * 
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self, struct mg_ws_message *__pyx_v_msg) {
+static void __pyx_f_10cymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self, struct mg_ws_message *__pyx_v_msg) {
 
   /* "cymongoose/_mongoose.pyx":356
  * 
@@ -5884,21 +5884,21 @@ static void __pyx_f_10pymongoose_9_mongoose_9WsMessage__assign(struct __pyx_obj_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_4data_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_4data_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_9WsMessage_4data___get__(((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_4data___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5919,7 +5919,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -5960,21 +5960,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4data___get__(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_4text_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_4text_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_4text_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_4text_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_9WsMessage_4text___get__(((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_4text___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5995,7 +5995,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -6036,21 +6036,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_4text___get__(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_5flags_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_5flags_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_5flags_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_5flags_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_9WsMessage_5flags___get__(((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_5flags___get__(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6110,16 +6110,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_5flags___get__(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_9WsMessage___reduce_cython__, "WsMessage.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_9WsMessage___reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_9WsMessage___reduce_cython__, "WsMessage.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_9WsMessage___reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6145,14 +6145,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_9WsMessage___reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_9WsMessage___reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -6192,16 +6192,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage___reduce_cython__(C
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__, "WsMessage.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__, "WsMessage.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6267,7 +6267,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -6277,7 +6277,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -6317,7 +6317,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython_
  * 
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self, struct mg_mqtt_message *__pyx_v_msg) {
+static void __pyx_f_10cymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self, struct mg_mqtt_message *__pyx_v_msg) {
 
   /* "cymongoose/_mongoose.pyx":377
  * 
@@ -6348,21 +6348,21 @@ static void __pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign(struct __pyx_o
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_5topic_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_5topic_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_5topic_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_5topic_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_5topic___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_5topic___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6383,7 +6383,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->topic); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->topic); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -6424,21 +6424,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_5topic___get__(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4data_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4data_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4data___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4data___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6459,7 +6459,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -6500,21 +6500,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4data___get__(st
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4text_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4text_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4text_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4text_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4text___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_4text___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6535,7 +6535,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = (__pyx_v_self->_msg != NULL);
   if (__pyx_t_2) {
-    __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 389, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_self->_msg->data); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 389, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -6576,21 +6576,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_4text___get__(st
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_2id_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_2id_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2id___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2id___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6652,21 +6652,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2id___get__(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3cmd___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3cmd___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6728,21 +6728,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3cmd___get__(str
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3qos_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3qos_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3qos_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3qos_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3qos___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3qos___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6804,21 +6804,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3qos___get__(str
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3ack_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3ack_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3ack_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3ack_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3ack___get__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_3ack___get__(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6878,16 +6878,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_3ack___get__(str
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__, "MqttMessage.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__, "MqttMessage.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6913,14 +6913,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -6960,16 +6960,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage___reduce_cython_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__, "MqttMessage.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__, "MqttMessage.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7035,7 +7035,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -7045,7 +7045,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -7086,12 +7086,12 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cyth
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7TlsOpts___init__, "Initialize TLS options.\n\n        Args:\n            ca: CA certificate (PEM format) as bytes or str\n            cert: Client certificate (PEM format) as bytes or str\n            key: Private key (PEM format) as bytes or str\n            name: Server name for SNI (Server Name Indication)\n            skip_verification: Skip certificate verification (INSECURE - dev only!)\n\n        Example:\n            # Server with custom certificate\n            opts = TlsOpts(\n                cert=open('server.crt', 'rb').read(),\n                key=open('server.key', 'rb').read()\n            )\n\n            # Client with custom CA\n            opts = TlsOpts(\n                ca=open('ca.crt', 'rb').read(),\n                name='example.com'\n            )\n\n            # Development only - skip verification\n            opts = TlsOpts(skip_verification=True)\n        ");
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7TlsOpts___init__, "Initialize TLS options.\n\n        Args:\n            ca: CA certificate (PEM format) as bytes or str\n            cert: Client certificate (PEM format) as bytes or str\n            key: Private key (PEM format) as bytes or str\n            name: Server name for SNI (Server Name Indication)\n            skip_verification: Skip certificate verification (INSECURE - dev only!)\n\n        Example:\n            # Server with custom certificate\n            opts = TlsOpts(\n                cert=open('server.crt', 'rb').read(),\n                key=open('server.key', 'rb').read()\n            )\n\n            # Client with custom CA\n            opts = TlsOpts(\n                ca=open('ca.crt', 'rb').read(),\n                name='example.com'\n            )\n\n            # Development only - skip verification\n            opts = TlsOpts(skip_verification=True)\n        ");
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
-struct wrapperbase __pyx_wrapperbase_10pymongoose_9_mongoose_7TlsOpts___init__;
+struct wrapperbase __pyx_wrapperbase_10cymongoose_9_mongoose_7TlsOpts___init__;
 #endif
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_ca = 0;
   PyObject *__pyx_v_cert = 0;
   PyObject *__pyx_v_key = 0;
@@ -7198,7 +7198,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), __pyx_v_ca, __pyx_v_cert, __pyx_v_key, __pyx_v_name, __pyx_v_skip_verification);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts___init__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), __pyx_v_ca, __pyx_v_cert, __pyx_v_key, __pyx_v_name, __pyx_v_skip_verification);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -7208,7 +7208,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__(PyObject *__pyx_v
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_ca, PyObject *__pyx_v_cert, PyObject *__pyx_v_key, PyObject *__pyx_v_name, PyObject *__pyx_v_skip_verification) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_ca, PyObject *__pyx_v_cert, PyObject *__pyx_v_key, PyObject *__pyx_v_name, PyObject *__pyx_v_skip_verification) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7435,21 +7435,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts___init__(struct __pyx_obj_1
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca___get__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca___get__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -7466,21 +7466,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca___get__(struct __
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7510,21 +7510,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_2__set__(struct __pyx_o
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_5__del__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_4__del__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_4__del__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -7549,21 +7549,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2ca_4__del__(struct __pyx_o
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert___get__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert___get__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -7580,21 +7580,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert___get__(struct 
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7624,21 +7624,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_2__set__(struct __pyx
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_5__del__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_4__del__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_4__del__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -7663,21 +7663,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4cert_4__del__(struct __pyx
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key___get__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key___get__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -7694,21 +7694,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key___get__(struct _
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7738,21 +7738,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_2__set__(struct __pyx_
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_5__del__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_4__del__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_4__del__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -7777,21 +7777,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_3key_4__del__(struct __pyx_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name___get__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name___get__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -7808,21 +7808,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name___get__(struct 
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7852,21 +7852,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_2__set__(struct __pyx
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_5__del__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_4__del__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_4__del__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -7891,21 +7891,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4name_4__del__(struct __pyx
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification___get__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7932,21 +7932,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification__
 }
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   int __pyx_t_1;
   int __pyx_lineno = 0;
@@ -7972,16 +7972,16 @@ static int __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_2__set_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__, "TlsOpts.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__, "TlsOpts.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8007,14 +8007,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -8257,16 +8257,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__(st
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__, "TlsOpts.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__, "TlsOpts.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8332,7 +8332,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -8342,7 +8342,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8364,7 +8364,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(
     PyErr_SetString(PyExc_TypeError, "cannot pass None into a C function argument that is declared 'not None'");
     __PYX_ERR(1, 17, __pyx_L1_error)
   }
-  __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(__pyx_v_self, ((PyObject*)__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(__pyx_v_self, ((PyObject*)__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8399,8 +8399,8 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__(
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_10Connection_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_10Connection_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_10cymongoose_9_mongoose_10Connection_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_10Connection_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
@@ -8416,14 +8416,14 @@ static int __pyx_pw_10pymongoose_9_mongoose_10Connection_1__cinit__(PyObject *__
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return -1;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__cinit__", __pyx_kwds); return -1;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection___cinit__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_10Connection___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
@@ -8448,7 +8448,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
   __Pyx_GIVEREF(Py_None);
   __Pyx_GOTREF((PyObject *)__pyx_v_self->_manager);
   __Pyx_DECREF((PyObject *)__pyx_v_self->_manager);
-  __pyx_v_self->_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)Py_None);
+  __pyx_v_self->_manager = ((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)Py_None);
 
   /* "cymongoose/_mongoose.pyx":463
  *         self._conn = NULL
@@ -8498,7 +8498,7 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection___cinit__(struct __pyx_
  *         self._conn = conn
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_manager, struct mg_connection *__pyx_v_conn, PyObject *__pyx_v_handler) {
+static void __pyx_f_10cymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_manager, struct mg_connection *__pyx_v_conn, PyObject *__pyx_v_handler) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_bind", 0);
 
@@ -8557,7 +8557,7 @@ static void __pyx_f_10pymongoose_9_mongoose_10Connection__bind(struct __pyx_obj_
  *             raise RuntimeError("Connection has been closed")
 */
 
-static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static struct mg_connection *__pyx_f_10cymongoose_9_mongoose_10Connection__ptr(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -8646,21 +8646,21 @@ static struct mg_connection *__pyx_f_10pymongoose_9_mongoose_10Connection__ptr(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7handler_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7handler_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7handler_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7handler_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_7handler___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_7handler___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -8701,16 +8701,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7handler___get__(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_3set_handler(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_3set_handler(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_2set_handler, "Connection.set_handler(self, handler)\n\nAssign a per-connection event handler.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_3set_handler = {"set_handler", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_3set_handler, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_2set_handler};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_3set_handler(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_2set_handler, "Connection.set_handler(self, handler)\n\nAssign a per-connection event handler.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_3set_handler = {"set_handler", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_3set_handler, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_2set_handler};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_3set_handler(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8776,7 +8776,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_handler);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_2set_handler(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_handler);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -8786,7 +8786,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_handler) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_2set_handler(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_handler) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_handler", 0);
@@ -8828,21 +8828,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2set_handler(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -8883,21 +8883,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata___get__
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata_2__set__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_10cymongoose_9_mongoose_10Connection_8userdata_2__set__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -8938,21 +8938,21 @@ static int __pyx_pf_10pymongoose_9_mongoose_10Connection_8userdata_2__set__(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_2id_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_2id_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_2id___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_2id___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9014,21 +9014,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_2id___get__(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_12is_listening_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_12is_listening_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_12is_listening_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_12is_listening_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_12is_listening___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12is_listening___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9090,21 +9090,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_listening___
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_10is_closing_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_10is_closing_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_10is_closing_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_10is_closing_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_10is_closing___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10is_closing___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9166,21 +9166,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10is_closing___ge
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_10local_addr_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_10local_addr_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_10local_addr_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_10local_addr_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_10local_addr___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10local_addr___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_addr __pyx_v_addr;
   uint16_t __pyx_v_net_port;
   uint16_t __pyx_v_host_port;
@@ -9460,21 +9460,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10local_addr___ge
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11remote_addr_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11remote_addr_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11remote_addr_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11remote_addr_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_11remote_addr___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11remote_addr___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_addr __pyx_v_addr;
   uint16_t __pyx_v_net_port;
   uint16_t __pyx_v_host_port;
@@ -9754,16 +9754,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11remote_addr___g
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_5send(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_5send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_4send, "Connection.send(self, data)\n\nSend raw bytes to the peer.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_5send = {"send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_5send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_4send};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_5send(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_4send, "Connection.send(self, data)\n\nSend raw bytes to the peer.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_5send = {"send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_5send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_4send};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_5send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9829,7 +9829,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_4send(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_4send(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -9839,7 +9839,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_4send(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data) {
   PyObject *__pyx_v_payload = 0;
   char const *__pyx_v_buf;
   size_t __pyx_v_length;
@@ -9944,7 +9944,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
  *         cdef bint result
  *         IF USE_NOGIL:
 */
-  __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 568, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 568, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
   /* "cymongoose/_mongoose.pyx":571
@@ -10058,16 +10058,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_4send(struct __py
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7reply(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7reply(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_6reply, "Connection.reply(self, int status_code, body=b'', headers=None)\n\nSend a HTTP reply (final response).");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_7reply = {"reply", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_7reply, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_6reply};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7reply(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_6reply, "Connection.reply(self, int status_code, body=b'', headers=None)\n\nSend a HTTP reply (final response).");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_7reply = {"reply", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_7reply, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_6reply};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7reply(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10160,7 +10160,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_status_code, __pyx_v_body, __pyx_v_headers);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_6reply(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_status_code, __pyx_v_body, __pyx_v_headers);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -10170,7 +10170,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, int __pyx_v_status_code, PyObject *__pyx_v_body, PyObject *__pyx_v_headers) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6reply(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, int __pyx_v_status_code, PyObject *__pyx_v_body, PyObject *__pyx_v_headers) {
   PyObject *__pyx_v_body_bytes = NULL;
   PyObject *__pyx_v_header_lines = NULL;
   PyObject *__pyx_v_headers_bytes = NULL;
@@ -10453,7 +10453,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_16 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 595, __pyx_L1_error)
+  __pyx_t_16 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 595, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_16;
 
   /* "cymongoose/_mongoose.pyx":597
@@ -10537,23 +10537,23 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6reply(struct __p
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9serve_dir(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9serve_dir(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_8serve_dir, "Connection.serve_dir(self, HttpMessage message, str root_dir: str, str extra_headers: str = '', str mime_types: str = '', str page404: str = '')\n\nServe files from a directory using Mongoose's built-in static handler.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_9serve_dir = {"serve_dir", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_8serve_dir};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9serve_dir(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_8serve_dir, "Connection.serve_dir(self, HttpMessage message, str root_dir: str, str extra_headers: str = '', str mime_types: str = '', str page404: str = '')\n\nServe files from a directory using Mongoose's built-in static handler.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_9serve_dir = {"serve_dir", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_8serve_dir};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9serve_dir(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
   PyObject *__pyx_v_root_dir = 0;
   PyObject *__pyx_v_extra_headers = 0;
   PyObject *__pyx_v_mime_types = 0;
@@ -10640,7 +10640,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u_));
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u_));
     }
-    __pyx_v_message = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)values[0]);
+    __pyx_v_message = ((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)values[0]);
     __pyx_v_root_dir = ((PyObject*)values[1]);
     __pyx_v_extra_headers = ((PyObject*)values[2]);
     __pyx_v_mime_types = ((PyObject*)values[3]);
@@ -10659,12 +10659,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 602, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 602, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_root_dir), (&PyUnicode_Type), 0, "root_dir", 2))) __PYX_ERR(0, 602, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_extra_headers), (&PyUnicode_Type), 0, "extra_headers", 2))) __PYX_ERR(0, 602, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mime_types), (&PyUnicode_Type), 0, "mime_types", 2))) __PYX_ERR(0, 602, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_page404), (&PyUnicode_Type), 0, "page404", 2))) __PYX_ERR(0, 602, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_root_dir, __pyx_v_extra_headers, __pyx_v_mime_types, __pyx_v_page404);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_8serve_dir(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_root_dir, __pyx_v_extra_headers, __pyx_v_mime_types, __pyx_v_page404);
 
   /* function exit code */
   goto __pyx_L0;
@@ -10683,7 +10683,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_root_dir, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types, PyObject *__pyx_v_page404) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8serve_dir(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_root_dir, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types, PyObject *__pyx_v_page404) {
   struct mg_http_serve_opts __pyx_v_opts;
   PyObject *__pyx_v_root_b = 0;
   PyObject *__pyx_v_extra_headers_b = 0;
@@ -10923,7 +10923,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
 */
-  __pyx_t_9 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 623, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 623, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_9;
 
   /* "cymongoose/_mongoose.pyx":624
@@ -11011,23 +11011,23 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8serve_dir(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11serve_file(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11serve_file(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_10serve_file, "Connection.serve_file(self, HttpMessage message, str path: str, str extra_headers: str = '', str mime_types: str = '')\n\nServe a single file using Mongoose's built-in static handler.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_11serve_file = {"serve_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_11serve_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_10serve_file};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11serve_file(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_10serve_file, "Connection.serve_file(self, HttpMessage message, str path: str, str extra_headers: str = '', str mime_types: str = '')\n\nServe a single file using Mongoose's built-in static handler.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_11serve_file = {"serve_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_11serve_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_10serve_file};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11serve_file(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
   PyObject *__pyx_v_path = 0;
   PyObject *__pyx_v_extra_headers = 0;
   PyObject *__pyx_v_mime_types = 0;
@@ -11103,7 +11103,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u_));
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)__pyx_mstate_global->__pyx_kp_u_));
     }
-    __pyx_v_message = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)values[0]);
+    __pyx_v_message = ((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)values[0]);
     __pyx_v_path = ((PyObject*)values[1]);
     __pyx_v_extra_headers = ((PyObject*)values[2]);
     __pyx_v_mime_types = ((PyObject*)values[3]);
@@ -11121,11 +11121,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 631, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 631, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 631, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_extra_headers), (&PyUnicode_Type), 0, "extra_headers", 2))) __PYX_ERR(0, 631, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mime_types), (&PyUnicode_Type), 0, "mime_types", 2))) __PYX_ERR(0, 631, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_path, __pyx_v_extra_headers, __pyx_v_mime_types);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_10serve_file(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_path, __pyx_v_extra_headers, __pyx_v_mime_types);
 
   /* function exit code */
   goto __pyx_L0;
@@ -11144,7 +11144,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_path, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10serve_file(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_path, PyObject *__pyx_v_extra_headers, PyObject *__pyx_v_mime_types) {
   struct mg_http_serve_opts __pyx_v_opts;
   PyObject *__pyx_v_path_b = 0;
   PyObject *__pyx_v_extra_headers_b = 0;
@@ -11327,7 +11327,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
  *         cdef mg_http_message *msg = message._msg
  *         cdef const char *path_c = path_b
 */
-  __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 647, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 647, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
   /* "cymongoose/_mongoose.pyx":648
@@ -11424,23 +11424,23 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10serve_file(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_13ws_upgrade(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_13ws_upgrade(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_12ws_upgrade, "Connection.ws_upgrade(self, HttpMessage message, extra_headers=None)\n\nUpgrade HTTP connection to WebSocket.\n\nArgs:\n    message: The HttpMessage from MG_EV_HTTP_MSG event\n    extra_headers: Optional dict of extra headers to send in upgrade response");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_13ws_upgrade = {"ws_upgrade", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_12ws_upgrade};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_13ws_upgrade(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_12ws_upgrade, "Connection.ws_upgrade(self, HttpMessage message, extra_headers=None)\n\nUpgrade HTTP connection to WebSocket.\n\nArgs:\n    message: The HttpMessage from MG_EV_HTTP_MSG event\n    extra_headers: Optional dict of extra headers to send in upgrade response");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_13ws_upgrade = {"ws_upgrade", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_12ws_upgrade};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_13ws_upgrade(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message = 0;
   PyObject *__pyx_v_extra_headers = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
@@ -11498,7 +11498,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       }
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
     }
-    __pyx_v_message = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)values[0]);
+    __pyx_v_message = ((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)values[0]);
     __pyx_v_extra_headers = values[1];
   }
   goto __pyx_L6_skip;
@@ -11514,8 +11514,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 656, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_extra_headers);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, 1, "message", 0))) __PYX_ERR(0, 656, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_12ws_upgrade(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message, __pyx_v_extra_headers);
 
   /* function exit code */
   goto __pyx_L0;
@@ -11533,7 +11533,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_10cymongoose_9_mongoose_10Connection_10ws_upgrade_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "cymongoose/_mongoose.pyx":669
  *         cdef bytes headers_b
@@ -11543,17 +11543,17 @@ static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2gen
  *             headers_b = headers_str.encode("utf-8")
 */
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0) {
-  struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_cur_scope;
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0) {
+  struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("genexpr", 0);
-  __pyx_cur_scope = (struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)__pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexpr(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)__pyx_tp_new_10cymongoose_9_mongoose___pyx_scope_struct__genexpr(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 669, __pyx_L1_error)
   } else {
@@ -11563,7 +11563,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_gene
   __Pyx_INCREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_ws_upgrade_locals_genexpr, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose); if (unlikely(!gen)) __PYX_ERR(0, 669, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_10cymongoose_9_mongoose_10Connection_10ws_upgrade_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_ws_upgrade_locals_genexpr, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose); if (unlikely(!gen)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -11579,9 +11579,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_gene
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_10cymongoose_9_mongoose_10Connection_10ws_upgrade_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_cur_scope = ((struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)__pyx_generator->closure);
+  struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *__pyx_cur_scope = ((struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
@@ -11681,13 +11681,13 @@ static PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2gen
  * 
 */
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_extra_headers) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12ws_upgrade(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_message, PyObject *__pyx_v_extra_headers) {
   char const *__pyx_v_fmt;
   PyObject *__pyx_v_headers_b = 0;
   PyObject *__pyx_v_headers_str = NULL;
   struct mg_connection *__pyx_v_conn;
   struct mg_http_message *__pyx_v_msg;
-  PyObject *__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator = 0;
+  PyObject *__pyx_gb_10cymongoose_9_mongoose_10Connection_10ws_upgrade_2generator = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -11767,7 +11767,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
  *             # Keep Python bytes object alive - fmt pointer references its buffer
  *             headers_b = headers_str.encode("utf-8")
 */
-    __pyx_t_2 = __pyx_pf_10pymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(NULL, __pyx_v_extra_headers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
+    __pyx_t_2 = __pyx_pf_10cymongoose_9_mongoose_10Connection_10ws_upgrade_genexpr(NULL, __pyx_v_extra_headers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __Pyx_Generator_GetInlinedResult(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 669, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -11820,7 +11820,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
  *         cdef mg_http_message *msg = message._msg
  *         IF USE_NOGIL:
 */
-  __pyx_t_6 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_6 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 674, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_6;
 
   /* "cymongoose/_mongoose.pyx":675
@@ -11892,7 +11892,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_headers_b);
   __Pyx_XDECREF(__pyx_v_headers_str);
-  __Pyx_XDECREF(__pyx_gb_10pymongoose_9_mongoose_10Connection_10ws_upgrade_2generator);
+  __Pyx_XDECREF(__pyx_gb_10cymongoose_9_mongoose_10Connection_10ws_upgrade_2generator);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -11907,16 +11907,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12ws_upgrade(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_15ws_send(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_15ws_send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_14ws_send, "Connection.ws_send(self, data, op=WEBSOCKET_OP_TEXT)\n\nSend a WebSocket frame.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_15ws_send = {"ws_send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_15ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_14ws_send};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_15ws_send(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_14ws_send, "Connection.ws_send(self, data, op=WEBSOCKET_OP_TEXT)\n\nSend a WebSocket frame.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_15ws_send = {"ws_send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_15ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_14ws_send};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_15ws_send(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -11997,7 +11997,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data, __pyx_v_op);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_14ws_send(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data, __pyx_v_op);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -12007,7 +12007,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_op) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_14ws_send(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_op) {
   PyObject *__pyx_v_payload = NULL;
   PyObject *__pyx_v_payload_b = 0;
   char const *__pyx_v_buf;
@@ -12139,7 +12139,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
  *         cdef int op_c = op
  *         IF USE_NOGIL:
 */
-  __pyx_t_7 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 691, __pyx_L1_error)
+  __pyx_t_7 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 691, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_7;
 
   /* "cymongoose/_mongoose.pyx":692
@@ -12225,16 +12225,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_14ws_send(struct 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_17mqtt_pub(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_17mqtt_pub(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_16mqtt_pub, "Connection.mqtt_pub(self, str topic: str, message, qos=0, retain=False)\n\nPublish an MQTT message.\n\nArgs:\n    topic: MQTT topic\n    message: Message payload (str or bytes)\n    qos: Quality of service (0, 1, or 2)\n    retain: Retain flag\n\nReturns:\n    Message ID");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_17mqtt_pub = {"mqtt_pub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_16mqtt_pub};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_17mqtt_pub(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_16mqtt_pub, "Connection.mqtt_pub(self, str topic: str, message, qos=0, retain=False)\n\nPublish an MQTT message.\n\nArgs:\n    topic: MQTT topic\n    message: Message payload (str or bytes)\n    qos: Quality of service (0, 1, or 2)\n    retain: Retain flag\n\nReturns:\n    Message ID");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_17mqtt_pub = {"mqtt_pub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_16mqtt_pub};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_17mqtt_pub(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12336,7 +12336,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_topic), (&PyUnicode_Type), 0, "topic", 2))) __PYX_ERR(0, 699, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_topic, __pyx_v_message, __pyx_v_qos, __pyx_v_retain);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_16mqtt_pub(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_topic, __pyx_v_message, __pyx_v_qos, __pyx_v_retain);
 
   /* function exit code */
   goto __pyx_L0;
@@ -12355,7 +12355,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_message, PyObject *__pyx_v_qos, PyObject *__pyx_v_retain) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_16mqtt_pub(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_message, PyObject *__pyx_v_qos, PyObject *__pyx_v_retain) {
   struct mg_mqtt_opts __pyx_v_opts;
   PyObject *__pyx_v_topic_b = 0;
   PyObject *__pyx_v_msg_b = 0;
@@ -12517,7 +12517,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
  *         cdef uint16_t msg_id
  *         IF USE_NOGIL:
 */
-  __pyx_t_8 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 726, __pyx_L1_error)
+  __pyx_t_8 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 726, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_8;
 
   /* "cymongoose/_mongoose.pyx":729
@@ -12605,16 +12605,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_16mqtt_pub(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_19mqtt_sub(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_19mqtt_sub(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_18mqtt_sub, "Connection.mqtt_sub(self, str topic: str, qos=0)\n\nSubscribe to an MQTT topic.\n\nArgs:\n    topic: MQTT topic (can include wildcards)\n    qos: Quality of service (0, 1, or 2)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_19mqtt_sub = {"mqtt_sub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_18mqtt_sub};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_19mqtt_sub(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_18mqtt_sub, "Connection.mqtt_sub(self, str topic: str, qos=0)\n\nSubscribe to an MQTT topic.\n\nArgs:\n    topic: MQTT topic (can include wildcards)\n    qos: Quality of service (0, 1, or 2)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_19mqtt_sub = {"mqtt_sub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_18mqtt_sub};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_19mqtt_sub(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12696,7 +12696,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_topic), (&PyUnicode_Type), 0, "topic", 2))) __PYX_ERR(0, 735, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_topic, __pyx_v_qos);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_18mqtt_sub(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_topic, __pyx_v_qos);
 
   /* function exit code */
   goto __pyx_L0;
@@ -12715,7 +12715,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_qos) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_18mqtt_sub(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_topic, PyObject *__pyx_v_qos) {
   struct mg_mqtt_opts __pyx_v_opts;
   PyObject *__pyx_v_topic_b = 0;
   struct mg_connection *__pyx_v_conn;
@@ -12780,7 +12780,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 749, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_5;
 
   /* "cymongoose/_mongoose.pyx":751
@@ -12854,16 +12854,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_18mqtt_sub(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_21mqtt_ping(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_21mqtt_ping(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_20mqtt_ping, "Connection.mqtt_ping(self)\n\nSend MQTT ping.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_21mqtt_ping = {"mqtt_ping", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_20mqtt_ping};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_21mqtt_ping(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_20mqtt_ping, "Connection.mqtt_ping(self)\n\nSend MQTT ping.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_21mqtt_ping = {"mqtt_ping", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_20mqtt_ping};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_21mqtt_ping(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12889,14 +12889,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("mqtt_ping", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_20mqtt_ping(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_20mqtt_ping(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -12913,7 +12913,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 758, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 758, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":760
@@ -12985,16 +12985,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_20mqtt_ping(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_23mqtt_pong(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_23mqtt_pong(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_22mqtt_pong, "Connection.mqtt_pong(self)\n\nSend MQTT pong.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_23mqtt_pong = {"mqtt_pong", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_22mqtt_pong};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_23mqtt_pong(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_22mqtt_pong, "Connection.mqtt_pong(self)\n\nSend MQTT pong.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_23mqtt_pong = {"mqtt_pong", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_22mqtt_pong};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_23mqtt_pong(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -13020,14 +13020,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("mqtt_pong", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_22mqtt_pong(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_22mqtt_pong(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -13044,7 +13044,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 767, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 767, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":769
@@ -13116,16 +13116,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_22mqtt_pong(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect, "Connection.mqtt_disconnect(self)\n\nSend MQTT disconnect message.\n\nGracefully disconnects from MQTT broker by sending a DISCONNECT packet.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect = {"mqtt_disconnect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect, "Connection.mqtt_disconnect(self)\n\nSend MQTT disconnect message.\n\nGracefully disconnects from MQTT broker by sending a DISCONNECT packet.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect = {"mqtt_disconnect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -13151,14 +13151,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("mqtt_disconnect", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_mqtt_opts __pyx_v_opts;
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
@@ -13185,7 +13185,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 781, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":783
@@ -13257,16 +13257,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_27error(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_27error(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_26error, "Connection.error(self, str message: str)\n\nTrigger an error event on this connection.\n\nArgs:\n    message: Error message");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_27error = {"error", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_27error, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_26error};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_27error(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_26error, "Connection.error(self, str message: str)\n\nTrigger an error event on this connection.\n\nArgs:\n    message: Error message");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_27error = {"error", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_27error, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_26error};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_27error(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -13333,7 +13333,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyUnicode_Type), 0, "message", 2))) __PYX_ERR(0, 788, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_26error(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_26error(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_message);
 
   /* function exit code */
   goto __pyx_L0;
@@ -13352,7 +13352,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_message) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_26error(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_message) {
   PyObject *__pyx_v_msg_b = 0;
   struct mg_connection *__pyx_v_conn;
   char const *__pyx_v_msg_ptr;
@@ -13385,7 +13385,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
  *         cdef const char *msg_ptr = msg_b
  *         mg_error(conn, b"%s", <char*>msg_ptr)
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 795, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 795, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_2;
 
   /* "cymongoose/_mongoose.pyx":796
@@ -13438,21 +13438,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_26error(struct __
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9is_client_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9is_client_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9is_client_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9is_client_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_9is_client___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9is_client___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13514,21 +13514,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9is_client___get_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_6is_tls_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_6is_tls_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_6is_tls_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_6is_tls_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_6is_tls___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6is_tls___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13590,21 +13590,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_tls___get__(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_6is_udp_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_6is_udp_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_6is_udp_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_6is_udp_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_6is_udp___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_6is_udp___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13666,21 +13666,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_6is_udp___get__(s
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_12is_websocket_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_12is_websocket_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_12is_websocket_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_12is_websocket_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_12is_websocket___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_12is_websocket___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13742,21 +13742,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_12is_websocket___
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_readable_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_readable_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_readable_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_readable_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_11is_readable___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_readable___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13818,21 +13818,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_readable___g
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_writable_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_writable_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_writable_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_writable_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_11is_writable___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_writable___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13894,21 +13894,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_writable___g
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7is_full_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_7is_full_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7is_full_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_7is_full_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_7is_full___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_7is_full___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13970,21 +13970,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_7is_full___get__(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_draining_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_11is_draining_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_draining_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_11is_draining_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_11is_draining___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_11is_draining___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14046,21 +14046,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_11is_draining___g
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8recv_len_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8recv_len_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8recv_len_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8recv_len_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_8recv_len___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8recv_len___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14122,21 +14122,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8recv_len___get__
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8send_len_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_8send_len_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8send_len_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_8send_len_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_8send_len___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_8send_len___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14198,21 +14198,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_8send_len___get__
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9recv_size_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9recv_size_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9recv_size_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9recv_size_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_9recv_size___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9recv_size___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14274,21 +14274,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9recv_size___get_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9send_size_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_9send_size_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9send_size_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_9send_size_1__get__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_9send_size___get__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_9send_size___get__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14350,16 +14350,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_9send_size___get_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_29recv_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_29recv_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_28recv_data, "Connection.recv_data(self, int length: int = -1)\n\nRead data from receive buffer without consuming it.\n\nArgs:\n    length: Number of bytes to read, or -1 for all\n\nReturns:\n    bytes: Data from receive buffer");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_29recv_data = {"recv_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_29recv_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_28recv_data};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_29recv_data(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_28recv_data, "Connection.recv_data(self, int length: int = -1)\n\nRead data from receive buffer without consuming it.\n\nArgs:\n    length: Number of bytes to read, or -1 for all\n\nReturns:\n    bytes: Data from receive buffer");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_29recv_data = {"recv_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_29recv_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_28recv_data};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_29recv_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14430,7 +14430,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_length), (&PyLong_Type), 0, "length", 2))) __PYX_ERR(0, 859, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_length);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_28recv_data(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_length);
 
   /* function exit code */
   goto __pyx_L0;
@@ -14449,7 +14449,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_28recv_data(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length) {
   size_t __pyx_v_read_len;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -14616,16 +14616,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_28recv_data(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_31send_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_31send_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_30send_data, "Connection.send_data(self, int length: int = -1)\n\nRead data from send buffer without consuming it.\n\nArgs:\n    length: Number of bytes to read, or -1 for all\n\nReturns:\n    bytes: Data from send buffer");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_31send_data = {"send_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_31send_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_30send_data};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_31send_data(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_30send_data, "Connection.send_data(self, int length: int = -1)\n\nRead data from send buffer without consuming it.\n\nArgs:\n    length: Number of bytes to read, or -1 for all\n\nReturns:\n    bytes: Data from send buffer");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_31send_data = {"send_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_31send_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_30send_data};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_31send_data(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14696,7 +14696,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_length), (&PyLong_Type), 0, "length", 2))) __PYX_ERR(0, 877, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_length);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_30send_data(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_length);
 
   /* function exit code */
   goto __pyx_L0;
@@ -14715,7 +14715,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_30send_data(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_length) {
   size_t __pyx_v_read_len;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -14882,16 +14882,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_30send_data(struc
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_33resolve(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_33resolve(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_32resolve, "Connection.resolve(self, str url: str)\n\nResolve a hostname asynchronously.\n\nTriggers MG_EV_RESOLVE event when DNS lookup completes.\n\nArgs:\n    url: URL to resolve (e.g., \"google.com\" or \"tcp://example.com:80\")");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_33resolve = {"resolve", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_33resolve, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_32resolve};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_33resolve(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_32resolve, "Connection.resolve(self, str url: str)\n\nResolve a hostname asynchronously.\n\nTriggers MG_EV_RESOLVE event when DNS lookup completes.\n\nArgs:\n    url: URL to resolve (e.g., \"google.com\" or \"tcp://example.com:80\")");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_33resolve = {"resolve", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_33resolve, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_32resolve};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_33resolve(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14958,7 +14958,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 895, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_url);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_32resolve(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_url);
 
   /* function exit code */
   goto __pyx_L0;
@@ -14977,7 +14977,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_url) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_32resolve(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_url) {
   PyObject *__pyx_v_url_b = 0;
   char const *__pyx_v_url_c;
   struct mg_connection *__pyx_v_conn;
@@ -15020,7 +15020,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 905, __pyx_L1_error)
+  __pyx_t_3 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 905, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_3;
 
   /* "cymongoose/_mongoose.pyx":907
@@ -15094,16 +15094,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_32resolve(struct 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_35resolve_cancel(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_35resolve_cancel(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_34resolve_cancel, "Connection.resolve_cancel(self)\n\nCancel an ongoing DNS resolution.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_35resolve_cancel = {"resolve_cancel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_34resolve_cancel};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_35resolve_cancel(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_34resolve_cancel, "Connection.resolve_cancel(self)\n\nCancel an ongoing DNS resolution.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_35resolve_cancel = {"resolve_cancel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_34resolve_cancel};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_35resolve_cancel(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15129,14 +15129,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("resolve_cancel", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_34resolve_cancel(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_34resolve_cancel(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -15153,7 +15153,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 914, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 914, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":916
@@ -15225,16 +15225,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_34resolve_cancel(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_37http_basic_auth(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_37http_basic_auth(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_36http_basic_auth, "Connection.http_basic_auth(self, str username: str, str password: str)\n\nSend HTTP Basic Authentication credentials.\n\nTypically used on client connections to authenticate with a server.\n\nArgs:\n    username: Username for basic auth\n    password: Password for basic auth");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_37http_basic_auth = {"http_basic_auth", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_36http_basic_auth};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_37http_basic_auth(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_36http_basic_auth, "Connection.http_basic_auth(self, str username: str, str password: str)\n\nSend HTTP Basic Authentication credentials.\n\nTypically used on client connections to authenticate with a server.\n\nArgs:\n    username: Username for basic auth\n    password: Password for basic auth");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_37http_basic_auth = {"http_basic_auth", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_36http_basic_auth};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_37http_basic_auth(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15310,7 +15310,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_username), (&PyUnicode_Type), 0, "username", 2))) __PYX_ERR(0, 921, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_password), (&PyUnicode_Type), 0, "password", 2))) __PYX_ERR(0, 921, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_username, __pyx_v_password);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_36http_basic_auth(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_username, __pyx_v_password);
 
   /* function exit code */
   goto __pyx_L0;
@@ -15329,7 +15329,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_username, PyObject *__pyx_v_password) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_36http_basic_auth(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_username, PyObject *__pyx_v_password) {
   PyObject *__pyx_v_user_b = 0;
   PyObject *__pyx_v_pass_b = 0;
   struct mg_connection *__pyx_v_conn;
@@ -15375,7 +15375,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
  *         mg_http_bauth(conn, user_b, pass_b)
  * 
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_2;
 
   /* "cymongoose/_mongoose.pyx":933
@@ -15421,16 +15421,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_36http_basic_auth
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_39sntp_request(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_39sntp_request(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_38sntp_request, "Connection.sntp_request(self)\n\nSend an SNTP time request.\n\nUse on a connection created with Manager.sntp_connect().\nTriggers MG_EV_SNTP_TIME event when response is received.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_39sntp_request = {"sntp_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_38sntp_request};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_39sntp_request(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_38sntp_request, "Connection.sntp_request(self)\n\nSend an SNTP time request.\n\nUse on a connection created with Manager.sntp_connect().\nTriggers MG_EV_SNTP_TIME event when response is received.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_39sntp_request = {"sntp_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_38sntp_request};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_39sntp_request(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15456,14 +15456,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("sntp_request", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_38sntp_request(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_38sntp_request(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -15480,7 +15480,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 941, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 941, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":943
@@ -15552,16 +15552,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_38sntp_request(st
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_41http_chunk(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_41http_chunk(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_40http_chunk, "Connection.http_chunk(self, data)\n\nSend an HTTP chunked transfer encoding chunk.\n\nUsed for streaming HTTP responses. Must call with empty data to end.\n\nArgs:\n    data: Chunk data (str or bytes). Empty to signal end of chunks.\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            # Start chunked response\n            conn.reply(200, \"\", headers={\"Transfer-Encoding\": \"chunked\"})\n            conn.http_chunk(\"First chunk\\n\")\n            conn.http_chunk(\"Second chunk\\n\")\n            conn.http_chunk(\"\")  # End chunks");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_41http_chunk = {"http_chunk", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_40http_chunk};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_41http_chunk(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_40http_chunk, "Connection.http_chunk(self, data)\n\nSend an HTTP chunked transfer encoding chunk.\n\nUsed for streaming HTTP responses. Must call with empty data to end.\n\nArgs:\n    data: Chunk data (str or bytes). Empty to signal end of chunks.\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            # Start chunked response\n            conn.reply(200, \"\", headers={\"Transfer-Encoding\": \"chunked\"})\n            conn.http_chunk(\"First chunk\\n\")\n            conn.http_chunk(\"Second chunk\\n\")\n            conn.http_chunk(\"\")  # End chunks");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_41http_chunk = {"http_chunk", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_40http_chunk};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_41http_chunk(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15627,7 +15627,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_40http_chunk(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -15637,7 +15637,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_40http_chunk(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_data) {
   PyObject *__pyx_v_chunk_data = 0;
   struct mg_connection *__pyx_v_conn;
   char const *__pyx_v_buf_ptr;
@@ -15726,7 +15726,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
  *         cdef const char *buf_ptr
  *         cdef size_t buf_len
 */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 971, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 971, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_5;
 
   /* "cymongoose/_mongoose.pyx":975
@@ -15897,16 +15897,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_40http_chunk(stru
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_43http_sse(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_43http_sse(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_42http_sse, "Connection.http_sse(self, str event_type: str, str data: str)\n\nSend Server-Sent Events (SSE) formatted message.\n\nSSE is used for real-time server push over HTTP. Must start with appropriate headers.\n\nArgs:\n    event_type: Event type name (e.g., \"message\", \"update\")\n    data: Event data payload\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            # Start SSE stream\n            conn.reply(200, \"\", headers={\n                \"Content-Type\": \"text/event-stream\",\n                \"Cache-Control\": \"no-cache\"\n            })\n            conn.http_sse(\"message\", \"Hello from server\")\n            conn.http_sse(\"update\", \"Status: OK\")");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_43http_sse = {"http_sse", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_43http_sse, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_42http_sse};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_43http_sse(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_42http_sse, "Connection.http_sse(self, str event_type: str, str data: str)\n\nSend Server-Sent Events (SSE) formatted message.\n\nSSE is used for real-time server push over HTTP. Must start with appropriate headers.\n\nArgs:\n    event_type: Event type name (e.g., \"message\", \"update\")\n    data: Event data payload\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            # Start SSE stream\n            conn.reply(200, \"\", headers={\n                \"Content-Type\": \"text/event-stream\",\n                \"Cache-Control\": \"no-cache\"\n            })\n            conn.http_sse(\"message\", \"Hello from server\")\n            conn.http_sse(\"update\", \"Status: OK\")");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_43http_sse = {"http_sse", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_43http_sse, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_42http_sse};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_43http_sse(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15982,7 +15982,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_event_type), (&PyUnicode_Type), 0, "event_type", 2))) __PYX_ERR(0, 991, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyUnicode_Type), 0, "data", 2))) __PYX_ERR(0, 991, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_event_type, __pyx_v_data);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_42http_sse(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_event_type, __pyx_v_data);
 
   /* function exit code */
   goto __pyx_L0;
@@ -16001,7 +16001,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_event_type, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_42http_sse(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, PyObject *__pyx_v_event_type, PyObject *__pyx_v_data) {
   PyObject *__pyx_v_event_b = 0;
   PyObject *__pyx_v_data_b = 0;
   PyObject *__pyx_v_sse_msg = 0;
@@ -16072,7 +16072,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
  *         cdef const char *msg_ptr = sse_msg
  *         cdef size_t msg_len = len(sse_msg)
 */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1015, __pyx_L1_error)
+  __pyx_t_3 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1015, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_3;
 
   /* "cymongoose/_mongoose.pyx":1016
@@ -16169,16 +16169,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_42http_sse(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_45close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_45close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_44close, "Connection.close(self)\n\nImmediately close the connection.\n\nFor graceful shutdown, use drain() instead to let buffered data flush first.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_45close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_45close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_44close};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_45close(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_44close, "Connection.close(self)\n\nImmediately close the connection.\n\nFor graceful shutdown, use drain() instead to let buffered data flush first.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_45close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_45close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_44close};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_45close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -16204,14 +16204,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("close", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_44close(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_44close(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_44close(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -16312,16 +16312,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_44close(struct __
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_47drain(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_47drain(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_46drain, "Connection.drain(self)\n\nMark connection for graceful closure.\n\nSets is_draining=1, which tells Mongoose to:\n1. Stop reading from the socket\n2. Flush any buffered outgoing data\n3. Close the connection after send buffer is empty\n\nThis is the recommended way to close connections from the server side,\nas it ensures response data is fully sent before closing.\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            conn.reply(200, b\"Goodbye!\")\n            conn.drain()  # Close after response is sent");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_47drain = {"drain", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_47drain, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_46drain};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_47drain(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_46drain, "Connection.drain(self)\n\nMark connection for graceful closure.\n\nSets is_draining=1, which tells Mongoose to:\n1. Stop reading from the socket\n2. Flush any buffered outgoing data\n3. Close the connection after send buffer is empty\n\nThis is the recommended way to close connections from the server side,\nas it ensures response data is fully sent before closing.\n\nExample:\n    def handler(conn, ev, data):\n        if ev == MG_EV_HTTP_MSG:\n            conn.reply(200, b\"Goodbye!\")\n            conn.drain()  # Close after response is sent");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_47drain = {"drain", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_47drain, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_46drain};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_47drain(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -16347,14 +16347,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("drain", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_46drain(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_46drain(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -16424,23 +16424,23 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_46drain(struct __
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_49tls_init(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_49tls_init(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_48tls_init, "Connection.tls_init(self, TlsOpts opts)\n\nInitialize TLS/SSL on this connection.\n\nArgs:\n    opts: TlsOpts object with certificate, key, CA, etc.\n\nExample:\n    # HTTPS server with custom certificate\n    opts = TlsOpts(\n        cert=open('server.crt', 'rb').read(),\n        key=open('server.key', 'rb').read()\n    )\n    listener = manager.listen(\"https://0.0.0.0:443\")\n    listener.tls_init(opts)\n\n    # HTTPS client with custom CA\n    opts = TlsOpts(ca=open('custom-ca.crt', 'rb').read())\n    conn = manager.connect(\"https://example.com\")\n    conn.tls_init(opts)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_49tls_init = {"tls_init", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_49tls_init, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_48tls_init};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_49tls_init(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_48tls_init, "Connection.tls_init(self, TlsOpts opts)\n\nInitialize TLS/SSL on this connection.\n\nArgs:\n    opts: TlsOpts object with certificate, key, CA, etc.\n\nExample:\n    # HTTPS server with custom certificate\n    opts = TlsOpts(\n        cert=open('server.crt', 'rb').read(),\n        key=open('server.key', 'rb').read()\n    )\n    listener = manager.listen(\"https://0.0.0.0:443\")\n    listener.tls_init(opts)\n\n    # HTTPS client with custom CA\n    opts = TlsOpts(ca=open('custom-ca.crt', 'rb').read())\n    conn = manager.connect(\"https://example.com\")\n    conn.tls_init(opts)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_49tls_init = {"tls_init", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_49tls_init, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_48tls_init};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_49tls_init(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_opts = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_opts = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -16484,7 +16484,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
       if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1058, __pyx_L3_error)
     }
-    __pyx_v_opts = ((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)values[0]);
+    __pyx_v_opts = ((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -16499,8 +16499,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_opts), __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts, 1, "opts", 0))) __PYX_ERR(0, 1058, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_opts);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_opts), __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts, 1, "opts", 0))) __PYX_ERR(0, 1058, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_48tls_init(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v_opts);
 
   /* function exit code */
   goto __pyx_L0;
@@ -16519,7 +16519,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v_opts) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_48tls_init(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v_opts) {
   struct mg_tls_opts __pyx_v_c_opts;
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
@@ -16761,7 +16761,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_6 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1093, __pyx_L1_error)
+  __pyx_t_6 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1093, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_6;
 
   /* "cymongoose/_mongoose.pyx":1095
@@ -16834,16 +16834,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_48tls_init(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_51tls_free(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_51tls_free(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_50tls_free, "Connection.tls_free(self)\n\nFree TLS/SSL resources on this connection.\n\nTypically not needed as TLS is automatically freed when connection closes.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_51tls_free = {"tls_free", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_51tls_free, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_50tls_free};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_51tls_free(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_50tls_free, "Connection.tls_free(self)\n\nFree TLS/SSL resources on this connection.\n\nTypically not needed as TLS is automatically freed when connection closes.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_51tls_free = {"tls_free", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_51tls_free, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_50tls_free};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_51tls_free(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -16869,14 +16869,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("tls_free", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_50tls_free(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_50tls_free(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   struct mg_connection *__pyx_v_conn;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -16893,7 +16893,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
  *         IF USE_NOGIL:
  *             with nogil:
 */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1105, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_self->__pyx_vtab)->_ptr(__pyx_v_self); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1105, __pyx_L1_error)
   __pyx_v_conn = __pyx_t_1;
 
   /* "cymongoose/_mongoose.pyx":1107
@@ -16965,21 +16965,21 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_50tls_free(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_53__repr__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_53__repr__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_53__repr__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_53__repr__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__repr__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_52__repr__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_52__repr__(struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -17090,16 +17090,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_52__repr__(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_55__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_55__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_54__reduce_cython__, "Connection.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_55__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_54__reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_55__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_54__reduce_cython__, "Connection.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_55__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_54__reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_55__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17125,14 +17125,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_54__reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_54__reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_54__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_54__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -17172,16 +17172,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_54__reduce_cython
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_57__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_57__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10Connection_56__setstate_cython__, "Connection.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_10Connection_57__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_56__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_10Connection_57__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10Connection_56__setstate_cython__, "Connection.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_10Connection_57__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_56__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_10Connection_57__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17247,7 +17247,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10Connection_56__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10Connection_56__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -17257,7 +17257,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_56__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10Connection_56__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -17298,8 +17298,8 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10Connection_56__setstate_cyth
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_10cymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_handler = 0;
   PyObject *__pyx_v_enable_wakeup = 0;
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
@@ -17370,7 +17370,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_handler, __pyx_v_enable_wakeup);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager___cinit__(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_handler, __pyx_v_enable_wakeup);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -17380,7 +17380,7 @@ static int __pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(PyObject *__pyx_
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_handler, PyObject *__pyx_v_enable_wakeup) {
+static int __pyx_pf_10cymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_handler, PyObject *__pyx_v_enable_wakeup) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -17556,19 +17556,19 @@ static int __pyx_pf_10pymongoose_9_mongoose_7Manager___cinit__(struct __pyx_obj_
 */
 
 /* Python wrapper */
-static void __pyx_pw_10pymongoose_9_mongoose_7Manager_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_10pymongoose_9_mongoose_7Manager_3__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_10cymongoose_9_mongoose_7Manager_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_10cymongoose_9_mongoose_7Manager_3__dealloc__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self));
+  __pyx_pf_10cymongoose_9_mongoose_7Manager_2__dealloc__(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self) {
+static void __pyx_pf_10cymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -17680,10 +17680,10 @@ static void __pyx_pf_10pymongoose_9_mongoose_7Manager_2__dealloc__(struct __pyx_
  *         cdef Connection py_conn
 */
 
-static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose_9_mongoose_7Manager__ensure_connection(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn) {
+static struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_f_10cymongoose_9_mongoose_7Manager__ensure_connection(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn) {
   uintptr_t __pyx_v_key;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_r = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -17718,8 +17718,8 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
   __pyx_t_2 = __Pyx_PyDict_GetItemDefault(__pyx_v_self->_connections, __pyx_t_1, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection))))) __PYX_ERR(0, 1151, __pyx_L1_error)
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection))))) __PYX_ERR(0, 1151, __pyx_L1_error)
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1152
@@ -17739,9 +17739,9 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
  *             py_conn._bind(self, conn, None)
  *             self._connections[key] = py_conn
 */
-    __pyx_t_2 = ((PyObject *)__pyx_tp_new_10pymongoose_9_mongoose_Connection(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1153, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)__pyx_tp_new_10cymongoose_9_mongoose_Connection(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1153, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_2);
-    __Pyx_DECREF_SET(__pyx_v_py_conn, ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2));
+    __Pyx_DECREF_SET(__pyx_v_py_conn, ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_2));
     __pyx_t_2 = 0;
 
     /* "cymongoose/_mongoose.pyx":1154
@@ -17751,7 +17751,7 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
  *             self._connections[key] = py_conn
  *         elif py_conn._conn == NULL:
 */
-    ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection *)__pyx_v_py_conn->__pyx_vtab)->_bind(__pyx_v_py_conn, __pyx_v_self, __pyx_v_conn, Py_None); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1154, __pyx_L1_error)
+    ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection *)__pyx_v_py_conn->__pyx_vtab)->_bind(__pyx_v_py_conn, __pyx_v_self, __pyx_v_conn, Py_None); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1154, __pyx_L1_error)
 
     /* "cymongoose/_mongoose.pyx":1155
  *             py_conn = Connection.__new__(Connection)
@@ -17849,9 +17849,9 @@ static struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_f_10pymongoose
  *         cdef Connection py_conn
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn) {
+static void __pyx_f_10cymongoose_9_mongoose_7Manager__drop_connection(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct mg_connection *__pyx_v_conn) {
   uintptr_t __pyx_v_key;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -17886,8 +17886,8 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
   __pyx_t_2 = __Pyx_PyDict_Pop(__pyx_v_self->_connections, __pyx_t_1, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection))))) __PYX_ERR(0, 1163, __pyx_L1_error)
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection))))) __PYX_ERR(0, 1163, __pyx_L1_error)
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1164
@@ -17945,7 +17945,7 @@ static void __pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection(struct __p
  *             return conn._handler
 */
 
-static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_conn) {
+static PyObject *__pyx_f_10cymongoose_9_mongoose_7Manager__resolve_handler(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_conn) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -18017,10 +18017,10 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler(struc
  *         cdef WsMessage ws
 */
 
-static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_ev, void *__pyx_v_ev_data) {
-  struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *__pyx_v_view = 0;
-  struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *__pyx_v_ws = 0;
-  struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *__pyx_v_mqtt = 0;
+static PyObject *__pyx_f_10cymongoose_9_mongoose_7Manager__wrap_event_data(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_ev, void *__pyx_v_ev_data) {
+  struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *__pyx_v_view = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *__pyx_v_ws = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *__pyx_v_mqtt = 0;
   struct mg_str *__pyx_v_wakeup_data;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -18101,9 +18101,9 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 view._assign(<mg_http_message*> ev_data)
  *                 return view
 */
-      __pyx_t_4 = ((PyObject *)__pyx_tp_new_10pymongoose_9_mongoose_HttpMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1179, __pyx_L1_error)
+      __pyx_t_4 = ((PyObject *)__pyx_tp_new_10cymongoose_9_mongoose_HttpMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1179, __pyx_L1_error)
       __Pyx_GOTREF((PyObject *)__pyx_t_4);
-      __pyx_v_view = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)__pyx_t_4);
+      __pyx_v_view = ((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)__pyx_t_4);
       __pyx_t_4 = 0;
 
       /* "cymongoose/_mongoose.pyx":1180
@@ -18113,7 +18113,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 return view
  *             return None
 */
-      ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage *)__pyx_v_view->__pyx_vtab)->_assign(__pyx_v_view, ((struct mg_http_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1180, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_HttpMessage *)__pyx_v_view->__pyx_vtab)->_assign(__pyx_v_view, ((struct mg_http_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1180, __pyx_L1_error)
 
       /* "cymongoose/_mongoose.pyx":1181
  *                 view = HttpMessage.__new__(HttpMessage)
@@ -18191,9 +18191,9 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 ws._assign(<mg_ws_message*> ev_data)
  *                 return ws
 */
-      __pyx_t_2 = ((PyObject *)__pyx_tp_new_10pymongoose_9_mongoose_WsMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_WsMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1185, __pyx_L1_error)
+      __pyx_t_2 = ((PyObject *)__pyx_tp_new_10cymongoose_9_mongoose_WsMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_WsMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1185, __pyx_L1_error)
       __Pyx_GOTREF((PyObject *)__pyx_t_2);
-      __pyx_v_ws = ((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)__pyx_t_2);
+      __pyx_v_ws = ((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)__pyx_t_2);
       __pyx_t_2 = 0;
 
       /* "cymongoose/_mongoose.pyx":1186
@@ -18203,7 +18203,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 return ws
  *             return None
 */
-      ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage *)__pyx_v_ws->__pyx_vtab)->_assign(__pyx_v_ws, ((struct mg_ws_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1186, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_WsMessage *)__pyx_v_ws->__pyx_vtab)->_assign(__pyx_v_ws, ((struct mg_ws_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1186, __pyx_L1_error)
 
       /* "cymongoose/_mongoose.pyx":1187
  *                 ws = WsMessage.__new__(WsMessage)
@@ -18297,9 +18297,9 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 mqtt._assign(<mg_mqtt_message*> ev_data)
  *                 return mqtt
 */
-      __pyx_t_2 = ((PyObject *)__pyx_tp_new_10pymongoose_9_mongoose_MqttMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1191, __pyx_L1_error)
+      __pyx_t_2 = ((PyObject *)__pyx_tp_new_10cymongoose_9_mongoose_MqttMessage(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1191, __pyx_L1_error)
       __Pyx_GOTREF((PyObject *)__pyx_t_2);
-      __pyx_v_mqtt = ((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)__pyx_t_2);
+      __pyx_v_mqtt = ((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)__pyx_t_2);
       __pyx_t_2 = 0;
 
       /* "cymongoose/_mongoose.pyx":1192
@@ -18309,7 +18309,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *                 return mqtt
  *             return None
 */
-      ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage *)__pyx_v_mqtt->__pyx_vtab)->_assign(__pyx_v_mqtt, ((struct mg_mqtt_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1192, __pyx_L1_error)
+      ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_MqttMessage *)__pyx_v_mqtt->__pyx_vtab)->_assign(__pyx_v_mqtt, ((struct mg_mqtt_message *)__pyx_v_ev_data)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1192, __pyx_L1_error)
 
       /* "cymongoose/_mongoose.pyx":1193
  *                 mqtt = MqttMessage.__new__(MqttMessage)
@@ -18496,7 +18496,7 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
  *             # SNTP provides uint64_t* epoch milliseconds
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes((__pyx_v_wakeup_data[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1202, __pyx_L1_error)
+    __pyx_t_4 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes((__pyx_v_wakeup_data[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
@@ -18596,16 +18596,16 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data(CYTHO
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_5poll(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_5poll(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_4poll, "Manager.poll(self, int timeout_ms=0)\n\nDrive the event loop once.\n\nThread safety note: _freed flag is checked without lock. In multi-threaded scenarios,\nuse close() only after all polling threads have stopped to avoid race conditions.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_5poll = {"poll", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_5poll, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_4poll};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_5poll(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_4poll, "Manager.poll(self, int timeout_ms=0)\n\nDrive the event loop once.\n\nThread safety note: _freed flag is checked without lock. In multi-threaded scenarios,\nuse close() only after all polling threads have stopped to avoid race conditions.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_5poll = {"poll", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_5poll, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_4poll};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_5poll(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18676,7 +18676,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_timeout_ms);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_4poll(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_timeout_ms);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -18686,7 +18686,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_timeout_ms) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_4poll(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, int __pyx_v_timeout_ms) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -18820,16 +18820,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_4poll(struct __pyx_ob
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_7listen(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_7listen(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_6listen, "Manager.listen(self, str url: str, handler=None, *, http=False)\n\nListen on a URL; handler is optional per-listener override.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_7listen = {"listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_7listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_6listen};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_7listen(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_6listen, "Manager.listen(self, str url: str, handler=None, *, http=False)\n\nListen on a URL; handler is optional per-listener override.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_7listen = {"listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_7listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_6listen};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_7listen(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18915,7 +18915,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 1225, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_http);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_6listen(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_http);
 
   /* function exit code */
   goto __pyx_L0;
@@ -18934,10 +18934,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_6listen(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http) {
   PyObject *__pyx_v_url_b = 0;
   struct mg_connection *__pyx_v_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -18983,7 +18983,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
  *             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)
 */
     __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 1230, __pyx_L1_error)
-    __pyx_v_conn = mg_http_listen((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+    __pyx_v_conn = mg_http_listen((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
 
     /* "cymongoose/_mongoose.pyx":1229
  *         cdef bytes url_b = url.encode("utf-8")
@@ -19004,7 +19004,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
 */
   /*else*/ {
     __pyx_t_4 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 1232, __pyx_L1_error)
-    __pyx_v_conn = mg_listen((&__pyx_v_self->_mgr), __pyx_t_4, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+    __pyx_v_conn = mg_listen((&__pyx_v_self->_mgr), __pyx_t_4, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
   }
   __pyx_L3:;
 
@@ -19061,9 +19061,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
  *         py_conn._handler = handler
  *         return py_conn
 */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1235, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1236
@@ -19123,16 +19123,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_6listen(struct __pyx_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_9connect(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_9connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_8connect, "Manager.connect(self, str url: str, handler=None, *, http=False)\n\nCreate an outbound connection and return immediately.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_9connect = {"connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_9connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_8connect};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_9connect(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_8connect, "Manager.connect(self, str url: str, handler=None, *, http=False)\n\nCreate an outbound connection and return immediately.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_9connect = {"connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_9connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_8connect};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_9connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19218,7 +19218,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 1239, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_http);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_8connect(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_http);
 
   /* function exit code */
   goto __pyx_L0;
@@ -19237,10 +19237,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_8connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_http) {
   PyObject *__pyx_v_url_b = 0;
   struct mg_connection *__pyx_v_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -19286,7 +19286,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
  *             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)
 */
     __pyx_t_3 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 1244, __pyx_L1_error)
-    __pyx_v_conn = mg_http_connect((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+    __pyx_v_conn = mg_http_connect((&__pyx_v_self->_mgr), __pyx_t_3, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
 
     /* "cymongoose/_mongoose.pyx":1243
  *         cdef bytes url_b = url.encode("utf-8")
@@ -19307,7 +19307,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
 */
   /*else*/ {
     __pyx_t_4 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_4) && PyErr_Occurred())) __PYX_ERR(0, 1246, __pyx_L1_error)
-    __pyx_v_conn = mg_connect((&__pyx_v_self->_mgr), __pyx_t_4, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+    __pyx_v_conn = mg_connect((&__pyx_v_self->_mgr), __pyx_t_4, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
   }
   __pyx_L3:;
 
@@ -19364,9 +19364,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
  *         py_conn._handler = handler
  *         return py_conn
 */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1249, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1250
@@ -19426,16 +19426,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_8connect(struct __pyx
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_11mqtt_connect(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_11mqtt_connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_10mqtt_connect, "Manager.mqtt_connect(self, str url: str, handler=None, client_id='', username='', password='', clean_session=True, keepalive=60)\n\nConnect to an MQTT broker.\n\nArgs:\n    url: Broker URL (e.g., 'mqtt://broker.hivemq.com:1883')\n    handler: Event handler callback\n    client_id: MQTT client ID (autogenerated if empty)\n    username: MQTT username (optional)\n    password: MQTT password (optional)\n    clean_session: Clean session flag\n    keepalive: Keep-alive interval in seconds\n\nReturns:\n    Connection object");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_11mqtt_connect = {"mqtt_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_10mqtt_connect};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_11mqtt_connect(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_10mqtt_connect, "Manager.mqtt_connect(self, str url: str, handler=None, client_id='', username='', password='', clean_session=True, keepalive=60)\n\nConnect to an MQTT broker.\n\nArgs:\n    url: Broker URL (e.g., 'mqtt://broker.hivemq.com:1883')\n    handler: Event handler callback\n    client_id: MQTT client ID (autogenerated if empty)\n    username: MQTT username (optional)\n    password: MQTT password (optional)\n    clean_session: Clean session flag\n    keepalive: Keep-alive interval in seconds\n\nReturns:\n    Connection object");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_11mqtt_connect = {"mqtt_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_10mqtt_connect};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_11mqtt_connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19577,7 +19577,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 1253, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_client_id, __pyx_v_username, __pyx_v_password, __pyx_v_clean_session, __pyx_v_keepalive);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_10mqtt_connect(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler, __pyx_v_client_id, __pyx_v_username, __pyx_v_password, __pyx_v_clean_session, __pyx_v_keepalive);
 
   /* function exit code */
   goto __pyx_L0;
@@ -19596,14 +19596,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_client_id, PyObject *__pyx_v_username, PyObject *__pyx_v_password, PyObject *__pyx_v_clean_session, PyObject *__pyx_v_keepalive) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_10mqtt_connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler, PyObject *__pyx_v_client_id, PyObject *__pyx_v_username, PyObject *__pyx_v_password, PyObject *__pyx_v_clean_session, PyObject *__pyx_v_keepalive) {
   struct mg_mqtt_opts __pyx_v_opts;
   PyObject *__pyx_v_client_id_b = 0;
   PyObject *__pyx_v_user_b = 0;
   PyObject *__pyx_v_pass_b = 0;
   PyObject *__pyx_v_url_b = 0;
   struct mg_connection *__pyx_v_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -19901,7 +19901,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
  *             raise RuntimeError(f"Failed to connect to MQTT broker '{url}'")
 */
   __pyx_t_9 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 1287, __pyx_L1_error)
-  __pyx_v_conn = mg_mqtt_connect((&__pyx_v_self->_mgr), __pyx_t_9, (&__pyx_v_opts), __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+  __pyx_v_conn = mg_mqtt_connect((&__pyx_v_self->_mgr), __pyx_t_9, (&__pyx_v_opts), __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
 
   /* "cymongoose/_mongoose.pyx":1288
  *         cdef bytes url_b = url.encode("utf-8")
@@ -19956,9 +19956,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
  *         py_conn._handler = handler
  *         return py_conn
 */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1291, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1292
@@ -20021,16 +20021,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_10mqtt_connect(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_13mqtt_listen(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_13mqtt_listen(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_12mqtt_listen, "Manager.mqtt_listen(self, str url: str, handler=None)\n\nListen for MQTT connections (broker mode).\n\nArgs:\n    url: Listen URL (e.g., 'mqtt://0.0.0.0:1883')\n    handler: Event handler callback\n\nReturns:\n    Listener connection object");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_13mqtt_listen = {"mqtt_listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_12mqtt_listen};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_13mqtt_listen(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_12mqtt_listen, "Manager.mqtt_listen(self, str url: str, handler=None)\n\nListen for MQTT connections (broker mode).\n\nArgs:\n    url: Listen URL (e.g., 'mqtt://0.0.0.0:1883')\n    handler: Event handler callback\n\nReturns:\n    Listener connection object");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_13mqtt_listen = {"mqtt_listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_12mqtt_listen};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_13mqtt_listen(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20112,7 +20112,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 1295, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_12mqtt_listen(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler);
 
   /* function exit code */
   goto __pyx_L0;
@@ -20131,10 +20131,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_12mqtt_listen(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler) {
   PyObject *__pyx_v_url_b = 0;
   struct mg_connection *__pyx_v_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -20169,7 +20169,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
  *             raise RuntimeError(f"Failed to listen for MQTT on '{url}'")
 */
   __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1306, __pyx_L1_error)
-  __pyx_v_conn = mg_mqtt_listen((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+  __pyx_v_conn = mg_mqtt_listen((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
 
   /* "cymongoose/_mongoose.pyx":1307
  *         cdef bytes url_b = url.encode("utf-8")
@@ -20224,9 +20224,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
  *         py_conn._handler = handler
  *         return py_conn
 */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1311
@@ -20286,16 +20286,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_12mqtt_listen(struct 
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_15sntp_connect(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_15sntp_connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_14sntp_connect, "Manager.sntp_connect(self, str url: str, handler=None)\n\nConnect to an SNTP (time) server.\n\nTriggers MG_EV_SNTP_TIME event when time is received.\n\nArgs:\n    url: SNTP server URL (e.g., 'udp://time.google.com:123')\n    handler: Event handler callback\n\nReturns:\n    Connection object\n\nExample:\n    def time_handler(conn, ev, data):\n        if ev == MG_EV_SNTP_TIME:\n            # data is uint64_t epoch milliseconds\n            print(f\"Time: {data} ms since epoch\")\n\n    conn = manager.sntp_connect(\"udp://time.google.com:123\", time_handler)\n    conn.sntp_request()  # Request time");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_15sntp_connect = {"sntp_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_14sntp_connect};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_15sntp_connect(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_14sntp_connect, "Manager.sntp_connect(self, str url: str, handler=None)\n\nConnect to an SNTP (time) server.\n\nTriggers MG_EV_SNTP_TIME event when time is received.\n\nArgs:\n    url: SNTP server URL (e.g., 'udp://time.google.com:123')\n    handler: Event handler callback\n\nReturns:\n    Connection object\n\nExample:\n    def time_handler(conn, ev, data):\n        if ev == MG_EV_SNTP_TIME:\n            # data is uint64_t epoch milliseconds\n            print(f\"Time: {data} ms since epoch\")\n\n    conn = manager.sntp_connect(\"udp://time.google.com:123\", time_handler)\n    conn.sntp_request()  # Request time");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_15sntp_connect = {"sntp_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_14sntp_connect};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_15sntp_connect(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20377,7 +20377,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 1314, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_14sntp_connect(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_url, __pyx_v_handler);
 
   /* function exit code */
   goto __pyx_L0;
@@ -20396,10 +20396,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_14sntp_connect(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_url, PyObject *__pyx_v_handler) {
   PyObject *__pyx_v_url_b = 0;
   struct mg_connection *__pyx_v_conn;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -20434,7 +20434,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
  *             raise RuntimeError(f"Failed to connect to SNTP server '{url}'")
 */
   __pyx_t_2 = __Pyx_PyBytes_AsString(__pyx_v_url_b); if (unlikely((!__pyx_t_2) && PyErr_Occurred())) __PYX_ERR(0, 1336, __pyx_L1_error)
-  __pyx_v_conn = mg_sntp_connect((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10pymongoose_9_mongoose__event_bridge, NULL);
+  __pyx_v_conn = mg_sntp_connect((&__pyx_v_self->_mgr), __pyx_t_2, __pyx_f_10cymongoose_9_mongoose__event_bridge, NULL);
 
   /* "cymongoose/_mongoose.pyx":1337
  *         cdef bytes url_b = url.encode("utf-8")
@@ -20489,9 +20489,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
  *         py_conn._handler = handler
  *         return py_conn
 */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1340, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_self->__pyx_vtab)->_ensure_connection(__pyx_v_self, __pyx_v_conn)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1340, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_1);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1341
@@ -20551,16 +20551,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_14sntp_connect(struct
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_17wakeup(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_17wakeup(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_16wakeup, "Manager.wakeup(self, int connection_id: int, bytes data: bytes = b'')\n\nSend a wakeup notification to a specific connection (thread-safe).\n\nArgs:\n    connection_id: The connection ID to wake up\n    data: Optional data payload (delivered via MG_EV_WAKEUP event)\n\nReturns:\n    True if wakeup was sent successfully\n\nThread safety note: _freed flag is checked without lock. In multi-threaded scenarios,\nuse close() only after all polling threads have stopped to avoid race conditions.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_17wakeup = {"wakeup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_17wakeup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_16wakeup};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_17wakeup(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_16wakeup, "Manager.wakeup(self, int connection_id: int, bytes data: bytes = b'')\n\nSend a wakeup notification to a specific connection (thread-safe).\n\nArgs:\n    connection_id: The connection ID to wake up\n    data: Optional data payload (delivered via MG_EV_WAKEUP event)\n\nReturns:\n    True if wakeup was sent successfully\n\nThread safety note: _freed flag is checked without lock. In multi-threaded scenarios,\nuse close() only after all polling threads have stopped to avoid race conditions.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_17wakeup = {"wakeup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_17wakeup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_16wakeup};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_17wakeup(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20644,7 +20644,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_connection_id), (&PyLong_Type), 0, "connection_id", 2))) __PYX_ERR(0, 1344, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyBytes_Type), 0, "data", 2))) __PYX_ERR(0, 1344, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_connection_id, __pyx_v_data);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_16wakeup(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_connection_id, __pyx_v_data);
 
   /* function exit code */
   goto __pyx_L0;
@@ -20663,7 +20663,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_connection_id, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_16wakeup(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_connection_id, PyObject *__pyx_v_data) {
   PyObject *__pyx_v_data_b = 0;
   void const *__pyx_v_buf;
   size_t __pyx_v_len_data;
@@ -20853,16 +20853,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_16wakeup(struct __pyx
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_19timer_add(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_19timer_add(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_18timer_add, "Manager.timer_add(self, int milliseconds: int, callback, *, repeat=False, run_now=False)\n\nAdd a timer that calls a Python callback periodically.\n\nArgs:\n    milliseconds: Timer interval in milliseconds\n    callback: Python callable (takes no arguments)\n    repeat: If True, timer repeats; if False, runs once\n    run_now: If True, callback is called immediately\n\nReturns:\n    Timer object\n\nNote: Timers are automatically freed when they complete (MG_TIMER_AUTODELETE flag).\nThe Timer object's __dealloc__ only releases the Python callback reference.\n\nExample:\n    def heartbeat():\n        print(\"ping\")\n\n    timer = manager.timer_add(1000, heartbeat, repeat=True)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_19timer_add = {"timer_add", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_19timer_add, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_18timer_add};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_19timer_add(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_18timer_add, "Manager.timer_add(self, int milliseconds: int, callback, *, repeat=False, run_now=False)\n\nAdd a timer that calls a Python callback periodically.\n\nArgs:\n    milliseconds: Timer interval in milliseconds\n    callback: Python callable (takes no arguments)\n    repeat: If True, timer repeats; if False, runs once\n    run_now: If True, callback is called immediately\n\nReturns:\n    Timer object\n\nNote: Timers are automatically freed when they complete (MG_TIMER_AUTODELETE flag).\nThe Timer object's __dealloc__ only releases the Python callback reference.\n\nExample:\n    def heartbeat():\n        print(\"ping\")\n\n    timer = manager.timer_add(1000, heartbeat, repeat=True)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_19timer_add = {"timer_add", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_19timer_add, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_18timer_add};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_19timer_add(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20946,7 +20946,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_milliseconds), (&PyLong_Type), 0, "milliseconds", 2))) __PYX_ERR(0, 1371, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_milliseconds, __pyx_v_callback, __pyx_v_repeat, __pyx_v_run_now);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_18timer_add(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v_milliseconds, __pyx_v_callback, __pyx_v_repeat, __pyx_v_run_now);
 
   /* function exit code */
   goto __pyx_L0;
@@ -20965,9 +20965,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_milliseconds, PyObject *__pyx_v_callback, PyObject *__pyx_v_repeat, PyObject *__pyx_v_run_now) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_18timer_add(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, PyObject *__pyx_v_milliseconds, PyObject *__pyx_v_callback, PyObject *__pyx_v_repeat, PyObject *__pyx_v_run_now) {
   unsigned int __pyx_v_flags;
-  struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_timer = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_timer = 0;
   struct mg_timer *__pyx_v_timer_ptr;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -21091,9 +21091,9 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
  * 
  *         # Add timer with callback bridge
 */
-  __pyx_t_1 = ((PyObject *)__pyx_tp_new_10pymongoose_9_mongoose_Timer(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Timer), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1402, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_tp_new_10cymongoose_9_mongoose_Timer(((PyTypeObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Timer), __pyx_mstate_global->__pyx_empty_tuple, NULL)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1402, __pyx_L1_error)
   __Pyx_GOTREF((PyObject *)__pyx_t_1);
-  __pyx_v_timer = ((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_t_1);
+  __pyx_v_timer = ((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "cymongoose/_mongoose.pyx":1407
@@ -21112,7 +21112,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
  *             &self._mgr,
  *             <uint64_t>milliseconds,
 */
-  __pyx_v_timer_ptr = mg_timer_add((&__pyx_v_self->_mgr), ((uint64_t)__pyx_t_5), __pyx_v_flags, __pyx_f_10pymongoose_9_mongoose__timer_callback, ((void *)((PyObject *)__pyx_v_callback)));
+  __pyx_v_timer_ptr = mg_timer_add((&__pyx_v_self->_mgr), ((uint64_t)__pyx_t_5), __pyx_v_flags, __pyx_f_10cymongoose_9_mongoose__timer_callback, ((void *)((PyObject *)__pyx_v_callback)));
 
   /* "cymongoose/_mongoose.pyx":1413
  *         )
@@ -21235,16 +21235,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_18timer_add(struct __
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_21close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_21close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_20close, "Manager.close(self)\n\nFree the underlying manager and release resources.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_21close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_21close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_20close};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_21close(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_20close, "Manager.close(self)\n\nFree the underlying manager and release resources.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_21close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_21close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_20close};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_21close(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -21270,14 +21270,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("close", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_20close(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_20close(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_20close(struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -21373,16 +21373,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_20close(struct __pyx_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_23__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_23__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_22__reduce_cython__, "Manager.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_23__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_22__reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_23__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_22__reduce_cython__, "Manager.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_23__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_22__reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_23__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -21408,14 +21408,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_22__reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_22__reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_22__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_22__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -21455,16 +21455,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_22__reduce_cython__(C
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_25__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_25__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_7Manager_24__setstate_cython__, "Manager.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7Manager_25__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_24__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7Manager_25__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_7Manager_24__setstate_cython__, "Manager.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7Manager_25__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_24__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7Manager_25__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -21530,7 +21530,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_7Manager_24__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_7Manager_24__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -21540,7 +21540,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_24__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_7Manager_24__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -21580,10 +21580,10 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_7Manager_24__setstate_cython__
  *     cdef Manager manager
 */
 
-static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *__pyx_v_conn, int __pyx_v_ev, void *__pyx_v_ev_data) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *__pyx_v_manager = 0;
+static void __pyx_f_10cymongoose_9_mongoose__event_bridge(struct mg_connection *__pyx_v_conn, int __pyx_v_ev, void *__pyx_v_ev_data) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *__pyx_v_manager = 0;
   PyObject *__pyx_v_manager_obj;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *__pyx_v_py_conn = 0;
   PyObject *__pyx_v_handler = NULL;
   PyObject *__pyx_v_payload = NULL;
   __Pyx_RefNannyDeclarations
@@ -21689,7 +21689,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
   __pyx_t_2 = ((PyObject *)__pyx_v_manager_obj);
   __Pyx_INCREF(__pyx_t_2);
-  __pyx_v_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)__pyx_t_2);
+  __pyx_v_manager = ((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)__pyx_t_2);
   __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1444
@@ -21699,9 +21699,9 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
  *     handler = manager._resolve_handler(py_conn)
  *     payload = manager._wrap_event_data(ev, ev_data)
 */
-  __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_ensure_connection(__pyx_v_manager, __pyx_v_conn)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1444, __pyx_L1_error)
+  __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_ensure_connection(__pyx_v_manager, __pyx_v_conn)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_v_py_conn = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)__pyx_t_2);
+  __pyx_v_py_conn = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)__pyx_t_2);
   __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1445
@@ -21711,7 +21711,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
  *     payload = manager._wrap_event_data(ev, ev_data)
  *     if handler is None:
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_resolve_handler(__pyx_v_manager, __pyx_v_py_conn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1445, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_resolve_handler(__pyx_v_manager, __pyx_v_py_conn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_handler = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -21723,7 +21723,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
  *     if handler is None:
  *         return
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_wrap_event_data(__pyx_v_manager, __pyx_v_ev, __pyx_v_ev_data); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1446, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_wrap_event_data(__pyx_v_manager, __pyx_v_ev, __pyx_v_ev_data); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1446, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_payload = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -21927,7 +21927,7 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
  * 
  * 
 */
-    ((struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_drop_connection(__pyx_v_manager, __pyx_v_conn); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1454, __pyx_L1_error)
+    ((struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager *)__pyx_v_manager->__pyx_vtab)->_drop_connection(__pyx_v_manager, __pyx_v_conn); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1454, __pyx_L1_error)
 
     /* "cymongoose/_mongoose.pyx":1453
  *     except Exception:
@@ -21975,16 +21975,16 @@ static void __pyx_f_10pymongoose_9_mongoose__event_bridge(struct mg_connection *
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_1json_get(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_1json_get(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_json_get, "json_get(data, str path: str)\n\nExtract a value from JSON by path (e.g., '$.user.name').\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.items[0].id')\n\nReturns:\n    String value at path, or None if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_1json_get = {"json_get", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_1json_get, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_json_get};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_1json_get(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_json_get, "json_get(data, str path: str)\n\nExtract a value from JSON by path (e.g., '$.user.name').\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.items[0].id')\n\nReturns:\n    String value at path, or None if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_1json_get = {"json_get", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_1json_get, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_json_get};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_1json_get(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -22059,7 +22059,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 1458, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_json_get(__pyx_self, __pyx_v_data, __pyx_v_path);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_json_get(__pyx_self, __pyx_v_data, __pyx_v_path);
 
   /* function exit code */
   goto __pyx_L0;
@@ -22078,7 +22078,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path) {
   PyObject *__pyx_v_json_b = 0;
   PyObject *__pyx_v_path_b = 0;
   struct mg_str __pyx_v_json_str;
@@ -22239,7 +22239,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_result); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1478, __pyx_L1_error)
+  __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_result); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1478, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -22276,16 +22276,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_json_get(CYTHON_UNUSED PyObjec
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_3json_get_num(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_3json_get_num(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_2json_get_num, "json_get_num(data, str path: str, default=None)\n\nExtract a numeric value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.count')\n    default: Default value if not found or not a number\n\nReturns:\n    Float value at path, or default if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_3json_get_num = {"json_get_num", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_3json_get_num, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_2json_get_num};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_3json_get_num(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_2json_get_num, "json_get_num(data, str path: str, default=None)\n\nExtract a numeric value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.count')\n    default: Default value if not found or not a number\n\nReturns:\n    Float value at path, or default if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_3json_get_num = {"json_get_num", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_3json_get_num, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_2json_get_num};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_3json_get_num(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -22375,7 +22375,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 1481, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_2json_get_num(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_2json_get_num(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
 
   /* function exit code */
   goto __pyx_L0;
@@ -22394,7 +22394,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
   PyObject *__pyx_v_json_b = 0;
   PyObject *__pyx_v_path_b = 0;
   struct mg_str __pyx_v_json_str;
@@ -22584,16 +22584,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_2json_get_num(CYTHON_UNUSED Py
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5json_get_bool(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5json_get_bool(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_4json_get_bool, "json_get_bool(data, str path: str, default=None)\n\nExtract a boolean value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.enabled')\n    default: Default value if not found or not a boolean\n\nReturns:\n    Boolean value at path, or default if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_5json_get_bool = {"json_get_bool", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_5json_get_bool, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_4json_get_bool};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5json_get_bool(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_4json_get_bool, "json_get_bool(data, str path: str, default=None)\n\nExtract a boolean value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.enabled')\n    default: Default value if not found or not a boolean\n\nReturns:\n    Boolean value at path, or default if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_5json_get_bool = {"json_get_bool", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_5json_get_bool, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_4json_get_bool};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5json_get_bool(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -22683,7 +22683,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 1505, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_4json_get_bool(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_4json_get_bool(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
 
   /* function exit code */
   goto __pyx_L0;
@@ -22702,7 +22702,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
   PyObject *__pyx_v_json_b = 0;
   PyObject *__pyx_v_path_b = 0;
   struct mg_str __pyx_v_json_str;
@@ -22901,16 +22901,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_4json_get_bool(CYTHON_UNUSED P
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7json_get_long(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7json_get_long(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_6json_get_long, "json_get_long(data, str path: str, default=0)\n\nExtract an integer value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.id')\n    default: Default value if not found or not an integer\n\nReturns:\n    Integer value at path, or default if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_7json_get_long = {"json_get_long", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7json_get_long, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_6json_get_long};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_7json_get_long(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_6json_get_long, "json_get_long(data, str path: str, default=0)\n\nExtract an integer value from JSON by path.\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.id')\n    default: Default value if not found or not an integer\n\nReturns:\n    Integer value at path, or default if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_7json_get_long = {"json_get_long", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7json_get_long, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_6json_get_long};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_7json_get_long(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23000,7 +23000,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 1530, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_6json_get_long(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_6json_get_long(__pyx_self, __pyx_v_data, __pyx_v_path, __pyx_v_default);
 
   /* function exit code */
   goto __pyx_L0;
@@ -23019,7 +23019,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path, PyObject *__pyx_v_default) {
   PyObject *__pyx_v_json_b = 0;
   PyObject *__pyx_v_path_b = 0;
   struct mg_str __pyx_v_json_str;
@@ -23179,16 +23179,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_6json_get_long(CYTHON_UNUSED P
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9json_get_str(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9json_get_str(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_8json_get_str, "json_get_str(data, str path: str)\n\nExtract a string value from JSON by path (automatically unescapes).\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.message')\n\nReturns:\n    Unescaped string value at path, or None if not found");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_9json_get_str = {"json_get_str", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_9json_get_str, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_8json_get_str};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_9json_get_str(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_8json_get_str, "json_get_str(data, str path: str)\n\nExtract a string value from JSON by path (automatically unescapes).\n\nArgs:\n    data: JSON string or bytes\n    path: JSON path (e.g., '$.message')\n\nReturns:\n    Unescaped string value at path, or None if not found");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_9json_get_str = {"json_get_str", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_9json_get_str, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_8json_get_str};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_9json_get_str(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23263,7 +23263,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 1551, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_8json_get_str(__pyx_self, __pyx_v_data, __pyx_v_path);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_8json_get_str(__pyx_self, __pyx_v_data, __pyx_v_path);
 
   /* function exit code */
   goto __pyx_L0;
@@ -23282,7 +23282,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data, PyObject *__pyx_v_path) {
   PyObject *__pyx_v_json_b = 0;
   PyObject *__pyx_v_path_b = 0;
   struct mg_str __pyx_v_json_str;
@@ -23549,16 +23549,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_8json_get_str(CYTHON_UNUSED Py
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11url_encode(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11url_encode(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_10url_encode, "url_encode(str data: str) -> str\n\nURL-encode a string.\n\nArgs:\n    data: String to encode\n\nReturns:\n    URL-encoded string");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_11url_encode = {"url_encode", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11url_encode, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10url_encode};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_11url_encode(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_10url_encode, "url_encode(str data: str) -> str\n\nURL-encode a string.\n\nArgs:\n    data: String to encode\n\nReturns:\n    URL-encoded string");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_11url_encode = {"url_encode", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11url_encode, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10url_encode};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_11url_encode(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23625,7 +23625,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyUnicode_Type), 0, "data", 2))) __PYX_ERR(0, 1578, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_10url_encode(__pyx_self, __pyx_v_data);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_10url_encode(__pyx_self, __pyx_v_data);
 
   /* function exit code */
   goto __pyx_L0;
@@ -23644,7 +23644,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_data) {
   PyObject *__pyx_v_data_b = 0;
   size_t __pyx_v_src_len;
   size_t __pyx_v_buf_len;
@@ -23865,16 +23865,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_10url_encode(CYTHON_UNUSED PyO
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_13http_parse_multipart(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_13http_parse_multipart(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_12http_parse_multipart, "http_parse_multipart(body, offset=0)\n\nParse the next multipart form part from HTTP body.\n\nArgs:\n    body: HTTP body (str or bytes)\n    offset: Offset to start parsing from\n\nReturns:\n    Tuple of (next_offset, part_dict) where part_dict contains:\n    - 'name': form field name\n    - 'filename': filename (if file upload)\n    - 'body': part data as bytes\n    Returns (0, None) if no more parts.");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_13http_parse_multipart = {"http_parse_multipart", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_13http_parse_multipart, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_12http_parse_multipart};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_13http_parse_multipart(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_12http_parse_multipart, "http_parse_multipart(body, offset=0)\n\nParse the next multipart form part from HTTP body.\n\nArgs:\n    body: HTTP body (str or bytes)\n    offset: Offset to start parsing from\n\nReturns:\n    Tuple of (next_offset, part_dict) where part_dict contains:\n    - 'name': form field name\n    - 'filename': filename (if file upload)\n    - 'body': part data as bytes\n    Returns (0, None) if no more parts.");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_13http_parse_multipart = {"http_parse_multipart", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_13http_parse_multipart, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_12http_parse_multipart};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_13http_parse_multipart(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23955,7 +23955,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(__pyx_self, __pyx_v_body, __pyx_v_offset);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_12http_parse_multipart(__pyx_self, __pyx_v_body, __pyx_v_offset);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -23965,7 +23965,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_body, PyObject *__pyx_v_offset) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_12http_parse_multipart(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_body, PyObject *__pyx_v_offset) {
   PyObject *__pyx_v_body_b = 0;
   struct mg_str __pyx_v_body_str;
   struct mg_http_part __pyx_v_part;
@@ -24116,7 +24116,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
 */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_part.name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1633, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_part.name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name, __pyx_t_3) < (0)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -24128,7 +24128,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
  *         'body': _mg_str_to_bytes(part.body),
  *     }
 */
-  __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_text(__pyx_v_part.filename); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1634, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_text(__pyx_v_part.filename); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1634, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_filename, __pyx_t_3) < (0)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -24140,7 +24140,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
  *     }
  * 
 */
-  __pyx_t_3 = __pyx_f_10pymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_part.body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1635, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_10cymongoose_9_mongoose__mg_str_to_bytes(__pyx_v_part.body); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_body, __pyx_t_3) < (0)) __PYX_ERR(0, 1633, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -24199,7 +24199,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_12http_parse_multipart(CYTHON_
  *     if arg == NULL:
 */
 
-static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
+static void __pyx_f_10cymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
   PyObject *__pyx_v_py_callback;
   PyObject *__pyx_v_callback = NULL;
   PyObject *__pyx_v_traceback = NULL;
@@ -24443,8 +24443,8 @@ static void __pyx_f_10pymongoose_9_mongoose__timer_callback(void *__pyx_v_arg) {
 */
 
 /* Python wrapper */
-static int __pyx_pw_10pymongoose_9_mongoose_5Timer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_10pymongoose_9_mongoose_5Timer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_10cymongoose_9_mongoose_5Timer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_10cymongoose_9_mongoose_5Timer_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   int __pyx_r;
@@ -24460,14 +24460,14 @@ static int __pyx_pw_10pymongoose_9_mongoose_5Timer_1__cinit__(PyObject *__pyx_v_
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return -1;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__cinit__", __pyx_kwds); return -1;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_5Timer___cinit__(((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self) {
+static int __pyx_pf_10cymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
@@ -24526,19 +24526,19 @@ static int __pyx_pf_10pymongoose_9_mongoose_5Timer___cinit__(struct __pyx_obj_10
 */
 
 /* Python wrapper */
-static void __pyx_pw_10pymongoose_9_mongoose_5Timer_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_10pymongoose_9_mongoose_5Timer_3__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_10cymongoose_9_mongoose_5Timer_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_10cymongoose_9_mongoose_5Timer_3__dealloc__(PyObject *__pyx_v_self) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_v_self));
+  __pyx_pf_10cymongoose_9_mongoose_5Timer_2__dealloc__(((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self) {
+static void __pyx_pf_10cymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -24604,7 +24604,7 @@ static void __pyx_pf_10pymongoose_9_mongoose_5Timer_2__dealloc__(struct __pyx_ob
  *         self._callback = callback
 */
 
-static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self, struct mg_timer *__pyx_v_timer, PyObject *__pyx_v_callback) {
+static void __pyx_f_10cymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self, struct mg_timer *__pyx_v_timer, PyObject *__pyx_v_callback) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_set_timer", 0);
 
@@ -24667,16 +24667,16 @@ static void __pyx_f_10pymongoose_9_mongoose_5Timer__set_timer(struct __pyx_obj_1
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5Timer_5__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5Timer_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_5Timer_4__reduce_cython__, "Timer.__reduce_cython__(self)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_5Timer_5__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_5Timer_4__reduce_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5Timer_5__reduce_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_5Timer_4__reduce_cython__, "Timer.__reduce_cython__(self)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_5Timer_5__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_5Timer_4__reduce_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5Timer_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -24702,14 +24702,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   const Py_ssize_t __pyx_kwds_len = unlikely(__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
   if (unlikely(__pyx_kwds_len < 0)) return NULL;
   if (unlikely(__pyx_kwds_len > 0)) {__Pyx_RejectKeywords("__reduce_cython__", __pyx_kwds); return NULL;}
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_5Timer_4__reduce_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_5Timer_4__reduce_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -24749,16 +24749,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_4__reduce_cython__(CYTH
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5Timer_7__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5Timer_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_5Timer_6__setstate_cython__, "Timer.__setstate_cython__(self, __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_5Timer_7__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_5Timer_6__setstate_cython__};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_5Timer_7__setstate_cython__(PyObject *__pyx_v_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_5Timer_6__setstate_cython__, "Timer.__setstate_cython__(self, __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_5Timer_7__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_5Timer_6__setstate_cython__};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_5Timer_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -24824,7 +24824,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_5Timer_6__setstate_cython__(((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)__pyx_v_self), __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_5Timer_6__setstate_cython__(((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)__pyx_v_self), __pyx_v___pyx_state);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -24834,7 +24834,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10pymongoose_9_mongoose_Timer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_5Timer_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_10cymongoose_9_mongoose_Timer *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -24875,16 +24875,16 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_5Timer_6__setstate_cython__(CY
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_15__pyx_unpickle_TlsOpts(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_15__pyx_unpickle_TlsOpts(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts, "__pyx_unpickle_TlsOpts(__pyx_type, long __pyx_checksum, tuple __pyx_state)");
-static PyMethodDef __pyx_mdef_10pymongoose_9_mongoose_15__pyx_unpickle_TlsOpts = {"__pyx_unpickle_TlsOpts", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_15__pyx_unpickle_TlsOpts, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts};
-static PyObject *__pyx_pw_10pymongoose_9_mongoose_15__pyx_unpickle_TlsOpts(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_10cymongoose_9_mongoose_14__pyx_unpickle_TlsOpts, "__pyx_unpickle_TlsOpts(__pyx_type, long __pyx_checksum, tuple __pyx_state)");
+static PyMethodDef __pyx_mdef_10cymongoose_9_mongoose_15__pyx_unpickle_TlsOpts = {"__pyx_unpickle_TlsOpts", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_15__pyx_unpickle_TlsOpts, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_14__pyx_unpickle_TlsOpts};
+static PyObject *__pyx_pw_10cymongoose_9_mongoose_15__pyx_unpickle_TlsOpts(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -24967,7 +24967,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v___pyx_state), (&PyTuple_Type), 1, "__pyx_state", 1))) __PYX_ERR(1, 4, __pyx_L1_error)
-  __pyx_r = __pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_10cymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   goto __pyx_L0;
@@ -24986,7 +24986,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_10cymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -25016,7 +25016,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHO
  *     if __pyx_state is not None:
  *         __pyx_unpickle_TlsOpts__set_state(<TlsOpts> __pyx_result, __pyx_state)
 */
-  __pyx_t_3 = ((PyObject *)__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts);
+  __pyx_t_3 = ((PyObject *)__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts);
   __Pyx_INCREF(__pyx_t_3);
   __pyx_t_4 = 0;
   {
@@ -25050,7 +25050,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHO
       PyErr_SetString(PyExc_TypeError, "cannot pass None into a C function argument that is declared 'not None'");
       __PYX_ERR(1, 9, __pyx_L1_error)
     }
-    __pyx_t_2 = __pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)__pyx_v___pyx_result), __pyx_v___pyx_state); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 9, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_10cymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)__pyx_v___pyx_result), __pyx_v___pyx_state); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
@@ -25104,7 +25104,7 @@ static PyObject *__pyx_pf_10pymongoose_9_mongoose_14__pyx_unpickle_TlsOpts(CYTHO
  *     __Pyx_UpdateUnpickledDict(__pyx_result, __pyx_state, 5)
 */
 
-static PyObject *__pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_10cymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_state(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -25184,22 +25184,22 @@ static PyObject *__pyx_f_10pymongoose_9_mongoose___pyx_unpickle_TlsOpts__set_sta
   return __pyx_r;
 }
 /* #### Code section: module_exttypes ### */
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_HttpMessage __pyx_vtable_10pymongoose_9_mongoose_HttpMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_HttpMessage __pyx_vtable_10cymongoose_9_mongoose_HttpMessage;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_HttpMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_HttpMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_HttpMessage;
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_HttpMessage;
   return o;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage(PyObject *o) {
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_HttpMessage(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_HttpMessage) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -25218,66 +25218,66 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage(PyObject *o) {
   #endif
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_method(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_6method_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_method(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_6method_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_uri(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3uri_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_uri(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3uri_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_query(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5query_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_query(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5query_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_proto(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5proto_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_proto(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5proto_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_body_bytes(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_body_bytes(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_10body_bytes_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_body_text(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_body_text(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9body_text_1__get__(o);
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_HttpMessage[] = {
-  {"header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_3header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_2header},
-  {"headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_4headers},
-  {"query_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_6query_var},
-  {"status", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_9status, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_8status},
-  {"header_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_10header_var},
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_12__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11HttpMessage_14__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_HttpMessage[] = {
+  {"header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_3header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_2header},
+  {"headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_4headers},
+  {"query_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_6query_var},
+  {"status", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_9status, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_8status},
+  {"header_var", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_10header_var},
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_12__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11HttpMessage_14__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_10pymongoose_9_mongoose_HttpMessage[] = {
-  {"method", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_method, 0, 0, 0},
-  {"uri", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_uri, 0, 0, 0},
-  {"query", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_query, 0, 0, 0},
-  {"proto", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_proto, 0, 0, 0},
-  {"body_bytes", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_body_bytes, 0, 0, 0},
-  {"body_text", __pyx_getprop_10pymongoose_9_mongoose_11HttpMessage_body_text, 0, 0, 0},
+static struct PyGetSetDef __pyx_getsets_10cymongoose_9_mongoose_HttpMessage[] = {
+  {"method", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_method, 0, 0, 0},
+  {"uri", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_uri, 0, 0, 0},
+  {"query", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_query, 0, 0, 0},
+  {"proto", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_proto, 0, 0, 0},
+  {"body_bytes", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_body_bytes, 0, 0, 0},
+  {"body_text", __pyx_getprop_10cymongoose_9_mongoose_11HttpMessage_body_text, 0, 0, 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_HttpMessage_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage},
-  {Py_nb_bool, (void *)__pyx_pw_10pymongoose_9_mongoose_11HttpMessage_1__bool__},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_HttpMessage_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_HttpMessage},
+  {Py_nb_bool, (void *)__pyx_pw_10cymongoose_9_mongoose_11HttpMessage_1__bool__},
   {Py_tp_doc, (void *)PyDoc_STR("Lightweight view over a struct mg_http_message.")},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_HttpMessage},
-  {Py_tp_getset, (void *)__pyx_getsets_10pymongoose_9_mongoose_HttpMessage},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_HttpMessage},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_HttpMessage},
+  {Py_tp_getset, (void *)__pyx_getsets_10cymongoose_9_mongoose_HttpMessage},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_HttpMessage},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_HttpMessage_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_HttpMessage_spec = {
   "cymongoose._mongoose.HttpMessage",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_10pymongoose_9_mongoose_HttpMessage_slots,
+  __pyx_type_10cymongoose_9_mongoose_HttpMessage_slots,
 };
 #else
 
@@ -25291,7 +25291,7 @@ static PyNumberMethods __pyx_tp_as_number_HttpMessage = {
   0, /*nb_negative*/
   0, /*nb_positive*/
   0, /*nb_absolute*/
-  __pyx_pw_10pymongoose_9_mongoose_11HttpMessage_1__bool__, /*nb_bool*/
+  __pyx_pw_10cymongoose_9_mongoose_11HttpMessage_1__bool__, /*nb_bool*/
   0, /*nb_invert*/
   0, /*nb_lshift*/
   0, /*nb_rshift*/
@@ -25320,12 +25320,12 @@ static PyNumberMethods __pyx_tp_as_number_HttpMessage = {
   0, /*nb_inplace_matrix_multiply*/
 };
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_HttpMessage = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_HttpMessage = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""HttpMessage", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_HttpMessage, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_HttpMessage, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -25348,9 +25348,9 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_HttpMessage = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_HttpMessage, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_HttpMessage, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_10pymongoose_9_mongoose_HttpMessage, /*tp_getset*/
+  __pyx_getsets_10cymongoose_9_mongoose_HttpMessage, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -25360,7 +25360,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_HttpMessage = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_HttpMessage, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_HttpMessage, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -25392,22 +25392,22 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_HttpMessage = {
   #endif
 };
 #endif
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_WsMessage __pyx_vtable_10pymongoose_9_mongoose_WsMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_WsMessage __pyx_vtable_10cymongoose_9_mongoose_WsMessage;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_WsMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_WsMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_WsMessage;
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_WsMessage;
   return o;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage(PyObject *o) {
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_WsMessage(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_WsMessage) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -25426,54 +25426,54 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage(PyObject *o) {
   #endif
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_9WsMessage_data(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_9WsMessage_4data_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_9WsMessage_data(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_9WsMessage_4data_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_9WsMessage_text(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_9WsMessage_4text_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_9WsMessage_text(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_9WsMessage_4text_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_9WsMessage_flags(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_9WsMessage_5flags_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_9WsMessage_flags(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_9WsMessage_5flags_1__get__(o);
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_WsMessage[] = {
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_9WsMessage___reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_9WsMessage_2__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_WsMessage[] = {
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_9WsMessage___reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_9WsMessage_2__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_10pymongoose_9_mongoose_WsMessage[] = {
-  {"data", __pyx_getprop_10pymongoose_9_mongoose_9WsMessage_data, 0, 0, 0},
-  {"text", __pyx_getprop_10pymongoose_9_mongoose_9WsMessage_text, 0, 0, 0},
-  {"flags", __pyx_getprop_10pymongoose_9_mongoose_9WsMessage_flags, 0, 0, 0},
+static struct PyGetSetDef __pyx_getsets_10cymongoose_9_mongoose_WsMessage[] = {
+  {"data", __pyx_getprop_10cymongoose_9_mongoose_9WsMessage_data, 0, 0, 0},
+  {"text", __pyx_getprop_10cymongoose_9_mongoose_9WsMessage_text, 0, 0, 0},
+  {"flags", __pyx_getprop_10cymongoose_9_mongoose_9WsMessage_flags, 0, 0, 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_WsMessage_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_WsMessage_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_WsMessage},
   {Py_tp_doc, (void *)PyDoc_STR("View over an incoming WebSocket frame.")},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_WsMessage},
-  {Py_tp_getset, (void *)__pyx_getsets_10pymongoose_9_mongoose_WsMessage},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_WsMessage},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_WsMessage},
+  {Py_tp_getset, (void *)__pyx_getsets_10cymongoose_9_mongoose_WsMessage},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_WsMessage},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_WsMessage_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_WsMessage_spec = {
   "cymongoose._mongoose.WsMessage",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_10pymongoose_9_mongoose_WsMessage_slots,
+  __pyx_type_10cymongoose_9_mongoose_WsMessage_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_WsMessage = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_WsMessage = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""WsMessage", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_WsMessage, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_WsMessage, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -25496,9 +25496,9 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_WsMessage = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_WsMessage, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_WsMessage, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_10pymongoose_9_mongoose_WsMessage, /*tp_getset*/
+  __pyx_getsets_10cymongoose_9_mongoose_WsMessage, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -25508,7 +25508,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_WsMessage = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_WsMessage, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_WsMessage, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -25540,22 +25540,22 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_WsMessage = {
   #endif
 };
 #endif
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_MqttMessage __pyx_vtable_10pymongoose_9_mongoose_MqttMessage;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_MqttMessage __pyx_vtable_10cymongoose_9_mongoose_MqttMessage;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_MqttMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_MqttMessage(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_MqttMessage;
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_MqttMessage;
   return o;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage(PyObject *o) {
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_MqttMessage(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_MqttMessage) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -25574,74 +25574,74 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage(PyObject *o) {
   #endif
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_topic(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_5topic_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_topic(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_5topic_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_data(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4data_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_data(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4data_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_text(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_4text_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_text(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_4text_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_id(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_2id_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_id(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_2id_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_cmd(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_cmd(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3cmd_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_qos(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3qos_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_qos(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3qos_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_ack(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3ack_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_ack(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3ack_1__get__(o);
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_MqttMessage[] = {
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11MqttMessage___reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_11MqttMessage_2__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_MqttMessage[] = {
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11MqttMessage___reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_11MqttMessage_2__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_10pymongoose_9_mongoose_MqttMessage[] = {
-  {"topic", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_topic, 0, 0, 0},
-  {"data", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_data, 0, 0, 0},
-  {"text", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_text, 0, 0, 0},
-  {"id", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_id, 0, 0, 0},
-  {"cmd", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_cmd, 0, 0, 0},
-  {"qos", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_qos, 0, 0, 0},
-  {"ack", __pyx_getprop_10pymongoose_9_mongoose_11MqttMessage_ack, 0, 0, 0},
+static struct PyGetSetDef __pyx_getsets_10cymongoose_9_mongoose_MqttMessage[] = {
+  {"topic", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_topic, 0, 0, 0},
+  {"data", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_data, 0, 0, 0},
+  {"text", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_text, 0, 0, 0},
+  {"id", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_id, 0, 0, 0},
+  {"cmd", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_cmd, 0, 0, 0},
+  {"qos", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_qos, 0, 0, 0},
+  {"ack", __pyx_getprop_10cymongoose_9_mongoose_11MqttMessage_ack, 0, 0, 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_MqttMessage_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_MqttMessage_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_MqttMessage},
   {Py_tp_doc, (void *)PyDoc_STR("View over an incoming MQTT message.")},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_MqttMessage},
-  {Py_tp_getset, (void *)__pyx_getsets_10pymongoose_9_mongoose_MqttMessage},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_MqttMessage},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_MqttMessage},
+  {Py_tp_getset, (void *)__pyx_getsets_10cymongoose_9_mongoose_MqttMessage},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_MqttMessage},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_MqttMessage_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_MqttMessage_spec = {
   "cymongoose._mongoose.MqttMessage",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_10pymongoose_9_mongoose_MqttMessage_slots,
+  __pyx_type_10cymongoose_9_mongoose_MqttMessage_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_MqttMessage = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_MqttMessage = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""MqttMessage", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_MqttMessage, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_MqttMessage, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -25664,9 +25664,9 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_MqttMessage = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_MqttMessage, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_MqttMessage, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_10pymongoose_9_mongoose_MqttMessage, /*tp_getset*/
+  __pyx_getsets_10cymongoose_9_mongoose_MqttMessage, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -25676,7 +25676,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_MqttMessage = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_MqttMessage, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_MqttMessage, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -25709,12 +25709,12 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_MqttMessage = {
 };
 #endif
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_TlsOpts(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_TlsOpts(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)o);
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)o);
   p->ca = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->cert = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->key = ((PyObject*)Py_None); Py_INCREF(Py_None);
@@ -25722,11 +25722,11 @@ static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_TlsOpts(PyTypeObject *t, C
   return o;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts(PyObject *o) {
-  struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *p = (struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts *)o;
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_TlsOpts(PyObject *o) {
+  struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *p = (struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_TlsOpts) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -25749,65 +25749,65 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts(PyObject *o) {
   #endif
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_ca(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_ca(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_ca(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_ca(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_3__set__(o, v);
   }
   else {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_2ca_5__del__(o);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_2ca_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_cert(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_cert(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_cert(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_cert(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_3__set__(o, v);
   }
   else {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4cert_5__del__(o);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4cert_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_key(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_key(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_key(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_key(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_3__set__(o, v);
   }
   else {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3key_5__del__(o);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3key_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_name(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_name(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_name(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_name(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_3__set__(o, v);
   }
   else {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_4name_5__del__(o);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_4name_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_skip_verification(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_skip_verification(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_skip_verification(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_skip_verification(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_17skip_verification_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -25815,45 +25815,45 @@ static int __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_skip_verification(PyOb
   }
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_TlsOpts[] = {
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7TlsOpts_2__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7TlsOpts_4__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_TlsOpts[] = {
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7TlsOpts_2__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7TlsOpts_4__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_10pymongoose_9_mongoose_TlsOpts[] = {
-  {"ca", __pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_ca, __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_ca, PyDoc_STR("ca: bytes"), 0},
-  {"cert", __pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_cert, __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_cert, PyDoc_STR("cert: bytes"), 0},
-  {"key", __pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_key, __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_key, PyDoc_STR("key: bytes"), 0},
-  {"name", __pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_name, __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_name, PyDoc_STR("name: bytes"), 0},
-  {"skip_verification", __pyx_getprop_10pymongoose_9_mongoose_7TlsOpts_skip_verification, __pyx_setprop_10pymongoose_9_mongoose_7TlsOpts_skip_verification, PyDoc_STR("skip_verification: 'bool'"), 0},
+static struct PyGetSetDef __pyx_getsets_10cymongoose_9_mongoose_TlsOpts[] = {
+  {"ca", __pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_ca, __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_ca, PyDoc_STR("ca: bytes"), 0},
+  {"cert", __pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_cert, __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_cert, PyDoc_STR("cert: bytes"), 0},
+  {"key", __pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_key, __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_key, PyDoc_STR("key: bytes"), 0},
+  {"name", __pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_name, __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_name, PyDoc_STR("name: bytes"), 0},
+  {"skip_verification", __pyx_getprop_10cymongoose_9_mongoose_7TlsOpts_skip_verification, __pyx_setprop_10cymongoose_9_mongoose_7TlsOpts_skip_verification, PyDoc_STR("skip_verification: 'bool'"), 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_TlsOpts_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_TlsOpts_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_TlsOpts},
   {Py_tp_doc, (void *)PyDoc_STR("TlsOpts(ca=None, cert=None, key=None, name=None, skip_verification=False)\n\nTLS configuration options for secure connections.\n\nUsed to configure TLS/SSL settings for HTTPS, WSS, MQTTS, etc.")},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_TlsOpts},
-  {Py_tp_getset, (void *)__pyx_getsets_10pymongoose_9_mongoose_TlsOpts},
-  {Py_tp_init, (void *)__pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_TlsOpts},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_TlsOpts},
+  {Py_tp_getset, (void *)__pyx_getsets_10cymongoose_9_mongoose_TlsOpts},
+  {Py_tp_init, (void *)__pyx_pw_10cymongoose_9_mongoose_7TlsOpts_1__init__},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_TlsOpts},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_TlsOpts_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_TlsOpts_spec = {
   "cymongoose._mongoose.TlsOpts",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE,
-  __pyx_type_10pymongoose_9_mongoose_TlsOpts_slots,
+  __pyx_type_10cymongoose_9_mongoose_TlsOpts_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_TlsOpts = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_TlsOpts = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""TlsOpts", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_TlsOpts), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_TlsOpts), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_TlsOpts, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_TlsOpts, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -25876,9 +25876,9 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_TlsOpts = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_TlsOpts, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_TlsOpts, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_10pymongoose_9_mongoose_TlsOpts, /*tp_getset*/
+  __pyx_getsets_10cymongoose_9_mongoose_TlsOpts, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -25886,9 +25886,9 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_TlsOpts = {
   #if !CYTHON_USE_TYPE_SPECS
   0, /*tp_dictoffset*/
   #endif
-  __pyx_pw_10pymongoose_9_mongoose_7TlsOpts_1__init__, /*tp_init*/
+  __pyx_pw_10cymongoose_9_mongoose_7TlsOpts_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_TlsOpts, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_TlsOpts, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -25920,30 +25920,30 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_TlsOpts = {
   #endif
 };
 #endif
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Connection __pyx_vtable_10pymongoose_9_mongoose_Connection;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Connection __pyx_vtable_10cymongoose_9_mongoose_Connection;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Connection(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Connection(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_Connection *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_Connection;
-  p->_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)Py_None); Py_INCREF(Py_None);
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_Connection *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_Connection;
+  p->_manager = ((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)Py_None); Py_INCREF(Py_None);
   p->_handler = Py_None; Py_INCREF(Py_None);
   p->_userdata = Py_None; Py_INCREF(Py_None);
-  if (unlikely(__pyx_pw_10pymongoose_9_mongoose_10Connection_1__cinit__(o, __pyx_mstate_global->__pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_10cymongoose_9_mongoose_10Connection_1__cinit__(o, __pyx_mstate_global->__pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Connection(PyObject *o) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10pymongoose_9_mongoose_Connection *)o;
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_Connection(PyObject *o) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10cymongoose_9_mongoose_Connection *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_Connection) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_Connection) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -25966,9 +25966,9 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Connection(PyObject *o) {
   #endif
 }
 
-static int __pyx_tp_traverse_10pymongoose_9_mongoose_Connection(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_10cymongoose_9_mongoose_Connection(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10pymongoose_9_mongoose_Connection *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10cymongoose_9_mongoose_Connection *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -25985,11 +25985,11 @@ static int __pyx_tp_traverse_10pymongoose_9_mongoose_Connection(PyObject *o, vis
   return 0;
 }
 
-static int __pyx_tp_clear_10pymongoose_9_mongoose_Connection(PyObject *o) {
+static int __pyx_tp_clear_10cymongoose_9_mongoose_Connection(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_10pymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10pymongoose_9_mongoose_Connection *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Connection *p = (struct __pyx_obj_10cymongoose_9_mongoose_Connection *)o;
   tmp = ((PyObject*)p->_manager);
-  p->_manager = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)Py_None); Py_INCREF(Py_None);
+  p->_manager = ((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_handler);
   p->_handler = Py_None; Py_INCREF(Py_None);
@@ -26000,17 +26000,17 @@ static int __pyx_tp_clear_10pymongoose_9_mongoose_Connection(PyObject *o) {
   return 0;
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_handler(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_7handler_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_handler(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_7handler_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_userdata(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_userdata(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_1__get__(o);
 }
 
-static int __pyx_setprop_10pymongoose_9_mongoose_10Connection_userdata(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_10cymongoose_9_mongoose_10Connection_userdata(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_10pymongoose_9_mongoose_10Connection_8userdata_3__set__(o, v);
+    return __pyx_pw_10cymongoose_9_mongoose_10Connection_8userdata_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -26018,159 +26018,159 @@ static int __pyx_setprop_10pymongoose_9_mongoose_10Connection_userdata(PyObject 
   }
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_id(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_2id_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_id(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_2id_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_listening(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_12is_listening_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_listening(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_12is_listening_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_closing(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_10is_closing_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_closing(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_10is_closing_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_local_addr(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_10local_addr_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_local_addr(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_10local_addr_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_remote_addr(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_11remote_addr_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_remote_addr(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_11remote_addr_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_client(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_9is_client_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_client(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_9is_client_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_tls(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_6is_tls_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_tls(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_6is_tls_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_udp(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_6is_udp_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_udp(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_6is_udp_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_websocket(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_12is_websocket_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_websocket(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_12is_websocket_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_readable(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_11is_readable_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_readable(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_11is_readable_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_writable(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_11is_writable_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_writable(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_11is_writable_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_full(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_7is_full_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_full(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_7is_full_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_is_draining(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_11is_draining_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_is_draining(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_11is_draining_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_recv_len(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_8recv_len_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_recv_len(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_8recv_len_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_send_len(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_8send_len_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_send_len(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_8send_len_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_recv_size(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_9recv_size_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_recv_size(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_9recv_size_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_10pymongoose_9_mongoose_10Connection_send_size(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_10pymongoose_9_mongoose_10Connection_9send_size_1__get__(o);
+static PyObject *__pyx_getprop_10cymongoose_9_mongoose_10Connection_send_size(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_10cymongoose_9_mongoose_10Connection_9send_size_1__get__(o);
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_Connection[] = {
-  {"set_handler", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_3set_handler, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_2set_handler},
-  {"send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_5send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_4send},
-  {"reply", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_7reply, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_6reply},
-  {"serve_dir", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_8serve_dir},
-  {"serve_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_11serve_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_10serve_file},
-  {"ws_upgrade", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_12ws_upgrade},
-  {"ws_send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_15ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_14ws_send},
-  {"mqtt_pub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_16mqtt_pub},
-  {"mqtt_sub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_18mqtt_sub},
-  {"mqtt_ping", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_20mqtt_ping},
-  {"mqtt_pong", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_22mqtt_pong},
-  {"mqtt_disconnect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_24mqtt_disconnect},
-  {"error", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_27error, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_26error},
-  {"recv_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_29recv_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_28recv_data},
-  {"send_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_31send_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_30send_data},
-  {"resolve", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_33resolve, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_32resolve},
-  {"resolve_cancel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_34resolve_cancel},
-  {"http_basic_auth", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_36http_basic_auth},
-  {"sntp_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_38sntp_request},
-  {"http_chunk", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_40http_chunk},
-  {"http_sse", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_43http_sse, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_42http_sse},
-  {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_45close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_44close},
-  {"drain", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_47drain, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_46drain},
-  {"tls_init", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_49tls_init, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_48tls_init},
-  {"tls_free", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_51tls_free, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_50tls_free},
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_54__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_10Connection_56__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_Connection[] = {
+  {"set_handler", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_3set_handler, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_2set_handler},
+  {"send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_5send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_4send},
+  {"reply", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_7reply, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_6reply},
+  {"serve_dir", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_8serve_dir},
+  {"serve_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_11serve_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_10serve_file},
+  {"ws_upgrade", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_12ws_upgrade},
+  {"ws_send", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_15ws_send, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_14ws_send},
+  {"mqtt_pub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_16mqtt_pub},
+  {"mqtt_sub", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_18mqtt_sub},
+  {"mqtt_ping", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_20mqtt_ping},
+  {"mqtt_pong", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_22mqtt_pong},
+  {"mqtt_disconnect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_24mqtt_disconnect},
+  {"error", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_27error, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_26error},
+  {"recv_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_29recv_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_28recv_data},
+  {"send_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_31send_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_30send_data},
+  {"resolve", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_33resolve, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_32resolve},
+  {"resolve_cancel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_34resolve_cancel},
+  {"http_basic_auth", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_36http_basic_auth},
+  {"sntp_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_38sntp_request},
+  {"http_chunk", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_40http_chunk},
+  {"http_sse", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_43http_sse, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_42http_sse},
+  {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_45close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_44close},
+  {"drain", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_47drain, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_46drain},
+  {"tls_init", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_49tls_init, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_48tls_init},
+  {"tls_free", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_51tls_free, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_50tls_free},
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_54__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_10Connection_56__setstate_cython__},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_10pymongoose_9_mongoose_Connection[] = {
-  {"handler", __pyx_getprop_10pymongoose_9_mongoose_10Connection_handler, 0, 0, 0},
-  {"userdata", __pyx_getprop_10pymongoose_9_mongoose_10Connection_userdata, __pyx_setprop_10pymongoose_9_mongoose_10Connection_userdata, 0, 0},
-  {"id", __pyx_getprop_10pymongoose_9_mongoose_10Connection_id, 0, PyDoc_STR("Return connection ID."), 0},
-  {"is_listening", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_listening, 0, 0, 0},
-  {"is_closing", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_closing, 0, 0, 0},
-  {"local_addr", __pyx_getprop_10pymongoose_9_mongoose_10Connection_local_addr, 0, PyDoc_STR("Return local address as (ip, port, is_ipv6) tuple."), 0},
-  {"remote_addr", __pyx_getprop_10pymongoose_9_mongoose_10Connection_remote_addr, 0, PyDoc_STR("Return remote address as (ip, port, is_ipv6) tuple."), 0},
-  {"is_client", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_client, 0, PyDoc_STR("Return True if this is a client connection."), 0},
-  {"is_tls", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_tls, 0, PyDoc_STR("Return True if this connection uses TLS."), 0},
-  {"is_udp", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_udp, 0, PyDoc_STR("Return True if this is a UDP connection."), 0},
-  {"is_websocket", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_websocket, 0, PyDoc_STR("Return True if this is a WebSocket connection."), 0},
-  {"is_readable", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_readable, 0, PyDoc_STR("Return True if connection has data to read."), 0},
-  {"is_writable", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_writable, 0, PyDoc_STR("Return True if connection can be written to."), 0},
-  {"is_full", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_full, 0, PyDoc_STR("Return True if receive buffer is full (backpressure - stop reads)."), 0},
-  {"is_draining", __pyx_getprop_10pymongoose_9_mongoose_10Connection_is_draining, 0, PyDoc_STR("Return True if connection is draining (sending remaining data before close)."), 0},
-  {"recv_len", __pyx_getprop_10pymongoose_9_mongoose_10Connection_recv_len, 0, PyDoc_STR("Return number of bytes in receive buffer."), 0},
-  {"send_len", __pyx_getprop_10pymongoose_9_mongoose_10Connection_send_len, 0, PyDoc_STR("Return number of bytes in send buffer."), 0},
-  {"recv_size", __pyx_getprop_10pymongoose_9_mongoose_10Connection_recv_size, 0, PyDoc_STR("Return total allocated size of receive buffer."), 0},
-  {"send_size", __pyx_getprop_10pymongoose_9_mongoose_10Connection_send_size, 0, PyDoc_STR("Return total allocated size of send buffer."), 0},
+static struct PyGetSetDef __pyx_getsets_10cymongoose_9_mongoose_Connection[] = {
+  {"handler", __pyx_getprop_10cymongoose_9_mongoose_10Connection_handler, 0, 0, 0},
+  {"userdata", __pyx_getprop_10cymongoose_9_mongoose_10Connection_userdata, __pyx_setprop_10cymongoose_9_mongoose_10Connection_userdata, 0, 0},
+  {"id", __pyx_getprop_10cymongoose_9_mongoose_10Connection_id, 0, PyDoc_STR("Return connection ID."), 0},
+  {"is_listening", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_listening, 0, 0, 0},
+  {"is_closing", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_closing, 0, 0, 0},
+  {"local_addr", __pyx_getprop_10cymongoose_9_mongoose_10Connection_local_addr, 0, PyDoc_STR("Return local address as (ip, port, is_ipv6) tuple."), 0},
+  {"remote_addr", __pyx_getprop_10cymongoose_9_mongoose_10Connection_remote_addr, 0, PyDoc_STR("Return remote address as (ip, port, is_ipv6) tuple."), 0},
+  {"is_client", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_client, 0, PyDoc_STR("Return True if this is a client connection."), 0},
+  {"is_tls", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_tls, 0, PyDoc_STR("Return True if this connection uses TLS."), 0},
+  {"is_udp", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_udp, 0, PyDoc_STR("Return True if this is a UDP connection."), 0},
+  {"is_websocket", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_websocket, 0, PyDoc_STR("Return True if this is a WebSocket connection."), 0},
+  {"is_readable", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_readable, 0, PyDoc_STR("Return True if connection has data to read."), 0},
+  {"is_writable", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_writable, 0, PyDoc_STR("Return True if connection can be written to."), 0},
+  {"is_full", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_full, 0, PyDoc_STR("Return True if receive buffer is full (backpressure - stop reads)."), 0},
+  {"is_draining", __pyx_getprop_10cymongoose_9_mongoose_10Connection_is_draining, 0, PyDoc_STR("Return True if connection is draining (sending remaining data before close)."), 0},
+  {"recv_len", __pyx_getprop_10cymongoose_9_mongoose_10Connection_recv_len, 0, PyDoc_STR("Return number of bytes in receive buffer."), 0},
+  {"send_len", __pyx_getprop_10cymongoose_9_mongoose_10Connection_send_len, 0, PyDoc_STR("Return number of bytes in send buffer."), 0},
+  {"recv_size", __pyx_getprop_10cymongoose_9_mongoose_10Connection_recv_size, 0, PyDoc_STR("Return total allocated size of receive buffer."), 0},
+  {"send_size", __pyx_getprop_10cymongoose_9_mongoose_10Connection_send_size, 0, PyDoc_STR("Return total allocated size of send buffer."), 0},
   {0, 0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Connection_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_Connection},
-  {Py_tp_repr, (void *)__pyx_pw_10pymongoose_9_mongoose_10Connection_53__repr__},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_Connection_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_Connection},
+  {Py_tp_repr, (void *)__pyx_pw_10cymongoose_9_mongoose_10Connection_53__repr__},
   {Py_tp_doc, (void *)PyDoc_STR("Wrapper around mg_connection pointers.")},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_10pymongoose_9_mongoose_Connection},
-  {Py_tp_clear, (void *)__pyx_tp_clear_10pymongoose_9_mongoose_Connection},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_Connection},
-  {Py_tp_getset, (void *)__pyx_getsets_10pymongoose_9_mongoose_Connection},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_Connection},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_10cymongoose_9_mongoose_Connection},
+  {Py_tp_clear, (void *)__pyx_tp_clear_10cymongoose_9_mongoose_Connection},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_Connection},
+  {Py_tp_getset, (void *)__pyx_getsets_10cymongoose_9_mongoose_Connection},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_Connection},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Connection_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_Connection_spec = {
   "cymongoose._mongoose.Connection",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Connection),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Connection),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_10pymongoose_9_mongoose_Connection_slots,
+  __pyx_type_10cymongoose_9_mongoose_Connection_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Connection = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_Connection = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""Connection", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Connection), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Connection), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_Connection, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_Connection, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
   0, /*tp_as_async*/
-  __pyx_pw_10pymongoose_9_mongoose_10Connection_53__repr__, /*tp_repr*/
+  __pyx_pw_10cymongoose_9_mongoose_10Connection_53__repr__, /*tp_repr*/
   0, /*tp_as_number*/
   0, /*tp_as_sequence*/
   0, /*tp_as_mapping*/
@@ -26182,15 +26182,15 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Connection = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   PyDoc_STR("Wrapper around mg_connection pointers."), /*tp_doc*/
-  __pyx_tp_traverse_10pymongoose_9_mongoose_Connection, /*tp_traverse*/
-  __pyx_tp_clear_10pymongoose_9_mongoose_Connection, /*tp_clear*/
+  __pyx_tp_traverse_10cymongoose_9_mongoose_Connection, /*tp_traverse*/
+  __pyx_tp_clear_10cymongoose_9_mongoose_Connection, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_Connection, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_Connection, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_10pymongoose_9_mongoose_Connection, /*tp_getset*/
+  __pyx_getsets_10cymongoose_9_mongoose_Connection, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -26200,7 +26200,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Connection = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_Connection, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_Connection, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -26232,29 +26232,29 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Connection = {
   #endif
 };
 #endif
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Manager __pyx_vtable_10pymongoose_9_mongoose_Manager;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Manager __pyx_vtable_10cymongoose_9_mongoose_Manager;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Manager(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Manager(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_Manager *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_Manager;
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_Manager *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_Manager;
   p->_default_handler = Py_None; Py_INCREF(Py_None);
   p->_connections = ((PyObject*)Py_None); Py_INCREF(Py_None);
-  if (unlikely(__pyx_pw_10pymongoose_9_mongoose_7Manager_1__cinit__(o, a, k) < 0)) goto bad;
+  if (unlikely(__pyx_pw_10cymongoose_9_mongoose_7Manager_1__cinit__(o, a, k) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager(PyObject *o) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10pymongoose_9_mongoose_Manager *)o;
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_Manager(PyObject *o) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10cymongoose_9_mongoose_Manager *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_Manager) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -26264,7 +26264,7 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_10pymongoose_9_mongoose_7Manager_3__dealloc__(o);
+    __pyx_pw_10cymongoose_9_mongoose_7Manager_3__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
@@ -26284,9 +26284,9 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager(PyObject *o) {
   #endif
 }
 
-static int __pyx_tp_traverse_10pymongoose_9_mongoose_Manager(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_10cymongoose_9_mongoose_Manager(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10pymongoose_9_mongoose_Manager *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10cymongoose_9_mongoose_Manager *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -26300,9 +26300,9 @@ static int __pyx_tp_traverse_10pymongoose_9_mongoose_Manager(PyObject *o, visitp
   return 0;
 }
 
-static int __pyx_tp_clear_10pymongoose_9_mongoose_Manager(PyObject *o) {
+static int __pyx_tp_clear_10cymongoose_9_mongoose_Manager(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_10pymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10pymongoose_9_mongoose_Manager *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Manager *p = (struct __pyx_obj_10cymongoose_9_mongoose_Manager *)o;
   tmp = ((PyObject*)p->_default_handler);
   p->_default_handler = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -26312,45 +26312,45 @@ static int __pyx_tp_clear_10pymongoose_9_mongoose_Manager(PyObject *o) {
   return 0;
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_Manager[] = {
-  {"poll", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_5poll, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_4poll},
-  {"listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_7listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_6listen},
-  {"connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_9connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_8connect},
-  {"mqtt_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_10mqtt_connect},
-  {"mqtt_listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_12mqtt_listen},
-  {"sntp_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_14sntp_connect},
-  {"wakeup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_17wakeup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_16wakeup},
-  {"timer_add", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_19timer_add, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_18timer_add},
-  {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_21close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_20close},
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_22__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_7Manager_24__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_Manager[] = {
+  {"poll", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_5poll, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_4poll},
+  {"listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_7listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_6listen},
+  {"connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_9connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_8connect},
+  {"mqtt_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_10mqtt_connect},
+  {"mqtt_listen", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_12mqtt_listen},
+  {"sntp_connect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_14sntp_connect},
+  {"wakeup", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_17wakeup, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_16wakeup},
+  {"timer_add", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_19timer_add, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_18timer_add},
+  {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_21close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_20close},
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_22__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_7Manager_24__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Manager_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_Manager},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_Manager_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_Manager},
   {Py_tp_doc, (void *)PyDoc_STR("Manage Mongoose event loop and provide Python callbacks.")},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_10pymongoose_9_mongoose_Manager},
-  {Py_tp_clear, (void *)__pyx_tp_clear_10pymongoose_9_mongoose_Manager},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_Manager},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_Manager},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_10cymongoose_9_mongoose_Manager},
+  {Py_tp_clear, (void *)__pyx_tp_clear_10cymongoose_9_mongoose_Manager},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_Manager},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_Manager},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Manager_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_Manager_spec = {
   "cymongoose._mongoose.Manager",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Manager),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Manager),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_10pymongoose_9_mongoose_Manager_slots,
+  __pyx_type_10cymongoose_9_mongoose_Manager_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Manager = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_Manager = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""Manager", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Manager), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Manager), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_Manager, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_Manager, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -26367,13 +26367,13 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Manager = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   PyDoc_STR("Manage Mongoose event loop and provide Python callbacks."), /*tp_doc*/
-  __pyx_tp_traverse_10pymongoose_9_mongoose_Manager, /*tp_traverse*/
-  __pyx_tp_clear_10pymongoose_9_mongoose_Manager, /*tp_clear*/
+  __pyx_tp_traverse_10cymongoose_9_mongoose_Manager, /*tp_traverse*/
+  __pyx_tp_clear_10cymongoose_9_mongoose_Manager, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_Manager, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_Manager, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -26385,7 +26385,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Manager = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_Manager, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_Manager, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -26417,28 +26417,28 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Manager = {
   #endif
 };
 #endif
-static struct __pyx_vtabstruct_10pymongoose_9_mongoose_Timer __pyx_vtable_10pymongoose_9_mongoose_Timer;
+static struct __pyx_vtabstruct_10cymongoose_9_mongoose_Timer __pyx_vtable_10cymongoose_9_mongoose_Timer;
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose_Timer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Timer *p;
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose_Timer(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Timer *p;
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_10pymongoose_9_mongoose_Timer *)o);
-  p->__pyx_vtab = __pyx_vtabptr_10pymongoose_9_mongoose_Timer;
+  p = ((struct __pyx_obj_10cymongoose_9_mongoose_Timer *)o);
+  p->__pyx_vtab = __pyx_vtabptr_10cymongoose_9_mongoose_Timer;
   p->_callback = Py_None; Py_INCREF(Py_None);
-  if (unlikely(__pyx_pw_10pymongoose_9_mongoose_5Timer_1__cinit__(o, __pyx_mstate_global->__pyx_empty_tuple, NULL) < 0)) goto bad;
+  if (unlikely(__pyx_pw_10cymongoose_9_mongoose_5Timer_1__cinit__(o, __pyx_mstate_global->__pyx_empty_tuple, NULL) < 0)) goto bad;
   return o;
   bad:
   Py_DECREF(o); o = 0;
   return NULL;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer(PyObject *o) {
-  struct __pyx_obj_10pymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10pymongoose_9_mongoose_Timer *)o;
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose_Timer(PyObject *o) {
+  struct __pyx_obj_10cymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10cymongoose_9_mongoose_Timer *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose_Timer) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -26448,7 +26448,7 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) + 1);
-    __pyx_pw_10pymongoose_9_mongoose_5Timer_3__dealloc__(o);
+    __pyx_pw_10cymongoose_9_mongoose_5Timer_3__dealloc__(o);
     __Pyx_SET_REFCNT(o, Py_REFCNT(o) - 1);
     PyErr_Restore(etype, eval, etb);
   }
@@ -26467,9 +26467,9 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer(PyObject *o) {
   #endif
 }
 
-static int __pyx_tp_traverse_10pymongoose_9_mongoose_Timer(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_10cymongoose_9_mongoose_Timer(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_10pymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10pymongoose_9_mongoose_Timer *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10cymongoose_9_mongoose_Timer *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -26480,45 +26480,45 @@ static int __pyx_tp_traverse_10pymongoose_9_mongoose_Timer(PyObject *o, visitpro
   return 0;
 }
 
-static int __pyx_tp_clear_10pymongoose_9_mongoose_Timer(PyObject *o) {
+static int __pyx_tp_clear_10cymongoose_9_mongoose_Timer(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_10pymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10pymongoose_9_mongoose_Timer *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose_Timer *p = (struct __pyx_obj_10cymongoose_9_mongoose_Timer *)o;
   tmp = ((PyObject*)p->_callback);
   p->_callback = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyMethodDef __pyx_methods_10pymongoose_9_mongoose_Timer[] = {
-  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_5Timer_4__reduce_cython__},
-  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10pymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10pymongoose_9_mongoose_5Timer_6__setstate_cython__},
+static PyMethodDef __pyx_methods_10cymongoose_9_mongoose_Timer[] = {
+  {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_5Timer_4__reduce_cython__},
+  {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10cymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10cymongoose_9_mongoose_5Timer_6__setstate_cython__},
   {0, 0, 0, 0}
 };
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose_Timer_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose_Timer},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose_Timer_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose_Timer},
   {Py_tp_doc, (void *)PyDoc_STR("Wrapper for Mongoose timer.\n\n    Note: The underlying mg_timer is automatically freed by Mongoose when it completes\n    (via MG_TIMER_AUTODELETE flag). This class only manages the Python callback reference.\n    ")},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_10pymongoose_9_mongoose_Timer},
-  {Py_tp_clear, (void *)__pyx_tp_clear_10pymongoose_9_mongoose_Timer},
-  {Py_tp_methods, (void *)__pyx_methods_10pymongoose_9_mongoose_Timer},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose_Timer},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_10cymongoose_9_mongoose_Timer},
+  {Py_tp_clear, (void *)__pyx_tp_clear_10cymongoose_9_mongoose_Timer},
+  {Py_tp_methods, (void *)__pyx_methods_10cymongoose_9_mongoose_Timer},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose_Timer},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose_Timer_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose_Timer_spec = {
   "cymongoose._mongoose.Timer",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Timer),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Timer),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_10pymongoose_9_mongoose_Timer_slots,
+  __pyx_type_10cymongoose_9_mongoose_Timer_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Timer = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose_Timer = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""Timer", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose_Timer), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose_Timer), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose_Timer, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose_Timer, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -26535,13 +26535,13 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Timer = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   PyDoc_STR("Wrapper for Mongoose timer.\n\n    Note: The underlying mg_timer is automatically freed by Mongoose when it completes\n    (via MG_TIMER_AUTODELETE flag). This class only manages the Python callback reference.\n    "), /*tp_doc*/
-  __pyx_tp_traverse_10pymongoose_9_mongoose_Timer, /*tp_traverse*/
-  __pyx_tp_clear_10pymongoose_9_mongoose_Timer, /*tp_clear*/
+  __pyx_tp_traverse_10cymongoose_9_mongoose_Timer, /*tp_traverse*/
+  __pyx_tp_clear_10cymongoose_9_mongoose_Timer, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_10pymongoose_9_mongoose_Timer, /*tp_methods*/
+  __pyx_methods_10cymongoose_9_mongoose_Timer, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -26553,7 +26553,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Timer = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose_Timer, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose_Timer, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -26586,16 +26586,16 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose_Timer = {
 };
 #endif
 
-static PyObject *__pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_10cymongoose_9_mongoose___pyx_scope_struct__genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_10pymongoose_9_mongoose___pyx_scope_struct__genexpr > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_10cymongoose_9_mongoose___pyx_scope_struct__genexpr > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, sizeof(struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr))))
   {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_10pymongoose_9_mongoose___pyx_scope_struct__genexpr[--__pyx_mstate_global->__pyx_freecount_10pymongoose_9_mongoose___pyx_scope_struct__genexpr];
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_10cymongoose_9_mongoose___pyx_scope_struct__genexpr[--__pyx_mstate_global->__pyx_freecount_10cymongoose_9_mongoose___pyx_scope_struct__genexpr];
     #if CYTHON_USE_TYPE_SPECS
     Py_DECREF(Py_TYPE(o));
     #endif
-    memset(o, 0, sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr));
+    memset(o, 0, sizeof(struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr));
     #if CYTHON_COMPILING_IN_LIMITED_API
     (void) PyObject_Init(o, t);
     #else
@@ -26611,11 +26611,11 @@ static PyObject *__pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexp
   return o;
 }
 
-static void __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr(PyObject *o) {
-  struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *p = (struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)o;
+static void __pyx_tp_dealloc_10cymongoose_9_mongoose___pyx_scope_struct__genexpr(PyObject *o) {
+  struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *p = (struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_10cymongoose_9_mongoose___pyx_scope_struct__genexpr) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -26625,9 +26625,9 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr
   Py_CLEAR(p->__pyx_v_k);
   Py_CLEAR(p->__pyx_v_v);
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_10pymongoose_9_mongoose___pyx_scope_struct__genexpr < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_10cymongoose_9_mongoose___pyx_scope_struct__genexpr < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, sizeof(struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr))))
   {
-    __pyx_mstate_global->__pyx_freelist_10pymongoose_9_mongoose___pyx_scope_struct__genexpr[__pyx_mstate_global->__pyx_freecount_10pymongoose_9_mongoose___pyx_scope_struct__genexpr++] = ((struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)o);
+    __pyx_mstate_global->__pyx_freelist_10cymongoose_9_mongoose___pyx_scope_struct__genexpr[__pyx_mstate_global->__pyx_freecount_10cymongoose_9_mongoose___pyx_scope_struct__genexpr++] = ((struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)o);
   } else
   #endif
   {
@@ -26646,9 +26646,9 @@ static void __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr
   }
 }
 
-static int __pyx_tp_traverse_10pymongoose_9_mongoose___pyx_scope_struct__genexpr(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_10cymongoose_9_mongoose___pyx_scope_struct__genexpr(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *p = (struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr *)o;
+  struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *p = (struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -26665,27 +26665,27 @@ static int __pyx_tp_traverse_10pymongoose_9_mongoose___pyx_scope_struct__genexpr
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_10pymongoose_9_mongoose___pyx_scope_struct__genexpr},
-  {Py_tp_new, (void *)__pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexpr},
+static PyType_Slot __pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_10cymongoose_9_mongoose___pyx_scope_struct__genexpr},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_10cymongoose_9_mongoose___pyx_scope_struct__genexpr},
+  {Py_tp_new, (void *)__pyx_tp_new_10cymongoose_9_mongoose___pyx_scope_struct__genexpr},
   {0, 0},
 };
-static PyType_Spec __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_spec = {
+static PyType_Spec __pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr_spec = {
   "cymongoose._mongoose.__pyx_scope_struct__genexpr",
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr),
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_slots,
+  __pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr = {
+static PyTypeObject __pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr = {
   PyVarObject_HEAD_INIT(0, 0)
   "cymongoose._mongoose.""__pyx_scope_struct__genexpr", /*tp_name*/
-  sizeof(struct __pyx_obj_10pymongoose_9_mongoose___pyx_scope_struct__genexpr), /*tp_basicsize*/
+  sizeof(struct __pyx_obj_10cymongoose_9_mongoose___pyx_scope_struct__genexpr), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_dealloc*/
+  __pyx_tp_dealloc_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -26702,7 +26702,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genex
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_traverse*/
+  __pyx_tp_traverse_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -26720,7 +26720,7 @@ static PyTypeObject __pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genex
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_10pymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_new*/
+  __pyx_tp_new_10cymongoose_9_mongoose___pyx_scope_struct__genexpr, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -26806,208 +26806,208 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  __pyx_vtabptr_10pymongoose_9_mongoose_HttpMessage = &__pyx_vtable_10pymongoose_9_mongoose_HttpMessage;
-  __pyx_vtable_10pymongoose_9_mongoose_HttpMessage._assign = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_HttpMessage *, struct mg_http_message *))__pyx_f_10pymongoose_9_mongoose_11HttpMessage__assign;
+  __pyx_vtabptr_10cymongoose_9_mongoose_HttpMessage = &__pyx_vtable_10cymongoose_9_mongoose_HttpMessage;
+  __pyx_vtable_10cymongoose_9_mongoose_HttpMessage._assign = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_HttpMessage *, struct mg_http_message *))__pyx_f_10cymongoose_9_mongoose_11HttpMessage__assign;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_HttpMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage)) __PYX_ERR(0, 235, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_HttpMessage_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_HttpMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage)) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_HttpMessage_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage = &__pyx_type_10pymongoose_9_mongoose_HttpMessage;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage = &__pyx_type_10cymongoose_9_mongoose_HttpMessage;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_vtabptr_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_HttpMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
-  __pyx_vtabptr_10pymongoose_9_mongoose_WsMessage = &__pyx_vtable_10pymongoose_9_mongoose_WsMessage;
-  __pyx_vtable_10pymongoose_9_mongoose_WsMessage._assign = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_WsMessage *, struct mg_ws_message *))__pyx_f_10pymongoose_9_mongoose_9WsMessage__assign;
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_vtabptr_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_HttpMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage) < (0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_vtabptr_10cymongoose_9_mongoose_WsMessage = &__pyx_vtable_10cymongoose_9_mongoose_WsMessage;
+  __pyx_vtable_10cymongoose_9_mongoose_WsMessage._assign = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_WsMessage *, struct mg_ws_message *))__pyx_f_10cymongoose_9_mongoose_9WsMessage__assign;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_WsMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage)) __PYX_ERR(0, 350, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_WsMessage_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_WsMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_WsMessage_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage = &__pyx_type_10pymongoose_9_mongoose_WsMessage;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage = &__pyx_type_10cymongoose_9_mongoose_WsMessage;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage, __pyx_vtabptr_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_WsMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
-  __pyx_vtabptr_10pymongoose_9_mongoose_MqttMessage = &__pyx_vtable_10pymongoose_9_mongoose_MqttMessage;
-  __pyx_vtable_10pymongoose_9_mongoose_MqttMessage._assign = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_MqttMessage *, struct mg_mqtt_message *))__pyx_f_10pymongoose_9_mongoose_11MqttMessage__assign;
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage, __pyx_vtabptr_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_WsMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_WsMessage) < (0)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_vtabptr_10cymongoose_9_mongoose_MqttMessage = &__pyx_vtable_10cymongoose_9_mongoose_MqttMessage;
+  __pyx_vtable_10cymongoose_9_mongoose_MqttMessage._assign = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_MqttMessage *, struct mg_mqtt_message *))__pyx_f_10cymongoose_9_mongoose_11MqttMessage__assign;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_MqttMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage)) __PYX_ERR(0, 371, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_MqttMessage_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_MqttMessage_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_MqttMessage_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage = &__pyx_type_10pymongoose_9_mongoose_MqttMessage;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage = &__pyx_type_10cymongoose_9_mongoose_MqttMessage;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage, __pyx_vtabptr_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_MqttMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage, __pyx_vtabptr_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_MqttMessage, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_MqttMessage) < (0)) __PYX_ERR(0, 371, __pyx_L1_error)
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_TlsOpts_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts)) __PYX_ERR(0, 408, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_TlsOpts_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_TlsOpts_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts)) __PYX_ERR(0, 408, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_TlsOpts_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts = &__pyx_type_10pymongoose_9_mongoose_TlsOpts;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts = &__pyx_type_10cymongoose_9_mongoose_TlsOpts;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_UPDATE_DESCRIPTOR_DOC
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 408, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(0, 408, __pyx_L1_error)
     if (__Pyx_IS_TYPE(wrapper, &PyWrapperDescr_Type)) {
-      __pyx_wrapperbase_10pymongoose_9_mongoose_7TlsOpts___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_10pymongoose_9_mongoose_7TlsOpts___init__.doc = __pyx_doc_10pymongoose_9_mongoose_7TlsOpts___init__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_10pymongoose_9_mongoose_7TlsOpts___init__;
+      __pyx_wrapperbase_10cymongoose_9_mongoose_7TlsOpts___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_10cymongoose_9_mongoose_7TlsOpts___init__.doc = __pyx_doc_10cymongoose_9_mongoose_7TlsOpts___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_10cymongoose_9_mongoose_7TlsOpts___init__;
     }
   }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_TlsOpts, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
-  __pyx_vtabptr_10pymongoose_9_mongoose_Connection = &__pyx_vtable_10pymongoose_9_mongoose_Connection;
-  __pyx_vtable_10pymongoose_9_mongoose_Connection._bind = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_Connection *, struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *, PyObject *))__pyx_f_10pymongoose_9_mongoose_10Connection__bind;
-  __pyx_vtable_10pymongoose_9_mongoose_Connection._ptr = (struct mg_connection *(*)(struct __pyx_obj_10pymongoose_9_mongoose_Connection *))__pyx_f_10pymongoose_9_mongoose_10Connection__ptr;
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_TlsOpts, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts) < (0)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_vtabptr_10cymongoose_9_mongoose_Connection = &__pyx_vtable_10cymongoose_9_mongoose_Connection;
+  __pyx_vtable_10cymongoose_9_mongoose_Connection._bind = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_Connection *, struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *, PyObject *))__pyx_f_10cymongoose_9_mongoose_10Connection__bind;
+  __pyx_vtable_10cymongoose_9_mongoose_Connection._ptr = (struct mg_connection *(*)(struct __pyx_obj_10cymongoose_9_mongoose_Connection *))__pyx_f_10cymongoose_9_mongoose_10Connection__ptr;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_Connection_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection)) __PYX_ERR(0, 452, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_Connection_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_Connection_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection)) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_Connection_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection = &__pyx_type_10pymongoose_9_mongoose_Connection;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection = &__pyx_type_10cymongoose_9_mongoose_Connection;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_vtabptr_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Connection, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
-  __pyx_vtabptr_10pymongoose_9_mongoose_Manager = &__pyx_vtable_10pymongoose_9_mongoose_Manager;
-  __pyx_vtable_10pymongoose_9_mongoose_Manager._ensure_connection = (struct __pyx_obj_10pymongoose_9_mongoose_Connection *(*)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *))__pyx_f_10pymongoose_9_mongoose_7Manager__ensure_connection;
-  __pyx_vtable_10pymongoose_9_mongoose_Manager._drop_connection = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct mg_connection *))__pyx_f_10pymongoose_9_mongoose_7Manager__drop_connection;
-  __pyx_vtable_10pymongoose_9_mongoose_Manager._resolve_handler = (PyObject *(*)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, struct __pyx_obj_10pymongoose_9_mongoose_Connection *))__pyx_f_10pymongoose_9_mongoose_7Manager__resolve_handler;
-  __pyx_vtable_10pymongoose_9_mongoose_Manager._wrap_event_data = (PyObject *(*)(struct __pyx_obj_10pymongoose_9_mongoose_Manager *, int, void *))__pyx_f_10pymongoose_9_mongoose_7Manager__wrap_event_data;
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_vtabptr_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Connection, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Connection) < (0)) __PYX_ERR(0, 452, __pyx_L1_error)
+  __pyx_vtabptr_10cymongoose_9_mongoose_Manager = &__pyx_vtable_10cymongoose_9_mongoose_Manager;
+  __pyx_vtable_10cymongoose_9_mongoose_Manager._ensure_connection = (struct __pyx_obj_10cymongoose_9_mongoose_Connection *(*)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *))__pyx_f_10cymongoose_9_mongoose_7Manager__ensure_connection;
+  __pyx_vtable_10cymongoose_9_mongoose_Manager._drop_connection = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct mg_connection *))__pyx_f_10cymongoose_9_mongoose_7Manager__drop_connection;
+  __pyx_vtable_10cymongoose_9_mongoose_Manager._resolve_handler = (PyObject *(*)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, struct __pyx_obj_10cymongoose_9_mongoose_Connection *))__pyx_f_10cymongoose_9_mongoose_7Manager__resolve_handler;
+  __pyx_vtable_10cymongoose_9_mongoose_Manager._wrap_event_data = (PyObject *(*)(struct __pyx_obj_10cymongoose_9_mongoose_Manager *, int, void *))__pyx_f_10cymongoose_9_mongoose_7Manager__wrap_event_data;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_Manager_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager)) __PYX_ERR(0, 1118, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_Manager_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_Manager_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_Manager_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager = &__pyx_type_10pymongoose_9_mongoose_Manager;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager = &__pyx_type_10cymongoose_9_mongoose_Manager;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_vtabptr_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Manager, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
-  __pyx_vtabptr_10pymongoose_9_mongoose_Timer = &__pyx_vtable_10pymongoose_9_mongoose_Timer;
-  __pyx_vtable_10pymongoose_9_mongoose_Timer._set_timer = (void (*)(struct __pyx_obj_10pymongoose_9_mongoose_Timer *, struct mg_timer *, PyObject *))__pyx_f_10pymongoose_9_mongoose_5Timer__set_timer;
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_vtabptr_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Manager, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Manager) < (0)) __PYX_ERR(0, 1118, __pyx_L1_error)
+  __pyx_vtabptr_10cymongoose_9_mongoose_Timer = &__pyx_vtable_10cymongoose_9_mongoose_Timer;
+  __pyx_vtable_10cymongoose_9_mongoose_Timer._set_timer = (void (*)(struct __pyx_obj_10cymongoose_9_mongoose_Timer *, struct mg_timer *, PyObject *))__pyx_f_10cymongoose_9_mongoose_5Timer__set_timer;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose_Timer_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer)) __PYX_ERR(0, 1655, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose_Timer_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose_Timer_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose_Timer_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer = &__pyx_type_10pymongoose_9_mongoose_Timer;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer = &__pyx_type_10cymongoose_9_mongoose_Timer;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer, __pyx_vtabptr_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Timer, (PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer, __pyx_vtabptr_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_Timer, (PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose_Timer) < (0)) __PYX_ERR(0, 1655, __pyx_L1_error)
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr)) __PYX_ERR(0, 669, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr) < (0)) __PYX_ERR(0, 669, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr)) __PYX_ERR(0, 669, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr) < (0)) __PYX_ERR(0, 669, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr = &__pyx_type_10pymongoose_9_mongoose___pyx_scope_struct__genexpr;
+  __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr = &__pyx_type_10cymongoose_9_mongoose___pyx_scope_struct__genexpr;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr) < (0)) __PYX_ERR(0, 669, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr) < (0)) __PYX_ERR(0, 669, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_10pymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_10cymongoose_9_mongoose___pyx_scope_struct__genexpr->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -27309,7 +27309,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (__Pyx_InitConstants(__pyx_mstate) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
   stringtab_initialized = 1;
   if (__Pyx_InitGlobals() < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__pyx_module_is_main_pymongoose___mongoose) {
+  if (__pyx_module_is_main_cymongoose___mongoose) {
     if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name_2, __pyx_mstate_global->__pyx_n_u_main) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
@@ -27686,7 +27686,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 270, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_3header, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_header, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_3header, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_header, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27694,7 +27694,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_header, __pyx_t_3) < (0)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_header, __pyx_t_3) < (0)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":280
@@ -27704,12 +27704,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Return all HTTP headers as a list of (name, value) tuples."""
  *         if self._msg == NULL:
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_headers, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_5headers, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_headers, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_headers, __pyx_t_3) < (0)) __PYX_ERR(0, 280, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_headers, __pyx_t_3) < (0)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":294
@@ -27722,14 +27722,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 294, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_query_var, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_7query_var, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_query_var, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_query_var, __pyx_t_2) < (0)) __PYX_ERR(0, 294, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_query_var, __pyx_t_2) < (0)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":308
@@ -27739,12 +27739,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Return HTTP status code from response message.
  * 
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_9status, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_status, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 308, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_9status, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_status, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_status, __pyx_t_2) < (0)) __PYX_ERR(0, 308, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_status, __pyx_t_2) < (0)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":318
@@ -27758,14 +27758,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_header_name, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 318, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_var_name, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 318, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_header_var, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_11header_var, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage_header_var, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_header_var, __pyx_t_3) < (0)) __PYX_ERR(0, 318, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_HttpMessage, __pyx_mstate_global->__pyx_n_u_header_var, __pyx_t_3) < (0)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "(tree fragment)":1
@@ -27773,7 +27773,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27787,7 +27787,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11HttpMessage_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_HttpMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27800,7 +27800,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_WsMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_9WsMessage_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_WsMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27814,7 +27814,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_WsMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_9WsMessage_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_WsMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27827,7 +27827,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MqttMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11MqttMessage_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MqttMessage___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27841,7 +27841,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "self._msg cannot be converted to a Python object for pickling"
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MqttMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11MqttMessage_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MqttMessage___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27854,12 +27854,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     cdef tuple state
  *     cdef object _dict
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_TlsOpts___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7TlsOpts_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_TlsOpts___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts, __pyx_mstate_global->__pyx_n_u_reduce_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts, __pyx_mstate_global->__pyx_n_u_reduce_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "(tree fragment)":16
@@ -27868,12 +27868,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TlsOpts__set_state(self, __pyx_state)
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_TlsOpts___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7TlsOpts_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_TlsOpts___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_TlsOpts, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 16, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_TlsOpts, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_3) < (0)) __PYX_ERR(1, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":480
@@ -27883,12 +27883,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Assign a per-connection event handler."""
  *         self._handler = handler
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_3set_handler, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_set_handler, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 480, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_3set_handler, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_set_handler, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_set_handler, __pyx_t_3) < (0)) __PYX_ERR(0, 480, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_set_handler, __pyx_t_3) < (0)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":559
@@ -27898,12 +27898,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send raw bytes to the peer."""
  *         cdef bytes payload
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_5send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_send, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 559, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_5send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_send, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 559, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send, __pyx_t_3) < (0)) __PYX_ERR(0, 559, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send, __pyx_t_3) < (0)) __PYX_ERR(0, 559, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":578
@@ -27913,13 +27913,13 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send a HTTP reply (final response)."""
  *         if isinstance(body, str):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_7reply, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_reply, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 578, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_7reply, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_reply, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[3]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_reply, __pyx_t_3) < (0)) __PYX_ERR(0, 578, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_reply, __pyx_t_3) < (0)) __PYX_ERR(0, 578, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":602
@@ -27935,7 +27935,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_extra_headers, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_mime_types, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_page404, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_serve_dir, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[17])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 602, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_9serve_dir, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_serve_dir, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[17])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 602, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -27943,7 +27943,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[4]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_dir, __pyx_t_2) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_dir, __pyx_t_2) < (0)) __PYX_ERR(0, 602, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":631
@@ -27958,7 +27958,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_extra_headers, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_mime_types, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_11serve_file, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_serve_file, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[18])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 631, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_11serve_file, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_serve_file, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[18])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -27966,7 +27966,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[5]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_file, __pyx_t_3) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_serve_file, __pyx_t_3) < (0)) __PYX_ERR(0, 631, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":656
@@ -27976,13 +27976,13 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Upgrade HTTP connection to WebSocket.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_ws_upgrade, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[19])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 656, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_13ws_upgrade, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_ws_upgrade, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[19])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 656, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[2]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_upgrade, __pyx_t_3) < (0)) __PYX_ERR(0, 656, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_upgrade, __pyx_t_3) < (0)) __PYX_ERR(0, 656, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":682
@@ -28002,14 +28002,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = PyTuple_Pack(1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 682, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_15ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_ws_send, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[20])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 682, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_15ws_send, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_ws_send, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[20])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 682, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_send, __pyx_t_3) < (0)) __PYX_ERR(0, 682, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_ws_send, __pyx_t_3) < (0)) __PYX_ERR(0, 682, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":699
@@ -28022,7 +28022,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_topic, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 699, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_pub, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[21])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 699, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_17mqtt_pub, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_pub, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[21])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28030,7 +28030,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[6]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pub, __pyx_t_2) < (0)) __PYX_ERR(0, 699, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pub, __pyx_t_2) < (0)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":735
@@ -28043,7 +28043,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_topic, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 735, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_sub, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[22])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_19mqtt_sub, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_sub, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[22])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28051,7 +28051,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[7]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_sub, __pyx_t_3) < (0)) __PYX_ERR(0, 735, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_sub, __pyx_t_3) < (0)) __PYX_ERR(0, 735, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":756
@@ -28061,12 +28061,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send MQTT ping."""
  *         cdef mg_connection *conn = self._ptr()
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_ping, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[23])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 756, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_21mqtt_ping, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_ping, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[23])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 756, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_ping, __pyx_t_3) < (0)) __PYX_ERR(0, 756, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_ping, __pyx_t_3) < (0)) __PYX_ERR(0, 756, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":765
@@ -28076,12 +28076,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send MQTT pong."""
  *         cdef mg_connection *conn = self._ptr()
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_pong, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[24])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 765, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_23mqtt_pong, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_pong, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[24])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 765, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pong, __pyx_t_3) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_pong, __pyx_t_3) < (0)) __PYX_ERR(0, 765, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":774
@@ -28091,12 +28091,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send MQTT disconnect message.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_disconnect, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[25])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 774, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_25mqtt_disconnect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_mqtt_disconnect, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[25])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_disconnect, __pyx_t_3) < (0)) __PYX_ERR(0, 774, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_mqtt_disconnect, __pyx_t_3) < (0)) __PYX_ERR(0, 774, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":788
@@ -28109,14 +28109,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 788, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 788, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_27error, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_error, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[26])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 788, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_27error, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_error, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[26])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 788, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_error, __pyx_t_2) < (0)) __PYX_ERR(0, 788, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_error, __pyx_t_2) < (0)) __PYX_ERR(0, 788, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":859
@@ -28129,7 +28129,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_length, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 859, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_29recv_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_recv_data, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[27])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_29recv_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_recv_data, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[27])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28137,7 +28137,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[8]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_recv_data, __pyx_t_3) < (0)) __PYX_ERR(0, 859, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_recv_data, __pyx_t_3) < (0)) __PYX_ERR(0, 859, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":877
@@ -28150,7 +28150,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 877, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_length, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 877, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_31send_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_send_data, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[28])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_31send_data, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_send_data, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[28])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 877, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28158,7 +28158,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[8]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send_data, __pyx_t_2) < (0)) __PYX_ERR(0, 877, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_send_data, __pyx_t_2) < (0)) __PYX_ERR(0, 877, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":895
@@ -28171,14 +28171,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 895, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_33resolve, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_resolve, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[29])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_33resolve, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_resolve, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[29])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve, __pyx_t_3) < (0)) __PYX_ERR(0, 895, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve, __pyx_t_3) < (0)) __PYX_ERR(0, 895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":912
@@ -28188,12 +28188,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Cancel an ongoing DNS resolution."""
  *         cdef mg_connection *conn = self._ptr()
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_resolve_cancel, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[30])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 912, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_35resolve_cancel, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_resolve_cancel, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[30])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 912, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve_cancel, __pyx_t_3) < (0)) __PYX_ERR(0, 912, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_resolve_cancel, __pyx_t_3) < (0)) __PYX_ERR(0, 912, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":921
@@ -28207,14 +28207,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_username, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 921, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_password, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 921, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_basic_auth, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[31])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 921, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_37http_basic_auth, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_basic_auth, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[31])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 921, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_basic_auth, __pyx_t_2) < (0)) __PYX_ERR(0, 921, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_basic_auth, __pyx_t_2) < (0)) __PYX_ERR(0, 921, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":935
@@ -28224,12 +28224,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send an SNTP time request.
  * 
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_sntp_request, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[32])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 935, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_39sntp_request, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_sntp_request, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[32])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 935, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_sntp_request, __pyx_t_2) < (0)) __PYX_ERR(0, 935, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_sntp_request, __pyx_t_2) < (0)) __PYX_ERR(0, 935, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":948
@@ -28239,12 +28239,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Send an HTTP chunked transfer encoding chunk.
  * 
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_chunk, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[33])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 948, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_41http_chunk, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_chunk, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[33])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 948, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_chunk, __pyx_t_2) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_chunk, __pyx_t_2) < (0)) __PYX_ERR(0, 948, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":991
@@ -28258,14 +28258,14 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_event_type, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 991, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 991, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_43http_sse, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_sse, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[34])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 991, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_43http_sse, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_http_sse, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[34])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 991, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_sse, __pyx_t_3) < (0)) __PYX_ERR(0, 991, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_http_sse, __pyx_t_3) < (0)) __PYX_ERR(0, 991, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1024
@@ -28275,12 +28275,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Immediately close the connection.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_45close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_close, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[35])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1024, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_45close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_close, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[35])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1024, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_3) < (0)) __PYX_ERR(0, 1024, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_3) < (0)) __PYX_ERR(0, 1024, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1037
@@ -28290,12 +28290,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Mark connection for graceful closure.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_47drain, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_drain, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[36])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_47drain, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_drain, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[36])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_drain, __pyx_t_3) < (0)) __PYX_ERR(0, 1037, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_drain, __pyx_t_3) < (0)) __PYX_ERR(0, 1037, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1058
@@ -28305,12 +28305,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Initialize TLS/SSL on this connection.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_49tls_init, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_tls_init, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[37])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1058, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_49tls_init, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_tls_init, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[37])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_tls_init, __pyx_t_3) < (0)) __PYX_ERR(0, 1058, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_tls_init, __pyx_t_3) < (0)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1100
@@ -28320,12 +28320,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Free TLS/SSL resources on this connection.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_51tls_free, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_tls_free, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[38])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1100, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_51tls_free, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection_tls_free, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[38])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_tls_free, __pyx_t_3) < (0)) __PYX_ERR(0, 1100, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Connection, __pyx_mstate_global->__pyx_n_u_tls_free, __pyx_t_3) < (0)) __PYX_ERR(0, 1100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "(tree fragment)":1
@@ -28333,7 +28333,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[39])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_55__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[39])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28347,7 +28347,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[40])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_10Connection_57__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Connection___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[40])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28362,13 +28362,13 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Drive the event loop once.
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_5poll, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_poll, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[41])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1208, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_5poll, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_poll, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[41])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[7]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_poll, __pyx_t_3) < (0)) __PYX_ERR(0, 1208, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_poll, __pyx_t_3) < (0)) __PYX_ERR(0, 1208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1225
@@ -28384,7 +28384,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1225, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_7listen, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_listen, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[42])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1225, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_7listen, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_listen, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[42])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28394,7 +28394,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_listen, __pyx_t_5) < (0)) __PYX_ERR(0, 1225, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_listen, __pyx_t_5) < (0)) __PYX_ERR(0, 1225, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cymongoose/_mongoose.pyx":1239
@@ -28410,7 +28410,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1239, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_9connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_connect, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[43])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1239, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_9connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_connect, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[43])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28420,7 +28420,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_connect, __pyx_t_3) < (0)) __PYX_ERR(0, 1239, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_connect, __pyx_t_3) < (0)) __PYX_ERR(0, 1239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1253
@@ -28433,7 +28433,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1253, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_mqtt_connect, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[44])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1253, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_11mqtt_connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_mqtt_connect, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[44])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28441,7 +28441,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[9]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1253, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1253, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1295
@@ -28454,7 +28454,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1295, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_mqtt_listen, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[45])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1295, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_13mqtt_listen, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_mqtt_listen, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[45])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28462,7 +28462,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_listen, __pyx_t_3) < (0)) __PYX_ERR(0, 1295, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_mqtt_listen, __pyx_t_3) < (0)) __PYX_ERR(0, 1295, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1314
@@ -28475,7 +28475,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1314, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_sntp_connect, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[46])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1314, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_15sntp_connect, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_sntp_connect, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[46])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28483,7 +28483,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_sntp_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1314, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_sntp_connect, __pyx_t_2) < (0)) __PYX_ERR(0, 1314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "cymongoose/_mongoose.pyx":1344
@@ -28497,7 +28497,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_connection_id, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 1344, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data, __pyx_mstate_global->__pyx_n_u_bytes) < (0)) __PYX_ERR(0, 1344, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_17wakeup, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_wakeup, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[47])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_17wakeup, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_wakeup, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[47])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
@@ -28505,7 +28505,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[10]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_wakeup, __pyx_t_3) < (0)) __PYX_ERR(0, 1344, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_wakeup, __pyx_t_3) < (0)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "cymongoose/_mongoose.pyx":1371
@@ -28522,7 +28522,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_milliseconds, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 1371, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_19timer_add, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_timer_add, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[48])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1371, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_19timer_add, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_timer_add, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[48])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28531,7 +28531,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_timer_add, __pyx_t_5) < (0)) __PYX_ERR(0, 1371, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_timer_add, __pyx_t_5) < (0)) __PYX_ERR(0, 1371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "cymongoose/_mongoose.pyx":1424
@@ -28541,12 +28541,12 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *         """Free the underlying manager and release resources."""
  *         if not self._freed:
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_21close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_close, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[49])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1424, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_21close, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager_close, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[49])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10pymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 1424, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_10cymongoose_9_mongoose_Manager, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_5) < (0)) __PYX_ERR(0, 1424, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
@@ -28554,7 +28554,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[50])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_23__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[50])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28568,7 +28568,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[51])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7Manager_25__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Manager___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[51])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28586,7 +28586,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1458, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1458, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_1json_get, 0, __pyx_mstate_global->__pyx_n_u_json_get, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[52])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1458, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_1json_get, 0, __pyx_mstate_global->__pyx_n_u_json_get, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[52])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1458, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28606,7 +28606,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1481, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1481, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_3json_get_num, 0, __pyx_mstate_global->__pyx_n_u_json_get_num, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[53])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1481, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_3json_get_num, 0, __pyx_mstate_global->__pyx_n_u_json_get_num, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[53])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1481, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28627,7 +28627,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1505, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1505, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_5json_get_bool, 0, __pyx_mstate_global->__pyx_n_u_json_get_bool, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[54])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1505, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_5json_get_bool, 0, __pyx_mstate_global->__pyx_n_u_json_get_bool, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[54])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1505, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28648,7 +28648,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1530, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_7json_get_long, 0, __pyx_mstate_global->__pyx_n_u_json_get_long, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[55])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1530, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_7json_get_long, 0, __pyx_mstate_global->__pyx_n_u_json_get_long, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[55])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1530, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28669,7 +28669,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1551, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_9json_get_str, 0, __pyx_mstate_global->__pyx_n_u_json_get_str, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[56])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1551, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_9json_get_str, 0, __pyx_mstate_global->__pyx_n_u_json_get_str, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[56])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -28690,7 +28690,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1578, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 1578, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_11url_encode, 0, __pyx_mstate_global->__pyx_n_u_url_encode, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[57])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1578, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_11url_encode, 0, __pyx_mstate_global->__pyx_n_u_url_encode, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[57])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28707,7 +28707,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     """Parse the next multipart form part from HTTP body.
  * 
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_13http_parse_multipart, 0, __pyx_mstate_global->__pyx_n_u_http_parse_multipart, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[58])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1605, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_13http_parse_multipart, 0, __pyx_mstate_global->__pyx_n_u_http_parse_multipart, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[58])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1605, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28721,7 +28721,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Timer___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[59])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_5Timer_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Timer___reduce_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[59])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28735,7 +28735,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Timer___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[60])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_5Timer_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_Timer___setstate_cython, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[60])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28750,7 +28750,7 @@ __Pyx_RefNannySetupContext("PyInit__mongoose", 0);
  *     cdef object __pyx_result
  *     __Pyx_CheckUnpickleChecksum(__pyx_checksum, 0xf41cd05, 0x27355c3, 0xa9572af, b'ca, cert, key, name, skip_verification')
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10pymongoose_9_mongoose_15__pyx_unpickle_TlsOpts, 0, __pyx_mstate_global->__pyx_n_u_pyx_unpickle_TlsOpts, NULL, __pyx_mstate_global->__pyx_n_u_pymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[61])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_10cymongoose_9_mongoose_15__pyx_unpickle_TlsOpts, 0, __pyx_mstate_global->__pyx_n_u_pyx_unpickle_TlsOpts, NULL, __pyx_mstate_global->__pyx_n_u_cymongoose__mongoose, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[61])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -28971,25 +28971,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 8; } index[] = {{0},{3},{19},{26},{15},{26},{19},{42},{22},{34},{34},{35},{30},{21},{39},{22},{179},{11},{1},{1},{1},{2},{2},{1},{1},{8},{7},{6},{2},{9},{14},{50},{10},{61},{93},{28},{14},{5},{10},{10},{28},{30},{16},{16},{16},{26},{21},{19},{26},{20},{20},{19},{19},{20},{16},{18},{25},{15},{20},{20},{21},{22},{23},{19},{19},{18},{21},{11},{29},{31},{18},{22},{19},{21},{18},{12},{11},{13},{11},{15},{14},{14},{14},{15},{10},{10},{10},{13},{15},{12},{10},{12},{11},{12},{12},{13},{7},{25},{27},{13},{15},{14},{20},{19},{12},{20},{17},{14},{11},{29},{31},{20},{5},{23},{25},{7},{25},{27},{19},{17},{17},{17},{9},{27},{29},{7},{18},{4},{6},{10},{6},{10},{8},{3},{7},{7},{6},{5},{6},{2},{8},{4},{10},{13},{9},{11},{18},{5},{4},{7},{7},{13},{4},{6},{7},{8},{5},{5},{13},{6},{5},{7},{10},{13},{15},{8},{5},{3},{8},{7},{3},{12},{7},{6},{12},{11},{13},{12},{10},{7},{9},{13},{9},{11},{4},{15},{10},{20},{8},{3},{3},{13},{5},{6},{8},{13},{13},{12},{12},{8},{1},{9},{3},{8},{6},{6},{6},{8},{7},{12},{10},{12},{10},{12},{15},{11},{9},{9},{8},{8},{3},{5},{6},{7},{7},{4},{8},{6},{7},{4},{11},{6},{2},{4},{4},{7},{9},{4},{9},{6},{8},{4},{6},{6},{7},{9},{4},{3},{5},{9},{7},{20},{14},{12},{11},{10},{22},{14},{3},{12},{9},{2},{8},{9},{10},{17},{13},{6},{5},{7},{14},{6},{10},{6},{6},{6},{8},{7},{4},{4},{9},{9},{10},{11},{12},{10},{12},{19},{17},{12},{12},{7},{7},{5},{6},{11},{3},{8},{5},{10},{5},{9},{9},{8},{8},{5},{7},{9},{6},{3},{5},{5},{10},{12},{6},{8},{1},{5},{6},{8},{10},{13},{6},{7},{10},{27},{0},{2},{7},{7},{149},{44},{149},{53},{75},{178},{85},{30},{27},{47},{21},{23},{21},{23},{93},{31},{94},{9},{105},{96},{203},{42},{101},{9},{85},{108},{45},{112},{11},{107},{91},{248},{113},{2},{108},{158},{88},{89},{80},{101},{80},{145},{55},{93},{51},{154},{85},{131},{100}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (3868 bytes) */
-const char* const cstring = "BZh91AY&SY\326\324R]\000\003#\377\377\377\377\377\377\377\377\377\377\377\377\377\377\277\377\377\377\300@@@@@@@@@@@@\000@\000`\017Y\335*\371\035\355\245\326w\246\227^\267\267J\272\324t\003FZ\241\255\001C\334\355\274\351\316\201\362q\350\032\010S\"h\312z4O\322\236\210=D\036j\233\323SS\364\215M\350d\360\246\"\200ze\032\014\232z\237\251\244\3653OJ?Q\352\214\236S\3244h\004\222\0014\321\032h\232\030D\312z\230M4\206\023\321\032i\223@\032\000\000\000\000\000\032h\003F\203A\210\022L\252z\217(\362\236\246\237\252fS\365'\352\203OP=F\217H\006\320\320\200\017P\000\320\001\352\006\215\031\r3Q\264\032\200I\251&\212\236MQ\355I\352hz&\203j\033P\030&\201\240\003@\000\003 h`\2004\000\000=@\n\247\250\23124\323'\246\223'\251\223\324\321\243\023\324\320\364!\202d\323CM4zG\222\033S#M\250\321\204d\311\243!\202\r2h\022$ \232d\247\265)\346\232\223\322z\233Se=&\207\250\000\033Sz\240\000\320\000\000\000\000\000\000h\000\256\320h\205\276|4\023\004\261\347p\026s\326}eW-\032\311\212\3713\215\336/\357\037.`\227\030#\272\220<\242777\021`zg\250:\333\242z\252%\027\227\200wZ\325\000\331\205\247$\273j\230\333\r\260\030C\037\363\375\020U\220\035\005B\250\210\201L\224\005J\022\253\270\210\272R!n\245\354\244\022\024\nV)B\224\024\225\024\345\266\206\241\2421H\306\002#\0261V(\"\260R,\212\260\211\0260U\030\301\030 \213\024\026\0030\311\231\206\030\027\210\225J\2250\2568\200\212\257\347\263\27267\337\246\374\210\315\300@q\306\366\317\r$\220\333\214Y\021\202\210\212\033 \024\"\300\250\376>\264\264\333_5\327\033\r/t\014g;IP\246\301\371\314\222\036\205s \254\306\314f\\`\205k\030\325\244\313[@\306b%f\023B\271+\224\200\232E\301))\303\276\223Z\373t\250u\302*\036\013:\276\353\332\030\202&\323\276$\364\216FE\334Uu(\027`*\243J\307Q\031+\364>\211QP\261y,\321r)I\350\360\033$x\330Q\346\0050\356b\244\246\211\2159\232y9r\230mT\245*\240B,Y\357\030\357\302\311\205\001\212[\225\023\220\2078\215\360(\347\033\363\315\236\224\206\316\300C\212#\0239\n\2302\303\r\346\036w?HoG33nu\3258\016\300\306z\032\245u9G\212g\237\024\300""\3610\335\026\206\374\366b{\"j\250S|\3477\371\306\r\034\306\372&\332]\025\013\260\275\313\361\312\267\037\333\031W\010\276\347\301\207 sQ\357\371\371\364qU\3548\255\374\353#\333\211\004\367 \344##\272~\356\031\243\022\007\276T\345&N\034\2625\334D\013\213\214'J\315NsH=\305\034\247Z\366\030\212*V\261d@\261\027\023\200\210>\022n\257%\037Q\246MdL12\306D\203\322/\234\374\010\301\357\242\242\223\375\235\020\010\2777OF{\\u\213WK\036\364R\322J\031\323\207cy\210\033\366\033\311,fC&\021\022$\202\034D\r\221w\341\233\311\345\032\2166\177KN\304\200\204\007<+V\204\316\351\204\251!\213\242\223\350D\n3B\244\007!@\014\201N\204\260s\231A\307\316\204R\211\024\245\331\244\371\274\327\024H\250\n\270\335\272)X\264\347(AAC\323\306\372\"a553\343x\267\335\216u\271+\250\372\327\311\366\232\271~\274\305:\231j}\214\275Uf\243(7\261\217(\361\2060\241k\250\347M\231M\365}\203r\217b\376\036(\036\226\014\002|\005!DT\216\265\254\314\"F\nqf\376#V!d\305/V\2068T\324\324\004\251_w\207\312\003\200u\372\247\236\301E499\231S\2629G\261\252\333}\026Ka\274\206\312\303G\245\317\"\374r\374\263`\002\002u1\323\037n\032\200T\363b\307\216\310\025\033\321\177\314A\010\020s2D\371\363\252\322\316\270[\333\236\353\225\335\273\326\2634#\306\t\314S\003\233 \277\241\306\203\300\317\232SK\314\366\377\262\217\035(2\247\201.\220\0355\024&\322\034O\341\202\306D\303Yc0?]\317e\275\242s)\345~G\2322\026Pk\250\253eQ\035\000Y\324\320SZ\306uSC#l/9\021\020\022$\247\231\230)e<pO#\236\263\335; \307\236!v\30774\322\333\267Pp\347\321\241cOU\210B#&|~>^*\026\206L\001@\016\315\320#Lh4\270Fu\262\264\010\310\340\013\005V10f\263\016\376\254\265ln\275=\2358\036\255.5\252\373]\270\367\003\035\033\230\262Y\206\314\366[\234\355X\340\334]\320\320z\346#['\333E\210ty;\275\310\\;\206\275zi\253)UZ\026\216>\007\026\344\"\2248^z\335\361\301n\363\253\206\000UT\340\261\302*1\336\351\264\232\371A\245\303\371\307v\ty[\345\330.\004\006\354H\"a\304\004^b\016nX\251`)\327\021\213\005c\236\301\220$\254\267\301-\004\262\333}\272\253\276+}\376]\315\243\265_\2764o""\025\317\335\357$\323\331\031\301+\340\3661\304\254\361<\377.\327JM_6\036\030{\272B\375x\326\324p\351?N&\207\302M\321\312\353l\000\3762\275\\I\\]Sl\256!\227d(V\207A\347 \221\224\344C\277\n\277,\234\252\277n\2675`\317sD\030\235\360)\251\301}\364yD\202&q\300\272\"/i\022\321*Nn&>O\200\367\305\\\246\315HK\257\267\346\371\334\332pE\303\316\3600t\241\264\251\315\274\213s\360\272\312\000:\267\256\005\210\303*\026\231\376 m}:\033\036\220\365\335\321g\372\032\363\372.\302a\240\027V~z\024\212A;\222iX _\240\221\210\364Se\005\265\244k9:\223\235\360\265\325\205\016\000\\\tu\t\033a\253\246t\330:PG\211\254\356*n\272\352\024\215Ax\203\014\241\340\326Lc\256\031\371\242\024\206l\2564\006\343\337J\220\367x\274\215\221\321\026\263F\337?6\346\020\361\211\336\242\276\333a\215\013\2357\223\305\"E\305\335\331-\354C\271\"\343S\262\033\214\237R\270\220\253\0267%\232\252\026e\211\262\214\243\337\315`\027\215\215 \030\311\261\200m\034\340s\363\230\315\261\242C\331\343\334\374\2404\033\322\252s=\216\231\020L\313\223N\274\335\000\010\r\335(\236\320b\314Y:\346\312\231\326F\022H\272\260\271\302\310\310\313\215\275~\2745w\271\360P\354\337\354g\276bfL\3031\315\324v\240Q\373e8\270\204\212\216\261\027\346\303\010f1\272\253\021E\242\223FSF&Z\346\250\005g\314[#k0\010\233\016g\027\320\014d3\336@\024[H\376\2350\267\205\353\0363v\234/\273,\240+\235\216\246\322\314\332\230\265i\027\2328\360\212W\021\240\300\326\\\006\323]\010\316\035wQ\246\314\310.vOs\330\276\t\314\266N\217\223\245\321h\201\231\033\244\215c\032\2143k\334\347\351\007\367\222T\235&^\351\246\206\221\206f\036\347`\344\346@\374\202si\3232Z\237i\353\034S\314q~\026:N\223\262\247W\241~\304]\250\324\344\356a\211\234\371f\322\322\352\0033]p\355\010\320h:\356\273P0k\177P\203}\\\205\265\302\232\233\007:h\263\333\215\222\274\363e\310\027-C\213[\013g\007\301\323\214[\213\342\351\200\245\241\2727:\022\222\321\231\247\242[p-\265\217O\201g\272Y\344\214\336J\232\3201\313\275\214:\341\266\024l\266\311I\306S+\214\225k_\026O\222\351j\000\342=\207p[\241\242\257W""\321\205\270\256\247\027B\033\235\277\231r\372;\353\225i\325\266V\300\304\317\247\2208\341,)E6\357e\343\326\355\005\027\r\327\020\320ui\342\3620\001\314\307}\333\254\301\271?\004\2415\033\253\274\331\016\r3X\305Y\315c\341]-\266C\360\237Hn\007jE\230pl\300'\254\276\214@\310F\005Q\255\216\271\215\364\253\320.\205t\273\245z+\332\263\336\260\316\364c\256lj\355\3159R \226\250H\321RJJa\231\325\275]\274\262\026\032\253\255\202,=\324\221\225 \252\320`d\317fU\202B9\\\017\272&12m\266\206M\205\252\024\220\221`\363\330\213[\260\256+,\272\311\"L3;0|\337x\211\262!\201V9\003~\261B\351\332\247!`\221z\3460\200J\000&(l\313\274\025\340\360\t\210\355\222I\242\250\212f\322\030\026hM\246|\313Jiym\002^\306j\3032\314N\033&\345\317eH7^\357#\273\325\273b\006\030X29\2748a\2661\346\345{\267\267\003\226\332\312\263\2312\236\032\352\350\330\360\320\351\264\tr\363\331\375\323\010I{\320\210\342Z4ah\245\340]BN{h;\235\206\347\016d\270'\007\004\273\300p#\305\202m&\233\014\207\371T\223H\214=I@\271\223H\240N\002\227\302\305\245\026+q\250t\" \254#\323T\331\031\3220\245VPv\327@\367\215\3329\372\356\335\332\277\227\1772\0178\356)>88q\207[\341\325ql\346g\"\034\215\370Y\301\3169\026<KM\334\225\230\261DB\234\240n\330\252H\223$Q'?[\207\030J\377\035< ])\023bt\230`A\223\342\001%G\222\240E\206\235#\005\017\211\313\255_-Z\331\271y\037y\014\233\013\254I\320\322\362\203\001\265\247\207ZR{T\254%\013W\221\263\200yI^\367\265G\000Rl\361\372\034\342$\030\t5/\216\221Y\3234\370\034\236\317\031\313\310{\247\177k\265\320v\2249\203\235\272v\325\311\373;\314\373j\234 \265\251:-vuqu\037X\334U\356#\021\224\336?\221\213\336'1\033\"\336\331\304X\262\025Y_\204Z1d\2109\323\220\251.\245\262K^#\207\003\233\226\"\010F\372\360\23747a\235\214\000\013\307\273M(\316y\235RO~nd,\206\306W8\225\325\231\270\362\334\276\371.\341\223\036HCq\225#\201\001\255\335 \335\002\025V2e\344\367zQ\322t\256\236\347\036\215:\265&n\000\271\010\003\033D\374\210\263v\230\347\337\342\355[6\235c9M\3320\303t8\246\036\350\372\232\007\033y\001\0247X\257\210\341\330Y""\347\034V\240t\201\317\206qtw\233\320o\357\370\361\307\256\226\306\020\341'o\330a\206\314M\201\337:r_\313\270`\302k0\027\023\223\371\017FKK\031\215\035\304\rz\374\316\"\256\345\346cf\200\003\350`\272\323\251\204\347\202\2413'Q\202\000P\003\201Pfu\254\235\323\342\361)\250\304\177&6\307\016_\256\304\214\360yD\234\230\307Z\250\025Td\026*\254I9O<W'\262\032Or\037\2118\215\271x\0332%$\342\202\330(\250#h\206\245\371\t\267\234M\261\033\033B\3707NL\301=\023\223\345s|\322H\230HH\010\r\301\204\213\010(\r\025\020\275w\330\320\246\030\013\233\207o\252\234g\367\201\304\177\262or\025\261M\330Y\304\215\\y\314\237\366\307;\357\255\253o~\262VI\300#\220oa\374\367\214\377w\311\341\247\2644\355jj\017\347\353\345\202\201i\226\203\312\341t`\207Q\0278\366~\335_\230-TE\375=\252\230\t\016\n\251c\372\364F\357\007_\372\326.%\370M\354y\nv\304r\327\037\373\366\302#\311G{\253PN|\342\033\035|\307\252\251\320Ta_\014\371\234\343P\233\2313Q\354\004\203\201\264\302y\340\372U[\210\327\247\306\330\377\236\207\3609\001\310\016\350\r\204}Y*v\343\221\320\343\"\227Cb\034\212\331\021\326\364 8A\006\007\317\305\020\021\342l\255\266\346u^\0350\037\032 20\304C\033w\224Ct_\223h\315Yq= 9\233U\325O\225F\010\243\333b\336At\314\225B^\356\243d\026\256\336Hd\215T;\336\027\256\334W\232\206\362]y\201\030n\274\311\262\t\370Q\334z\304\361,X\1774\362O\324\300\005\005\205\242\335\362\262\265\260\270\317\014\332\304\"\005q\231J[&\322\017\022\021\032\340\372\261\002\222\306\312\3066ZhwB8y\355\213E\031\366L\2071\334\2119\335\345WZ\003HE\276!(\232\014\"\200\007\322e\3362\375\"\216L\022G\365\231\177\235\241r\203\003\362\202]zT1Q\217\326A\001\367\344\014hj\333+o\311\256\010.\304\211\024\215\371\342(LO\327$0b\026[g\244Cg\202\330\330\026\276\200f\014\312\023\004\020\313\376\210\023\306\214\026\244\305h\273\261\232\013V\307n\316\363\002\360*\261x\000\3262\325\344\262\315\343\322\365X\"\323=E\032\273\273\242\305\201\247\300\266\006\220\257\271\334\355)n\326\036\357\205\005s\277\247_\241_\365\321\353\213\356\032Z\235\315\376\277\315""\243\274\255&P\3466\t\315\200Y \314\3422V\000\317\352j5\004I\340\210T\206\232EB\222C\007\262w`\341\231\223\321\000h\000>\023]\355\233}fG\336\325\314\356Q\31799\271\"\350\200%\004\205\304\t\215\014\005\251\202\314]\316\365\301~\"\231\243\365&\204\340\3749!\005T@\274\023\230\2566\233\215\027Y\347:]o\302\336vx\343-b\034%,\206:\217\006[\372\336\336\357\202\025\352g\346\366\366\027\372\2345\307~\264v\242\341\313\251R_I\030\300\250\0210 R\006*\0024\352\331,\241Z\244\327e\251\362\304\331\205\260\030\231\231M\3635.\200\250\226}x!\204\252Q\205 mMp\233\232dX'{\234E\232G\225\r!\230\342\271\341;\331\240\311N\323\023j\322i\030\231\2458@55\2022\005\314D5C\007v\205\\\024e\013+\226\364\020\307&\024\267\326\\\002]7\236\352\246R\313 \205\026\311\351\377\246+f\317\327\305\263D\275\341\234\033\344+\007\213\001\021\001\355VB\324\325\025U\002E\220\024\212R\031(\207\2016\227\246B\316f\301\213!d)\013Y\330;Z\004\3143h\320\260S\377\213\271\"\234(Hkj).\200";
-    PyObject *data = __Pyx_DecompressString(cstring, 3868, 2);
+    const struct { const unsigned int length: 8; } index[] = {{0},{3},{19},{26},{15},{26},{19},{42},{22},{34},{34},{35},{30},{21},{39},{22},{179},{11},{1},{1},{1},{2},{2},{1},{1},{8},{7},{6},{2},{9},{14},{50},{10},{61},{93},{28},{14},{5},{10},{10},{28},{30},{16},{16},{16},{26},{21},{19},{26},{20},{20},{19},{19},{20},{16},{18},{25},{15},{20},{20},{21},{22},{23},{19},{19},{18},{21},{11},{29},{31},{18},{22},{19},{21},{18},{12},{11},{13},{11},{15},{14},{14},{14},{15},{10},{10},{10},{13},{15},{12},{10},{12},{11},{12},{12},{13},{7},{25},{27},{13},{15},{14},{20},{19},{12},{20},{17},{14},{11},{29},{31},{20},{5},{23},{25},{7},{25},{27},{19},{17},{17},{17},{9},{27},{29},{7},{18},{4},{6},{10},{6},{10},{8},{3},{7},{7},{6},{5},{6},{2},{8},{4},{10},{13},{9},{11},{18},{5},{4},{7},{7},{13},{20},{4},{6},{7},{8},{5},{5},{13},{6},{5},{7},{10},{13},{15},{8},{5},{3},{8},{7},{3},{12},{7},{6},{12},{11},{13},{12},{10},{7},{9},{13},{9},{11},{4},{15},{10},{20},{8},{3},{3},{13},{5},{6},{8},{13},{13},{12},{12},{8},{1},{9},{3},{8},{6},{6},{6},{8},{7},{12},{10},{12},{10},{12},{15},{11},{9},{9},{8},{8},{3},{5},{6},{7},{7},{4},{8},{6},{7},{4},{11},{6},{2},{4},{4},{7},{9},{4},{9},{6},{8},{4},{6},{6},{7},{9},{4},{3},{5},{9},{7},{14},{12},{11},{10},{22},{14},{3},{12},{9},{2},{8},{9},{10},{17},{13},{6},{5},{7},{14},{6},{10},{6},{6},{6},{8},{7},{4},{4},{9},{9},{10},{11},{12},{10},{12},{19},{17},{12},{12},{7},{7},{5},{6},{11},{3},{8},{5},{10},{5},{9},{9},{8},{8},{5},{7},{9},{6},{3},{5},{5},{10},{12},{6},{8},{1},{5},{6},{8},{10},{13},{6},{7},{10},{27},{0},{2},{7},{7},{149},{44},{149},{53},{75},{178},{85},{30},{27},{47},{21},{23},{21},{23},{93},{31},{94},{9},{105},{96},{203},{42},{101},{9},{85},{108},{45},{112},{11},{107},{91},{248},{113},{2},{108},{158},{88},{89},{80},{101},{80},{145},{55},{93},{51},{154},{85},{131},{100}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (3817 bytes) */
+const char* const cstring = "BZh91AY&SY!\035\266q\000\003#\377\377\377\377\377\377\377\377\377\377\377\377\377\377\277\377\377\377\300@@@@@@@@@@@@\000@\000`\017Y\367ySK\275\332\\\305\337p\364K\310\265\250\244\225D*/\266\024\250}\304:\364\350>'\036\201\246\204SD\247\250\364\2322mF\206\236&\241\344\217ML\324\3621\246M\210)\250\006\236Q\240\364\232f\236\246H\333R=Oj2\237\224\365F'\250\365\004\222\023\004\020\310\232i\204\320\200\214A\250\365=\021\211\3514\001\240\000\000\000\003A\221\246\215\003F\203A\246@\244\312\247\250\375(\362\236\246\237\252fS\365'\2504\0324\017Ph2\000\000\320\000\000\000\r\000\r\017S\032\200I\252$\220h\032h\320\000\003\324\000\000\000\000\r\000\000\001\210\000\000\000\000\001\251\010\324\003F\233H=\023OP\320\017I\246\365OBd\003OSM4\036\221\26524\r2\032\000\001\240\000\000\004\210\201\002\232b\002\211\342\217)\351=L'\2444\0007\252\r\000\000\000\000\000\000\000\006\215\000\256\210l\003\300|\265\312\004\350\325\341\035W\255j\3338\035\212\323\233\031i\320\357\030\365O\267\250%\306E\267\211\r\354\260\335\335\335,\203\177m\313\034\335\341<\303\022Y\345\3406\362\272\200\326\205\315\331W0\2554\300\024E\277\347\375\0306\332@\365!\021\002c\002\031(\ns#Wp\021H\304\205\335+\334H\"(\023\255\211Bs\024T\324\243\203\205\311\206\214R1\200\210\305\214U\212\010\254\024\213\"\254\"E\214\025F0F\010\"\305\005\200\3142fa\206\005\326J\245J\227\327\014\000EW\263\253\2666\026\333\236\335\005\223\032\020\033\213\213U\302\303\024I\013\241\213\"0Q\021B\330\004\313\030\024\337\303\330\216{\264\354\245\rFw\272\006\022\225\321S'\250~R\"\207\241Q\220H\306x\300\264\301\n\2140\312\204\n3 a\214D\247\204\020\255KE Q#@\231T\207\265h\271\373\225\260\357\010\260\371\026\365\266\23341\005\206\263\270$\364\216FE8*\342\240R\361U\031\326\030\226E[\231\363Jje\305\244rE\0219\3137x\325\023\307\276o/'\177k\005\025$HiH\317\311\313\242A\322\261\214f\250R\254\326dg\223MS\025\006c^\244^\302\"\n\351C\021\r\216\263[\321\220\265r\020\342\230fN\300\322\010\345\226\373/\023\364\331\033\361\311\324\345O\030\323\201\033\216\374\020d""\262\267\307{\013~\356\020\221\034\306\\\276\337!\356\311\351a\263\0064N$<\276\200\200\300h\242M\235\326(R\373\\\277<kC\373a\032\337c\350\3700\344\016i\275\377O.~\n\275s\202\340\316\341n\224Hf\351\303ia\245\334\277S\tFb\033\2554\354J.\035\221j\351\242\005\n\027\312u\222\224\244\220{\331\271J\265\353\230\n\305\033\256.D\013\213\034J\002 \370E\272{\350\373\r\"KA \300\321\204H\207\242[)w\221{\33755\027\373\231\2400\307>\326\304\364z+7\023gF\374Q\331&\023\227\016\233\026\210\034\0247\322\311\246B,\"$\224\020\342 l\217\343\256\357\225\344\035\207k\177\323\353\350\220!\001\314,\227J\211\227\005]Q\nZny\351B\312\266-P\224:\00419e`s\231A\307\322\205\211XX\224z\371\317\243\262\204\322*\002\256\024\333bW\027JQ\204\024\024=,-\232$\022RR>Wb\332a\225h\225&\372\327\277\344\343\257\355\310R\251\243\027\334h\377]\333\335\014\254\357\341&\270\270\313\305\325\030\337n\372>\220>\207'\177\361z\336\2474\3520*\003\321\310BO\214\313TLM\r\236r\362\323\034H\211e\231X\224Z\220\264\320\024(w;\273\240D\010\355t\016S\216R\345\336\300\370\371\342\370\311\323\205_m\3519\221K\346\016\217;\230\211\373U\362S\"\002$>\270X\215\216\227 9\237\326\312\036\000\016X\245E<\200\322\002\003\330 \031\263\250t\332\277 \233\233\232\224T\354\332\264\231!\0368JB\220\0334\005\274\3563\035\346|\222\222^\017y\352\362~\335\274\332\264\005v\207K\314\257\332z\224\365\271\274\031\255g\324\345)\345\306z\347\3455\273\365z\255\300\314\371\026G\221\366K\220\334.}\3567\277\311f\356\273\271\233\323\037\213\234\347\t\316\224\341\312m\3256\346\320\232ZO=\332\003\016k\002\232\234\333$\226\275x\206\376l\331\226\023\365\330\204,\0313\354\371z;\010:\372r\014@\035\013\220\303hk\251pZw6\324\010\322\340\013\006\255\242a\246\265\016\346:1\324\335Y\372\374o=y\320\322\253\345k\303\264\030f\332\305\311d\032\262\325w1\321q\275\270;\215\203j1\031r\237\306\305\210vk\360\372\\\274\376\223T\266Y\342\270\214u\255}\030\034\326\241\026Xo\264\366;\203\202\357\031\325\276\360*\252oX_b\262\315\316\223E\255\214\032;\375\2336\336\227\272\340\036x\360""\240.}\203\t\207\020\013<\3046}\270\251@S\236:d\r\266\262\010\200C+\341\200\316\300\207%\370z\024\237\014\317_}\313\261\345\276\355H\322I\307\272\322\315\237\257d\240\225 \3660\300\254\260<\357wu#\026\257\231\017\014=\374\341n\234+t\334:/\317\201\231\366V\215\223\246X\000\3645}\234\263\241\235\233e\342\031\246eK\241\324{\310$\337{\024\362i\234\357\337\0135\372\271\241\347G0\352\014\276\2241\302\003M1&\022\n\231YyK\004Z\321#\2323\224\234H|_\001\357\261QI\232p\217Wg\314\363vg\275\026\215\241\2600k,7+>M\343\251\243\317i\026\0004{\026\202\304`\271\013d=\2205\276|\355\207\020\366\235\317s\375\r9}W_ \314\013\247/9\n$\340\235\311$\256\010\033t\222p\037Mz\220et\216.]\223\246\320\271\326\n\236\020^\024\274\264\216\340q6\233i\007&\030v[\216\342\247\0140\241E\252\031\342\032\021\207\206\255:\00785\263\210R3\251v\240;\257\300\225a\367\374OK\324:\243&t\367<Z7@\207\302)\262\213\366Z\374&Q\322y,\022\"P\247n+s\020\355D\241\213\264\r\302/\251\\\010U\214DD\255\326\251\215b\216\254\253\360n\300\033\r\215 \030\3123/O \033\315\240m\332f\243N\211\017g\217s\361\200\320oF\251\315\026:$\240-z5it\000 7\214M=\240\305\030\271:\215\214\364\326&\021H\245aG\013A\240\321\317w\265\326\277\037\037m\352\035\215\376\336[\344&d\3143\033:\216\230\023~\270\312\307\020\211Q\327\016\244\3122+V\333i\215\215\301\014\327\013[\027\3537\000Fy\023s\320\310\004I\2073\213f\006\021\031\236\362\000\254l\343\3723\302\357\013\326\034$\354\367[M\032 *;\014[;3b\305\325\235\2173p\337bT,\230\300\327-\343g\256de\016\2650\356\333A\224o\230\226iE\rs\337\023h\267sZ\201\304\256VG0\316\006\334^\221\023\312\023\344$\261|\\\322.\2359F6\311\210\332\0244\023\274/v\224\362#\213\356\226\221\304\374\016-\276\343\211\304\354T\351\364-\324\212bb\344\355\203\0229\264d\321\316\351\2033R\203\263#1\230\352\2451\006\r/\351\020n\253\220\265\270RWa\342'W/\267\252Z\036\302\335\001\222\340A\256\273k\306\223H\275j\373sX\270\n9\233\237k\241\030\254\331\031\371\343\256\362\355lz[\313\236\350\345\241\031<\214\364\240c\227s\027\372\321\266\025l\313""\023.55q\235\270\355\030\247\216\353\222\000\345}\017@\313\245\242\257V\315\205\264\256.)\010mv\355\213\227\305\272\272+>\235q\272\363\003.<\201\302\370\3379\2517\215\243\275Zf&\267\355\241\014\307N~\017,\200\016f;\256\333s\006\324\373\322\204\225\224\256\343T7\264\215#\025g5\307\306\244u\334\207\337.!\264\035\212.a\301\252\360\226\222\272\330\013\214h\"\0166\353-^V\337\006\365m\362\277\025\267\321Y\214\353\024\315\364\217\254\357n\336r\336\030\301\223\010I\301\t(\312\th\207\272\261WU([p\317\231\205Y1\213\033\361E\233\243\006\234\266\263\242B:\240'*\234\"\205\033m\014\243\014\224)\022F\r\370FM\340\275\314i\224\242X\314\354\201\361}\242&\310\205\345X\344\r\332E\nJ\352\234\205\301\022\325\260\275\300\224\000PP\331\257\214\027\344|\201D\217n\222L-\021]\335a\310crl\362\330\263\246\217\201\240G\333\311\\\206\310L6\206\345\313UH7V\337#\267\323\267R\006\030W\2626xo\277]\226l\345{\2676\363\226\355%Y\314\231J\3755u\227\036\\\3167@\217/5\317\355\227\302+\340\205\203\210\346\253\322\357.\221'=\257;]sk\2072[\323\203z^8\035\242\275\266\027vwcD\371\230\263\261Z|\033P\311\247c\001z\r\225\262\245e\n\224\273\2711b \254#\225\244\2662\361\205\025Y@\317Nq\357\033\240\345\352\246\3166\362\364lA\346\235\245\027\331{\207\027\365>\035\024.\312FQ\034\317<\020\267\203\244w\260\370\031\035\374\356pb\210\205I\201\274\242\322\211d\225J'\232\0106\266\236R\220\241\225\254]\227\305\303b\215M@,\261%\260\025n\370\255\002\237\003\253\231in\034\315\365tN\2057\275\262\324\264S\226L\014\016\227}\273\311Z^ft\2655\317\241\361\240y\211i2\363 \003\027rN\350\202\245\030\026x\322\314\342\271\3223\367\234\236\317\031\313\310{\245oGG9\320\241\2609\233\216\272\271?Wm\237v2\205\0272\264U\345\30782\304\347\\\214\346\n\324j\362OC4\221C+\2525\365PU\232\241f\326\233U\326\255\"\221\027\260\261n\352\347\262\346\344 \200\207\325Q\004,\266\273\345\262\033o\312\342\360\002\321\356\3179\263\236eT\223\337\223\231\013@\3141zD\351sw\244\236\356\333J\367,\240\363\2047\032\244xP\034|\344\035\360)\232\270\320\313\277\333\342""\216'\025\307\265\303\237>8\246m\340\271\010\003\032\304\375\005\214\335\014sn\354kZ\265\235C9I\331\257\277l8&\036\353=<\303\215|\200\211\233n+\326p\353\356y\303\005\210: \347\303+\035f\343r\r\335\316\355\230uN\354!\r\361v\355E\367\352\300\324\035\303\216\205\374\373E\354&\271\200\241(\277\220\361Egc!\254\332m5j\360p\025\273\227\202\371\200\030jBs\3619\241y\20198^\247Q\306(LPqYG\255\317\3226O\203\274\305\205\323\364\305\242\370\035&$f\352\374\222\3721\273\245\001UFAb\252\304\222\375\303\224\276\322\r\023\261\017\2016-p,-\310\224I\274\005\250P\244\021aFW\342En\210\251\013\314\231;\371\303?`G\035e]\r\357<\254,%%\002\001\327\033\310\233\3011J\262\252qm<\003\020\3410nkd/\204\355\201\340>E\330\274\027\031L\n\0061\010V\000\334(\234x\3278\027\314\331;\341\026\201\035\020\206\200\031(<\364\325\273\377\227\304Z\203\2546\362\362\307\r\275\320\204\"\302\n\351\263\241y\3201w\221\207\327\271\233\371\203\232PR\362\355\306\016\t\0353\030*o^\034]:\276L\364a\006\320^\277T\302\370}\323>\r\200Ph\240\261S\260)O<\206\307\1775\366Z\225\025X_\332\323\315\363\316\3017B\207a\366BI\r\265\020\340\t\362F?\331H\374\262\315\306\321\0361\\2\000\314@\230\247\317\0040\276\365\377\231J\023\373x\020\354+\220#\233\343@pA\0107\213\232 \026\343\362\017)ry\217\016P\036\322@\241\016\252F\265\246\025\254\215\251\372\304\263\330^\020\"\375l\326c}\205\311f\326v\264\242\311(\314\026\327aa8\251f\322\326\236fa\036\250\265f\303I\0052-\231\034+\230\332|9\302p(\330tI\276\251Q\371'\014\372\026\000\240\260\254[M\356\n\265\262\320\315\351\302\365\233\260\226\037\325d\256`\202DTB\327?\013\241'\316\256\323\n\360*l\205\210\337\252*$\307<\240\300lJ\276\236\3134j\001\322\022\366\305d\226\000\205`\000\373\312l\224\361\3134\367'\233\361)\376\350\013\034\227\024h\005\263%\n\322\362\246\342@\240\366g\017\001\006\252\225h\317\250\0206\254\353,\360\373eJ\304r5\021H\"\263\325~\021[J\335Q\252*}\300\220JV!\002\224\343\224$\205\\T\236\355D\354LTT\2524t\266\0345\266gk`S)\247{I\366\017K\315\234\211\361\236\243\r=}q\234\370?\3349\360P""\027>D\003\211&\354=\3334\024\311\317\312\334\276\017\035\211\307\205 \310\331w\242\363@\346%\230\222\352\0315A\034\242\3135y\214\033B\350yx#o\210\313j];Z,\264\354\360\245\343\304\244]\276\252\255\225\006\231*\377\032W\355j>\370\277\026\222R$\031\257J\325\3201c\023p\233J\234\241\035\010\227\ra\36082\023D7R\327e\026\001\252\240\r\035\005P\326\361\035\242`bU\251\311\030\322\314\357\325\366\262\207\205)\240\334JH=\026\035\256]\032~\376\277j\263ce{::\255\347\304\032\203\263\2315Iw9x\370\364\271\312\356\031B\255\305\014\200\214p\205r(\023\220\r\324\265t\035g\271\023h^C2H\31635.@\250\224\374h`\204\2321\225\020\327K\0018)\221`\273\340\342-H\342\302\220\223f\301\340\273\332\206\226.\246&\353eH\314\224\227\004\005J\301i\003\004\302\025B\016\352\r\241,\251\213\317\215\0041\313\n\345\365\327\204K\312\372\016\325\324\306 \205\031K\353\377\324-\362.\374\354^q/\210N\033\031\006\303\305\201\021\001\356\254\213\245QUP$Y\002\213\023!\023\020\360&\345\351\021n\323a2\"\310\242.\335\007W\002f\022\330\241`\317\376.\344\212p\241 B;l\342";
+    PyObject *data = __Pyx_DecompressString(cstring, 3817, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (3854 bytes) */
-const char* const cstring = "x\332\255WKW\333X\266\206*\023\034\002!&\201\220\027\021\201\004\252\272\222*\272HHQy\264\013\310\243\302\313<Bu\335N\237%\3132\250\021\226-\311<r\253\2732\364PC\r5\324PC\017=d\250\241\207\376\t\374\204\376\366\221\344'Y\267\373v\257e\037\355\263\317\3219\373\371\355\255\357\376x\374lA\313\345d\311T\264\234 \251\232!g^4q\366DCH\313r\264\324\274Y\311<\307\314\224s\346\303\255\223\274</\230\362\261\371m^\025\225\334@\337+QQ\345\214`j\202\230\301C9\220\365&\226\252j\222h\312B\272\230\315\312\272\220\325ta{cY\220s\222\226Qr\273\215\235Rp\035\221S\347rWR[[BZ\327\366q\314\371;6W\267\326\005C\326\017[w(9\305TDU\371(\013G\342\276\\\314\013F1\237\327t\263\261EU\014h\307\245\343\327@\347\251\216Ub\2761\315\374\212l\030\342\256,(\206\220\323L\341\020Gg\370\253\346\036X\362!\314\264\"\346\260Co\3304\253\313rfU\203!\314=\321\024\026N\314=\262\253!ddUI\313:L\244\236\010\206\251+\222)\323IbNX_Z\1778\373tV\020s\031A\227\377\006%\rH\236\226T\3210dC\320\2620\252\242\232JN0\341\024\343\221\3606+\234hE!'\007b\347\261\257\371\005s\017\202\030\262I\2040%\346 \274H\356ex\035\256\230\0222\212N\016?\224\351\355W\242j\310\217\2667\227\330\352\332\353\267\313\317g^\316?\232\027\006\372^L\301\315\014\357\312\031\305\020\323*\264\243qWR\214\200\312\034\3542\2200\t7`N\203\216Y\261\250\232\002c\272\234)J2cB\246\310/\311i\271\207\320\371\020\356\301\252D\236\302\242.\213\031:\351\271!\253\331G\354\300\330\025$..lI\376\206\177\3150\274\204\365\300\222Z\232\354\303\275\220W\244}\025\372\360\227%1r\323\252\226\223\005,\007l\234p\356\302\276|r.?'\036\310\315\013\206.}\233?9\320r\273\032\222\345[\026Q\217\362'\307\317\310\215\270_+\352\222\374\242hf\037>\025\216t\305\344*5\262\252A=\252\033F\342\3320\326\262\006\227\031\360\324\271\253<W\233\346\031\0359\3314\227u]\323\233\346{\210_\226\026\rEbb\321\334k_\221\366\212\271\375v\246\321r\303A\3014\031\\\037\346]\373\nER\007O;\207WL\267\263\214\026\026B\361\220eDSl\341\345\325\223\226\271\241\251\207r'\207!^$YmZ\240\210l\233\266\237\316\221\003\252\351""\035\274,\002\271\205i2$hF\225[\266\346`+].\024e\243\331*\246j0\312\3766\026\205z\023\353\310`m\022\202S\314\357\352bFn\302\234&\2623hZ\027;\242\246yy\017\031&\353\235\034v(\236\3035\232Y\320O?i\337G7\025\215\225\327l\351=K.,,\255o\005\364\302\362\332\346RH\256\255\256.-\204\374\245\215\215\265\215\200|\263\265\265\316\336,nl6MW6_\0073\002c\266\260\262\3304k][[_Z\r\246\rj}my9\2406\226\222\213\021\265\271\266\374>\024\205\352\004\333z\273\022N\267\2267\331\233\360z\340](\327N\362\335\322\366zHo\274\335\n7\357l\262\205\255\345:]\227\0064\227 \000\376\360\321\351\243\306B\207\177\242%\236\322\365I\020\020\3214\250D\321\214gM\333\016\316k\335\226\327T5\242y\220\266\275\302K6\003\252G\214\240J\256\340\244\320\277M\3449*\265,v\250\305\330\372\3111\376\213\250ll\025}\303\206\234\335\242\033\371\320y\\\304\3568hK5\326\362\246\021>\316y\261\276\320\361\352\316\322O\233k\013\357\226(^\330OoW\223\033\177na\255\277]}\335\312Xkcl-\375\262\265c\204j\326\211N!\232\227\3161\005\332!\014\306INR4\370V\327\212(\337\262\221\3262'\364g\351`<1\003\036\223\370\230=0C\n\225\005\215\024~L\225s\364\310s\006:+\376\216\3044X@\022%\334\223\026\245}*s\034\3229\324I\252,\346 \225a\000_$UA\237\302\224L\235`h\024 \014\220\211\231\272(\311\374\000\212E\n\027\372\323\346 r\244:L\201GG\323\237\245\303:\317\200\241\360u\360\340\005)h\014X\020W\274\365\223ya\342\275\022K\007\017jb\020\036\272\310B\324i\231\2604\2010\225\341\254*\356\032d\022\226-\346$\306v\345\234|\234\327w\001\312\240C\223G\370\034\274\035\202\033\251g\2044\235\324D\262t\035\000\325\242\334\000\303\360\366\272\020u\202\314\035M\244\210\200{\250b\266\025\331Fe\345T^\204j\354\000\206R@\232Q\211U2\307\n\371\001\307Eq\241\230\362\201\3617\003VN\363\021\332EO\226\3264\265>QQ`\353\223\\\361\240NC N\343\271\277/\313y\264\252\2072z\034X\222\207\004\236\273\346^\000\027\252\246\355\027\363\214\035\300a\030\2030>PT\254R\010d\214\003d&\367R\023\305\322\330\252e\212\360.k\206\243\266.\241\t\225\352]B\2755\210\372\201\250\t@\277\207\037\243'\302""\213F\210I\017\004;\367\025k\032q\177N>\242\341\330\244?\323\262Y$^8\3465B;\344D\036\272\314~7\033>X\232,O\177\036\243\324(\023\3130\2164=\223\027\315=\372\023\007\243\224\027OTM\314\204\017p\001\24787\217\036\317\344\003\223\217\245\374\t\327\274\321\022>\252\267\204\214\241'\244\030\221\366\215\342A0C\233\302\023\205\3500`\211$\223\006T1\307\333X9B\265\200{\310{H\306\n\032\030\205\242\250\006\206\250\227d]\242\326\231\314U\357\236\032=w\007V\325\031\3621\221yY4y\203\025\366P\255\255T q(7\277\300D\234`,\3529]\323\020\220|D\367\244\027s\370<8\242\266\231Z\232z\247Uo\257\032=US#\305\3412t,\250:\224\324A\224\235\003\250\306\276\222g\220T\311*\022\377\224i.o\315\375\030\332u\022\332\240\3043v\371!A\313\022\214\214\020\t9\302\030\3611\356\351\332\021\225E\344!^\340\005\262^%\003\002\261\030uvQ;\207pC0\321\300\322u\004-\346\241\273\\\324U\374X\232\006\211\206\000\004\213\220'R\n\264\216\r\030\311\010\207\034\207\370`\300\261\3340\321\223\245\211\342k\224\330\001\252\206\rd\243klP\217\236\3217\270j\274x\024Be__\0379d>\370V\235\027\374\330\230?\366\235\327W\036?\273\331uq\260$\226\n\326\005K\262\023\265\370\035{\333\231r\023\356x-~\2514o\245,\305.T\373\257Y\257\3559g\334\231\251\201\\\262\0236\226\373Ko\255_\354\224\2558\206;\356\316T\301xg\035\333\005\247\267\301xm\361\307\317\226X\213O8\263N\321M\236]\350\032\272Z\275r\303\276\345$\235\367\356\014\347\\\274R*\370\261[\366\314\331\225\256\213\267\355\357\355]'\345\210\325\370\270\223\250F/\326\022C\325+7\355q\373\211\223\360c\263\376\354\233\323\013\376\352_\375\277f\374\214L\322\316Y\017\354/\355\231j\377\220\365\265\235\264S\265\370\345f\315n\333\213\020\255\340v\323}\375%\354\033\263\017\3349o\334\003y\305\277\302\357\272D\374[\366\274\263\343&\335\024\370\326e[\254\213P\215O:\257I\263{\3168\027\007O\347\211;\354\356y\242\007\0050=\353\247\303gK\005\022\343\033[\204\365\006.W\373\257[\005\273\333\276f\3578\311\2638v\370\227\356\330\233\316\027\3168i\375\334\355&\371gK\207\326\246\335]\355\277JV\253\213[\215sgu{\327""\274\235r\262\312\025\235\260R\341\266\301\322\357\270\344\220\314\345\307\346\374\271w\247O\374\224\350\213\273\376\256\351\233\037\375\217\377\373/\231\346\r\351E\n\366\227\226\355n.\342\277g!\316\036\265{\355#Gt\n\304\276\204\373\332\014\307m\206S\234\007n\217\233r!\361]\373\357\010\200k-N\237p^x\t\\:\353\035\225w+\314\337\332\246\343\037[_Z3\241Q\375\273\177\252\300dC\326\244?\362\025\005+\331\3417\233\233\243\360)y\326\327uq\022\027\027\352\357\325\206G\252\327\350\342q\254\336k_%i\007m\274\030x\301$N\3440\256a\237=N\217\001\373\275\3037\367X\177q\022\264\27594\243\343\303\313#6\202\332N\266\357\275MN\300\336\376\326\275w\221=\335\221\030\215`\240\200\035\262\022AB=\206X\211j\377\260\265e\017\333{\201\261\007\261y\333\276o\033\316x\365J\202\2144e\017\331/\221\205O\274\321\362\335\323\356\323\221\323Bd\2340@\233cm\260\364\017$r\206\242\361Y9yv\231vt\206\014\244\253\005~\276i?pz\310Y5\270\374\2223\307\323\035\033\307k\3479\374\016\316\316:K.\267\030\217/H1Iw\020\276d\355d\265\377F\220\032N\252\006r\230\262\246\201\027<\026\277G\270\376\206\020\021a\213\221\353\325kS\310\214\013n\326\243\345\201\353\226X\355\037\241P\006.\221\247\203U\305#u/\264\\t\335*\332K\316u\267\333M\324\360\212L\316\251\222f\3258%dw\023\336\324\201\352:\330#!\247-\267q\376\327\021\200\306a.`d\260\211\3445\341\253/(r\206`\3128\016\271\346l\273\023\210\373\2147N\261\027\354\231\263\357\221`C\326\264=\r4\231u\216\\\t\341?\351\211\215=O\340\315\231\300\255\243\210\262I'\353.\270\005/\346%\377\225s\220\354\376\345\t\347\261\033\363\277Y\254\264E\"\205\347+B\366 2\032\265\000Z\267Bo\200uH6?6\351\274s\217\275\002\025\2176\254\003\224p{\376\335}\355\315\2277+\335\225\321\323\241\3239\177c\223\270\006]T\215\337w\230\3270\357\rb:\213n\257{R\356)\247\302j\360\251\273\032\353+\375\301J\3711\301\031pSd\347\026\214xI\260\344-\226{\313G\025\315\337~\337\211\021\\\327\3631\302\217\335\264\037:\377\360\020\325\267\242C\303\330\276j\275\240D\346\006\334\365\030\316\000\353\007\312\000$\310\224{\335\033,\027:""\357\232\363\300\374\334]H\000\262\355m\204\307T\260Z\317\222\t\262\307\025\253\333\032\261\216H\014\277\2136\217t\365\304?}\264\022\210\0338!a]\263v\202\024LX\303\226h\025\252\261Q;f\277\206\331\222U\324\217\247 \336\360\210\350\246\225AD\177\037B,\326\373\351\250$\021n@\212j\254\207\236\207\374\244?\223\266\375\245d)Ef\276\017\355\263n\362\023\301~\317\345\322\026\356\310\330S\210\326\367\356\254{\344e\3128\212\227r\353\225\375\r\214\217s\017K;h\003\010\035\2414\364\001Z\326\342\243\020\026k\0044\376\340\264\033C}\330\361\336\301=\270\254\205S -\267\221*\243\377o=k\270\350wl\371\350\214F\366\306n8\220\207\213\377\360y\371\303\351C\177G\361\225\023\377\344\343\231\320\326\345\214;7\334)d\3077e\3554U\255\327\277\345\362\345\212\3306\r\303\202\320\377\027\030\352\300\373\236j}5\342\306yf\217\272Wy5\214\270\3758!\351\374\342n\242l'\202V)E\360\275b'\202>\251\320\024x\355\321,V\016O\231\377\227\017\377^Dw\rS7v6\324\325s\243a\263\233\366\004\342V\254\201\230v\3569?9i\364\023\261a\230\231\347<r\r\0160\tA\252\350\010\3669\200R\240\014[\037\260\376\324\375\301[*\363\3701\254{\326\273\240\266\207\221C\375\006\265.\227\t`:\223\350e=\253\217<\255\222\242$\232'Ql\023\345b\312\273[\351\356T\357i\271\373\363I\364\300\177\360\262\374\373\251H@\320\n:\265\370X\275\003\031\266R\r\212\240\344\266\375\330\211\023\334\323d\322y\346\342\275\001\304x\202*\006\312\306\000\377]\265~\344\245\205\227\n^\027\303\263\211w\271\364+B1>P\372\0000\217\017\370\003c\366\276\233\240xMP\305\343\322A\002*\374\375\237k\342j\361\021K#\0039\246\373\330\213\227\343\225\370i\357i!\200o\312\321\250\020\037Z\033\226\201\354K8_\271\010\346\t\347GW<\233\356\2728f\377\n@\022\335B\313\241w\354\377q\277p\247\275{\336r\345\213\312\024\240v\246\035\\\306l\211\360\214C8\030\316+\367+o\306\357\032\263e\370\177\364?\000\232K\376%*\036?;{h\344\376\013\347]\247\345^\277\227:\257>g\232z\212\0327\010\2313H\3551|l\024\350\023\341\374O\226\352y\337$\300\255\317T<\304\224\243y\251\250\212\265\366[\2230\374\256\227\242*<\351O>""A\316\233\345\271\n\257\333\317\203\276(\3348\216\360\352\345\032\320\306\371\362x\371Y\245p\032;}\203\276\325\337F'N\237'\276\234\255\3617{\320d\3648\233\356\200\267]\236(\007M|-l\342Q\363jh\210\013\276\360\235w\251\374ce\337OmTcWQ\331\247y\335\004\344\375\206\td\240\364\370\332[\2058\021\344!\036\220\372\\\217#\262J\030Ow\221n\364}\"F\237\r\033\226\t\253\317\271\367\\\336\014\035\333<\004\177\260\026`\374\340\225+V/\366<q\206\035\331\375\243\213\362;\355\016z\374\360;\215\257\204\246\017\206z\264\r\363\036\013\270\347\307\276v\037z\205\350\003\3623\r\036\335\373\324\372\236r\220\267\3105\376\370\211#\004E\305\242\367\245\367\030xxXAF\217\242\221\272\217\346x\000\365#\351\005\275h\330k\334w>x\337V\220\216\017\010I\321\244\264v-A\363\271\342\335*/\237v\323\367F\253\\#\274\324Q~\264u\203\347\266\204$Hw\323w\350p\020\373\330{6\366\177D~\255\275~\341\243n\026\272\374Z>F\270\360z\366\033\267\006\034@\037,\204\302\374\253\304\211!W\342\327\2545\016\2478\033\037b\002o&\t\337z\006\250\246\370]7\354\304\177\3245\334\260\357\002$oz3Au\337\346_\230QQ}\teg\376\t\010\014\205\261";
-    PyObject *data = __Pyx_DecompressString(cstring, 3854, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (3853 bytes) */
+const char* const cstring = "x\332\255WKW\333X\266\206*\023\034\002!&\201\220\027\021\201\004\252\272\222*\272HHQy\264\013\310\243\302\313<Bu\335N\237%\3132\250\021\226-\311<r\253\2732\364PC\r5\324PC\017=d\250\241\207\376\t\374\204\376\366\221\344'Y\267\373v\257e\037\355\263\317\3219\373\371\355\255\357\376x\374lA\313\345d\311T\264\234 \251\232!g^4q\366DCH\313r\264\324\274Y\311<\307\314\224s\346\303\255\223\274</\230\362\261\371m^\025\225\334@\337+QQ\345\214`j\202\230\301C9\220\365&\226\252j\222h\312B\272\230\315\312\272\220\325ta{cY\220s\222\226Qr\273\215\235Rp\035\221S\347rWR[[BZ\327\366q\314\371;6W\267\326\005C\326\017[w(9\305TDU\371(\013G\342\276\\\314\013F1\237\327t\263\261EU\014h\307\245\343\327@\347\251\216Ub\2761\315\374\212l\030\342\256,(\206\220\323L\341\020Gg\370\253\346\036X\362!\314\264\"\346\260Co\3304\253\313rfU\203!\314=\321\024\026N\314=\262\253!ddUI\313:L\244\236\010\206\251+\222)\323IbNX_Z\1778\373tV\020s\031A\227\377\006%\rH\236\226T\3210dC\320\2620\252\242\232JN0\341\024\343\221\3606+\234hE!'\007b\347\261\257\371\005s\017\202\030\262I\2040%\346 \274H\356ex\035\256\230\0222\212N\016?\224\351\355W\242j\310\217\2667\227\330\352\332\353\267\313\317g^\316?\232\027\006\372^L\301\315\014\357\312\031\305\020\323*\264\243qWR\214\200\312\034\3542\2200\t7`N\203\216Y\261\250\232\002c\272\234)J2cB\246\310/\311i\271\207\320\371\020\356\301\252D\236\302\242.\213\031:\351\271!\253\331G\354\300\330\025$..lI\376\206\177\3150\274\204\365\300\222Z\232\354\303\275\220W\244}\025\372\360\227%1r\323\252\226\223\005,\007l\234p\356\302\276|r.?'\036\310\315\013\206.}+\235\034h\271]\r\311\362-\213\250G\371\223\343g\344F\334\257\025uI~Q4\263\017\237\nG\272br\225\032Y\325\240\036\325\r#qm\030kY\203\313\014x\352\334U\236\253M\363\214\216\234l\232\313\272\256\351M\363=\304/K\213\206\"1\261h\356\265\257H{\305\334~;\323h\271\341\240`\232\014\256\017\363\256}\205\"\251\203\247\235\303+\246\333YF\013\013\241x\3102\242)\266\360\362\352I\313\334\320\324C\271\223\303\020/\222\2546-PD\266M\333O\347\310\001\325""\364\016^\026\201\334\3024\031\0224\243\312-[s\260\225.\027\212\262\321l\025S5\030e\177\033\213B\275\211ud\2606\t\301)\346wu1#7aN\023\331\0314\255\213\035Q\323\274\274\207\014\223\365N\016;\024\317\341\032\315,\350\247\237\264\357\243\233\212\306\312k\266\364\236%\027\026\226\326\267\002zayms)$\327VW\227\026B\376\322\306\306\332F@\276\331\332Zgo\02676\233\246+\233\257\203\031\2011[XYl\232\265\256\255\255/\255\006\323\006\265\276\266\274\034P\033K\311\305\210\332\\[~\037\212Bu\202m\275]\t\247[\313\233\354Mx=\360.\224k'\371ni{=\2447\336n\205\233w6\331\302\326r\235\256K\003\232K\020\000\177\370\350\364Qc\241\303?\321\022O\351\372$\010\210h\032T\242h\306\263\246m\007\347\265n\313k\252\032\321<H\333^\341%\233\001\325#FP%WpR\350\337&\362\034\225Z\026;\324bl\375\344\030\377ET6\266\212\276aC\316n\321\215|\350<.bw\034\264\245\032ky\323\010\037\347\274X_\350xug\351\247\315\265\205wK\024/\354\247\267\253\311\215?\267\260\326\337\256\276ne\254\2651\266\226~\331\3321B5\353D\247\020\315K\347\230\002\355\020\006\343$')\032|\253kE\224o\331Hk\231\023\372\263t0\236\230\001\217I|\314\036\230!\205\312\202F\n?\246\3129z\3449\003\235\025\177Gb\032, \211\022\356I\213\322>\2259\016\351\034\352$U\026s\220\3120\200/\222\252\240OaJ\246N04\n\020\006\310\304L]\224d~\000\305\"\205\013\375is\0209R\035\246\210W/\203\217\352e\220\256\243?K\207\265\237\001W\341\377\340\301\213T\320,\260 \326x;(\363b\305\373'\226\016\036\324\330 dt\221\205H\3242ai\002f*\315YU\3345\310L,[\314I\214\355\3129\3718\257\357\002\250A\207n\2100;x;\004<R\331\010i:\251\211d\351:(\252E\271\001\220\341\355u!\352\004\271 \232H\021\001\227Q\025m+\274\215j\313\251\274\010\325\330\001\014\245\2004\243\262\253d\216\025\362\r\216\213bE1\345\003\343o\006,\237\346#\264\213\236,\255ij}\242\302\025\365I\256xP\247!\020\247\361\334\337\227\345<\332\327C\031}\017,\311\303\004\317]s/\200\020U\323\366\213y\306\016\3400\214Ah\037(*V),2\306\001\262\225{\251\211bil\3252Ex\2275CT[\347\320\204T\365\316\241\336.D=B\324\030\240\007\304\217\321\023!G#""\304\244\007\022\200\373\2125\215\270?'\037\321pl\322\237i\331,\2221\034\363\032! \362$\017]f\277\233\r\037,M\226\247?\217Qj\236\211e\030G\232\236\311\213\346\036\375\211\203Q\312\213'\252&f\302\007\270\200X\234\233G\337g\362\201\311\307R\376\204k\316\030zB\212\007i\337(\036\0043\264)<)\210\016\203\223H2_@\025s\274\215\225#T\013\270\207\274\207d\254\240\201Q(\212j\240t\275$\353\022\265\316d\232z\367\324\350\271;\260\252\316\220\217\211\314\313\242\311\033\254\260\207jm\245\002\211C\271\371\005&b\002cQ\317\351\232\206\340\343#\272'\275\230\303\347\301\021\265\315\324\322\324;\255z{\325\350\251\232\032)\016\227\241\023A\325a\243\016\242\354\034@5\366\225<\203\244JV\221\370\247Lsyk\356\307\320\256\223\320\006%\231\261\313\017\tZ\226`d\204>\310\007\306\210\217qO\327\216\250,\"\347\360\002/\220\365*\031\020\210\273\250\263\213\3329\204\026\002\207\006\226\256#h1\017\335\345\242\256\342\307\3224H4\004\200W\204<\221R\240ul\300HF8\344\230\303\007\003\216\345\206\211\236,M\024_\243$\016\0204l \033]c\203z\364\214\276\301U\343\305\243\020\026\373\372\372\310!\363\301\267\352\274\340\307\306\374\261\357\274\276\362\370\331\315\256\213\203%\261T\260.X\222\235\250\305\357\330\333\316\224\233p\307k\361K\245y+e)v\241\332\177\315zm\3179\343\316L\r\344\222\235\260\261\334_zk\375b\247l\3051\334qw\246\n\306;\353\330.8\275\r\306k\213?~\266\304Z|\302\231u\212n\362\354B\327\320\325\352\225\033\366-'\351\274wg8\347\342\225R\301\217\335\262g\316\256t]\274m\177o\357:)G\254\306\307\235D5z\261\226\030\252^\271i\217\333O\234\204\037\233\365g\337\234^\360W\377\352\3775\343gd\222v\316z`\177i\317T\373\207\254\257\355\244\235\252\305/7kv\333^\204h\005\267\233\356\353/a\337\230}\340\316y\343\036\310+\376\025~\327%\342\337\262\347\235\0357\351\246\300\267.\333b]\204j|\322yM\232\335s\306\2718x:O\334aw\317\023=(\200\351Y?\035>[*\220\030\337\330\"\2547p\271\332\177\335*\330\335\3665{\307I\236\305\261\303\277t\307\336t\276p\306I\353\347n7\311?[:\2646\355\356j\377U\262Z]\334j\234;\253\333\273\346\355\224""\223U\256\350\204\225\n\267\r\226~\307%\207d.?6\347\317\275;}\342\247D_\334\365wM\337\374\350\177\374\337\177\3114oH/R\260\277\264lws\021\377=\013q\366\250\335k\0379\242S \366%\334\327f8n3\234\342<p{\334\224\013\211\357\332\177G\000\\kq\372\204\363\302K\340\322Y\357\250\274[a\376\3266\035\377\330\372\322\232\t\215\352\337\375S\005&\033\262&\375\221\257(X\311\016\277\331\334\034\205O\311\263\276\256\213\223\270\270P\177\2576<R\275F\027\217c\365^\373*I;h\343\305\300\013&q\"\207q\r\373\354qz\014\330\357\035\276\271\307\372\213\223\240\355\315\241\031\035\037^\036\261\021\324v\262}\357mr\002\366\366\267\356\275\213\354\351\216\304h\004\003\005\354\220\225\010\022\3521\304JT\373\207\255-{\330\336\013\214=\210\315\333\366}\333p\306\253W\022d\244){\310~\211,|\342\215\226\357\236v\237\216\234\026\"\343\204\001\332\034k\203\245\177 \2213\024\215\317\312\311\263\313\264\2433d ]-\360\363M\373\201\323C\316\252\301\345\227\2349\236\356\3308^;\317\341wpv\326Yr\271\305x|A\212I\272\203\360%k'\253\3757\202\324pR5\220\303\2245\r\274\340\261\370=\302\3657\204\210\010[\214\\\257^\233Bf\\p\263\036-\017\\\267\304j\377\010\2052p\211<\035\254*\036\251{\241\345\242\353V\321^r\256\273\335n\242\206WdrN\2254\253\306)!\273\233\360\246\016T\327\301\036\t9m\271\215\363\277\216\0004\016s\001#\203M$\257\t_}A\2213\004S\306q\3105g\333\235@\334g\274q\212\275`\317\234}\217\004\033\262\246\355i\240\311\254s\344J\010\377IOl\354y\002o\316\004n\035E\224M:Yw\301-x1/\371\257\234\203d\367/O8\217\335\230\377\315b\245-\022)<_\021\262\007\221\321\250\005\320\272\025z\003\254C\262\371\261I\347\235{\354\025\250x\264a\035\240\204\333\363\357\356ko\276\274Y\351\256\214\236\016\235\316\371\033\233\3045\350\242j\374\276\303\274\206yo\020\323Yt{\335\223rO9\025V\203O\335\325X_\351\017V\312\217\t\316\200\233\";\267`\304K\202%o\261\334[>\252h\376\366\373N\214\340\272\236\217\021~\354\246\375\320\371\207\207\250\276\025\035\032\306\366U\353\005%27\340\256\307p\006X?P\006 A\246\334\353\336`\271\320y\327\234\007\346\347\356B""\002\220mo#<\246\202\325z\226L\220=\256X\335\326\210uDb\370]\264y\244\253'\376\351\243\225@\334\300\t\t\353\232\265\023\244`\302\032\266D\253P\215\215\3321\3735\314\226\254\242~<\005\361\206GD7\255\014\"\372\373\020b\261\336OG%\211p\003RTc=\364<\344'\375\231\264\355/%K)2\363}h\237u\223\237\010\366{.\227\266pG\306\236B\264\276wg\335#/S\306Q\274\224[\257\354o`|\234{X\332A\033@\350\010\245\241\017\320\262\026\037\205\260X#\240\361\007\247\335\030\352\303\216\367\016\356\301e-\234\002i\271\215T\031\375\177\353Y\303E\277c\313Gg4\2627v\303\201<\\\374\207\317\313\037N\037\372;\212\257\234\370'\037\317\204\266.g\334\271\341N!;\276)k\247\251j\275\376-\227/W\304\266i\030\026\204\376\277\300P\007\336\367T\353\253\0217\3163{\324\275\312\253a\304\355\307\tI\347\027w\023e;\021\264J)\202\357\025;\021\364I\205\246\300k\217f\261rx\312\374\277|\370\367\"\272k\230\272\261\263\241\256\236\033\r\233\335\264'\020\267b\r\304\264s\317\371\311I\243\237\210\r\303\314<\347\221kp\200I\010REG\260\317\001\224\002e\330\372\200\365\247\356\017\336R\231\307\217a\335\263\336\005\265=\214\034\3527\250u\271L\000\323\231D/\353Y}\344i\225\024%\321<\211b\233(\027S\336\335Jw\247zO\313\335\237O\242\007\376\203\227\345\337OE\002\202V\320\251\305\307\352\035\310\260\225jP\004%\267\355\307N\234\340\236&\223\3163\027\357\r \306\023T1P6\006\370\357\252\365#/-\274T\360\272\030\236M\274\313\245_\021\212\361\201\322\007\200y|\300\037\030\263\367\335\004\305k\202*\036\227\016\022P\341\357\377\\\023W\213\217X\032\031\3101\335\307^\274\034\257\304O{O\013\001|S\216F\205\370\320\332\260\014d_\302\371\312E0O8?\272\342\331t\327\3051\373W\000\222\350\026Z\016\275c\377\217\373\205;\355\335\363\226+_T\246\000\2653\355\3402fK\204g\034\302\301p^\271_y3~\327\230-\303\377\243\377\001\320\\\362/Q\361\370\331\331C#\367_8\357:-\367\372\275\324y\3659\323\324S\324\270A\310\234Aj\217\341c\243@\237\010\347\177\262T\317\373&\001n}\246\342!\246\034\315KEU\254\265\337\232\204\341w\275\024U\341I\177\362\tr\336,\317Ux\335~\036\364E\341""\306q\204W/\327\2006\316\227\307\313\317*\205\323\330\351\033\364\255\3766:q\372<\361\345l\215\277\331\203&\243\307\331t\007\274\355\362D9h\342ka\023\217\232WCC\\\360\205\357\274K\345\037+\373~j\243\032\273\212\312>\315\353& \3577L \003\245\307\327\336*\304\211 \017\361\200\324\347z\034\221U\302x\272\213t\243\357\0231\372l\330\260LX}\316\275\347\362f\350\330\346!\370\203\265\000\343\007\257\\\261z\261\347\2113\354\310\356\037]\224\337iw\320\343\207\337i|%4}0\324\243m\230\367X\300=?\366\265\373\320+D\037\220\237i\360\350\336\247\326\367\224\203\274E\256\361\307O\034!(*\026\275/\275\307\300\303\303\n2z\024\215\324}4\307\003\250\037I/\350E\303^\343\276\363\301\373\266\202t|@H\212&\245\265k\t\232\317\025\357Vy\371\264\233\2767Z\345\032\341\245\216\362\243\255\033<\267%$A\272\233\276C\207\203\330\307\336\263\261\377#\362k\355\365\013\037u\263\320\345\327\3621\302\205\327\263\337\2705\340\000\372`!\024\346_%N\014\271\022\277f\255q8\305\331\370\020\023x3I\370\3263@5\305\357\272a'\376\243\256\341\206}\027 y\323\233\t\252\3736\377\302\214\212\352K(;\363Ow\240\205\227";
+    PyObject *data = __Pyx_DecompressString(cstring, 3853, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
     #else /* compression: none (8271 bytes) */
-const char* const bytes = "02x<Connection closed>Connection has been closed<Connection id=Content-Type: text/plain\r\nFailed to add timerFailed to allocate buffer for URL encodingFailed to connect to 'Failed to connect to MQTT broker 'Failed to connect to SNTP server 'Failed to initialize wakeup supportFailed to listen for MQTT on 'Failed to listen on 'HttpMessage is not valid for this eventManager has been freedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.USE_NOGIL=1?:.: \r\n>'add_notedisableenablegcisenabledmg_send failedno default __reduce__ due to non-trivial __cinit__ readable=self._msg cannot be converted to a Python object for picklingself.ca is not None or self.cert is not None or self.key is not None or self.name is not Nonesrc/cymongoose/_mongoose.pyx<stringsource>utf-8 writable=ConnectionConnection.__reduce_cython__Connection.__setstate_cython__Connection.closeConnection.drainConnection.errorConnection.http_basic_authConnection.http_chunkConnection.http_sseConnection.mqtt_disconnectConnection.mqtt_pingConnection.mqtt_pongConnection.mqtt_pubConnection.mqtt_subConnection.recv_dataConnection.replyConnection.resolveConnection.resolve_cancelConnection.sendConnection.send_dataConnection.serve_dirConnection.serve_fileConnection.set_handlerConnection.sntp_requestConnection.tls_freeConnection.tls_initConnection.ws_sendConnection.ws_upgradeHttpMessageHttpMessage.__reduce_cython__HttpMessage.__setstate_cython__HttpMessage.headerHttpMessage.header_varHttpMessage.headersHttpMessage.query_varHttpMessage.statusMG_EV_ACCEPTMG_EV_CLOSEMG_EV_CONNECTMG_EV_ERRORMG_EV_HTTP_HDRSMG_EV_HTTP_MSGMG_EV_MQTT_CMDMG_EV_MQTT_MSGMG_EV_MQTT_OPENMG_EV_OPENMG_EV_POLLMG_EV_READMG_EV_RESOLVEMG_EV_SNTP_TIMEMG_EV_TLS_HSMG_EV_USERMG_EV_WAKEUPMG_EV_WRITEMG_EV_WS_CTLMG_EV_WS_MSGMG_EV_WS_OPENManagerManager.__reduce_cython__Manager.__setstate_cython__Manager.closeManager.connectManager.listenM""anager.mqtt_connectManager.mqtt_listenManager.pollManager.sntp_connectManager.timer_addManager.wakeupMqttMessageMqttMessage.__reduce_cython__MqttMessage.__setstate_cython____Pyx_PyDict_NextRefTimerTimer.__reduce_cython__Timer.__setstate_cython__TlsOptsTlsOpts.__reduce_cython__TlsOpts.__setstate_cython__WEBSOCKET_OP_BINARYWEBSOCKET_OP_PINGWEBSOCKET_OP_PONGWEBSOCKET_OP_TEXTWsMessageWsMessage.__reduce_cython__WsMessage.__setstate_cython____all__asyncio.coroutinesbodybody_bbody_bytesbody_cbody_fmt_cbody_strbufbuf_lenbuf_ptrbufferbytesc_optscacallbackcertchunk_dataclean_sessionclient_idclient_id_bcline_in_tracebackcloseconnconn_idconnectconnection_iddatadata_bdefault__dict___dictdrainenable_wakeupencodeerrorevent_bevent_typeextra_headersextra_headers_bfilenameflagsfmt__func__genexprget__getstate__handlerheaderheader_linesheader_nameheader_name_bheader_valueheader_varheadersheaders_bheaders_bytesheaders_cheaders_strhttphttp_basic_authhttp_chunkhttp_parse_multiparthttp_sseidxint_is_coroutineitemsjson_bjson_getjson_get_booljson_get_longjson_get_numjson_get_strjson_strkkeepalivekeylen_datalengthlistenlookup__main__messagemillisecondsmime_typesmime_types_b__module__mqtt_connectmqtt_disconnectmqtt_listenmqtt_pingmqtt_pongmqtt_pubmqtt_submsgmsg_bmsg_idmsg_lenmsg_ptrname__name__name_b__new__nextnext_offsetoffsetopop_coptspage404page404_bpartpart_dictpass_bpasswordpathpath_bpath_cpayloadpayload_bpollpopprintprint_excpy_connpymongoose._mongoose__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_TlsOpts__pyx_vtable__qos__qualname__query_varrcread_lenrecv_data__reduce____reduce_cython____reduce_ex__repeatreplyresolveresolve_cancelresultresult_lenretainreturnroot_broot_dirrun_nowselfsendsend_dataserve_dirserve_fileset_handler__set_name__setdefault__setstate____setstate_cython__skip_verificationsntp_connectsntp_requestsrc_lensse_msgstatestatusstatus_codestr__test__throwtimeout_mstimertimer_addtimer_ptrtls_freetls_inittopictopic_btracebackupdateurlurl_burl_curl_encodeuse_sets""tateuser_busernamevvaluevaluesvar_namevar_name_bvar_value_strwakeupws_sendws_upgradews_upgrade.<locals>.genexpr\n\n\ndata: event: \320\004\036\320\0360\260\n\270!\360\032\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\340\010\013\210:\220Q\220i\230q\330\014\024\220G\2307\240!\2401\340\014\024\220E\230\021\230!\340\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210K\220x\230q\240\007\240s\250!\2501\330\010\014\210G\2201\330\010\014\210J\220a\340\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\033\240A\240V\2501\250A\360\006\000\t\020\210q\320\004\033\2301\360\020\000\t\034\2303\230g\240Q\240a\330\010!\240\021\330\010#\2404\240u\250A\340\021\022\330\020\032\230!\2306\240\021\320\0044\3204H\310\006\320N^\320^d\320de\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230D\240\007\240q\250\001\360\006\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010#\2404\240u\250A\330\010$\240G\2501\330\010\"\240!\340\021\022\330\020\"\240!\2406\250\025\250h\260a\260q\320\004\"\240!\360\014\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\r\016\330\014\027\220q\230\001\230\024\230W\240A\360\010\000\t\014\320\013\035\230S\240\002\240!\320\004\033\230=\250\001\340\010\013\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\330\010\036\320\0360\260\001\260\024\260W\270A\330\010\013\2107\220#\220Q\330\014\023\2201\330\010\017\210\177\230a\230v\240Q\240a\320\0047\3207K\3106\320Qa\320ag\320gt\320tz\320z{\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230H\240G\2501\250A\330\010\014\210L\230\001\360\010\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010\013\2101\330\014\030""\230\007\230w\240a\240q\330\014\020\220\013\2301\330\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020!\240\021\240&\250\005\250Q\250a\320\004\037\230}\250A\360\024\000\t\034\2303\230g\240Q\240a\330\010#\240>\260\021\260!\2604\260w\270g\300_\320TU\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037@\300\001\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\200A\360\n\000\t$\2404\240q\330\010\013\2105\220\003\2201\340\025\026\330\024!\240\021\240!\200A\360\"\000\t$\2404\240q\330\010\013\2105\220\003\2201\330\014\020\220\017\230q\200A\340\010\013\2104\210t\2201\330\014\027\220q\230\001\230\024\230Q\330\014\020\220\n\230!\330\014\020\220\r\230V\2401\330\014\020\220\005\220\\\240\021\200A\340\010#\2404\240u\250A\340\021\022\330\020!\240\021\240!\200A\360\n\000\t$\2404\240u\250A\340\021\022\330\020\033\2301\230A\200A\340\010#\2404\240u\250A\340\021\022\330\020\034\230A\230Q\200A\360\014\000\t$\2404\240u\250A\340\021\022\330\020\037\230q\240\001\200A\340\010\013\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t\022\220\021\330\010\014\210G\2205\230\001\230\021\330\014\025\220T\230\025\230h\240a\240q\330\014\017\210v\220U\230%\230s\240!\330\020\021\330\014\022\220'\230\022\230?\250!\2506\260\030\270\037\310\001\310\026\310q\330\010\017\210q\200A\360\014\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\017\210~\230Q\230d\240!\320\004<\270A\360\016\000\t\014\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\037\230q\340\010\013\2101\330\014\032\230&\240\005\240Q\240a\340\014\030\230\013\2407\250!\2501\330\014\022\220!\340\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020\035\230Q\230f\240E\250\021\200A\340\010\014\210L\230\001\200A\360$\000\t\014\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\340\010#\2404\240u\250A\360\010\000\t\014\2103\210a\210|\2303\230a\360\006\000\026\027\330\024'\240q\250\006\250f\260A\360\010\000\r\027\220a\330\014\026\220c\230\021\230!""\340\025\026\330\024'\240q\250\006\250i\260q\200A\360\006\000\t\014\210:\220Q\220f\230A\330\014\027\220u\230E\240\027\250\001\250\021\340\014\026\220e\2301\230A\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\027\240\001\240\026\240u\250A\360\006\000\t\014\2104\210q\330\014\022\220,\230a\230q\200A\360*\000\t\017\210a\210q\220\010\230\003\2307\240!\360\006\000\t\014\2103\210a\210t\2205\230\002\230!\330\014\022\220&\230\010\240\001\240\024\240U\250#\250Q\250d\260!\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\330\010\013\2103\210a\210t\2206\230\022\2301\330\014\022\220'\230\030\240\021\240$\240f\250C\250q\260\004\260A\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\340\010\016\320\016#\2405\250\004\320,D\300A\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\200A\360\014\000\t\017\210a\210q\220\006\220c\230\027\240\001\330\010#\2404\240u\250A\340\021\022\330\020\"\240!\2406\250\021\250!\320\004$\240K\250x\260q\360\032\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\010\034\230A\330\010\037\230}\250G\260:\270S\300\001\300\030\310\022\3107\320RS\330\010\037\230s\240!\2401\330\010%\240_\260A\360\006\000\022\023\330\020\031\230\031\240!\2401\240D\250\007\250y\270\005\270Q\360\006\000\t\020\210q\200\001\330\004\n\210+\220Q\320\004 \240\r\250Q\360*\000\t\034\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300o\320UV\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004\032\230-\240~\260Q\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220>\240\021\240!\2404\240w\250g\260_\300A\340\014\023\2209\230A\230Q\230d\240'\250\027\260\017\270q\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0377\260q\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301""\330\010\017\210q\320\004\035\230Q\360\014\000\t\034\2307\240'\250\021\250!\330\010#\2404\240u\250A\330\010#\2401\330\010\020\220\001\220\026\220w\230g\240Q\320\000\035\230Q\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\030\230\017\240q\250\n\260!\330\004\007\200w\210c\220\021\330\010\017\210q\330\004\005\330\010\017\210v\220W\230A\230Y\240a\340\010\014\210A\210Q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\025\220d\230'\240\024\240V\2504\250w\260d\270!\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\030\230\001\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\320\000\035\230U\240!\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\340\004\007\200\177\220a\220z\240\030\250\021\250!\330\010\017\210q\330\004\013\2101\320\004 \240\r\320-=\270]\310-\320Wi\320iy\320yz\360 \000\t\017\210a\210q\220\006\220c\230\021\340\010!\240\031\250'\260\021\260,\270o\310Q\330\010\034\230H\240G\2501\250L\270\016\300a\330\010\034\230H\240G\2501\250L\270\016\300a\340\010\013\2101\330\014\020\220\r\230X\240Q\240m\2603\260a\260q\330\010\013\2101\330\014\020\220\010\230\010\240\001\240\030\250\023\250A\250Q\330\010\013\2101\330\014\020\220\014\230H\240A\240X\250S\260\001\260\021\340\010\014\210I\220Q\330\010\014\210M\230\021\330\010\014\210K\220q\340\010\033\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300a\300v\310_\320\\]\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\000\025\220X\230Q\360\022\000\005\031\230\004\230G\2401""\240A\330\004\032\230#\230Q\230a\340\004\032\230(\240\"\240B\240b\250\001\330\004\025\220W\230F\240!\2401\360\006\000\005\010\200t\2103\210a\330\010\016\210k\230\021\230!\340\004\005\330\010\025\220]\240!\2408\2509\260E\270\021\330\010\017\210s\220\"\220K\230w\240a\240q\340\010\014\210A\210Q\240a\320\004\033\230=\250\016\260a\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220?\240!\2401\240D\250\007\250w\260o\300Q\340\014\023\220:\230Q\230a\230t\2407\250'\260\037\300\001\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0378\270\001\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004&\320&?\270\177\310a\360*\000\t\014\2104\210q\330\014\022\220,\230a\230q\340\010\036\230a\330\010\013\2101\330\014\025\220Q\330\010\013\2101\330\014\025\220Q\360\006\000\t\034\2305\240\010\250\001\250\021\360\006\000\t$\240<\250q\330\014\r\210T\220\021\330\014\026\220a\330\014\r\330\014\r\330\014\023\220;\230a\360\006\000\t\014\210:\220S\230\001\330\014\022\220,\230a\230q\360\006\000\t\016\210Z\220q\330\010\r\210]\230!\330\010\r\320\r\036\230k\250\021\330\010\021\220\021\220!\340\010\017\210q\320\004\036\230a\360\n\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\340\010\026\220o\240Q\240a\240t\2505\260\010\270\010\300\010\310\007\310q\330\010\013\2103\210c\220\021\330\014\023\2201\330\010\017\210v\220R\220s\230'\240\021\240)\2501\320\004#\240;\250a\360(\000\t\036\230Z\240w\250a\250q\330\010\034\230D\240\007\240q\250\001\340\010\035\230[\250\002\250(\260\"\260L\300\002\300'\310\022\3101\330\010#\2404\240u\250A\330\010#\2401\330\010\036\230c\240\021\240!\340\021\022\330\020#\2401\240F\250)\2601\320\000\036\230e\2401\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\013\320\013\033\2301\230J\240h\250a\320\000\036\230e\2401\360\030\000\005\010\200z\220""\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\027\220q\330\004\007\320\007\027\220q\230\n\240(\250!\2501\340\010\017\210v\220S\230\001\330\004\013\2101\320\004\036\230i\240q\360\020\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\330\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210G\2201\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\320\004&\240o\260Q\360\032\000\t\014\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t$\240;\250g\260Q\260a\330\010$\320$6\260a\260t\2707\300!\330\010\013\210=\230\003\2301\330\014\023\2201\360\006\000\t!\240\010\250\007\250q\260\001\330\010$\320$:\270!\270<\300q\310\004\310H\320TU\320Ua\320ad\320de\320ef\340\010\013\210=\230\005\230S\240\005\240S\250\r\260U\270#\270Q\330\014\023\2201\340\010\017\210\177\230a\230q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\320\004 \240\007\240q\360\022\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\037\230t\2406\250\025\250a\330\010\013\2107\220#\220R\220t\2308\2407\250\"\250A\330\014\027\220x\230q\330\010\013\2109\220C\220q\330\014\023\2201\330\010\020\220\007\220t\2306\240\025\240e\2502\250Q\320\004(\250\017\260q\360\022\000\t\035\230H\240G\2501\250A\330\010\034\230H\240G\2501\250A\330\010#\2404\240u\250A\330\010\025\220Q\220f\230H\240A\320\004*\250-\260q\340\010\013\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\330\010\013\2108\2203\220a\330\014\033\2301\230A\340\014\033\2301\230B\230a\230t\2401\240H\250D\260\003\2605\270\007\270v\300Q\330\010\030\230\002\230%\230q\240\r\250W\260A\260Q\340\010\037\230q\330\010\034\230A\330\010%\240]\260/\300\021\330\010&\240a\330\010\"\240!\330\010#\2404\240u\250A\340\021\022\330\020\035\230Q\230f\240M\260\033\270L""\310\001\320\004\037\230q\340\010\013\210:\220Q\220f\230A\330\014\026\220d\230'\240\021\240!\340\014\026\220e\2301\230A\330\010\037\230q\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\330\010\030\230\001\340\021\022\330\020\032\230!\2306\240\025\240h\250a\320\000\037\230q\360\036\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\340\004\033\2308\2401\240H\250C\250q\260\001\340\004\036\320\0364\260A\260Z\270x\300q\310\001\340\004\007\200|\2203\220a\330\010\020\220\003\2201\340\004\005\330\010\020\220\017\230q\240\004\240A\330\010\024\220O\2401\240D\250\001\330\010\020\320\020 \240\001\240\024\240Q\360\006\000\005\r\210M\230\021\320\000\031\230\021\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\031\230\037\250\001\250\032\2601\330\004\007\200v\210U\220#\220Q\330\010\017\210q\330\004\013\210?\230!\2301";
+const char* const bytes = "02x<Connection closed>Connection has been closed<Connection id=Content-Type: text/plain\r\nFailed to add timerFailed to allocate buffer for URL encodingFailed to connect to 'Failed to connect to MQTT broker 'Failed to connect to SNTP server 'Failed to initialize wakeup supportFailed to listen for MQTT on 'Failed to listen on 'HttpMessage is not valid for this eventManager has been freedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.USE_NOGIL=1?:.: \r\n>'add_notedisableenablegcisenabledmg_send failedno default __reduce__ due to non-trivial __cinit__ readable=self._msg cannot be converted to a Python object for picklingself.ca is not None or self.cert is not None or self.key is not None or self.name is not Nonesrc/cymongoose/_mongoose.pyx<stringsource>utf-8 writable=ConnectionConnection.__reduce_cython__Connection.__setstate_cython__Connection.closeConnection.drainConnection.errorConnection.http_basic_authConnection.http_chunkConnection.http_sseConnection.mqtt_disconnectConnection.mqtt_pingConnection.mqtt_pongConnection.mqtt_pubConnection.mqtt_subConnection.recv_dataConnection.replyConnection.resolveConnection.resolve_cancelConnection.sendConnection.send_dataConnection.serve_dirConnection.serve_fileConnection.set_handlerConnection.sntp_requestConnection.tls_freeConnection.tls_initConnection.ws_sendConnection.ws_upgradeHttpMessageHttpMessage.__reduce_cython__HttpMessage.__setstate_cython__HttpMessage.headerHttpMessage.header_varHttpMessage.headersHttpMessage.query_varHttpMessage.statusMG_EV_ACCEPTMG_EV_CLOSEMG_EV_CONNECTMG_EV_ERRORMG_EV_HTTP_HDRSMG_EV_HTTP_MSGMG_EV_MQTT_CMDMG_EV_MQTT_MSGMG_EV_MQTT_OPENMG_EV_OPENMG_EV_POLLMG_EV_READMG_EV_RESOLVEMG_EV_SNTP_TIMEMG_EV_TLS_HSMG_EV_USERMG_EV_WAKEUPMG_EV_WRITEMG_EV_WS_CTLMG_EV_WS_MSGMG_EV_WS_OPENManagerManager.__reduce_cython__Manager.__setstate_cython__Manager.closeManager.connectManager.listenM""anager.mqtt_connectManager.mqtt_listenManager.pollManager.sntp_connectManager.timer_addManager.wakeupMqttMessageMqttMessage.__reduce_cython__MqttMessage.__setstate_cython____Pyx_PyDict_NextRefTimerTimer.__reduce_cython__Timer.__setstate_cython__TlsOptsTlsOpts.__reduce_cython__TlsOpts.__setstate_cython__WEBSOCKET_OP_BINARYWEBSOCKET_OP_PINGWEBSOCKET_OP_PONGWEBSOCKET_OP_TEXTWsMessageWsMessage.__reduce_cython__WsMessage.__setstate_cython____all__asyncio.coroutinesbodybody_bbody_bytesbody_cbody_fmt_cbody_strbufbuf_lenbuf_ptrbufferbytesc_optscacallbackcertchunk_dataclean_sessionclient_idclient_id_bcline_in_tracebackcloseconnconn_idconnectconnection_idcymongoose._mongoosedatadata_bdefault__dict___dictdrainenable_wakeupencodeerrorevent_bevent_typeextra_headersextra_headers_bfilenameflagsfmt__func__genexprget__getstate__handlerheaderheader_linesheader_nameheader_name_bheader_valueheader_varheadersheaders_bheaders_bytesheaders_cheaders_strhttphttp_basic_authhttp_chunkhttp_parse_multiparthttp_sseidxint_is_coroutineitemsjson_bjson_getjson_get_booljson_get_longjson_get_numjson_get_strjson_strkkeepalivekeylen_datalengthlistenlookup__main__messagemillisecondsmime_typesmime_types_b__module__mqtt_connectmqtt_disconnectmqtt_listenmqtt_pingmqtt_pongmqtt_pubmqtt_submsgmsg_bmsg_idmsg_lenmsg_ptrname__name__name_b__new__nextnext_offsetoffsetopop_coptspage404page404_bpartpart_dictpass_bpasswordpathpath_bpath_cpayloadpayload_bpollpopprintprint_excpy_conn__pyx_checksum__pyx_result__pyx_state__pyx_type__pyx_unpickle_TlsOpts__pyx_vtable__qos__qualname__query_varrcread_lenrecv_data__reduce____reduce_cython____reduce_ex__repeatreplyresolveresolve_cancelresultresult_lenretainreturnroot_broot_dirrun_nowselfsendsend_dataserve_dirserve_fileset_handler__set_name__setdefault__setstate____setstate_cython__skip_verificationsntp_connectsntp_requestsrc_lensse_msgstatestatusstatus_codestr__test__throwtimeout_mstimertimer_addtimer_ptrtls_freetls_inittopictopic_btracebackupdateurlurl_burl_curl_encodeuse_sets""tateuser_busernamevvaluevaluesvar_namevar_name_bvar_value_strwakeupws_sendws_upgradews_upgrade.<locals>.genexpr\n\n\ndata: event: \320\004\036\320\0360\260\n\270!\360\032\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\340\010\013\210:\220Q\220i\230q\330\014\024\220G\2307\240!\2401\340\014\024\220E\230\021\230!\340\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210K\220x\230q\240\007\240s\250!\2501\330\010\014\210G\2201\330\010\014\210J\220a\340\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\033\240A\240V\2501\250A\360\006\000\t\020\210q\320\004\033\2301\360\020\000\t\034\2303\230g\240Q\240a\330\010!\240\021\330\010#\2404\240u\250A\340\021\022\330\020\032\230!\2306\240\021\320\0044\3204H\310\006\320N^\320^d\320de\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230D\240\007\240q\250\001\360\006\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010#\2404\240u\250A\330\010$\240G\2501\330\010\"\240!\340\021\022\330\020\"\240!\2406\250\025\250h\260a\260q\320\004\"\240!\360\014\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\r\016\330\014\027\220q\230\001\230\024\230W\240A\360\010\000\t\014\320\013\035\230S\240\002\240!\320\004\033\230=\250\001\340\010\013\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\330\010\036\320\0360\260\001\260\024\260W\270A\330\010\013\2107\220#\220Q\330\014\023\2201\330\010\017\210\177\230a\230v\240Q\240a\320\0047\3207K\3106\320Qa\320ag\320gt\320tz\320z{\340\010\013\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\016\210a\210q\220\006\220c\230\021\340\010\034\230H\240G\2501\250A\330\010\014\210L\230\001\360\010\000\t\014\2101\330\014\036\230m\2507\260!\2601\330\014\020\320\020!\240\021\330\010\013\2101\330\014\033\230:\240W\250A\250Q\330\014\020\220\016\230a\330\010\013\2101\330\014\030""\230\007\230w\240a\240q\330\014\020\220\013\2301\330\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020!\240\021\240&\250\005\250Q\250a\320\004\037\230}\250A\360\024\000\t\034\2303\230g\240Q\240a\330\010#\240>\260\021\260!\2604\260w\270g\300_\320TU\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037@\300\001\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\200A\360\n\000\t$\2404\240q\330\010\013\2105\220\003\2201\340\025\026\330\024!\240\021\240!\200A\360\"\000\t$\2404\240q\330\010\013\2105\220\003\2201\330\014\020\220\017\230q\200A\340\010\013\2104\210t\2201\330\014\027\220q\230\001\230\024\230Q\330\014\020\220\n\230!\330\014\020\220\r\230V\2401\330\014\020\220\005\220\\\240\021\200A\340\010#\2404\240u\250A\340\021\022\330\020!\240\021\240!\200A\360\n\000\t$\2404\240u\250A\340\021\022\330\020\033\2301\230A\200A\340\010#\2404\240u\250A\340\021\022\330\020\034\230A\230Q\200A\360\014\000\t$\2404\240u\250A\340\021\022\330\020\037\230q\240\001\200A\340\010\013\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t\022\220\021\330\010\014\210G\2205\230\001\230\021\330\014\025\220T\230\025\230h\240a\240q\330\014\017\210v\220U\230%\230s\240!\330\020\021\330\014\022\220'\230\022\230?\250!\2506\260\030\270\037\310\001\310\026\310q\330\010\017\210q\200A\360\014\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\017\210~\230Q\230d\240!\320\004<\270A\360\016\000\t\014\2107\220&\230\003\2301\330\014\022\220*\230A\230Q\340\010\037\230q\340\010\013\2101\330\014\032\230&\240\005\240Q\240a\340\014\030\230\013\2407\250!\2501\330\014\022\220!\340\010#\2404\240u\250A\330\010$\240G\2501\340\021\022\330\020\035\230Q\230f\240E\250\021\200A\340\010\014\210L\230\001\200A\360$\000\t\014\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\340\010#\2404\240u\250A\360\010\000\t\014\2103\210a\210|\2303\230a\360\006\000\026\027\330\024'\240q\250\006\250f\260A\360\010\000\r\027\220a\330\014\026\220c\230\021\230!""\340\025\026\330\024'\240q\250\006\250i\260q\200A\360\006\000\t\014\210:\220Q\220f\230A\330\014\027\220u\230E\240\027\250\001\250\021\340\014\026\220e\2301\230A\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\360\006\000\022\023\330\020\031\230\027\240\001\240\026\240u\250A\360\006\000\t\014\2104\210q\330\014\022\220,\230a\230q\200A\360*\000\t\017\210a\210q\220\010\230\003\2307\240!\360\006\000\t\014\2103\210a\210t\2205\230\002\230!\330\014\022\220&\230\010\240\001\240\024\240U\250#\250Q\250d\260!\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\330\010\013\2103\210a\210t\2206\230\022\2301\330\014\022\220'\230\030\240\021\240$\240f\250C\250q\260\004\260A\330\010\013\2103\210a\210t\2207\230\"\230A\330\014\022\220(\230(\240!\2404\240w\250c\260\021\260$\260a\340\010\016\320\016#\2405\250\004\320,D\300A\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\200A\360\014\000\t\017\210a\210q\220\006\220c\230\027\240\001\330\010#\2404\240u\250A\340\021\022\330\020\"\240!\2406\250\021\250!\320\004$\240K\250x\260q\360\032\000\t\014\2104\210q\330\014\022\220,\230a\230q\330\010\034\230A\330\010\037\230}\250G\260:\270S\300\001\300\030\310\022\3107\320RS\330\010\037\230s\240!\2401\330\010%\240_\260A\360\006\000\022\023\330\020\031\230\031\240!\2401\240D\250\007\250y\270\005\270Q\360\006\000\t\020\210q\200\001\330\004\n\210+\220Q\320\004 \240\r\250Q\360*\000\t\034\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300o\320UV\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004\032\230-\240~\260Q\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220>\240\021\240!\2404\240w\250g\260_\300A\340\014\023\2209\230A\230Q\230d\240'\250\027\260\017\270q\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0377\260q\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301""\330\010\017\210q\320\004\035\230Q\360\014\000\t\034\2307\240'\250\021\250!\330\010#\2404\240u\250A\330\010#\2401\330\010\020\220\001\220\026\220w\230g\240Q\320\000\035\230Q\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\030\230\017\240q\250\n\260!\330\004\007\200w\210c\220\021\330\010\017\210q\330\004\005\330\010\017\210v\220W\230A\230Y\240a\340\010\014\210A\210Q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\025\220d\230'\240\024\240V\2504\250w\260d\270!\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\030\230\001\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\320\000\035\230U\240!\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\340\004\007\200\177\220a\220z\240\030\250\021\250!\330\010\017\210q\330\004\013\2101\320\004 \240\r\320-=\270]\310-\320Wi\320iy\320yz\360 \000\t\017\210a\210q\220\006\220c\230\021\340\010!\240\031\250'\260\021\260,\270o\310Q\330\010\034\230H\240G\2501\250L\270\016\300a\330\010\034\230H\240G\2501\250L\270\016\300a\340\010\013\2101\330\014\020\220\r\230X\240Q\240m\2603\260a\260q\330\010\013\2101\330\014\020\220\010\230\010\240\001\240\030\250\023\250A\250Q\330\010\013\2101\330\014\020\220\014\230H\240A\240X\250S\260\001\260\021\340\010\014\210I\220Q\330\010\014\210M\230\021\330\010\014\210K\220q\340\010\033\2303\230g\240Q\240a\330\010#\240?\260!\2601\260D\270\007\270w\300a\300v\310_\320\\]\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\037D\300A\340\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\000\025\220X\230Q\360\022\000\005\031\230\004\230G\2401""\240A\330\004\032\230#\230Q\230a\340\004\032\230(\240\"\240B\240b\250\001\330\004\025\220W\230F\240!\2401\360\006\000\005\010\200t\2103\210a\330\010\016\210k\230\021\230!\340\004\005\330\010\025\220]\240!\2408\2509\260E\270\021\330\010\017\210s\220\"\220K\230w\240a\240q\340\010\014\210A\210Q\240a\320\004\033\230=\250\016\260a\340\010\033\2303\230g\240Q\240a\340\010\013\2101\330\014\023\220?\240!\2401\240D\250\007\250w\260o\300Q\340\014\023\220:\230Q\230a\230t\2407\250'\260\037\300\001\330\010\013\2105\220\003\2201\330\014\022\220,\230a\320\0378\270\001\330\010\022\220$\320\026)\250\021\250!\330\010\017\210|\2301\330\010\017\210q\320\004&\320&?\270\177\310a\360*\000\t\014\2104\210q\330\014\022\220,\230a\230q\340\010\036\230a\330\010\013\2101\330\014\025\220Q\330\010\013\2101\330\014\025\220Q\360\006\000\t\034\2305\240\010\250\001\250\021\360\006\000\t$\240<\250q\330\014\r\210T\220\021\330\014\026\220a\330\014\r\330\014\r\330\014\023\220;\230a\360\006\000\t\014\210:\220S\230\001\330\014\022\220,\230a\230q\360\006\000\t\016\210Z\220q\330\010\r\210]\230!\330\010\r\320\r\036\230k\250\021\330\010\021\220\021\220!\340\010\017\210q\320\004\036\230a\360\n\000\t\014\2104\210v\220S\230\001\330\014\023\2201\330\010\034\230D\240\007\240q\250\001\340\010\026\220o\240Q\240a\240t\2505\260\010\270\010\300\010\310\007\310q\330\010\013\2103\210c\220\021\330\014\023\2201\330\010\017\210v\220R\220s\230'\240\021\240)\2501\320\004#\240;\250a\360(\000\t\036\230Z\240w\250a\250q\330\010\034\230D\240\007\240q\250\001\340\010\035\230[\250\002\250(\260\"\260L\300\002\300'\310\022\3101\330\010#\2404\240u\250A\330\010#\2401\330\010\036\230c\240\021\240!\340\021\022\330\020#\2401\240F\250)\2601\320\000\036\230e\2401\360\030\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\013\320\013\033\2301\230J\240h\250a\320\000\036\230e\2401\360\030\000\005\010\200z\220""\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\027\220q\330\004\007\320\007\027\220q\230\n\240(\250!\2501\340\010\017\210v\220S\230\001\330\004\013\2101\320\004\036\230i\240q\360\020\000\t\017\210a\210q\220\006\220c\230\021\340\010\035\230U\240'\250\021\250!\330\010\014\210I\220X\230Q\230i\240s\250!\2501\330\010\014\210G\2201\340\010#\2404\240u\250A\340\021\022\330\020\033\2301\230F\240!\2401\320\004&\240o\260Q\360\032\000\t\014\2104\210v\220S\230\001\330\014\023\2201\360\006\000\t$\240;\250g\260Q\260a\330\010$\320$6\260a\260t\2707\300!\330\010\013\210=\230\003\2301\330\014\023\2201\360\006\000\t!\240\010\250\007\250q\260\001\330\010$\320$:\270!\270<\300q\310\004\310H\320TU\320Ua\320ad\320de\320ef\340\010\013\210=\230\005\230S\240\005\240S\250\r\260U\270#\270Q\330\014\023\2201\340\010\017\210\177\230a\230q\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\320\004 \240\007\240q\360\022\000\t\014\2104\210w\220c\230\021\330\014\023\2201\330\010\037\230t\2406\250\025\250a\330\010\013\2107\220#\220R\220t\2308\2407\250\"\250A\330\014\027\220x\230q\330\010\013\2109\220C\220q\330\014\023\2201\330\010\020\220\007\220t\2306\240\025\240e\2502\250Q\320\004(\250\017\260q\360\022\000\t\035\230H\240G\2501\250A\330\010\034\230H\240G\2501\250A\330\010#\2404\240u\250A\330\010\025\220Q\220f\230H\240A\320\004*\250-\260q\340\010\013\210:\220Q\220f\230A\330\014\031\230\024\230W\240A\240Q\340\014\031\230\025\230a\230q\330\010\013\2108\2203\220a\330\014\033\2301\230A\340\014\033\2301\230B\230a\230t\2401\240H\250D\260\003\2605\270\007\270v\300Q\330\010\030\230\002\230%\230q\240\r\250W\260A\260Q\340\010\037\230q\330\010\034\230A\330\010%\240]\260/\300\021\330\010&\240a\330\010\"\240!\330\010#\2404\240u\250A\340\021\022\330\020\035\230Q\230f\240M\260\033\270L""\310\001\320\004\037\230q\340\010\013\210:\220Q\220f\230A\330\014\026\220d\230'\240\021\240!\340\014\026\220e\2301\230A\330\010\037\230q\330\010\037\230q\330\010\035\230S\240\001\240\021\330\010#\2404\240u\250A\330\010\030\230\001\340\021\022\330\020\032\230!\2306\240\025\240h\250a\320\000\037\230q\360\036\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\340\004\033\2308\2401\240H\250C\250q\260\001\340\004\036\320\0364\260A\260Z\270x\300q\310\001\340\004\007\200|\2203\220a\330\010\020\220\003\2201\340\004\005\330\010\020\220\017\230q\240\004\240A\330\010\024\220O\2401\240D\250\001\330\010\020\320\020 \240\001\240\024\240Q\360\006\000\005\r\210M\230\021\320\000\031\230\021\360\026\000\005\010\200z\220\021\220&\230\001\330\010\021\220\024\220W\230A\230Q\340\010\021\220\025\220a\220q\330\004\030\230\004\230G\2401\240A\330\004\033\2308\2401\240H\250C\250q\260\001\330\004\031\230\037\250\001\250\032\2601\330\004\007\200v\210U\220#\220Q\330\010\017\210q\330\004\013\210?\230!\2301";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
@@ -29086,32 +29086,32 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 669};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_k, __pyx_mstate->__pyx_n_u_v};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_genexpr, __pyx_mstate->__pyx_kp_b_iso88591_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_genexpr, __pyx_mstate->__pyx_kp_b_iso88591_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 270};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_default, __pyx_mstate->__pyx_n_u_lookup, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_header, __pyx_mstate->__pyx_kp_b_iso88591_4vS_1_D_q_0_WA_7_Q_1_avQa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_header, __pyx_mstate->__pyx_kp_b_iso88591_4vS_1_D_q_0_WA_7_Q_1_avQa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 280};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_header, __pyx_mstate->__pyx_n_u_idx, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_headers, __pyx_mstate->__pyx_kp_b_iso88591_A_4vS_1_G5_T_haq_vU_s_6_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_headers, __pyx_mstate->__pyx_kp_b_iso88591_A_4vS_1_G5_T_haq_vU_s_6_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 294};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_name_b, __pyx_mstate->__pyx_n_u_buffer, __pyx_mstate->__pyx_n_u_rc};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_query_var, __pyx_mstate->__pyx_kp_b_iso88591_a_4vS_1_D_q_oQat5_q_3c_1_vRs_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_query_var, __pyx_mstate->__pyx_kp_b_iso88591_a_4vS_1_D_q_oQat5_q_3c_1_vRs_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 308};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_status, __pyx_mstate->__pyx_kp_b_iso88591_A_4vS_1_Qd, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_status, __pyx_mstate->__pyx_kp_b_iso88591_A_4vS_1_Qd, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 318};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_header_name, __pyx_mstate->__pyx_n_u_var_name, __pyx_mstate->__pyx_n_u_header_name_b, __pyx_mstate->__pyx_n_u_header_value, __pyx_mstate->__pyx_n_u_var_name_b, __pyx_mstate->__pyx_n_u_var_value_str};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_header_var, __pyx_mstate->__pyx_kp_b_iso88591_oQ_4vS_1_gQa_6at7_1_1_q_q_HTUUa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_header_var, __pyx_mstate->__pyx_kp_b_iso88591_oQ_4vS_1_gQa_6at7_1_1_q_q_HTUUa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
@@ -29156,127 +29156,127 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 480};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_handler};
-    __pyx_mstate_global->__pyx_codeobj_tab[14] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_set_handler, __pyx_mstate->__pyx_kp_b_iso88591_A_L, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[14])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[14] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_set_handler, __pyx_mstate->__pyx_kp_b_iso88591_A_L, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[14])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 559};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_payload, __pyx_mstate->__pyx_n_u_buf, __pyx_mstate->__pyx_n_u_length, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_send, __pyx_mstate->__pyx_kp_b_iso88591_A_QfA_uE_e1A_q_S_4uA_uA_4q_aq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_send, __pyx_mstate->__pyx_kp_b_iso88591_A_QfA_uE_e1A_q_S_4uA_uA_4q_aq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 15, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 578};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_status_code, __pyx_mstate->__pyx_n_u_body, __pyx_mstate->__pyx_n_u_headers, __pyx_mstate->__pyx_n_u_body_bytes, __pyx_mstate->__pyx_n_u_header_lines, __pyx_mstate->__pyx_n_u_headers_bytes, __pyx_mstate->__pyx_n_u_headers_b, __pyx_mstate->__pyx_n_u_body_b, __pyx_mstate->__pyx_n_u_headers_c, __pyx_mstate->__pyx_n_u_body_fmt_c, __pyx_mstate->__pyx_n_u_body_c, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_k, __pyx_mstate->__pyx_n_u_v};
-    __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_reply, __pyx_mstate->__pyx_kp_b_iso88591_q_QfA_WAQ_aq_83a_1A_1Bat1HD_5_v, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_reply, __pyx_mstate->__pyx_kp_b_iso88591_q_QfA_WAQ_aq_83a_1A_1Bat1HD_5_v, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 13, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 602};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_root_dir, __pyx_mstate->__pyx_n_u_extra_headers, __pyx_mstate->__pyx_n_u_mime_types, __pyx_mstate->__pyx_n_u_page404, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_root_b, __pyx_mstate->__pyx_n_u_extra_headers_b, __pyx_mstate->__pyx_n_u_mime_types_b, __pyx_mstate->__pyx_n_u_page404_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg};
-    __pyx_mstate_global->__pyx_codeobj_tab[17] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_serve_dir, __pyx_mstate->__pyx_kp_b_iso88591_77K6Qaaggttzz_7_1_AQ_aq_c_HG1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[17])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[17] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_serve_dir, __pyx_mstate->__pyx_kp_b_iso88591_77K6Qaaggttzz_7_1_AQ_aq_c_HG1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[17])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 12, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 631};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_extra_headers, __pyx_mstate->__pyx_n_u_mime_types, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_extra_headers_b, __pyx_mstate->__pyx_n_u_mime_types_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg, __pyx_mstate->__pyx_n_u_path_c};
-    __pyx_mstate_global->__pyx_codeobj_tab[18] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_serve_file, __pyx_mstate->__pyx_kp_b_iso88591_44H_N_dde_7_1_AQ_aq_c_D_q_1_m7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[18])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[18] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_serve_file, __pyx_mstate->__pyx_kp_b_iso88591_44H_N_dde_7_1_AQ_aq_c_D_q_1_m7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[18])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 656};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_extra_headers, __pyx_mstate->__pyx_n_u_fmt, __pyx_mstate->__pyx_n_u_headers_b, __pyx_mstate->__pyx_n_u_headers_str, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg, __pyx_mstate->__pyx_n_u_genexpr, __pyx_mstate->__pyx_n_u_genexpr};
-    __pyx_mstate_global->__pyx_codeobj_tab[19] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_ws_upgrade, __pyx_mstate->__pyx_kp_b_iso88591_A_7_1_AQ_q_1_Qa_7_1_4uA_G1_QfE, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[19])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[19] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_ws_upgrade, __pyx_mstate->__pyx_kp_b_iso88591_A_7_1_AQ_q_1_Qa_7_1_4uA_G1_QfE, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[19])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 682};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_op, __pyx_mstate->__pyx_n_u_payload, __pyx_mstate->__pyx_n_u_payload_b, __pyx_mstate->__pyx_n_u_buf, __pyx_mstate->__pyx_n_u_length, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_op_c};
-    __pyx_mstate_global->__pyx_codeobj_tab[20] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_ws_send, __pyx_mstate->__pyx_kp_b_iso88591_q_QfA_d_e1A_q_q_S_4uA_6_ha, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[20])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[20] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_ws_send, __pyx_mstate->__pyx_kp_b_iso88591_q_QfA_d_e1A_q_q_S_4uA_6_ha, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[20])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 699};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_topic, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_qos, __pyx_mstate->__pyx_n_u_retain, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_topic_b, __pyx_mstate->__pyx_n_u_msg_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg_id};
-    __pyx_mstate_global->__pyx_codeobj_tab[21] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_pub, __pyx_mstate->__pyx_kp_b_iso88591_0_aq_c_U_Qiq_G7_1_E_IXQis_1_Kxq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[21])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[21] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_pub, __pyx_mstate->__pyx_kp_b_iso88591_0_aq_c_U_Qiq_G7_1_E_IXQis_1_Kxq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[21])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 735};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_topic, __pyx_mstate->__pyx_n_u_qos, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_topic_b, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[22] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_sub, __pyx_mstate->__pyx_kp_b_iso88591_iq_aq_c_U_IXQis_1_G1_4uA_1F_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[22])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[22] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_sub, __pyx_mstate->__pyx_kp_b_iso88591_iq_aq_c_U_IXQis_1_G1_4uA_1F_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[22])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 756};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[23] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_ping, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[23])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[23] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_ping, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[23])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 765};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[24] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_pong, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[24])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[24] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_pong, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[24])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 774};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[25] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_disconnect, __pyx_mstate->__pyx_kp_b_iso88591_A_aq_c_4uA_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[25])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[25] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_disconnect, __pyx_mstate->__pyx_kp_b_iso88591_A_aq_c_4uA_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[25])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 788};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_msg_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg_ptr};
-    __pyx_mstate_global->__pyx_codeobj_tab[26] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_kp_b_iso88591_Q_7_4uA_1_wgQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[26])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[26] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_kp_b_iso88591_Q_7_4uA_1_wgQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[26])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 859};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_length, __pyx_mstate->__pyx_n_u_read_len};
-    __pyx_mstate_global->__pyx_codeobj_tab[27] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_recv_data, __pyx_mstate->__pyx_kp_b_iso88591_q_4wc_1_t6_a_7_Rt87_A_xq_9Cq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[27])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[27] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_recv_data, __pyx_mstate->__pyx_kp_b_iso88591_q_4wc_1_t6_a_7_Rt87_A_xq_9Cq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[27])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 877};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_length, __pyx_mstate->__pyx_n_u_read_len};
-    __pyx_mstate_global->__pyx_codeobj_tab[28] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_send_data, __pyx_mstate->__pyx_kp_b_iso88591_q_4wc_1_t6_a_7_Rt87_A_xq_9Cq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[28])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[28] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_send_data, __pyx_mstate->__pyx_kp_b_iso88591_q_4wc_1_t6_a_7_Rt87_A_xq_9Cq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[28])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 895};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_url_c, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[29] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_resolve, __pyx_mstate->__pyx_kp_b_iso88591_1_3gQa_4uA_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[29])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[29] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_resolve, __pyx_mstate->__pyx_kp_b_iso88591_1_3gQa_4uA_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[29])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 912};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[30] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_resolve_cancel, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[30])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[30] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_resolve_cancel, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[30])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 921};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_password, __pyx_mstate->__pyx_n_u_user_b, __pyx_mstate->__pyx_n_u_pass_b, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[31] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_basic_auth, __pyx_mstate->__pyx_kp_b_iso88591_q_HG1A_HG1A_4uA_QfHA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[31])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[31] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_basic_auth, __pyx_mstate->__pyx_kp_b_iso88591_q_HG1A_HG1A_4uA_QfHA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[31])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 935};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[32] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_sntp_request, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[32])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[32] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_sntp_request, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[32])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 948};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_chunk_data, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_buf_ptr, __pyx_mstate->__pyx_n_u_buf_len};
-    __pyx_mstate_global->__pyx_codeobj_tab[33] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_chunk, __pyx_mstate->__pyx_kp_b_iso88591_A_QfA_WAQ_aq_4uA_3a_3a_q_fA_a_c, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[33])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[33] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_chunk, __pyx_mstate->__pyx_kp_b_iso88591_A_QfA_WAQ_aq_4uA_3a_3a_q_fA_a_c, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[33])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 991};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_event_type, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_event_b, __pyx_mstate->__pyx_n_u_data_b, __pyx_mstate->__pyx_n_u_sse_msg, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_msg_ptr, __pyx_mstate->__pyx_n_u_msg_len};
-    __pyx_mstate_global->__pyx_codeobj_tab[34] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_sse, __pyx_mstate->__pyx_kp_b_iso88591_a_Zwaq_D_q_L_1_4uA_1_c_1F_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[34])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[34] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_sse, __pyx_mstate->__pyx_kp_b_iso88591_a_Zwaq_D_q_L_1_4uA_1_c_1F_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[34])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1024};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[35] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_4q_5_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[35])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[35] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_4q_5_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[35])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1037};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[36] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_drain, __pyx_mstate->__pyx_kp_b_iso88591_A_4q_5_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[36])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[36] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_drain, __pyx_mstate->__pyx_kp_b_iso88591_A_4q_5_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[36])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1058};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_c_opts, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[37] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_tls_init, __pyx_mstate->__pyx_kp_b_iso88591_A_aq_7_3at5_U_Qd_3at7_A_4wc_a_3a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[37])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[37] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_tls_init, __pyx_mstate->__pyx_kp_b_iso88591_A_aq_7_3at5_U_Qd_3at7_A_4wc_a_3a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[37])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1100};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[38] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_tls_free, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[38])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[38] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_tls_free, __pyx_mstate->__pyx_kp_b_iso88591_A_4uA_1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[38])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
@@ -29291,47 +29291,47 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1208};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_timeout_ms};
-    __pyx_mstate_global->__pyx_codeobj_tab[41] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_poll, __pyx_mstate->__pyx_kp_b_iso88591_4q_aq_q_WA_S, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[41])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[41] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_poll, __pyx_mstate->__pyx_kp_b_iso88591_4q_aq_q_WA_S, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[41])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1225};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_handler, __pyx_mstate->__pyx_n_u_http, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_py_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[42] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_listen, __pyx_mstate->__pyx_kp_b_iso88591_Q_3gQa_1_4wg_A_9AQd_q_5_1_a_7q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[42])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[42] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_listen, __pyx_mstate->__pyx_kp_b_iso88591_Q_3gQa_1_4wg_A_9AQd_q_5_1_a_7q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[42])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1239};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_handler, __pyx_mstate->__pyx_n_u_http, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_py_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[43] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_connect, __pyx_mstate->__pyx_kp_b_iso88591_a_3gQa_1_1D_woQ_Qat7_5_1_a_8_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[43])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[43] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_connect, __pyx_mstate->__pyx_kp_b_iso88591_a_3gQa_1_1D_woQ_Qat7_5_1_a_8_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[43])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {8, 0, 0, 15, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1253};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_handler, __pyx_mstate->__pyx_n_u_client_id, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_password, __pyx_mstate->__pyx_n_u_clean_session, __pyx_mstate->__pyx_n_u_keepalive, __pyx_mstate->__pyx_n_u_opts, __pyx_mstate->__pyx_n_u_client_id_b, __pyx_mstate->__pyx_n_u_user_b, __pyx_mstate->__pyx_n_u_pass_b, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_py_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[44] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_connect, __pyx_mstate->__pyx_kp_b_iso88591_Wiiyyz_aq_c_oQ_HG1L_a_HG1L_a_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[44])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[44] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_connect, __pyx_mstate->__pyx_kp_b_iso88591_Wiiyyz_aq_c_oQ_HG1L_a_HG1L_a_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[44])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1295};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_handler, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_py_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[45] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_listen, __pyx_mstate->__pyx_kp_b_iso88591_A_3gQa_4wg_TU_5_1_a_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[45])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[45] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_mqtt_listen, __pyx_mstate->__pyx_kp_b_iso88591_A_3gQa_4wg_TU_5_1_a_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[45])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1314};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_url, __pyx_mstate->__pyx_n_u_handler, __pyx_mstate->__pyx_n_u_url_b, __pyx_mstate->__pyx_n_u_conn, __pyx_mstate->__pyx_n_u_py_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[46] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_sntp_connect, __pyx_mstate->__pyx_kp_b_iso88591_Q_3gQa_1D_woUV_5_1_a_DA_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[46])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[46] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_sntp_connect, __pyx_mstate->__pyx_kp_b_iso88591_Q_3gQa_1D_woUV_5_1_a_DA_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[46])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1344};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_connection_id, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_data_b, __pyx_mstate->__pyx_n_u_buf, __pyx_mstate->__pyx_n_u_len_data, __pyx_mstate->__pyx_n_u_conn_id, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[47] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_wakeup, __pyx_mstate->__pyx_kp_b_iso88591_Kxq_4q_aq_A_G_S_7RS_s_1__A_1D_y, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[47])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[47] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_wakeup, __pyx_mstate->__pyx_kp_b_iso88591_Kxq_4q_aq_A_G_S_7RS_s_1__A_1D_y, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[47])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 2, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1371};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_milliseconds, __pyx_mstate->__pyx_n_u_callback, __pyx_mstate->__pyx_n_u_repeat, __pyx_mstate->__pyx_n_u_run_now, __pyx_mstate->__pyx_n_u_flags, __pyx_mstate->__pyx_n_u_timer, __pyx_mstate->__pyx_n_u_timer_ptr};
-    __pyx_mstate_global->__pyx_codeobj_tab[48] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_timer_add, __pyx_mstate->__pyx_kp_b_iso88591_a_4q_aq_a_1_Q_1_Q_5_q_T_a_a_S_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[48])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[48] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_timer_add, __pyx_mstate->__pyx_kp_b_iso88591_a_4q_aq_a_1_Q_1_Q_5_q_T_a_a_S_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[48])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1424};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[49] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_4t1_q_Q_V1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[49])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[49] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_close, __pyx_mstate->__pyx_kp_b_iso88591_A_4t1_q_Q_V1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[49])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
@@ -29346,37 +29346,37 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1458};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_json_b, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_json_str, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[52] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get, __pyx_mstate->__pyx_kp_b_iso88591_z_WAQ_aq_G1A_81HCq_1_vU_Q_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[52])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[52] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get, __pyx_mstate->__pyx_kp_b_iso88591_z_WAQ_aq_G1A_81HCq_1_vU_Q_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[52])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1481};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_default, __pyx_mstate->__pyx_n_u_json_b, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_json_str, __pyx_mstate->__pyx_n_u_value};
-    __pyx_mstate_global->__pyx_codeobj_tab[53] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_num, __pyx_mstate->__pyx_kp_b_iso88591_U_z_WAQ_aq_G1A_81HCq_az_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[53])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[53] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_num, __pyx_mstate->__pyx_kp_b_iso88591_U_z_WAQ_aq_G1A_81HCq_az_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[53])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1505};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_default, __pyx_mstate->__pyx_n_u_json_b, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_json_str, __pyx_mstate->__pyx_n_u_value};
-    __pyx_mstate_global->__pyx_codeobj_tab[54] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_bool, __pyx_mstate->__pyx_kp_b_iso88591_e1_z_WAQ_aq_G1A_81HCq_q_q_1_vS, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[54])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[54] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_bool, __pyx_mstate->__pyx_kp_b_iso88591_e1_z_WAQ_aq_G1A_81HCq_q_q_1_vS, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[54])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1530};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_default, __pyx_mstate->__pyx_n_u_json_b, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_json_str};
-    __pyx_mstate_global->__pyx_codeobj_tab[55] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_long, __pyx_mstate->__pyx_kp_b_iso88591_e1_z_WAQ_aq_G1A_81HCq_1Jha, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[55])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[55] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_long, __pyx_mstate->__pyx_kp_b_iso88591_e1_z_WAQ_aq_G1A_81HCq_1Jha, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[55])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1551};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_json_b, __pyx_mstate->__pyx_n_u_path_b, __pyx_mstate->__pyx_n_u_json_str, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[56] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_str, __pyx_mstate->__pyx_kp_b_iso88591_Q_z_WAQ_aq_G1A_81HCq_q_wc_q_vWA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[56])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[56] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_json_get_str, __pyx_mstate->__pyx_kp_b_iso88591_Q_z_WAQ_aq_G1A_81HCq_q_wc_q_vWA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[56])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1578};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_data_b, __pyx_mstate->__pyx_n_u_src_len, __pyx_mstate->__pyx_n_u_buf_len, __pyx_mstate->__pyx_n_u_buf, __pyx_mstate->__pyx_n_u_result_len};
-    __pyx_mstate_global->__pyx_codeobj_tab[57] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_url_encode, __pyx_mstate->__pyx_kp_b_iso88591_XQ_G1A_Qa_Bb_WF_1_t3a_k_89E_s_K, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[57])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[57] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_url_encode, __pyx_mstate->__pyx_kp_b_iso88591_XQ_G1A_Qa_Bb_WF_1_t3a_k_89E_s_K, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[57])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1605};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_body, __pyx_mstate->__pyx_n_u_offset, __pyx_mstate->__pyx_n_u_body_b, __pyx_mstate->__pyx_n_u_body_str, __pyx_mstate->__pyx_n_u_part, __pyx_mstate->__pyx_n_u_next_offset, __pyx_mstate->__pyx_n_u_part_dict};
-    __pyx_mstate_global->__pyx_codeobj_tab[58] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_pymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_parse_multipart, __pyx_mstate->__pyx_kp_b_iso88591_q_z_WAQ_aq_81HCq_4AZxq_3a_1_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[58])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[58] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cymongoose__mongoose_pyx, __pyx_mstate->__pyx_n_u_http_parse_multipart, __pyx_mstate->__pyx_kp_b_iso88591_q_z_WAQ_aq_81HCq_4AZxq_3a_1_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[58])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1};
