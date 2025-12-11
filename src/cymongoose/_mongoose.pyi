@@ -3,7 +3,7 @@
 This stub file provides type hints for the Cython extension module.
 """
 
-from typing import Any, Callable, Optional, Union, Tuple, Dict, List
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
 # Event constants
 MG_EV_ERROR: int
@@ -121,7 +121,6 @@ class HttpMessage:
 
     def __bool__(self) -> bool: ...
 
-
 class WsMessage:
     """View over an incoming WebSocket frame."""
 
@@ -139,7 +138,6 @@ class WsMessage:
     def flags(self) -> int:
         """WebSocket frame flags."""
         ...
-
 
 class MqttMessage:
     """View over an incoming MQTT message."""
@@ -179,7 +177,6 @@ class MqttMessage:
         """Acknowledgement field."""
         ...
 
-
 class TlsOpts:
     """TLS configuration options for secure connections.
 
@@ -198,7 +195,7 @@ class TlsOpts:
         cert: Union[bytes, str, None] = None,
         key: Union[bytes, str, None] = None,
         name: Union[bytes, str, None] = None,
-        skip_verification: bool = False
+        skip_verification: bool = False,
     ) -> None:
         """Initialize TLS options.
 
@@ -227,10 +224,8 @@ class TlsOpts:
         """
         ...
 
-
 # Event handler type
-EventHandler = Callable[['Connection', int, Any], None]
-
+EventHandler = Callable[["Connection", int, Any], None]
 
 class Connection:
     """Wrapper around mg_connection pointers."""
@@ -255,7 +250,6 @@ class Connection:
 
     @userdata.setter
     def userdata(self, value: Any) -> None: ...
-
     @property
     def id(self) -> int:
         """Return connection ID."""
@@ -356,7 +350,7 @@ class Connection:
         self,
         status_code: int,
         body: Union[str, bytes] = b"",
-        headers: Optional[Dict[str, str]] = None
+        headers: Optional[Dict[str, str]] = None,
     ) -> None:
         """Send a HTTP reply (final response).
 
@@ -373,7 +367,7 @@ class Connection:
         root_dir: str,
         extra_headers: str = "",
         mime_types: str = "",
-        page404: str = ""
+        page404: str = "",
     ) -> None:
         """Serve files from a directory using Mongoose's built-in static handler.
 
@@ -390,11 +384,7 @@ class Connection:
         ...
 
     def serve_file(
-        self,
-        message: HttpMessage,
-        path: str,
-        extra_headers: str = "",
-        mime_types: str = ""
+        self, message: HttpMessage, path: str, extra_headers: str = "", mime_types: str = ""
     ) -> None:
         """Serve a single file using Mongoose's built-in static handler.
 
@@ -410,9 +400,7 @@ class Connection:
         ...
 
     def ws_upgrade(
-        self,
-        message: HttpMessage,
-        extra_headers: Optional[Dict[str, str]] = None
+        self, message: HttpMessage, extra_headers: Optional[Dict[str, str]] = None
     ) -> None:
         """Upgrade HTTP connection to WebSocket.
 
@@ -435,11 +423,7 @@ class Connection:
         ...
 
     def mqtt_pub(
-        self,
-        topic: str,
-        message: Union[str, bytes],
-        qos: int = 0,
-        retain: bool = False
+        self, topic: str, message: Union[str, bytes], qos: int = 0, retain: bool = False
     ) -> int:
         """Publish an MQTT message.
 
@@ -639,15 +623,10 @@ class Connection:
 
     def __repr__(self) -> str: ...
 
-
 class Manager:
     """Manage Mongoose event loop and provide Python callbacks."""
 
-    def __init__(
-        self,
-        handler: Optional[EventHandler] = None,
-        enable_wakeup: bool = False
-    ) -> None:
+    def __init__(self, handler: Optional[EventHandler] = None, enable_wakeup: bool = False) -> None:
         """Initialize event manager.
 
         Args:
@@ -671,11 +650,7 @@ class Manager:
         ...
 
     def listen(
-        self,
-        url: str,
-        handler: Optional[EventHandler] = None,
-        *,
-        http: bool = False
+        self, url: str, handler: Optional[EventHandler] = None, *, http: bool = False
     ) -> Connection:
         """Listen on a URL; handler is optional per-listener override.
 
@@ -693,11 +668,7 @@ class Manager:
         ...
 
     def connect(
-        self,
-        url: str,
-        handler: Optional[EventHandler] = None,
-        *,
-        http: bool = False
+        self, url: str, handler: Optional[EventHandler] = None, *, http: bool = False
     ) -> Connection:
         """Create an outbound connection and return immediately.
 
@@ -722,7 +693,7 @@ class Manager:
         username: str = "",
         password: str = "",
         clean_session: bool = True,
-        keepalive: int = 60
+        keepalive: int = 60,
     ) -> Connection:
         """Connect to an MQTT broker.
 
@@ -743,11 +714,7 @@ class Manager:
         """
         ...
 
-    def mqtt_listen(
-        self,
-        url: str,
-        handler: Optional[EventHandler] = None
-    ) -> Connection:
+    def mqtt_listen(self, url: str, handler: Optional[EventHandler] = None) -> Connection:
         """Listen for MQTT connections (broker mode).
 
         Args:
@@ -762,11 +729,7 @@ class Manager:
         """
         ...
 
-    def sntp_connect(
-        self,
-        url: str,
-        handler: Optional[EventHandler] = None
-    ) -> Connection:
+    def sntp_connect(self, url: str, handler: Optional[EventHandler] = None) -> Connection:
         """Connect to an SNTP (time) server.
 
         Triggers MG_EV_SNTP_TIME event when time is received.
@@ -816,8 +779,8 @@ class Manager:
         callback: Callable[[], None],
         *,
         repeat: bool = False,
-        run_now: bool = False
-    ) -> 'Timer':
+        run_now: bool = False,
+    ) -> "Timer":
         """Add a timer that calls a Python callback periodically.
 
         Args:
@@ -847,15 +810,14 @@ class Manager:
         """Free the underlying manager and release resources."""
         ...
 
-
 class Timer:
     """Wrapper for Mongoose timer.
 
     Note: The underlying mg_timer is automatically freed by Mongoose when it completes
     (via MG_TIMER_AUTODELETE flag). This class only manages the Python callback reference.
     """
-    ...
 
+    ...
 
 # JSON utilities
 def json_get(data: Union[str, bytes], path: str) -> Optional[str]:
@@ -870,11 +832,8 @@ def json_get(data: Union[str, bytes], path: str) -> Optional[str]:
     """
     ...
 
-
 def json_get_num(
-    data: Union[str, bytes],
-    path: str,
-    default: Optional[float] = None
+    data: Union[str, bytes], path: str, default: Optional[float] = None
 ) -> Optional[float]:
     """Extract a numeric value from JSON by path.
 
@@ -888,11 +847,8 @@ def json_get_num(
     """
     ...
 
-
 def json_get_bool(
-    data: Union[str, bytes],
-    path: str,
-    default: Optional[bool] = None
+    data: Union[str, bytes], path: str, default: Optional[bool] = None
 ) -> Optional[bool]:
     """Extract a boolean value from JSON by path.
 
@@ -905,7 +861,6 @@ def json_get_bool(
         Boolean value at path, or default if not found
     """
     ...
-
 
 def json_get_long(data: Union[str, bytes], path: str, default: int = 0) -> int:
     """Extract an integer value from JSON by path.
@@ -920,7 +875,6 @@ def json_get_long(data: Union[str, bytes], path: str, default: int = 0) -> int:
     """
     ...
 
-
 def json_get_str(data: Union[str, bytes], path: str) -> Optional[str]:
     """Extract a string value from JSON by path (automatically unescapes).
 
@@ -933,7 +887,6 @@ def json_get_str(data: Union[str, bytes], path: str) -> Optional[str]:
     """
     ...
 
-
 def url_encode(data: str) -> str:
     """URL-encode a string.
 
@@ -945,10 +898,8 @@ def url_encode(data: str) -> str:
     """
     ...
 
-
 def http_parse_multipart(
-    body: Union[str, bytes],
-    offset: int = 0
+    body: Union[str, bytes], offset: int = 0
 ) -> Tuple[int, Optional[Dict[str, Union[str, bytes]]]]:
     """Parse the next multipart form part from HTTP body.
 

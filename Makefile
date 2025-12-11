@@ -1,5 +1,5 @@
 .PHONY: all help install build clean test test-verbose test-coverage lint format \
-		type-check docs docs-serve dev snap wheel-check
+		type-check docs docs-serve dev snap wheel-check full-check release publish
 
 # Default target
 # .DEFAULT_GOAL := help
@@ -40,8 +40,19 @@ clean: ## Remove build artifacts
 	@rm -f src/$(PROJECT)/_mongoose.c
 	@rm -rf docs/_build/
 
+release:
+	@rm -rf dist
+	@uv build --sdist
+	@uv build --wheel --python 3.11
+	@uv build --wheel --python 3.12
+	@uv build --wheel --python 3.13
+	@uv build --wheel --python 3.14
+
 wheel-check:
-	@uv run twine check dist/*.whl
+	@uv run twine check dist/*
+
+publish:
+	@uv run twine upload dist/*
 
 # Testing
 test: ## Run tests with pytest
@@ -61,21 +72,21 @@ test-examples: ## Run only example tests
 
 # Code Quality
 lint: ## Run linter (ruff)
-	$(RUFF) check .
+	@$(RUFF) check --fix src/
 
-lint-fix: ## Run linter with auto-fix
-	$(RUFF) check --fix .
+# lint-fix: ## Run linter with auto-fix
+# 	$(RUFF) check --fix src/
 
 format: ## Format code with ruff
-	$(RUFF) format .
+	@$(RUFF) format src/
 
 format-check: ## Check code formatting without modifying files
-	$(RUFF) format --check .
+	@$(RUFF) format --check src/
 
 type-check: ## Run type checker (mypy)
-	$(MYPY) src/
+	@$(MYPY) src/
 
-check: lint format-check type-check ## Run all code quality checks
+full-check: lint format-check type-check ## Run all code quality checks
 
 # Documentation
 docs: ## Build Sphinx documentation
@@ -127,11 +138,11 @@ commit: ## Interactive git commit
 dist: clean ## Build distribution packages
 	@uv build
 
-publish-test: dist ## Upload to TestPyPI
-	@uv publish --publish-url https://test.pypi.org/legacy/
+# publish-test: dist ## Upload to TestPyPI
+# 	@uv publish --publish-url https://test.pypi.org/legacy/
 
-publish: dist ## Upload to PyPI (production)
-	@uv publish
+# publish: dist ## Upload to PyPI (production)
+# 	@uv publish
 
 # Benchmarks
 bench: ## Run performance benchmarks

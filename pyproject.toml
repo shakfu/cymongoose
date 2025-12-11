@@ -82,6 +82,8 @@ dev = [
     "uvicorn>=0.37.0",
     "websocket-client>=1.9.0",
     "twine>=6.2.0",
+    "ruff>=0.14.8",
+    "mypy>=1.19.0",
 ]
 
 [build-system]

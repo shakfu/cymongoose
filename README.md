@@ -238,14 +238,14 @@ conn.serve_dir(message, root_dir)  # Serve static files
 conn.serve_file(message, path)     # Serve single file
 conn.http_chunk(data)              # Send chunked data
 conn.http_sse(event_type, data)    # Server-Sent Events
-conn.http_basic_auth(user, pass)   # HTTP Basic Auth
+conn.http_basic_auth(user, pass_)  # HTTP Basic Auth
 
 # MQTT
-conn.mqtt_pub(topic, message, qos=0, retain=False)
-conn.mqtt_sub(topic, qos=0)
-conn.mqtt_ping()
-conn.mqtt_pong()
-conn.mqtt_disconnect()
+conn.mqtt_pub(topic, message, ..)  # Publish an MQTT message
+conn.mqtt_sub(topic, qos=0)        # Subscribe to an MQTT topic
+conn.mqtt_ping()                   # Send MQTT ping
+conn.mqtt_pong()                   # Send MQTT pong
+conn.mqtt_disconnect()             # Send MQTT disconnect message
 
 # SNTP
 conn.sntp_request()                # Request time
@@ -264,26 +264,26 @@ conn.close()                       # Immediate close
 conn.error(message)                # Trigger error event
 
 # Properties
-conn.is_listening      # Listener socket?
-conn.is_websocket      # WebSocket connection?
-conn.is_tls            # TLS/SSL enabled?
-conn.is_udp            # UDP socket?
-conn.is_readable       # Data available?
-conn.is_writable       # Can write?
-conn.is_full           # Buffer full? (backpressure)
-conn.is_draining       # Draining before close?
-conn.id                # Connection ID
-conn.userdata          # Custom Python object
-conn.local_addr        # (ip, port) tuple
-conn.remote_addr       # (ip, port) tuple
+conn.is_listening                  # Listener socket?
+conn.is_websocket                  # WebSocket connection?
+conn.is_tls                        # TLS/SSL enabled?
+conn.is_udp                        # UDP socket?
+conn.is_readable                   # Data available?
+conn.is_writable                   # Can write?
+conn.is_full                       # Buffer full? (backpressure)
+conn.is_draining                   # Draining before close?
+conn.id                            # Connection ID
+conn.userdata                      # Custom Python object
+conn.local_addr                    # (ip, port) tuple
+conn.remote_addr                   # (ip, port) tuple
 
 # Buffer access
-conn.recv_len          # Bytes in receive buffer
-conn.send_len          # Bytes in send buffer
-conn.recv_size         # Receive buffer capacity
-conn.send_size         # Send buffer capacity
-conn.recv_data(n)      # Read from receive buffer
-conn.send_data(n)      # Read from send buffer
+conn.recv_len                      # Bytes in receive buffer
+conn.send_len                      # Bytes in send buffer
+conn.recv_size                     # Receive buffer capacity
+conn.send_size                     # Send buffer capacity
+conn.recv_data(n)                  # Read from receive buffer
+conn.send_data(n)                  # Read from send buffer
 ```
 
 ### TlsOpts
@@ -292,11 +292,11 @@ TLS/SSL configuration.
 
 ```python
 opts = TlsOpts(
-    ca=None,                    # CA certificate (PEM)
-    cert=None,                  # Server/client certificate (PEM)
-    key=None,                   # Private key (PEM)
-    name=None,                  # Server name (SNI)
-    skip_verification=False     # Skip cert validation (dev only!)
+    ca=None,                       # CA certificate (PEM)
+    cert=None,                     # Server/client certificate (PEM)
+    key=None,                      # Private key (PEM)
+    name=None,                     # Server name (SNI)
+    skip_verification=False        # Skip cert validation (dev only!)
 )
 ```
 
@@ -305,17 +305,17 @@ opts = TlsOpts(
 HTTP request/response view.
 
 ```python
-msg.method          # "GET", "POST", etc.
-msg.uri             # "/path"
-msg.query           # "?key=value"
-msg.proto           # "HTTP/1.1"
-msg.body_text       # Body as string
-msg.body_bytes      # Body as bytes
-msg.header("Name")  # Get header value
-msg.headers()       # All headers as list of tuples
-msg.query_var("key") # Extract query parameter
-msg.status()        # HTTP status code
-msg.header_var(header, var) # Extract variable from header
+msg.method                         # "GET", "POST", etc.
+msg.uri                            # "/path"
+msg.query                          # "?key=value"
+msg.proto                          # "HTTP/1.1"
+msg.body_text                      # Body as string
+msg.body_bytes                     # Body as bytes
+msg.header("Name")                 # Get header value
+msg.headers()                      # All headers as list of tuples
+msg.query_var("key")               # Extract query parameter
+msg.status()                       # HTTP status code
+msg.header_var(header, var)        # Extract variable from header
 ```
 
 ### WsMessage
@@ -323,9 +323,9 @@ msg.header_var(header, var) # Extract variable from header
 WebSocket frame data.
 
 ```python
-ws.text    # Frame data as string
-ws.data    # Frame data as bytes
-ws.flags   # WebSocket flags
+ws.text                            # Frame data as string
+ws.data                            # Frame data as bytes
+ws.flags                           # WebSocket flags
 ```
 
 ### MqttMessage
@@ -333,38 +333,38 @@ ws.flags   # WebSocket flags
 MQTT message data.
 
 ```python
-mqtt.topic   # Topic as string
-mqtt.data    # Payload as bytes
-mqtt.id      # Message ID
-mqtt.cmd     # MQTT command
-mqtt.qos     # Quality of Service (0-2)
-mqtt.ack     # Acknowledgment flag
+mqtt.topic                         # Topic as string
+mqtt.data                          # Payload as bytes
+mqtt.id                            # Message ID
+mqtt.cmd                           # MQTT command
+mqtt.qos                           # Quality of Service (0-2)
+mqtt.ack                           # Acknowledgment flag
 ```
 
 ### Event Constants
 
 ```python
 # Core events
-MG_EV_ERROR       # Error occurred
-MG_EV_OPEN        # Connection created
-MG_EV_POLL        # Poll iteration
-MG_EV_RESOLVE     # DNS resolution complete
-MG_EV_CONNECT     # Outbound connection established
-MG_EV_ACCEPT      # Inbound connection accepted
-MG_EV_TLS_HS      # TLS handshake complete
-MG_EV_READ        # Data available to read
-MG_EV_WRITE       # Data written
-MG_EV_CLOSE       # Connection closed
+MG_EV_ERROR                        # Error occurred
+MG_EV_OPEN                         # Connection created
+MG_EV_POLL                         # Poll iteration
+MG_EV_RESOLVE                      # DNS resolution complete
+MG_EV_CONNECT                      # Outbound connection established
+MG_EV_ACCEPT                       # Inbound connection accepted
+MG_EV_TLS_HS                       # TLS handshake complete
+MG_EV_READ                         # Data available to read
+MG_EV_WRITE                        # Data written
+MG_EV_CLOSE                        # Connection closed
 
 # Protocol events
-MG_EV_HTTP_MSG    # HTTP message received
-MG_EV_WS_OPEN     # WebSocket handshake complete
-MG_EV_WS_MSG      # WebSocket message received
-MG_EV_MQTT_CMD    # MQTT command received
-MG_EV_MQTT_MSG    # MQTT message received
-MG_EV_MQTT_OPEN   # MQTT connection established
-MG_EV_SNTP_TIME   # SNTP time received
-MG_EV_WAKEUP      # Wakeup notification
+MG_EV_HTTP_MSG                     # HTTP message received
+MG_EV_WS_OPEN                      # WebSocket handshake complete
+MG_EV_WS_MSG                       # WebSocket message received
+MG_EV_MQTT_CMD                     # MQTT command received
+MG_EV_MQTT_MSG                     # MQTT message received
+MG_EV_MQTT_OPEN                    # MQTT connection established
+MG_EV_SNTP_TIME                    # SNTP time received
+MG_EV_WAKEUP                       # Wakeup notification
 ```
 
 ### Utility Functions
