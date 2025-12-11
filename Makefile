@@ -1,5 +1,5 @@
 .PHONY: all help install build clean test test-verbose test-coverage lint format \
-		type-check docs docs-serve dev snap
+		type-check docs docs-serve dev snap wheel-check
 
 # Default target
 # .DEFAULT_GOAL := help
@@ -39,6 +39,9 @@ clean: ## Remove build artifacts
 	@find . -type f -name "*.so" -delete
 	@rm -f src/$(PROJECT)/_mongoose.c
 	@rm -rf docs/_build/
+
+wheel-check:
+	@uv run twine check dist/*.whl
 
 # Testing
 test: ## Run tests with pytest
