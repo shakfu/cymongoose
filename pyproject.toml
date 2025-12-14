@@ -1,12 +1,12 @@
 [project]
 name = "cymongoose"
 version = "0.1.6"
-description = "High-performance Python bindings for Mongoose embedded networking library"
+description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [
-    {name = "Mongoose Contributors"}
+    { name = "Shakeeb Alireza", email = "me@example.com" },
 ]
 keywords = [
     "mongoose",
@@ -51,6 +51,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
 
     # Topics
@@ -97,13 +98,6 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages = ["cymongoose"]
 include-package-data = false
-
-# [tool.setuptools.package-dir]
-# cymongoose = "src/cymongoose"
-
-# [tool.setuptools.package-data]
-# cymongoose = ["*.pxd", "*.pyx"]
-
 
 [project.urls]
 Homepage = "https://github.com/shakfu/cymongoose"

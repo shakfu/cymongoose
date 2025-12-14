@@ -39,9 +39,15 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 
 ## Installation
 
+### From pypi
+
+```sh
+pip install cymongoose
+```
+
 ### From source
 
-```bash
+```sh
 # Clone the repository
 git clone https://github.com/shakfu/cymongoose
 cd cymongoose
@@ -418,7 +424,7 @@ The project includes a comprehensive test suite with **210 tests** (100% passing
 
 ### Running Tests
 
-```bash
+```sh
 make test                              # Run all tests (210 tests)
 PYTHONPATH=src pytest tests/ -v        # Verbose output
 pytest tests/test_http_server.py -v    # Run specific file
@@ -438,7 +444,7 @@ pytest tests/examples/ -v              # Run example tests only
 
 ### Build
 
-```bash
+```sh
 make build          # Rebuild the Cython extension
 
 # or just
@@ -451,7 +457,7 @@ uv sync --reinstall-package cymongoose
 
 ### Test
 
-```bash
+```sh
 make test                    # Run all tests
 pytest tests/ -v             # Verbose output
 pytest tests/test_http_server.py -v  # Run specific test file
@@ -459,7 +465,7 @@ pytest tests/test_http_server.py -v  # Run specific test file
 
 ### Clean
 
-```bash
+```sh
 make clean          # Remove build artifacts
 ```
 
