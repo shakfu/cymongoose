@@ -53,6 +53,7 @@ pytest tests/test_http_server.py::TestHTTPServer::test_basic_http_request -v
 ## Test Coverage
 
 **HTTP Tests (25 tests - All passing):**
+
 - [x] Basic HTTP server setup and teardown
 - [x] HTTP request/response handling
 - [x] Multiple sequential requests
@@ -69,6 +70,7 @@ pytest tests/test_http_server.py::TestHTTPServer::test_basic_http_request -v
 - [x] Constant exports
 
 **WebSocket Tests (10 tests - All passing with websocket-client):**
+
 - [x] WebSocket text message echo
 - [x] WebSocket binary message echo
 - [x] Multiple WebSocket messages
@@ -82,6 +84,7 @@ pytest tests/test_http_server.py::TestHTTPServer::test_basic_http_request -v
 ## Port Management
 
 Tests use dynamic port allocation via `get_free_port()` to avoid port binding conflicts. The `ServerThread` context manager in `conftest.py` provides a convenient way to:
+
 - Automatically allocate a free port
 - Start a server in a background thread
 - Clean up resources on exit
@@ -91,6 +94,7 @@ This ensures all tests can run concurrently without conflicts.
 ## Future Test Additions
 
 Areas that could use additional test coverage:
+
 - TCP/UDP sockets
 - Static file serving
 - TLS/SSL connections

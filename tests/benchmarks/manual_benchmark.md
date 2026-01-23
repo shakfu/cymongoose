@@ -5,6 +5,7 @@ The automated benchmarks have some environment-specific issues with concurrent H
 ## Quick Benchmark with wrk (Recommended)
 
 ### Install wrk
+
 ```bash
 # macOS
 brew install wrk
@@ -14,12 +15,14 @@ git clone https://github.com/wg/wrk && cd wrk && make
 ```
 
 ### Run cymongoose server
+
 ```bash
 # Terminal 1
 uv run python benchmarks/servers/pymongoose_server.py 8001
 ```
 
 ### Run wrk benchmark
+
 ```bash
 # Terminal 2
 wrk -t4 -c100 -d30s http://localhost:8001/
@@ -35,7 +38,7 @@ wrk -t4 -c100 -d30s http://localhost:8001/
 # Transfer/sec:      7.82MB
 ```
 
-##Alternative: Apache Bench (if wrk not available)
+## Alternative: Apache Bench (if wrk not available)
 
 ```bash
 # Lower concurrency to avoid macOS issues
@@ -45,18 +48,21 @@ ab -n 10000 -c 10 http://localhost:8001/
 ## Comparing with Other Frameworks
 
 ### aiohttp server
+
 ```bash
 uv run python benchmarks/servers/aiohttp_server.py 8002
 wrk -t4 -c100 -d30s http://localhost:8002/
 ```
 
 ### FastAPI/uvicorn server
+
 ```bash
 uv run python benchmarks/servers/uvicorn_server.py 8003
 wrk -t4 -c100 -d30s http://localhost:8003/
 ```
 
 ### Flask server
+
 ```bash
 uv run python benchmarks/servers/flask_server.py 8004
 wrk -t4 -c100 -d30s http://localhost:8004/
@@ -74,6 +80,7 @@ Based on cymongoose architecture (C event loop, nogil optimization):
 | Flask (threaded) | 3,000-8,000 | 12-30ms |
 
 Actual performance depends on:
+
 - CPU cores and frequency
 - OS network stack tuning
 - System load

@@ -34,16 +34,19 @@ The automated scripts may have environment-specific issues with concurrent HTTP 
 ### Setup
 
 1. Install dependencies:
+
 ```bash
 uv add --dev aiohttp fastapi uvicorn flask
 ```
 
 2. Install wrk (recommended) or Apache Bench:
+
 ```bash
 brew install wrk apache2-utils
 ```
 
 ### Running
+
 ```bash
 # Simple test (if environment supports it)
 python benchmarks/simple_load_test.py

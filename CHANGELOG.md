@@ -17,28 +17,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
-## [0.1.6]
+## [0.1.7]
 
 ### Fixed
 
+- **Bug Fix**: The tests were using daemon threads (`daemon=True`) for poll loops, and when a test completed, the daemon thread would continue running in the background while the next test started. This caused race conditions where:
 
-  - **Bug Fix**: The tests were using daemon threads (`daemon=True`) for poll loops, and when a test completed, the daemon thread would continue running in the background while the next test started. This caused race conditions where:
+1. A daemon thread from test A was still running `manager.poll()` on a freed manager
 
-  1. A daemon thread from test A was still running `manager.poll()` on a freed  manager                                                             
-  
-  2. Test B had already started and was using a new manager
+2. Test B had already started and was using a new manager
 
-  The segfault occurred because the old poll thread was accessing freed memory. 
-                                                                                
-  Files fixed:                                                                  
-  1. `tests/examples/test_examples_http_server_static_files.py` - 5 tests         
-  2. `tests/examples/test_examples_websocket_broadcast.py` - 6 tests              
-  3. `tests/examples/test_examples_websocket_server.py` - 6 tests                 
-                                                                                
-  Changes made:                                                                 
-  - Removed `daemon=True` from `threading.Thread()` calls                           
-  - Added `poll_thread.join(timeout=1.0)` before `manager.close()` to ensure the    
-  poll thread exits cleanly before cleanup
+  The segfault occurred because the old poll thread was accessing freed memory.
+
+  Files fixed:
+
+1. `tests/examples/test_examples_http_server_static_files.py` - 5 tests
+
+2. `tests/examples/test_examples_websocket_broadcast.py` - 6 test
+
+3. `tests/examples/test_examples_websocket_server.py` - 6 tests
+
+  Changes made:
+
+- Removed `daemon=True` from `threading.Thread()` call
+- Added `poll_thread.join(timeout=1.0)` before `manager.close()` to ensure the poll thread exits cleanly before cleanup
+
+## [0.1.6]
 
 ### Added
 

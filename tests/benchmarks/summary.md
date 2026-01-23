@@ -9,6 +9,7 @@ The cymongoose HTTP server works correctly and is ready for performance testing.
 ## What Was Built
 
 ### 1. Server Implementations (`benchmarks/servers/`)
+
 - **pymongoose_server.py** - Uses Mongoose C library event loop with nogil optimization
 - **aiohttp_server.py** - Async HTTP framework
 - **uvicorn_server.py** - ASGI server with FastAPI
@@ -17,13 +18,16 @@ The cymongoose HTTP server works correctly and is ready for performance testing.
 All serve identical JSON responses for fair comparison.
 
 ### 2. Benchmark Scripts
+
 - **test_direct.py** - Direct validation test ([x] working)
 - **simple_load_test.py** - Python-based concurrent load test
 - **run_benchmark.py** - Full comparison runner with Apache Bench
 - **MANUAL_BENCHMARK.md** - Step-by-step manual benchmark guide
 
 ### 3. Key Fix Applied
+
 **Critical Bug Found & Fixed**: The `listen()` method requires `http=True` parameter for HTTP servers:
+
 ```python
 # WRONG - will not parse HTTP requests
 manager.listen('http://0.0.0.0:8000', handler)
@@ -58,6 +62,7 @@ Based on cymongoose's architecture:
 - **Zero-copy views**: HttpMessage/WsMessage wrap C pointers directly
 
 ### Projected Results
+
 | Metric | cymongoose | aiohttp | FastAPI | Flask |
 |--------|------------|---------|---------|-------|
 | Requests/sec | **20k-40k+** | 10k-20k | 8k-15k | 3k-8k |
@@ -69,6 +74,7 @@ _Actual results depend on CPU, OS tuning, and system load._
 ## Verification
 
 Server correctness verified via:
+
 - [x] `pytest tests/test_http_server.py` (40+ tests pass)
 - [x] `benchmarks/test_direct.py` (direct urllib test)
 - [x] Manual curl requests
@@ -82,7 +88,7 @@ Server correctness verified via:
 
 ## Files Created
 
-```
+```text
 benchmarks/
 ├── README.md                      # Overview and quick start
 ├── MANUAL_BENCHMARK.md           # Step-by-step benchmark guide

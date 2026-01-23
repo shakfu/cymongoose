@@ -23,7 +23,7 @@ Official performance comparison of cymongoose vs popular Python web frameworks.
 
 ### cymongoose: 60,973 req/sec
 
-```
+```text
 wrk -t4 -c100 -d10s http://localhost:8765/
 Running 10s test @ http://localhost:8765/
   4 threads and 100 connections
@@ -36,15 +36,16 @@ Transfer/sec:      8.49MB
 ```
 
 **Analysis**:
+
 - [x] **60,973 req/sec** - Exceptional throughput
 - [x] **1.67ms avg latency** - C-level performance
 - [x] **99.8% requests < 2.74ms** - Consistent low latency
 - [x] **Zero errors** - Perfect stability
--  **USE_NOGIL=1** enabled - True parallel processing
+- **USE_NOGIL=1** enabled - True parallel processing
 
 ### aiohttp: 42,452 req/sec
 
-```
+```text
 wrk -t4 -c100 -d10s http://localhost:8002/
 Running 10s test @ http://localhost:8002/
   4 threads and 100 connections
@@ -57,6 +58,7 @@ Transfer/sec:      7.57MB
 ```
 
 **Analysis**:
+
 - Good async Python performance
 - **1.44x slower** than cymongoose
 - 53% higher latency (2.56ms vs 1.67ms)
@@ -64,7 +66,7 @@ Transfer/sec:      7.57MB
 
 ### FastAPI: 9,989 req/sec
 
-```
+```text
 wrk -t4 -c100 -d10s http://localhost:8003/
 Running 10s test @ http://localhost:8003/
   4 threads and 100 connections
@@ -77,6 +79,7 @@ Transfer/sec:      1.45MB
 ```
 
 **Analysis**:
+
 - **6.1x slower** than cymongoose
 - **6.0x higher latency** (9.96ms vs 1.67ms)
 - ASGI + Pydantic validation overhead
@@ -84,7 +87,7 @@ Transfer/sec:      1.45MB
 
 ### Flask: 1,627 req/sec
 
-```
+```text
 wrk -t4 -c100 -d10s http://localhost:8004/
 Running 10s test @ http://localhost:8004/
   4 threads and 100 connections
@@ -98,6 +101,7 @@ Transfer/sec:    306.68KB
 ```
 
 **Analysis**:
+
 - **37.5x slower** than cymongoose
 - **13.3x higher latency** (22.15ms vs 1.67ms)
 - **81 connection errors** - can't handle concurrent load
@@ -105,7 +109,7 @@ Transfer/sec:    306.68KB
 
 ## Performance Comparison Chart
 
-```
+```text
 Requests/sec (higher = better):
 
 cymongoose  ████████████████████████████████████████  60,973
@@ -115,7 +119,7 @@ Flask       ▌                                          1,627
             0      10k     20k     30k     40k     50k     60k
 ```
 
-```
+```text
 Latency (lower = better):
 
 cymongoose  █▌                                         1.67ms
@@ -214,6 +218,7 @@ For user-facing APIs where latency matters:
 **cymongoose provides C-level HTTP performance with Python convenience.**
 
 Key metrics:
+
 - [x] **60,973 req/sec** - 6-37x faster than pure Python frameworks
 - [x] **1.67ms latency** - Comparable to C/Go web servers
 - [x] **Zero errors** - Production-ready stability

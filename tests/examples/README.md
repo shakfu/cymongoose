@@ -46,6 +46,7 @@ This directory contains **17 complete, production-ready examples** demonstrating
 Comprehensive HTTP server demonstrating static file serving, TLS, file uploads, and API endpoints.
 
 **Features**:
+
 - Static file serving with `serve_dir()`
 - File upload handling with multipart forms
 - TLS/SSL configuration with self-signed certificates
@@ -53,6 +54,7 @@ Comprehensive HTTP server demonstrating static file serving, TLS, file uploads, 
 - Custom routing
 
 **Usage**:
+
 ```bash
 # Basic HTTP server on port 8000
 python http/http_server.py
@@ -68,6 +70,7 @@ python http/http_server.py --root ./public
 ```
 
 **Test**:
+
 ```bash
 curl http://localhost:8000/
 curl http://localhost:8000/api/info
@@ -83,6 +86,7 @@ curl -F "file=@README.md" http://localhost:8000/upload
 HTTP client with support for GET/POST requests, TLS, timeouts, and custom headers.
 
 **Features**:
+
 - Simple GET/POST requests
 - TLS client configuration with CA certificates
 - Connection timeout handling
@@ -90,6 +94,7 @@ HTTP client with support for GET/POST requests, TLS, timeouts, and custom header
 - Request/response processing
 
 **Usage**:
+
 ```bash
 # Simple GET request
 python http/http_client.py https://httpbin.org/get
@@ -108,6 +113,7 @@ python http/http_client.py https://httpbin.org/get --verbose
 ```
 
 **Test**:
+
 ```bash
 # Test with local server (run http_server.py first)
 python http/http_client.py http://localhost:8000/api/info
@@ -124,6 +130,7 @@ python http/http_client.py http://localhost:8000/api/info
 WebSocket echo server with REST API and static file serving, demonstrating mixed HTTP+WS server.
 
 **Features**:
+
 - WebSocket upgrade from HTTP
 - Echo server pattern (text and binary)
 - REST API alongside WebSocket
@@ -132,6 +139,7 @@ WebSocket echo server with REST API and static file serving, demonstrating mixed
 - Interactive HTML interface
 
 **Usage**:
+
 ```bash
 # Start WebSocket server
 python websocket/websocket_server.py
@@ -144,6 +152,7 @@ python websocket/websocket_server.py --root ./public
 ```
 
 **Test**:
+
 ```bash
 # Open in browser (includes interactive WebSocket client)
 open http://localhost:8000/
@@ -173,6 +182,7 @@ curl -X POST -d "Test message" http://localhost:8000/api/broadcast
 WebSocket server with periodic broadcasting to all connected clients using timers.
 
 **Features**:
+
 - Periodic timer broadcasting to WebSocket clients
 - Connection tracking with userdata
 - Timer API with `MG_TIMER_REPEAT`
@@ -181,6 +191,7 @@ WebSocket server with periodic broadcasting to all connected clients using timer
 - Statistics tracking
 
 **Usage**:
+
 ```bash
 # Start broadcast server (broadcasts every 1 second)
 python websocket/websocket_broadcast.py
@@ -190,6 +201,7 @@ python websocket/websocket_broadcast.py --port 8080 --interval 2.5
 ```
 
 **Test**:
+
 ```bash
 # Open multiple browser tabs to see synchronized broadcasts
 open http://localhost:8000/
@@ -210,6 +222,7 @@ open http://localhost:8000/  # Third tab
 MQTT client demonstrating publish/subscribe messaging with QoS, reconnection, and keepalive.
 
 **Features**:
+
 - MQTT connect with QoS, clean session, keepalive
 - Subscribe and publish patterns
 - Timer-based reconnection logic
@@ -218,6 +231,7 @@ MQTT client demonstrating publish/subscribe messaging with QoS, reconnection, an
 - Multiple topic subscriptions
 
 **Usage**:
+
 ```bash
 # Connect to public MQTT broker
 python mqtt/mqtt_client.py mqtt://broker.hivemq.com:1883
@@ -241,6 +255,7 @@ python mqtt/mqtt_client.py mqtt://broker.hivemq.com:1883 --qos 1 --keepalive 60
 Basic MQTT broker implementation demonstrating message routing and topic matching.
 
 **Features**:
+
 - MQTT broker functionality
 - Topic-based message routing
 - Multiple client connections
@@ -249,6 +264,7 @@ Basic MQTT broker implementation demonstrating message routing and topic matchin
 - Connection tracking
 
 **Usage**:
+
 ```bash
 # Start MQTT broker on default port 1883
 python mqtt/mqtt_server.py
@@ -271,6 +287,7 @@ python mqtt/mqtt_client.py mqtt://localhost:1883 --subscribe "test/#"
 HTTP client demonstrating chunked transfer encoding for streaming responses.
 
 **Features**:
+
 - Chunked transfer encoding for responses
 - Streaming large responses without buffering
 - Progress tracking during download
@@ -278,6 +295,7 @@ HTTP client demonstrating chunked transfer encoding for streaming responses.
 - Header inspection before body processing
 
 **Usage**:
+
 ```bash
 # Stream large file
 python http/http_streaming_client.py https://httpbin.org/stream/100
@@ -295,6 +313,7 @@ python http/http_streaming_client.py https://httpbin.org/stream/10 --verbose
 HTTP server demonstrating file upload handling with streaming to disk.
 
 **Features**:
+
 - Single POST file upload handling
 - Streaming uploads to disk without full buffering
 - Memory-efficient processing of large files
@@ -303,6 +322,7 @@ HTTP server demonstrating file upload handling with streaming to disk.
 - Progress tracking
 
 **Usage**:
+
 ```bash
 # Start upload server
 python http/http_file_upload.py
@@ -323,6 +343,7 @@ python http/http_file_upload.py --upload-dir /tmp/uploads
 REST API server demonstrating JSON request/response handling and URL routing.
 
 **Features**:
+
 - REST API patterns (GET, POST, PUT, DELETE)
 - JSON request/response handling
 - URL routing with path parameters
@@ -331,6 +352,7 @@ REST API server demonstrating JSON request/response handling and URL routing.
 - Error responses with proper status codes
 
 **Usage**:
+
 ```bash
 # Start REST API server
 python http/http_restful_server.py
@@ -352,6 +374,7 @@ curl -X DELETE http://localhost:8000/api/items/1
 HTTP server demonstrating Server-Sent Events for real-time updates.
 
 **Features**:
+
 - SSE streaming to clients
 - Real-time server push updates
 - Timer-based event broadcasting
@@ -360,6 +383,7 @@ HTTP server demonstrating Server-Sent Events for real-time updates.
 - Automatic reconnection handling (client-side)
 
 **Usage**:
+
 ```bash
 # Start SSE server (broadcasts every 1 second)
 python http/http_sse_server.py
@@ -385,6 +409,7 @@ open http://localhost:8000/
 Network time synchronization client using SNTP protocol over UDP.
 
 **Features**:
+
 - Network time synchronization via SNTP
 - UDP-based protocol
 - Timer-based periodic sync (default: 30 seconds)
@@ -393,6 +418,7 @@ Network time synchronization client using SNTP protocol over UDP.
 - Unix timestamp conversion
 
 **Usage**:
+
 ```bash
 # Sync with default server (time.google.com)
 python network/sntp_client.py
@@ -416,6 +442,7 @@ python network/sntp_client.py --once
 Asynchronous DNS client demonstrating hostname resolution and cancellation.
 
 **Features**:
+
 - Asynchronous DNS hostname lookups
 - DNS resolution cancellation support
 - Periodic resolution with timer
@@ -424,6 +451,7 @@ Asynchronous DNS client demonstrating hostname resolution and cancellation.
 - Useful for network diagnostics and monitoring
 
 **Usage**:
+
 ```bash
 # Resolve hostname once
 python network/dns_client.py google.com
@@ -444,6 +472,7 @@ python network/dns_client.py google.com:443
 Raw TCP socket server/client demonstrating custom protocol implementation.
 
 **Features**:
+
 - Raw TCP socket handling (no HTTP layer)
 - Server echoes received data back to client
 - Client with timer-based reconnection (15 seconds)
@@ -452,6 +481,7 @@ Raw TCP socket server/client demonstrating custom protocol implementation.
 - Demonstrates MG_EV_ACCEPT and MG_EV_READ events
 
 **Usage**:
+
 ```bash
 # Start TCP echo server
 python network/tcp_echo_server.py
@@ -475,6 +505,7 @@ nc localhost 8000
 UDP socket server/client demonstrating connectionless protocol.
 
 **Features**:
+
 - UDP connectionless protocol demonstration
 - Server echoes datagrams back to sender
 - Client sends periodic datagrams
@@ -483,6 +514,7 @@ UDP socket server/client demonstrating connectionless protocol.
 - Useful for understanding UDP vs TCP
 
 **Usage**:
+
 ```bash
 # Start UDP echo server
 python network/udp_echo_server.py
@@ -505,6 +537,7 @@ nc -u localhost 8000
 HTTPS server with TLS/SSL certificate-based encryption.
 
 **Features**:
+
 - TLS/SSL certificate-based encryption for HTTPS
 - Self-signed certificates embedded for development
 - Command-line arguments for custom certificates (--cert, --key, --ca)
@@ -513,6 +546,7 @@ HTTPS server with TLS/SSL certificate-based encryption.
 - Server Name Indication (SNI) support
 
 **Usage**:
+
 ```bash
 # Development mode with self-signed certificate
 python advanced/tls_https_server.py --skip-verify
@@ -540,6 +574,7 @@ curl -k https://localhost:8443/api/status
 HTTP client that uses a proxy server with CONNECT method tunneling.
 
 **Features**:
+
 - HTTP CONNECT method for proxy tunneling
 - Two-stage connection pattern (client → proxy → target)
 - TLS initialization after tunnel establishment
@@ -548,6 +583,7 @@ HTTP client that uses a proxy server with CONNECT method tunneling.
 - Works with HTTP and HTTPS proxies
 
 **Usage**:
+
 ```bash
 # Connect through HTTP proxy
 python advanced/http_proxy_client.py http://localhost:3128 http://www.example.com
@@ -568,6 +604,7 @@ python advanced/http_proxy_client.py https://proxy.example.com:443 https://api.g
 Multi-threaded HTTP server demonstrating background work offloading with wakeup mechanism.
 
 **Features**:
+
 - Background work offloading to worker threads
 - Fast path (single-threaded, immediate response) vs slow path (multi-threaded with delay)
 - Thread-safe communication using Manager.wakeup()
@@ -577,6 +614,7 @@ Multi-threaded HTTP server demonstrating background work offloading with wakeup 
 - **CRITICAL**: Wakeup data must be bytes, not strings
 
 **Usage**:
+
 ```bash
 # Start multi-threaded server (2 second worker delay)
 python advanced/multithreaded_server.py
@@ -760,7 +798,7 @@ These examples serve multiple purposes:
 
 ## Contributing
 
-All planned examples have been implemented! 
+All planned examples have been implemented!
 
 If you'd like to contribute additional examples or improvements:
 

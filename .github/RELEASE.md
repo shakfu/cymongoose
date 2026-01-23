@@ -16,7 +16,7 @@ The `build-wheels.yml` workflow uses cibuildwheel to build cross-platform binary
 
 Before publishing to TestPyPI, configure trusted publishing:
 
-1. Go to https://test.pypi.org/manage/account/publishing/
+1. Go to <https://test.pypi.org/manage/account/publishing/>
 2. Click "Add a new publisher"
 3. Fill in the form:
    - **PyPI Project Name**: `cymongoose`
@@ -30,7 +30,7 @@ Before publishing to TestPyPI, configure trusted publishing:
 
 Once you've tested with TestPyPI, configure production publishing:
 
-1. Go to https://pypi.org/manage/account/publishing/
+1. Go to <https://pypi.org/manage/account/publishing/>
 2. Click "Add a new publisher"
 3. Fill in the same information as above, but use environment name: `pypi`
 
@@ -40,7 +40,7 @@ Once you've tested with TestPyPI, configure production publishing:
 
 ### Step 1: Trigger the Workflow
 
-1. Go to your GitHub repository: https://github.com/shakfu/cymongoose
+1. Go to your GitHub repository: <https://github.com/shakfu/cymongoose>
 2. Click on the "Actions" tab
 3. Select "Build Wheels" from the left sidebar
 4. Click "Run workflow" button
@@ -54,6 +54,7 @@ Once you've tested with TestPyPI, configure production publishing:
 ### Step 2: Monitor the Build
 
 The workflow will:
+
 1. Build wheels for all platforms (30-60 minutes)
 2. Run tests on each built wheel
 3. Upload artifacts (wheels + source distribution)
@@ -90,7 +91,7 @@ Once you've verified the TestPyPI build works correctly:
 
 1. Update version in `pyproject.toml` if needed
 2. Run the workflow again with `publish_target: pypi`
-3. Verify at https://pypi.org/project/cymongoose/
+3. Verify at <https://pypi.org/project/cymongoose/>
 
 ## Recommended Workflow
 
@@ -124,6 +125,7 @@ If you want to test wheels without publishing:
 ### "Trusted publisher configuration mismatch"
 
 This means the GitHub repository, workflow name, or environment name doesn't match what you configured on PyPI. Double-check:
+
 - Repository owner and name
 - Workflow filename: `build-wheels.yml`
 - Environment name: `testpypi` or `pypi`
@@ -131,6 +133,7 @@ This means the GitHub repository, workflow name, or environment name doesn't mat
 ### "Project does not exist on PyPI"
 
 For the first PyPI upload, you need to:
+
 1. Register the project manually, OR
 2. Use an API token for the first upload, OR
 3. Configure trusted publishing with "Pending Publisher" status
@@ -138,6 +141,7 @@ For the first PyPI upload, you need to:
 ### Build Failures
 
 Check the workflow logs for:
+
 - Cython compilation errors
 - Test failures (consider disabling tests temporarily with `CIBW_TEST_COMMAND`)
 - Platform-specific issues (check individual job logs)
@@ -145,6 +149,7 @@ Check the workflow logs for:
 ### Wheels Not Found
 
 Ensure your `setup.py` and `pyproject.toml` are correctly configured:
+
 - `ext_modules` must be defined in `setup.py`
 - Cython must be available during build
 - Source files must be included in the source distribution
@@ -154,12 +159,14 @@ Ensure your `setup.py` and `pyproject.toml` are correctly configured:
 Before each release:
 
 1. Update version in `pyproject.toml`:
+
    ```toml
    [project]
    version = "0.1.5"  # Increment as needed
    ```
 
 2. Tag the release:
+
    ```bash
    git tag v0.1.5
    git push origin v0.1.5
