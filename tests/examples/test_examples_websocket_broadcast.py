@@ -69,7 +69,7 @@ def test_broadcast_server_client_connection():
         while not stop.is_set():
             server.manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -87,7 +87,7 @@ def test_broadcast_server_client_connection():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         server.manager.close()
 
 
@@ -106,7 +106,7 @@ def test_broadcast_server_echo_messages():
         while not stop.is_set():
             server.manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -129,7 +129,7 @@ def test_broadcast_server_echo_messages():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         server.manager.close()
 
 
@@ -167,7 +167,7 @@ def test_broadcast_server_multiple_clients():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -199,7 +199,7 @@ def test_broadcast_server_multiple_clients():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -239,7 +239,7 @@ def test_broadcast_server_with_timer():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -271,7 +271,7 @@ def test_broadcast_server_with_timer():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -289,7 +289,7 @@ def test_broadcast_server_client_cleanup():
         while not stop.is_set():
             server.manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -308,7 +308,7 @@ def test_broadcast_server_client_cleanup():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         server.manager.close()
 
 
@@ -328,7 +328,7 @@ def test_broadcast_server_html_page():
         while not stop.is_set():
             server.manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -343,5 +343,5 @@ def test_broadcast_server_html_page():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         server.manager.close()

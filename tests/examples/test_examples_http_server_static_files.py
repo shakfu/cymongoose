@@ -42,7 +42,7 @@ def test_http_server_static_files(tmp_path):
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -55,7 +55,7 @@ def test_http_server_static_files(tmp_path):
         assert "/test.html" in received
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -81,7 +81,7 @@ def test_http_server_api_endpoint(tmp_path):
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -94,7 +94,7 @@ def test_http_server_api_endpoint(tmp_path):
         assert data["value"] == 42
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -137,7 +137,7 @@ def test_http_server_multipart_upload(tmp_path):
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -174,7 +174,7 @@ def test_http_server_multipart_upload(tmp_path):
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -199,7 +199,7 @@ def test_http_server_custom_headers():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -210,7 +210,7 @@ def test_http_server_custom_headers():
         assert response.headers.get("Access-Control-Allow-Origin") == "*"
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -233,7 +233,7 @@ def test_http_server_different_methods():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -258,5 +258,5 @@ def test_http_server_different_methods():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()

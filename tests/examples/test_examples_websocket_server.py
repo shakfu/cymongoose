@@ -61,7 +61,7 @@ def test_websocket_server_http_endpoint():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -75,7 +75,7 @@ def test_websocket_server_http_endpoint():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -103,7 +103,7 @@ def test_websocket_server_static_files(tmp_path):
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -116,7 +116,7 @@ def test_websocket_server_static_files(tmp_path):
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -143,7 +143,7 @@ def test_websocket_server_echo():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -164,7 +164,7 @@ def test_websocket_server_echo():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -191,7 +191,7 @@ def test_websocket_server_binary():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -213,7 +213,7 @@ def test_websocket_server_binary():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -243,7 +243,7 @@ def test_websocket_server_multiple_clients():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -273,7 +273,7 @@ def test_websocket_server_multiple_clients():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
 
 
@@ -311,7 +311,7 @@ def test_websocket_server_broadcast():
         while not stop.is_set():
             manager.poll(100)
 
-    poll_thread = threading.Thread(target=poll_loop, daemon=True)
+    poll_thread = threading.Thread(target=poll_loop)
     poll_thread.start()
     time.sleep(0.2)
 
@@ -342,5 +342,5 @@ def test_websocket_server_broadcast():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1.0)
         manager.close()
