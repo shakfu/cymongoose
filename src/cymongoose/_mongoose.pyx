@@ -11,9 +11,9 @@ embedded networking library.
 # Configured in setup.py: USE_NOGIL = use_nogil
 # NOTE: Mongoose's built-in TLS is event-loop based with no locks, so nogil is safe with TLS
 IF USE_NOGIL:
-    print("USE_NOGIL=1")
+    USE_NOGIL_ENABLED = True
 ELSE:
-    print("USE_NOGIL=0")
+    USE_NOGIL_ENABLED = False
 
 from cpython.ref cimport PyObject, Py_INCREF, Py_DECREF
 from cpython.bytes cimport PyBytes_FromStringAndSize
@@ -62,6 +62,13 @@ from .mongoose cimport (
     MG_EV_SNTP_TIME as C_MG_EV_SNTP_TIME,
     MG_EV_WAKEUP as C_MG_EV_WAKEUP,
     MG_EV_USER as C_MG_EV_USER,
+    MG_MAX_HTTP_HEADERS,
+    MG_LL_NONE as C_MG_LL_NONE,
+    MG_LL_ERROR as C_MG_LL_ERROR,
+    MG_LL_INFO as C_MG_LL_INFO,
+    MG_LL_DEBUG as C_MG_LL_DEBUG,
+    MG_LL_VERBOSE as C_MG_LL_VERBOSE,
+    mg_log_level,
     mg_addr,
     mg_connection,
     mg_event_handler_t,
@@ -188,6 +195,13 @@ __all__ = [
     "json_get_str",
     "url_encode",
     "http_parse_multipart",
+    "log_set",
+    "log_get",
+    "MG_LL_NONE",
+    "MG_LL_ERROR",
+    "MG_LL_INFO",
+    "MG_LL_DEBUG",
+    "MG_LL_VERBOSE",
 ]
 
 MG_EV_ERROR = C_MG_EV_ERROR
@@ -216,6 +230,12 @@ WEBSOCKET_OP_TEXT = C_WEBSOCKET_OP_TEXT
 WEBSOCKET_OP_BINARY = C_WEBSOCKET_OP_BINARY
 WEBSOCKET_OP_PING = C_WEBSOCKET_OP_PING
 WEBSOCKET_OP_PONG = C_WEBSOCKET_OP_PONG
+
+MG_LL_NONE = C_MG_LL_NONE
+MG_LL_ERROR = C_MG_LL_ERROR
+MG_LL_INFO = C_MG_LL_INFO
+MG_LL_DEBUG = C_MG_LL_DEBUG
+MG_LL_VERBOSE = C_MG_LL_VERBOSE
 
 
 cdef inline bytes _mg_str_to_bytes(mg_str value):
@@ -284,7 +304,7 @@ cdef class HttpMessage:
         cdef mg_http_header header
         cdef size_t idx
         result = []
-        for idx in range(30):
+        for idx in range(MG_MAX_HTTP_HEADERS):
             header = self._msg.headers[idx]
             if header.name.len == 0:
                 break
@@ -294,13 +314,17 @@ cdef class HttpMessage:
     def query_var(self, name: str):
         """Extract a query string parameter.
 
-        Note: Parameter values are limited to 256 bytes. Longer values will be truncated.
+        Raises ValueError if the decoded value exceeds 2048 bytes.
         """
         if self._msg == NULL:
             return None
         cdef bytes name_b = name.encode("utf-8")
-        cdef char buffer[256]
+        cdef char buffer[2048]
         cdef int rc = mg_http_get_var(&self._msg.query, name_b, buffer, sizeof(buffer))
+        if rc == -3:
+            raise ValueError(
+                f"Query parameter '{name}' value exceeds 2048-byte buffer limit"
+            )
         if rc <= 0:
             return None
         return buffer[:rc].decode("utf-8", "surrogateescape")
@@ -1120,12 +1144,14 @@ cdef class Manager:
 
     cdef mg_mgr _mgr
     cdef object _default_handler
+    cdef object _error_handler
     cdef dict _connections
     cdef PyObject *_self_ref
     cdef bint _freed
 
-    def __cinit__(self, handler=None, enable_wakeup=False):
+    def __cinit__(self, handler=None, enable_wakeup=False, error_handler=None):
         self._default_handler = handler
+        self._error_handler = error_handler
         self._connections = {}
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
@@ -1448,8 +1474,14 @@ cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept wit
         return
     try:
         handler(py_conn, ev, payload)
-    except Exception:
-        traceback.print_exc()
+    except Exception as exc:
+        if manager._error_handler is not None:
+            try:
+                manager._error_handler(exc)
+            except Exception:
+                traceback.print_exc()
+        else:
+            traceback.print_exc()
     if ev == MG_EV_CLOSE:
         manager._drop_connection(conn)
 
@@ -1599,6 +1631,23 @@ def url_encode(data: str) -> str:
         return buf[:result_len].decode("ascii")
     finally:
         free(buf)
+
+
+# Log level control
+def log_set(int level):
+    """Set the Mongoose C library log verbosity level.
+
+    Args:
+        level: One of MG_LL_NONE (0), MG_LL_ERROR (1), MG_LL_INFO (2),
+               MG_LL_DEBUG (3), MG_LL_VERBOSE (4)
+    """
+    global mg_log_level
+    mg_log_level = level
+
+
+def log_get():
+    """Return the current Mongoose C library log verbosity level."""
+    return mg_log_level
 
 
 # Multipart form parsing

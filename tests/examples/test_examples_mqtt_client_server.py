@@ -112,8 +112,7 @@ def test_mqtt_client_can_publish():
             client.poll(50)
             time.sleep(0.05)
 
-        # If we get here without exceptions, the API works
-        assert True
+        assert client_conn.id > 0
 
         client.close()
 
@@ -162,8 +161,7 @@ def test_mqtt_client_can_subscribe():
             client.poll(50)
             time.sleep(0.05)
 
-        # If we get here without exceptions, the API works
-        assert True
+        assert client_conn.id > 0
 
         client.close()
 
@@ -210,8 +208,7 @@ def test_mqtt_ping_pong():
             client.poll(50)
             time.sleep(0.05)
 
-        # If we get here without exceptions, the API works
-        assert True
+        assert client_conn.id > 0
 
         client.close()
 
@@ -263,8 +260,9 @@ def test_mqtt_clean_session():
 
         client2.close()
 
-        # Both should work
-        assert True
+        # Both connection variants created successfully
+        assert conn1 is not None
+        assert conn2 is not None
 
     finally:
         stop.set()
@@ -311,8 +309,7 @@ def test_mqtt_qos_levels():
             client.poll(50)
             time.sleep(0.05)
 
-        # If we get here without exceptions, the API works
-        assert True
+        assert client_conn.id > 0
 
         client.close()
 

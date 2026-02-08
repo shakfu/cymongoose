@@ -23,7 +23,6 @@ def test_http_chunk_method_exists():
 
 def test_http_chunked_response():
     """Test sending chunked HTTP response."""
-    chunks_received = []
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -35,23 +34,17 @@ def test_http_chunked_response():
             conn.http_chunk("")  # End chunks
 
     with ServerThread(handler) as port:
-        try:
-            response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
-            body = response.read().decode("utf-8")
+        response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+        body = response.read().decode("utf-8")
 
-            # All chunks should be concatenated
-            assert "First" in body
-            assert "Second" in body
-            assert "Third" in body
-        except Exception as e:
-            # Chunked encoding might not be fully supported by test client
-            # Just verify the method doesn't crash
-            pass
+        # All chunks should be concatenated
+        assert "First" in body
+        assert "Second" in body
+        assert "Third" in body
 
 
 def test_http_chunk_with_bytes():
     """Test http_chunk with bytes input."""
-    manager = Manager()
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -60,27 +53,15 @@ def test_http_chunk_with_bytes():
             conn.http_chunk(b"More binary")
             conn.http_chunk(b"")  # End
 
-    try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
-        manager.poll(10)
+    with ServerThread(handler) as port:
+        response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+        body = response.read()
 
-        addr = listener.local_addr
-        port = addr[1]
-
-        # Make request
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass  # Don't care about response, just testing method works
-
-        assert True
-    finally:
-        manager.close()
+        assert b"Binary data" in body
 
 
 def test_http_chunk_empty_ends_stream():
     """Test that empty chunk ends the stream."""
-    manager = Manager()
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -88,28 +69,16 @@ def test_http_chunk_empty_ends_stream():
             conn.http_chunk("Data")
             conn.http_chunk("")  # This should end the chunked stream
 
-    try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
-        manager.poll(10)
+    with ServerThread(handler) as port:
+        response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+        body = response.read()
 
-        addr = listener.local_addr
-        port = addr[1]
-
-        # Make request
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
-
-        # Test passes if no crash
-        assert True
-    finally:
-        manager.close()
+        # Stream terminates cleanly and we get the data
+        assert b"Data" in body
 
 
 def test_http_chunk_unicode():
     """Test http_chunk with unicode strings."""
-    manager = Manager()
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
@@ -118,26 +87,15 @@ def test_http_chunk_unicode():
             conn.http_chunk("Привет мир")
             conn.http_chunk("")
 
-    try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
-        manager.poll(10)
+    with ServerThread(handler) as port:
+        response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+        body = response.read().decode("utf-8")
 
-        addr = listener.local_addr
-        port = addr[1]
-
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
-
-        assert True
-    finally:
-        manager.close()
+        assert "Hello 世界" in body
 
 
 def test_http_chunk_large_data():
     """Test http_chunk with large data."""
-    manager = Manager()
     large_chunk = "X" * 10000
 
     def handler(conn, ev, data):
@@ -146,18 +104,8 @@ def test_http_chunk_large_data():
             conn.http_chunk(large_chunk)
             conn.http_chunk("")
 
-    try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
-        manager.poll(10)
+    with ServerThread(handler) as port:
+        response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+        body = response.read()
 
-        addr = listener.local_addr
-        port = addr[1]
-
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
-
-        assert True
-    finally:
-        manager.close()
+        assert len(body) >= 10000

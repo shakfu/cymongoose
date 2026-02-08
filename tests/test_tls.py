@@ -66,11 +66,10 @@ def test_tls_init_with_empty_opts():
         manager.poll(10)
 
         opts = TlsOpts()
-        # Should not crash
         listener.tls_init(opts)
         manager.poll(10)
 
-        assert True
+        assert listener.is_listening
     finally:
         manager.close()
 
@@ -87,7 +86,7 @@ def test_tls_init_with_skip_verification():
         listener.tls_init(opts)
         manager.poll(10)
 
-        assert True
+        assert listener.is_listening
     finally:
         manager.close()
 
@@ -108,7 +107,7 @@ def test_tls_free():
         listener.tls_free()
         manager.poll(10)
 
-        assert True
+        assert listener.is_listening
     finally:
         manager.close()
 
@@ -123,9 +122,8 @@ def test_is_tls_property():
         manager.poll(10)
 
         assert hasattr(listener, "is_tls")
-        # HTTP connection starts as non-TLS
-        # (TLS flag is set during handshake, not at creation)
-        assert listener.is_tls == False or listener.is_tls == True  # Either is valid
+        # Plain HTTP listener should not be TLS
+        assert listener.is_tls == False
 
     finally:
         manager.close()
@@ -156,7 +154,7 @@ def test_tls_init_multiple_times():
         listener.tls_init(opts2)
         manager.poll(10)
 
-        assert True
+        assert listener.is_listening
     finally:
         manager.close()
 

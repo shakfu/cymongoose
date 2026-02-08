@@ -45,9 +45,8 @@ def test_sntp_request():
                 break
             time.sleep(0.01)
 
-        # We might receive time or timeout
-        # Just verify no crash occurs
-        assert True
+        # Should have received at least one time response (network-dependent)
+        assert len(time_received) > 0
     finally:
         manager.close()
 
@@ -115,9 +114,8 @@ def test_sntp_multiple_requests():
                 break
             time.sleep(0.01)
 
-        # We might get some responses
-        # Just verify no crash
-        assert True
+        # Should have received at least one time response (network-dependent)
+        assert len(time_received) >= 1
     finally:
         manager.close()
 
@@ -139,7 +137,5 @@ def test_sntp_method_exists():
         # Should be callable without error
         conn.sntp_request()
         manager.poll(10)
-
-        assert True
     finally:
         manager.close()

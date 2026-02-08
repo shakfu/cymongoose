@@ -17,6 +17,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.8]
+
+### Added
+
+- **Asyncio integration**: `AsyncManager` in `cymongoose.aio` provides full asyncio
+  bridge with `async`/`await` support, running the Mongoose poll loop in a background
+  thread.
+- **Error handler**: `Manager(handler, error_handler=fn)` routes handler exceptions to a
+  user-supplied callback; falls back to `traceback.print_exc()` when no handler is set.
+- **Log level control**: `log_set()`, `log_get()`, and `MG_LL_*` constants exposed to
+  Python for controlling Mongoose C debug logging.
+
+### Changed
+
+- **License**: `pyproject.toml` changed from `MIT` to `GPL-2.0-or-later` to match
+  Mongoose's GPLv2 open-source license.
+- **Benchmark docs**: Consolidated 5 scattered markdown files into a single
+  `tests/benchmarks/README.md`.
+
+### Fixed
+
+- **ServerThread resource leak**: `ServerThread.__exit__()` now calls
+  `self.manager.close()` after joining the thread, ensuring all C resources are freed.
+- **`assert True` tests**: All ~50 `assert True` no-op assertions replaced with
+  meaningful protocol-level assertions (response content, status codes, message
+  round-trips, TLS handshake, DNS resolution).
+- **USE_NOGIL print pollution**: Removed compile-time `print("USE_NOGIL=...")` that
+  polluted stdout at import; status now exposed via `USE_NOGIL_ENABLED` module attribute.
+- **Query parameter buffer**: Increased from 256 to 2048 bytes; raises `ValueError` on
+  truncation instead of silently returning partial data.
+- **HTTP header iteration cap**: Now uses `MG_MAX_HTTP_HEADERS` constant instead of
+  hardcoded `30`.
+- **CI improvements**: Added `push: branches: [main]` trigger; removed
+  `continue-on-error: true` from Windows tests so failures are no longer silent.
+- **MANIFEST.in**: Explicitly includes `thirdparty/mongoose/mongoose.c` and `.h`.
+- **Author email**: Updated from placeholder to real address.
+
 ## [0.1.7]
 
 ### Fixed

@@ -4,3 +4,5 @@ include src/cymongoose/*.pxi
 include src/cymongoose/*.c
 include src/cymongoose/*.h
 include src/cymongoose/py.typed
+include thirdparty/mongoose/mongoose.c
+include thirdparty/mongoose/mongoose.h

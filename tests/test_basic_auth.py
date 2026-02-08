@@ -14,50 +14,30 @@ def test_http_basic_auth_method_exists():
         conn = manager.connect("tcp://0.0.0.0:0")
         manager.poll(10)
 
-        # Method should exist and not crash
+        # Method should exist and write to send buffer
         conn.http_basic_auth("testuser", "testpass")
         manager.poll(10)
 
-        # If we got here, method exists
-        assert True
+        assert conn.send_len > 0
     finally:
         manager.close()
 
 
 def test_http_basic_auth_sends_header():
-    """Test that basic auth sends Authorization header."""
-    received_headers = []
+    """Test that basic auth writes Authorization header to send buffer."""
+    manager = Manager()
 
-    def handler(conn, ev, data):
-        if ev == MG_EV_HTTP_MSG:
-            # Capture the Authorization header
-            auth = data.header("Authorization")
-            received_headers.append(auth)
-            conn.reply(200, b"OK")
+    try:
+        conn = manager.connect("tcp://0.0.0.0:0")
+        manager.poll(10)
 
-    with ServerThread(handler) as port:
-        # Create a client connection and send basic auth
-        manager = Manager()
-        try:
-            # Connect to server
-            conn = manager.connect(f"http://127.0.0.1:{port}/", http=True)
-            manager.poll(10)
+        conn.http_basic_auth("user", "pass")
+        manager.poll(10)
 
-            # Send basic auth credentials
-            conn.http_basic_auth("user", "pass")
-
-            # Poll to let connection establish
-            for _ in range(50):
-                manager.poll(10)
-                if received_headers:
-                    break
-
-            # Check if Authorization header was received
-            # Note: mg_http_bauth sends the header on the next request,
-            # so this test verifies the method doesn't crash
-            assert True  # Test passes if no crash
-        finally:
-            manager.close()
+        # http_basic_auth writes "Authorization: Basic <b64>\r\n" to send buffer
+        assert b"Authorization: Basic" in conn.send_data()
+    finally:
+        manager.close()
 
 
 def test_http_basic_auth_format():
@@ -71,19 +51,15 @@ def test_http_basic_auth_format():
     encoded = base64.b64encode(credentials.encode()).decode()
     expected_header = f"Basic {encoded}"
 
-    # This is what mg_http_bauth should produce
-    # We can't easily test the actual header without a full HTTP flow,
-    # but we verify the method exists and accepts string parameters
     manager = Manager()
     try:
         conn = manager.connect("tcp://0.0.0.0:0")
         manager.poll(10)
 
-        # Should accept string username and password
         conn.http_basic_auth(username, password)
 
-        # Test passes if no exception
-        assert True
+        # Verify the expected base64-encoded credentials appear in the send buffer
+        assert expected_header.encode() in conn.send_data()
     finally:
         manager.close()
 
@@ -99,8 +75,7 @@ def test_http_basic_auth_unicode():
         # Should handle unicode properly
         conn.http_basic_auth("用户", "密码")
 
-        # Test passes if no exception
-        assert True
+        assert b"Authorization: Basic" in conn.send_data()
     finally:
         manager.close()
 
@@ -116,8 +91,7 @@ def test_http_basic_auth_special_chars():
         # Should handle special characters
         conn.http_basic_auth("user@example.com", "p@ss:word!")
 
-        # Test passes if no exception
-        assert True
+        assert b"Authorization: Basic" in conn.send_data()
     finally:
         manager.close()
 
@@ -133,7 +107,6 @@ def test_http_basic_auth_empty_credentials():
         # Should handle empty strings
         conn.http_basic_auth("", "")
 
-        # Test passes if no exception
-        assert True
+        assert b"Authorization: Basic" in conn.send_data()
     finally:
         manager.close()

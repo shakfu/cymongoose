@@ -29,9 +29,8 @@ def test_dns_resolve_basic():
                 break
             time.sleep(0.01)
 
-        # Should have received resolution result (success or failure)
-        # Note: This might fail in some environments, so we just check it doesn't crash
-        assert True  # If we got here without crashing, test passes
+        # Should have received at least one resolution callback
+        assert len(resolve_results) > 0
     finally:
         manager.close()
 
@@ -60,9 +59,8 @@ def test_dns_resolve_cancel():
         for _ in range(10):
             manager.poll(10)
 
-        # Cancellation means we likely won't get a result
-        # Test passes if no crash occurs
-        assert True
+        # Cancellation should suppress the callback
+        assert len(resolve_results) == 0
     finally:
         manager.close()
 
@@ -91,8 +89,8 @@ def test_dns_resolve_with_port():
                 break
             time.sleep(0.01)
 
-        # Test passes if no crash
-        assert True
+        # Should have received at least one resolution callback
+        assert len(resolve_results) > 0
     finally:
         manager.close()
 
@@ -124,8 +122,7 @@ def test_dns_resolve_invalid_host():
                 break
             time.sleep(0.01)
 
-        # Should get either a resolve event or error
-        # Test passes if no crash
-        assert True
+        # Should get either a resolve event or an error event
+        assert len(resolve_results) > 0 or len(error_results) > 0
     finally:
         manager.close()

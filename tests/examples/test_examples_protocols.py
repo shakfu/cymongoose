@@ -34,7 +34,6 @@ def test_sntp_client_can_import():
         with open("tests/examples/network/sntp_client.py") as f:
             code = f.read()
             compile(code, "sntp_client.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in sntp_client.py: {e}"
 
@@ -80,7 +79,6 @@ def test_dns_client_can_import():
         with open("tests/examples/network/dns_client.py") as f:
             code = f.read()
             compile(code, "dns_client.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in dns_client.py: {e}"
 
@@ -111,9 +109,8 @@ def test_dns_resolution_basic():
             if resolve_received.is_set():
                 break
 
-        # Resolution should complete (success or failure)
-        # We just verify it doesn't crash
-        assert True
+        # MG_EV_RESOLVE fires on both success and failure
+        assert resolve_received.is_set(), "DNS resolution did not complete"
 
     finally:
         manager.close()
@@ -128,7 +125,6 @@ def test_tcp_echo_server_can_import():
         with open("tests/examples/network/tcp_echo_server.py") as f:
             code = f.read()
             compile(code, "tcp_echo_server.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in tcp_echo_server.py: {e}"
 
@@ -221,7 +217,6 @@ def test_udp_echo_server_can_import():
         with open("tests/examples/network/udp_echo_server.py") as f:
             code = f.read()
             compile(code, "udp_echo_server.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in udp_echo_server.py: {e}"
 

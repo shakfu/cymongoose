@@ -37,7 +37,6 @@ def test_streaming_client_can_import():
         with open("tests/examples/http/http_streaming_client.py") as f:
             code = f.read()
             compile(code, "http_streaming_client.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in http_streaming_client.py: {e}"
 

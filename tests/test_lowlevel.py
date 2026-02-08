@@ -98,10 +98,8 @@ def test_combined_tls_and_buffer_ops():
         manager.poll(10)
 
         # Can check TLS and buffer properties together
-        assert listener.is_tls == False or listener.is_tls == True
+        assert listener.is_tls == False
         assert listener.recv_len >= 0
         assert listener.send_len >= 0
-
-        assert True
     finally:
         manager.close()

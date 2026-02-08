@@ -55,10 +55,12 @@ def build_extensions():
     elif sys.platform == "win32":
         # Windows specific flags
         extra_compile_args.extend(["/O2"])
-        # Link Windows socket library
-        extra_link_args.extend(["ws2_32.lib"])
 
     include_dirs = ["thirdparty/mongoose"]
+    libraries = []
+
+    if sys.platform == "win32":
+        libraries.append("ws2_32")
 
     extensions = [
         Extension(
@@ -71,6 +73,7 @@ def build_extensions():
             define_macros=define_macros,
             extra_compile_args=extra_compile_args,
             extra_link_args=extra_link_args,
+            libraries=libraries,
         ),
     ]
 

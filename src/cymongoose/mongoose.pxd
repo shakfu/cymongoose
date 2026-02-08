@@ -11,6 +11,15 @@ cdef extern from "mongoose.h":
         MG_PATH_MAX = 255
         MG_IO_SIZE = 16384
 
+    cdef enum:
+        MG_LL_NONE = 0
+        MG_LL_ERROR = 1
+        MG_LL_INFO = 2
+        MG_LL_DEBUG = 3
+        MG_LL_VERBOSE = 4
+
+    int mg_log_level
+
 
     cdef enum:
         MG_EV_ERROR

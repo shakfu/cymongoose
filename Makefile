@@ -7,7 +7,7 @@
 # Variables
 PROJECT = cymongoose
 PYTHON = uv run python
-PYTEST = uv run pytest
+PYTEST = uv run python -m pytest
 SPHINX = uv run sphinx-build
 RUFF = uv run ruff
 MYPY = uv run mypy

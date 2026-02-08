@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
   pull_request:
@@ -20,8 +22,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -47,15 +47,12 @@ jobs:
       - name: Run tests (Windows)
         if: runner.os == 'Windows'
         run: uv run pytest tests/ -v -k "not examples" --ignore=tests/examples/
-        continue-on-error: true
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -76,8 +73,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Set up Python
         uses: actions/setup-python@v5

@@ -2,6 +2,7 @@
 
 import pytest
 import urllib.request
+import threading
 import time
 from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_READ
 
@@ -43,14 +44,21 @@ def test_buffer_lengths_valid():
         manager.close()
 
 
+def _make_request(port, delay=0.1):
+    """Helper to make an HTTP request in a background thread."""
+    time.sleep(delay)
+    try:
+        urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=2)
+    except Exception:
+        pass
+
+
 def test_recv_buffer_on_http_request():
     """Test that recv buffer contains data on HTTP request."""
-    manager = Manager()
     recv_data_captured = []
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
-            # Capture recv buffer info
             recv_data_captured.append(
                 {
                     "recv_len": conn.recv_len,
@@ -60,45 +68,41 @@ def test_recv_buffer_on_http_request():
             )
             conn.reply(200, b"OK")
 
+    manager = Manager(handler)
+
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        # Make HTTP request
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/test", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        # Poll to process request
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
             if recv_data_captured:
                 break
 
-        # Should have captured recv buffer data
-        if recv_data_captured:
-            assert recv_data_captured[0]["recv_len"] >= 0
-            assert recv_data_captured[0]["recv_size"] >= 0
-            # recv_data should be bytes
-            assert isinstance(recv_data_captured[0]["recv_data"], bytes)
+        t.join(timeout=2)
+
+        assert len(recv_data_captured) > 0
+        assert recv_data_captured[0]["recv_len"] >= 0
+        assert recv_data_captured[0]["recv_size"] >= 0
+        assert isinstance(recv_data_captured[0]["recv_data"], bytes)
     finally:
         manager.close()
 
 
 def test_send_buffer_on_reply():
     """Test that send buffer is used on reply."""
-    manager = Manager()
     send_data_captured = []
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
-            conn.reply(200, b"Hello World" * 100)  # Large response
+            conn.reply(200, b"Hello World" * 100)
 
-            # Capture send buffer info after reply
             send_data_captured.append(
                 {
                     "send_len": conn.send_len,
@@ -106,41 +110,38 @@ def test_send_buffer_on_reply():
                 }
             )
 
+    manager = Manager(handler)
+
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        # Make request
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        # Poll to process
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
             if send_data_captured:
                 break
 
-        # Send buffer should have been used
-        if send_data_captured:
-            # send_len might be 0 if already flushed, but should be >= 0
-            assert send_data_captured[0]["send_len"] >= 0
-            assert send_data_captured[0]["send_size"] >= 0
+        t.join(timeout=2)
+
+        assert len(send_data_captured) > 0
+        assert send_data_captured[0]["send_len"] >= 0
+        assert send_data_captured[0]["send_size"] >= 0
     finally:
         manager.close()
 
 
 def test_recv_data_with_length():
     """Test recv_data with length parameter."""
-    manager = Manager()
+    handler_called = [False]
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
-            # Read partial data
             partial = conn.recv_data(10)
             full = conn.recv_data()
 
@@ -149,63 +150,71 @@ def test_recv_data_with_length():
             assert len(partial) <= 10
             assert len(full) >= len(partial)
 
+            handler_called[0] = True
             conn.reply(200, b"OK")
 
+    manager = Manager(handler)
+
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
+            if handler_called[0]:
+                break
 
-        assert True
+        t.join(timeout=2)
+
+        assert handler_called[0]
     finally:
         manager.close()
 
 
 def test_send_data_readable():
     """Test that send_data returns bytes."""
-    manager = Manager()
+    handler_called = [False]
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
             conn.reply(200, b"Test Response")
 
-            # Read send buffer
             send_buffer = conn.send_data()
             assert isinstance(send_buffer, bytes)
+            handler_called[0] = True
+
+    manager = Manager(handler)
 
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
+            if handler_called[0]:
+                break
 
-        assert True
+        t.join(timeout=2)
+
+        assert handler_called[0]
     finally:
         manager.close()
 
 
 def test_buffer_access_on_closed_connection():
     """Test that buffer access on closed connection returns safe values."""
-    manager = Manager()
     conn_ref = [None]
 
     def handler(conn, ev, data):
@@ -213,22 +222,24 @@ def test_buffer_access_on_closed_connection():
             conn_ref[0] = conn
             conn.reply(200, b"OK")
 
+    manager = Manager(handler)
+
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
             if conn_ref[0]:
                 break
+
+        t.join(timeout=2)
 
         # Close manager (invalidates connection)
         manager.close()
@@ -260,34 +271,37 @@ def test_buffer_sizes_are_reasonable():
 
 def test_recv_data_negative_length():
     """Test recv_data with negative length returns all data."""
-    manager = Manager()
+    handler_called = [False]
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:
-            # -1 should return all data
             all_data = conn.recv_data(-1)
             default_data = conn.recv_data()
 
-            # Should be equivalent
             assert all_data == default_data
+            handler_called[0] = True
             conn.reply(200, b"OK")
 
+    manager = Manager(handler)
+
     try:
-        listener = manager.listen("http://127.0.0.1:0", handler=handler)
+        listener = manager.listen("http://127.0.0.1:0", http=True)
         manager.poll(10)
 
         addr = listener.local_addr
         port = addr[1]
 
-        try:
-            urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
-            pass
+        t = threading.Thread(target=_make_request, args=(port,), daemon=True)
+        t.start()
 
-        for _ in range(10):
-            manager.poll(10)
+        for _ in range(100):
+            manager.poll(50)
+            if handler_called[0]:
+                break
 
-        assert True
+        t.join(timeout=2)
+
+        assert handler_called[0]
     finally:
         manager.close()
 

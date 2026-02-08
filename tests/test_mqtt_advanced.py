@@ -21,8 +21,6 @@ def test_mqtt_disconnect_method_exists():
         # Should be callable without error (even if not MQTT connection)
         conn.mqtt_disconnect()
         manager.poll(10)
-
-        assert True
     finally:
         manager.close()
 
@@ -40,8 +38,6 @@ def test_mqtt_ping_method_exists():
 
         conn.mqtt_ping()
         manager.poll(10)
-
-        assert True
     finally:
         manager.close()
 
@@ -59,8 +55,6 @@ def test_mqtt_pong_method_exists():
 
         conn.mqtt_pong()
         manager.poll(10)
-
-        assert True
     finally:
         manager.close()
 
@@ -128,7 +122,7 @@ def test_mqtt_disconnect_no_crash():
         conn.mqtt_disconnect()
         manager.poll(10)
 
-        assert True
+        assert conn.is_listening
     finally:
         manager.close()
 
@@ -147,7 +141,7 @@ def test_mqtt_ping_pong_sequence():
         conn.mqtt_pong()
         manager.poll(10)
 
-        assert True
+        assert conn.is_listening
     finally:
         manager.close()
 
@@ -160,11 +154,11 @@ def test_mqtt_pub_basic_call():
         conn = manager.listen("tcp://127.0.0.1:0")
         manager.poll(10)
 
-        # Should be callable with topic and message
-        conn.mqtt_pub("test/topic", "test message")
+        # Should be callable with topic and message and return a message ID
+        msg_id = conn.mqtt_pub("test/topic", "test message")
         manager.poll(10)
 
-        assert True
+        assert isinstance(msg_id, int)
     finally:
         manager.close()
 
@@ -181,6 +175,6 @@ def test_mqtt_sub_basic_call():
         conn.mqtt_sub("test/topic")
         manager.poll(10)
 
-        assert True
+        assert conn.is_listening
     finally:
         manager.close()

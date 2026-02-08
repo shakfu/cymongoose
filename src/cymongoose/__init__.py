@@ -1,3 +1,61 @@
 from ._mongoose import *  # noqa: F403
+from ._mongoose import USE_NOGIL_ENABLED
+from ._mongoose import log_set, log_get
+from .aio import AsyncManager
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
+
+__all__ = [
+    # Classes
+    "AsyncManager",
+    "Connection",
+    "HttpMessage",
+    "Manager",
+    "MqttMessage",
+    "Timer",
+    "TlsOpts",
+    "WsMessage",
+    # Event constants
+    "MG_EV_ACCEPT",
+    "MG_EV_CLOSE",
+    "MG_EV_CONNECT",
+    "MG_EV_ERROR",
+    "MG_EV_HTTP_HDRS",
+    "MG_EV_HTTP_MSG",
+    "MG_EV_MQTT_CMD",
+    "MG_EV_MQTT_MSG",
+    "MG_EV_MQTT_OPEN",
+    "MG_EV_OPEN",
+    "MG_EV_POLL",
+    "MG_EV_READ",
+    "MG_EV_RESOLVE",
+    "MG_EV_SNTP_TIME",
+    "MG_EV_TLS_HS",
+    "MG_EV_USER",
+    "MG_EV_WAKEUP",
+    "MG_EV_WRITE",
+    "MG_EV_WS_CTL",
+    "MG_EV_WS_MSG",
+    "MG_EV_WS_OPEN",
+    # WebSocket opcodes
+    "WEBSOCKET_OP_BINARY",
+    "WEBSOCKET_OP_PING",
+    "WEBSOCKET_OP_PONG",
+    "WEBSOCKET_OP_TEXT",
+    # Utility functions
+    "http_parse_multipart",
+    "json_get",
+    "json_get_bool",
+    "json_get_long",
+    "json_get_num",
+    "json_get_str",
+    "log_get",
+    "log_set",
+    "url_encode",
+    # Log level constants
+    "MG_LL_NONE",
+    "MG_LL_ERROR",
+    "MG_LL_INFO",
+    "MG_LL_DEBUG",
+    "MG_LL_VERBOSE",
+]

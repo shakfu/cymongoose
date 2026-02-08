@@ -34,6 +34,13 @@ WEBSOCKET_OP_BINARY: int
 WEBSOCKET_OP_PING: int
 WEBSOCKET_OP_PONG: int
 
+# Log level constants
+MG_LL_NONE: int
+MG_LL_ERROR: int
+MG_LL_INFO: int
+MG_LL_DEBUG: int
+MG_LL_VERBOSE: int
+
 class HttpMessage:
     """Lightweight view over a struct mg_http_message."""
 
@@ -86,13 +93,14 @@ class HttpMessage:
     def query_var(self, name: str) -> Optional[str]:
         """Extract a query string parameter.
 
-        Note: Parameter values are limited to 256 bytes. Longer values will be truncated.
-
         Args:
             name: Parameter name
 
         Returns:
             Parameter value or None if not found
+
+        Raises:
+            ValueError: If decoded value exceeds 2048-byte buffer limit
         """
         ...
 
@@ -626,12 +634,19 @@ class Connection:
 class Manager:
     """Manage Mongoose event loop and provide Python callbacks."""
 
-    def __init__(self, handler: Optional[EventHandler] = None, enable_wakeup: bool = False) -> None:
+    def __init__(
+        self,
+        handler: Optional[EventHandler] = None,
+        enable_wakeup: bool = False,
+        error_handler: Optional[Callable[[Exception], Any]] = None,
+    ) -> None:
         """Initialize event manager.
 
         Args:
             handler: Default event handler for all connections
             enable_wakeup: Enable wakeup support for multi-threaded scenarios
+            error_handler: Optional callback invoked with the exception when
+                an event handler raises. Defaults to traceback.print_exc().
         """
         ...
 
@@ -914,4 +929,17 @@ def http_parse_multipart(
         - 'body': part data as bytes
         Returns (0, None) if no more parts.
     """
+    ...
+
+def log_set(level: int) -> None:
+    """Set the Mongoose C library log verbosity level.
+
+    Args:
+        level: One of MG_LL_NONE (0), MG_LL_ERROR (1), MG_LL_INFO (2),
+               MG_LL_DEBUG (3), MG_LL_VERBOSE (4)
+    """
+    ...
+
+def log_get() -> int:
+    """Return the current Mongoose C library log verbosity level."""
     ...

@@ -47,3 +47,5 @@ class ServerThread:
         self.stop_flag.set()
         if self.thread:
             self.thread.join(timeout=2)
+        if self.manager:
+            self.manager.close()

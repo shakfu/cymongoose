@@ -35,7 +35,6 @@ def test_tls_https_server_can_import():
         with open("tests/examples/advanced/tls_https_server.py") as f:
             code = f.read()
             compile(code, "tls_https_server.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in tls_https_server.py: {e}"
 
@@ -79,8 +78,6 @@ xjYqzLzYqP8hP0ypwT+8xjYqzLzYqP8hP0ypwT+8xjYqzLzY
         for _ in range(5):
             manager.poll(10)
 
-        assert True
-
     finally:
         manager.close()
 
@@ -94,7 +91,6 @@ def test_http_proxy_client_can_import():
         with open("tests/examples/advanced/http_proxy_client.py") as f:
             code = f.read()
             compile(code, "http_proxy_client.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in http_proxy_client.py: {e}"
 
@@ -214,7 +210,6 @@ def test_multithreaded_server_can_import():
         with open("tests/examples/advanced/multithreaded_server.py") as f:
             code = f.read()
             compile(code, "multithreaded_server.py", "exec")
-        assert True
     except SyntaxError as e:
         assert False, f"Syntax error in multithreaded_server.py: {e}"
 
