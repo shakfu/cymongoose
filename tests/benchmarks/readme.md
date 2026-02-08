@@ -130,6 +130,7 @@ Running 10s test @ http://localhost:8765/
 Requests/sec:  60972.51
 Transfer/sec:      8.49MB
 ```
+
 </details>
 
 <details>
@@ -146,6 +147,7 @@ Running 10s test @ http://localhost:8002/
 Requests/sec:  42451.62
 Transfer/sec:      7.57MB
 ```
+
 </details>
 
 <details>
@@ -162,6 +164,7 @@ Running 10s test @ http://localhost:8003/
 Requests/sec:   9988.83
 Transfer/sec:      1.45MB
 ```
+
 </details>
 
 <details>
@@ -179,6 +182,7 @@ Running 10s test @ http://localhost:8004/
 Requests/sec:   1627.14
 Transfer/sec:    306.68KB
 ```
+
 </details>
 
 ---
