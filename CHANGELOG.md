@@ -17,6 +17,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **`Manager.run()` convenience method**: Blocks until SIGINT/SIGTERM, then cleans up. Replaces ~12 lines of signal-handler + poll-loop + try/finally boilerplate with a single call. Original signal handlers are restored after return.
+
+### Changed
+
+- **README Quick Start examples**: All 3 examples (HTTP Server, Static Files, WebSocket Echo) simplified to use `mgr.run()`, cutting each from ~20 lines to ~8.
+
 ## [0.1.8]
 
 ### Added

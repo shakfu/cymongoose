@@ -31,7 +31,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 - **Event-driven**: Non-blocking I/O with a simple event loop
 - **Low overhead**: Thin Cython wrapper over native C library
 - **Python 3.10+**: Modern Python with type hints
-- **Comprehensive**: 232 tests, 100% pass rate
+- **Comprehensive**: 238 tests, 100% pass rate
 - **Production Examples**: 17 complete examples from Mongoose tutorials
 - **TLS Support**: Built-in TLS/SSL encryption (MG_TLS_BUILTIN)
 - **GIL Optimization**: 21 methods release GIL for true parallel execution
@@ -68,74 +68,36 @@ Also type `make help` gives you a list of commands
 ### Simple HTTP Server
 
 ```python
-import signal
 from cymongoose import Manager, MG_EV_HTTP_MSG
-
-shutdown_requested = False
-
-def signal_handler(sig, frame):
-    global shutdown_requested
-    shutdown_requested = True
 
 def handler(conn, event, data):
     if event == MG_EV_HTTP_MSG:
         conn.reply(200, "Hello, World!")
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.signal(signal.SIGTERM, signal_handler)
-
 mgr = Manager(handler)
 mgr.listen("http://0.0.0.0:8000", http=True)
-
 print("Server running on http://localhost:8000. Press Ctrl+C to stop.")
-try:
-    while not shutdown_requested:
-        mgr.poll(100)
-    print("Shutting down...")
-finally:
-    mgr.close()
+mgr.run()
 ```
 
 ### Serve Static Files
 
 ```python
-import signal
 from cymongoose import Manager, MG_EV_HTTP_MSG
-
-shutdown_requested = False
-
-def signal_handler(sig, frame):
-    global shutdown_requested
-    shutdown_requested = True
 
 def handler(conn, event, data):
     if event == MG_EV_HTTP_MSG:
         conn.serve_dir(data, root_dir="./public")
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.signal(signal.SIGTERM, signal_handler)
-
 mgr = Manager(handler)
 mgr.listen("http://0.0.0.0:8000", http=True)
-
-try:
-    while not shutdown_requested:
-        mgr.poll(100)
-finally:
-    mgr.close()
+mgr.run()
 ```
 
 ### WebSocket Echo Server
 
 ```python
-import signal
 from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG
-
-shutdown_requested = False
-
-def signal_handler(sig, frame):
-    global shutdown_requested
-    shutdown_requested = True
 
 def handler(conn, event, data):
     if event == MG_EV_HTTP_MSG:
@@ -143,17 +105,9 @@ def handler(conn, event, data):
     elif event == MG_EV_WS_MSG:
         conn.ws_send(data.text)  # Echo back
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.signal(signal.SIGTERM, signal_handler)
-
 mgr = Manager(handler)
 mgr.listen("http://0.0.0.0:8000", http=True)
-
-try:
-    while not shutdown_requested:
-        mgr.poll(100)
-finally:
-    mgr.close()
+mgr.run()
 ```
 
 ## Examples
@@ -214,6 +168,7 @@ mgr = Manager(handler=None, enable_wakeup=False)
 **Core Methods:**
 
 - `poll(timeout_ms=0)` - Run one iteration of the event loop
+- `run(poll_ms=100)` - Run the event loop until SIGINT/SIGTERM, then close
 - `listen(url, handler=None)` - Create a listening socket
 - `connect(url, handler=None)` - Create an outbound connection
 - `close()` - Free resources
@@ -393,7 +348,7 @@ http_parse_multipart(body, offset=0)   # Parse multipart data
 
 ## Testing
 
-The project includes a comprehensive test suite with **232 tests** (100% passing):
+The project includes a comprehensive test suite with **238 tests** (100% passing):
 
 ### Test Coverage by Feature
 
@@ -426,7 +381,7 @@ The project includes a comprehensive test suite with **232 tests** (100% passing
 ### Running Tests
 
 ```sh
-make test                                          # Run all tests (232 tests)
+make test                                          # Run all tests (238 tests)
 uv run python -m pytest tests/ -v                  # Verbose output
 uv run python -m pytest tests/test_http_server.py  # Run specific file
 uv run python -m pytest tests/ -k "test_timer"     # Run matching tests
@@ -438,7 +393,7 @@ uv run python -m pytest tests/examples/            # Run example tests only
 - Dynamic port allocation prevents conflicts
 - Background polling threads for async operations
 - Proper cleanup in finally blocks
-- 100% pass rate (232/232 tests passing)
+- 100% pass rate (238/238 tests passing)
 - WebSocket tests require `websocket-client` (`uv add --dev websocket-client`)
 
 ### Memory Safety Testing

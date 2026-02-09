@@ -824,6 +824,17 @@ class Manager:
         """
         ...
 
+    def run(self, poll_ms: int = 100) -> None:
+        """Run the event loop, blocking until SIGINT or SIGTERM.
+
+        Installs signal handlers for graceful shutdown, runs the poll loop,
+        and calls close() when done. Original signal handlers are restored.
+
+        Args:
+            poll_ms: Poll timeout in milliseconds (default: 100)
+        """
+        ...
+
     def close(self) -> None:
         """Free the underlying manager and release resources."""
         ...

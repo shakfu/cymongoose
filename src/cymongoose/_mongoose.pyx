@@ -1449,6 +1449,33 @@ cdef class Manager:
 
         return timer
 
+    def run(self, int poll_ms=100):
+        """Run the event loop, blocking until SIGINT or SIGTERM.
+
+        Installs signal handlers for graceful shutdown, runs the poll loop,
+        and calls close() when done. Original signal handlers are restored.
+
+        Args:
+            poll_ms: Poll timeout in milliseconds (default: 100)
+        """
+        import signal as _signal
+
+        stop = False
+
+        def _stop_handler(sig, frame):
+            nonlocal stop
+            stop = True
+
+        old_int = _signal.signal(_signal.SIGINT, _stop_handler)
+        old_term = _signal.signal(_signal.SIGTERM, _stop_handler)
+        try:
+            while not stop:
+                self.poll(poll_ms)
+        finally:
+            _signal.signal(_signal.SIGINT, old_int)
+            _signal.signal(_signal.SIGTERM, old_term)
+            self.close()
+
     def close(self):
         """Free the underlying manager and release resources."""
         if not self._freed:
