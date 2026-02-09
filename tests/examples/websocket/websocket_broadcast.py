@@ -29,11 +29,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
+    MG_EV_CLOSE,
     MG_EV_HTTP_MSG,
     MG_EV_WS_MSG,
     MG_EV_WS_OPEN,
-    MG_EV_CLOSE,
+    Manager,
 )
 
 shutdown_requested = False
@@ -123,7 +123,7 @@ class BroadcastServer:
 
         # Add periodic broadcast timer
         interval_ms = int(self.interval * 1000)
-        timer = self.manager.timer_add(
+        self.manager.timer_add(
             interval_ms,
             self.broadcast_timer,
             repeat=True,

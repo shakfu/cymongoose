@@ -1,8 +1,8 @@
 """Tests for Timer API."""
 
-import pytest
-import time
 import threading
+import time
+
 from cymongoose import Manager
 
 
@@ -89,7 +89,7 @@ def test_timer_exception_in_callback():
         raise RuntimeError("Timer callback error")
 
     try:
-        timer = manager.timer_add(50, bad_callback, repeat=True)
+        _timer = manager.timer_add(50, bad_callback, repeat=True)  # noqa: F841
 
         # Poll - should handle exception gracefully
         for _ in range(10):
@@ -114,9 +114,9 @@ def test_multiple_timers():
         return callback
 
     try:
-        timer1 = manager.timer_add(30, make_callback("timer1"), repeat=True)
-        timer2 = manager.timer_add(50, make_callback("timer2"), repeat=True)
-        timer3 = manager.timer_add(100, make_callback("timer3"), repeat=False)
+        _t1 = manager.timer_add(30, make_callback("timer1"), repeat=True)  # noqa: F841
+        _t2 = manager.timer_add(50, make_callback("timer2"), repeat=True)  # noqa: F841
+        _t3 = manager.timer_add(100, make_callback("timer3"), repeat=False)  # noqa: F841
 
         # Poll for timers to fire
         for _ in range(50):
@@ -139,7 +139,7 @@ def test_timer_cleanup_on_manager_close():
     def timer_callback():
         call_count[0] += 1
 
-    timer = manager.timer_add(50, timer_callback, repeat=True)
+    _timer = manager.timer_add(50, timer_callback, repeat=True)  # noqa: F841
 
     # Poll a few times
     for _ in range(5):
@@ -172,7 +172,7 @@ def test_timer_with_background_polling():
             manager.poll(50)
 
     try:
-        timer = manager.timer_add(40, timer_callback, repeat=True)
+        _timer = manager.timer_add(40, timer_callback, repeat=True)  # noqa: F841
 
         thread = threading.Thread(target=poll_thread)
         thread.start()
@@ -197,7 +197,7 @@ def test_timer_autodelete():
 
     try:
         # Create single-shot timer (autodelete enabled by default)
-        timer = manager.timer_add(50, timer_callback, repeat=False)
+        _timer = manager.timer_add(50, timer_callback, repeat=False)  # noqa: F841
 
         # Poll until it fires
         for _ in range(15):
@@ -225,7 +225,7 @@ def test_timer_zero_milliseconds():
         call_count[0] += 1
 
     try:
-        timer = manager.timer_add(0, timer_callback, repeat=False)
+        _timer = manager.timer_add(0, timer_callback, repeat=False)  # noqa: F841
 
         # Should fire on next poll
         manager.poll(10)

@@ -21,16 +21,16 @@ This demonstrates raw TCP without HTTP layer - useful for custom protocols.
 
 import argparse
 import signal
-import time
+
 from cymongoose import (
-    Manager,
-    MG_EV_OPEN,
     MG_EV_ACCEPT,
-    MG_EV_CONNECT,
-    MG_EV_READ,
     MG_EV_CLOSE,
+    MG_EV_CONNECT,
     MG_EV_ERROR,
+    MG_EV_OPEN,
     MG_EV_POLL,
+    MG_EV_READ,
+    Manager,
 )
 
 # Default configuration
@@ -144,7 +144,7 @@ def timer_callback(manager, config):
             client_conn = manager.connect(
                 config["connect_addr"], handler=lambda c, e, d: client_handler(c, e, d, config)
             )
-            print(f"[CLIENT] Connection initiated")
+            print("[CLIENT] Connection initiated")
         except RuntimeError as e:
             print(f"[CLIENT] Failed to connect: {e}")
 
@@ -194,12 +194,12 @@ def main():
     try:
         # Start server if requested
         if config["run_server"]:
-            listener = manager.listen(config["listen_addr"], handler=server_handler)
+            manager.listen(config["listen_addr"], handler=server_handler)
             print(f"TCP Echo Server started on {config['listen_addr']}")
 
         # Add timer for client reconnection (every 15s)
         if config["run_client"]:
-            timer = manager.timer_add(
+            manager.timer_add(
                 15000,  # 15 seconds
                 repeat=True,
                 run_now=True,  # Connect immediately
@@ -207,7 +207,7 @@ def main():
             )
             print(f"TCP Client will connect to {config['connect_addr']}")
 
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
 
         # Event loop

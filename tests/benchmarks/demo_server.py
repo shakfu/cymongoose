@@ -7,7 +7,8 @@ Press Ctrl+C to stop.
 """
 
 import signal
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 shutdown_requested = False
 
@@ -44,8 +45,8 @@ def main():
     manager.listen(f"http://0.0.0.0:{port}", http=True)
 
     print(f" cymongoose HTTP server running on http://localhost:{port}/")
-    print(f"   Press Ctrl+C to stop")
-    print(f"   USE_NOGIL optimization enabled")
+    print("   Press Ctrl+C to stop")
+    print("   USE_NOGIL optimization enabled")
     print()
 
     try:

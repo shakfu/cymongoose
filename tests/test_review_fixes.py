@@ -4,23 +4,19 @@ import threading
 import time
 import urllib.request
 
-import pytest
-
 import cymongoose
 from cymongoose import (
     MG_EV_HTTP_MSG,
-    MG_EV_CLOSE,
-    MG_LL_NONE,
+    MG_LL_DEBUG,
     MG_LL_ERROR,
     MG_LL_INFO,
-    MG_LL_DEBUG,
+    MG_LL_NONE,
     MG_LL_VERBOSE,
     Manager,
     log_get,
     log_set,
 )
 from tests.conftest import ServerThread, get_free_port
-
 
 # ---------------------------------------------------------------------------
 # Issue #8 -- log level control
@@ -116,9 +112,7 @@ class TestErrorHandler:
         time.sleep(0.2)
 
         try:
-            urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/test", timeout=2
-            )
+            urllib.request.urlopen(f"http://127.0.0.1:{port}/test", timeout=2)
         except Exception:
             pass
 
@@ -153,9 +147,7 @@ class TestErrorHandler:
         time.sleep(0.2)
 
         try:
-            urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/test", timeout=2
-            )
+            urllib.request.urlopen(f"http://127.0.0.1:{port}/test", timeout=2)
         except Exception:
             pass
 
@@ -192,9 +184,7 @@ class TestErrorHandler:
         time.sleep(0.2)
 
         try:
-            urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/test", timeout=2
-            )
+            urllib.request.urlopen(f"http://127.0.0.1:{port}/test", timeout=2)
         except Exception:
             pass
 
@@ -235,9 +225,7 @@ class TestQueryVarBuffer:
                 conn.reply(200, b"ok")
 
         with ServerThread(handler) as port:
-            resp = urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/test?key=hello", timeout=2
-            )
+            resp = urllib.request.urlopen(f"http://127.0.0.1:{port}/test?key=hello", timeout=2)
             resp.read()
 
         assert received["val"] == "hello"
@@ -269,9 +257,7 @@ class TestQueryVarBuffer:
                 conn.reply(200, b"ok")
 
         with ServerThread(handler) as port:
-            resp = urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/test?other=1", timeout=2
-            )
+            resp = urllib.request.urlopen(f"http://127.0.0.1:{port}/test?other=1", timeout=2)
             resp.read()
 
         assert received["val"] is None

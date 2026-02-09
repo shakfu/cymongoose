@@ -1,8 +1,8 @@
 """Tests for low-level operations."""
 
-import pytest
 import urllib.request
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def test_is_tls_property_exists():
@@ -47,7 +47,7 @@ def test_is_tls_on_tcp_connection():
         # TCP connection TLS status
         is_tls = listener.is_tls
         assert isinstance(is_tls, bool)
-        assert is_tls == False  # Plain TCP
+        assert not is_tls  # Plain TCP
     finally:
         manager.close()
 
@@ -71,7 +71,7 @@ def test_is_tls_on_closed_connection():
 
         try:
             urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
+        except Exception:
             pass
 
         for _ in range(10):
@@ -84,7 +84,7 @@ def test_is_tls_on_closed_connection():
 
         # is_tls on closed connection should return False
         if conn_ref[0]:
-            assert conn_ref[0].is_tls == False
+            assert not conn_ref[0].is_tls
     finally:
         pass  # Already closed
 
@@ -98,7 +98,7 @@ def test_combined_tls_and_buffer_ops():
         manager.poll(10)
 
         # Can check TLS and buffer properties together
-        assert listener.is_tls == False
+        assert not listener.is_tls
         assert listener.recv_len >= 0
         assert listener.send_len >= 0
     finally:

@@ -23,12 +23,12 @@ Translation from C tutorial: thirdparty/mongoose/tutorials/mqtt/mqtt-server/main
 
 import argparse
 import signal
-import sys
+
 from cymongoose import (
-    Manager,
     MG_EV_ACCEPT,
-    MG_EV_MQTT_CMD,
     MG_EV_CLOSE,
+    MG_EV_MQTT_CMD,
+    Manager,
 )
 
 # Default configuration
@@ -192,9 +192,9 @@ def main():
 
     try:
         # Start listening
-        listener = manager.mqtt_listen(args.listen)
+        manager.mqtt_listen(args.listen)
         print(f"MQTT Broker started on {args.listen}")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
         print("Test with mosquitto clients:")
         print("  mosquitto_sub -h localhost -t foo -t bar")

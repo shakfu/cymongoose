@@ -41,12 +41,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
     MG_EV_WS_MSG,
     MG_EV_WS_OPEN,
-    WEBSOCKET_OP_TEXT,
     WEBSOCKET_OP_BINARY,
+    WEBSOCKET_OP_TEXT,
+    Manager,
 )
 
 shutdown_requested = False
@@ -82,7 +82,7 @@ def handle_rest_api(conn, data):
             try:
                 ws_conn.ws_send(f"Broadcast: {message}")
                 broadcast_count += 1
-            except:
+            except Exception:
                 pass
 
         conn.reply(200, f"Broadcasted to {broadcast_count} clients")
@@ -159,7 +159,8 @@ def main():
     <title>WebSocket Echo Server</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
-        #messages { border: 1px solid #ccc; height: 300px; overflow-y: scroll; padding: 10px; margin: 10px 0; }
+        #messages { border: 1px solid #ccc; height: 300px; overflow-y: scroll;
+                    padding: 10px; margin: 10px 0; }
         #messageInput { width: 70%; padding: 5px; }
         button { padding: 5px 15px; }
         .sent { color: blue; }

@@ -1,8 +1,8 @@
 """Tests for HTTP chunked transfer encoding."""
 
-import pytest
 import urllib.request
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 from tests.conftest import ServerThread
 
 

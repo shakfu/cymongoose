@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Test signal handler pattern for Ctrl+C."""
 
-import signal
 import os
-import time
+import signal
 import threading
-from cymongoose import Manager, MG_EV_HTTP_MSG
+import time
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 shutdown_requested = False
 

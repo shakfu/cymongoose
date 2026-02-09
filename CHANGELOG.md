@@ -17,20 +17,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
-### Added
-
-- **AddressSanitizer (ASAN) support**: Added `make build-asan` and `make test-asan` targets for detecting memory errors (use-after-free, buffer overflows, etc.). Enabled via `USE_ASAN=1` environment variable during build.
-
-### Fixed
-
-- **Use-after-free in `_event_bridge`**: Fixed crash caused by connections not being properly cleaned up when no handler was attached. The `_event_bridge` function returned early when `handler is None`, skipping the `_drop_connection` call on `MG_EV_CLOSE` events. This left stale connection objects accessible, leading to segfaults when subsequently accessed.
-
-- **Race conditions in test cleanup**: Fixed multiple test files that used `time.sleep()` instead of `thread.join()` before `manager.close()`. Tests now properly wait for polling threads to exit before closing the manager. Affected files: `test_examples_http.py`, `test_examples_protocols.py`, `test_examples_advanced.py`, `test_wakeup.py`.
-
-### Changed
-
-- **Basic auth tests**: Updated all tests in `test_basic_auth.py` to use valid connections. Previously tests connected to `tcp://0.0.0.0:0` which immediately failed; now tests create a listening server and connect to it, ensuring a valid connection exists before calling `http_basic_auth()`.
-
 ## [0.1.8]
 
 ### Added
@@ -38,14 +24,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Asyncio integration**: `AsyncManager` in `cymongoose.aio` provides full asyncio bridge with `async`/`await` support, running the Mongoose poll loop in a background thread.
 - **Error handler**: `Manager(handler, error_handler=fn)` routes handler exceptions to a user-supplied callback; falls back to `traceback.print_exc()` when no handler is set.
 - **Log level control**: `log_set()`, `log_get()`, and `MG_LL_*` constants exposed to Python for controlling Mongoose C debug logging.
+- **AddressSanitizer (ASAN) support**: Added `make build-asan` and `make test-asan` targets for detecting memory errors (use-after-free, buffer overflows, etc.). Enabled via CMake `USE_ASAN` option.
 
 ### Changed
 
+- **Build system**: Migrated from setuptools + `setup.py` to scikit-build-core + CMake. The Cython extension is now compiled via `CMakeLists.txt`. Build commands (`make build`, `make test`, etc.) remain the same.
+- **Makefile**: Replaced with a streamlined version that drops `PYTHONPATH=src` (no longer needed since the extension is installed into the venv by CMake).
 - **License**: `pyproject.toml` changed from `MIT` to `GPL-2.0-or-later` to match Mongoose's GPLv2 open-source license.
 - **Benchmark docs**: Consolidated 5 scattered markdown files into a single `tests/benchmarks/README.md`.
+- **Basic auth tests**: Updated all tests in `test_basic_auth.py` to use valid connections. Previously tests connected to `tcp://0.0.0.0:0` which immediately failed; now tests create a listening server and connect to it, ensuring a valid connection exists before calling `http_basic_auth()`.
+
+### Removed
+
+- **`setup.py`**: No longer needed; build configuration is now in `CMakeLists.txt` and `pyproject.toml`.
 
 ### Fixed
 
+- **Use-after-free in `_event_bridge`**: Fixed crash caused by connections not being properly cleaned up when no handler was attached. The `_event_bridge` function returned early when `handler is None`, skipping the `_drop_connection` call on `MG_EV_CLOSE` events. This left stale connection objects accessible, leading to segfaults when subsequently accessed.
+- **Race conditions in test cleanup**: Fixed multiple test files that used `time.sleep()` instead of `thread.join()` before `manager.close()`. Tests now properly wait for polling threads to exit before closing the manager. Affected files: `test_examples_http.py`, `test_examples_protocols.py`, `test_examples_advanced.py`, `test_wakeup.py`.
 - **ServerThread resource leak**: `ServerThread.__exit__()` now calls
   `self.manager.close()` after joining the thread, ensuring all C resources are freed.
 - **`assert True` tests**: All ~50 `assert True` no-op assertions replaced with meaningful protocol-level assertions (response content, status codes, message round-trips, TLS handshake, DNS resolution).

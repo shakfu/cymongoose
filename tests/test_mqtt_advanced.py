@@ -1,8 +1,6 @@
 """Tests for advanced MQTT features."""
 
-import pytest
-import time
-from cymongoose import Manager, MG_EV_MQTT_OPEN, MG_EV_MQTT_MSG, MG_EV_CLOSE
+from cymongoose import Manager
 
 
 def test_mqtt_disconnect_method_exists():

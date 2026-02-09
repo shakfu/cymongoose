@@ -6,22 +6,23 @@ Note: Some tests require the websocket-client package.
 """
 
 import sys
-import time
 import threading
-from pathlib import Path
+import time
 import urllib.request
+from pathlib import Path
+
 import pytest
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
     MG_EV_WS_MSG,
     MG_EV_WS_OPEN,
-    WEBSOCKET_OP_TEXT,
     WEBSOCKET_OP_BINARY,
+    WEBSOCKET_OP_TEXT,
+    Manager,
 )
 
 # Check if websocket-client is available
@@ -280,7 +281,6 @@ def test_websocket_server_multiple_clients():
 @pytest.mark.skipif(not HAS_WS_CLIENT, reason="websocket-client package not installed")
 def test_websocket_server_broadcast():
     """Test broadcasting to all WebSocket clients."""
-    import json
 
     ws_clients = set()
 
@@ -295,7 +295,7 @@ def test_websocket_server_broadcast():
                     try:
                         ws_conn.ws_send(f"Broadcast: {message}")
                         count += 1
-                    except:
+                    except Exception:
                         pass
                 conn.reply(200, f"Sent to {count} clients")
         elif event == MG_EV_WS_OPEN:

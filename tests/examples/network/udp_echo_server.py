@@ -31,14 +31,14 @@ Key differences from TCP:
 
 import argparse
 import signal
-import time
+
 from cymongoose import (
-    Manager,
-    MG_EV_OPEN,
-    MG_EV_READ,
     MG_EV_CLOSE,
     MG_EV_ERROR,
+    MG_EV_OPEN,
     MG_EV_POLL,
+    MG_EV_READ,
+    Manager,
 )
 
 # Default configuration
@@ -149,7 +149,7 @@ def timer_callback(manager, config):
             client_conn = manager.connect(
                 config["connect_addr"], handler=lambda c, e, d: client_handler(c, e, d, config)
             )
-            print(f"[CLIENT] UDP socket created")
+            print("[CLIENT] UDP socket created")
         except RuntimeError as e:
             print(f"[CLIENT] Failed to create socket: {e}")
 
@@ -197,12 +197,12 @@ def main():
     try:
         # Start server if requested
         if config["run_server"]:
-            listener = manager.listen(config["listen_addr"], handler=server_handler)
+            manager.listen(config["listen_addr"], handler=server_handler)
             print(f"UDP Echo Server started on {config['listen_addr']}")
 
         # Add timer for client (every 15s)
         if config["run_client"]:
-            timer = manager.timer_add(
+            manager.timer_add(
                 15000,  # 15 seconds
                 repeat=True,
                 run_now=True,  # Create socket immediately
@@ -210,7 +210,7 @@ def main():
             )
             print(f"UDP Client will send to {config['connect_addr']}")
 
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
 
         # Event loop

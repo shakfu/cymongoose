@@ -3,7 +3,8 @@
 
 import signal
 import time
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 shutdown = False
 

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Test actual SIGINT handling."""
 
-import signal
 import os
+import signal
+import threading
 import time
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def handler(conn, ev, data):
@@ -16,9 +18,6 @@ print("Testing SIGINT during poll()...")
 manager = Manager(handler)
 manager.listen("http://0.0.0.0:58345", http=True)
 print("Server started, will send SIGINT in 0.5 seconds")
-
-# Schedule SIGINT during poll
-import threading
 
 
 def send_signal():

@@ -4,8 +4,8 @@ Functional test for HTTP server example.
 """
 
 import sys
-import time
 import threading
+import time
 from pathlib import Path
 
 import pytest
@@ -13,7 +13,7 @@ import pytest
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def test_http_server():
@@ -69,5 +69,6 @@ def test_http_server():
 
 if __name__ == "__main__":
     import pytest as _pytest
+
     result = _pytest.main([__file__, "-v"])
     sys.exit(result)

@@ -28,10 +28,11 @@ an actual connection - useful for network utilities and diagnostics.
 import argparse
 import signal
 import time
+
 from cymongoose import (
-    Manager,
-    MG_EV_RESOLVE,
     MG_EV_ERROR,
+    MG_EV_RESOLVE,
+    Manager,
 )
 
 # Default configuration
@@ -142,18 +143,18 @@ def main():
 
     try:
         # Add timer for periodic resolution
-        timer = manager.timer_add(
+        manager.timer_add(
             args.interval * 1000,  # Convert to milliseconds
             repeat=not args.once,
             run_now=True,  # Resolve immediately on start
             callback=lambda: timer_callback(manager, config),
         )
 
-        print(f"DNS Resolution Client started")
+        print("DNS Resolution Client started")
         print(f"  Hostname: {config['hostname']}")
         if not args.once:
             print(f"  Resolution interval: {config['interval']} seconds")
-            print(f"Press Ctrl+C to exit")
+            print("Press Ctrl+C to exit")
         print()
 
         # Event loop

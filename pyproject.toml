@@ -3,7 +3,7 @@ name = "cymongoose"
 version = "0.1.8"
 description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = "GPL-2.0-or-later"
 authors = [
 { name = "Shakeeb Alireza", email = "shakfu@users.noreply.github.com" },
@@ -46,7 +46,6 @@ classifiers = [
     "Programming Language :: Cython",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -89,16 +88,26 @@ dev = [
 ]
 
 [build-system]
-requires = [
-    "setuptools>=64",
-    "wheel",
-    "Cython>=3.0.0; platform_python_implementation=='CPython'",
-]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.8", "cython"]
+build-backend = "scikit_build_core.build"
 
-[tool.setuptools]
-packages = ["cymongoose"]
-include-package-data = false
+[tool.scikit-build]
+wheel.packages = ["src/cymongoose"]
+cmake.args = []
+cmake.define = {}
+sdist.include = [
+    "thirdparty/mongoose/mongoose.c",
+    "thirdparty/mongoose/mongoose.h",
+    "src/cymongoose/*.pyx",
+    "src/cymongoose/*.pxd",
+]
+sdist.exclude = []
+wheel.exclude = [
+    "*.pxd",
+    "*.pyx",
+    "*.c",
+    "*.h",
+]
 
 [project.urls]
 Homepage = "https://github.com/shakfu/cymongoose"
@@ -118,7 +127,7 @@ asyncio_mode = "auto"
 source = ["cymongoose"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -126,7 +135,7 @@ ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"
 lint.select = ["E", "F", "I", "N", "W"]
 
 [tool.ruff.format]

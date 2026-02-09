@@ -13,10 +13,8 @@ Uses Apache Bench (ab) for HTTP load testing.
 import subprocess
 import sys
 import time
-import signal
 from pathlib import Path
-from typing import Dict, List, Optional
-
+from typing import Dict
 
 SERVERS = {
     "cymongoose": {"script": "pymongoose_server.py", "port": 8001},
@@ -37,21 +35,14 @@ def check_dependencies():
         sys.exit(1)
 
     # Check Python dependencies
+    import importlib.util
+
     missing = []
-    try:
-        import aiohttp
-    except ImportError:
+    if importlib.util.find_spec("aiohttp") is None:
         missing.append("aiohttp")
-
-    try:
-        import fastapi
-        import uvicorn
-    except ImportError:
+    if importlib.util.find_spec("fastapi") is None or importlib.util.find_spec("uvicorn") is None:
         missing.append("fastapi uvicorn")
-
-    try:
-        import flask
-    except ImportError:
+    if importlib.util.find_spec("flask") is None:
         missing.append("flask")
 
     if missing:
@@ -85,14 +76,14 @@ def start_server(name: str, script: str, port: int) -> subprocess.Popen:
 
     # Check if server is running
     try:
-        result = subprocess.run(
+        subprocess.run(
             ["curl", "-s", f"http://localhost:{port}/"],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             timeout=2,
             check=True,
         )
-    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
         print(f"ERROR: {name} server failed to respond on port {port}")
         stdout, _ = proc.communicate(timeout=1) if proc.poll() is None else (None, None)
         if stdout:
@@ -217,7 +208,7 @@ def main():
     print("Checking dependencies...")
     check_dependencies()
 
-    print(f"\nBenchmark configuration:")
+    print("\nBenchmark configuration:")
     print(f"  Total requests: {args.requests:,}")
     print(f"  Concurrency: {args.concurrency}")
     print(f"  Servers: {', '.join(args.servers)}")
@@ -249,7 +240,7 @@ def main():
                 print(f"  Latency: {metrics.get('time_per_req_mean', 0):.2f} ms")
                 print(f"  Failed: {metrics.get('failed', 0)}")
             else:
-                print(f"  ERROR: Failed to parse benchmark results")
+                print("  ERROR: Failed to parse benchmark results")
 
         finally:
             # Stop server

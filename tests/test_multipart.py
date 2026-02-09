@@ -1,6 +1,5 @@
 """Tests for multipart form parsing."""
 
-import pytest
 from cymongoose import http_parse_multipart
 
 

@@ -6,20 +6,16 @@ Tests the interaction between MQTT client and broker.
 """
 
 import sys
-import time
 import threading
+import time
 from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
     MG_EV_ACCEPT,
-    MG_EV_MQTT_CMD,
-    MG_EV_MQTT_OPEN,
-    MG_EV_MQTT_MSG,
-    MG_EV_CLOSE,
+    Manager,
 )
 
 
@@ -51,9 +47,7 @@ def test_mqtt_broker_basic():
         # Connect client (TCP connection only, MQTT handshake may not complete
         # since we don't implement full broker protocol in this test)
         client = Manager()
-        client_conn = client.mqtt_connect(
-            f"mqtt://127.0.0.1:{port}", clean_session=True, keepalive=5
-        )
+        client.mqtt_connect(f"mqtt://127.0.0.1:{port}", clean_session=True, keepalive=5)
 
         # Poll both to allow TCP connection
         for _ in range(20):

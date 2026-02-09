@@ -1,6 +1,5 @@
 """Tests for URL encoding."""
 
-import pytest
 from cymongoose import url_encode
 
 

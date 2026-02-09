@@ -6,9 +6,10 @@ Note: Some tests require the websocket-client package.
 """
 
 import sys
-import time
 import threading
+import time
 from pathlib import Path
+
 import pytest
 
 # Add src to path
@@ -18,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 sys.path.insert(0, str(Path(__file__).parent / "websocket"))
 from websocket_broadcast import BroadcastServer
 
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_WS_MSG, MG_EV_WS_OPEN, MG_EV_CLOSE
+from cymongoose import MG_EV_CLOSE, MG_EV_HTTP_MSG, MG_EV_WS_OPEN, Manager
 
 # Check if websocket-client is available
 try:
@@ -57,10 +58,10 @@ def test_broadcast_server_client_connection():
     server = BroadcastServer(port=0, interval=10)  # Long interval for testing
 
     # Run server in background
-    server_thread = threading.Thread(target=lambda: None, daemon=True)
+    threading.Thread(target=lambda: None, daemon=True)
 
     server.manager = Manager(server.handler)
-    listener = server.manager.listen(f"http://127.0.0.1:0", http=True)
+    listener = server.manager.listen("http://127.0.0.1:0", http=True)
     port = listener.local_addr[1]
 
     stop = threading.Event()
@@ -97,7 +98,7 @@ def test_broadcast_server_echo_messages():
     server = BroadcastServer(port=0, interval=10)
 
     server.manager = Manager(server.handler)
-    listener = server.manager.listen(f"http://127.0.0.1:0", http=True)
+    listener = server.manager.listen("http://127.0.0.1:0", http=True)
     port = listener.local_addr[1]
 
     stop = threading.Event()
@@ -154,7 +155,7 @@ def test_broadcast_server_multiple_clients():
         for conn in list(ws_clients):
             try:
                 conn.ws_send(message)
-            except:
+            except Exception:
                 pass
 
     manager = Manager(handler)
@@ -215,7 +216,7 @@ def test_broadcast_server_with_timer():
         for conn in list(ws_clients):
             try:
                 conn.ws_send(message)
-            except:
+            except Exception:
                 pass
 
     def handler(conn, event, data):
@@ -231,7 +232,7 @@ def test_broadcast_server_with_timer():
     port = listener.local_addr[1]
 
     # Add timer with short interval for testing
-    timer = manager.timer_add(500, broadcast_callback, repeat=True, run_now=False)
+    manager.timer_add(500, broadcast_callback, repeat=True, run_now=False)
 
     stop = threading.Event()
 
@@ -259,7 +260,7 @@ def test_broadcast_server_with_timer():
                 messages.append(msg)
                 if len(messages) >= 2:
                     break
-            except:
+            except Exception:
                 break
 
         # Should have received multiple timer broadcasts
@@ -280,7 +281,7 @@ def test_broadcast_server_client_cleanup():
     server = BroadcastServer(port=0, interval=10)
 
     server.manager = Manager(server.handler)
-    listener = server.manager.listen(f"http://127.0.0.1:0", http=True)
+    listener = server.manager.listen("http://127.0.0.1:0", http=True)
     port = listener.local_addr[1]
 
     stop = threading.Event()
@@ -319,7 +320,7 @@ def test_broadcast_server_html_page():
     server = BroadcastServer(port=0, interval=10)
 
     server.manager = Manager(server.handler)
-    listener = server.manager.listen(f"http://127.0.0.1:0", http=True)
+    listener = server.manager.listen("http://127.0.0.1:0", http=True)
     port = listener.local_addr[1]
 
     stop = threading.Event()

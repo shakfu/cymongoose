@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Simple standalone benchmark for cymongoose HTTP server."""
 
+import socket
 import subprocess
 import sys
-import time
 import threading
-import socket
+import time
 
 
 def get_free_port():
@@ -22,7 +22,7 @@ def main():
     # Start server in this process using threading
     print("Starting cymongoose server...")
 
-    from cymongoose import Manager, MG_EV_HTTP_MSG
+    from cymongoose import MG_EV_HTTP_MSG, Manager
 
     port = get_free_port()
     json_response = b'{"message":"Hello, World!"}'

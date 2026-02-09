@@ -1,8 +1,8 @@
 """Tests for DNS resolution."""
 
-import pytest
 import time
-from cymongoose import Manager, MG_EV_RESOLVE, MG_EV_ERROR
+
+from cymongoose import MG_EV_ERROR, MG_EV_RESOLVE, Manager
 
 
 def test_dns_resolve_basic():

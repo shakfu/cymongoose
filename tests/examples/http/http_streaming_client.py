@@ -24,12 +24,13 @@ by handling MG_EV_READ events directly.
 import argparse
 import signal
 import sys
+
 from cymongoose import (
-    Manager,
-    MG_EV_CONNECT,
-    MG_EV_READ,
     MG_EV_CLOSE,
+    MG_EV_CONNECT,
     MG_EV_ERROR,
+    MG_EV_READ,
+    Manager,
 )
 
 # Default URL - the very first web page in history
@@ -191,9 +192,7 @@ def main():
         connect_url = f"{scheme}://{host}:{port}"
         print(f"Connecting to {connect_url}...", file=sys.stderr)
 
-        conn = manager.connect(
-            connect_url, handler=lambda c, e, d: streaming_handler(c, e, d, config)
-        )
+        manager.connect(connect_url, handler=lambda c, e, d: streaming_handler(c, e, d, config))
 
         # Event loop
         while not shutdown_requested and not config["done"]:

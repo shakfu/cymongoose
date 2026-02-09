@@ -5,6 +5,9 @@ This stub file provides type hints for the Cython extension module.
 
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
+# Compile-time configuration
+USE_NOGIL_ENABLED: bool
+
 # Event constants
 MG_EV_ERROR: int
 MG_EV_OPEN: int

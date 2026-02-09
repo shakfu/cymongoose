@@ -6,7 +6,8 @@ Stop: Ctrl+C or kill -TERM <pid>
 """
 
 import signal
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_POLL, MG_EV_CLOSE
+
+from cymongoose import MG_EV_CLOSE, MG_EV_HTTP_MSG, MG_EV_POLL, Manager
 
 # Shutdown flag and connection tracking
 shutdown_requested = False

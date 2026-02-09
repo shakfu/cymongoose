@@ -35,18 +35,18 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.22.0
         env:
-          # Build for Python 3.9-3.13
-          CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-* cp313-*"
+          # Build for Python 3.10-3.14
+          CIBW_BUILD: "cp310-* cp311-* cp312-* cp313-* cp314-*"
 
           # Skip 32-bit builds and musl on Linux, ARM on Windows
           CIBW_SKIP: "*-win32 *-manylinux_i686 *-musllinux_* *-win_arm64"
 
-          # Install build dependencies (Cython is critical)
-          CIBW_BUILD_DEPENDS: "Cython>=3.0.0"
-
           # Run tests after building (skip Windows due to path/subprocess issues)
-          CIBW_TEST_REQUIRES: "pytest>=8.4.2 websocket-client>=1.9.0"
-          CIBW_TEST_COMMAND: "pytest {project}/tests -v -k \"not examples\" --import-mode=importlib"
+          # NOTE: --ignore is used instead of -k because -k only filters AFTER
+          # collection; example tests do sys.path.insert at module level which
+          # pollutes sys.path and shadows the installed wheel with the source tree.
+          CIBW_TEST_REQUIRES: "pytest>=8.4.2 pytest-asyncio>=0.24.0 websocket-client>=1.9.0"
+          CIBW_TEST_COMMAND: "pytest {project}/tests -v --ignore={project}/tests/examples --ignore={project}/tests/benchmarks --import-mode=importlib"
           CIBW_TEST_SKIP: "*-win*"
 
           # Platform-specific settings
@@ -73,12 +73,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: Install build dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install build Cython>=3.0.0
+      - name: Install build tool
+        run: pip install build
 
       - name: Build sdist
         run: python -m build --sdist

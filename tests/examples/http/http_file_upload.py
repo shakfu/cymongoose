@@ -27,13 +27,12 @@ This server handles file uploads efficiently by:
 import argparse
 import os
 import signal
-import sys
 from pathlib import Path
+
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_HDRS,
     MG_EV_HTTP_MSG,
-    MG_EV_READ,
+    Manager,
 )
 
 # Default configuration
@@ -158,7 +157,8 @@ def handle_upload(conn, ev, data, config):
             if upload_state.is_complete():
                 upload_state.close()
                 print(
-                    f"[{conn.id}] UPLOAD COMPLETE: {upload_state.filepath} ({upload_state.received_bytes} bytes)"
+                    f"[{conn.id}] UPLOAD COMPLETE: {upload_state.filepath}"
+                    f" ({upload_state.received_bytes} bytes)"
                 )
 
                 # Send response
@@ -243,13 +243,13 @@ def main():
 
     try:
         # Start listening
-        listener = manager.listen(args.listen, http=True)
+        manager.listen(args.listen, http=True)
         print(f"File Upload Server started on {args.listen}")
         print(f"Upload directory: {args.upload_dir}")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
-        print(f"Upload a file:")
-        print(f"  curl http://localhost:8000/upload/test.txt --data-binary @file.txt")
+        print("Upload a file:")
+        print("  curl http://localhost:8000/upload/test.txt --data-binary @file.txt")
 
         # Event loop
         while not shutdown_requested:

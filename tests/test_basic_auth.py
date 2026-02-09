@@ -1,8 +1,8 @@
 """Tests for HTTP Basic Authentication."""
 
-import pytest
 import base64
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT
+
+from cymongoose import Manager
 
 
 def test_http_basic_auth_method_exists():

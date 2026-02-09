@@ -30,7 +30,7 @@ def test_http_client_example_importable():
         assert client.url == "http://example.com"
         assert client.method == "GET"
         assert client.timeout == 1
-        assert client.done == False
+        assert not client.done
         assert client.response_code is None
 
     finally:

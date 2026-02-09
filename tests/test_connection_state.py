@@ -1,8 +1,6 @@
 """Tests for connection state properties and error handling."""
 
-import pytest
-import time
-from cymongoose import Manager, MG_EV_ERROR, MG_EV_OPEN, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_ERROR, MG_EV_HTTP_MSG, MG_EV_OPEN, Manager
 
 
 def test_connection_state_listener():
@@ -14,11 +12,11 @@ def test_connection_state_listener():
         manager.poll(10)
 
         # Listener should not be a client
-        assert listener.is_client == False
-        assert listener.is_listening == True
-        assert listener.is_udp == False
-        assert listener.is_websocket == False
-        assert listener.is_tls == False
+        assert not listener.is_client
+        assert listener.is_listening
+        assert not listener.is_udp
+        assert not listener.is_websocket
+        assert not listener.is_tls
     finally:
         manager.close()
 
@@ -35,13 +33,13 @@ def test_connection_state_client():
 
     try:
         # Connect to a non-existent server (connection will be created but not connected)
-        conn = manager.connect("tcp://127.0.0.1:9999", handler=handler)
+        manager.connect("tcp://127.0.0.1:9999", handler=handler)
         manager.poll(10)
 
         # Client connection should have is_client set
         if client_conn:
-            assert client_conn.is_client == True
-            assert client_conn.is_listening == False
+            assert client_conn.is_client
+            assert not client_conn.is_listening
     finally:
         manager.close()
 
@@ -118,7 +116,7 @@ def test_is_udp_flag():
         manager.poll(10)
 
         # Should be marked as UDP
-        assert listener.is_udp == True
-        assert listener.is_client == False
+        assert listener.is_udp
+        assert not listener.is_client
     finally:
         manager.close()

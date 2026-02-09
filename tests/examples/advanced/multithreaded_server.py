@@ -43,12 +43,13 @@ Important Notes:
 
 import argparse
 import signal
-import time
 import threading
+import time
+
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
     MG_EV_WAKEUP,
+    Manager,
 )
 
 # Default configuration
@@ -186,7 +187,8 @@ def http_handler(conn, ev, data, config):
     </div>
 
     <h2>Test Concurrency:</h2>
-    <p>Open multiple tabs and request <code>/slow</code> simultaneously to see concurrent processing.</p>
+    <p>Open multiple tabs and request <code>/slow</code> simultaneously
+    to see concurrent processing.</p>
     <pre>
 # In terminal:
 curl http://localhost:8000/fast     # Immediate
@@ -263,15 +265,15 @@ def main():
 
     try:
         # Start HTTP server
-        listener = manager.listen(args.listen, http=True)
+        manager.listen(args.listen, http=True)
         print(f"Multi-threaded Server started on {args.listen}")
         print(f"Worker thread sleep time: {args.sleep_time}s")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
-        print(f"Test endpoints:")
-        print(f"  curl http://localhost:8000/")
-        print(f"  curl http://localhost:8000/fast")
-        print(f"  curl http://localhost:8000/slow")
+        print("Test endpoints:")
+        print("  curl http://localhost:8000/")
+        print("  curl http://localhost:8000/fast")
+        print("  curl http://localhost:8000/slow")
         print()
 
         # Event loop

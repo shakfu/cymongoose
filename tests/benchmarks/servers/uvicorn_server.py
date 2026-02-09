@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """FastAPI/uvicorn HTTP server for performance benchmarking."""
 
-from fastapi import FastAPI
 import uvicorn
-
+from fastapi import FastAPI
 
 app = FastAPI()
 

@@ -1,8 +1,9 @@
 """Tests for WebSocket functionality."""
 
-import pytest
 import threading
 import time
+
+import pytest
 
 try:
     import websocket
@@ -12,13 +13,14 @@ except ImportError:
     HAS_WEBSOCKET = False
 
 from cymongoose import (
-    Manager,
-    MG_EV_WS_OPEN,
-    MG_EV_WS_MSG,
     MG_EV_HTTP_MSG,
-    WEBSOCKET_OP_TEXT,
+    MG_EV_WS_MSG,
+    MG_EV_WS_OPEN,
     WEBSOCKET_OP_BINARY,
+    WEBSOCKET_OP_TEXT,
+    Manager,
 )
+
 from .conftest import get_free_port
 
 pytestmark = pytest.mark.skipif(

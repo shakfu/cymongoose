@@ -21,13 +21,13 @@ Time synchronization allows time() to work correctly.
 
 import argparse
 import signal
-import time
 from datetime import datetime
+
 from cymongoose import (
-    Manager,
-    MG_EV_SNTP_TIME,
     MG_EV_CLOSE,
     MG_EV_ERROR,
+    MG_EV_SNTP_TIME,
+    Manager,
 )
 
 # Default configuration
@@ -151,17 +151,17 @@ def main():
 
     try:
         # Add timer for periodic sync
-        timer = manager.timer_add(
+        manager.timer_add(
             args.interval * 1000,  # Convert to milliseconds
             repeat=True,
             run_now=True,  # Run immediately on start
             callback=lambda: timer_callback(manager, config),
         )
 
-        print(f"SNTP Client started")
+        print("SNTP Client started")
         print(f"  Server: {config['server']}")
         print(f"  Sync interval: {config['interval']} seconds")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
 
         # Event loop

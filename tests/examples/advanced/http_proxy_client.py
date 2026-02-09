@@ -32,18 +32,18 @@ This is useful for:
 - Debugging and monitoring HTTP traffic
 """
 
-import argparse
 import signal
 import sys
 import time
+
 from cymongoose import (
+    MG_EV_CLOSE,
+    MG_EV_CONNECT,
+    MG_EV_ERROR,
+    MG_EV_HTTP_MSG,
+    MG_EV_READ,
     Manager,
     TlsOpts,
-    MG_EV_HTTP_MSG,
-    MG_EV_CONNECT,
-    MG_EV_READ,
-    MG_EV_ERROR,
-    MG_EV_CLOSE,
 )
 
 # Global state
@@ -195,7 +195,7 @@ def main():
     proxy_url = sys.argv[1]
     target_url = sys.argv[2]
 
-    print(f"Proxy client starting...")
+    print("Proxy client starting...")
     print(f"  Proxy:  {proxy_url}")
     print(f"  Target: {target_url}")
     print()
@@ -214,7 +214,7 @@ def main():
 
     try:
         # Connect to proxy server
-        conn = manager.connect(
+        manager.connect(
             proxy_url, handler=lambda c, e, d: proxy_handler(c, e, d, config), http=True
         )
 

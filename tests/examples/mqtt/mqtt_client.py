@@ -20,16 +20,16 @@ Translation from C tutorial: thirdparty/mongoose/tutorials/mqtt/mqtt-client/main
 
 import argparse
 import signal
-import sys
+
 from cymongoose import (
-    Manager,
-    MG_EV_OPEN,
+    MG_EV_CLOSE,
     MG_EV_CONNECT,
     MG_EV_ERROR,
-    MG_EV_MQTT_OPEN,
-    MG_EV_MQTT_MSG,
     MG_EV_MQTT_CMD,
-    MG_EV_CLOSE,
+    MG_EV_MQTT_MSG,
+    MG_EV_MQTT_OPEN,
+    MG_EV_OPEN,
+    Manager,
 )
 
 # Default configuration
@@ -198,20 +198,20 @@ def main():
 
     try:
         # Add timer for reconnection and ping (every 3 seconds)
-        timer = manager.timer_add(
+        manager.timer_add(
             3000,  # 3 seconds
             repeat=True,
             run_now=True,
             callback=lambda: timer_callback(manager, config),
         )
 
-        print(f"MQTT Client starting...")
+        print("MQTT Client starting...")
         print(f"  URL: {config['url']}")
         print(f"  Subscribe: {config['sub_topic']}")
         print(f"  Publish: {config['pub_topic']}")
         print(f"  QoS: {config['qos']}")
         print(f"  Keep-alive: {config['keepalive']}s")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
 
         # Event loop
         while not shutdown_requested:

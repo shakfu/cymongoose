@@ -30,10 +30,10 @@ This server implements:
 import argparse
 import json
 import signal
-import sys
+
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
+    Manager,
 )
 
 # Default configuration
@@ -207,18 +207,18 @@ def main():
 
     try:
         # Start listening
-        listener = manager.listen(args.listen, http=True)
+        manager.listen(args.listen, http=True)
         print(f"RESTful Server started on {args.listen}")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
-        print(f"API Endpoints:")
-        print(f"  GET  /api/stats       - Connection statistics (chunked)")
-        print(f"  GET  /api/f2/<path>   - Echo path in JSON")
-        print(f"  POST /api/data        - Process JSON data")
+        print("API Endpoints:")
+        print("  GET  /api/stats       - Connection statistics (chunked)")
+        print("  GET  /api/f2/<path>   - Echo path in JSON")
+        print("  POST /api/data        - Process JSON data")
         print()
-        print(f"Try:")
-        print(f"  curl http://localhost:8000/api/stats")
-        print(f"  curl http://localhost:8000/api/f2/test123")
+        print("Try:")
+        print("  curl http://localhost:8000/api/stats")
+        print("  curl http://localhost:8000/api/f2/test123")
 
         # Event loop
         while not shutdown_requested:

@@ -1,9 +1,9 @@
 """Tests for wakeup functionality."""
 
-import pytest
 import threading
 import time
-from cymongoose import Manager, MG_EV_WAKEUP, MG_EV_OPEN
+
+from cymongoose import MG_EV_OPEN, MG_EV_WAKEUP, Manager
 
 
 def test_wakeup_basic():

@@ -7,25 +7,21 @@ Tests all specialized HTTP features:
 - Server-Sent Events
 """
 
-import sys
-import time
-import threading
-import tempfile
-import os
 import json
-from pathlib import Path
+import sys
+import tempfile
+import threading
+import time
 import urllib.request
+from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
-    MG_EV_HTTP_HDRS,
-    MG_EV_READ,
+    Manager,
 )
-
 
 # ===== HTTP Streaming Client Tests =====
 
@@ -265,7 +261,6 @@ def test_restful_server_api_endpoints():
 
 def test_sse_server_basic():
     """Test SSE server basic functionality."""
-    sse_received = []
 
     def handler(conn, ev, data):
         if ev == MG_EV_HTTP_MSG:

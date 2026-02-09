@@ -1,7 +1,6 @@
 """Tests for TLS configuration."""
 
-import pytest
-from cymongoose import Manager, TlsOpts, MG_EV_HTTP_MSG
+from cymongoose import Manager, TlsOpts
 
 
 def test_tls_opts_creation():
@@ -11,7 +10,7 @@ def test_tls_opts_creation():
     assert opts.cert == b""
     assert opts.key == b""
     assert opts.name == b""
-    assert opts.skip_verification == False
+    assert not opts.skip_verification
 
 
 def test_tls_opts_with_strings():
@@ -35,10 +34,10 @@ def test_tls_opts_with_bytes():
 def test_tls_opts_skip_verification():
     """Test TlsOpts skip_verification flag."""
     opts = TlsOpts(skip_verification=True)
-    assert opts.skip_verification == True
+    assert opts.skip_verification
 
     opts2 = TlsOpts(skip_verification=False)
-    assert opts2.skip_verification == False
+    assert not opts2.skip_verification
 
 
 def test_tls_init_method_exists():
@@ -123,7 +122,7 @@ def test_is_tls_property():
 
         assert hasattr(listener, "is_tls")
         # Plain HTTP listener should not be TLS
-        assert listener.is_tls == False
+        assert not listener.is_tls
 
     finally:
         manager.close()

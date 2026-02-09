@@ -8,22 +8,21 @@ Tests all network protocol examples:
 """
 
 import sys
-import time
 import threading
+import time
 from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
-    MG_EV_SNTP_TIME,
-    MG_EV_RESOLVE,
-    MG_EV_READ,
     MG_EV_ACCEPT,
     MG_EV_CONNECT,
+    MG_EV_READ,
+    MG_EV_RESOLVE,
+    MG_EV_SNTP_TIME,
+    Manager,
 )
-
 
 # ===== SNTP Client Tests =====
 
@@ -52,7 +51,7 @@ def test_sntp_time_request():
 
     try:
         # Connect to Google's public SNTP server
-        conn = manager.sntp_connect("udp://time.google.com:123", handler=handler)
+        manager.sntp_connect("udp://time.google.com:123", handler=handler)
 
         # Poll for response (max 5 seconds)
         for _ in range(50):

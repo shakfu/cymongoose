@@ -4,16 +4,16 @@ Comprehensive tests for HTTP server example.
 """
 
 import sys
-import time
 import threading
-from pathlib import Path
-import urllib.request
+import time
 import urllib.parse
+import urllib.request
+from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def test_http_server_static_files(tmp_path):
@@ -145,12 +145,12 @@ def test_http_server_multipart_upload(tmp_path):
         # Create multipart form data
         boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
         body = (
-            f"------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n"
-            f'Content-Disposition: form-data; name="file"; filename="test.txt"\r\n'
-            f"Content-Type: text/plain\r\n"
-            f"\r\n"
-            f"Test file content\r\n"
-            f"------WebKitFormBoundary7MA4YWxkTrZu0gW--\r\n"
+            "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n"
+            'Content-Disposition: form-data; name="file"; filename="test.txt"\r\n'
+            "Content-Type: text/plain\r\n"
+            "\r\n"
+            "Test file content\r\n"
+            "------WebKitFormBoundary7MA4YWxkTrZu0gW--\r\n"
         ).encode("utf-8")
 
         req = urllib.request.Request(

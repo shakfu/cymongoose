@@ -7,7 +7,7 @@ This document explains how to build and publish cymongoose wheels using the auto
 The `build-wheels.yml` workflow uses cibuildwheel to build cross-platform binary wheels for cymongoose. It supports:
 
 - **Platforms**: Linux (x86_64, aarch64), macOS (x86_64, arm64), Windows (AMD64)
-- **Python versions**: 3.9, 3.10, 3.11, 3.12, 3.13
+- **Python versions**: 3.10, 3.11, 3.12, 3.13, 3.14
 - **Publishing targets**: TestPyPI (for testing), PyPI (for production), or both
 
 ## Prerequisites

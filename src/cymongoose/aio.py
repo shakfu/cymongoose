@@ -10,9 +10,9 @@ from __future__ import annotations
 
 import asyncio
 import threading
-from typing import Any, Callable, Optional, Union
+from typing import Any, Callable, Optional
 
-from ._mongoose import Manager, Connection, Timer
+from ._mongoose import Connection, Manager, Timer
 
 
 class AsyncManager:
@@ -50,7 +50,9 @@ class AsyncManager:
     async def __aenter__(self) -> "AsyncManager":
         self._loop = asyncio.get_running_loop()
         self._manager = Manager(
-            self._handler, enable_wakeup=True, error_handler=self._error_handler,
+            self._handler,
+            enable_wakeup=True,
+            error_handler=self._error_handler,
         )
         self._stop.clear()
         self._thread = threading.Thread(target=self._run, daemon=True)
@@ -61,7 +63,9 @@ class AsyncManager:
         self._stop.set()
         if self._thread is not None:
             await asyncio.get_running_loop().run_in_executor(
-                None, self._thread.join, 2,
+                None,
+                self._thread.join,
+                2,
             )
             self._thread = None
         if self._manager is not None:
@@ -140,7 +144,10 @@ class AsyncManager:
         assert self._manager is not None, "AsyncManager is not started"
         with self._lock:
             return self._manager.timer_add(
-                ms, callback, repeat=repeat, run_now=run_now,
+                ms,
+                callback,
+                repeat=repeat,
+                run_now=run_now,
             )
 
     # -- asyncio helper ------------------------------------------------------
@@ -169,8 +176,4 @@ class AsyncManager:
 
     @property
     def running(self) -> bool:
-        return (
-            self._thread is not None
-            and self._thread.is_alive()
-            and not self._stop.is_set()
-        )
+        return self._thread is not None and self._thread.is_alive() and not self._stop.is_set()

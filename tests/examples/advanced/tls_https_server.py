@@ -35,12 +35,12 @@ This example shows how to:
 
 import argparse
 import signal
-import time
+
 from cymongoose import (
+    MG_EV_ACCEPT,
+    MG_EV_HTTP_MSG,
     Manager,
     TlsOpts,
-    MG_EV_HTTP_MSG,
-    MG_EV_ACCEPT,
 )
 
 # Default configuration
@@ -225,14 +225,14 @@ def main():
         listener.tls_init(tls_opts)
         print(f"TLS initialized (skip_verify={args.skip_verify})")
 
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
-        print(f"Test with:")
+        print("Test with:")
         if args.skip_verify:
-            print(f"  curl -k https://localhost:8443/")
-            print(f"  curl -k https://localhost:8443/api/status")
+            print("  curl -k https://localhost:8443/")
+            print("  curl -k https://localhost:8443/api/status")
         else:
-            print(f"  curl --cacert ca.pem https://localhost:8443/")
+            print("  curl --cacert ca.pem https://localhost:8443/")
         print()
 
         # Event loop

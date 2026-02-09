@@ -4,12 +4,12 @@ Quick benchmark using sequential requests (reliable on all platforms).
 For proper load testing, use wrk: brew install wrk
 """
 
-import time
-import threading
 import socket
+import threading
+import time
 import urllib.request
 
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def get_free_port():
@@ -91,9 +91,9 @@ def main():
     print("=" * 60)
 
     print("\n For concurrent load testing, use wrk:")
-    print(f"   1. Start server: uv run python benchmarks/demo_server.py")
-    print(f"   2. Install wrk:  brew install wrk")
-    print(f"   3. Run test:     wrk -t4 -c100 -d10s http://localhost:8765/")
+    print("   1. Start server: uv run python benchmarks/demo_server.py")
+    print("   2. Install wrk:  brew install wrk")
+    print("   3. Run test:     wrk -t4 -c100 -d10s http://localhost:8765/")
     print("\n   See benchmarks/MANUAL_BENCHMARK.md for details")
 
     # Cleanup

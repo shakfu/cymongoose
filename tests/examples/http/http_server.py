@@ -19,7 +19,6 @@ Usage:
 """
 
 import argparse
-import os
 import signal
 import sys
 from pathlib import Path
@@ -28,9 +27,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
-    MG_EV_HTTP_MSG,
     MG_EV_ACCEPT,
+    MG_EV_HTTP_MSG,
+    Manager,
     TlsOpts,
     http_parse_multipart,
 )
@@ -200,7 +199,7 @@ def main():
     print(f"Try: curl {protocol}://localhost:{args.port}/")
     print(f"     curl {protocol}://localhost:{args.port}/api/info")
     if args.tls:
-        print(f"Note: Using self-signed cert. Use curl -k for testing.")
+        print("Note: Using self-signed cert. Use curl -k for testing.")
     print("Press Ctrl+C to stop")
 
     try:

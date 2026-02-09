@@ -1,5 +1,6 @@
 import signal
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 shutdown_requested = False
 

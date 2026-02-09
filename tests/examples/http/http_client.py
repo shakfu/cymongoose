@@ -26,11 +26,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
-    Manager,
-    MG_EV_CONNECT,
-    MG_EV_HTTP_MSG,
-    MG_EV_ERROR,
     MG_EV_CLOSE,
+    MG_EV_CONNECT,
+    MG_EV_ERROR,
+    MG_EV_HTTP_MSG,
+    Manager,
     TlsOpts,
 )
 
@@ -70,11 +70,19 @@ class HttpClient:
                 headers_str = "\r\n" + headers_str
 
             # Send request
+            parts = self.url.split("://", 1)[1]
+            host = self.url.split("/")[2]
+            path = self.url.split("/", 3)[3] if "/" in parts else "/"
+
             if self.method == "GET":
-                request = f"{self.method} {self.url.split('/', 3)[3] if '/' in self.url.split('://', 1)[1] else '/'} HTTP/1.1\r\nHost: {self.url.split('/')[2]}{headers_str}\r\n\r\n"
+                request = f"{self.method} {path} HTTP/1.1\r\nHost: {host}{headers_str}\r\n\r\n"
             else:
                 body = self.data.encode("utf-8") if isinstance(self.data, str) else self.data
-                request = f"{self.method} {self.url.split('/', 3)[3] if '/' in self.url.split('://', 1)[1] else '/'} HTTP/1.1\r\nHost: {self.url.split('/')[2]}\r\nContent-Length: {len(body)}{headers_str}\r\n\r\n"
+                request = (
+                    f"{self.method} {path} HTTP/1.1\r\n"
+                    f"Host: {host}\r\n"
+                    f"Content-Length: {len(body)}{headers_str}\r\n\r\n"
+                )
                 conn.send(request.encode("utf-8"))
                 conn.send(body)
                 return
@@ -102,7 +110,7 @@ class HttpClient:
     def execute(self):
         """Execute the HTTP request and wait for response."""
         # Create connection
-        conn = self.manager.connect(self.url, http=True)
+        self.manager.connect(self.url, http=True)
 
         # Poll until done or timeout
         elapsed = 0

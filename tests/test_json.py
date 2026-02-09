@@ -1,7 +1,6 @@
 """Tests for JSON parsing utilities."""
 
-import pytest
-from cymongoose import json_get, json_get_num, json_get_bool, json_get_long, json_get_str
+from cymongoose import json_get, json_get_bool, json_get_long, json_get_num, json_get_str
 
 
 def test_json_get():
@@ -48,7 +47,10 @@ def test_json_get_long():
 
 def test_json_get_str():
     """Test string value extraction with unescaping."""
-    json_data = '{"message": "Hello, World!", "escaped": "Line 1\\nLine 2", "unicode": "\\u0048\\u0065\\u006c\\u006c\\u006f"}'
+    json_data = (
+        '{"message": "Hello, World!", "escaped": "Line 1\\nLine 2",'
+        ' "unicode": "\\u0048\\u0065\\u006c\\u006c\\u006f"}'
+    )
 
     result = json_get_str(json_data, "$.message")
     assert result == "Hello, World!"

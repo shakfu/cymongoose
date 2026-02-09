@@ -1,10 +1,10 @@
 """Tests for connection buffer access."""
 
-import pytest
-import urllib.request
 import threading
 import time
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_READ
+import urllib.request
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def test_buffer_properties_exist():

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Simple load test without ab dependency."""
 
-import time
-import threading
 import socket
-import urllib.request
+import threading
+import time
 import urllib.error
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def get_free_port():

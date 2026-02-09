@@ -1,8 +1,8 @@
 """Tests for SNTP (time synchronization)."""
 
-import pytest
 import time
-from cymongoose import Manager, MG_EV_SNTP_TIME, MG_EV_CONNECT, MG_EV_ERROR
+
+from cymongoose import MG_EV_SNTP_TIME, Manager
 
 
 def test_sntp_connect():
@@ -16,7 +16,7 @@ def test_sntp_connect():
 
         # Connection should be created
         assert conn is not None
-        assert conn.is_udp == True
+        assert conn.is_udp
     finally:
         manager.close()
 

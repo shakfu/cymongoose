@@ -25,11 +25,11 @@ over HTTP. The client uses the EventSource JavaScript API to receive events.
 
 import argparse
 import signal
-import time
 from datetime import datetime
+
 from cymongoose import (
-    Manager,
     MG_EV_HTTP_MSG,
+    Manager,
 )
 
 # Default configuration
@@ -222,7 +222,8 @@ def http_handler(conn, ev, data, config):
 
             const eventDiv = document.createElement('div');
             eventDiv.className = 'event';
-            eventDiv.innerHTML = `<strong>${type}:</strong> ${data} <span class="timestamp">(${new Date().toLocaleTimeString()})</span>`;
+            eventDiv.innerHTML = `<strong>${type}:</strong> ${data} ` +
+                `<span class="timestamp">(${new Date().toLocaleTimeString()})</span>`;
             eventsDiv.insertBefore(eventDiv, eventsDiv.firstChild);
         }
 
@@ -281,10 +282,10 @@ def main():
 
     try:
         # Start listening
-        listener = manager.listen(args.listen, http=True)
+        manager.listen(args.listen, http=True)
 
         # Add timer for periodic broadcasts
-        timer = manager.timer_add(
+        manager.timer_add(
             args.interval * 1000,  # Convert to milliseconds
             repeat=True,
             run_now=False,
@@ -293,10 +294,10 @@ def main():
 
         print(f"SSE Server started on {args.listen}")
         print(f"Broadcasting events every {args.interval} seconds")
-        print(f"Press Ctrl+C to exit")
+        print("Press Ctrl+C to exit")
         print()
-        print(f"Open browser to: http://localhost:8000")
-        print(f"Or test with: curl http://localhost:8000/events")
+        print("Open browser to: http://localhost:8000")
+        print("Or test with: curl http://localhost:8000/events")
 
         # Event loop
         while not shutdown_requested:

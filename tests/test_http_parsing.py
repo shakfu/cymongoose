@@ -1,8 +1,8 @@
 """Tests for HTTP status and header parsing functions."""
 
-import pytest
 import urllib.request
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 from tests.conftest import ServerThread
 
 
@@ -89,7 +89,7 @@ def test_http_status_none_when_invalid():
 
 def test_connection_error_method_exists():
     """Test that Connection.error() method exists."""
-    from cymongoose import Manager, MG_EV_ERROR
+    from cymongoose import MG_EV_ERROR
 
     manager = Manager()
     errors = []

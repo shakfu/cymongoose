@@ -1,9 +1,10 @@
 """Tests for connection draining (graceful close)."""
 
-import pytest
 import time
 import urllib.request
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_CLOSE
+
+from cymongoose import MG_EV_CLOSE, MG_EV_HTTP_MSG
+
 from .conftest import ServerThread
 
 

@@ -1,28 +1,27 @@
 """Tests for exported constants."""
 
-import pytest
 from cymongoose import (
-    MG_EV_ERROR,
-    MG_EV_OPEN,
-    MG_EV_POLL,
-    MG_EV_RESOLVE,
-    MG_EV_CONNECT,
     MG_EV_ACCEPT,
-    MG_EV_TLS_HS,
-    MG_EV_READ,
-    MG_EV_WRITE,
     MG_EV_CLOSE,
+    MG_EV_CONNECT,
+    MG_EV_ERROR,
     MG_EV_HTTP_HDRS,
     MG_EV_HTTP_MSG,
-    MG_EV_WS_OPEN,
-    MG_EV_WS_MSG,
-    MG_EV_WS_CTL,
-    MG_EV_WAKEUP,
+    MG_EV_OPEN,
+    MG_EV_POLL,
+    MG_EV_READ,
+    MG_EV_RESOLVE,
+    MG_EV_TLS_HS,
     MG_EV_USER,
-    WEBSOCKET_OP_TEXT,
+    MG_EV_WAKEUP,
+    MG_EV_WRITE,
+    MG_EV_WS_CTL,
+    MG_EV_WS_MSG,
+    MG_EV_WS_OPEN,
     WEBSOCKET_OP_BINARY,
     WEBSOCKET_OP_PING,
     WEBSOCKET_OP_PONG,
+    WEBSOCKET_OP_TEXT,
 )
 
 

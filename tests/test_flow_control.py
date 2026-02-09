@@ -1,7 +1,6 @@
 """Tests for connection flow control flags."""
 
-import pytest
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def test_is_full_flag():
@@ -15,7 +14,7 @@ def test_is_full_flag():
         # Property should exist and return a boolean
         assert isinstance(listener.is_full, bool)
         # Listener shouldn't be full initially
-        assert listener.is_full == False
+        assert not listener.is_full
     finally:
         manager.close()
 
@@ -31,7 +30,7 @@ def test_is_draining_flag():
         # Property should exist and return a boolean
         assert isinstance(listener.is_draining, bool)
         # Listener shouldn't be draining initially
-        assert listener.is_draining == False
+        assert not listener.is_draining
     finally:
         manager.close()
 
@@ -93,7 +92,7 @@ def test_flow_control_with_http():
 
         try:
             urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
-        except:
+        except Exception:
             pass  # Don't care if it fails, just testing state
 
         # Verify state was captured
@@ -116,7 +115,7 @@ def test_flow_control_closed_connection():
         manager.poll(10)
 
         # Properties should still be accessible (return False for closed conn)
-        assert listener.is_full == False
-        assert listener.is_draining == False
+        assert not listener.is_full
+        assert not listener.is_draining
     finally:
         manager.close()

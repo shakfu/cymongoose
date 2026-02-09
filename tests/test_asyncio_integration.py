@@ -4,7 +4,8 @@ import asyncio
 import urllib.request
 
 import pytest
-from cymongoose import AsyncManager, MG_EV_HTTP_MSG, MG_EV_WAKEUP
+
+from cymongoose import MG_EV_HTTP_MSG, MG_EV_WAKEUP, AsyncManager
 from tests.conftest import get_free_port
 
 
@@ -35,7 +36,8 @@ async def test_async_manager_http_server():
         response = await loop.run_in_executor(
             None,
             lambda: urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/", timeout=5,
+                f"http://127.0.0.1:{port}/",
+                timeout=5,
             ),
         )
         body = response.read()
@@ -66,7 +68,8 @@ async def test_async_manager_schedule():
         await loop.run_in_executor(
             None,
             lambda: urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/", timeout=5,
+                f"http://127.0.0.1:{port}/",
+                timeout=5,
             ),
         )
 
@@ -99,7 +102,8 @@ async def test_async_manager_schedule_coroutine():
         await loop.run_in_executor(
             None,
             lambda: urllib.request.urlopen(
-                f"http://127.0.0.1:{port}/", timeout=5,
+                f"http://127.0.0.1:{port}/",
+                timeout=5,
             ),
         )
 

@@ -7,24 +7,22 @@ Tests all advanced examples:
 """
 
 import sys
-import time
 import threading
+import time
 import urllib.request
-import ssl
 from pathlib import Path
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
 from cymongoose import (
+    MG_EV_CONNECT,
+    MG_EV_HTTP_MSG,
+    MG_EV_READ,
+    MG_EV_WAKEUP,
     Manager,
     TlsOpts,
-    MG_EV_HTTP_MSG,
-    MG_EV_WAKEUP,
-    MG_EV_CONNECT,
-    MG_EV_READ,
 )
-
 
 # ===== TLS HTTPS Server Tests =====
 
@@ -65,7 +63,7 @@ xjYqzLzYqP8hP0ypwT+8xjYqzLzYqP8hP0ypwT+8xjYqzLzY
     try:
         # Create HTTPS listener
         listener = manager.listen("https://127.0.0.1:0", http=True)
-        port = listener.local_addr[1]
+        listener.local_addr[1]
 
         # Initialize TLS with self-signed cert
         tls_opts = TlsOpts(cert=cert, key=key, skip_verification=True)
@@ -273,13 +271,13 @@ def test_multithreaded_server_wakeup_path():
                     try:
                         print(f"  Worker: Calling wakeup for conn {conn.id}")
                         config["manager"].wakeup(conn.id, b"Worker result")
-                        print(f"  Worker: Wakeup called")
+                        print("  Worker: Wakeup called")
                     except Exception as e:
                         print(f"  Worker: Exception {e}")
 
                 thread = threading.Thread(target=worker, daemon=True)
                 thread.start()
-                print(f"  Handler: Thread started")
+                print("  Handler: Thread started")
 
         elif ev == MG_EV_WAKEUP:
             # Received wakeup from worker thread
@@ -288,7 +286,7 @@ def test_multithreaded_server_wakeup_path():
             conn.reply(200, f"Result: {data}")
             conn.drain()
             wakeup_received.set()
-            print(f"  Handler: Response sent")
+            print("  Handler: Response sent")
 
     config = {"manager": None}
 
@@ -344,7 +342,7 @@ def test_multithreaded_server_concurrent_requests():
                     time.sleep(0.2)  # Simulate work
                     try:
                         config["manager"].wakeup(conn.id, f"Done: {work_id}".encode("utf-8"))
-                    except:
+                    except Exception:
                         pass
 
                 thread = threading.Thread(target=worker, daemon=True)
@@ -380,7 +378,7 @@ def test_multithreaded_server_concurrent_requests():
         def make_request(work_id):
             try:
                 urllib.request.urlopen(f"http://127.0.0.1:{port}/work/{work_id}", timeout=3)
-            except:
+            except Exception:
                 pass
 
         threads = []

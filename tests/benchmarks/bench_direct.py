@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Direct test without subprocess."""
 
-import time
-import threading
 import socket
+import threading
+import time
 import urllib.request
 
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 
 def get_free_port():

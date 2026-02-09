@@ -1,9 +1,8 @@
 """Tests for HTTP Server-Sent Events (SSE)."""
 
-import pytest
 import urllib.request
-import time
-from cymongoose import Manager, MG_EV_HTTP_MSG
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 from tests.conftest import ServerThread
 
 

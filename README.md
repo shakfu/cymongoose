@@ -30,7 +30,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 
 - **Event-driven**: Non-blocking I/O with a simple event loop
 - **Low overhead**: Thin Cython wrapper over native C library
-- **Python 3.9+**: Modern Python with type hints
+- **Python 3.10+**: Modern Python with type hints
 - **Comprehensive**: 232 tests, 100% pass rate
 - **Production Examples**: 17 complete examples from Mongoose tutorials
 - **TLS Support**: Built-in TLS/SSL encryption (MG_TLS_BUILTIN)
@@ -58,7 +58,8 @@ Also type `make help` gives you a list of commands
 
 ### Requirements
 
-- Python 3.9 or higher
+- Python 3.10 or higher
+- CMake 3.15+
 - Cython 3.0+
 - C compiler (gcc, clang, or MSVC)
 
@@ -425,11 +426,11 @@ The project includes a comprehensive test suite with **232 tests** (100% passing
 ### Running Tests
 
 ```sh
-make test                              # Run all tests (232 tests)
-PYTHONPATH=src pytest tests/ -v        # Verbose output
-pytest tests/test_http_server.py -v    # Run specific file
-pytest tests/ -k "test_timer" -v       # Run matching tests
-pytest tests/examples/ -v              # Run example tests only
+make test                                          # Run all tests (232 tests)
+uv run python -m pytest tests/ -v                  # Verbose output
+uv run python -m pytest tests/test_http_server.py  # Run specific file
+uv run python -m pytest tests/ -k "test_timer"     # Run matching tests
+uv run python -m pytest tests/examples/            # Run example tests only
 ```
 
 ### Test Infrastructure
@@ -453,35 +454,18 @@ This detects use-after-free, buffer overflows, and other memory bugs at runtime.
 
 ## Development
 
-### Build
+The project uses [scikit-build-core](https://scikit-build-core.readthedocs.io/) with CMake to build the Cython extension, and [uv](https://docs.astral.sh/uv/) for environment and dependency management.
 
 ```sh
 make build          # Rebuild the Cython extension
-
-# or just
-
-make
-
-# Force rebuild
-uv sync --reinstall-package cymongoose
-```
-
-### Test
-
-```sh
-make test                    # Run all tests
-pytest tests/ -v             # Verbose output
-pytest tests/test_http_server.py -v  # Run specific test file
-```
-
-### Clean
-
-```sh
+make test           # Run all tests
 make clean          # Remove build artifacts
+make help           # Show all available targets
 ```
 
 ## Architecture
 
+- **CMake build** (`CMakeLists.txt`): Cythonizes `.pyx` and compiles the extension via scikit-build-core
 - **Cython bindings** (`src/cymongoose/_mongoose.pyx`): Python wrapper classes
 - **C declarations** (`src/cymongoose/mongoose.pxd`): Cython interface to Mongoose C API
 - **Vendored Mongoose** (`thirdparty/mongoose/`): Embedded C library

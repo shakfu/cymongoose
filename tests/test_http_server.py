@@ -1,11 +1,13 @@
 """Tests for HTTP server functionality."""
 
-import pytest
-import threading
 import time
-import urllib.request
 import urllib.error
-from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT, MG_EV_CLOSE
+import urllib.request
+
+import pytest
+
+from cymongoose import MG_EV_ACCEPT, MG_EV_CLOSE, MG_EV_HTTP_MSG, Manager
+
 from .conftest import ServerThread
 
 
@@ -234,7 +236,7 @@ class TestErrorHandling:
             # First request causes exception
             try:
                 urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
-            except:
+            except Exception:
                 pass
 
             time.sleep(0.2)
