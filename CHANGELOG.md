@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ### Fixed
 
 - **Per-listener handler inheritance**: `listen(url, handler=X)` now propagates handler `X` to accepted child connections. Previously, only the listener connection itself received the handler; accepted children silently fell back to the Manager's default handler, making per-listener handlers effectively dead code for servers. The fix uses Mongoose's built-in `fn_data` copy-on-accept to carry a listener ID from parent to child, which is then looked up in a `_listener_handlers` dict. `Connection.set_handler()` on a listener also propagates correctly. Backward compatible: `listen()` without a handler continues to use the Manager default. See the "Per-Listener Handlers" Quick Start example in README.md.
+- **`make test-asan` on macOS**: ASAN tests aborted at import with "interceptors not installed" because macOS SIP strips `DYLD_INSERT_LIBRARIES` from processes spawned by SIP-protected binaries (`/usr/bin/make`, `/bin/sh`). The fix compiles a tiny non-SIP helper (`build/run_asan`) during `build-asan` that sets `DYLD_INSERT_LIBRARIES` and exec's Python, bypassing the SIP restriction. `make test-asan` now runs all 244 tests clean.
 
 ## [0.1.8]
 

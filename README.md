@@ -432,6 +432,11 @@ make test-asan                         # Run tests with memory error detection
 
 This detects use-after-free, buffer overflows, and other memory bugs at runtime.
 
+> **macOS note:** `build-asan` compiles a small helper (`build/run_asan`) that
+> injects the ASAN runtime via `DYLD_INSERT_LIBRARIES` before exec'ing Python.
+> This is necessary because macOS SIP strips `DYLD_INSERT_LIBRARIES` from
+> processes spawned by system binaries (`/usr/bin/make`, `/bin/sh`).
+
 ## Development
 
 The project uses [scikit-build-core](https://scikit-build-core.readthedocs.io/) with CMake to build the Cython extension, and [uv](https://docs.astral.sh/uv/) for environment and dependency management.

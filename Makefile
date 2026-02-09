@@ -82,14 +82,23 @@ docs:
 	@uv run sphinx-build -b html docs/ docs/_build/html
 
 # Build with AddressSanitizer enabled
+# Also compiles a small helper (build/run_asan) that injects the ASAN runtime
+# via DYLD_INSERT_LIBRARIES before exec'ing Python. This is needed on macOS
+# because SIP strips DYLD_INSERT_LIBRARIES from processes spawned by
+# SIP-protected binaries (/usr/bin/make, /bin/sh, /bin/zsh, etc.).
+ASAN_LIB := $(shell find /Applications/Xcode.app -name "libclang_rt.asan_osx_dynamic.dylib" 2>/dev/null | head -1)
 build-asan: clean
 	SKBUILD_CMAKE_DEFINE="USE_ASAN=ON" uv sync --reinstall-package cymongoose
+	@mkdir -p build
+	@printf '#include <stdlib.h>\n#include <unistd.h>\nint main(int c,char**v){setenv("DYLD_INSERT_LIBRARIES",v[1],1);execvp(v[2],v+2);return 1;}\n' \
+		| cc -o build/run_asan -x c -
+	@echo "ASAN helper built: build/run_asan"
 
 # Run tests with AddressSanitizer
 test-asan: build-asan
 	@echo "Running tests with AddressSanitizer..."
 	ASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:halt_on_error=1 \
-		uv run python -m pytest tests/ -v -x --tb=short
+		build/run_asan $(ASAN_LIB) .venv/bin/python -m pytest tests/ -v -x --tb=short
 	@echo "ASAN tests completed successfully"
 
 # Clean build artifacts
