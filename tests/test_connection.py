@@ -61,9 +61,7 @@ class TestConnectionProperties:
 
         manager = Manager(default_handler)
         port = get_free_port()
-        manager.listen(
-            f"http://0.0.0.0:{port}", handler=listener_handler, http=True
-        )
+        manager.listen(f"http://0.0.0.0:{port}", handler=listener_handler, http=True)
 
         def run_poll():
             while not stop.is_set():
@@ -153,14 +151,10 @@ class TestConnectionProperties:
         time.sleep(0.3)
 
         try:
-            resp_a = urllib.request.urlopen(
-                f"http://localhost:{port_a}/", timeout=2
-            )
+            resp_a = urllib.request.urlopen(f"http://localhost:{port_a}/", timeout=2)
             body_a = resp_a.read().decode("utf-8")
 
-            resp_b = urllib.request.urlopen(
-                f"http://localhost:{port_b}/", timeout=2
-            )
+            resp_b = urllib.request.urlopen(f"http://localhost:{port_b}/", timeout=2)
             body_b = resp_b.read().decode("utf-8")
 
             assert body_a == "HandlerA"
@@ -199,7 +193,6 @@ class TestConnectionProperties:
             stop.set()
             thread.join(timeout=1)
             manager.close()
-
 
     def test_set_handler_none_clears_inheritance(self):
         """Test set_handler(None) on listener reverts children to default."""
@@ -286,9 +279,7 @@ class TestConnectionProperties:
 
         manager = Manager(default_handler)
         port = get_free_port()
-        manager.listen(
-            f"http://0.0.0.0:{port}", handler=listener_handler, http=True
-        )
+        manager.listen(f"http://0.0.0.0:{port}", handler=listener_handler, http=True)
 
         def run_poll():
             while not stop.is_set():

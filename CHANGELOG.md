@@ -17,11 +17,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.9]
+
 ### Added
+
+- **Adversarial / negative tests** (`tests/test_adversarial.py`): 12 tests exercising server resilience against malformed input and connection-level abuse using raw sockets. Covers garbage request lines, incomplete requests, invalid HTTP methods, oversized headers (100 KB), 500-header floods, null bytes in URIs, double Content-Length smuggling attempts, zero-byte connections, 50-socket connection floods, slow-loris byte-at-a-time sends, invalid WebSocket frames, and oversized WS frame headers. Each test verifies the server stays alive with a follow-up health check.
+
+- **Concurrent client tests** (`tests/test_concurrent_clients.py`): 6 tests verifying correctness under parallel access using ThreadPoolExecutor. Covers 50 concurrent GETs (10 threads x 5 requests), concurrent different-path routing, concurrent POST with per-request payload verification, mixed-method (GET/POST/PUT/DELETE) parallelism, 100 rapid sequential connections, and 5 parallel WebSocket echo clients. Response bodies include method/uri/body echo so each assertion checks per-request correctness, not just status codes.
 
 - **`Manager.run()` convenience method**: Blocks until SIGINT/SIGTERM, then cleans up. Replaces ~12 lines of signal-handler + poll-loop + try/finally boilerplate with a single call. Original signal handlers are restored after return.
 
 ### Changed
+
+- **Return type annotations in `_mongoose.pyx`**: Added return type annotations to all public methods and properties in the Cython implementation file to match the `.pyi` stub. Converted 16 old-style `property:` blocks (on `HttpMessage`, `WsMessage`, `MqttMessage`) to `@property` decorator syntax to support annotations. Added `from typing import Optional` import. No behavioral changes.
+- **Strict mypy compliance in `aio.py`**: Changed bare `Callable` type hints to `Callable[..., Any]` to satisfy `mypy --strict`.
 
 - **README Quick Start examples**: All 3 examples (HTTP Server, Static Files, WebSocket Echo) simplified to use `mgr.run()`, cutting each from ~20 lines to ~8.
 

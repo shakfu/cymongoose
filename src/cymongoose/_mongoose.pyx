@@ -154,6 +154,7 @@ from .mongoose cimport (
 )
 
 import traceback
+from typing import Optional
 
 __all__ = [
     "Manager",
@@ -260,34 +261,34 @@ cdef class HttpMessage:
     cdef void _assign(self, mg_http_message *msg):
         self._msg = msg
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return self._msg != NULL
 
-    property method:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.method) if self._msg != NULL else ""
+    @property
+    def method(self) -> str:
+        return _mg_str_to_text(self._msg.method) if self._msg != NULL else ""
 
-    property uri:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.uri) if self._msg != NULL else ""
+    @property
+    def uri(self) -> str:
+        return _mg_str_to_text(self._msg.uri) if self._msg != NULL else ""
 
-    property query:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.query) if self._msg != NULL else ""
+    @property
+    def query(self) -> str:
+        return _mg_str_to_text(self._msg.query) if self._msg != NULL else ""
 
-    property proto:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.proto) if self._msg != NULL else ""
+    @property
+    def proto(self) -> str:
+        return _mg_str_to_text(self._msg.proto) if self._msg != NULL else ""
 
-    property body_bytes:
-        def __get__(self):
-            return _mg_str_to_bytes(self._msg.body) if self._msg != NULL else b""
+    @property
+    def body_bytes(self) -> bytes:
+        return _mg_str_to_bytes(self._msg.body) if self._msg != NULL else b""
 
-    property body_text:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
+    @property
+    def body_text(self) -> str:
+        return _mg_str_to_text(self._msg.body) if self._msg != NULL else ""
 
-    def header(self, name: str, default=None):
+    def header(self, name: str, default=None) -> Optional[str]:
         """Return a HTTP header value or default when not present."""
         if self._msg == NULL:
             return default
@@ -297,7 +298,7 @@ cdef class HttpMessage:
             return default
         return _mg_str_to_text(result[0])
 
-    def headers(self):
+    def headers(self) -> list:
         """Return all HTTP headers as a list of (name, value) tuples."""
         if self._msg == NULL:
             return []
@@ -311,7 +312,7 @@ cdef class HttpMessage:
             result.append((_mg_str_to_text(header.name), _mg_str_to_text(header.value)))
         return result
 
-    def query_var(self, name: str):
+    def query_var(self, name: str) -> Optional[str]:
         """Extract a query string parameter.
 
         Raises ValueError if the decoded value exceeds 2048 bytes.
@@ -329,7 +330,7 @@ cdef class HttpMessage:
             return None
         return buffer[:rc].decode("utf-8", "surrogateescape")
 
-    def status(self):
+    def status(self) -> Optional[int]:
         """Return HTTP status code from response message.
 
         Returns:
@@ -339,7 +340,7 @@ cdef class HttpMessage:
             return None
         return mg_http_status(self._msg)
 
-    def header_var(self, header_name: str, var_name: str):
+    def header_var(self, header_name: str, var_name: str) -> Optional[str]:
         """Parse a variable from a header value.
 
         Useful for parsing sub-values like charset from Content-Type header.
@@ -379,17 +380,17 @@ cdef class WsMessage:
     cdef void _assign(self, mg_ws_message *msg):
         self._msg = msg
 
-    property data:
-        def __get__(self):
-            return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""
+    @property
+    def data(self) -> bytes:
+        return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""
 
-    property text:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""
+    @property
+    def text(self) -> str:
+        return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""
 
-    property flags:
-        def __get__(self):
-            return self._msg.flags if self._msg != NULL else 0
+    @property
+    def flags(self) -> int:
+        return self._msg.flags if self._msg != NULL else 0
 
 
 cdef class MqttMessage:
@@ -400,33 +401,33 @@ cdef class MqttMessage:
     cdef void _assign(self, mg_mqtt_message *msg):
         self._msg = msg
 
-    property topic:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.topic) if self._msg != NULL else ""
+    @property
+    def topic(self) -> str:
+        return _mg_str_to_text(self._msg.topic) if self._msg != NULL else ""
 
-    property data:
-        def __get__(self):
-            return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""
+    @property
+    def data(self) -> bytes:
+        return _mg_str_to_bytes(self._msg.data) if self._msg != NULL else b""
 
-    property text:
-        def __get__(self):
-            return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""
+    @property
+    def text(self) -> str:
+        return _mg_str_to_text(self._msg.data) if self._msg != NULL else ""
 
-    property id:
-        def __get__(self):
-            return self._msg.id if self._msg != NULL else 0
+    @property
+    def id(self) -> int:
+        return self._msg.id if self._msg != NULL else 0
 
-    property cmd:
-        def __get__(self):
-            return self._msg.cmd if self._msg != NULL else 0
+    @property
+    def cmd(self) -> int:
+        return self._msg.cmd if self._msg != NULL else 0
 
-    property qos:
-        def __get__(self):
-            return self._msg.qos if self._msg != NULL else 0
+    @property
+    def qos(self) -> int:
+        return self._msg.qos if self._msg != NULL else 0
 
-    property ack:
-        def __get__(self):
-            return self._msg.ack if self._msg != NULL else 0
+    @property
+    def ack(self) -> int:
+        return self._msg.ack if self._msg != NULL else 0
 
 
 cdef class TlsOpts:
@@ -501,7 +502,7 @@ cdef class Connection:
     def handler(self):
         return self._handler
 
-    def set_handler(self, handler):
+    def set_handler(self, handler) -> None:
         """Assign a per-connection event handler.
 
         When called on a listener, future accepted child connections will
@@ -528,16 +529,16 @@ cdef class Connection:
         self._userdata = value
 
     @property
-    def id(self):
+    def id(self) -> int:
         """Return connection ID."""
         return self._conn.id if self._conn != NULL else 0
 
     @property
-    def is_listening(self):
+    def is_listening(self) -> bool:
         return self._conn.is_listening != 0 if self._conn != NULL else False
 
     @property
-    def is_closing(self):
+    def is_closing(self) -> bool:
         return self._conn.is_closing != 0 if self._conn != NULL else True
 
     @property
@@ -594,7 +595,7 @@ cdef class Connection:
             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
         return (ip_str, host_port, bool(is_ipv6))
 
-    def send(self, data):
+    def send(self, data) -> None:
         """Send raw bytes to the peer."""
         cdef bytes payload
         if isinstance(data, str):
@@ -613,7 +614,7 @@ cdef class Connection:
         if not result:
             raise RuntimeError("mg_send failed")
 
-    def reply(self, int status_code, body=b"", headers=None):
+    def reply(self, int status_code, body=b"", headers=None) -> None:
         """Send a HTTP reply (final response)."""
         if isinstance(body, str):
             body_bytes = body.encode("utf-8")
@@ -637,7 +638,7 @@ cdef class Connection:
         ELSE:
             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
 
-    def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = ""):
+    def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = "") -> None:
         """Serve files from a directory using Mongoose's built-in static handler."""
         if message._msg == NULL:
             raise ValueError("HttpMessage is not valid for this event")
@@ -666,7 +667,7 @@ cdef class Connection:
         ELSE:
             mg_http_serve_dir(conn, msg, &opts)
 
-    def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = ""):
+    def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = "") -> None:
         """Serve a single file using Mongoose's built-in static handler."""
         if message._msg == NULL:
             raise ValueError("HttpMessage is not valid for this event")
@@ -691,7 +692,7 @@ cdef class Connection:
         ELSE:
             mg_http_serve_file(conn, msg, path_c, &opts)
 
-    def ws_upgrade(self, HttpMessage message, extra_headers=None):
+    def ws_upgrade(self, HttpMessage message, extra_headers=None) -> None:
         """Upgrade HTTP connection to WebSocket.
 
         Args:
@@ -717,7 +718,7 @@ cdef class Connection:
         ELSE:
             mg_ws_upgrade(conn, msg, fmt)
 
-    def ws_send(self, data, op=WEBSOCKET_OP_TEXT):
+    def ws_send(self, data, op=WEBSOCKET_OP_TEXT) -> None:
         """Send a WebSocket frame."""
         if isinstance(data, str):
             payload = data.encode("utf-8")
@@ -734,7 +735,7 @@ cdef class Connection:
         ELSE:
             mg_ws_send(conn, buf, length, op_c)
 
-    def mqtt_pub(self, topic: str, message, qos=0, retain=False):
+    def mqtt_pub(self, topic: str, message, qos=0, retain=False) -> int:
         """Publish an MQTT message.
 
         Args:
@@ -770,7 +771,7 @@ cdef class Connection:
             msg_id = mg_mqtt_pub(conn, &opts)
         return msg_id
 
-    def mqtt_sub(self, topic: str, qos=0):
+    def mqtt_sub(self, topic: str, qos=0) -> None:
         """Subscribe to an MQTT topic.
 
         Args:
@@ -791,7 +792,7 @@ cdef class Connection:
         ELSE:
             mg_mqtt_sub(conn, &opts)
 
-    def mqtt_ping(self):
+    def mqtt_ping(self) -> None:
         """Send MQTT ping."""
         cdef mg_connection *conn = self._ptr()
         IF USE_NOGIL:
@@ -809,7 +810,7 @@ cdef class Connection:
         ELSE:
             mg_mqtt_pong(conn)
 
-    def mqtt_disconnect(self):
+    def mqtt_disconnect(self) -> None:
         """Send MQTT disconnect message.
 
         Gracefully disconnects from MQTT broker by sending a DISCONNECT packet.
@@ -823,7 +824,7 @@ cdef class Connection:
         ELSE:
             mg_mqtt_disconnect(conn, &opts)
 
-    def error(self, message: str):
+    def error(self, message: str) -> None:
         """Trigger an error event on this connection.
 
         Args:
@@ -835,66 +836,66 @@ cdef class Connection:
         mg_error(conn, b"%s", <char*>msg_ptr)
 
     @property
-    def is_client(self):
+    def is_client(self) -> bool:
         """Return True if this is a client connection."""
         return self._conn.is_client != 0 if self._conn != NULL else False
 
     @property
-    def is_tls(self):
+    def is_tls(self) -> bool:
         """Return True if this connection uses TLS."""
         return self._conn.is_tls != 0 if self._conn != NULL else False
 
     @property
-    def is_udp(self):
+    def is_udp(self) -> bool:
         """Return True if this is a UDP connection."""
         return self._conn.is_udp != 0 if self._conn != NULL else False
 
     @property
-    def is_websocket(self):
+    def is_websocket(self) -> bool:
         """Return True if this is a WebSocket connection."""
         return self._conn.is_websocket != 0 if self._conn != NULL else False
 
     @property
-    def is_readable(self):
+    def is_readable(self) -> bool:
         """Return True if connection has data to read."""
         return self._conn.is_readable != 0 if self._conn != NULL else False
 
     @property
-    def is_writable(self):
+    def is_writable(self) -> bool:
         """Return True if connection can be written to."""
         return self._conn.is_writable != 0 if self._conn != NULL else False
 
     @property
-    def is_full(self):
+    def is_full(self) -> bool:
         """Return True if receive buffer is full (backpressure - stop reads)."""
         return self._conn.is_full != 0 if self._conn != NULL else False
 
     @property
-    def is_draining(self):
+    def is_draining(self) -> bool:
         """Return True if connection is draining (sending remaining data before close)."""
         return self._conn.is_draining != 0 if self._conn != NULL else False
 
     @property
-    def recv_len(self):
+    def recv_len(self) -> int:
         """Return number of bytes in receive buffer."""
         return self._conn.recv.len if self._conn != NULL else 0
 
     @property
-    def send_len(self):
+    def send_len(self) -> int:
         """Return number of bytes in send buffer."""
         return self._conn.send.len if self._conn != NULL else 0
 
     @property
-    def recv_size(self):
+    def recv_size(self) -> int:
         """Return total allocated size of receive buffer."""
         return self._conn.recv.size if self._conn != NULL else 0
 
     @property
-    def send_size(self):
+    def send_size(self) -> int:
         """Return total allocated size of send buffer."""
         return self._conn.send.size if self._conn != NULL else 0
 
-    def recv_data(self, length: int = -1):
+    def recv_data(self, length: int = -1) -> bytes:
         """Read data from receive buffer without consuming it.
 
         Args:
@@ -912,7 +913,7 @@ cdef class Connection:
             return b""
         return (<char*>self._conn.recv.buf)[:read_len]
 
-    def send_data(self, length: int = -1):
+    def send_data(self, length: int = -1) -> bytes:
         """Read data from send buffer without consuming it.
 
         Args:
@@ -930,7 +931,7 @@ cdef class Connection:
             return b""
         return (<char*>self._conn.send.buf)[:read_len]
 
-    def resolve(self, url: str):
+    def resolve(self, url: str) -> None:
         """Resolve a hostname asynchronously.
 
         Triggers MG_EV_RESOLVE event when DNS lookup completes.
@@ -947,7 +948,7 @@ cdef class Connection:
         ELSE:
             mg_resolve(conn, url_c)
 
-    def resolve_cancel(self):
+    def resolve_cancel(self) -> None:
         """Cancel an ongoing DNS resolution."""
         cdef mg_connection *conn = self._ptr()
         IF USE_NOGIL:
@@ -956,7 +957,7 @@ cdef class Connection:
         ELSE:
             mg_resolve_cancel(conn)
 
-    def http_basic_auth(self, username: str, password: str):
+    def http_basic_auth(self, username: str, password: str) -> None:
         """Send HTTP Basic Authentication credentials.
 
         Typically used on client connections to authenticate with a server.
@@ -972,7 +973,7 @@ cdef class Connection:
         cdef mg_connection *conn = self._ptr()
         mg_http_bauth(conn, user_c, pass_c)
 
-    def sntp_request(self):
+    def sntp_request(self) -> None:
         """Send an SNTP time request.
 
         Use on a connection created with Manager.sntp_connect().
@@ -985,7 +986,7 @@ cdef class Connection:
         ELSE:
             mg_sntp_request(conn)
 
-    def http_chunk(self, data):
+    def http_chunk(self, data) -> None:
         """Send an HTTP chunked transfer encoding chunk.
 
         Used for streaming HTTP responses. Must call with empty data to end.
@@ -1028,7 +1029,7 @@ cdef class Connection:
             ELSE:
                 mg_http_write_chunk(conn, buf_ptr, buf_len)
 
-    def http_sse(self, event_type: str, data: str):
+    def http_sse(self, event_type: str, data: str) -> None:
         """Send Server-Sent Events (SSE) formatted message.
 
         SSE is used for real-time server push over HTTP. Must start with appropriate headers.
@@ -1061,7 +1062,7 @@ cdef class Connection:
         ELSE:
             mg_http_write_chunk(conn, msg_ptr, msg_len)
 
-    def close(self):
+    def close(self) -> None:
         """Immediately close the connection.
 
         For graceful shutdown, use drain() instead to let buffered data flush first.
@@ -1074,7 +1075,7 @@ cdef class Connection:
             ELSE:
                 mg_close_conn(conn)
 
-    def drain(self):
+    def drain(self) -> None:
         """Mark connection for graceful closure.
 
         Sets is_draining=1, which tells Mongoose to:
@@ -1095,7 +1096,7 @@ cdef class Connection:
         if conn != NULL:
             conn.is_draining = 1
 
-    def tls_init(self, TlsOpts opts):
+    def tls_init(self, TlsOpts opts) -> None:
         """Initialize TLS/SSL on this connection.
 
         Args:
@@ -1137,7 +1138,7 @@ cdef class Connection:
         ELSE:
             mg_tls_init(conn, &c_opts)
 
-    def tls_free(self):
+    def tls_free(self) -> None:
         """Free TLS/SSL resources on this connection.
 
         Typically not needed as TLS is automatically freed when connection closes.
@@ -1258,7 +1259,7 @@ cdef class Manager:
             return (<uint64_t*> ev_data)[0]
         return None
 
-    def poll(self, int timeout_ms=0):
+    def poll(self, int timeout_ms=0) -> None:
         """Drive the event loop once.
 
         Thread safety note: _freed flag is checked without lock. In multi-threaded scenarios,
@@ -1275,7 +1276,7 @@ cdef class Manager:
             # Exception was set by PyErr_CheckSignals, Cython will propagate it
             pass
 
-    def listen(self, url: str, handler=None, *, http=False):
+    def listen(self, url: str, handler=None, *, http=False) -> Connection:
         """Listen on a URL; handler is optional per-listener override.
 
         When a handler is provided, accepted child connections automatically
@@ -1296,7 +1297,7 @@ cdef class Manager:
             self._listener_handlers[<unsigned long>conn.id] = handler
         return py_conn
 
-    def connect(self, url: str, handler=None, *, http=False):
+    def connect(self, url: str, handler=None, *, http=False) -> Connection:
         """Create an outbound connection and return immediately."""
         cdef bytes url_b = url.encode("utf-8")
         cdef mg_connection *conn
@@ -1310,7 +1311,7 @@ cdef class Manager:
         py_conn._handler = handler
         return py_conn
 
-    def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60):
+    def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60) -> Connection:
         """Connect to an MQTT broker.
 
         Args:
@@ -1352,7 +1353,7 @@ cdef class Manager:
         py_conn._handler = handler
         return py_conn
 
-    def mqtt_listen(self, url: str, handler=None):
+    def mqtt_listen(self, url: str, handler=None) -> Connection:
         """Listen for MQTT connections (broker mode).
 
         When a handler is provided, accepted child connections automatically
@@ -1377,7 +1378,7 @@ cdef class Manager:
             self._listener_handlers[<unsigned long>conn.id] = handler
         return py_conn
 
-    def sntp_connect(self, url: str, handler=None):
+    def sntp_connect(self, url: str, handler=None) -> Connection:
         """Connect to an SNTP (time) server.
 
         Triggers MG_EV_SNTP_TIME event when time is received.
@@ -1407,7 +1408,7 @@ cdef class Manager:
         py_conn._handler = handler
         return py_conn
 
-    def wakeup(self, connection_id: int, data: bytes = b""):
+    def wakeup(self, connection_id: int, data: bytes = b"") -> bool:
         """Send a wakeup notification to a specific connection (thread-safe).
 
         Args:
@@ -1434,7 +1435,7 @@ cdef class Manager:
             result = mg_wakeup(&self._mgr, conn_id, buf, len_data)
         return result
 
-    def timer_add(self, milliseconds: int, callback, *, repeat=False, run_now=False):
+    def timer_add(self, milliseconds: int, callback, *, repeat=False, run_now=False) -> Timer:
         """Add a timer that calls a Python callback periodically.
 
         Args:
@@ -1487,7 +1488,7 @@ cdef class Manager:
 
         return timer
 
-    def run(self, int poll_ms=100):
+    def run(self, int poll_ms=100) -> None:
         """Run the event loop, blocking until SIGINT or SIGTERM.
 
         Installs signal handlers for graceful shutdown, runs the poll loop,
@@ -1514,7 +1515,7 @@ cdef class Manager:
             _signal.signal(_signal.SIGTERM, old_term)
             self.close()
 
-    def close(self):
+    def close(self) -> None:
         """Free the underlying manager and release resources."""
         if not self._freed:
             mg_mgr_free(&self._mgr)
@@ -1555,7 +1556,7 @@ cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept wit
 
 
 # JSON utilities
-def json_get(data, path: str):
+def json_get(data, path: str) -> Optional[str]:
     """Extract a value from JSON by path (e.g., '$.user.name').
 
     Args:
@@ -1627,7 +1628,7 @@ def json_get_bool(data, path: str, default=None):
     return default
 
 
-def json_get_long(data, path: str, default=0):
+def json_get_long(data, path: str, default=0) -> int:
     """Extract an integer value from JSON by path.
 
     Args:
@@ -1648,7 +1649,7 @@ def json_get_long(data, path: str, default=0):
     return mg_json_get_long(json_str, path_b, default)
 
 
-def json_get_str(data, path: str):
+def json_get_str(data, path: str) -> Optional[str]:
     """Extract a string value from JSON by path (automatically unescapes).
 
     Args:
@@ -1702,7 +1703,7 @@ def url_encode(data: str) -> str:
 
 
 # Log level control
-def log_set(int level):
+def log_set(int level) -> None:
     """Set the Mongoose C library log verbosity level.
 
     Args:
@@ -1713,13 +1714,13 @@ def log_set(int level):
     mg_log_level = level
 
 
-def log_get():
+def log_get() -> int:
     """Return the current Mongoose C library log verbosity level."""
     return mg_log_level
 
 
 # Multipart form parsing
-def http_parse_multipart(body, offset=0):
+def http_parse_multipart(body, offset=0) -> tuple:
     """Parse the next multipart form part from HTTP body.
 
     Args:

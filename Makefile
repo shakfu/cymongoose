@@ -35,7 +35,7 @@ format:
 
 # Type check with mypy
 typecheck:
-	@uv run mypy src --exclude '.venv'
+	@uv run mypy --strict src --exclude '.venv'
 
 # Run a full quality assurance check
 qa: test lint typecheck format

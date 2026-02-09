@@ -2,9 +2,7 @@
 
 import signal
 
-import pytest
-
-from cymongoose import Manager, MG_EV_HTTP_MSG
+from cymongoose import Manager
 
 
 def _is_closed(mgr):

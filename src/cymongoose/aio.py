@@ -32,7 +32,7 @@ class AsyncManager:
 
     def __init__(
         self,
-        handler: Optional[Callable] = None,
+        handler: Optional[Callable[..., Any]] = None,
         poll_interval: int = 100,
         error_handler: Optional[Callable[[Exception], Any]] = None,
     ) -> None:
@@ -86,7 +86,7 @@ class AsyncManager:
     def listen(
         self,
         url: str,
-        handler: Optional[Callable] = None,
+        handler: Optional[Callable[..., Any]] = None,
         *,
         http: bool = False,
     ) -> Connection:
@@ -97,7 +97,7 @@ class AsyncManager:
     def connect(
         self,
         url: str,
-        handler: Optional[Callable] = None,
+        handler: Optional[Callable[..., Any]] = None,
         *,
         http: bool = False,
     ) -> Connection:
@@ -113,7 +113,7 @@ class AsyncManager:
     def mqtt_listen(
         self,
         url: str,
-        handler: Optional[Callable] = None,
+        handler: Optional[Callable[..., Any]] = None,
     ) -> Connection:
         assert self._manager is not None, "AsyncManager is not started"
         with self._lock:
@@ -122,7 +122,7 @@ class AsyncManager:
     def sntp_connect(
         self,
         url: str,
-        handler: Optional[Callable] = None,
+        handler: Optional[Callable[..., Any]] = None,
     ) -> Connection:
         assert self._manager is not None, "AsyncManager is not started"
         with self._lock:
@@ -136,7 +136,7 @@ class AsyncManager:
     def timer_add(
         self,
         ms: int,
-        callback: Callable,
+        callback: Callable[..., Any],
         *,
         repeat: bool = False,
         run_now: bool = False,

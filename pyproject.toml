@@ -1,6 +1,6 @@
 [project]
 name = "cymongoose"
-version = "0.1.8"
+version = "0.1.9"
 description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
 requires-python = ">=3.10"
