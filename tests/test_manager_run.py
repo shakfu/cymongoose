@@ -1,6 +1,5 @@
 """Tests for Manager.run() convenience method."""
 
-import os
 import signal
 
 import pytest
@@ -22,7 +21,7 @@ def test_run_exits_on_sigint():
     mgr = Manager()
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     mgr.timer_add(200, send_signal)
     mgr.run()
@@ -35,7 +34,7 @@ def test_run_exits_on_sigterm():
     mgr = Manager()
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGTERM)
+        signal.raise_signal(signal.SIGTERM)
 
     mgr.timer_add(200, send_signal)
     mgr.run()
@@ -47,7 +46,7 @@ def test_run_calls_close():
     mgr = Manager()
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     mgr.timer_add(200, send_signal)
     mgr.run()
@@ -64,7 +63,7 @@ def test_run_restores_signal_handlers():
     mgr = Manager()
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     mgr.timer_add(200, send_signal)
     mgr.run()
@@ -78,7 +77,7 @@ def test_run_custom_poll_ms():
     mgr = Manager()
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     mgr.timer_add(200, send_signal)
     mgr.run(poll_ms=50)
@@ -91,7 +90,7 @@ def test_run_processes_events():
     mgr.listen("http://0.0.0.0:0", http=True)
 
     def send_signal():
-        os.kill(os.getpid(), signal.SIGINT)
+        signal.raise_signal(signal.SIGINT)
 
     mgr.timer_add(200, send_signal)
     mgr.run()
