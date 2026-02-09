@@ -115,7 +115,7 @@ def test_file_upload_basic_server():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 
@@ -179,7 +179,7 @@ def test_file_upload_to_disk(tmp_path):
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 
@@ -256,7 +256,7 @@ def test_restful_server_api_endpoints():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 
@@ -311,7 +311,7 @@ def test_sse_server_basic():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 
@@ -359,7 +359,7 @@ def test_sse_event_format():
 
     finally:
         stop.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 

@@ -202,7 +202,10 @@ def test_tcp_echo_functionality():
             server_stop.set()
         if "client_stop" in locals():
             client_stop.set()
-        time.sleep(0.2)
+        if "client_thread" in locals():
+            client_thread.join(timeout=1)
+        if "server_thread" in locals():
+            server_thread.join(timeout=1)
         server_manager.close()
         if client_manager:
             client_manager.close()
@@ -276,7 +279,7 @@ def test_udp_echo_functionality():
     finally:
         # Stop polling thread first
         stop.set()
-        time.sleep(0.2)
+        poll_thread.join(timeout=1)
         manager.close()
 
 

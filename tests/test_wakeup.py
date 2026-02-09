@@ -110,7 +110,7 @@ def test_wakeup_from_thread():
         assert wakeup_received[0] == b"cross-thread-message"
     finally:
         stop_polling.set()
-        time.sleep(0.1)
+        poll_thread.join(timeout=1)
         manager.close()
 
 

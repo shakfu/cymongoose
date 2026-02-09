@@ -953,8 +953,10 @@ cdef class Connection:
         """
         cdef bytes user_b = username.encode("utf-8")
         cdef bytes pass_b = password.encode("utf-8")
+        cdef const char *user_c = user_b
+        cdef const char *pass_c = pass_b
         cdef mg_connection *conn = self._ptr()
-        mg_http_bauth(conn, user_b, pass_b)
+        mg_http_bauth(conn, user_c, pass_c)
 
     def sntp_request(self):
         """Send an SNTP time request.
@@ -1470,18 +1472,18 @@ cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept wit
     py_conn = manager._ensure_connection(conn)
     handler = manager._resolve_handler(py_conn)
     payload = manager._wrap_event_data(ev, ev_data)
-    if handler is None:
-        return
-    try:
-        handler(py_conn, ev, payload)
-    except Exception as exc:
-        if manager._error_handler is not None:
-            try:
-                manager._error_handler(exc)
-            except Exception:
+    if handler is not None:
+        try:
+            handler(py_conn, ev, payload)
+        except Exception as exc:
+            if manager._error_handler is not None:
+                try:
+                    manager._error_handler(exc)
+                except Exception:
+                    traceback.print_exc()
+            else:
                 traceback.print_exc()
-        else:
-            traceback.print_exc()
+    # Always clean up connection on close, even if no handler
     if ev == MG_EV_CLOSE:
         manager._drop_connection(conn)
 

@@ -31,7 +31,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 - **Event-driven**: Non-blocking I/O with a simple event loop
 - **Low overhead**: Thin Cython wrapper over native C library
 - **Python 3.9+**: Modern Python with type hints
-- **Comprehensive**: 210 tests, 100% pass rate
+- **Comprehensive**: 232 tests, 100% pass rate
 - **Production Examples**: 17 complete examples from Mongoose tutorials
 - **TLS Support**: Built-in TLS/SSL encryption (MG_TLS_BUILTIN)
 - **GIL Optimization**: 21 methods release GIL for true parallel execution
@@ -392,7 +392,7 @@ http_parse_multipart(body, offset=0)   # Parse multipart data
 
 ## Testing
 
-The project includes a comprehensive test suite with **210 tests** (100% passing):
+The project includes a comprehensive test suite with **232 tests** (100% passing):
 
 ### Test Coverage by Feature
 
@@ -425,7 +425,7 @@ The project includes a comprehensive test suite with **210 tests** (100% passing
 ### Running Tests
 
 ```sh
-make test                              # Run all tests (210 tests)
+make test                              # Run all tests (232 tests)
 PYTHONPATH=src pytest tests/ -v        # Verbose output
 pytest tests/test_http_server.py -v    # Run specific file
 pytest tests/ -k "test_timer" -v       # Run matching tests
@@ -437,8 +437,19 @@ pytest tests/examples/ -v              # Run example tests only
 - Dynamic port allocation prevents conflicts
 - Background polling threads for async operations
 - Proper cleanup in finally blocks
-- 100% pass rate (210/210 tests passing)
+- 100% pass rate (232/232 tests passing)
 - WebSocket tests require `websocket-client` (`uv add --dev websocket-client`)
+
+### Memory Safety Testing
+
+AddressSanitizer (ASAN) support is available for detecting memory errors:
+
+```sh
+make build-asan                        # Build with ASAN enabled
+make test-asan                         # Run tests with memory error detection
+```
+
+This detects use-after-free, buffer overflows, and other memory bugs at runtime.
 
 ## Development
 

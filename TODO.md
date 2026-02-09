@@ -10,7 +10,7 @@
 - [ ] **Add concurrent client tests** -- all HTTP tests currently use a single sequential
   `urllib` client.
 
-- [ ] **Add memory leak tests** -- no valgrind or similar instrumentation exists.
+- [x] **Add memory leak tests** -- Added AddressSanitizer (ASAN) support via `make build-asan` and `make test-asan`.
 
 ## Documentation
 

@@ -17,6 +17,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **AddressSanitizer (ASAN) support**: Added `make build-asan` and `make test-asan` targets for detecting memory errors (use-after-free, buffer overflows, etc.). Enabled via `USE_ASAN=1` environment variable during build.
+
+### Fixed
+
+- **Use-after-free in `_event_bridge`**: Fixed crash caused by connections not being properly cleaned up when no handler was attached. The `_event_bridge` function returned early when `handler is None`, skipping the `_drop_connection` call on `MG_EV_CLOSE` events. This left stale connection objects accessible, leading to segfaults when subsequently accessed.
+
+- **Race conditions in test cleanup**: Fixed multiple test files that used `time.sleep()` instead of `thread.join()` before `manager.close()`. Tests now properly wait for polling threads to exit before closing the manager. Affected files: `test_examples_http.py`, `test_examples_protocols.py`, `test_examples_advanced.py`, `test_wakeup.py`.
+
+### Changed
+
+- **Basic auth tests**: Updated all tests in `test_basic_auth.py` to use valid connections. Previously tests connected to `tcp://0.0.0.0:0` which immediately failed; now tests create a listening server and connect to it, ensuring a valid connection exists before calling `http_basic_auth()`.
+
 ## [0.1.8]
 
 ### Added

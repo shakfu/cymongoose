@@ -33,6 +33,9 @@ def build_extensions():
     # so nogil should be safe even with TLS enabled
     use_nogil = True  # Enable nogil for parallel execution
 
+    # AddressSanitizer configuration (USE_ASAN=1 environment variable)
+    use_asan = os.environ.get("USE_ASAN", "0") == "1"
+
     if use_tls:
         define_macros = [
             ("MG_TLS", "MG_TLS_BUILTIN"),  # Enable built-in TLS support
@@ -47,14 +50,23 @@ def build_extensions():
     if sys.platform == "darwin":
         # macOS specific flags
         extra_compile_args.extend(["-O3", "-std=c99"])
+        if use_asan:
+            extra_compile_args.extend(["-fsanitize=address", "-fno-omit-frame-pointer", "-g"])
+            extra_link_args.extend(["-fsanitize=address"])
     elif sys.platform == "linux":
         # Linux specific flags
         # _GNU_SOURCE enables POSIX extensions needed for clock_gettime, alloca, ip_mreq
         extra_compile_args.extend(["-O3", "-std=c99"])
         define_macros.append(("_GNU_SOURCE", "1"))
+        if use_asan:
+            extra_compile_args.extend(["-fsanitize=address", "-fno-omit-frame-pointer", "-g"])
+            extra_link_args.extend(["-fsanitize=address"])
     elif sys.platform == "win32":
         # Windows specific flags
         extra_compile_args.extend(["/O2"])
+        # ASAN on Windows requires MSVC /fsanitize=address (VS 2019 16.9+)
+        if use_asan:
+            extra_compile_args.extend(["/fsanitize=address"])
 
     include_dirs = ["thirdparty/mongoose"]
     libraries = []

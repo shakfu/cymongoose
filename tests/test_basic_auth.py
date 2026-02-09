@@ -2,8 +2,7 @@
 
 import pytest
 import base64
-from cymongoose import Manager, MG_EV_HTTP_MSG
-from tests.conftest import ServerThread
+from cymongoose import Manager, MG_EV_HTTP_MSG, MG_EV_ACCEPT
 
 
 def test_http_basic_auth_method_exists():
@@ -11,12 +10,16 @@ def test_http_basic_auth_method_exists():
     manager = Manager()
 
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         # Method should exist and write to send buffer
         conn.http_basic_auth("testuser", "testpass")
-        manager.poll(10)
 
         assert conn.send_len > 0
     finally:
@@ -28,11 +31,15 @@ def test_http_basic_auth_sends_header():
     manager = Manager()
 
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         conn.http_basic_auth("user", "pass")
-        manager.poll(10)
 
         # http_basic_auth writes "Authorization: Basic <b64>\r\n" to send buffer
         assert b"Authorization: Basic" in conn.send_data()
@@ -53,8 +60,13 @@ def test_http_basic_auth_format():
 
     manager = Manager()
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         conn.http_basic_auth(username, password)
 
@@ -69,8 +81,13 @@ def test_http_basic_auth_unicode():
     manager = Manager()
 
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         # Should handle unicode properly
         conn.http_basic_auth("用户", "密码")
@@ -85,8 +102,13 @@ def test_http_basic_auth_special_chars():
     manager = Manager()
 
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         # Should handle special characters
         conn.http_basic_auth("user@example.com", "p@ss:word!")
@@ -101,8 +123,13 @@ def test_http_basic_auth_empty_credentials():
     manager = Manager()
 
     try:
-        conn = manager.connect("tcp://0.0.0.0:0")
-        manager.poll(10)
+        # Create a listening server to accept the connection
+        listener = manager.listen("tcp://127.0.0.1:0")
+        port = listener.local_addr[1]
+
+        # Connect to our own server
+        conn = manager.connect(f"tcp://127.0.0.1:{port}")
+        manager.poll(50)
 
         # Should handle empty strings
         conn.http_basic_auth("", "")

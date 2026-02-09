@@ -70,6 +70,21 @@ test-fast: ## Run tests with minimal output
 test-examples: ## Run only example tests
 	PYTHONPATH=src $(PYTEST) tests/examples/ -v
 
+# Memory safety testing with AddressSanitizer
+build-asan: clean ## Build with AddressSanitizer enabled
+	USE_ASAN=1 uv sync --reinstall-package $(PROJECT)
+
+# Find ASAN library for LD_PRELOAD (required for Python extensions)
+ASAN_LIB := $(shell gcc -print-file-name=libasan.so 2>/dev/null || clang -print-file-name=libasan.so 2>/dev/null)
+
+test-asan: build-asan ## Run tests with AddressSanitizer (detects memory errors)
+	@echo "Running tests with AddressSanitizer..."
+	@echo "Using ASAN library: $(ASAN_LIB)"
+	PYTHONPATH=src LD_PRELOAD=$(ASAN_LIB) \
+		ASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1:halt_on_error=1 \
+		$(PYTEST) tests/ -v -x --tb=short
+	@echo "ASAN tests completed successfully"
+
 # Code Quality
 lint: ## Run linter (ruff)
 	@$(RUFF) check --fix src/

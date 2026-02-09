@@ -196,7 +196,10 @@ def test_http_proxy_connect_method():
     finally:
         proxy_stop.set()
         client_stop.set()
-        time.sleep(0.2)
+        if "client_thread" in locals():
+            client_thread.join(timeout=1)
+        if "proxy_thread" in locals():
+            proxy_thread.join(timeout=1)
         proxy_manager.close()
         client_manager.close()
 
@@ -249,7 +252,7 @@ def test_multithreaded_server_fast_path():
 
     finally:
         stop.set()
-        time.sleep(0.2)
+        thread.join(timeout=1)
         manager.close()
 
 
@@ -321,7 +324,7 @@ def test_multithreaded_server_wakeup_path():
 
     finally:
         stop.set()
-        time.sleep(0.2)
+        thread.join(timeout=1)
         manager.close()
 
 
@@ -399,7 +402,7 @@ def test_multithreaded_server_concurrent_requests():
 
     finally:
         stop.set()
-        time.sleep(0.2)
+        thread.join(timeout=1)
         manager.close()
 
 
