@@ -25,6 +25,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 - **README Quick Start examples**: All 3 examples (HTTP Server, Static Files, WebSocket Echo) simplified to use `mgr.run()`, cutting each from ~20 lines to ~8.
 
+### Fixed
+
+- **Per-listener handler inheritance**: `listen(url, handler=X)` now propagates handler `X` to accepted child connections. Previously, only the listener connection itself received the handler; accepted children silently fell back to the Manager's default handler, making per-listener handlers effectively dead code for servers. The fix uses Mongoose's built-in `fn_data` copy-on-accept to carry a listener ID from parent to child, which is then looked up in a `_listener_handlers` dict. `Connection.set_handler()` on a listener also propagates correctly. Backward compatible: `listen()` without a handler continues to use the Manager default. See the "Per-Listener Handlers" Quick Start example in README.md.
+
 ## [0.1.8]
 
 ### Added

@@ -44,27 +44,26 @@ class TestConnectionProperties:
         manager.close()
 
     def test_per_connection_handler(self):
-        """Test per-connection handler override on listener."""
-        handler_called = []
+        """Test per-listener handler is inherited by accepted child connections."""
+        default_events = []
+        listener_events = []
         stop = threading.Event()
 
         def default_handler(conn, event, data):
-            handler_called.append("default")
             if event == MG_EV_HTTP_MSG:
+                default_events.append("http_msg")
                 conn.reply(200, "Default")
 
         def listener_handler(conn, event, data):
-            handler_called.append("listener")
             if event == MG_EV_HTTP_MSG:
+                listener_events.append("http_msg")
                 conn.reply(200, "Listener")
 
         manager = Manager(default_handler)
         port = get_free_port()
-        listener = manager.listen(f"http://0.0.0.0:{port}", http=True)
-
-        # Set a custom handler on the listener connection
-        # This handler will be used for events on the listener itself
-        listener.set_handler(listener_handler)
+        manager.listen(
+            f"http://0.0.0.0:{port}", handler=listener_handler, http=True
+        )
 
         def run_poll():
             while not stop.is_set():
@@ -79,11 +78,234 @@ class TestConnectionProperties:
             body = response.read().decode("utf-8")
             time.sleep(0.2)
 
-            # The listener handler should be invoked for the listener connection
-            # But accepted connections inherit from the manager's default handler
-            # So we expect "default" for the HTTP message
-            assert "listener" in handler_called or "default" in handler_called
-            assert body in ["Default", "Listener"]
+            # Child connection must use the per-listener handler, not the default
+            assert body == "Listener"
+            assert len(listener_events) > 0
+            assert len(default_events) == 0
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+    def test_set_handler_on_listener_inherits(self):
+        """Test set_handler() on a listener propagates to accepted children."""
+        stop = threading.Event()
+
+        def default_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Default")
+
+        def custom_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Custom")
+
+        manager = Manager(default_handler)
+        port = get_free_port()
+        listener = manager.listen(f"http://0.0.0.0:{port}", http=True)
+        listener.set_handler(custom_handler)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+            body = response.read().decode("utf-8")
+
+            assert body == "Custom"
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+    def test_multiple_listeners_different_handlers(self):
+        """Test two listeners on different ports use their own handlers."""
+        stop = threading.Event()
+
+        def default_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Default")
+
+        def handler_a(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "HandlerA")
+
+        def handler_b(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "HandlerB")
+
+        manager = Manager(default_handler)
+        port_a = get_free_port()
+        port_b = get_free_port()
+        manager.listen(f"http://0.0.0.0:{port_a}", handler=handler_a, http=True)
+        manager.listen(f"http://0.0.0.0:{port_b}", handler=handler_b, http=True)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            resp_a = urllib.request.urlopen(
+                f"http://localhost:{port_a}/", timeout=2
+            )
+            body_a = resp_a.read().decode("utf-8")
+
+            resp_b = urllib.request.urlopen(
+                f"http://localhost:{port_b}/", timeout=2
+            )
+            body_b = resp_b.read().decode("utf-8")
+
+            assert body_a == "HandlerA"
+            assert body_b == "HandlerB"
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+    def test_listen_without_handler_uses_default(self):
+        """Test listen() without handler falls back to Manager default."""
+        stop = threading.Event()
+
+        def default_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Default")
+
+        manager = Manager(default_handler)
+        port = get_free_port()
+        manager.listen(f"http://0.0.0.0:{port}", http=True)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+            body = response.read().decode("utf-8")
+
+            assert body == "Default"
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+
+    def test_set_handler_none_clears_inheritance(self):
+        """Test set_handler(None) on listener reverts children to default."""
+        stop = threading.Event()
+
+        def default_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Default")
+
+        def custom_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Custom")
+
+        manager = Manager(default_handler)
+        port = get_free_port()
+        listener = manager.listen(f"http://0.0.0.0:{port}", http=True)
+        listener.set_handler(custom_handler)
+        # Clear -- future children should fall back to default
+        listener.set_handler(None)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            response = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+            body = response.read().decode("utf-8")
+
+            assert body == "Default"
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+    def test_no_default_handler_no_listener_handler(self):
+        """Test Manager with no default handler and listen with no handler does not crash."""
+        stop = threading.Event()
+
+        manager = Manager()  # no default handler
+        port = get_free_port()
+        manager.listen(f"http://0.0.0.0:{port}", http=True)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            # Server has no handler, so it won't reply. The request should
+            # time out, but the server must not crash.
+            try:
+                urllib.request.urlopen(f"http://localhost:{port}/", timeout=1)
+            except Exception:
+                pass  # timeout or incomplete response expected
+
+            # Verify the manager is still alive by polling without error
+            time.sleep(0.2)
+            manager.poll(0)
+        finally:
+            stop.set()
+            thread.join(timeout=1)
+            manager.close()
+
+    def test_listener_handler_persists_across_multiple_requests(self):
+        """Test per-listener handler is used for multiple sequential requests."""
+        request_count = []
+        stop = threading.Event()
+
+        def default_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.reply(200, "Default")
+
+        def listener_handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                request_count.append(1)
+                conn.reply(200, f"Request-{len(request_count)}")
+
+        manager = Manager(default_handler)
+        port = get_free_port()
+        manager.listen(
+            f"http://0.0.0.0:{port}", handler=listener_handler, http=True
+        )
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            bodies = []
+            for _ in range(3):
+                resp = urllib.request.urlopen(f"http://localhost:{port}/", timeout=2)
+                bodies.append(resp.read().decode("utf-8"))
+
+            assert bodies == ["Request-1", "Request-2", "Request-3"]
+            assert len(request_count) == 3
         finally:
             stop.set()
             thread.join(timeout=1)

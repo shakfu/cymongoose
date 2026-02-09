@@ -31,7 +31,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 - **Event-driven**: Non-blocking I/O with a simple event loop
 - **Low overhead**: Thin Cython wrapper over native C library
 - **Python 3.10+**: Modern Python with type hints
-- **Comprehensive**: 238 tests, 100% pass rate
+- **Comprehensive**: 244 tests, 100% pass rate
 - **Production Examples**: 17 complete examples from Mongoose tutorials
 - **TLS Support**: Built-in TLS/SSL encryption (MG_TLS_BUILTIN)
 - **GIL Optimization**: 21 methods release GIL for true parallel execution
@@ -65,6 +65,8 @@ Also type `make help` gives you a list of commands
 
 ## Quick Start
 
+> **Note:** These examples bind to `127.0.0.1` (localhost only). For production, use `0.0.0.0` to listen on all interfaces.
+
 ### Simple HTTP Server
 
 ```python
@@ -75,7 +77,7 @@ def handler(conn, event, data):
         conn.reply(200, "Hello, World!")
 
 mgr = Manager(handler)
-mgr.listen("http://0.0.0.0:8000", http=True)
+mgr.listen("http://127.0.0.1:8000", http=True)
 print("Server running on http://localhost:8000. Press Ctrl+C to stop.")
 mgr.run()
 ```
@@ -90,7 +92,7 @@ def handler(conn, event, data):
         conn.serve_dir(data, root_dir="./public")
 
 mgr = Manager(handler)
-mgr.listen("http://0.0.0.0:8000", http=True)
+mgr.listen("http://127.0.0.1:8000", http=True)
 mgr.run()
 ```
 
@@ -106,7 +108,28 @@ def handler(conn, event, data):
         conn.ws_send(data.text)  # Echo back
 
 mgr = Manager(handler)
-mgr.listen("http://0.0.0.0:8000", http=True)
+mgr.listen("http://127.0.0.1:8000", http=True)
+mgr.run()
+```
+
+### Per-Listener Handlers (new)
+
+Run different handlers on different ports. Accepted connections automatically inherit the handler from their listener:
+
+```python
+from cymongoose import Manager, MG_EV_HTTP_MSG
+
+def api_handler(conn, event, data):
+    if event == MG_EV_HTTP_MSG:
+        conn.reply(200, '{"status":"ok"}', {"Content-Type": "application/json\r\n"})
+
+def web_handler(conn, event, data):
+    if event == MG_EV_HTTP_MSG:
+        conn.serve_dir(data, root_dir="./public")
+
+mgr = Manager()  # no default handler needed
+mgr.listen("http://127.0.0.1:8080", handler=api_handler, http=True)
+mgr.listen("http://127.0.0.1:8090", handler=web_handler, http=True)
 mgr.run()
 ```
 
@@ -169,7 +192,7 @@ mgr = Manager(handler=None, enable_wakeup=False)
 
 - `poll(timeout_ms=0)` - Run one iteration of the event loop
 - `run(poll_ms=100)` - Run the event loop until SIGINT/SIGTERM, then close
-- `listen(url, handler=None)` - Create a listening socket
+- `listen(url, handler=None)` - Create a listening socket (handler is inherited by accepted children)
 - `connect(url, handler=None)` - Create an outbound connection
 - `close()` - Free resources
 
@@ -235,6 +258,8 @@ conn.is_writable                   # Can write?
 conn.is_full                       # Buffer full? (backpressure)
 conn.is_draining                   # Draining before close?
 conn.id                            # Connection ID
+conn.handler                       # Current handler
+conn.set_handler(fn)               # Set handler (propagates to children if listener)
 conn.userdata                      # Custom Python object
 conn.local_addr                    # (ip, port) tuple
 conn.remote_addr                   # (ip, port) tuple
@@ -348,7 +373,7 @@ http_parse_multipart(body, offset=0)   # Parse multipart data
 
 ## Testing
 
-The project includes a comprehensive test suite with **238 tests** (100% passing):
+The project includes a comprehensive test suite with **244 tests** (100% passing):
 
 ### Test Coverage by Feature
 
@@ -381,7 +406,7 @@ The project includes a comprehensive test suite with **238 tests** (100% passing
 ### Running Tests
 
 ```sh
-make test                                          # Run all tests (238 tests)
+make test                                          # Run all tests (244 tests)
 uv run python -m pytest tests/ -v                  # Verbose output
 uv run python -m pytest tests/test_http_server.py  # Run specific file
 uv run python -m pytest tests/ -k "test_timer"     # Run matching tests
@@ -393,7 +418,7 @@ uv run python -m pytest tests/examples/            # Run example tests only
 - Dynamic port allocation prevents conflicts
 - Background polling threads for async operations
 - Proper cleanup in finally blocks
-- 100% pass rate (238/238 tests passing)
+- 100% pass rate (244/244 tests passing)
 - WebSocket tests require `websocket-client` (`uv add --dev websocket-client`)
 
 ### Memory Safety Testing

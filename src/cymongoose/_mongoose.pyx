@@ -502,8 +502,22 @@ cdef class Connection:
         return self._handler
 
     def set_handler(self, handler):
-        """Assign a per-connection event handler."""
+        """Assign a per-connection event handler.
+
+        When called on a listener, future accepted child connections will
+        inherit this handler automatically.
+        """
         self._handler = handler
+        if self._conn != NULL and self._conn.is_listening and self._manager is not None:
+            if handler is not None:
+                self._conn.fn_data = <void*><uintptr_t>self._conn.id
+                self._manager._listener_handlers[<unsigned long>self._conn.id] = handler
+            else:
+                if self._conn.fn_data != NULL:
+                    self._manager._listener_handlers.pop(
+                        <unsigned long><uintptr_t>self._conn.fn_data, None
+                    )
+                    self._conn.fn_data = NULL
 
     @property
     def userdata(self):
@@ -1148,6 +1162,7 @@ cdef class Manager:
     cdef object _default_handler
     cdef object _error_handler
     cdef dict _connections
+    cdef dict _listener_handlers
     cdef PyObject *_self_ref
     cdef bint _freed
 
@@ -1155,6 +1170,7 @@ cdef class Manager:
         self._default_handler = handler
         self._error_handler = error_handler
         self._connections = {}
+        self._listener_handlers = {}
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
         mg_mgr_init(&self._mgr)
@@ -1176,10 +1192,16 @@ cdef class Manager:
     cdef Connection _ensure_connection(self, mg_connection *conn):
         cdef uintptr_t key = <uintptr_t> conn
         cdef Connection py_conn
+        cdef unsigned long listener_id
         py_conn = self._connections.get(key, None)
         if py_conn is None:
             py_conn = Connection.__new__(Connection)
-            py_conn._bind(self, conn, None)
+            # Check if this connection inherited fn_data from a listener
+            handler = None
+            if conn.fn_data != NULL:
+                listener_id = <unsigned long><uintptr_t>conn.fn_data
+                handler = self._listener_handlers.get(listener_id, None)
+            py_conn._bind(self, conn, handler)
             self._connections[key] = py_conn
         elif py_conn._conn == NULL:
             py_conn._conn = conn
@@ -1188,6 +1210,9 @@ cdef class Manager:
     cdef void _drop_connection(self, mg_connection *conn):
         cdef uintptr_t key = <uintptr_t> conn
         cdef Connection py_conn
+        # Clean up listener handler entry if this was a listener with fn_data
+        if conn.is_listening and conn.fn_data != NULL:
+            self._listener_handlers.pop(<unsigned long><uintptr_t>conn.fn_data, None)
         py_conn = self._connections.pop(key, None)
         if py_conn is not None:
             py_conn._conn = <mg_connection*>NULL
@@ -1251,7 +1276,11 @@ cdef class Manager:
             pass
 
     def listen(self, url: str, handler=None, *, http=False):
-        """Listen on a URL; handler is optional per-listener override."""
+        """Listen on a URL; handler is optional per-listener override.
+
+        When a handler is provided, accepted child connections automatically
+        inherit it (via mongoose's fn_data copy on accept).
+        """
         cdef bytes url_b = url.encode("utf-8")
         cdef mg_connection *conn
         if http:
@@ -1262,6 +1291,9 @@ cdef class Manager:
             raise RuntimeError(f"Failed to listen on '{url}'")
         py_conn = self._ensure_connection(conn)
         py_conn._handler = handler
+        if handler is not None:
+            conn.fn_data = <void*><uintptr_t>conn.id
+            self._listener_handlers[<unsigned long>conn.id] = handler
         return py_conn
 
     def connect(self, url: str, handler=None, *, http=False):
@@ -1323,6 +1355,9 @@ cdef class Manager:
     def mqtt_listen(self, url: str, handler=None):
         """Listen for MQTT connections (broker mode).
 
+        When a handler is provided, accepted child connections automatically
+        inherit it (via mongoose's fn_data copy on accept).
+
         Args:
             url: Listen URL (e.g., 'mqtt://0.0.0.0:1883')
             handler: Event handler callback
@@ -1337,6 +1372,9 @@ cdef class Manager:
 
         py_conn = self._ensure_connection(conn)
         py_conn._handler = handler
+        if handler is not None:
+            conn.fn_data = <void*><uintptr_t>conn.id
+            self._listener_handlers[<unsigned long>conn.id] = handler
         return py_conn
 
     def sntp_connect(self, url: str, handler=None):
@@ -1482,6 +1520,7 @@ cdef class Manager:
             mg_mgr_free(&self._mgr)
             self._freed = True
             self._connections.clear()
+            self._listener_handlers.clear()
             self._mgr.userdata = NULL
 
 
