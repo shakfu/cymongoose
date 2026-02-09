@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   test:
@@ -39,6 +40,7 @@ jobs:
 
       - name: Install package
         run: uv pip install dist/*.whl
+        shell: bash
 
       - name: Run tests
         if: runner.os != 'Windows'
