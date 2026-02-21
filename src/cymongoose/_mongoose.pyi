@@ -365,10 +365,32 @@ class Connection:
     ) -> None:
         """Send a HTTP reply (final response).
 
+        ``Content-Type: text/plain`` is added automatically when *headers*
+        is ``None`` or when the provided dict does not contain a
+        ``Content-Type`` key (case-insensitive).
+
         Args:
             status_code: HTTP status code (e.g., 200, 404)
             body: Response body (str will be UTF-8 encoded)
             headers: Optional dict of headers
+        """
+        ...
+
+    def reply_json(
+        self,
+        data: Any,
+        status_code: int = 200,
+        headers: Optional[Dict[str, str]] = None,
+    ) -> None:
+        """Send a JSON HTTP reply.
+
+        Serialises *data* with ``json.dumps`` and sets
+        ``Content-Type: application/json``.
+
+        Args:
+            data: JSON-serialisable object
+            status_code: HTTP status code (default 200)
+            headers: Optional extra headers (Content-Type is always set)
         """
         ...
 
@@ -653,6 +675,8 @@ class Manager:
         """
         ...
 
+    def __enter__(self) -> "Manager": ...
+    def __exit__(self, *exc: Any) -> bool: ...
     def poll(self, timeout_ms: int = 0) -> None:
         """Drive the event loop once.
 
@@ -668,14 +692,24 @@ class Manager:
         ...
 
     def listen(
-        self, url: str, handler: Optional[EventHandler] = None, *, http: bool = False
+        self, url: str, handler: Optional[EventHandler] = None, *, http: Optional[bool] = None
     ) -> Connection:
         """Listen on a URL; handler is optional per-listener override.
+
+        The ``http`` flag is inferred from the URL scheme when not provided
+        explicitly: ``http://``, ``https://``, ``ws://``, ``wss://`` all
+        enable HTTP protocol parsing.  Pass ``http=False`` to override.
+
+        To listen on an OS-assigned port, pass port 0 and read the actual
+        port from the returned connection::
+
+            listener = mgr.listen("http://0.0.0.0:0")
+            port = listener.local_addr[1]
 
         Args:
             url: URL to listen on (e.g., "http://0.0.0.0:8000", "tcp://0.0.0.0:1234")
             handler: Optional per-connection handler (overrides default)
-            http: If True, use HTTP protocol handler
+            http: Enable HTTP protocol handler (inferred from scheme if None)
 
         Returns:
             Listener connection object
@@ -686,14 +720,18 @@ class Manager:
         ...
 
     def connect(
-        self, url: str, handler: Optional[EventHandler] = None, *, http: bool = False
+        self, url: str, handler: Optional[EventHandler] = None, *, http: Optional[bool] = None
     ) -> Connection:
         """Create an outbound connection and return immediately.
+
+        The ``http`` flag is inferred from the URL scheme when not provided
+        explicitly: ``http://``, ``https://``, ``ws://``, ``wss://`` all
+        enable HTTP protocol parsing.  Pass ``http=False`` to override.
 
         Args:
             url: URL to connect to (e.g., "http://example.com", "tcp://example.com:1234")
             handler: Optional per-connection handler (overrides default)
-            http: If True, use HTTP protocol handler
+            http: Enable HTTP protocol handler (inferred from scheme if None)
 
         Returns:
             Connection object
@@ -835,6 +873,11 @@ class Manager:
         """
         ...
 
+    @property
+    def connections(self) -> Tuple[Connection, ...]:
+        """Return a snapshot of all active connections as a tuple."""
+        ...
+
     def close(self) -> None:
         """Free the underlying manager and release resources."""
         ...
@@ -956,4 +999,17 @@ def log_set(level: int) -> None:
 
 def log_get() -> int:
     """Return the current Mongoose C library log verbosity level."""
+    ...
+
+def event_name(ev: int) -> str:
+    """Return a human-readable name for a Mongoose event constant.
+
+    Args:
+        ev: Event constant (e.g., MG_EV_HTTP_MSG)
+
+    Returns:
+        Event name string (e.g., "MG_EV_HTTP_MSG"). Returns
+        "MG_EV_USER+N" for user events and "MG_EV_UNKNOWN(N)" for
+        unrecognised values.
+    """
     ...

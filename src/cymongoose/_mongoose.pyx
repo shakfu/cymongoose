@@ -5,15 +5,9 @@ Cython bindings that expose a Python-friendly interface to the Mongoose
 embedded networking library.
 """
 
-# USE_NOGIL compile-time constant set via setup.py compile_time_env
-# When 1: nogil is used for parallel execution (releases GIL for C calls)
-# When 0: GIL is held for all C calls
-# Configured in setup.py: USE_NOGIL = use_nogil
-# NOTE: Mongoose's built-in TLS is event-loop based with no locks, so nogil is safe with TLS
-IF USE_NOGIL:
-    USE_NOGIL_ENABLED = True
-ELSE:
-    USE_NOGIL_ENABLED = False
+# nogil is always enabled: all C calls release the GIL for parallel execution.
+# Mongoose's built-in TLS is event-loop based with no locks, so nogil is safe with TLS.
+USE_NOGIL_ENABLED = True
 
 from cpython.ref cimport PyObject, Py_INCREF, Py_DECREF
 from cpython.bytes cimport PyBytes_FromStringAndSize
@@ -196,6 +190,7 @@ __all__ = [
     "json_get_str",
     "url_encode",
     "http_parse_multipart",
+    "event_name",
     "log_set",
     "log_get",
     "MG_LL_NONE",
@@ -237,6 +232,55 @@ MG_LL_ERROR = C_MG_LL_ERROR
 MG_LL_INFO = C_MG_LL_INFO
 MG_LL_DEBUG = C_MG_LL_DEBUG
 MG_LL_VERBOSE = C_MG_LL_VERBOSE
+
+_EVENT_NAMES = {
+    C_MG_EV_ERROR: "MG_EV_ERROR",
+    C_MG_EV_OPEN: "MG_EV_OPEN",
+    C_MG_EV_POLL: "MG_EV_POLL",
+    C_MG_EV_RESOLVE: "MG_EV_RESOLVE",
+    C_MG_EV_CONNECT: "MG_EV_CONNECT",
+    C_MG_EV_ACCEPT: "MG_EV_ACCEPT",
+    C_MG_EV_TLS_HS: "MG_EV_TLS_HS",
+    C_MG_EV_READ: "MG_EV_READ",
+    C_MG_EV_WRITE: "MG_EV_WRITE",
+    C_MG_EV_CLOSE: "MG_EV_CLOSE",
+    C_MG_EV_HTTP_HDRS: "MG_EV_HTTP_HDRS",
+    C_MG_EV_HTTP_MSG: "MG_EV_HTTP_MSG",
+    C_MG_EV_WS_OPEN: "MG_EV_WS_OPEN",
+    C_MG_EV_WS_MSG: "MG_EV_WS_MSG",
+    C_MG_EV_WS_CTL: "MG_EV_WS_CTL",
+    C_MG_EV_MQTT_CMD: "MG_EV_MQTT_CMD",
+    C_MG_EV_MQTT_MSG: "MG_EV_MQTT_MSG",
+    C_MG_EV_MQTT_OPEN: "MG_EV_MQTT_OPEN",
+    C_MG_EV_SNTP_TIME: "MG_EV_SNTP_TIME",
+    C_MG_EV_WAKEUP: "MG_EV_WAKEUP",
+    C_MG_EV_USER: "MG_EV_USER",
+}
+
+
+def event_name(int ev) -> str:
+    """Return a human-readable name for an event constant.
+
+    Args:
+        ev: Event constant (e.g., MG_EV_HTTP_MSG)
+
+    Returns:
+        Name string (e.g., "MG_EV_HTTP_MSG") or "MG_EV_UNKNOWN(<value>)"
+        for unrecognised values.
+    """
+    name = _EVENT_NAMES.get(ev)
+    if name is not None:
+        return name
+    if ev >= C_MG_EV_USER:
+        return f"MG_EV_USER+{ev - C_MG_EV_USER}"
+    return f"MG_EV_UNKNOWN({ev})"
+
+
+cdef inline bint _infer_http(str url):
+    """Return True if the URL scheme implies HTTP protocol parsing."""
+    cdef str lower = url[:8].lower()
+    return (lower.startswith("http://") or lower.startswith("https://")
+            or lower.startswith("ws://") or lower.startswith("wss://"))
 
 
 cdef inline bytes _mg_str_to_bytes(mg_str value):
@@ -541,59 +585,33 @@ cdef class Connection:
     def is_closing(self) -> bool:
         return self._conn.is_closing != 0 if self._conn != NULL else True
 
-    @property
-    def local_addr(self):
-        """Return local address as (ip, port, is_ipv6) tuple."""
-        if self._conn == NULL:
-            return None
-        cdef mg_addr addr
-        cdef uint16_t net_port
-        cdef uint16_t host_port
-        cdef bint is_ipv6
-
-        # Copy addr struct and convert port
-        addr = self._conn.loc
-        net_port = addr.port
-        host_port = ntohs(net_port)
-        is_ipv6 = addr.is_ip6
+    cdef _format_addr(self, mg_addr *addr):
+        """Format an mg_addr as (ip_str, port, is_ipv6) tuple."""
+        cdef uint16_t host_port = ntohs(addr.port)
+        cdef bint is_ipv6 = addr.is_ip6
 
         if is_ipv6:
-            # IPv6 address formatting
             parts = []
             for i in range(8):
                 parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")
             ip_str = ":".join(parts)
         else:
-            # IPv4 address
             ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
         return (ip_str, host_port, bool(is_ipv6))
+
+    @property
+    def local_addr(self):
+        """Return local address as (ip, port, is_ipv6) tuple."""
+        if self._conn == NULL:
+            return None
+        return self._format_addr(&self._conn.loc)
 
     @property
     def remote_addr(self):
         """Return remote address as (ip, port, is_ipv6) tuple."""
         if self._conn == NULL:
             return None
-        cdef mg_addr addr
-        cdef uint16_t net_port
-        cdef uint16_t host_port
-        cdef bint is_ipv6
-
-        # Copy addr struct and convert port
-        addr = self._conn.rem
-        net_port = addr.port
-        host_port = ntohs(net_port)
-        is_ipv6 = addr.is_ip6
-
-        if is_ipv6:
-            # IPv6 address formatting
-            parts = []
-            for i in range(8):
-                parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")
-            ip_str = ":".join(parts)
-        else:
-            # IPv4 address
-            ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
-        return (ip_str, host_port, bool(is_ipv6))
+        return self._format_addr(&self._conn.rem)
 
     def send(self, data) -> None:
         """Send raw bytes to the peer."""
@@ -606,10 +624,7 @@ cdef class Connection:
         cdef size_t length = len(payload)
         cdef mg_connection *conn = self._ptr()
         cdef bint result
-        IF USE_NOGIL:
-            with nogil:
-                result = mg_send(conn, buf, length)
-        ELSE:
+        with nogil:
             result = mg_send(conn, buf, length)
         if not result:
             raise RuntimeError("mg_send failed")
@@ -624,6 +639,8 @@ cdef class Connection:
             header_lines = ["Content-Type: text/plain\r\n"]
         else:
             header_lines = [f"{k}: {v}\r\n" for k, v in headers.items()]
+            if not any(k.lower() == "content-type" for k in headers):
+                header_lines.insert(0, "Content-Type: text/plain\r\n")
         headers_bytes = "".join(header_lines).encode("utf-8")
         # Keep Python bytes objects alive during nogil C call - pointers reference their buffers
         cdef bytes headers_b = headers_bytes
@@ -632,11 +649,30 @@ cdef class Connection:
         cdef const char *body_fmt_c = b"%s"
         cdef const char *body_c = body_b
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
-        ELSE:
+        with nogil:
             mg_http_reply(conn, status_code, headers_c, body_fmt_c, body_c)
+
+    def reply_json(self, data, int status_code=200, headers=None) -> None:
+        """Send a JSON HTTP reply.
+
+        Serialises *data* with ``json.dumps``, sets ``Content-Type`` to
+        ``application/json``, and sends the response.
+
+        Args:
+            data: Any JSON-serialisable Python object.
+            status_code: HTTP status code (default 200).
+            headers: Optional dict of extra headers.  A ``Content-Type``
+                entry is added automatically and will override any
+                user-supplied value.
+        """
+        import json as _json
+        body = _json.dumps(data)
+        if headers is None:
+            merged = {"Content-Type": "application/json"}
+        else:
+            merged = dict(headers)
+            merged["Content-Type"] = "application/json"
+        self.reply(status_code, body, merged)
 
     def serve_dir(self, HttpMessage message, root_dir: str, extra_headers: str = "", mime_types: str = "", page404: str = "") -> None:
         """Serve files from a directory using Mongoose's built-in static handler."""
@@ -661,10 +697,7 @@ cdef class Connection:
             opts.page404 = page404_b
         cdef mg_connection *conn = self._ptr()
         cdef mg_http_message *msg = message._msg
-        IF USE_NOGIL:
-            with nogil:
-                mg_http_serve_dir(conn, msg, &opts)
-        ELSE:
+        with nogil:
             mg_http_serve_dir(conn, msg, &opts)
 
     def serve_file(self, HttpMessage message, path: str, extra_headers: str = "", mime_types: str = "") -> None:
@@ -686,10 +719,7 @@ cdef class Connection:
         cdef mg_connection *conn = self._ptr()
         cdef mg_http_message *msg = message._msg
         cdef const char *path_c = path_b
-        IF USE_NOGIL:
-            with nogil:
-                mg_http_serve_file(conn, msg, path_c, &opts)
-        ELSE:
+        with nogil:
             mg_http_serve_file(conn, msg, path_c, &opts)
 
     def ws_upgrade(self, HttpMessage message, extra_headers=None) -> None:
@@ -712,10 +742,7 @@ cdef class Connection:
 
         cdef mg_connection *conn = self._ptr()
         cdef mg_http_message *msg = message._msg
-        IF USE_NOGIL:
-            with nogil:
-                mg_ws_upgrade(conn, msg, fmt)
-        ELSE:
+        with nogil:
             mg_ws_upgrade(conn, msg, fmt)
 
     def ws_send(self, data, op=WEBSOCKET_OP_TEXT) -> None:
@@ -729,10 +756,7 @@ cdef class Connection:
         cdef size_t length = len(payload_b)
         cdef mg_connection *conn = self._ptr()
         cdef int op_c = op
-        IF USE_NOGIL:
-            with nogil:
-                mg_ws_send(conn, buf, length, op_c)
-        ELSE:
+        with nogil:
             mg_ws_send(conn, buf, length, op_c)
 
     def mqtt_pub(self, topic: str, message, qos=0, retain=False) -> int:
@@ -764,10 +788,7 @@ cdef class Connection:
 
         cdef mg_connection *conn = self._ptr()
         cdef uint16_t msg_id
-        IF USE_NOGIL:
-            with nogil:
-                msg_id = mg_mqtt_pub(conn, &opts)
-        ELSE:
+        with nogil:
             msg_id = mg_mqtt_pub(conn, &opts)
         return msg_id
 
@@ -786,28 +807,19 @@ cdef class Connection:
         opts.qos = qos
 
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_mqtt_sub(conn, &opts)
-        ELSE:
+        with nogil:
             mg_mqtt_sub(conn, &opts)
 
     def mqtt_ping(self) -> None:
         """Send MQTT ping."""
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_mqtt_ping(conn)
-        ELSE:
+        with nogil:
             mg_mqtt_ping(conn)
 
-    def mqtt_pong(self):
+    def mqtt_pong(self) -> None:
         """Send MQTT pong."""
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_mqtt_pong(conn)
-        ELSE:
+        with nogil:
             mg_mqtt_pong(conn)
 
     def mqtt_disconnect(self) -> None:
@@ -818,10 +830,7 @@ cdef class Connection:
         cdef mg_mqtt_opts opts
         memset(&opts, 0, sizeof(opts))
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_mqtt_disconnect(conn, &opts)
-        ELSE:
+        with nogil:
             mg_mqtt_disconnect(conn, &opts)
 
     def error(self, message: str) -> None:
@@ -833,7 +842,8 @@ cdef class Connection:
         cdef bytes msg_b = message.encode("utf-8")
         cdef mg_connection *conn = self._ptr()
         cdef const char *msg_ptr = msg_b
-        mg_error(conn, b"%s", <char*>msg_ptr)
+        with nogil:
+            mg_error(conn, b"%s", <char*>msg_ptr)
 
     @property
     def is_client(self) -> bool:
@@ -942,19 +952,13 @@ cdef class Connection:
         cdef bytes url_b = url.encode("utf-8")
         cdef const char *url_c = url_b
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_resolve(conn, url_c)
-        ELSE:
+        with nogil:
             mg_resolve(conn, url_c)
 
     def resolve_cancel(self) -> None:
         """Cancel an ongoing DNS resolution."""
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_resolve_cancel(conn)
-        ELSE:
+        with nogil:
             mg_resolve_cancel(conn)
 
     def http_basic_auth(self, username: str, password: str) -> None:
@@ -980,10 +984,7 @@ cdef class Connection:
         Triggers MG_EV_SNTP_TIME event when response is received.
         """
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_sntp_request(conn)
-        ELSE:
+        with nogil:
             mg_sntp_request(conn)
 
     def http_chunk(self, data) -> None:
@@ -1015,18 +1016,12 @@ cdef class Connection:
 
         if len(chunk_data) == 0:
             # Empty chunk signals end
-            IF USE_NOGIL:
-                with nogil:
-                    mg_http_write_chunk(conn, NULL, 0)
-            ELSE:
+            with nogil:
                 mg_http_write_chunk(conn, NULL, 0)
         else:
             buf_ptr = chunk_data
             buf_len = len(chunk_data)
-            IF USE_NOGIL:
-                with nogil:
-                    mg_http_write_chunk(conn, buf_ptr, buf_len)
-            ELSE:
+            with nogil:
                 mg_http_write_chunk(conn, buf_ptr, buf_len)
 
     def http_sse(self, event_type: str, data: str) -> None:
@@ -1056,10 +1051,7 @@ cdef class Connection:
         cdef mg_connection *conn = self._ptr()
         cdef const char *msg_ptr = sse_msg
         cdef size_t msg_len = len(sse_msg)
-        IF USE_NOGIL:
-            with nogil:
-                mg_http_write_chunk(conn, msg_ptr, msg_len)
-        ELSE:
+        with nogil:
             mg_http_write_chunk(conn, msg_ptr, msg_len)
 
     def close(self) -> None:
@@ -1069,10 +1061,7 @@ cdef class Connection:
         """
         cdef mg_connection *conn = self._conn
         if conn != NULL:
-            IF USE_NOGIL:
-                with nogil:
-                    mg_close_conn(conn)
-            ELSE:
+            with nogil:
                 mg_close_conn(conn)
 
     def drain(self) -> None:
@@ -1132,10 +1121,7 @@ cdef class Connection:
         c_opts.skip_verification = 1 if opts.skip_verification else 0
 
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_tls_init(conn, &c_opts)
-        ELSE:
+        with nogil:
             mg_tls_init(conn, &c_opts)
 
     def tls_free(self) -> None:
@@ -1144,10 +1130,7 @@ cdef class Connection:
         Typically not needed as TLS is automatically freed when connection closes.
         """
         cdef mg_connection *conn = self._ptr()
-        IF USE_NOGIL:
-            with nogil:
-                mg_tls_free(conn)
-        ELSE:
+        with nogil:
             mg_tls_free(conn)
 
     def __repr__(self):
@@ -1182,15 +1165,28 @@ cdef class Manager:
                 raise RuntimeError("Failed to initialize wakeup support")
 
     def __dealloc__(self):
-        if not self._freed:
-            mg_mgr_free(&self._mgr)
-            self._freed = True
-        self._mgr.userdata = NULL
+        self._cleanup()
         if self._self_ref != NULL:
             Py_DECREF(<object>self._self_ref)
             self._self_ref = NULL
 
+    cdef void _cleanup(self):
+        """Shared cleanup used by both close() and __dealloc__."""
+        if not self._freed:
+            mg_mgr_free(&self._mgr)
+            self._freed = True
+            self._connections.clear()
+            self._listener_handlers.clear()
+            self._mgr.userdata = NULL
+
     cdef Connection _ensure_connection(self, mg_connection *conn):
+        # _connections is keyed by the raw mg_connection* address cast to
+        # uintptr_t.  If Mongoose frees a connection and later allocates a new
+        # one at the same address, a stale entry could cause confusion.  This
+        # is safe because _drop_connection (called on MG_EV_CLOSE) removes the
+        # entry before the C struct is freed, and Mongoose's single-threaded
+        # event loop guarantees MG_EV_CLOSE is fully processed before the
+        # address can be recycled.
         cdef uintptr_t key = <uintptr_t> conn
         cdef Connection py_conn
         cdef unsigned long listener_id
@@ -1222,6 +1218,15 @@ cdef class Manager:
         if conn._handler is not None:
             return conn._handler
         return self._default_handler
+
+    cdef bint _ev_has_data(self, int ev) noexcept:
+        """Return True if *ev* can carry meaningful event data."""
+        return (ev == MG_EV_HTTP_MSG or ev == MG_EV_HTTP_HDRS
+                or ev == MG_EV_WS_OPEN or ev == MG_EV_WS_MSG
+                or ev == MG_EV_MQTT_MSG or ev == MG_EV_MQTT_CMD
+                or ev == MG_EV_MQTT_OPEN
+                or ev == MG_EV_ERROR or ev == MG_EV_WAKEUP
+                or ev == C_MG_EV_SNTP_TIME)
 
     cdef object _wrap_event_data(self, int ev, void *ev_data):
         cdef HttpMessage view
@@ -1259,6 +1264,26 @@ cdef class Manager:
             return (<uint64_t*> ev_data)[0]
         return None
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        self.close()
+        return False
+
+    @property
+    def connections(self) -> tuple:
+        """Return a snapshot of all active connections.
+
+        Returns a tuple (immutable) of Connection objects.  Useful for
+        broadcast patterns such as sending a message to every connected
+        WebSocket client.
+
+        The snapshot is taken at call time; connections that open or close
+        after the call are not reflected.
+        """
+        return tuple(self._connections.values())
+
     def poll(self, int timeout_ms=0) -> None:
         """Drive the event loop once.
 
@@ -1276,15 +1301,26 @@ cdef class Manager:
             # Exception was set by PyErr_CheckSignals, Cython will propagate it
             pass
 
-    def listen(self, url: str, handler=None, *, http=False) -> Connection:
+    def listen(self, url: str, handler=None, *, http=None) -> Connection:
         """Listen on a URL; handler is optional per-listener override.
 
         When a handler is provided, accepted child connections automatically
         inherit it (via mongoose's fn_data copy on accept).
+
+        The ``http`` flag is inferred from the URL scheme when not provided
+        explicitly: ``http://``, ``https://``, ``ws://``, ``wss://`` all
+        enable HTTP protocol parsing.  Pass ``http=False`` to override.
+
+        To listen on an OS-assigned port, pass port 0 and read the actual
+        port from the returned connection::
+
+            listener = mgr.listen("http://0.0.0.0:0")
+            port = listener.local_addr[1]
         """
         cdef bytes url_b = url.encode("utf-8")
         cdef mg_connection *conn
-        if http:
+        cdef bint use_http = _infer_http(url) if http is None else bool(http)
+        if use_http:
             conn = mg_http_listen(&self._mgr, url_b, _event_bridge, NULL)
         else:
             conn = mg_listen(&self._mgr, url_b, _event_bridge, NULL)
@@ -1297,11 +1333,17 @@ cdef class Manager:
             self._listener_handlers[<unsigned long>conn.id] = handler
         return py_conn
 
-    def connect(self, url: str, handler=None, *, http=False) -> Connection:
-        """Create an outbound connection and return immediately."""
+    def connect(self, url: str, handler=None, *, http=None) -> Connection:
+        """Create an outbound connection and return immediately.
+
+        The ``http`` flag is inferred from the URL scheme when not provided
+        explicitly: ``http://``, ``https://``, ``ws://``, ``wss://`` all
+        enable HTTP protocol parsing.  Pass ``http=False`` to override.
+        """
         cdef bytes url_b = url.encode("utf-8")
         cdef mg_connection *conn
-        if http:
+        cdef bint use_http = _infer_http(url) if http is None else bool(http)
+        if use_http:
             conn = mg_http_connect(&self._mgr, url_b, _event_bridge, NULL)
         else:
             conn = mg_connect(&self._mgr, url_b, _event_bridge, NULL)
@@ -1428,10 +1470,7 @@ cdef class Manager:
         cdef size_t len_data = len(data_b)
         cdef unsigned long conn_id = <unsigned long>connection_id
         cdef bint result
-        IF USE_NOGIL:
-            with nogil:
-                result = mg_wakeup(&self._mgr, conn_id, buf, len_data)
-        ELSE:
+        with nogil:
             result = mg_wakeup(&self._mgr, conn_id, buf, len_data)
         return result
 
@@ -1517,12 +1556,7 @@ cdef class Manager:
 
     def close(self) -> None:
         """Free the underlying manager and release resources."""
-        if not self._freed:
-            mg_mgr_free(&self._mgr)
-            self._freed = True
-            self._connections.clear()
-            self._listener_handlers.clear()
-            self._mgr.userdata = NULL
+        self._cleanup()
 
 
 cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept with gil:
@@ -1538,7 +1572,10 @@ cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept wit
     manager = <Manager> manager_obj
     py_conn = manager._ensure_connection(conn)
     handler = manager._resolve_handler(py_conn)
-    payload = manager._wrap_event_data(ev, ev_data)
+    # Skip _wrap_event_data for events that never carry data (POLL, WRITE,
+    # OPEN, CLOSE, ACCEPT, CONNECT, READ, TLS_HS, RESOLVE, WS_CTL).
+    cdef bint has_data = manager._ev_has_data(ev)
+    payload = manager._wrap_event_data(ev, ev_data) if has_data else None
     if handler is not None:
         try:
             handler(py_conn, ev, payload)
@@ -1550,6 +1587,14 @@ cdef void _event_bridge(mg_connection *conn, int ev, void *ev_data) noexcept wit
                     traceback.print_exc()
             else:
                 traceback.print_exc()
+    # Invalidate message views so stored references cannot dereference freed C memory
+    if has_data and payload is not None:
+        if isinstance(payload, HttpMessage):
+            (<HttpMessage>payload)._msg = NULL
+        elif isinstance(payload, WsMessage):
+            (<WsMessage>payload)._msg = NULL
+        elif isinstance(payload, MqttMessage):
+            (<MqttMessage>payload)._msg = NULL
     # Always clean up connection on close, even if no handler
     if ev == MG_EV_CLOSE:
         manager._drop_connection(conn)
@@ -1791,12 +1836,3 @@ cdef class Timer:
             Py_DECREF(<object>self._callback_ref)
             self._callback_ref = NULL
 
-    cdef void _set_timer(self, mg_timer *timer, object callback):
-        self._timer = timer
-        self._callback = callback
-        # Keep callback alive
-        self._callback_ref = <PyObject*> callback
-        Py_INCREF(callback)
-
-
-# Add timer_add to Manager class - find the Manager.close() method and add before it

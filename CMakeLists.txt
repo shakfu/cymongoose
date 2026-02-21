@@ -3,6 +3,9 @@ project(${SKBUILD_PROJECT_NAME} VERSION ${SKBUILD_PROJECT_VERSION} LANGUAGES C)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Vendored Mongoose C library version (thirdparty/mongoose/)
+set(MONGOOSE_VERSION "7.19")
+
 find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 
 # Cythonize _mongoose.pyx -> _mongoose.c
@@ -10,7 +13,6 @@ add_custom_command(
     OUTPUT _mongoose.c
     COMMAND Python::Interpreter -m cython
         -X embedsignature=True
-        -E USE_NOGIL=1
         "${CMAKE_CURRENT_SOURCE_DIR}/src/cymongoose/_mongoose.pyx"
         --output-file _mongoose.c
     DEPENDS

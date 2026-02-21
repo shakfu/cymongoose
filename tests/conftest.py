@@ -22,6 +22,7 @@ class ServerThread:
         self.manager = None
         self.thread = None
         self.stop_flag = threading.Event()
+        self.ready = threading.Event()
         self.port = get_free_port()
 
     def __enter__(self):
@@ -30,16 +31,15 @@ class ServerThread:
         def run_server():
             self.manager = Manager(self.handler)
             self.manager.listen(f"http://0.0.0.0:{self.port}", http=self.http)
+            self.ready.set()
             while not self.stop_flag.is_set():
                 self.manager.poll(100)
 
         self.thread = threading.Thread(target=run_server, daemon=True)
         self.thread.start()
 
-        # Give server time to start
-        import time
-
-        time.sleep(0.3)
+        if not self.ready.wait(timeout=5):
+            raise RuntimeError("Server failed to start within 5 seconds")
 
         return self.port
 

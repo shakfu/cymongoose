@@ -88,7 +88,7 @@ class AsyncManager:
         url: str,
         handler: Optional[Callable[..., Any]] = None,
         *,
-        http: bool = False,
+        http: Optional[bool] = None,
     ) -> Connection:
         assert self._manager is not None, "AsyncManager is not started"
         with self._lock:
@@ -99,7 +99,7 @@ class AsyncManager:
         url: str,
         handler: Optional[Callable[..., Any]] = None,
         *,
-        http: bool = False,
+        http: Optional[bool] = None,
     ) -> Connection:
         assert self._manager is not None, "AsyncManager is not started"
         with self._lock:

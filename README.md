@@ -488,7 +488,9 @@ See `docs/nogil_optimization_summary.md` and `benchmarks/RESULTS.md` for details
 
 ## License
 
-MIT
+This project is licensed under the **GNU General Public License v2.0 or later** (GPL-2.0-or-later), matching the [Mongoose C library](https://github.com/cesanta/mongoose) license. See [LICENSE](LICENSE) for details.
+
+For use in proprietary/closed-source projects, a [commercial Mongoose license](https://mongoose.ws/licensing/) from Cesanta is required.
 
 ## Links
 

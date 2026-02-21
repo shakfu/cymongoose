@@ -37,6 +37,7 @@ from ._mongoose import (  # noqa: F401
     Timer,
     TlsOpts,
     WsMessage,
+    event_name,
     http_parse_multipart,
     json_get,
     json_get_bool,
@@ -49,7 +50,7 @@ from ._mongoose import (  # noqa: F401
 )
 from .aio import AsyncManager
 
-__version__ = "0.1.9"
+__version__ = "0.1.10"
 
 __all__ = [
     # Classes
@@ -95,6 +96,7 @@ __all__ = [
     "json_get_long",
     "json_get_num",
     "json_get_str",
+    "event_name",
     "log_get",
     "log_set",
     "url_encode",

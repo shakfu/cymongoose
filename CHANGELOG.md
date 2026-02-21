@@ -17,6 +17,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.10]
+
+### Added
+
+- **`event_name()` utility function**: Maps event constants to human-readable strings for debugging. `event_name(MG_EV_HTTP_MSG)` returns `"MG_EV_HTTP_MSG"`. Handles user events as `"MG_EV_USER+N"` and unknown values as `"MG_EV_UNKNOWN(N)"`. Exported in `__init__.py` with full type stub support.
+- **`Connection.reply_json()` convenience method**: Serialises data with `json.dumps`, sets `Content-Type: application/json`, and sends an HTTP reply. Accepts optional `status_code` (default 200) and extra `headers` dict. Eliminates the common `conn.reply(200, json.dumps(data), headers={"Content-Type": "application/json"})` boilerplate.
+- **`Manager.connections` property**: Returns a tuple of all active `Connection` objects (listeners + accepted + outbound). Enables broadcast patterns (e.g., send to all WebSocket clients) without maintaining a separate connection set.
+- **Medium-impact refactoring tests** (`tests/test_medium_impact_refactors.py`): 27 new tests covering `event_name()` (9), `reply_json()` (5), address formatting (2), timer after dead code removal (2), cleanup consolidation (3), and `Manager.connections` (6). Total test count: 309.
+
+### Changed
+
+- **`_event_bridge` skips wrapping for data-less events**: Added `_ev_has_data()` guard so `_wrap_event_data()` is no longer called for high-frequency events that never carry data (`MG_EV_POLL`, `MG_EV_WRITE`, `MG_EV_OPEN`, `MG_EV_CLOSE`, `MG_EV_ACCEPT`, `MG_EV_CONNECT`, `MG_EV_READ`, `MG_EV_TLS_HS`, `MG_EV_RESOLVE`, `MG_EV_WS_CTL`). Eliminates a Python function call per event per connection per poll cycle for these events.
+- **`Manager.close()` / `__dealloc__` consolidated**: Both now delegate to a shared internal `_cleanup()` method, eliminating the previous fragile dual-path cleanup. `close()` is now idempotent (calling it twice is safe and tested).
+- **Address formatting deduplicated**: `Connection.local_addr` and `Connection.remote_addr` now use a shared `_format_addr()` helper instead of duplicated inline logic.
+- **Removed `USE_NOGIL` compile-time conditional**: All 21 `IF USE_NOGIL: with nogil: ... ELSE: ...` blocks replaced with unconditional `with nogil:`. The `ELSE` branch (GIL-holding fallback) was never used in practice -- `USE_NOGIL` was always set to 1 in CMakeLists.txt. This removes ~63 lines of dead code and simplifies every C-calling method. `USE_NOGIL_ENABLED` remains exported as `True` for backward compatibility.
+- **`Connection.error()` now releases the GIL**: `mg_error()` is now wrapped in `with nogil:`, consistent with all other C calls. Previously it was the only method that held the GIL during a C call.
+- **Mongoose version pinned**: Added `set(MONGOOSE_VERSION "7.19")` to `CMakeLists.txt`, matching `MG_VERSION` in `thirdparty/mongoose/mongoose.h`. Makes the vendored version visible without inspecting header files.
+- **README license corrected**: License section changed from incorrect "MIT" to GPL-2.0-or-later with a note about commercial licensing requirements for proprietary use.
+
+### Removed
+
+- **Dead `Timer._set_timer()` method**: Removed unused method that duplicated inline timer initialisation logic in `timer_add()`.
+- **Comment artifact**: Removed development comment `# Add timer_add to Manager class - find the Manager.close() method and add before it`.
+- **`USE_NOGIL=0` code paths**: Removed all `ELSE` branches from `IF USE_NOGIL` conditionals and the `-E USE_NOGIL=1` Cython compiler flag from CMakeLists.txt.
+
+### Fixed
+
+- **`mqtt_pong()` missing return annotation**: Added `-> None` return type annotation for consistency with all other methods.
+- **`reply()` Content-Type default now consistent**: When `headers` is provided but does not include a `Content-Type` key, `reply()` now adds `Content-Type: text/plain` as a fallback (case-insensitive check). Previously, passing any `headers` dict without an explicit `Content-Type` resulted in no Content-Type header at all, while omitting `headers` entirely defaulted to `text/plain`.
+- **`listen()` docstring documents port 0 discovery**: Added a code example showing how to read the OS-assigned port via `listener.local_addr[1]` after listening on port 0.
+- **`_connections` dict safety documented**: Added a comment on `_ensure_connection` explaining why `uintptr_t` keys are safe against address reuse (`_drop_connection` removes entries before the C struct is freed; Mongoose's single-threaded model prevents same-cycle recycling).
+
 ## [0.1.9]
 
 ### Added
