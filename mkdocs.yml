@@ -1,0 +1,90 @@
+site_name: cymongoose
+site_description: Python bindings for the Mongoose embedded networking library
+site_author: S. Alireza
+
+repo_url: https://github.com/your-username/cymongoose
+repo_name: cymongoose
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            members_order: source
+            docstring_style: google
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quickstart: quickstart.md
+      - Examples: examples.md
+  - User Guide:
+      - Overview: guide/index.md
+      - HTTP/HTTPS: guide/http.md
+      - WebSocket: guide/websocket.md
+      - MQTT: guide/mqtt.md
+      - Network (TCP/UDP/DNS): guide/network.md
+      - TLS/SSL: guide/tls.md
+  - API Reference:
+      - Overview: api/index.md
+      - Manager: api/manager.md
+      - Connection: api/connection.md
+      - Messages: api/messages.md
+      - Utilities: api/utilities.md
+  - Advanced Topics:
+      - nogil Optimization: advanced/nogil.md
+      - Performance Tuning: advanced/performance.md
+      - Threading: advanced/threading.md
+      - Graceful Shutdown: advanced/shutdown.md
+      - Troubleshooting: advanced/troubleshooting.md
+  - Development:
+      - Setup: dev/index.md
+      - Contributing: dev/contributing.md
+      - Cleanup & Shutdown: dev/cleanup_and_shutdown.md
+      - Connection Draining: dev/connection_drain.md
+      - Poll Timeout Guide: dev/poll_timeout_guide.md
+      - Security: dev/security.md
+  - Changelog: changelog.md

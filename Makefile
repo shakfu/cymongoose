@@ -5,7 +5,7 @@
 
 .PHONY: all sync build rebuild test lint format typecheck qa clean \
         distclean wheel sdist dist check publish-test publish upgrade \
-        coverage coverage-html docs release build-asan test-asan help
+        coverage coverage-html docs docs-serve release build-asan test-asan help
 
 # Default target
 all: build
@@ -77,9 +77,13 @@ coverage-html:
 	@uv run python -m pytest tests/ -v --cov=src/cymongoose --cov-report=html
 	@echo "Coverage report: htmlcov/index.html"
 
-# Build documentation (requires sphinx in dev dependencies)
+# Build documentation (requires mkdocs + mkdocs-material in dev dependencies)
 docs:
-	@uv run sphinx-build -b html docs/ docs/_build/html
+	@uv run mkdocs build
+
+# Serve documentation locally with live reload
+docs-serve:
+	@uv run mkdocs serve
 
 # Build with AddressSanitizer enabled
 # Also compiles a small helper (build/run_asan) that injects the ASAN runtime
@@ -137,7 +141,8 @@ help:
 	@echo "  upgrade      - Upgrade all dependencies"
 	@echo "  coverage     - Run tests with coverage"
 	@echo "  coverage-html- Generate HTML coverage report"
-	@echo "  docs         - Build documentation with Sphinx"
+	@echo "  docs         - Build documentation with MkDocs"
+	@echo "  docs-serve   - Serve documentation locally with live reload"
 	@echo "  build-asan   - Build with AddressSanitizer"
 	@echo "  test-asan    - Run tests with AddressSanitizer"
 	@echo "  clean        - Remove build artifacts"

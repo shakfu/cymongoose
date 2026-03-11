@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Changed
+
+- Switched documentation from Sphinx to MkDocs with Material theme
+
 ## [0.1.10]
 
 ### Added
@@ -117,17 +121,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 2. Test B had already started and was using a new manager
 
-  The segfault occurred because the old poll thread was accessing freed memory.
+   The segfault occurred because the old poll thread was accessing freed memory.
 
-  Files fixed:
+   Files fixed:
 
-1. `tests/examples/test_examples_http_server_static_files.py` - 5 tests
+3. `tests/examples/test_examples_http_server_static_files.py` - 5 tests
 
-2. `tests/examples/test_examples_websocket_broadcast.py` - 6 test
+4. `tests/examples/test_examples_websocket_broadcast.py` - 6 test
 
-3. `tests/examples/test_examples_websocket_server.py` - 6 tests
+5. `tests/examples/test_examples_websocket_server.py` - 6 tests
 
-  Changes made:
+   Changes made:
 
 - Removed `daemon=True` from `threading.Thread()` call
 - Added `poll_thread.join(timeout=1.0)` before `manager.close()` to ensure the poll thread exits cleanly before cleanup
