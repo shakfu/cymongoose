@@ -17,9 +17,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.11]
+
+### Added
+
+- **`Manager.ws_connect()` method**: Creates an outbound WebSocket connection that automatically sends the upgrade handshake. Wraps the existing `mg_ws_connect()` C function, which was declared in `mongoose.pxd` but not previously exposed to Python. The handler receives `MG_EV_WS_OPEN` on handshake completion and `MG_EV_WS_MSG` for incoming frames. Full type stub support in `_mongoose.pyi`.
+- **Coverage gate in CI**: New `coverage` job in `.github/workflows/ci.yml` runs `pytest --cov --cov-fail-under=80` on Python 3.12/Ubuntu to catch coverage regressions.
+- **`make docs-deploy` target**: Deploys MkDocs documentation to GitHub Pages via `mkdocs gh-deploy --force`.
+- **`py.typed` marker file**: Enables type checkers and IDEs to recognise cymongoose as a typed package, fulfilling the `Typing :: Typed` classifier in `pyproject.toml`.
+
 ### Changed
 
 - Switched documentation from Sphinx to MkDocs with Material theme
+- **Documentation URL**: `pyproject.toml` now points to `https://shakfu.github.io/cymongoose/` instead of the GitHub repository.
+- **`mkdocs.yml` repo URL**: Fixed placeholder `your-username` to `shakfu`.
+- **Mongoose version consistency check**: `CMakeLists.txt` now verifies at configure time that `MONGOOSE_VERSION` matches `MG_VERSION` in `mongoose.h`. Build fails with a clear error if they diverge.
+- **Documentation overhaul**: Comprehensive review and update of all docs:
+    - Added API documentation for `ws_connect()`, `run()`, `connections`, `reply_json()`, `error_handler`, `event_name()`, `log_set()`, and `log_get()`.
+    - Updated Manager examples to show `http=` auto-inference from URL scheme instead of explicit `http=True`.
+    - Simplified quick example in `index.md` to use `Manager.run()`.
+    - Updated `installation.md` to reflect scikit-build-core/CMake build system, current Makefile targets, and correct test count (309).
+    - Updated `dev/index.md` to reflect MkDocs (not Sphinx), `CMakeLists.txt` (not `setup.py`), and current build commands.
+    - Documented `reply()` default `Content-Type: text/plain` behavior in Connection API reference.
+
+### Fixed
+
+- **`AsyncManager` assert guards replaced with `if/raise`**: All 8 `assert self._manager is not None` precondition checks in `aio.py` replaced with `if self._manager is None: raise RuntimeError(...)`. Previously, these guards were silently skipped when Python was run with `-O` (optimize), which could lead to `AttributeError` on `None` instead of a clear error message.
+- **`Connection.http_basic_auth()` now releases the GIL**: Added `with nogil:` block around the `mg_http_bauth()` C call, making it consistent with all other 21 C-calling methods. Previously it was the only remaining method that held the GIL during a C call (after `Connection.error()` was fixed in 0.1.10).
+- **`Manager.timer_add()` documents Timer lifetime requirement**: Docstring now warns that the returned Timer object must be kept alive for the duration of the timer. If the Timer is garbage collected while Mongoose still holds the callback pointer, the pointer becomes dangling.
+- **Placeholder URLs in docs**: Replaced all `your-username` occurrences with `shakfu` across 4 documentation files.
+- **Incorrect license in `docs/index.md`**: Changed from MIT to GPL-2.0-or-later.
+- **Broken cross-reference in `dev/connection_drain.md`**: Reference to non-existent `shutdown_best_practices.md` fixed to `../advanced/shutdown.md`.
+- **YAML parse errors in mkdocstrings directives**: `**init**` in `api/manager.md` and `api/messages.md` caused YAML alias scan errors during `mkdocs build`; fixed to `__init__`.
+- **Missing `changelog.md` nav entry**: Removed reference to non-existent `docs/changelog.md` from `mkdocs.yml` nav (`CHANGELOG.md` lives at repo root).
 
 ## [0.1.10]
 

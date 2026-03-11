@@ -90,7 +90,8 @@ class AsyncManager:
         *,
         http: Optional[bool] = None,
     ) -> Connection:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.listen(url, handler=handler, http=http)
 
@@ -101,12 +102,14 @@ class AsyncManager:
         *,
         http: Optional[bool] = None,
     ) -> Connection:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.connect(url, handler=handler, http=http)
 
     def mqtt_connect(self, url: str, **kwargs: Any) -> Connection:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.mqtt_connect(url, **kwargs)
 
@@ -115,7 +118,8 @@ class AsyncManager:
         url: str,
         handler: Optional[Callable[..., Any]] = None,
     ) -> Connection:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.mqtt_listen(url, handler=handler)
 
@@ -124,13 +128,15 @@ class AsyncManager:
         url: str,
         handler: Optional[Callable[..., Any]] = None,
     ) -> Connection:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.sntp_connect(url, handler=handler)
 
     def wakeup(self, connection_id: int, data: bytes = b"") -> bool:
         """Thread-safe: wakeup does not need the lock."""
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         return self._manager.wakeup(connection_id, data)
 
     def timer_add(
@@ -141,7 +147,8 @@ class AsyncManager:
         repeat: bool = False,
         run_now: bool = False,
     ) -> Timer:
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         with self._lock:
             return self._manager.timer_add(
                 ms,
@@ -171,7 +178,8 @@ class AsyncManager:
     @property
     def manager(self) -> Manager:
         """Access the underlying Manager."""
-        assert self._manager is not None, "AsyncManager is not started"
+        if self._manager is None:
+            raise RuntimeError("AsyncManager is not started")
         return self._manager
 
     @property

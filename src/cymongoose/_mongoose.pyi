@@ -741,6 +741,25 @@ class Manager:
         """
         ...
 
+    def ws_connect(self, url: str, handler: Optional[EventHandler] = None) -> Connection:
+        """Create an outbound WebSocket connection.
+
+        Connects and automatically sends the WebSocket upgrade handshake.
+        The handler will receive MG_EV_WS_OPEN when the handshake completes,
+        then MG_EV_WS_MSG for incoming frames.
+
+        Args:
+            url: WebSocket URL (e.g., 'ws://example.com/ws', 'wss://example.com/ws')
+            handler: Optional per-connection handler (overrides default)
+
+        Returns:
+            Connection object
+
+        Raises:
+            RuntimeError: If failed to connect
+        """
+        ...
+
     def mqtt_connect(
         self,
         url: str,
@@ -846,10 +865,14 @@ class Manager:
             run_now: If True, callback is called immediately
 
         Returns:
-            Timer object
+            Timer object (caller must keep a reference to it)
 
         Note: Timers are automatically freed when they complete (MG_TIMER_AUTODELETE flag).
         The Timer object's __dealloc__ only releases the Python callback reference.
+
+        Warning: The returned Timer must be kept alive (e.g., stored in a variable)
+        for as long as the timer is active. If the Timer object is garbage collected
+        while Mongoose still holds the timer, the callback pointer becomes dangling.
 
         Raises:
             RuntimeError: If manager has been freed or timer creation failed

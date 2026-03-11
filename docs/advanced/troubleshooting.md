@@ -46,7 +46,7 @@ fatal error: mongoose.h: No such file or directory
 Mongoose is vendored in `thirdparty/mongoose/`. Ensure complete clone:
 
 ```bash
-git clone --recursive https://github.com/your-username/cymongoose.git
+git clone --recursive https://github.com/shakfu/cymongoose.git
 ```
 
 ## Import Errors
@@ -373,7 +373,7 @@ manager = Manager(handler, enable_wakeup=True)
 ## Getting Help
 
 1. **Check logs**: Enable verbose logging
-2. **Search issues**: <https://github.com/your-username/cymongoose/issues>
+2. **Search issues**: <https://github.com/shakfu/cymongoose/issues>
 3. **Minimal reproduction**: Create smallest example that shows the issue
 4. **System info**: Python version, OS, cymongoose version
 

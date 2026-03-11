@@ -5,7 +5,7 @@
 
 .PHONY: all sync build rebuild test lint format typecheck qa clean \
         distclean wheel sdist dist check publish-test publish upgrade \
-        coverage coverage-html docs docs-serve release build-asan test-asan help
+        coverage coverage-html docs docs-serve docs-deploy release build-asan test-asan help
 
 # Default target
 all: build
@@ -85,6 +85,10 @@ docs:
 docs-serve:
 	@uv run mkdocs serve
 
+# Deploy documentation to GitHub Pages
+docs-deploy:
+	@uv run mkdocs gh-deploy --force
+
 # Build with AddressSanitizer enabled
 # Also compiles a small helper (build/run_asan) that injects the ASAN runtime
 # via DYLD_INSERT_LIBRARIES before exec'ing Python. This is needed on macOS
@@ -143,6 +147,7 @@ help:
 	@echo "  coverage-html- Generate HTML coverage report"
 	@echo "  docs         - Build documentation with MkDocs"
 	@echo "  docs-serve   - Serve documentation locally with live reload"
+	@echo "  docs-deploy  - Deploy documentation to GitHub Pages"
 	@echo "  build-asan   - Build with AddressSanitizer"
 	@echo "  test-asan    - Run tests with AddressSanitizer"
 	@echo "  clean        - Remove build artifacts"

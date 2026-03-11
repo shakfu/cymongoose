@@ -6,6 +6,19 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Vendored Mongoose C library version (thirdparty/mongoose/)
 set(MONGOOSE_VERSION "7.19")
 
+# Verify MONGOOSE_VERSION matches MG_VERSION in mongoose.h
+file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mongoose/mongoose.h"
+     _mg_version_line REGEX "^#define MG_VERSION ")
+if(_mg_version_line MATCHES "\"([0-9]+\\.[0-9]+)\"")
+    if(NOT CMAKE_MATCH_1 STREQUAL MONGOOSE_VERSION)
+        message(FATAL_ERROR
+            "MONGOOSE_VERSION (${MONGOOSE_VERSION}) does not match "
+            "MG_VERSION (${CMAKE_MATCH_1}) in mongoose.h")
+    endif()
+else()
+    message(WARNING "Could not parse MG_VERSION from mongoose.h")
+endif()
+
 find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 
 # Cythonize _mongoose.pyx -> _mongoose.c

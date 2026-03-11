@@ -103,6 +103,7 @@ from .mongoose cimport (
     mg_str,
     mg_str_n,
     mg_ws_message,
+    mg_ws_connect,
     mg_ws_send,
     mg_ws_printf,
     mg_ws_upgrade,
@@ -975,7 +976,8 @@ cdef class Connection:
         cdef const char *user_c = user_b
         cdef const char *pass_c = pass_b
         cdef mg_connection *conn = self._ptr()
-        mg_http_bauth(conn, user_c, pass_c)
+        with nogil:
+            mg_http_bauth(conn, user_c, pass_c)
 
     def sntp_request(self) -> None:
         """Send an SNTP time request.
@@ -1353,6 +1355,31 @@ cdef class Manager:
         py_conn._handler = handler
         return py_conn
 
+    def ws_connect(self, url: str, handler=None) -> Connection:
+        """Create an outbound WebSocket connection.
+
+        Connects and automatically sends the WebSocket upgrade handshake.
+        The handler will receive MG_EV_WS_OPEN when the handshake completes,
+        then MG_EV_WS_MSG for incoming frames.
+
+        Args:
+            url: WebSocket URL (e.g., 'ws://example.com/ws', 'wss://example.com/ws')
+            handler: Optional per-connection handler (overrides default)
+
+        Returns:
+            Connection object
+
+        Raises:
+            RuntimeError: If failed to connect
+        """
+        cdef bytes url_b = url.encode("utf-8")
+        cdef mg_connection *conn = mg_ws_connect(&self._mgr, url_b, _event_bridge, NULL, NULL)
+        if conn == NULL:
+            raise RuntimeError(f"Failed to create WebSocket connection to '{url}'")
+        py_conn = self._ensure_connection(conn)
+        py_conn._handler = handler
+        return py_conn
+
     def mqtt_connect(self, url: str, handler=None, client_id="", username="", password="", clean_session=True, keepalive=60) -> Connection:
         """Connect to an MQTT broker.
 
@@ -1484,10 +1511,14 @@ cdef class Manager:
             run_now: If True, callback is called immediately
 
         Returns:
-            Timer object
+            Timer object (caller must keep a reference to it)
 
         Note: Timers are automatically freed when they complete (MG_TIMER_AUTODELETE flag).
         The Timer object's __dealloc__ only releases the Python callback reference.
+
+        Warning: The returned Timer must be kept alive (e.g., stored in a variable)
+        for as long as the timer is active. If the Timer object is garbage collected
+        while Mongoose still holds the timer, the callback pointer becomes dangling.
 
         Example:
             def heartbeat():

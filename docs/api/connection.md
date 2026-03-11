@@ -166,21 +166,34 @@ conn.send("Hello, World!")
     options:
       members: true
 
+Note: `reply()` adds `Content-Type: text/plain` by default when no Content-Type
+header is provided.
+
 Example:
 
 ```python
-# Simple response
+# Simple response (Content-Type: text/plain added automatically)
 conn.reply(200, b"OK")
-
-# JSON response
-import json
-data = {"status": "ok", "count": 42}
-conn.reply(200, json.dumps(data).encode(),
-          headers={"Content-Type": "application/json"})
 
 # HTML response
 conn.reply(200, b"<html><body>Hello</body></html>",
           headers={"Content-Type": "text/html"})
+```
+
+### JSON Responses
+
+::: cymongoose.Connection.reply_json
+    options:
+      members: true
+
+Example:
+
+```python
+# JSON response (Content-Type: application/json set automatically)
+conn.reply_json({"status": "ok", "count": 42})
+
+# With custom status code
+conn.reply_json({"error": "not found"}, status_code=404)
 ```
 
 ### Static Files

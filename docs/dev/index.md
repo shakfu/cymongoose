@@ -8,7 +8,7 @@ This section contains documentation for contributors and developers.
 
 ```bash
 # Clone repository
-git clone --recursive https://github.com/your-username/cymongoose.git
+git clone --recursive https://github.com/shakfu/cymongoose.git
 cd cymongoose
 
 # Install with uv (recommended)
@@ -36,31 +36,16 @@ PYTHONPATH=src pytest tests/ --cov=cymongoose --cov-report=html
 
 ## Build System
 
-### Setuptools Build
+The project uses **scikit-build-core** with **CMake** as the build backend.
 
 ```bash
-# Standard install
-pip install -e .
-
-# With options
-USE_NOGIL=0 pip install -e .  # Disable nogil
-USE_TLS=0 pip install -e .    # Disable TLS
-
-# Force rebuild
-pip install -e . --force-reinstall
-```
-
-### CMake Build
-
-```bash
-# Configure and build
+# Build/rebuild extension
 make build
 
-# Build variants
-UNIVERSAL=1 make build  # macOS universal binary
-CONFIG=Debug make build  # Debug build
+# Build with AddressSanitizer
+make build-asan
 
-# Clean
+# Clean build artifacts
 make clean
 ```
 
@@ -79,8 +64,8 @@ cymongoose/
 │   └── examples/              # Example programs
 ├── thirdparty/
 │   └── mongoose/              # Mongoose library
-├── docs/                      # Sphinx documentation
-├── setup.py                   # Build configuration
+├── docs/                      # MkDocs documentation
+├── CMakeLists.txt             # Build configuration
 └── pyproject.toml             # Package metadata
 ```
 
@@ -110,11 +95,13 @@ mypy src/
 
 ```bash
 # Build docs
-cd docs
-make html
+make docs
 
-# View docs
-open _build/html/index.html
+# Serve locally with live reload
+make docs-serve
+
+# Deploy to GitHub Pages
+make docs-deploy
 ```
 
 ## Releases
@@ -159,7 +146,7 @@ ruff format .
 mypy src/
 
 # Build docs
-cd docs && make html
+make docs
 
 # Run examples
 python tests/examples/http/http_server.py

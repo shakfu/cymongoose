@@ -50,6 +50,33 @@ jobs:
         if: runner.os == 'Windows'
         run: uv run pytest tests/ -v -k "not examples" --ignore=tests/examples/
 
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Build package
+        run: uv build --wheel
+
+      - name: Install package
+        run: uv pip install dist/*.whl
+        shell: bash
+
+      - name: Run tests with coverage
+        run: uv run pytest tests/ -v -k "not examples" --cov=cymongoose --cov-report=term-missing --cov-fail-under=80
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

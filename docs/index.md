@@ -28,40 +28,17 @@ networking capabilities with C-level performance.
 ## Quick Example
 
 ```python
-import signal
 from cymongoose import Manager, MG_EV_HTTP_MSG
-
-shutdown_requested = False
-
-def signal_handler(sig, frame):
-    global shutdown_requested
-    shutdown_requested = True
 
 def handler(conn, ev, data):
     if ev == MG_EV_HTTP_MSG:
         conn.reply(200, b'{"status": "ok"}')
-        conn.drain()  # Graceful close
+        conn.drain()
 
-def main():
-    global shutdown_requested
-
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
-
-    manager = Manager(handler)
-    manager.listen('http://0.0.0.0:8000', http=True)
-
-    print("Server running on http://0.0.0.0:8000")
-    try:
-        while not shutdown_requested:
-            manager.poll(100)
-        print("Shutting down...")
-    finally:
-        manager.close()
-        print("Server stopped cleanly")
-
-if __name__ == "__main__":
-    main()
+mgr = Manager(handler)
+mgr.listen("http://0.0.0.0:8000")
+print("Server running on http://0.0.0.0:8000")
+mgr.run()  # Blocks until SIGINT/SIGTERM, then cleans up
 ```
 
 ## Performance Benchmarks
@@ -77,14 +54,13 @@ Benchmarked with `wrk -t4 -c100 -d10s` on an M1 Macbook Air laptop:
 
 ## Project Links
 
-- **GitHub**: <https://github.com/your-username/cymongoose>
+- **GitHub**: <https://github.com/shakfu/cymongoose>
 - **PyPI**: <https://pypi.org/project/cymongoose/>
-- **Issue Tracker**: <https://github.com/your-username/cymongoose/issues>
+- **Issue Tracker**: <https://github.com/shakfu/cymongoose/issues>
 - **Mongoose Library**: <https://github.com/cesanta/mongoose>
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file
-for details.
-
-The Mongoose library is licensed under GPLv2 or commercial license.
+This project is licensed under GPL-2.0-or-later, matching the Mongoose
+library's open-source license. Commercial licensing is available from
+[Cesanta](https://mongoose.ws/) for proprietary use.

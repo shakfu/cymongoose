@@ -2,16 +2,17 @@
 
 ## Requirements
 
-- Python 3.9 or higher
+- Python 3.10 or higher
 - C compiler (gcc, clang, or MSVC)
-- CMake (optional, for alternative build method)
+- CMake 3.15+
 
 ### Dependencies
 
-cymongoose has minimal dependencies:
+cymongoose has **zero runtime dependencies**. Build dependencies are handled
+automatically:
 
-- **Cython** (>=3.0) - Used for building the extension
-- **setuptools** - Build system
+- **Cython** (>=3.0) - Compiles `.pyx` to C
+- **scikit-build-core** - CMake-based build backend
 
 Optional dependencies for development:
 
@@ -37,7 +38,7 @@ required dependencies.
 To install the latest development version from the repository:
 
 ```bash
-git clone https://github.com/your-username/cymongoose.git
+git clone https://github.com/shakfu/cymongoose.git
 cd cymongoose
 pip install -e .
 ```
@@ -48,7 +49,7 @@ pip install -e .
 and resolver:
 
 ```bash
-git clone https://github.com/your-username/cymongoose.git
+git clone https://github.com/shakfu/cymongoose.git
 cd cymongoose
 uv sync
 ```
@@ -65,27 +66,19 @@ This will:
 For advanced users who prefer CMake:
 
 ```bash
-git clone https://github.com/your-username/cymongoose.git
+git clone https://github.com/shakfu/cymongoose.git
 cd cymongoose
 make build
 ```
 
 ### Build Options
 
-You can customize the build with environment variables:
-
 ```bash
-# Build universal binary on macOS (Intel + ARM)
-UNIVERSAL=1 pip install -e .
+# Build with AddressSanitizer (memory error detection)
+make build-asan
 
-# Build debug version
-CONFIG=Debug make build
-
-# Disable TLS support
-USE_TLS=0 pip install -e .
-
-# Disable nogil optimization
-USE_NOGIL=0 pip install -e .
+# Run tests with AddressSanitizer
+make test-asan
 ```
 
 ## Verifying Installation
@@ -115,30 +108,30 @@ To run the test suite:
 # Using make (recommended)
 make test
 
-# Fast tests (minimal output)
-make test-fast
-
 # With coverage report
-make test-coverage
+make coverage
 
 # Using pytest directly
-PYTHONPATH=src pytest tests/ -v
+uv run pytest tests/ -v
 ```
 
-All 210 tests should pass. If you encounter failures, please report them
-on the [issue tracker](https://github.com/your-username/cymongoose/issues).
+All 309 tests should pass. If you encounter failures, please report them
+on the [issue tracker](https://github.com/shakfu/cymongoose/issues).
 
 ### Common Makefile Commands
 
 ```bash
 make help           # Show all available commands
-make install        # Install dependencies
-make build          # Force rebuild
+make sync           # Install dependencies
+make build          # Rebuild extension
 make test           # Run tests
+make lint           # Lint with ruff
+make typecheck      # Type check with mypy
+make qa             # Full quality assurance
 make docs           # Build documentation
-make docs-serve     # Build and open docs in browser
+make docs-serve     # Serve docs locally with live reload
+make docs-deploy    # Deploy docs to GitHub Pages
 make clean          # Remove build artifacts
-make check          # Run all quality checks
 ```
 
 ## Troubleshooting
@@ -167,7 +160,7 @@ The Mongoose library is vendored in `thirdparty/mongoose/`. Ensure
 you've cloned the repository completely:
 
 ```bash
-git clone --recursive https://github.com/your-username/cymongoose.git
+git clone --recursive https://github.com/shakfu/cymongoose.git
 ```
 
 ### Import Errors
@@ -193,9 +186,8 @@ pip install -e . --no-cache-dir
 
 If performance is lower than expected:
 
-1. Verify nogil is enabled (check startup message)
-2. Ensure you're using `poll(100)` not `poll(5000)`
-3. Check if TLS is needed - disable if not: `USE_TLS=0 pip install -e .`
+1. Ensure you're using `poll(100)` not `poll(5000)`
+2. Check that nogil is enabled: `cymongoose.USE_NOGIL_ENABLED` should be `True`
 
 For more help, see the [Troubleshooting](advanced/troubleshooting.md) guide.
 

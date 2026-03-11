@@ -5,7 +5,7 @@
       members: true
       undoc-members: true
       special-members:
-        - **init**
+        - __init__
       member-order: bysource
 
 ## Overview
@@ -28,11 +28,17 @@ manager = Manager()
 
 # With wakeup support for multi-threading
 manager = Manager(handler, enable_wakeup=True)
+
+# With error handler for exceptions in event handlers
+def on_error(exc):
+    print(f"Handler error: {exc}")
+
+manager = Manager(handler, error_handler=on_error)
 ```
 
 ### Constructor
 
-::: cymongoose.Manager.**init**
+::: cymongoose.Manager.__init__
     options:
       members: true
 
@@ -43,11 +49,11 @@ Create server sockets that accept incoming connections.
 ### HTTP/HTTPS Server
 
 ```python
-# HTTP server
-listener = manager.listen('http://0.0.0.0:8000', http=True)
+# HTTP server (http= auto-inferred from scheme)
+listener = manager.listen('http://0.0.0.0:8000')
 
 # HTTPS server (requires TLS initialization)
-listener = manager.listen('https://0.0.0.0:8443', http=True)
+listener = manager.listen('https://0.0.0.0:8443')
 
 def handler(conn, ev, data):
     if ev == MG_EV_ACCEPT and conn.is_tls:
@@ -87,8 +93,8 @@ def ws_handler(conn, ev, data):
     pass
 
 manager = Manager(default_handler)
-manager.listen('http://0.0.0.0:8000', handler=api_handler, http=True)
-manager.listen('http://0.0.0.0:9000', handler=ws_handler, http=True)
+manager.listen('http://0.0.0.0:8000', handler=api_handler)
+manager.listen('http://0.0.0.0:9000', handler=ws_handler)
 ```
 
 ### Methods
@@ -117,11 +123,25 @@ def client_handler(conn, ev, data):
         print(f"Body: {data.body_text}")
         conn.close()
 
-# HTTP client
-conn = manager.connect('http://example.com:80', client_handler, http=True)
+# HTTP client (http= auto-inferred from scheme)
+conn = manager.connect('http://example.com:80', client_handler)
 
 # HTTPS client (TLS auto-initialized)
-conn = manager.connect('https://example.com:443', client_handler, http=True)
+conn = manager.connect('https://example.com:443', client_handler)
+```
+
+### WebSocket Client
+
+```python
+def ws_handler(conn, ev, data):
+    if ev == MG_EV_WS_OPEN:
+        print("WebSocket connected")
+        conn.ws_send("Hello!", WEBSOCKET_OP_TEXT)
+    elif ev == MG_EV_WS_MSG:
+        print(f"Received: {data.text}")
+
+# WebSocket client (handles upgrade automatically)
+conn = manager.ws_connect('ws://example.com/ws', ws_handler)
 ```
 
 ### MQTT Client
@@ -161,6 +181,10 @@ conn.sntp_request()
     options:
       members: true
 
+::: cymongoose.Manager.ws_connect
+    options:
+      members: true
+
 ::: cymongoose.Manager.mqtt_connect
     options:
       members: true
@@ -173,7 +197,19 @@ conn.sntp_request()
 
 The event loop drives all I/O operations.
 
-### Polling
+### Simple Event Loop
+
+The `run()` method handles signal setup, polling, and cleanup:
+
+```python
+manager = Manager(handler)
+manager.listen('http://0.0.0.0:8000')
+manager.run()  # Blocks until SIGINT/SIGTERM, then cleans up
+```
+
+### Manual Polling
+
+For more control, use `poll()` directly:
 
 ```python
 import signal
@@ -187,7 +223,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 manager = Manager(handler)
-manager.listen('http://0.0.0.0:8000', http=True)
+manager.listen('http://0.0.0.0:8000')
 
 # Poll with 100ms timeout
 while not shutdown_requested:
@@ -206,7 +242,26 @@ See [Performance](../advanced/performance.md) for details.
 
 ### Methods
 
+::: cymongoose.Manager.run
+    options:
+      members: true
+
 ::: cymongoose.Manager.poll
+    options:
+      members: true
+
+## Active Connections
+
+The `connections` property returns a snapshot of all active connections:
+
+```python
+# Broadcast to all WebSocket clients
+for conn in manager.connections:
+    if conn.is_websocket:
+        conn.ws_send("broadcast message", WEBSOCKET_OP_TEXT)
+```
+
+::: cymongoose.Manager.connections
     options:
       members: true
 

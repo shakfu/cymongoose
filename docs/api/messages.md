@@ -123,7 +123,7 @@ def handler(conn, ev, data):
       members: true
       undoc-members: true
       special-members:
-        - **init**
+        - __init__
       member-order: bysource
 
 ### Overview

@@ -291,5 +291,5 @@ This ensures buffered data is flushed before closing.
 
 See also:
 
-- `cleanup_and_shutdown.md` - Manager cleanup
-- `shutdown_best_practices.md` - Graceful server shutdown
+- [Cleanup & Shutdown](cleanup_and_shutdown.md) - Manager cleanup
+- [Graceful Shutdown](../advanced/shutdown.md) - Graceful server shutdown

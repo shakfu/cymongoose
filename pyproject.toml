@@ -1,6 +1,6 @@
 [project]
 name = "cymongoose"
-version = "0.1.10"
+version = "0.1.11"
 description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -112,7 +112,7 @@ wheel.exclude = [
 [project.urls]
 Homepage = "https://github.com/shakfu/cymongoose"
 Repository = "https://github.com/shakfu/cymongoose"
-Documentation = "https://github.com/shakfu/cymongoose"
+Documentation = "https://shakfu.github.io/cymongoose/"
 
 
 [tool.pytest.ini_options]

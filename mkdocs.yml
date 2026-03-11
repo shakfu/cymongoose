@@ -2,7 +2,7 @@ site_name: cymongoose
 site_description: Python bindings for the Mongoose embedded networking library
 site_author: S. Alireza
 
-repo_url: https://github.com/your-username/cymongoose
+repo_url: https://github.com/shakfu/cymongoose
 repo_name: cymongoose
 
 docs_dir: docs
@@ -87,4 +87,3 @@ nav:
       - Connection Draining: dev/connection_drain.md
       - Poll Timeout Guide: dev/poll_timeout_guide.md
       - Security: dev/security.md
-  - Changelog: changelog.md

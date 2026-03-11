@@ -243,6 +243,54 @@ def handler(conn, ev, data):
         conn.drain()
 ```
 
+## Event Debugging
+
+### event_name
+
+::: cymongoose.event_name
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import event_name, MG_EV_HTTP_MSG
+
+def handler(conn, ev, data):
+    print(f"Event: {event_name(ev)}")  # "MG_EV_HTTP_MSG"
+```
+
+## Logging Control
+
+Control the Mongoose C library's internal logging.
+
+### log_set
+
+::: cymongoose.log_set
+    options:
+      members: true
+
+### log_get
+
+::: cymongoose.log_get
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import log_set, log_get, MG_LL_DEBUG, MG_LL_NONE
+
+# Enable debug logging
+log_set(MG_LL_DEBUG)
+
+# Check current level
+print(log_get())  # 3
+
+# Disable logging
+log_set(MG_LL_NONE)
+```
+
 ## Constants
 
 ### Event Types
