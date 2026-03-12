@@ -285,7 +285,7 @@ static void dns_cb(struct mg_connection *c, int ev, void *ev_data) {
     int resolved = 0;
     if (mg_dns_parse(c->recv.buf, c->recv.len, &dm) == false) {
       MG_ERROR(("Unexpected DNS response:"));
-      mg_hexdump(c->recv.buf, c->recv.len);
+      if (mg_log_level >= MG_LL_ERROR) mg_hexdump(c->recv.buf, c->recv.len);
     } else {
       // MG_VERBOSE(("%s %d", dm.name, dm.resolved));
       for (d = *head; d != NULL; d = tmp) {
@@ -2475,7 +2475,7 @@ static void http_cb(struct mg_connection *c, int ev, void *ev_data) {
         // prematurely, see #2592
         MG_ERROR(("HTTP parse, %lu bytes", c->recv.len));
         c->is_draining = 1;
-        mg_hexdump(buf, c->recv.len - ofs > 16 ? 16 : c->recv.len - ofs);
+        if (mg_log_level >= MG_LL_ERROR) mg_hexdump(buf, c->recv.len - ofs > 16 ? 16 : c->recv.len - ofs);
         c->recv.len = 0;
         return;
       }

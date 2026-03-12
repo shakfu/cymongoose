@@ -50,6 +50,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Broken cross-reference in `dev/connection_drain.md`**: Reference to non-existent `shutdown_best_practices.md` fixed to `../advanced/shutdown.md`.
 - **YAML parse errors in mkdocstrings directives**: `**init**` in `api/manager.md` and `api/messages.md` caused YAML alias scan errors during `mkdocs build`; fixed to `__init__`.
 - **Missing `changelog.md` nav entry**: Removed reference to non-existent `docs/changelog.md` from `mkdocs.yml` nav (`CHANGELOG.md` lives at repo root).
+- **Mongoose C hexdump output bypassing log level**: `mg_hexdump()` calls in `mongoose.c` (HTTP parse failure and DNS parse failure) wrote directly to stderr regardless of `mg_log_level`. Gated both calls behind `if (mg_log_level >= MG_LL_ERROR)` so they respect the configured log level. Eliminates stray hex dumps during tests (e.g., from adversarial null-byte requests).
+- **AsyncManager test coverage**: Added 14 tests for `AsyncManager` covering all previously untested methods (`connect()`, `mqtt_connect()`, `mqtt_listen()`, `sntp_connect()`, `timer_add()`) and all 9 "not started" `RuntimeError` guard paths. Coverage on measurable Python files went from 73% to 100%.
 
 ## [0.1.10]
 

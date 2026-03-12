@@ -151,6 +151,11 @@ from .mongoose cimport (
 import traceback
 from typing import Optional
 
+# Mongoose defaults to MG_LL_DEBUG (3), which floods stderr with C-level
+# trace output.  Default to MG_LL_NONE for Python users; they can opt in
+# with log_set(MG_LL_DEBUG) if needed.
+mg_log_level = C_MG_LL_NONE
+
 __all__ = [
     "Manager",
     "Connection",

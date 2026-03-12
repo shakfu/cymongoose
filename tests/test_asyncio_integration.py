@@ -144,3 +144,122 @@ async def test_async_manager_multiple_cycles():
         async with AsyncManager() as am:
             assert am.running
         assert not am.running
+
+
+# -- "not started" guard tests -----------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_not_started_listen():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.listen("http://0.0.0.0:8080")
+
+
+@pytest.mark.asyncio
+async def test_not_started_connect():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.connect("http://127.0.0.1:8080")
+
+
+@pytest.mark.asyncio
+async def test_not_started_mqtt_connect():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.mqtt_connect("mqtt://127.0.0.1:1883")
+
+
+@pytest.mark.asyncio
+async def test_not_started_mqtt_listen():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.mqtt_listen("mqtt://0.0.0.0:1883")
+
+
+@pytest.mark.asyncio
+async def test_not_started_sntp_connect():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.sntp_connect("sntp://time.google.com")
+
+
+@pytest.mark.asyncio
+async def test_not_started_wakeup():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.wakeup(1)
+
+
+@pytest.mark.asyncio
+async def test_not_started_timer_add():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.timer_add(1000, lambda: None)
+
+
+@pytest.mark.asyncio
+async def test_not_started_schedule():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        am.schedule(lambda: None)
+
+
+@pytest.mark.asyncio
+async def test_not_started_manager_property():
+    am = AsyncManager()
+    with pytest.raises(RuntimeError, match="not started"):
+        _ = am.manager
+
+
+# -- delegated method tests --------------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_async_manager_connect():
+    """Test connect() delegates to underlying Manager."""
+    async with AsyncManager(poll_interval=10) as am:
+        conn = am.connect("http://127.0.0.1:9999")
+        assert conn is not None
+        assert conn.id > 0
+
+
+@pytest.mark.asyncio
+async def test_async_manager_timer_add():
+    """Test timer_add() delegates to underlying Manager."""
+    results = []
+
+    async with AsyncManager(poll_interval=10) as am:
+        timer = am.timer_add(50, lambda: results.append("tick"))
+        assert timer is not None
+        await asyncio.sleep(0.2)
+
+    assert len(results) >= 1
+
+
+@pytest.mark.asyncio
+async def test_async_manager_mqtt_listen():
+    """Test mqtt_listen() delegates to underlying Manager."""
+    port = get_free_port()
+    async with AsyncManager(poll_interval=10) as am:
+        conn = am.mqtt_listen(f"mqtt://0.0.0.0:{port}")
+        assert conn is not None
+        assert conn.id > 0
+
+
+@pytest.mark.asyncio
+async def test_async_manager_sntp_connect():
+    """Test sntp_connect() delegates to underlying Manager."""
+    async with AsyncManager(poll_interval=10) as am:
+        conn = am.sntp_connect("sntp://time.google.com")
+        assert conn is not None
+        assert conn.id > 0
+
+
+@pytest.mark.asyncio
+async def test_async_manager_mqtt_connect():
+    """Test mqtt_connect() delegates to underlying Manager."""
+    async with AsyncManager(poll_interval=10) as am:
+        conn = am.mqtt_connect("mqtt://127.0.0.1:9999")
+        assert conn is not None
+        assert conn.id > 0
