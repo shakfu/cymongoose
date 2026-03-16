@@ -32,15 +32,15 @@ while True:
 
 ```python
 while True:
-    manager.poll(100)  # [x] Good balance
+    manager.poll(100)  # OK Good balance
 ```
 
 **Why 100ms?**
 
-- [x] Responsive Ctrl+C (exits in ~100ms)
-- [x] Minimal CPU overhead (~0.1% idle CPU)
-- [x] Fast enough for HTTP servers (sub-millisecond latency still achieved)
-- [x] Works well for most applications
+- OK Responsive Ctrl+C (exits in ~100ms)
+- OK Minimal CPU overhead (~0.1% idle CPU)
+- OK Fast enough for HTTP servers (sub-millisecond latency still achieved)
+- OK Works well for most applications
 
 ## Shutdown Responsiveness
 
@@ -56,16 +56,16 @@ except KeyboardInterrupt:
 
 KeyboardInterrupt is only caught **between** poll calls, so:
 
-- `poll(100)` → Ctrl+C takes **~100ms** to respond [x]
-- `poll(1000)` → Ctrl+C takes **~1 second** to respond [X]
-- `poll(5000)` → Ctrl+C takes **~5 seconds** to respond [X][X]
+- `poll(100)` → Ctrl+C takes **~100ms** to respond OK
+- `poll(1000)` → Ctrl+C takes **~1 second** to respond BAD
+- `poll(5000)` → Ctrl+C takes **~5 seconds** to respond BADBAD
 
 ### Example: Slow Shutdown
 
 ```python
 # BAD: Takes up to 5 seconds to exit!
 while True:
-    manager.poll(5000)  # [X] Blocks for 5 seconds
+    manager.poll(5000)  # BAD Blocks for 5 seconds
 ```
 
 ### Example: Responsive Shutdown
@@ -73,7 +73,7 @@ while True:
 ```python
 # GOOD: Exits in ~100ms
 while True:
-    manager.poll(100)  # [x] Responsive
+    manager.poll(100)  # OK Responsive
 ```
 
 ## Performance Impact
@@ -88,7 +88,7 @@ All tests with `wrk -t4 -c100 -d10s`:
 |---------|--------------|---------|---------------|
 | 0ms (busy loop) | 61,234 | 1.65ms | Instant |
 | 50ms | 61,108 | 1.66ms | ~50ms |
-| **100ms** | **60,973** | **1.67ms** | **~100ms** [x] |
+| **100ms** | **60,973** | **1.67ms** | **~100ms** OK |
 | 500ms | 60,891 | 1.68ms | ~500ms |
 | 1000ms | 60,847 | 1.69ms | ~1000ms |
 
@@ -172,7 +172,7 @@ Under load, CPU usage is dominated by request processing, not poll overhead.
 
 ## Best Practices
 
-### [x] DO
+### OK DO
 
 ```python
 # Standard server
@@ -199,20 +199,20 @@ while not shutdown:
     manager.poll(100)
 ```
 
-### [X] DON'T
+### BAD DON'T
 
 ```python
 # DON'T: Busy loop wastes CPU
 while True:
-    manager.poll(0)  # [X] 100% CPU even when idle
+    manager.poll(0)  # BAD 100% CPU even when idle
 
 # DON'T: Slow shutdown response
 while True:
-    manager.poll(5000)  # [X] Takes 5 seconds to exit
+    manager.poll(5000)  # BAD Takes 5 seconds to exit
 
 # DON'T: Forget exception handling
 while True:
-    manager.poll(100)  # [X] No Ctrl+C handling
+    manager.poll(100)  # BAD No Ctrl+C handling
 ```
 
 ## Summary
