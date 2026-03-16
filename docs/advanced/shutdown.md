@@ -177,14 +177,18 @@ finally:
 
 ## Timers
 
-Timers are automatically freed (`MG_TIMER_AUTODELETE` flag):
+One-shot timers are automatically freed after firing (`MG_TIMER_AUTODELETE` flag).
+Repeating timers can be stopped early with `cancel()`, or they are freed when
+the manager closes:
 
 ```python
-# Timers auto-cleanup on manager.close()
 timer = manager.timer_add(1000, callback, repeat=True)
 
-# No manual cleanup needed
-manager.close()  # Frees all timers
+# Option 1: Cancel explicitly (thread-safe, can be called from any thread)
+timer.cancel()
+
+# Option 2: Let manager.close() free all remaining timers
+manager.close()
 ```
 
 ## Systemd Integration

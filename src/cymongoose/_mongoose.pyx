@@ -1155,15 +1155,20 @@ cdef class Manager:
     cdef dict _connections
     cdef dict _listener_handlers
     cdef set _timers
+    cdef list _cancel_queue
+    cdef object _cancel_lock
     cdef PyObject *_self_ref
     cdef bint _freed
 
     def __cinit__(self, handler=None, enable_wakeup=False, error_handler=None):
+        import threading as _threading
         self._default_handler = handler
         self._error_handler = error_handler
         self._connections = {}
         self._listener_handlers = {}
         self._timers = set()
+        self._cancel_queue = []
+        self._cancel_lock = _threading.Lock()
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
         mg_mgr_init(&self._mgr)
@@ -1191,11 +1196,34 @@ cdef class Manager:
                 t._manager = None
                 Py_DECREF(t)
             self._timers.clear()
+            # Clear any pending cancellations (timers already nulled above)
+            with self._cancel_lock:
+                self._cancel_queue.clear()
             mg_mgr_free(&self._mgr)
             self._freed = True
             self._connections.clear()
             self._listener_handlers.clear()
             self._mgr.userdata = NULL
+
+    cdef void _drain_cancel_queue(self):
+        """Process pending timer cancellations. Called at the top of poll()."""
+        cdef list pending
+        cdef Timer t
+        with self._cancel_lock:
+            if not self._cancel_queue:
+                return
+            pending = self._cancel_queue
+            self._cancel_queue = []
+        for t in pending:
+            if t._timer == NULL:
+                continue  # already cancelled or completed
+            mg_timer_free(&self._mgr.timers, t._timer)
+            free(t._timer)
+            t._timer = NULL
+            t._callback = None
+            self._timers.discard(t)
+            t._manager = None
+            Py_DECREF(t)
 
     cdef Connection _ensure_connection(self, mg_connection *conn):
         # _connections is keyed by the raw mg_connection* address cast to
@@ -1310,6 +1338,7 @@ cdef class Manager:
         """
         if self._freed:
             raise RuntimeError("Manager has been freed")
+        self._drain_cancel_queue()
         with nogil:
             mg_mgr_poll(&self._mgr, timeout_ms)
         # Check for pending signals (e.g., KeyboardInterrupt from Ctrl+C)
@@ -1864,7 +1893,8 @@ cdef void _timer_callback(void *arg) noexcept with gil:
     cdef Timer timer = <Timer> py_timer
     cdef Manager mgr
     try:
-        if timer._callback is not None:
+        # Skip callback if cancellation is pending
+        if timer._callback is not None and not timer._cancelled:
             timer._callback()
     except Exception:
         import traceback
@@ -1892,11 +1922,13 @@ cdef class Timer:
     cdef mg_timer *_timer
     cdef object _callback
     cdef object _manager  # back-reference to owning Manager
+    cdef bint _cancelled
 
     def __cinit__(self):
         self._timer = NULL
         self._callback = None
         self._manager = None
+        self._cancelled = False
 
     def __dealloc__(self):
         pass
@@ -1904,24 +1936,21 @@ cdef class Timer:
     def cancel(self):
         """Cancel this timer, removing it from the manager's event loop.
 
-        Safe to call multiple times.  Must be called from the same thread
-        that runs ``Manager.poll()`` (or from within a handler callback).
+        Thread-safe.  The actual removal is deferred to the next
+        ``Manager.poll()`` call, so the timer may fire one more time
+        if ``poll()`` is already in progress.  Safe to call multiple times.
         """
-        if self._timer == NULL:
+        if self._cancelled or self._timer == NULL:
             return
+        self._cancelled = True
         cdef Manager mgr
         if self._manager is not None:
             mgr = <Manager> self._manager
-            mg_timer_free(&mgr._mgr.timers, self._timer)
-            free(self._timer)
-            mgr._timers.discard(self)
-        self._timer = NULL
-        self._callback = None
-        self._manager = None
-        Py_DECREF(self)
+            with mgr._cancel_lock:
+                mgr._cancel_queue.append(self)
 
     @property
     def active(self):
         """True if the timer has not been cancelled or completed."""
-        return self._timer != NULL
+        return self._timer != NULL and not self._cancelled
 

@@ -17,9 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.12]
+
 ### Added
 
-- **`Timer.cancel()` method**: Cancel repeating timers before the manager is closed. Calls `mg_timer_free()` under the hood, unlinks the timer from the event loop, and releases the callback reference. Safe to call multiple times. Must be called from the poll thread or from within a handler callback.
+- **`Timer.cancel()` method**: Thread-safe timer cancellation. Cancellation is deferred to the next `Manager.poll()` call via an internal queue protected by a lock, so `cancel()` can safely be called from any thread. The `_cancelled` flag is set immediately so `active` returns `False` right away and the callback is skipped even if the timer fires before the next poll drains the queue. Safe to call multiple times.
 - **`Timer.active` property**: Returns `True` if the timer has not been cancelled or completed (one-shot fired).
 - **TLS integration tests**: Three new tests in `test_tls.py` that perform actual TLS handshakes using self-signed EC P-256 certificates generated via `openssl` at test time. Covers full HTTPS round-trip (`test_tls_https_handshake`), `skip_verification` client connect (`test_tls_skip_verification_connects`), and `is_tls` flag verification after handshake (`test_tls_is_tls_flag_set_after_handshake`). Discovered that mongoose built-in TLS only supports EC keys and always checks hostname even with `skip_verification=True`.
 - **GitHub Pages docs workflow** (`.github/workflows/docs.yml`): Deploys MkDocs site to GitHub Pages on pushes to `main` that change `docs/`, `mkdocs.yml`, or the workflow. Uses `actions/deploy-pages@v4`. Requires GitHub Pages source to be set to "GitHub Actions" in repo settings.
@@ -30,7 +32,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 - **`mongoose.pxd`**: Exposed `mg_timer` struct fields (`period_ms`, `expire`, `flags`, `fn`, `arg`, `next`) and `mg_mgr.timers` field. Previously `mg_timer` was an opaque struct, preventing timer cancellation and introspection from Python.
 - **`Manager.timer_add()` now keeps timers alive internally**: The manager maintains a `_timers` set that holds strong references to all active `Timer` objects. Discarding the return value of `timer_add()` no longer risks use-after-free -- the callback pointer stays valid until the timer completes or is cancelled. One-shot timers are automatically removed from the registry after firing.
-- **`_timer_callback` refactored**: The C callback bridge now receives the `Timer` wrapper object (not the raw Python callback) as its `void*` argument. This enables automatic registry cleanup for one-shot timers and proper reference counting.
+- **`_timer_callback` refactored**: The C callback bridge now receives the `Timer` wrapper object (not the raw Python callback) as its `void*` argument. This enables automatic registry cleanup for one-shot timers and proper reference counting. The callback now checks the `_cancelled` flag before invoking the Python callback.
+- **`Timer.cancel()` uses deferred cancellation**: Instead of calling `mg_timer_free()` directly (which mutates the timer linked list and is unsafe from non-poll threads), `cancel()` enqueues the timer into `Manager._cancel_queue` under a lock. `Manager.poll()` drains the queue before calling `mg_mgr_poll()`, ensuring linked-list mutation is single-threaded. Added `_cancel_lock` (threading.Lock) and `_cancel_queue` (list) to `Manager`, and `_cancelled` flag to `Timer`.
 
 ### Fixed
 

@@ -296,9 +296,32 @@ timer = manager.timer_add(1000, heartbeat, repeat=True)
 timer = manager.timer_add(1000, callback, repeat=True, run_now=True)
 ```
 
-### Timer Cleanup
+### Cancelling a Timer
 
-Timers are automatically freed when they complete (`MG_TIMER_AUTODELETE` flag). No manual cleanup needed.
+Call `timer.cancel()` to stop a repeating timer early. Cancellation is
+thread-safe -- it can be called from any thread, not just the poll thread.
+The actual removal from the event loop is deferred to the next `poll()` call.
+
+```python
+timer = manager.timer_add(1000, heartbeat, repeat=True)
+
+# Later, from any thread:
+timer.cancel()
+print(timer.active)  # False
+```
+
+### Timer Lifecycle
+
+- **One-shot timers** are automatically freed after firing (`MG_TIMER_AUTODELETE` flag).
+- **Repeating timers** run until `cancel()` is called or `manager.close()` frees them.
+- The manager keeps an internal reference to all live timers, so discarding the
+  return value of `timer_add()` is safe (the callback will not dangle).
+
+### Timer Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `active` | `bool` | `True` if the timer has not been cancelled or completed |
 
 ### Methods
 

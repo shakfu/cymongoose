@@ -204,7 +204,7 @@ mgr = Manager(handler=None, enable_wakeup=False)
 - `mqtt_connect(url, handler=None, client_id, username, password, ...)` - MQTT client
 - `mqtt_listen(url, handler=None)` - MQTT broker
 - `sntp_connect(url, handler=None)` - SNTP time client
-- `timer_add(milliseconds, callback, repeat=False, run_now=False)` - Add periodic timer
+- `timer_add(milliseconds, callback, repeat=False, run_now=False)` - Add timer, returns `Timer` with `.cancel()` and `.active`
 - `wakeup(connection_id, data)` - Wake connection from another thread
 
 ### Connection
@@ -382,8 +382,8 @@ The project includes a comprehensive test suite with **244 tests** (100% passing
 - **HTTP/HTTPS**: Server, client, headers, query params, chunked encoding, SSE (40 tests)
 - **WebSocket**: Handshake, text/binary frames, opcodes (10 tests)
 - **MQTT**: Connect, publish, subscribe, ping/pong, disconnect (11 tests)
-- **TLS/SSL**: Configuration, initialization, properties (12 tests)
-- **Timers**: Single-shot, repeating, callbacks, cleanup (10 tests)
+- **TLS/SSL**: Configuration, initialization, handshake integration (15 tests)
+- **Timers**: Single-shot, repeating, cancellation, thread-safe cancel, GC safety (16 tests)
 - **DNS**: Resolution, cancellation (4 tests)
 - **SNTP**: Time requests, format validation (5 tests)
 - **JSON**: Parsing, type conversion, nested access (9 tests)

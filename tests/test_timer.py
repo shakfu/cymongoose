@@ -338,6 +338,47 @@ def test_timer_active_property():
         manager.close()
 
 
+def test_timer_cancel_from_another_thread():
+    """Test that cancel() is safe to call from a non-poll thread."""
+    manager = Manager()
+    call_count = [0]
+
+    def timer_callback():
+        call_count[0] += 1
+
+    stop_flag = threading.Event()
+
+    def poll_thread():
+        while not stop_flag.is_set():
+            manager.poll(10)
+
+    try:
+        timer = manager.timer_add(20, timer_callback, repeat=True)
+
+        thread = threading.Thread(target=poll_thread)
+        thread.start()
+
+        # Let it fire a few times
+        time.sleep(0.15)
+        assert call_count[0] >= 2
+
+        # Cancel from the main thread (not the poll thread)
+        count_before = call_count[0]
+        timer.cancel()
+        assert not timer.active
+
+        # Give time for the cancellation to be processed
+        time.sleep(0.15)
+        count_after = call_count[0]
+
+        # At most one more fire (if poll was mid-cycle during cancel)
+        assert count_after - count_before <= 1
+    finally:
+        stop_flag.set()
+        thread.join(timeout=1)
+        manager.close()
+
+
 def test_timer_gc_safe():
     """Test that discarding the Timer return value does not crash.
 

@@ -1,6 +1,6 @@
 [project]
 name = "cymongoose"
-version = "0.1.11"
+version = "0.1.12"
 description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -85,7 +85,6 @@ dev = [
     "twine>=6.2.0",
     "ruff>=0.14.8",
     "mypy>=1.19.0",
-    "pytest-review>=0.1.2",
 ]
 
 [build-system]
