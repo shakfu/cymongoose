@@ -237,7 +237,7 @@ class TestConnectionProperties:
 
         manager = Manager()  # no default handler
         port = get_free_port()
-        manager.listen(f"http://0.0.0.0:{port}", http=True)
+        listener = manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         def run_poll():
             while not stop.is_set():
@@ -255,9 +255,11 @@ class TestConnectionProperties:
             except Exception:
                 pass  # timeout or incomplete response expected
 
-            # Verify the manager is still alive by polling without error
+            # Verify the manager is still alive: poll succeeds and listener
+            # is still active after receiving a request with no handler.
             time.sleep(0.2)
             manager.poll(0)
+            assert listener.is_listening
         finally:
             stop.set()
             thread.join(timeout=1)

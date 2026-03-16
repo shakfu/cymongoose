@@ -263,3 +263,45 @@ async def test_async_manager_mqtt_connect():
         conn = am.mqtt_connect("mqtt://127.0.0.1:9999")
         assert conn is not None
         assert conn.id > 0
+
+
+@pytest.mark.asyncio
+async def test_async_manager_reentrant_timer_from_handler():
+    """Test that a handler can call timer_add without deadlocking.
+
+    Regression test: with threading.Lock the poll thread holds the lock
+    during poll(), so calling timer_add from a handler (same thread)
+    would deadlock.  RLock allows reentrant acquisition.
+    """
+    port = get_free_port()
+    inner_fired = []
+    event = asyncio.Event()
+
+    def handler(conn, ev, data):
+        if ev == MG_EV_HTTP_MSG:
+            conn.reply(200, b"OK")
+
+            # This call happens inside poll(), on the poll thread.
+            # With a non-reentrant Lock this would deadlock.
+            def _inner():
+                inner_fired.append(True)
+                am.schedule(event.set)
+
+            am.timer_add(10, _inner, run_now=True)
+
+    async with AsyncManager(handler, poll_interval=10) as am:
+        am.listen(f"http://0.0.0.0:{port}", http=True)
+        await asyncio.sleep(0.3)
+
+        loop = asyncio.get_running_loop()
+        await loop.run_in_executor(
+            None,
+            lambda: urllib.request.urlopen(
+                f"http://127.0.0.1:{port}/",
+                timeout=5,
+            ),
+        )
+
+        await asyncio.wait_for(event.wait(), timeout=5)
+
+    assert len(inner_fired) >= 1

@@ -29,12 +29,11 @@ from cymongoose import (
 
 def test_sntp_client_can_import():
     """Test that SNTP client module can be imported."""
-    try:
-        with open("tests/examples/network/sntp_client.py") as f:
-            code = f.read()
-            compile(code, "sntp_client.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in sntp_client.py: {e}"
+    with open("tests/examples/network/sntp_client.py") as f:
+        code = f.read()
+    compiled = compile(code, "sntp_client.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "sntp_client.py"
 
 
 def test_sntp_time_request():
@@ -74,12 +73,11 @@ def test_sntp_time_request():
 
 def test_dns_client_can_import():
     """Test that DNS client module can be imported."""
-    try:
-        with open("tests/examples/network/dns_client.py") as f:
-            code = f.read()
-            compile(code, "dns_client.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in dns_client.py: {e}"
+    with open("tests/examples/network/dns_client.py") as f:
+        code = f.read()
+    compiled = compile(code, "dns_client.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "dns_client.py"
 
 
 def test_dns_resolution_basic():
@@ -120,12 +118,11 @@ def test_dns_resolution_basic():
 
 def test_tcp_echo_server_can_import():
     """Test that TCP echo server module can be imported."""
-    try:
-        with open("tests/examples/network/tcp_echo_server.py") as f:
-            code = f.read()
-            compile(code, "tcp_echo_server.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in tcp_echo_server.py: {e}"
+    with open("tests/examples/network/tcp_echo_server.py") as f:
+        code = f.read()
+    compiled = compile(code, "tcp_echo_server.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "tcp_echo_server.py"
 
 
 def test_tcp_echo_functionality():
@@ -215,12 +212,11 @@ def test_tcp_echo_functionality():
 
 def test_udp_echo_server_can_import():
     """Test that UDP echo server module can be imported."""
-    try:
-        with open("tests/examples/network/udp_echo_server.py") as f:
-            code = f.read()
-            compile(code, "udp_echo_server.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in udp_echo_server.py: {e}"
+    with open("tests/examples/network/udp_echo_server.py") as f:
+        code = f.read()
+    compiled = compile(code, "udp_echo_server.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "udp_echo_server.py"
 
 
 def test_udp_echo_functionality():

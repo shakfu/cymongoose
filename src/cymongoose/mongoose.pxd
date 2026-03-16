@@ -107,6 +107,7 @@ cdef extern from "mongoose.h":
 
     cdef struct mg_mgr:
         mg_connection *conns
+        mg_timer *timers
         void *userdata
 
     cdef struct mg_http_header:
@@ -257,7 +258,12 @@ cdef extern from "mongoose.h":
 
     # Timer API
     cdef struct mg_timer:
-        pass
+        uint64_t period_ms
+        uint64_t expire
+        unsigned flags
+        void (*fn)(void *)
+        void *arg
+        mg_timer *next
 
     # Timer function pointer type - callback takes void* argument
     ctypedef void (*mg_timer_fn_t)(void *arg)

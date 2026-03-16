@@ -249,3 +249,117 @@ def test_timer_method_exists():
         assert timer is not None
     finally:
         manager.close()
+
+
+def test_timer_cancel_repeating():
+    """Test that cancelling a repeating timer stops it from firing."""
+    manager = Manager()
+    call_count = [0]
+
+    def timer_callback():
+        call_count[0] += 1
+
+    try:
+        timer = manager.timer_add(30, timer_callback, repeat=True)
+
+        # Let it fire a few times
+        for _ in range(15):
+            manager.poll(10)
+            time.sleep(0.01)
+
+        assert call_count[0] >= 2
+        count_at_cancel = call_count[0]
+
+        # Cancel and verify it stops
+        timer.cancel()
+        assert not timer.active
+
+        for _ in range(20):
+            manager.poll(10)
+            time.sleep(0.01)
+
+        assert call_count[0] == count_at_cancel
+    finally:
+        manager.close()
+
+
+def test_timer_cancel_before_fire():
+    """Test cancelling a timer before it fires."""
+    manager = Manager()
+    call_count = [0]
+
+    def timer_callback():
+        call_count[0] += 1
+
+    try:
+        timer = manager.timer_add(5000, timer_callback, repeat=False)
+        assert timer.active
+
+        timer.cancel()
+        assert not timer.active
+
+        for _ in range(10):
+            manager.poll(10)
+            time.sleep(0.01)
+
+        assert call_count[0] == 0
+    finally:
+        manager.close()
+
+
+def test_timer_cancel_idempotent():
+    """Test that cancelling a timer twice does not crash."""
+    manager = Manager()
+
+    try:
+        timer = manager.timer_add(5000, lambda: None, repeat=True)
+        timer.cancel()
+        timer.cancel()  # should be a no-op
+        assert not timer.active
+    finally:
+        manager.close()
+
+
+def test_timer_active_property():
+    """Test the active property reflects timer state."""
+    manager = Manager()
+
+    try:
+        timer = manager.timer_add(50, lambda: None, repeat=False)
+        assert timer.active
+
+        # Poll until single-shot fires and auto-deletes
+        for _ in range(15):
+            manager.poll(10)
+            time.sleep(0.01)
+
+        assert not timer.active
+    finally:
+        manager.close()
+
+
+def test_timer_gc_safe():
+    """Test that discarding the Timer return value does not crash.
+
+    The manager keeps an internal reference, so the callback must
+    remain valid even if the caller does not store the Timer.
+    """
+    import gc
+
+    manager = Manager()
+    call_count = [0]
+
+    def timer_callback():
+        call_count[0] += 1
+
+    try:
+        manager.timer_add(30, timer_callback, repeat=True)
+        gc.collect()  # force collection of the unreferenced Timer
+
+        for _ in range(15):
+            manager.poll(10)
+            time.sleep(0.01)
+
+        assert call_count[0] >= 2
+    finally:
+        manager.close()

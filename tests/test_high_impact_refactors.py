@@ -11,6 +11,8 @@ import threading
 import time
 import urllib.request
 
+import pytest
+
 from cymongoose import (
     MG_EV_ACCEPT,
     MG_EV_HTTP_MSG,
@@ -259,28 +261,20 @@ class TestManagerContextManager:
             mgr.poll(10)
 
         # After close, poll should raise
-        try:
+        with pytest.raises(RuntimeError):
             mgr.poll(10)
-            assert False, "Should have raised RuntimeError"
-        except RuntimeError:
-            pass
 
     def test_context_manager_closes_on_exception(self):
         """Resources are freed even if an exception occurs."""
-        try:
+        with pytest.raises(ValueError, match="test error"):
             with Manager() as mgr:
                 mgr.listen("tcp://127.0.0.1:0")
                 mgr.poll(10)
                 raise ValueError("test error")
-        except ValueError:
-            pass
 
         # Manager should be closed
-        try:
+        with pytest.raises(RuntimeError):
             mgr.poll(10)
-            assert False, "Should have raised RuntimeError"
-        except RuntimeError:
-            pass
 
     def test_context_manager_with_handler(self):
         """Context manager works with handler argument."""

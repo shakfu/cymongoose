@@ -17,6 +17,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **`Timer.cancel()` method**: Cancel repeating timers before the manager is closed. Calls `mg_timer_free()` under the hood, unlinks the timer from the event loop, and releases the callback reference. Safe to call multiple times. Must be called from the poll thread or from within a handler callback.
+- **`Timer.active` property**: Returns `True` if the timer has not been cancelled or completed (one-shot fired).
+- **TLS integration tests**: Three new tests in `test_tls.py` that perform actual TLS handshakes using self-signed EC P-256 certificates generated via `openssl` at test time. Covers full HTTPS round-trip (`test_tls_https_handshake`), `skip_verification` client connect (`test_tls_skip_verification_connects`), and `is_tls` flag verification after handshake (`test_tls_is_tls_flag_set_after_handshake`). Discovered that mongoose built-in TLS only supports EC keys and always checks hostname even with `skip_verification=True`.
+- **GitHub Pages docs workflow** (`.github/workflows/docs.yml`): Deploys MkDocs site to GitHub Pages on pushes to `main` that change `docs/`, `mkdocs.yml`, or the workflow. Uses `actions/deploy-pages@v4`. Requires GitHub Pages source to be set to "GitHub Actions" in repo settings.
+- **AsyncManager reentrant lock test** (`test_async_manager_reentrant_timer_from_handler`): Regression test that calls `timer_add()` from inside an HTTP handler callback, verifying no deadlock occurs.
+- **Timer GC safety test** (`test_timer_gc_safe`): Discards the `timer_add()` return value, forces garbage collection, and verifies the callback still fires without crash or use-after-free.
+
+### Changed
+
+- **`mongoose.pxd`**: Exposed `mg_timer` struct fields (`period_ms`, `expire`, `flags`, `fn`, `arg`, `next`) and `mg_mgr.timers` field. Previously `mg_timer` was an opaque struct, preventing timer cancellation and introspection from Python.
+- **`Manager.timer_add()` now keeps timers alive internally**: The manager maintains a `_timers` set that holds strong references to all active `Timer` objects. Discarding the return value of `timer_add()` no longer risks use-after-free -- the callback pointer stays valid until the timer completes or is cancelled. One-shot timers are automatically removed from the registry after firing.
+- **`_timer_callback` refactored**: The C callback bridge now receives the `Timer` wrapper object (not the raw Python callback) as its `void*` argument. This enables automatic registry cleanup for one-shot timers and proper reference counting.
+
+### Fixed
+
+- **`AsyncManager` deadlock when calling methods from handlers**: Replaced `threading.Lock` with `threading.RLock` in `AsyncManager` (`aio.py`). Previously, calling any delegated method (`listen()`, `connect()`, `timer_add()`, etc.) from within a handler callback would deadlock because the non-reentrant lock was already held by the poll thread. `RLock` allows the same thread to re-acquire the lock.
+- **`Timer` use-after-free on garbage collection**: If the user discarded the `Timer` object returned by `timer_add()`, Python's GC could free it, leaving mongoose with a dangling callback pointer. The manager-side `_timers` registry now keeps timers alive for their full lifetime. `Manager._cleanup()` properly releases all timer references before `mg_mgr_free()` destroys the C structs.
+- **30 weak or missing test assertions across 9 test files**: Replaced trivial `assert False` patterns with `pytest.raises`, converted no-assertion smoke tests into behavioral tests that verify observable state, and strengthened import-compilation tests. Key changes:
+    - Adversarial tests (`test_adversarial.py`): 13 tests now explicitly assert on the `_check_server_alive` return value.
+    - Lifecycle tests (`test_medium_impact_refactors.py`, `test_high_impact_refactors.py`): Replaced `try/except assert False` with `pytest.raises(RuntimeError)` for post-close and context-manager tests.
+    - Error handler tests (`test_review_fixes.py`): Constructor acceptance tests now trigger real exceptions and verify the handler receives them (or stderr captures the traceback).
+    - Header constant test (`test_review_fixes.py`): Sends custom headers through an HTTP round-trip and verifies `headers()` returns them.
+    - Import tests (`test_examples_*.py`): Assert source contains `"cymongoose"` and compiled code object has the correct filename.
+    - `test_reply_json_custom_status`: Uses `pytest.raises(urllib.error.HTTPError)` with status code and body assertions.
+    - `test_no_default_handler_no_listener_handler`: Verifies `listener.is_listening` after adversarial input.
+    - `test_poll_runs_without_error`: Asserts `listener.is_listening` after polling.
+
 ## [0.1.11]
 
 ### Added

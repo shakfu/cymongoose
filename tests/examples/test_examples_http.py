@@ -28,13 +28,11 @@ from cymongoose import (
 
 def test_streaming_client_can_import():
     """Test that streaming client module can be imported."""
-    try:
-        # Just verify the module exists and is valid Python
-        with open("tests/examples/http/http_streaming_client.py") as f:
-            code = f.read()
-            compile(code, "http_streaming_client.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in http_streaming_client.py: {e}"
+    with open("tests/examples/http/http_streaming_client.py") as f:
+        code = f.read()
+    compiled = compile(code, "http_streaming_client.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "http_streaming_client.py"
 
 
 def test_streaming_client_url_parsing():

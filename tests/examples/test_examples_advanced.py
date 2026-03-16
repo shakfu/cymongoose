@@ -29,12 +29,11 @@ from cymongoose import (
 
 def test_tls_https_server_can_import():
     """Test that TLS HTTPS server module can be imported."""
-    try:
-        with open("tests/examples/advanced/tls_https_server.py") as f:
-            code = f.read()
-            compile(code, "tls_https_server.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in tls_https_server.py: {e}"
+    with open("tests/examples/advanced/tls_https_server.py") as f:
+        code = f.read()
+    compiled = compile(code, "tls_https_server.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "tls_https_server.py"
 
 
 def test_tls_https_server_initialization():
@@ -85,12 +84,11 @@ xjYqzLzYqP8hP0ypwT+8xjYqzLzYqP8hP0ypwT+8xjYqzLzY
 
 def test_http_proxy_client_can_import():
     """Test that HTTP proxy client module can be imported."""
-    try:
-        with open("tests/examples/advanced/http_proxy_client.py") as f:
-            code = f.read()
-            compile(code, "http_proxy_client.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in http_proxy_client.py: {e}"
+    with open("tests/examples/advanced/http_proxy_client.py") as f:
+        code = f.read()
+    compiled = compile(code, "http_proxy_client.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "http_proxy_client.py"
 
 
 def test_http_proxy_client_url_parsing():
@@ -207,12 +205,11 @@ def test_http_proxy_connect_method():
 
 def test_multithreaded_server_can_import():
     """Test that multi-threaded server module can be imported."""
-    try:
-        with open("tests/examples/advanced/multithreaded_server.py") as f:
-            code = f.read()
-            compile(code, "multithreaded_server.py", "exec")
-    except SyntaxError as e:
-        assert False, f"Syntax error in multithreaded_server.py: {e}"
+    with open("tests/examples/advanced/multithreaded_server.py") as f:
+        code = f.read()
+    compiled = compile(code, "multithreaded_server.py", "exec")
+    assert "cymongoose" in code
+    assert compiled.co_filename == "multithreaded_server.py"
 
 
 def test_multithreaded_server_fast_path():

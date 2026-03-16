@@ -201,11 +201,12 @@ class TestManagerLifecycle:
 
         manager = Manager()
         port = get_free_port()
-        manager.listen(f"http://0.0.0.0:{port}", http=True)
+        listener = manager.listen(f"http://0.0.0.0:{port}", http=True)
 
         for _ in range(5):
             manager.poll(10)
 
+        assert listener.is_listening
         manager.close()
 
 

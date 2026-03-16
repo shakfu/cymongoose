@@ -13,6 +13,8 @@ import json
 import socket
 import urllib.request
 
+import pytest
+
 from cymongoose import (
     MG_EV_ACCEPT,
     MG_EV_CLOSE,
@@ -189,13 +191,11 @@ class TestReplyJson:
                 conn.reply_json({"error": "not found"}, status_code=404)
 
         with ServerThread(handler) as port:
-            try:
+            with pytest.raises(urllib.error.HTTPError) as exc_info:
                 urllib.request.urlopen(f"http://127.0.0.1:{port}/missing", timeout=2)
-                assert False, "Should have raised HTTPError"
-            except urllib.error.HTTPError as e:
-                assert e.code == 404
-                body = json.loads(e.read())
-                assert body == {"error": "not found"}
+            assert exc_info.value.code == 404
+            body = json.loads(exc_info.value.read())
+            assert body == {"error": "not found"}
 
     def test_reply_json_with_extra_headers(self):
         """reply_json() merges user headers with Content-Type."""
@@ -293,6 +293,9 @@ class TestCleanupConsolidation:
         mgr.poll(10)
         mgr.close()
         mgr.close()  # second call should be safe
+        # Verify manager is indeed closed by confirming poll raises
+        with pytest.raises(RuntimeError):
+            mgr.poll(10)
 
     def test_close_then_dealloc(self):
         """close() followed by garbage collection should not crash."""
@@ -300,17 +303,17 @@ class TestCleanupConsolidation:
         mgr.listen("tcp://127.0.0.1:0")
         mgr.poll(10)
         mgr.close()
+        # Verify closed before dealloc
+        with pytest.raises(RuntimeError):
+            mgr.poll(10)
         del mgr  # triggers __dealloc__
 
     def test_poll_after_close_raises(self):
         """poll() after close() raises RuntimeError."""
         mgr = Manager()
         mgr.close()
-        try:
+        with pytest.raises(RuntimeError):
             mgr.poll(10)
-            assert False, "Should have raised RuntimeError"
-        except RuntimeError:
-            pass
 
 
 # ---------------------------------------------------------------------------

@@ -42,7 +42,7 @@ class AsyncManager:
         self._manager: Optional[Manager] = None
         self._thread: Optional[threading.Thread] = None
         self._stop = threading.Event()
-        self._lock = threading.Lock()
+        self._lock = threading.RLock()
         self._loop: Optional[asyncio.AbstractEventLoop] = None
 
     # -- async context manager -----------------------------------------------

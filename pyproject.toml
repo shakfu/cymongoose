@@ -85,6 +85,7 @@ dev = [
     "twine>=6.2.0",
     "ruff>=0.14.8",
     "mypy>=1.19.0",
+    "pytest-review>=0.1.2",
 ]
 
 [build-system]
@@ -93,6 +94,12 @@ build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
 wheel.packages = ["src/cymongoose"]
+wheel.exclude = [
+    "*.pxd",
+    "*.pyx",
+    "*.c",
+    "*.h",
+]
 cmake.args = []
 cmake.define = {}
 sdist.include = [
@@ -102,12 +109,6 @@ sdist.include = [
     "src/cymongoose/*.pxd",
 ]
 sdist.exclude = []
-wheel.exclude = [
-    "*.pxd",
-    "*.pyx",
-    "*.c",
-    "*.h",
-]
 
 [project.urls]
 Homepage = "https://github.com/shakfu/cymongoose"

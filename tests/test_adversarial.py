@@ -41,11 +41,12 @@ def _ws_handler(conn, event, data):
 
 
 def _check_server_alive(port, *, timeout=2):
-    """Send a clean GET and assert a 200 response."""
+    """Send a clean GET and assert a 200 response. Returns True on success."""
     resp = urllib.request.urlopen(f"http://localhost:{port}/healthcheck", timeout=timeout)
     assert resp.status == 200
     body = resp.read().decode("utf-8")
     assert body == "OK"
+    return True
 
 
 def _raw_send(port, payload, *, recv=True, recv_size=4096, timeout=2):
@@ -74,7 +75,7 @@ class TestMalformedRequests:
         with ServerThread(_simple_handler) as port:
             _raw_send(port, "NOT_HTTP garbage\r\n\r\n")
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_incomplete_http_request(self):
         """Headers never terminated -- client hangs up mid-request."""
@@ -87,14 +88,14 @@ class TestMalformedRequests:
             time.sleep(0.3)
             sock.close()
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_invalid_http_method(self):
         """An HTTP method that no server should recognise."""
         with ServerThread(_simple_handler) as port:
             _raw_send(port, "XYZZY / HTTP/1.1\r\nHost: localhost\r\n\r\n")
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_oversized_header_line(self):
         """A single header value of ~100 KB."""
@@ -103,7 +104,7 @@ class TestMalformedRequests:
             request = f"GET / HTTP/1.1\r\nHost: localhost\r\nX-Big: {big_value}\r\n\r\n"
             _raw_send(port, request)
             time.sleep(0.3)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_many_headers(self):
         """500 distinct headers in a single request."""
@@ -112,14 +113,14 @@ class TestMalformedRequests:
             request = f"GET / HTTP/1.1\r\nHost: localhost\r\n{headers}\r\n"
             _raw_send(port, request)
             time.sleep(0.3)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_null_bytes_in_request(self):
         """Null bytes embedded in the request URI."""
         with ServerThread(_simple_handler) as port:
             _raw_send(port, b"GET /\x00evil HTTP/1.1\r\nHost: localhost\r\n\r\n")
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_request_smuggling_double_content_length(self):
         """Two Content-Length headers with conflicting values."""
@@ -134,7 +135,7 @@ class TestMalformedRequests:
             )
             _raw_send(port, request)
             time.sleep(0.3)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
 
 class TestConnectionAbuse:
@@ -148,7 +149,7 @@ class TestConnectionAbuse:
             sock.connect(("127.0.0.1", port))
             sock.close()
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_connection_flood(self):
         """Open 50 sockets concurrently, send nothing, close after a brief pause."""
@@ -166,7 +167,7 @@ class TestConnectionAbuse:
             for s in sockets:
                 s.close()
             time.sleep(0.3)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_slow_loris(self):
         """Send headers byte-by-byte with delays, then close without completing."""
@@ -181,7 +182,7 @@ class TestConnectionAbuse:
             # Never send the final \r\n -- just hang up
             sock.close()
             time.sleep(0.3)
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
 
 @pytest.mark.skipif(not HAS_WEBSOCKET, reason="websocket-client not installed")
@@ -202,7 +203,7 @@ class TestWebSocketAdversarial:
                 pass
             time.sleep(0.2)
             # Server should still serve HTTP
-            _check_server_alive(port)
+            assert _check_server_alive(port)
 
     def test_websocket_oversized_frame_header(self):
         """WS frame header claiming 1 GB payload, followed by close."""
@@ -225,4 +226,4 @@ class TestWebSocketAdversarial:
             except Exception:
                 pass
             time.sleep(0.2)
-            _check_server_alive(port)
+            assert _check_server_alive(port)

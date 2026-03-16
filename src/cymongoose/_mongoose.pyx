@@ -1154,6 +1154,7 @@ cdef class Manager:
     cdef object _error_handler
     cdef dict _connections
     cdef dict _listener_handlers
+    cdef set _timers
     cdef PyObject *_self_ref
     cdef bint _freed
 
@@ -1162,6 +1163,7 @@ cdef class Manager:
         self._error_handler = error_handler
         self._connections = {}
         self._listener_handlers = {}
+        self._timers = set()
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
         mg_mgr_init(&self._mgr)
@@ -1179,7 +1181,16 @@ cdef class Manager:
 
     cdef void _cleanup(self):
         """Shared cleanup used by both close() and __dealloc__."""
+        cdef Timer t
         if not self._freed:
+            # Release the Py_INCREF on each live Timer before mg_mgr_free
+            # destroys the C timer structs.
+            for t in list(self._timers):
+                t._timer = NULL
+                t._callback = None
+                t._manager = None
+                Py_DECREF(t)
+            self._timers.clear()
             mg_mgr_free(&self._mgr)
             self._freed = True
             self._connections.clear()
@@ -1516,20 +1527,17 @@ cdef class Manager:
             run_now: If True, callback is called immediately
 
         Returns:
-            Timer object (caller must keep a reference to it)
-
-        Note: Timers are automatically freed when they complete (MG_TIMER_AUTODELETE flag).
-        The Timer object's __dealloc__ only releases the Python callback reference.
-
-        Warning: The returned Timer must be kept alive (e.g., stored in a variable)
-        for as long as the timer is active. If the Timer object is garbage collected
-        while Mongoose still holds the timer, the callback pointer becomes dangling.
+            Timer object. The manager keeps a reference internally, so it is
+            safe (though not recommended) to discard the return value. To stop
+            a repeating timer early, call ``timer.cancel()``.
 
         Example:
             def heartbeat():
                 print("ping")
 
             timer = manager.timer_add(1000, heartbeat, repeat=True)
+            # later:
+            timer.cancel()
         """
         if self._freed:
             raise RuntimeError("Manager has been freed")
@@ -1542,6 +1550,13 @@ cdef class Manager:
 
         # Create Timer wrapper
         cdef Timer timer = Timer.__new__(Timer)
+        timer._callback = callback
+        timer._manager = self
+
+        # Pass the Timer object itself as the C callback arg so
+        # _timer_callback can route through it and clean up the
+        # registry entry when a one-shot timer auto-deletes.
+        Py_INCREF(timer)
 
         # Add timer with callback bridge
         cdef mg_timer *timer_ptr = mg_timer_add(
@@ -1549,17 +1564,15 @@ cdef class Manager:
             <uint64_t>milliseconds,
             flags,
             _timer_callback,
-            <void*><PyObject*>callback
+            <void*><PyObject*>timer
         )
 
         if timer_ptr == NULL:
+            Py_DECREF(timer)
             raise RuntimeError("Failed to add timer")
 
-        # Setup Timer object - call cdef method directly
         timer._timer = timer_ptr
-        timer._callback = callback
-        timer._callback_ref = <PyObject*>callback
-        Py_INCREF(callback)
+        self._timers.add(timer)
 
         return timer
 
@@ -1838,37 +1851,77 @@ def http_parse_multipart(body, offset=0) -> tuple:
 
 # Timer callback bridge - called from C, needs to acquire GIL
 cdef void _timer_callback(void *arg) noexcept with gil:
-    """C callback that bridges to Python timer handler."""
+    """C callback that bridges to Python timer handler.
+
+    ``arg`` points to the Timer wrapper (Py_INCREF'd in timer_add).
+    For non-repeating timers, mongoose will auto-delete the C timer
+    immediately after this callback returns, so we clean up here.
+    """
     if arg == NULL:
         return
-    
-    cdef PyObject *py_callback = <PyObject*> arg
+
+    cdef PyObject *py_timer = <PyObject*> arg
+    cdef Timer timer = <Timer> py_timer
+    cdef Manager mgr
     try:
-        callback = <object> py_callback
-        callback()
+        if timer._callback is not None:
+            timer._callback()
     except Exception:
         import traceback
         traceback.print_exc()
+
+    # If this is a one-shot timer, mongoose will auto-delete the C struct
+    # right after we return.  Release our side now.
+    if timer._timer != NULL and not (timer._timer.flags & MG_TIMER_REPEAT):
+        timer._timer = NULL  # C side will free the struct
+        timer._callback = None
+        if timer._manager is not None:
+            mgr = <Manager> timer._manager
+            mgr._timers.discard(timer)
+            timer._manager = None
+        Py_DECREF(timer)
 
 
 cdef class Timer:
     """Wrapper for Mongoose timer.
 
-    Note: The underlying mg_timer is automatically freed by Mongoose when it completes
-    (via MG_TIMER_AUTODELETE flag). This class only manages the Python callback reference.
+    The manager keeps an internal reference so the timer stays alive even if
+    the caller discards the returned object.  Call :meth:`cancel` to stop a
+    repeating timer early.
     """
     cdef mg_timer *_timer
     cdef object _callback
-    cdef PyObject *_callback_ref
+    cdef object _manager  # back-reference to owning Manager
 
     def __cinit__(self):
         self._timer = NULL
         self._callback = None
-        self._callback_ref = NULL
+        self._manager = None
 
     def __dealloc__(self):
-        # Release callback reference (mg_timer is auto-freed by Mongoose)
-        if self._callback_ref != NULL:
-            Py_DECREF(<object>self._callback_ref)
-            self._callback_ref = NULL
+        pass
+
+    def cancel(self):
+        """Cancel this timer, removing it from the manager's event loop.
+
+        Safe to call multiple times.  Must be called from the same thread
+        that runs ``Manager.poll()`` (or from within a handler callback).
+        """
+        if self._timer == NULL:
+            return
+        cdef Manager mgr
+        if self._manager is not None:
+            mgr = <Manager> self._manager
+            mg_timer_free(&mgr._mgr.timers, self._timer)
+            free(self._timer)
+            mgr._timers.discard(self)
+        self._timer = NULL
+        self._callback = None
+        self._manager = None
+        Py_DECREF(self)
+
+    @property
+    def active(self):
+        """True if the timer has not been cancelled or completed."""
+        return self._timer != NULL
 

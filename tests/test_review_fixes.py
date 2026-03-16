@@ -197,14 +197,73 @@ class TestErrorHandler:
         assert "error-handler-broke" in captured.err
 
     def test_manager_accepts_error_handler_kwarg(self):
-        """Manager constructor accepts error_handler parameter."""
-        mgr = Manager(error_handler=lambda exc: None)
+        """Manager with error_handler routes exceptions to that handler."""
+        captured = []
+
+        def handler(conn, ev, data):
+            if ev == MG_EV_HTTP_MSG:
+                raise ValueError("kwarg-test")
+
+        mgr = Manager(handler, error_handler=lambda exc: captured.append(exc))
+        port = get_free_port()
+        mgr.listen(f"http://0.0.0.0:{port}", http=True)
+
+        stop = threading.Event()
+
+        def poll_loop():
+            while not stop.is_set():
+                mgr.poll(50)
+
+        t = threading.Thread(target=poll_loop, daemon=True)
+        t.start()
+        time.sleep(0.2)
+
+        try:
+            urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=2)
+        except Exception:
+            pass
+
+        time.sleep(0.3)
+        stop.set()
+        t.join(timeout=2)
         mgr.close()
 
-    def test_manager_error_handler_none_by_default(self):
-        """When no error_handler is given, it defaults to None (traceback path)."""
-        mgr = Manager()
+        assert len(captured) >= 1
+        assert isinstance(captured[0], ValueError)
+
+    def test_manager_error_handler_none_by_default(self, capsys):
+        """When no error_handler is given, exceptions go to stderr."""
+
+        def handler(conn, ev, data):
+            if ev == MG_EV_HTTP_MSG:
+                raise RuntimeError("none-default")
+
+        mgr = Manager(handler)
+        port = get_free_port()
+        mgr.listen(f"http://0.0.0.0:{port}", http=True)
+
+        stop = threading.Event()
+
+        def poll_loop():
+            while not stop.is_set():
+                mgr.poll(50)
+
+        t = threading.Thread(target=poll_loop, daemon=True)
+        t.start()
+        time.sleep(0.2)
+
+        try:
+            urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=2)
+        except Exception:
+            pass
+
+        time.sleep(0.3)
+        stop.set()
+        t.join(timeout=2)
         mgr.close()
+
+        captured = capsys.readouterr()
+        assert "none-default" in captured.err
 
 
 # ---------------------------------------------------------------------------
@@ -292,12 +351,24 @@ class TestHeaderConstant:
         assert "x-custom-two" in header_names
 
     def test_mg_max_http_headers_constant_accessible(self):
-        """The MG_MAX_HTTP_HEADERS constant should be usable from the pxd."""
-        # We verify indirectly: headers() works correctly, and in the .pyx
-        # we use MG_MAX_HTTP_HEADERS. If the constant were wrong, iteration
-        # would either miss headers or go out of bounds.
-        mgr = Manager()
-        port = get_free_port()
-        mgr.listen(f"http://0.0.0.0:{port}", http=True)
-        mgr.poll(10)
-        mgr.close()
+        """The MG_MAX_HTTP_HEADERS constant is used correctly in header iteration."""
+        # Verify indirectly by sending multiple custom headers and confirming
+        # they all come back from headers(). If the constant were wrong,
+        # iteration would miss headers or go out of bounds.
+        received_headers = {}
+
+        def handler(conn, ev, data):
+            if ev == MG_EV_HTTP_MSG:
+                received_headers.update(dict(data.headers()))
+                conn.reply(200, b"ok")
+
+        with ServerThread(handler) as port:
+            req = urllib.request.Request(
+                f"http://127.0.0.1:{port}/",
+                headers={"X-Test-A": "alpha", "X-Test-B": "beta"},
+            )
+            resp = urllib.request.urlopen(req, timeout=2)
+            resp.read()
+
+        assert "X-Test-A" in received_headers
+        assert "X-Test-B" in received_headers
