@@ -44,6 +44,7 @@ class AsyncManager:
         self._stop = threading.Event()
         self._lock = threading.RLock()
         self._loop: Optional[asyncio.AbstractEventLoop] = None
+        self._wake_id: int = 0  # connection ID used to interrupt poll()
 
     # -- async context manager -----------------------------------------------
 
@@ -55,12 +56,15 @@ class AsyncManager:
             error_handler=self._error_handler,
         )
         self._stop.clear()
+        self._wake_id = 0
         self._thread = threading.Thread(target=self._run, daemon=True)
         self._thread.start()
         return self
 
     async def __aexit__(self, *exc: Any) -> None:
         self._stop.set()
+        # Interrupt poll() so the thread exits promptly
+        self._wake_poll()
         if self._thread is not None:
             await asyncio.get_running_loop().run_in_executor(
                 None,
@@ -81,6 +85,25 @@ class AsyncManager:
                 if self._manager is not None:
                     self._manager.poll(self._poll_interval)
 
+    # -- internal helpers ----------------------------------------------------
+
+    def _wake_poll(self) -> None:
+        """Best-effort interrupt of poll() to reduce lock acquisition latency.
+
+        Writes to the wakeup pipe so ``select()``/``epoll_wait()`` returns
+        immediately, causing ``poll()`` to release the lock sooner.
+        """
+        if self._wake_id > 0 and self._manager is not None:
+            try:
+                self._manager.wakeup(self._wake_id, b"")
+            except Exception:
+                pass  # manager may be closing
+
+    def _track_conn(self, conn: Connection) -> None:
+        """Remember a connection ID for future _wake_poll() calls."""
+        if self._wake_id == 0 and conn.id > 0:
+            self._wake_id = conn.id
+
     # -- delegated methods ---------------------------------------------------
 
     def listen(
@@ -92,8 +115,11 @@ class AsyncManager:
     ) -> Connection:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
-            return self._manager.listen(url, handler=handler, http=http)
+            conn = self._manager.listen(url, handler=handler, http=http)
+        self._track_conn(conn)
+        return conn
 
     def connect(
         self,
@@ -104,14 +130,20 @@ class AsyncManager:
     ) -> Connection:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
-            return self._manager.connect(url, handler=handler, http=http)
+            conn = self._manager.connect(url, handler=handler, http=http)
+        self._track_conn(conn)
+        return conn
 
     def mqtt_connect(self, url: str, **kwargs: Any) -> Connection:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
-            return self._manager.mqtt_connect(url, **kwargs)
+            conn = self._manager.mqtt_connect(url, **kwargs)
+        self._track_conn(conn)
+        return conn
 
     def mqtt_listen(
         self,
@@ -120,8 +152,11 @@ class AsyncManager:
     ) -> Connection:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
-            return self._manager.mqtt_listen(url, handler=handler)
+            conn = self._manager.mqtt_listen(url, handler=handler)
+        self._track_conn(conn)
+        return conn
 
     def sntp_connect(
         self,
@@ -130,8 +165,11 @@ class AsyncManager:
     ) -> Connection:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
-            return self._manager.sntp_connect(url, handler=handler)
+            conn = self._manager.sntp_connect(url, handler=handler)
+        self._track_conn(conn)
+        return conn
 
     def wakeup(self, connection_id: int, data: bytes = b"") -> bool:
         """Thread-safe: wakeup does not need the lock."""
@@ -149,6 +187,7 @@ class AsyncManager:
     ) -> Timer:
         if self._manager is None:
             raise RuntimeError("AsyncManager is not started")
+        self._wake_poll()
         with self._lock:
             return self._manager.timer_add(
                 ms,

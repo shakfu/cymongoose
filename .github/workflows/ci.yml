@@ -77,6 +77,32 @@ jobs:
       - name: Run tests with coverage
         run: uv run pytest tests/ -v -k "not examples" --cov=cymongoose --cov-report=term-missing --cov-fail-under=80
 
+  asan:
+    name: AddressSanitizer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Build with ASAN
+        run: SKBUILD_CMAKE_DEFINE="USE_ASAN=ON" uv sync --reinstall-package cymongoose
+
+      - name: Run tests with ASAN
+        env:
+          LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libasan.so.8
+          ASAN_OPTIONS: detect_leaks=0:allocator_may_return_null=1:halt_on_error=1
+        run: uv run pytest tests/ -v -x --tb=short -k "not examples"
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

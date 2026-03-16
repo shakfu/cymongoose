@@ -153,6 +153,22 @@ while True:
     manager.poll(100)
 ```
 
+## Method Thread-Safety Reference
+
+| Method | Thread safety | Notes |
+|--------|--------------|-------|
+| `poll()` | **Poll-thread only** | Not safe for concurrent calls. Releases GIL during C call. |
+| `listen()` | **Poll-thread only** | Call before starting poll loop or from a handler. |
+| `connect()` | **Poll-thread only** | Same as `listen()`. |
+| `mqtt_connect()` | **Poll-thread only** | Same as `listen()`. |
+| `mqtt_listen()` | **Poll-thread only** | Same as `listen()`. |
+| `sntp_connect()` | **Poll-thread only** | Same as `listen()`. |
+| `timer_add()` | **Poll-thread only** | Same as `listen()`. |
+| `close()` | **Poll-thread only** | Raises if `poll()` is active on another thread. |
+| `wakeup()` | **Thread-safe** | Writes to an internal pipe; safe during `poll()`. |
+| `Timer.cancel()` | **Thread-safe** | Deferred to next `poll()` via internal queue. |
+| `AsyncManager.*` | **Any thread** | All delegated methods serialised by internal RLock. |
+
 ## Thread Safety Rules
 
 ### 1. Pass Connection IDs, Not Objects

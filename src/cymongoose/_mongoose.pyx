@@ -1157,6 +1157,7 @@ cdef class Manager:
     cdef set _timers
     cdef list _cancel_queue
     cdef object _cancel_lock
+    cdef int _poll_count
     cdef PyObject *_self_ref
     cdef bint _freed
 
@@ -1169,6 +1170,7 @@ cdef class Manager:
         self._timers = set()
         self._cancel_queue = []
         self._cancel_lock = _threading.Lock()
+        self._poll_count = 0
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
         mg_mgr_init(&self._mgr)
@@ -1185,25 +1187,36 @@ cdef class Manager:
             self._self_ref = NULL
 
     cdef void _cleanup(self):
-        """Shared cleanup used by both close() and __dealloc__."""
+        """Shared cleanup used by both close() and __dealloc__.
+
+        GIL serialises access to ``_freed`` and ``_poll_count``.  Setting
+        ``_freed = True`` before releasing the GIL (which never happens
+        in this method) ensures no new ``poll()`` can enter.
+        """
         cdef Timer t
-        if not self._freed:
-            # Release the Py_INCREF on each live Timer before mg_mgr_free
-            # destroys the C timer structs.
-            for t in list(self._timers):
-                t._timer = NULL
-                t._callback = None
-                t._manager = None
-                Py_DECREF(t)
-            self._timers.clear()
-            # Clear any pending cancellations (timers already nulled above)
-            with self._cancel_lock:
-                self._cancel_queue.clear()
-            mg_mgr_free(&self._mgr)
-            self._freed = True
-            self._connections.clear()
-            self._listener_handlers.clear()
-            self._mgr.userdata = NULL
+        if self._freed:
+            return
+        if self._poll_count > 0:
+            raise RuntimeError(
+                "Cannot close Manager while poll() is active. "
+                "Stop all polling threads before calling close()."
+            )
+        self._freed = True
+        # Now safe: _freed is True so no new poll() can enter.
+        # Release the Py_INCREF on each live Timer before mg_mgr_free
+        # destroys the C timer structs.
+        for t in list(self._timers):
+            t._timer = NULL
+            t._callback = None
+            t._manager = None
+            Py_DECREF(t)
+        self._timers.clear()
+        with self._cancel_lock:
+            self._cancel_queue.clear()
+        mg_mgr_free(&self._mgr)
+        self._connections.clear()
+        self._listener_handlers.clear()
+        self._mgr.userdata = NULL
 
     cdef void _drain_cancel_queue(self):
         """Process pending timer cancellations. Called at the top of poll()."""
@@ -1333,19 +1346,25 @@ cdef class Manager:
     def poll(self, int timeout_ms=0) -> None:
         """Drive the event loop once.
 
-        Thread safety note: _freed flag is checked without lock. In multi-threaded scenarios,
-        use close() only after all polling threads have stopped to avoid race conditions.
+        Not thread-safe: do not call ``poll()`` concurrently from multiple
+        threads.  ``close()`` will raise if ``poll()`` is active on another
+        thread.
+
+        The GIL serialises all access to ``_poll_count`` and ``_freed``.
+        During the ``with nogil:`` block, ``_poll_count > 0`` prevents
+        ``close()`` from freeing the manager.
         """
-        if self._freed:
-            raise RuntimeError("Manager has been freed")
-        self._drain_cancel_queue()
-        with nogil:
-            mg_mgr_poll(&self._mgr, timeout_ms)
+        self._poll_count += 1
+        try:
+            if self._freed:
+                raise RuntimeError("Manager has been freed")
+            self._drain_cancel_queue()
+            with nogil:
+                mg_mgr_poll(&self._mgr, timeout_ms)
+        finally:
+            self._poll_count -= 1
         # Check for pending signals (e.g., KeyboardInterrupt from Ctrl+C)
-        # This ensures signals received during nogil section are processed
-        # PyErr_CheckSignals() returns -1 if a signal is pending and raises the exception
         if PyErr_CheckSignals() < 0:
-            # Exception was set by PyErr_CheckSignals, Cython will propagate it
             pass
 
     def listen(self, url: str, handler=None, *, http=None) -> Connection:
@@ -1532,8 +1551,8 @@ cdef class Manager:
         Returns:
             True if wakeup was sent successfully
 
-        Thread safety note: _freed flag is checked without lock. In multi-threaded scenarios,
-        use close() only after all polling threads have stopped to avoid race conditions.
+        Thread-safe: ``wakeup()`` writes to an internal pipe and can be
+        called from any thread while ``poll()`` is running.
         """
         if self._freed:
             raise RuntimeError("Manager has been freed")
