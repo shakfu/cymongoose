@@ -50,7 +50,7 @@ from ._mongoose import (  # noqa: F401
 )
 from .aio import AsyncManager
 
-__version__ = "0.1.13"
+__version__ = "0.1.14"
 
 __all__ = [
     # Classes

@@ -901,6 +901,11 @@ class Manager:
         """Return a snapshot of all active connections as a tuple."""
         ...
 
+    @property
+    def wakeup_id(self) -> int:
+        """Connection ID of the internal wakeup pipe, or 0 if wakeup is not enabled."""
+        ...
+
     def close(self) -> None:
         """Free the underlying manager and release resources."""
         ...

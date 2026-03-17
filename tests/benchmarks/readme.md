@@ -13,11 +13,23 @@ brew install wrk          # macOS
 # sudo apt-get install wrk  # Linux (Ubuntu/Debian)
 
 # 2. Start server (Terminal 1)
-uv run python tests/benchmarks/demo_server.py
+make bench-server
 
 # 3. Run benchmark (Terminal 2)
 wrk -t4 -c100 -d10s http://localhost:8765/
 ```
+
+Makefile targets for benchmarking without external tools:
+
+```bash
+make bench          # Run quick + load benchmarks (Python client)
+make bench-quick    # 1000 sequential requests
+make bench-load     # 5000 requests, 50 concurrent threads
+make bench-compare  # Framework comparison (requires ab)
+```
+
+Note: Python-based benchmarks underreport server throughput by ~20x due to
+client-side overhead. Use `wrk` for accurate server capacity measurements.
 
 ### Why wrk?
 
@@ -36,28 +48,28 @@ wrk -t4 -c100 -d10s http://localhost:8765/
 
 | Framework | Req/sec | Speedup | Latency (avg) | Architecture |
 |-----------|---------|---------|---------------|--------------|
-| **cymongoose** | **60,973** | **1.00x** | **1.67ms** | C event loop + Cython + nogil |
-| aiohttp | 42,452 | 0.70x | 2.56ms | Python async (asyncio) |
-| FastAPI | 9,989 | 0.16x | 9.96ms | Python ASGI (uvicorn) |
-| Flask | 1,627 | 0.03x | 22.15ms | Python WSGI (threaded) |
+| **cymongoose** | **88,710** | **1.00x** | **1.13ms** | C event loop + Cython + nogil |
+| aiohttp | 42,452 | 0.48x | 2.56ms | Python async (asyncio) |
+| FastAPI | 9,989 | 0.11x | 9.96ms | Python ASGI (uvicorn) |
+| Flask | 1,627 | 0.02x | 22.15ms | Python WSGI (threaded) |
 
 ```text
 Requests/sec (higher = better):
 
-cymongoose  ########################################  60,973
-aiohttp     ###########################              42,452
-FastAPI     ######                                     9,989
+cymongoose  ########################################  88,710
+aiohttp     ###################                      42,452
+FastAPI     ####                                       9,989
 Flask       #                                          1,627
-            0      10k     20k     30k     40k     50k     60k
+            0      20k     40k     60k     80k     100k
 ```
 
 ### Key Findings
 
-1. **C-level performance in Python** -- 60,973 req/sec puts cymongoose in the same
+1. **C-level performance in Python** -- 88,710 req/sec puts cymongoose in the same
    league as nginx (50k-100k), Go net/http (40k-80k), and Node.js (20k-40k).
-2. **6--37x faster than pure Python** -- FastAPI 6.1x slower, Flask 37.5x slower.
-3. **Beats async Python** -- 1.44x faster than aiohttp (best async Python framework).
-4. **Consistent low latency** -- 1.67ms average, 99.8% of requests under 2.74ms.
+2. **9--55x faster than pure Python** -- FastAPI 8.9x slower, Flask 54.5x slower.
+3. **Beats async Python** -- 2.1x faster than aiohttp (best async Python framework).
+4. **Consistent low latency** -- 1.13ms average, 99.6% of requests under 1.5ms.
 5. **Zero errors under load** -- Flask had 81 connection errors at 100 concurrent
    connections; cymongoose, aiohttp, and FastAPI had none.
 
@@ -117,18 +129,18 @@ Automated scripts require extra dependencies: `uv add --dev aiohttp fastapi uvic
 ## Detailed wrk Output
 
 <details>
-<summary>cymongoose: 60,973 req/sec</summary>
+<summary>cymongoose: 88,710 req/sec</summary>
 
 ```text
 wrk -t4 -c100 -d10s http://localhost:8765/
 Running 10s test @ http://localhost:8765/
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.67ms    1.07ms  60.14ms   99.80%
-    Req/Sec    15.32k   452.36    15.64k    99.01%
-  615911 requests in 10.10s, 85.76MB read
-Requests/sec:  60972.51
-Transfer/sec:      8.49MB
+    Latency     1.13ms  392.37us  35.36ms   99.60%
+    Req/Sec    22.29k   678.03    22.99k    97.28%
+  895981 requests in 10.10s, 124.75MB read
+Requests/sec:  88710.23
+Transfer/sec:     12.35MB
 ```
 
 </details>

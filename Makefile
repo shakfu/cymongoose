@@ -6,7 +6,8 @@
 .PHONY: all sync build rebuild test lint format typecheck qa clean \
         distclean wheel sdist dist check publish-test publish upgrade \
         coverage coverage-html docs docs-serve docs-deploy release \
-        build-asan test-asan test-leaks help
+        build-asan test-asan test-leaks \
+        bench bench-quick bench-load bench-compare bench-server help
 
 # Default target
 all: build
@@ -120,6 +121,31 @@ test-leaks:
 		| grep -E '(passed|failed|error|Process [0-9]|LEAK|ROOT LEAK|leaked bytes)'
 	@echo "Leak check completed"
 
+# ---------------------------------------------------------------------------
+# Benchmarks
+# ---------------------------------------------------------------------------
+
+# Start the demo server for manual benchmarking with wrk or ab
+bench-server:
+	@echo "Starting cymongoose demo server on http://localhost:8765 ..."
+	@echo "Run: wrk -t4 -c100 -d10s http://localhost:8765/"
+	@uv run python tests/benchmarks/demo_server.py
+
+# Quick sequential benchmark (1000 requests, no external tools needed)
+bench-quick:
+	@uv run python tests/benchmarks/quick_bench.py
+
+# Concurrent load test (5000 requests, 50 concurrent)
+bench-load:
+	@uv run python tests/benchmarks/simple_load_test.py
+
+# Automated framework comparison using Apache Bench (requires ab)
+bench-compare:
+	@uv run python tests/benchmarks/run_benchmark.py
+
+# Run quick + load benchmarks
+bench: bench-quick bench-load
+
 # Clean build artifacts
 clean:
 	@rm -rf build/
@@ -162,6 +188,11 @@ help:
 	@echo "  build-asan   - Build with AddressSanitizer"
 	@echo "  test-asan    - Run tests with AddressSanitizer"
 	@echo "  test-leaks   - Run tests with macOS leaks tool"
+	@echo "  bench        - Run quick + load benchmarks"
+	@echo "  bench-quick  - Sequential benchmark (1000 requests)"
+	@echo "  bench-load   - Concurrent load test (5000 req, 50 concurrent)"
+	@echo "  bench-server - Start server for manual wrk/ab testing"
+	@echo "  bench-compare- Framework comparison (requires ab)"
 	@echo "  clean        - Remove build artifacts"
 	@echo "  distclean    - Remove all generated files"
 	@echo "  help         - Show this help message"

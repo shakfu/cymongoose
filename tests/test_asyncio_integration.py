@@ -305,3 +305,71 @@ async def test_async_manager_reentrant_timer_from_handler():
         await asyncio.wait_for(event.wait(), timeout=5)
 
     assert len(inner_fired) >= 1
+
+
+# -- shutdown regression tests -----------------------------------------------
+
+
+class TestAsyncManagerShutdown:
+    """AsyncManager must shut down cleanly even with a large poll_interval
+    and no connections registered."""
+
+    @pytest.mark.asyncio
+    async def test_shutdown_no_listeners_large_poll_interval(self):
+        """Start/stop AsyncManager with poll_interval=5000 and no listeners.
+
+        Regression: __aexit__ raised RuntimeError because _wake_poll() was
+        a no-op (no connections) and join(2) timed out before a 5-second
+        poll could finish, leaving poll() active when close() was called.
+        """
+        async with AsyncManager(poll_interval=5000) as am:
+            assert am.running
+        assert not am.running
+
+    @pytest.mark.asyncio
+    async def test_shutdown_no_listeners_default_interval(self):
+        """Baseline: default poll_interval should also shut down cleanly."""
+        async with AsyncManager() as am:
+            assert am.running
+        assert not am.running
+
+    @pytest.mark.asyncio
+    async def test_shutdown_with_listener_large_poll_interval(self):
+        """With a listener the wakeup path should still work."""
+        port = get_free_port()
+        async with AsyncManager(poll_interval=5000) as am:
+            am.listen(f"http://0.0.0.0:{port}", http=True)
+            assert am.running
+        assert not am.running
+
+    @pytest.mark.asyncio
+    @pytest.mark.filterwarnings("ignore::RuntimeWarning")
+    async def test_aexit_warns_when_poll_thread_stuck(self):
+        """Issue #12: __aexit__ must warn (not crash) if the poll thread
+        does not stop within the timeout.  Manager.close() must NOT be
+        called while poll() is still active.
+        """
+        import time as _time
+
+        def blocking_handler(conn, ev, data):
+            if ev == MG_EV_HTTP_MSG:
+                _time.sleep(30)
+
+        am = AsyncManager(
+            blocking_handler,
+            poll_interval=100,
+            shutdown_timeout=6,
+        )
+        with pytest.warns(RuntimeWarning, match="did not stop"):
+            async with am:
+                port = get_free_port()
+                am.listen(f"http://0.0.0.0:{port}")
+                import urllib.request
+
+                try:
+                    urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=1)
+                except Exception:
+                    pass
+                await asyncio.sleep(0.5)
+        # Manager must NOT have been closed (thread is still alive)
+        assert am._manager is not None

@@ -6,6 +6,8 @@ import pytest
 
 from cymongoose import MG_EV_SNTP_TIME, Manager
 
+pytestmark = pytest.mark.network
+
 
 def test_sntp_connect():
     """Test SNTP connection creation."""

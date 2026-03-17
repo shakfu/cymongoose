@@ -17,6 +17,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.14]
+
+### Changed
+
+- **Network-dependent tests excluded by default**: Tests in `test_dns.py` and `test_sntp.py` are now marked with `@pytest.mark.network` and excluded from the default test run via `addopts = "-m 'not network'"` in `pyproject.toml`. This makes `make test` deterministic without external network access. Run network tests explicitly with `pytest -m network`.
+- **`AsyncManager` gains `shutdown_timeout` parameter**: Controls how long `__aexit__` waits for the poll thread to stop before abandoning it (default 30 seconds). Allows users to tune the trade-off between patience and responsiveness when handlers block.
+
+### Fixed
+
+- **AsyncManager shutdown with large `poll_interval` and no connections**: `__aexit__` could raise `RuntimeError("Cannot close Manager while poll() is active")` when `poll_interval` exceeded the 2-second `join` timeout and no connections had been created (making `_wake_poll()` a no-op). `AsyncManager.__aenter__` now initializes `_wake_id` from the wakeup pipe connection that `enable_wakeup=True` already creates, so `_wake_poll()` can always interrupt `poll()` -- even with zero user connections. Added `Manager.wakeup_id` read-only property exposing the internal wakeup pipe's connection ID (0 if wakeup is not enabled).
+- **`ws_upgrade` format string vulnerability**: `Connection.ws_upgrade()` passed user-supplied header text directly as a printf format string to `mg_ws_upgrade` / `mg_vxprintf`. Any `%` character in header values (e.g. `"X-Percent: 50%"`) caused undefined behaviour (stack reads, corrupted handshake, or crash). The call now uses `"%s"` as the format string with the headers as a vararg, so user content is never interpreted as format specifiers. Also fixed a missing trailing `\r\n` on the last header line that would have malformed the HTTP upgrade response.
+- **`url_encode()` silent truncation on short inputs**: The output buffer was allocated as `len * 3 + 1` bytes, but `mg_url_encode` requires `len * 3 + 4` due to its `if (n + 4 >= len) return 0` guard. Single-character special inputs like `" "` silently returned `""` instead of `"%20"`. Buffer allocation now uses `len * 3 + 4`, and a zero return from `mg_url_encode` raises `ValueError` instead of silently returning an empty string.
+- **`AsyncManager.__aexit__` crash when poll thread is stuck**: `__aexit__` called `Manager.close()` unconditionally after a 5-second `thread.join()` timeout, hitting `RuntimeError("Cannot close Manager while poll() is active")` when a handler blocked for longer than 5 seconds. Now retries the wakeup and join in a loop, issuing `RuntimeWarning` on each retry, and abandons the thread after `shutdown_timeout` seconds (default 30) without calling `close()`. New `shutdown_timeout` parameter on `AsyncManager.__init__` controls the hard limit.
+- **Timer cancellation uses wrong deallocator**: `_drain_cancel_queue()` called libc `free()` on timer structs allocated by `mg_calloc()` via `mg_timer_add()`. On builds with custom Mongoose allocators (`MG_ENABLE_CUSTOM_CALLOC`), this mismatched `free`/`mg_calloc` pair could corrupt the heap. Now uses `mg_free()` to match the allocator that created the timer. Added `mg_free` declaration to `mongoose.pxd`.
+
+### Security
+
+- **HTTP header injection in `Connection.reply()`**: Header names and values passed to `reply()` were concatenated verbatim without validation for control characters. An attacker who controlled a header value could inject `\r\n` sequences to smuggle arbitrary headers or split HTTP responses (response-splitting attack). NUL bytes in header values would be silently truncated at the C layer, causing the Python-visible string to diverge from what Mongoose actually sent. `reply()` now raises `ValueError` if any header name or value contains `\r`, `\n`, or `\0`. Since `reply_json()` delegates to `reply()`, it inherits the same protection.
+
 ## [0.1.13]
 
 ### Added

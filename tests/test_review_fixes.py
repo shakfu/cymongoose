@@ -1,8 +1,10 @@
-"""Tests for REVIEW.md issues #7, #8, #10, #11."""
+"""Tests for REVIEW.md issues #7, #8, #10, #11, #12, #14."""
 
 import threading
 import time
 import urllib.request
+
+import pytest
 
 import cymongoose
 from cymongoose import (
@@ -372,3 +374,104 @@ class TestHeaderConstant:
 
         assert "X-Test-A" in received_headers
         assert "X-Test-B" in received_headers
+
+
+# ---------------------------------------------------------------------------
+# Issue #14 -- HTTP header injection prevention
+# ---------------------------------------------------------------------------
+
+
+class TestHeaderInjectionPrevention:
+    """Connection.reply() must reject header names/values containing CR/LF."""
+
+    def test_header_name_with_newline_rejected(self):
+        """Header name containing \\n must raise ValueError."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header name.*illegal character"):
+                conn.reply(200, b"x", {"Bad\nName": "value"})
+        finally:
+            manager.close()
+
+    def test_header_name_with_cr_rejected(self):
+        """Header name containing \\r must raise ValueError."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header name.*illegal character"):
+                conn.reply(200, b"x", {"Bad\rName": "value"})
+        finally:
+            manager.close()
+
+    def test_header_value_with_newline_rejected(self):
+        """Header value containing \\n must raise ValueError."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header value.*illegal character"):
+                conn.reply(200, b"x", {"X-Ok": "bad\nvalue"})
+        finally:
+            manager.close()
+
+    def test_header_value_with_crlf_injection_rejected(self):
+        """Classic CRLF injection in header value must raise ValueError."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header value.*illegal character"):
+                conn.reply(200, b"x", {"Location": "http://ok\r\nEvil: injected"})
+        finally:
+            manager.close()
+
+    def test_header_name_with_nul_rejected(self):
+        """Header name containing NUL must raise ValueError."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header name.*illegal character"):
+                conn.reply(200, b"x", {"Bad\x00Name": "value"})
+        finally:
+            manager.close()
+
+    def test_header_value_with_nul_rejected(self):
+        """Header value with NUL byte must raise (truncation at C layer)."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header value.*illegal character"):
+                conn.reply(200, b"x", {"X-Ok": "visible\x00hidden"})
+        finally:
+            manager.close()
+
+    def test_clean_headers_pass_through(self):
+        """Normal headers without CR/LF must not raise."""
+        received = []
+
+        def handler(conn, ev, data):
+            if ev == MG_EV_HTTP_MSG:
+                conn.reply(200, b"ok", {"X-Custom": "safe-value"})
+                received.append(True)
+
+        with ServerThread(handler) as port:
+            resp = urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=2)
+            body = resp.read()
+            assert resp.status == 200
+            assert b"ok" in body
+
+    def test_reply_json_inherits_header_validation(self):
+        """reply_json() delegates to reply(), so injection must be caught."""
+        manager = Manager()
+        try:
+            conn = manager.listen("http://127.0.0.1:0")
+            manager.poll(10)
+            with pytest.raises(ValueError, match="Header value.*illegal character"):
+                conn.reply_json({"a": 1}, headers={"X-Bad": "val\r\nEvil: yes"})
+        finally:
+            manager.close()

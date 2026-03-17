@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import asyncio
 import threading
+import warnings
 from typing import Any, Callable, Optional
 
 from ._mongoose import Connection, Manager, Timer
@@ -35,10 +36,35 @@ class AsyncManager:
         handler: Optional[Callable[..., Any]] = None,
         poll_interval: int = 100,
         error_handler: Optional[Callable[[Exception], Any]] = None,
+        shutdown_timeout: float = 30,
     ) -> None:
+        """Create an AsyncManager.
+
+        Args:
+            handler: Default event handler for all connections.
+            poll_interval: Milliseconds between poll() calls (default 100).
+            error_handler: Called when a handler raises an exception.
+            shutdown_timeout: Hard limit in seconds for ``__aexit__`` to wait
+                for the poll thread to stop (default 30).  Shutdown proceeds
+                as follows:
+
+                1. ``__aexit__`` signals the thread to stop and sends a wakeup.
+                2. Waits 5 seconds for the thread to join.
+                3. If still alive: emits a ``RuntimeWarning``, retries the
+                   wakeup, and waits another 5 seconds.
+                4. Repeats step 3 until ``shutdown_timeout`` is reached.
+                5. At the hard limit: emits a final "abandoning thread"
+                   warning and moves on without calling ``Manager.close()``.
+
+                The warnings surface in logs so operators can identify
+                blocked handlers.  Retrying the wakeup at each interval
+                guards against a lost initial wakeup that raced with the
+                handler entering ``poll()``.
+        """
         self._handler = handler
         self._poll_interval = poll_interval
         self._error_handler = error_handler
+        self._shutdown_timeout = shutdown_timeout
         self._manager: Optional[Manager] = None
         self._thread: Optional[threading.Thread] = None
         self._stop = threading.Event()
@@ -56,23 +82,48 @@ class AsyncManager:
             error_handler=self._error_handler,
         )
         self._stop.clear()
-        self._wake_id = 0
+        # The wakeup pipe connection is always created by enable_wakeup=True,
+        # so _wake_poll() can interrupt poll() even with no user connections.
+        self._wake_id = self._manager.wakeup_id
         self._thread = threading.Thread(target=self._run, daemon=True)
         self._thread.start()
         return self
 
     async def __aexit__(self, *exc: Any) -> None:
         self._stop.set()
-        # Interrupt poll() so the thread exits promptly
         self._wake_poll()
         if self._thread is not None:
-            await asyncio.get_running_loop().run_in_executor(
-                None,
-                self._thread.join,
-                2,
-            )
-            self._thread = None
-        if self._manager is not None:
+            loop = asyncio.get_running_loop()
+            interval = 5.0  # seconds between retry attempts
+            elapsed = 0.0
+            while self._thread.is_alive():
+                await loop.run_in_executor(
+                    None,
+                    self._thread.join,
+                    min(interval, self._shutdown_timeout - elapsed),
+                )
+                elapsed += interval
+                if self._thread.is_alive():
+                    if elapsed >= self._shutdown_timeout:
+                        warnings.warn(
+                            f"AsyncManager poll thread did not stop within "
+                            f"{self._shutdown_timeout}s; abandoning thread. "
+                            f"A handler is likely blocked.",
+                            RuntimeWarning,
+                            stacklevel=2,
+                        )
+                        break
+                    warnings.warn(
+                        f"AsyncManager poll thread has not stopped after "
+                        f"{elapsed:.0f}s; a handler may be blocking. "
+                        f"Retrying shutdown...",
+                        RuntimeWarning,
+                        stacklevel=2,
+                    )
+                    self._wake_poll()
+            if not self._thread.is_alive():
+                self._thread = None
+        if self._manager is not None and self._thread is None:
             self._manager.close()
             self._manager = None
         self._loop = None

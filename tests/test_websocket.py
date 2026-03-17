@@ -389,3 +389,87 @@ class TestWebSocketOpcodes:
             stop.set()
             thread.join(timeout=1)
             manager.close()
+
+
+class TestWsUpgradeFormatString:
+    """ws_upgrade must not interpret header values as printf format strings."""
+
+    def test_ws_upgrade_with_percent_in_header(self):
+        """Headers containing '%' must not crash or corrupt the handshake.
+
+        Regression: header text was passed directly as a printf format
+        string to mg_vxprintf, causing undefined behaviour.
+        """
+        received = []
+        stop = threading.Event()
+
+        def handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.ws_upgrade(
+                    data,
+                    extra_headers={
+                        "X-Percent": "50%",
+                        "X-Double-Percent": "100%%s",
+                    },
+                )
+            elif event == MG_EV_WS_MSG:
+                received.append(data.text)
+                conn.ws_send("pong")
+
+        manager = Manager(handler)
+        port = get_free_port()
+        manager.listen(f"http://0.0.0.0:{port}", http=True)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            ws = websocket.WebSocket()
+            ws.connect(f"ws://localhost:{port}/ws")
+            ws.send("ping")
+            resp = ws.recv()
+            assert resp == "pong"
+            ws.close()
+        finally:
+            stop.set()
+            thread.join(timeout=2)
+            manager.close()
+
+    def test_ws_upgrade_no_extra_headers(self):
+        """ws_upgrade without extra_headers still works (fmt=NULL path)."""
+        stop = threading.Event()
+
+        def handler(conn, event, data):
+            if event == MG_EV_HTTP_MSG:
+                conn.ws_upgrade(data)
+            elif event == MG_EV_WS_MSG:
+                conn.ws_send("ok")
+
+        manager = Manager(handler)
+        port = get_free_port()
+        manager.listen(f"http://0.0.0.0:{port}", http=True)
+
+        def run_poll():
+            while not stop.is_set():
+                manager.poll(100)
+
+        thread = threading.Thread(target=run_poll, daemon=True)
+        thread.start()
+        time.sleep(0.3)
+
+        try:
+            ws = websocket.WebSocket()
+            ws.connect(f"ws://localhost:{port}/ws")
+            ws.send("hello")
+            resp = ws.recv()
+            assert resp == "ok"
+            ws.close()
+        finally:
+            stop.set()
+            thread.join(timeout=2)
+            manager.close()

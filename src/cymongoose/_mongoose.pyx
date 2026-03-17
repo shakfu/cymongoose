@@ -138,6 +138,7 @@ from .mongoose cimport (
     mg_timer_fn_t,
     mg_timer_add,
     mg_timer_free,
+    mg_free,
     MG_TIMER_ONCE,
     MG_TIMER_REPEAT,
     MG_TIMER_RUN_NOW,
@@ -644,7 +645,19 @@ cdef class Connection:
         if headers is None:
             header_lines = ["Content-Type: text/plain\r\n"]
         else:
-            header_lines = [f"{k}: {v}\r\n" for k, v in headers.items()]
+            header_lines = []
+            for k, v in headers.items():
+                k_str = str(k)
+                v_str = str(v)
+                if "\r" in k_str or "\n" in k_str or "\0" in k_str:
+                    raise ValueError(
+                        f"Header name contains illegal character (CR, LF, or NUL): {k_str!r}"
+                    )
+                if "\r" in v_str or "\n" in v_str or "\0" in v_str:
+                    raise ValueError(
+                        f"Header value contains illegal character (CR, LF, or NUL): {v_str!r}"
+                    )
+                header_lines.append(f"{k_str}: {v_str}\r\n")
             if not any(k.lower() == "content-type" for k in headers):
                 header_lines.insert(0, "Content-Type: text/plain\r\n")
         headers_bytes = "".join(header_lines).encode("utf-8")
@@ -739,17 +752,22 @@ cdef class Connection:
             raise ValueError("HttpMessage is not valid for this event")
 
         cdef const char *fmt = NULL
+        cdef const char *headers_c = NULL
         cdef bytes headers_b
         if extra_headers:
-            headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items())
-            # Keep Python bytes object alive - fmt pointer references its buffer
+            # Each header line must be terminated with \r\n so that
+            # mg_send's final \r\n acts as the blank-line separator.
+            headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items()) + "\r\n"
+            # Keep Python bytes object alive - headers_c pointer references its buffer
             headers_b = headers_str.encode("utf-8")
-            fmt = headers_b
+            headers_c = headers_b
+            # Use "%s" so user-supplied text is never interpreted as a format string.
+            fmt = "%s"
 
         cdef mg_connection *conn = self._ptr()
         cdef mg_http_message *msg = message._msg
         with nogil:
-            mg_ws_upgrade(conn, msg, fmt)
+            mg_ws_upgrade(conn, msg, fmt, headers_c)
 
     def ws_send(self, data, op=WEBSOCKET_OP_TEXT) -> None:
         """Send a WebSocket frame."""
@@ -1160,6 +1178,7 @@ cdef class Manager:
     cdef int _poll_count
     cdef PyObject *_self_ref
     cdef bint _freed
+    cdef unsigned long _wakeup_id
 
     def __cinit__(self, handler=None, enable_wakeup=False, error_handler=None):
         import threading as _threading
@@ -1171,6 +1190,7 @@ cdef class Manager:
         self._cancel_queue = []
         self._cancel_lock = _threading.Lock()
         self._poll_count = 0
+        self._wakeup_id = 0
         self._self_ref = <PyObject*> self
         Py_INCREF(<object>self._self_ref)
         mg_mgr_init(&self._mgr)
@@ -1179,6 +1199,11 @@ cdef class Manager:
         if enable_wakeup:
             if not mg_wakeup_init(&self._mgr):
                 raise RuntimeError("Failed to initialize wakeup support")
+            # mg_wakeup_init prepends the wakeup pipe connection to
+            # mgr->conns.  Capture its ID so callers can always
+            # interrupt poll() via wakeup().
+            if self._mgr.conns != NULL:
+                self._wakeup_id = self._mgr.conns.id
 
     def __dealloc__(self):
         self._cleanup()
@@ -1231,7 +1256,7 @@ cdef class Manager:
             if t._timer == NULL:
                 continue  # already cancelled or completed
             mg_timer_free(&self._mgr.timers, t._timer)
-            free(t._timer)
+            mg_free(t._timer)
             t._timer = NULL
             t._callback = None
             self._timers.discard(t)
@@ -1342,6 +1367,11 @@ cdef class Manager:
         after the call are not reflected.
         """
         return tuple(self._connections.values())
+
+    @property
+    def wakeup_id(self) -> int:
+        """Connection ID of the internal wakeup pipe, or 0 if wakeup is not enabled."""
+        return self._wakeup_id
 
     def poll(self, int timeout_ms=0) -> None:
         """Drive the event loop once.
@@ -1829,8 +1859,11 @@ def url_encode(data: str) -> str:
     """
     cdef bytes data_b = data.encode("utf-8")
     cdef size_t src_len = len(data_b)
-    # URL encoding can expand up to 3x (worst case: every byte becomes %XX)
-    cdef size_t buf_len = src_len * 3 + 1
+    if src_len == 0:
+        return ""
+    # mg_url_encode checks `n + 4 >= len` before each byte, so the buffer
+    # must be at least src_len * 3 + 4 to avoid premature truncation.
+    cdef size_t buf_len = src_len * 3 + 4
     cdef char *buf = <char*>malloc(buf_len)
     cdef size_t result_len
 
@@ -1839,6 +1872,8 @@ def url_encode(data: str) -> str:
 
     try:
         result_len = mg_url_encode(data_b, src_len, buf, buf_len)
+        if result_len == 0:
+            raise ValueError("URL encoding failed (mg_url_encode returned 0)")
         return buf[:result_len].decode("ascii")
     finally:
         free(buf)

@@ -2,7 +2,11 @@
 
 import time
 
+import pytest
+
 from cymongoose import MG_EV_ERROR, MG_EV_RESOLVE, Manager
+
+pytestmark = pytest.mark.network
 
 
 def test_dns_resolve_basic():

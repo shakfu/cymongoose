@@ -278,3 +278,5 @@ cdef extern from "mongoose.h":
 
     cdef mg_timer *mg_timer_add(mg_mgr *mgr, uint64_t milliseconds, unsigned flags, mg_timer_fn_t fn, void *arg)
     cdef void mg_timer_free(mg_timer **head, mg_timer *timer)
+
+    void mg_free(void *ptr)

@@ -1,6 +1,6 @@
 [project]
 name = "cymongoose"
-version = "0.1.13"
+version = "0.1.14"
 description = "High-performance Python bindings for the Mongoose embedded networking library"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -120,8 +120,11 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --tb=short --strict-markers"
+addopts = "-v --tb=short --strict-markers -m 'not network'"
 asyncio_mode = "auto"
+markers = [
+    "network: tests that require external network access (run with '-m network' or '--override-ini=addopts=-v --tb=short')",
+]
 
 [tool.coverage.run]
 source = ["cymongoose"]
