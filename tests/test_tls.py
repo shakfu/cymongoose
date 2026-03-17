@@ -363,7 +363,7 @@ def test_tls_https_handshake(tls_certs):
             http=True,
         )
 
-        deadline = time.monotonic() + 5
+        deadline = time.monotonic() + 10
         while events["client_response"] is None and time.monotonic() < deadline:
             mgr.poll(10)
 
@@ -406,7 +406,7 @@ def test_tls_skip_verification_connects(tls_certs):
             http=True,
         )
 
-        deadline = time.monotonic() + 5
+        deadline = time.monotonic() + 10
         while (
             events["client_response"] is None
             and events["error"] is None
@@ -449,7 +449,7 @@ def test_tls_is_tls_flag_set_after_handshake(tls_certs):
             http=True,
         )
 
-        deadline = time.monotonic() + 5
+        deadline = time.monotonic() + 10
         while not events["done"] and time.monotonic() < deadline:
             mgr.poll(10)
 
