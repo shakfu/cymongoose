@@ -12581,6 +12581,7 @@ void mg_tls_init(struct mg_connection *c, const struct mg_tls_opts *opts) {
     memmove(tls->ec_key, key.buf + 7, 32);
     mg_free((void *) key.buf);
   } else if (mg_parse_pem(opts->key, mg_str_s("PRIVATE KEY"), &key) == 0) {
+    mg_free((void *) key.buf);
     mg_error(c, "PKCS8 private key format is not supported");
   } else {
     mg_error(c, "Expected EC PRIVATE KEY or PRIVATE KEY");

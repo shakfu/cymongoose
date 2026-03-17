@@ -17,19 +17,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.1.13]
+
 ### Added
 
 - **Connection-churn stress tests** (`tests/test_stress.py`): Two tests exercising rapid connection lifecycle: `test_connection_churn_2000` (2000 sequential TCP connections) and `test_concurrent_connection_churn` (5 threads x 400 connections). Verifies no segfault, no stale `_connections` entries, and high success rate under load.
 - **ASAN CI job**: Added `asan` job to `.github/workflows/ci.yml` that builds with `USE_ASAN=ON` and runs the test suite under AddressSanitizer on Ubuntu. Uses `LD_PRELOAD` for the system ASAN library with `detect_leaks=0` and `halt_on_error=1`.
 - **Thread-safety reference table** in `docs/advanced/threading.md`: Classifies every `Manager` method as thread-safe (`wakeup()`, `Timer.cancel()`), poll-thread-only (`poll()`, `listen()`, `connect()`, `close()`, etc.), or any-thread via `AsyncManager`.
+- **`make test-leaks` target**: Runs the test suite under macOS `leaks` tool to detect memory leaks at process exit. Filters output to show only test results and leak summaries.
+- **Vendored Mongoose patches section** in `docs/dev/index.md`: Documents local patches applied to `thirdparty/mongoose/` that must be re-applied after upgrading the vendored source.
 
 ### Changed
 
 - **`AsyncManager` delegated methods now interrupt `poll()` for lower latency**: All delegated methods (`listen()`, `connect()`, `timer_add()`, etc.) call `_wake_poll()` before acquiring the RLock. This writes to the wakeup pipe, breaking `poll()` out of `select()`/`epoll_wait()` immediately instead of waiting up to `poll_interval` ms (default 100 ms). The first connection ID is stored by `_track_conn()` for subsequent wakeups. `__aexit__` also calls `_wake_poll()` for faster thread shutdown.
+- **README deduplicated**: Trimmed from 499 to 93 lines. Removed the duplicated API reference, event constants, testing breakdown, architecture, and performance sections -- all of which live in the MkDocs site at `https://shakfu.github.io/cymongoose/`. Kept overview, features, installation, quick start, and essential commands.
+- **`TODO.md` removed**: All items completed.
 
 ### Fixed
 
 - **`Manager._freed` race condition between `poll()` and `close()`**: Added `_poll_count` counter to `Manager`. `poll()` increments the counter before the C call and decrements after. `close()` raises `RuntimeError` if `_poll_count > 0`, then sets `_freed = True`. No lock needed: the GIL serialises all access to `_poll_count` and `_freed`, and the only GIL release (during `mg_mgr_poll`) happens while `_poll_count > 0`, which blocks `close()`. Zero overhead compared to the original code. This prevents `mg_mgr_free()` from running while `mg_mgr_poll()` is active, turning a silent segfault into a clear Python exception.
+- **MkDocs strict build failure** in `docs/dev/poll_timeout_guide.md`: Replaced `[X]` and `[x]` checkbox markers with plain text (`BAD`/`OK`). The `mkdocs_autorefs` plugin was parsing `[X]` as a cross-reference target, causing `mkdocs build --strict` to abort.
+- **128-byte memory leak in vendored mongoose `mg_tls_init`**: When a PKCS8 private key is rejected, `mg_parse_pem` allocates a buffer for the parsed DER data, but `mg_tls_init` calls `mg_error` and returns without freeing it. Added `mg_free((void *) key.buf)` before the error call at `mongoose.c:12583`. Also fixed `test_tls_init_multiple_times` to call `tls_free()` between consecutive `tls_init()` calls, preventing a separate 1536-byte TLS context leak (mongoose overwrites `c->tls` without freeing the old allocation).
 
 ## [0.1.12]
 

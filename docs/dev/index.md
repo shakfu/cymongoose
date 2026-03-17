@@ -152,6 +152,16 @@ make docs
 python tests/examples/http/http_server.py
 ```
 
+## Vendored Mongoose Patches
+
+The vendored copy of mongoose (`thirdparty/mongoose/`) includes the following
+local patches on top of the upstream release.  These must be re-applied after
+upgrading the vendored source.
+
+| File | Description |
+|------|-------------|
+| `mongoose.c:12583` | Free PKCS8 key buffer before returning error in `mg_tls_init`. Upstream leaks the `mg_parse_pem` allocation when a PKCS8 key is rejected. |
+
 ## See Also
 
 - [Contributing](contributing.md) - Contribution guidelines

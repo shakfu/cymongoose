@@ -151,7 +151,11 @@ def test_tls_opts_partial():
 
 
 def test_tls_init_multiple_times():
-    """Test that tls_init can be called multiple times."""
+    """Test that tls_init can be called multiple times (with tls_free between).
+
+    Calling tls_init without tls_free first leaks the previous TLS context
+    (mongoose does not free c->tls before overwriting it).
+    """
     manager = Manager()
 
     try:
@@ -161,6 +165,8 @@ def test_tls_init_multiple_times():
         opts1 = TlsOpts(skip_verification=True)
         listener.tls_init(opts1)
         manager.poll(10)
+
+        listener.tls_free()
 
         opts2 = TlsOpts(skip_verification=False)
         listener.tls_init(opts2)

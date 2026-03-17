@@ -5,7 +5,8 @@
 
 .PHONY: all sync build rebuild test lint format typecheck qa clean \
         distclean wheel sdist dist check publish-test publish upgrade \
-        coverage coverage-html docs docs-serve docs-deploy release build-asan test-asan help
+        coverage coverage-html docs docs-serve docs-deploy release \
+        build-asan test-asan test-leaks help
 
 # Default target
 all: build
@@ -109,6 +110,16 @@ test-asan: build-asan
 		build/run_asan $(ASAN_LIB) .venv/bin/python -m pytest tests/ -v -x --tb=short
 	@echo "ASAN tests completed successfully"
 
+# Run tests under macOS `leaks` tool to detect memory leaks
+# Requires macOS with developer tools installed.
+# The `leaks` tool attaches to the process and reports any leaked allocations
+# after the test suite completes. Exit code is non-zero if leaks are found.
+test-leaks:
+	@echo "Running tests with macOS leaks tool..."
+	MallocStackLogging=1 leaks --atExit -- .venv/bin/python -m pytest tests/ -x --tb=short -q 2>&1 \
+		| grep -E '(passed|failed|error|Process [0-9]|LEAK|ROOT LEAK|leaked bytes)'
+	@echo "Leak check completed"
+
 # Clean build artifacts
 clean:
 	@rm -rf build/
@@ -150,6 +161,7 @@ help:
 	@echo "  docs-deploy  - Deploy documentation to GitHub Pages"
 	@echo "  build-asan   - Build with AddressSanitizer"
 	@echo "  test-asan    - Run tests with AddressSanitizer"
+	@echo "  test-leaks   - Run tests with macOS leaks tool"
 	@echo "  clean        - Remove build artifacts"
 	@echo "  distclean    - Remove all generated files"
 	@echo "  help         - Show this help message"
