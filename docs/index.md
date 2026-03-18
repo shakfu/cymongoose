@@ -47,10 +47,10 @@ Benchmarked with `wrk -t4 -c100 -d10s` on an M1 Macbook Air laptop:
 
 | Framework | Req/sec | Latency (avg) | vs cymongoose |
 |---|---|---|---|
-| **cymongoose** | **60,973** | **1.67ms** | **baseline** |
-| aiohttp | 42,452 | 2.56ms | 1.44x slower |
-| FastAPI/uvicorn | 9,989 | 9.96ms | 6.1x slower |
-| Flask (threaded) | 1,627 | 22.15ms | 37.5x slower |
+| **cymongoose** | **88,710** | **1.13ms** | **baseline** |
+| aiohttp | 42,452 | 2.56ms | 2.1x slower |
+| FastAPI/uvicorn | 9,989 | 9.96ms | 8.9x slower |
+| Flask (threaded) | 1,627 | 22.15ms | 54.5x slower |
 
 ## Project Links
 

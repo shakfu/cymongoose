@@ -1,6 +1,6 @@
 # TODO
 
-Tasks derived from [REVIEW.md](REVIEW.md) (v0.1.14 review), ordered by priority.
+Tasks derived from (v0.1.14 code review), ordered by priority.
 Validated and pruned -- dropped tasks that are already covered, impractical,
 or fix theoretical paths that can't be reached in practice.
 

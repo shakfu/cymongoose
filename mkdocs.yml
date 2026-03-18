@@ -71,6 +71,7 @@ nav:
   - API Reference:
       - Overview: api/index.md
       - Manager: api/manager.md
+      - AsyncManager: api/async_manager.md
       - Connection: api/connection.md
       - Messages: api/messages.md
       - Utilities: api/utilities.md

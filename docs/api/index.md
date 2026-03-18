@@ -5,6 +5,7 @@ Complete API documentation for all cymongoose classes, functions, and constants.
 ## Core Classes
 
 - [Manager](manager.md)
+- [AsyncManager](async_manager.md)
 - [Connection](connection.md)
 - [Messages](messages.md)
 - [Utilities](utilities.md)

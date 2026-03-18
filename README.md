@@ -78,7 +78,7 @@ See the [quickstart guide](https://shakfu.github.io/cymongoose/quickstart/) and 
 ## Testing
 
 ```sh
-make test           # Run all tests (335 tests)
+make test           # Run all tests (366 tests)
 make test-asan      # Run with AddressSanitizer (memory safety)
 make qa             # Run tests + lint + type check + format
 ```

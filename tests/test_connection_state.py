@@ -1,5 +1,7 @@
 """Tests for connection state properties and error handling."""
 
+import pytest
+
 from cymongoose import MG_EV_ERROR, MG_EV_HTTP_MSG, MG_EV_OPEN, Manager
 
 
@@ -120,3 +122,49 @@ def test_is_udp_flag():
         assert not listener.is_client
     finally:
         manager.close()
+
+
+# ---------------------------------------------------------------------------
+# Send operations on closed connections
+# ---------------------------------------------------------------------------
+
+
+class TestSendOnClosedConnection:
+    """Calling send methods on a closed connection must raise RuntimeError."""
+
+    def _get_closed_connection(self):
+        manager = Manager()
+        conn = manager.listen("http://127.0.0.1:0")
+        manager.poll(10)
+        manager.close()
+        return conn
+
+    def test_send_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.send(b"data")
+
+    def test_reply_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.reply(200, b"ok")
+
+    def test_reply_json_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.reply_json({"a": 1})
+
+    def test_ws_send_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.ws_send(b"data")
+
+    def test_http_chunk_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.http_chunk(b"data")
+
+    def test_mqtt_pub_on_closed_raises(self):
+        conn = self._get_closed_connection()
+        with pytest.raises(RuntimeError, match="closed"):
+            conn.mqtt_pub("topic", "msg")

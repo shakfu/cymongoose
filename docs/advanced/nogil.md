@@ -108,9 +108,9 @@ Benchmark results (Apple Silicon, `wrk -t4 -c100 -d10s`):
 
 | Configuration | Req/sec | Performance |
 |---|---|---|
-| nogil enabled | 60,973 | 100% (baseline) |
-| nogil disabled | ~35,000 | ~57% (slower) |
-| Pure Python (aiohttp) | 42,452 | ~70% |
+| nogil enabled | 88,710 | 100% (baseline) |
+| nogil disabled | ~35,000 | ~40% (slower) |
+| Pure Python (aiohttp) | 42,452 | ~48% |
 
 ## Thread Safety
 

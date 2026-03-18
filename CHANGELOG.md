@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
-## [0.1.14]
+## [0.2.0]
 
 ### Added
 
@@ -27,6 +27,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Network tests CI job**: Non-blocking `network-tests` job in `.github/workflows/ci.yml` runs `pytest -m network` (DNS/SNTP tests) with `continue-on-error: true`.
 - **`Manager.__cinit__` docstring**: Documents all three parameters including the `error_handler` expected signature `(exc: Exception) -> None`.
 - **AsyncManager shutdown section in docs**: `docs/advanced/shutdown.md` now documents the `shutdown_timeout` parameter and the 5-step shutdown sequence.
+
+### Fixed
+
+- **`poll()` did not guard against concurrent calls**: Mongoose's event loop is single-threaded, but nothing prevented two threads from calling `Manager.poll()` simultaneously, which would corrupt internal data structures. `poll()` now checks `_poll_count > 0` before entering and raises `RuntimeError` if another call is already active. Zero overhead (single comparison under the GIL). `AsyncManager` is unaffected since it serialises `poll()` under an `RLock`.
+
+### Security
+
+- **Header injection extended to `ws_upgrade()`**: The CR/LF/NUL header validation added to `reply()` in v0.1.14 was not applied to `Connection.ws_upgrade()`. Both methods now validate headers via a shared `_validate_header()` helper.
+
+## [0.1.14]
 
 ### Changed
 
@@ -39,12 +49,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **`ws_upgrade` format string vulnerability**: `Connection.ws_upgrade()` passed user-supplied header text directly as a printf format string to `mg_ws_upgrade` / `mg_vxprintf`. Any `%` character in header values (e.g. `"X-Percent: 50%"`) caused undefined behaviour (stack reads, corrupted handshake, or crash). The call now uses `"%s"` as the format string with the headers as a vararg, so user content is never interpreted as format specifiers. Also fixed a missing trailing `\r\n` on the last header line that would have malformed the HTTP upgrade response.
 - **`url_encode()` silent truncation on short inputs**: The output buffer was allocated as `len * 3 + 1` bytes, but `mg_url_encode` requires `len * 3 + 4` due to its `if (n + 4 >= len) return 0` guard. Single-character special inputs like `" "` silently returned `""` instead of `"%20"`. Buffer allocation now uses `len * 3 + 4`, and a zero return from `mg_url_encode` raises `ValueError` instead of silently returning an empty string.
 - **`AsyncManager.__aexit__` crash when poll thread is stuck**: `__aexit__` called `Manager.close()` unconditionally after a 5-second `thread.join()` timeout, hitting `RuntimeError("Cannot close Manager while poll() is active")` when a handler blocked for longer than 5 seconds. Now retries the wakeup and join in a loop, issuing `RuntimeWarning` on each retry, and abandons the thread after `shutdown_timeout` seconds (default 30) without calling `close()`. New `shutdown_timeout` parameter on `AsyncManager.__init__` controls the hard limit.
-- **`poll()` did not guard against concurrent calls**: Mongoose's event loop is single-threaded, but nothing prevented two threads from calling `Manager.poll()` simultaneously, which would corrupt internal data structures. `poll()` now checks `_poll_count > 0` before entering and raises `RuntimeError` if another call is already active. Zero overhead (single comparison under the GIL). `AsyncManager` is unaffected since it serialises `poll()` under an `RLock`.
 - **Timer cancellation uses wrong deallocator**: `_drain_cancel_queue()` called libc `free()` on timer structs allocated by `mg_calloc()` via `mg_timer_add()`. On builds with custom Mongoose allocators (`MG_ENABLE_CUSTOM_CALLOC`), this mismatched `free`/`mg_calloc` pair could corrupt the heap. Now uses `mg_free()` to match the allocator that created the timer. Added `mg_free` declaration to `mongoose.pxd`.
 
 ### Security
 
-- **HTTP header injection in `Connection.reply()` and `ws_upgrade()`**: Header names and values passed to `reply()` and `ws_upgrade()` were concatenated verbatim without validation for control characters. An attacker who controlled a header value could inject `\r\n` sequences to smuggle arbitrary headers or split HTTP responses (response-splitting attack). NUL bytes in header values would be silently truncated at the C layer, causing the Python-visible string to diverge from what Mongoose actually sent. Both methods now validate headers via a shared `_validate_header()` helper that raises `ValueError` if any header name or value contains `\r`, `\n`, or `\0`. `reply_json()` inherits the same protection via `reply()`.
+- **HTTP header injection in `Connection.reply()`**: Header names and values passed to `reply()` were concatenated verbatim without validation for control characters. An attacker who controlled a header value could inject `\r\n` sequences to smuggle arbitrary headers or split HTTP responses (response-splitting attack). NUL bytes in header values would be silently truncated at the C layer, causing the Python-visible string to diverge from what Mongoose actually sent. `reply()` now raises `ValueError` if any header name or value contains `\r`, `\n`, or `\0`. Since `reply_json()` delegates to `reply()`, it inherits the same protection.
 
 ## [0.1.13]
 

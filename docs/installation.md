@@ -115,7 +115,7 @@ make coverage
 uv run pytest tests/ -v
 ```
 
-All 309 tests should pass. If you encounter failures, please report them
+All 366 tests should pass. If you encounter failures, please report them
 on the [issue tracker](https://github.com/shakfu/cymongoose/issues).
 
 ### Common Makefile Commands

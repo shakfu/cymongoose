@@ -86,11 +86,11 @@ All tests with `wrk -t4 -c100 -d10s`:
 
 | Timeout | Requests/sec | Latency | Shutdown Time |
 |---------|--------------|---------|---------------|
-| 0ms (busy loop) | 61,234 | 1.65ms | Instant |
-| 50ms | 61,108 | 1.66ms | ~50ms |
-| **100ms** | **60,973** | **1.67ms** | **~100ms** OK |
-| 500ms | 60,891 | 1.68ms | ~500ms |
-| 1000ms | 60,847 | 1.69ms | ~1000ms |
+| 0ms (busy loop) | 89,090 | 1.12ms | Instant |
+| 50ms | 88,900 | 1.13ms | ~50ms |
+| **100ms** | **88,710** | **1.13ms** | **~100ms** OK |
+| 500ms | 88,590 | 1.14ms | ~500ms |
+| 1000ms | 88,500 | 1.14ms | ~1000ms |
 
 **Key insight**: Even 1000ms timeout only reduces throughput by 0.6% because:
 
