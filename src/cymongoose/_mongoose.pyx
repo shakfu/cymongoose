@@ -283,6 +283,18 @@ def event_name(int ev) -> str:
     return f"MG_EV_UNKNOWN({ev})"
 
 
+def _validate_header(str name, str value):
+    """Reject header names/values containing CR, LF, or NUL."""
+    if "\r" in name or "\n" in name or "\0" in name:
+        raise ValueError(
+            f"Header name contains illegal character (CR, LF, or NUL): {name!r}"
+        )
+    if "\r" in value or "\n" in value or "\0" in value:
+        raise ValueError(
+            f"Header value contains illegal character (CR, LF, or NUL): {value!r}"
+        )
+
+
 cdef inline bint _infer_http(str url):
     """Return True if the URL scheme implies HTTP protocol parsing."""
     cdef str lower = url[:8].lower()
@@ -649,14 +661,7 @@ cdef class Connection:
             for k, v in headers.items():
                 k_str = str(k)
                 v_str = str(v)
-                if "\r" in k_str or "\n" in k_str or "\0" in k_str:
-                    raise ValueError(
-                        f"Header name contains illegal character (CR, LF, or NUL): {k_str!r}"
-                    )
-                if "\r" in v_str or "\n" in v_str or "\0" in v_str:
-                    raise ValueError(
-                        f"Header value contains illegal character (CR, LF, or NUL): {v_str!r}"
-                    )
+                _validate_header(k_str, v_str)
                 header_lines.append(f"{k_str}: {v_str}\r\n")
             if not any(k.lower() == "content-type" for k in headers):
                 header_lines.insert(0, "Content-Type: text/plain\r\n")
@@ -757,6 +762,8 @@ cdef class Connection:
         if extra_headers:
             # Each header line must be terminated with \r\n so that
             # mg_send's final \r\n acts as the blank-line separator.
+            for k, v in extra_headers.items():
+                _validate_header(str(k), str(v))
             headers_str = "\r\n".join(f"{k}: {v}" for k, v in extra_headers.items()) + "\r\n"
             # Keep Python bytes object alive - headers_c pointer references its buffer
             headers_b = headers_str.encode("utf-8")
@@ -1181,6 +1188,17 @@ cdef class Manager:
     cdef unsigned long _wakeup_id
 
     def __cinit__(self, handler=None, enable_wakeup=False, error_handler=None):
+        """Initialize event manager.
+
+        Args:
+            handler: Default event handler ``(conn, ev, data) -> None``
+                for all connections.
+            enable_wakeup: Enable wakeup support for multi-threaded
+                scenarios.
+            error_handler: Optional callback invoked when an event
+                handler raises.  Signature: ``(exc: Exception) -> None``.
+                Defaults to ``traceback.print_exc()``.
+        """
         import threading as _threading
         self._default_handler = handler
         self._error_handler = error_handler
@@ -1384,6 +1402,11 @@ cdef class Manager:
         During the ``with nogil:`` block, ``_poll_count > 0`` prevents
         ``close()`` from freeing the manager.
         """
+        if self._poll_count > 0:
+            raise RuntimeError(
+                "poll() is not reentrant and must not be called concurrently. "
+                "Use AsyncManager for multi-threaded access."
+            )
         self._poll_count += 1
         try:
             if self._freed:

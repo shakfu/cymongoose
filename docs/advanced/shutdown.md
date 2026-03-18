@@ -69,6 +69,32 @@ if __name__ == "__main__":
     main()
 ```
 
+## AsyncManager Shutdown
+
+When using ``AsyncManager``, shutdown is handled automatically by
+``__aexit__``.  The ``shutdown_timeout`` parameter (default 30 seconds)
+controls how long it waits for the poll thread to stop:
+
+1. ``__aexit__`` signals the thread to stop and sends a wakeup.
+2. Waits 5 seconds for the thread to join.
+3. If still alive: emits a ``RuntimeWarning``, retries the wakeup,
+   and waits another 5 seconds.
+4. Repeats step 3 until ``shutdown_timeout`` is reached.
+5. At the hard limit: emits a final warning and moves on without
+   calling ``Manager.close()``.
+
+```python
+# Tune the timeout for your application
+async with AsyncManager(handler, shutdown_timeout=10) as am:
+    am.listen("http://0.0.0.0:8080")
+    # ...
+# __aexit__ handles shutdown automatically
+```
+
+The warnings surface in logs so operators can identify blocked handlers.
+If a handler finishes before the timeout, shutdown completes normally
+and ``Manager.close()`` is called.
+
 ## Connection Draining
 
 ### Use `conn.drain()` Instead of `conn.close()`

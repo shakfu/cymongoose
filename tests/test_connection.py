@@ -255,14 +255,15 @@ class TestConnectionProperties:
             except Exception:
                 pass  # timeout or incomplete response expected
 
-            # Verify the manager is still alive: poll succeeds and listener
-            # is still active after receiving a request with no handler.
+            # Verify the listener is still active after receiving a request
+            # with no handler.
             time.sleep(0.2)
-            manager.poll(0)
             assert listener.is_listening
         finally:
             stop.set()
             thread.join(timeout=1)
+            # Verify poll still works after the thread exits
+            manager.poll(0)
             manager.close()
 
     def test_listener_handler_persists_across_multiple_requests(self):

@@ -103,6 +103,34 @@ jobs:
           ASAN_OPTIONS: detect_leaks=0:allocator_may_return_null=1:halt_on_error=1
         run: uv run pytest tests/ -v -x --tb=short -k "not examples"
 
+  network-tests:
+    name: Network Tests
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Build package
+        run: uv build --wheel
+
+      - name: Install package
+        run: uv pip install dist/*.whl
+        shell: bash
+
+      - name: Run network tests (DNS, SNTP)
+        run: uv run pytest tests/ -v -m network --tb=short
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
