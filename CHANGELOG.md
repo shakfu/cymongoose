@@ -17,6 +17,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Changed
+
+- **`docs/dev/security.md` TLS section**: Replaced stale "future work" language and `mg_tls_opts` references with actual `TlsOpts` API usage, parameter table, and recommendations.
+- **Example tests CI job**: Added non-blocking `examples` job to `.github/workflows/ci.yml` (`continue-on-error: true`) so example breakage is surfaced without blocking merges.
+- **Cross-platform load test CI job**: Added non-blocking `load-test` job to `.github/workflows/ci.yml` running `quick_bench.py` (1000 sequential) and `simple_load_test.py` (5000 concurrent) on Linux, macOS, and Windows.
+
+### Removed
+
+- **`USE_NOGIL_ENABLED`**: Removed dead constant from `_mongoose.pyx`, `.pyi` stub, `__init__.py`, `docs/installation.md` troubleshooting tip, and `demo_server.py` startup message. It was always `True` since the `USE_NOGIL` compile-time conditional was removed in v0.2.0.
+
 ## [0.2.0]
 
 ### Added

@@ -46,7 +46,6 @@ def main():
 
     print(f" cymongoose HTTP server running on http://localhost:{port}/")
     print("   Press Ctrl+C to stop")
-    print("   USE_NOGIL optimization enabled")
     print()
 
     try:

@@ -45,17 +45,39 @@ For production applications, consider:
 
 ### Certificate Verification
 
-When using TLS connections, Mongoose validates server certificates by default. To configure:
+cymongoose exposes TLS configuration through the `TlsOpts` class and `Connection.tls_init()` method. By default, `skip_verification=False`, meaning certificates are validated.
 
 ```python
-# Future: TLS configuration will be exposed via mg_tls_opts
-# For now, certificate validation is handled by Mongoose internally
+from cymongoose import TlsOpts, Manager
+
+# Server: configure TLS with certificate and key
+opts = TlsOpts(
+    cert=open("server.crt", "rb").read(),
+    key=open("server.key", "rb").read(),
+)
+
+# Client: set CA bundle and expected server name for verification
+opts = TlsOpts(
+    ca=open("ca.crt", "rb").read(),
+    name=b"example.com",
+)
 ```
 
-**Note:** TLS configuration (`mg_tls_opts`) is not yet wrapped in cymongoose. When implemented:
+### TlsOpts Parameters
 
-- Always validate certificates in production (`skip_verification=False`)
+| Parameter | Purpose |
+|-----------|---------|
+| `ca` | CA certificate (PEM) for verifying the peer |
+| `cert` | Client/server certificate (PEM) |
+| `key` | Private key (PEM) |
+| `name` | Server name for SNI (Server Name Indication) |
+| `skip_verification` | Skip certificate verification (**INSECURE** -- development/testing only) |
+
+### Recommendations
+
+- Always validate certificates in production (`skip_verification=False`, the default)
 - Only skip verification for development/testing with trusted local servers
+- Use `name` for SNI when connecting to hosts behind shared IPs or load balancers
 
 ## Connection Security
 

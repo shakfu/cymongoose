@@ -187,7 +187,6 @@ pip install -e . --no-cache-dir
 If performance is lower than expected:
 
 1. Ensure you're using `poll(100)` not `poll(5000)`
-2. Check that nogil is enabled: `cymongoose.USE_NOGIL_ENABLED` should be `True`
 
 For more help, see the [Troubleshooting](advanced/troubleshooting.md) guide.
 

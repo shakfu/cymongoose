@@ -25,7 +25,6 @@ from ._mongoose import (  # noqa: F401
     MG_LL_INFO,
     MG_LL_NONE,
     MG_LL_VERBOSE,
-    USE_NOGIL_ENABLED,
     WEBSOCKET_OP_BINARY,
     WEBSOCKET_OP_PING,
     WEBSOCKET_OP_PONG,

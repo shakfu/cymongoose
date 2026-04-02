@@ -5,9 +5,6 @@ Cython bindings that expose a Python-friendly interface to the Mongoose
 embedded networking library.
 """
 
-# nogil is always enabled: all C calls release the GIL for parallel execution.
-# Mongoose's built-in TLS is event-loop based with no locks, so nogil is safe with TLS.
-USE_NOGIL_ENABLED = True
 
 from cpython.ref cimport PyObject, Py_INCREF, Py_DECREF
 from cpython.bytes cimport PyBytes_FromStringAndSize
