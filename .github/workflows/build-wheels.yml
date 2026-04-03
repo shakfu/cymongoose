@@ -48,7 +48,7 @@ jobs:
           # NOTE: --ignore is used instead of -k because -k only filters AFTER
           # collection; example tests do sys.path.insert at module level which
           # pollutes sys.path and shadows the installed wheel with the source tree.
-          CIBW_TEST_REQUIRES: "pytest>=8.4.2 pytest-asyncio>=0.24.0 websocket-client>=1.9.0"
+          CIBW_TEST_REQUIRES: "pytest>=8.4.2 pytest-asyncio>=0.24.0 pytest-timeout>=2.4.0 websocket-client>=1.9.0"
           CIBW_TEST_COMMAND: "pytest {project}/tests -v --ignore={project}/tests/examples --ignore={project}/tests/benchmarks --import-mode=importlib"
           CIBW_TEST_SKIP: "*-win*"
 
