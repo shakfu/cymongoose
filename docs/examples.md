@@ -391,6 +391,95 @@ if __name__ == "__main__":
     main()
 ```
 
+## Web Framework
+
+### Micro-Framework with Decorator Routing
+
+cymongoose ships with a minimal Flask/Bottle-style micro-framework example
+that layers decorator-based routing on top of the raw event loop. It lives
+in `tests/examples/http/http_web_framework.py` and demonstrates how little
+glue is needed to get a familiar web-framework feel while keeping the
+performance of a C event loop.
+
+Features:
+
+- `@app.get`, `@app.post`, `@app.put`, `@app.delete` decorators
+- Path parameters with type conversion (`/items/<int:id>`)
+- JSON request parsing (`req.json()`) and `json_response()` helper
+- Return-value coercion -- handlers can return `str`, `dict`, `tuple`,
+  `Response`, or `None`
+- Before/after request hooks
+- Custom 404 handler via `@app.not_found`
+
+```python
+"""Micro-framework CRUD API."""
+from http_web_framework import App, Response, json_response
+
+app = App()
+items = []
+
+@app.get("/")
+def index(req):
+    return "<h1>Hello from cymongoose</h1>"
+
+@app.get("/items")
+def list_items(req):
+    return json_response(items)
+
+@app.post("/items")
+def create_item(req):
+    body = req.json()
+    if body is None:
+        return Response("Invalid JSON", status=400)
+    items.append(body)
+    return json_response(body, status=201)
+
+@app.get("/items/<int:id>")
+def get_item(req, id):
+    if 0 <= id < len(items):
+        return json_response(items[id])
+    return json_response({"error": "not found"}, status=404)
+
+@app.delete("/items/<int:id>")
+def delete_item(req, id):
+    if 0 <= id < len(items):
+        return json_response(items.pop(id))
+    return json_response({"error": "not found"}, status=404)
+
+if __name__ == "__main__":
+    app.run()  # http://0.0.0.0:8000
+```
+
+Under the hood the `App` class compiles each route pattern into a regex,
+wraps the incoming `HttpMessage` in a lightweight `Request` object, and
+coerces handler return values into a `Response` that is sent via
+`conn.reply()`. The entire routing layer is ~120 lines of pure Python.
+
+### Framework Routing Overhead
+
+Benchmarked with `wrk -t4 -c100 -d10s` on Apple Silicon
+(see `tests/benchmarks/bench_web_framework.py`):
+
+| Configuration | Req/sec | Avg Latency | vs Raw |
+|---|---|---|---|
+| Raw handler (no framework) | 119,857 | 0.83 ms | baseline |
+| Framework -- static route | 102,255 | 0.97 ms | 85% |
+| Framework -- parameterised route | 84,602 | 1.18 ms | 71% |
+
+The routing layer adds 15--29% overhead depending on whether path
+parameters and JSON serialisation are involved. Even the slowest
+configuration (84k req/s) is 8x faster than FastAPI and 52x faster than
+Flask.
+
+```bash
+# Run the benchmark yourself
+uv run python tests/benchmarks/bench_web_framework.py
+
+# Or use wrk for accurate throughput numbers
+uv run python tests/benchmarks/bench_web_framework.py --serve framework
+wrk -t4 -c100 -d10s http://localhost:8765/
+```
+
 ## Advanced Examples
 
 ### Multi-threaded Request Handler

@@ -17,6 +17,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **Micro web-framework example** (`tests/examples/http/http_web_framework.py`): Flask/Bottle-style framework built on cymongoose demonstrating decorator-based routing (`@app.get`, `@app.post`, etc.), path parameters with type conversion (`/items/<int:id>`), JSON request/response helpers, return-value coercion (`str`, `dict`, `tuple`, `Response`), before/after request hooks, and custom 404 handlers. 22 tests in `tests/examples/test_examples_web_framework.py`.
+- **Framework routing benchmark** (`tests/benchmarks/bench_web_framework.py`): Measures the overhead of the framework routing layer vs. a raw handler. With `wrk -t4 -c100 -d10s`: raw handler 119,857 req/s, framework static route 102,255 req/s (85%), framework parameterised route 84,602 req/s (71%). Supports `--serve {raw,framework,framework-param}` mode for manual `wrk`/`ab` testing.
+- **Web framework section in `docs/examples.md`**: Documents the micro-framework API, includes a runnable CRUD example, and presents `wrk` benchmark results comparing routing overhead.
+
 ## [0.2.1]
 
 ### Fixed
