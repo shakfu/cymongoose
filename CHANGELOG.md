@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.2.1]
+
 ### Fixed
 
 - **AsyncManager poll loop lock starvation**: The `_run()` loop held the `RLock` for the entire duration of `poll()`, causing `listen()`/`connect()`/etc. to block indefinitely on lock acquisition. On Linux, unfair pthread mutexes allowed the poll thread to immediately re-acquire after release; on all platforms, large `poll_interval` values (e.g. 5000ms) held the lock for seconds. Fixed by capping internal poll duration at 200ms (`_MAX_POLL_MS`) and yielding between cycles (`_stop.wait(0.001)`).
