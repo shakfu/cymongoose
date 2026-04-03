@@ -14,7 +14,7 @@ Usage:
     python http_web_framework.py [-l LISTEN_URL]
 
 Example:
-    python http_web_framework.py -l http://0.0.0.0:8000
+    python http_web_framework.py -l http://127.0.0.1:8000
 
     curl http://localhost:8000/
     curl http://localhost:8000/greet/world
@@ -257,7 +257,7 @@ class App:
 
     # -- Convenience runner ---------------------------------------------------
 
-    def run(self, listen="http://0.0.0.0:8000", poll_ms=100):
+    def run(self, listen="http://127.0.0.1:8000", poll_ms=100):
         """Blocking helper that creates a Manager and runs the event loop."""
         shutdown = False
 
@@ -345,8 +345,8 @@ def custom_404(req):
 def main():
     parser = argparse.ArgumentParser(description="Micro-framework demo")
     parser.add_argument(
-        "-l", "--listen", default="http://0.0.0.0:8000",
-        help="Listen URL (default: http://0.0.0.0:8000)",
+        "-l", "--listen", default="http://127.0.0.1:8000",
+        help="Listen URL (default: http://127.0.0.1:8000)",
     )
     args = parser.parse_args()
     app.run(listen=args.listen)
