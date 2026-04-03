@@ -4,6 +4,7 @@ Quick benchmark using sequential requests (reliable on all platforms).
 For proper load testing, use wrk: brew install wrk
 """
 
+import platform
 import socket
 import threading
 import time
@@ -43,7 +44,11 @@ def main():
     server_thread.start()
     time.sleep(0.5)
 
-    url = f"http://localhost:{port}/"
+    url = f"http://127.0.0.1:{port}/"
+
+    # Windows has aggressive TIME_WAIT on closed sockets, causing
+    # ephemeral port exhaustion after a few hundred rapid connections.
+    num_requests = 200 if platform.system() == "Windows" else 1000
 
     # Warmup
     print("Warming up...")
@@ -51,12 +56,12 @@ def main():
         urllib.request.urlopen(url, timeout=5).read()
 
     # Benchmark: Sequential requests (reliable measurement)
-    print("\nRunning benchmark (1000 sequential requests)...")
+    print(f"\nRunning benchmark ({num_requests} sequential requests)...")
     start_time = time.time()
     successful = 0
     latencies = []
 
-    for i in range(1000):
+    for i in range(num_requests):
         try:
             req_start = time.time()
             response = urllib.request.urlopen(url, timeout=5)
@@ -66,7 +71,7 @@ def main():
             successful += 1
 
             if (i + 1) % 100 == 0:
-                print(f"  Progress: {i + 1}/1000")
+                print(f"  Progress: {i + 1}/{num_requests}")
         except Exception as e:
             print(f"  Request {i + 1} failed: {e}")
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Simple load test without ab dependency."""
 
+import platform
 import socket
 import threading
 import time
@@ -101,7 +102,7 @@ def main():
     print(f"Server running on port {port}\n")
 
     # Test connection
-    url = f"http://localhost:{port}/"
+    url = f"http://127.0.0.1:{port}/"
     try:
         response = urllib.request.urlopen(url, timeout=5)
         print(f"Server check: {response.status} OK\n")
@@ -109,8 +110,15 @@ def main():
         print(f"ERROR: Server not responding: {e}")
         return
 
+    # Windows ephemeral port exhaustion: closed sockets stay in TIME_WAIT
+    # for ~2 minutes, limiting total rapid connections to ~300-500.
+    if platform.system() == "Windows":
+        num_requests, concurrency = 500, 20
+    else:
+        num_requests, concurrency = 5000, 50
+
     # Run load test
-    run_load_test(url, num_requests=5000, concurrency=50)
+    run_load_test(url, num_requests=num_requests, concurrency=concurrency)
 
     # Cleanup
     print("\nStopping server...")
