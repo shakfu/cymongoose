@@ -1,0 +1,3678 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python bindings for the Mongoose embedded networking library">
+      
+      
+        <meta name="author" content="S. Alireza">
+      
+      
+      
+        <link rel="prev" href="../messages/">
+      
+      
+        <link rel="next" href="../../advanced/nogil/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Utilities - cymongoose</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#utility-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="cymongoose" class="md-header__button md-logo" aria-label="cymongoose" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cymongoose
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Utilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/shakfu/cymongoose" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cymongoose
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="cymongoose" class="md-nav__button md-logo" aria-label="cymongoose" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    cymongoose
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/shakfu/cymongoose" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cymongoose
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../guide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/http/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP/HTTPS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/websocket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebSocket
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/mqtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MQTT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network (TCP/UDP/DNS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS/SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AsyncManager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_num
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_num
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_num">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_bool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_bool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_long
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_long
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_long">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_str
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_str
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_str">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-json-parsing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete JSON Parsing Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL Encoding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="URL Encoding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url_encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        url_encode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.url_encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        url_encode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multipart-form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multipart Form Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multipart Form Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_parse_multipart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http_parse_multipart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.http_parse_multipart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http_parse_multipart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="http_parse_multipart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-upload-server-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Upload Server Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Debugging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        event_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.event_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        event_name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.log_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="log_set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.log_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_get
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket-opcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSocket Opcodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/nogil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    nogil Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/threading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/shutdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graceful Shutdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../dev/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/cleanup_and_shutdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cleanup & Shutdown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/connection_drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connection Draining
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/poll_timeout_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poll Timeout Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Utilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Utilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_num
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_num
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_num">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_bool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_bool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_bool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_long
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_long
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_long">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json_get_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_str
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.json_get_str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        json_get_str
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="json_get_str">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete-json-parsing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete JSON Parsing Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL Encoding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="URL Encoding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url_encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        url_encode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.url_encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        url_encode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multipart-form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multipart Form Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multipart Form Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http_parse_multipart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http_parse_multipart
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.http_parse_multipart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        http_parse_multipart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="http_parse_multipart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-upload-server-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Upload Server Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Debugging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        event_name
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.event_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        event_name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.log_set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="log_set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cymongoose.log_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log_get
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket-opcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSocket Opcodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="utility-functions">Utility Functions<a class="headerlink" href="#utility-functions" title="Permanent link">&para;</a></h1>
+<p>cymongoose provides utility functions for JSON parsing, URL encoding, and multipart form handling.</p>
+<h2 id="json-utilities">JSON Utilities<a class="headerlink" href="#json-utilities" title="Permanent link">&para;</a></h2>
+<p>Mongoose includes a lightweight JSON parser. These functions extract values from JSON without full parsing.</p>
+<h3 id="json_get">json_get<a class="headerlink" href="#json_get" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.json_get" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">json_get</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></code>
+
+<a href="#cymongoose.json_get" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Extract a value from JSON by path (e.g., '$.user.name').</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON string or bytes</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON path (e.g., '$.items[0].id')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>String value at path, or None if not found</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-920">920</a></span>
+<span class="normal"><a href="#__codelineno-0-921">921</a></span>
+<span class="normal"><a href="#__codelineno-0-922">922</a></span>
+<span class="normal"><a href="#__codelineno-0-923">923</a></span>
+<span class="normal"><a href="#__codelineno-0-924">924</a></span>
+<span class="normal"><a href="#__codelineno-0-925">925</a></span>
+<span class="normal"><a href="#__codelineno-0-926">926</a></span>
+<span class="normal"><a href="#__codelineno-0-927">927</a></span>
+<span class="normal"><a href="#__codelineno-0-928">928</a></span>
+<span class="normal"><a href="#__codelineno-0-929">929</a></span>
+<span class="normal"><a href="#__codelineno-0-930">930</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-920" name="__codelineno-0-920"></a><span class="k">def</span><span class="w"> </span><span class="nf">json_get</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-921" name="__codelineno-0-921"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a value from JSON by path (e.g., &#39;$.user.name&#39;).</span>
+<a id="__codelineno-0-922" name="__codelineno-0-922"></a>
+<a id="__codelineno-0-923" name="__codelineno-0-923"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-924" name="__codelineno-0-924"></a><span class="sd">        data: JSON string or bytes</span>
+<a id="__codelineno-0-925" name="__codelineno-0-925"></a><span class="sd">        path: JSON path (e.g., &#39;$.items[0].id&#39;)</span>
+<a id="__codelineno-0-926" name="__codelineno-0-926"></a>
+<a id="__codelineno-0-927" name="__codelineno-0-927"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-928" name="__codelineno-0-928"></a><span class="sd">        String value at path, or None if not found</span>
+<a id="__codelineno-0-929" name="__codelineno-0-929"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-930" name="__codelineno-0-930"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;user&quot;: {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30}, &quot;items&quot;: [1, 2, 3]}&#39;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Get nested value</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">name</span> <span class="o">=</span> <span class="n">json_get</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.user.name&quot;</span><span class="p">)</span>  <span class="c1"># &quot;Alice&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Get array element</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">first</span> <span class="o">=</span> <span class="n">json_get</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.items[0]&quot;</span><span class="p">)</span>  <span class="c1"># &quot;1&quot;</span>
+</code></pre></div>
+<h3 id="json_get_num">json_get_num<a class="headerlink" href="#json_get_num" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.json_get_num" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">json_get_num</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#cymongoose.json_get_num" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Extract a numeric value from JSON by path.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON string or bytes</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON path (e.g., '$.count')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>default</code>
+            </td>
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Default value if not found or not a number</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Float value at path, or default if not found</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-932">932</a></span>
+<span class="normal"><a href="#__codelineno-0-933">933</a></span>
+<span class="normal"><a href="#__codelineno-0-934">934</a></span>
+<span class="normal"><a href="#__codelineno-0-935">935</a></span>
+<span class="normal"><a href="#__codelineno-0-936">936</a></span>
+<span class="normal"><a href="#__codelineno-0-937">937</a></span>
+<span class="normal"><a href="#__codelineno-0-938">938</a></span>
+<span class="normal"><a href="#__codelineno-0-939">939</a></span>
+<span class="normal"><a href="#__codelineno-0-940">940</a></span>
+<span class="normal"><a href="#__codelineno-0-941">941</a></span>
+<span class="normal"><a href="#__codelineno-0-942">942</a></span>
+<span class="normal"><a href="#__codelineno-0-943">943</a></span>
+<span class="normal"><a href="#__codelineno-0-944">944</a></span>
+<span class="normal"><a href="#__codelineno-0-945">945</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-932" name="__codelineno-0-932"></a><span class="k">def</span><span class="w"> </span><span class="nf">json_get_num</span><span class="p">(</span>
+<a id="__codelineno-0-933" name="__codelineno-0-933"></a>    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-934" name="__codelineno-0-934"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<a id="__codelineno-0-935" name="__codelineno-0-935"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a numeric value from JSON by path.</span>
+<a id="__codelineno-0-936" name="__codelineno-0-936"></a>
+<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a><span class="sd">        data: JSON string or bytes</span>
+<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">        path: JSON path (e.g., &#39;$.count&#39;)</span>
+<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">        default: Default value if not found or not a number</span>
+<a id="__codelineno-0-941" name="__codelineno-0-941"></a>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-943" name="__codelineno-0-943"></a><span class="sd">        Float value at path, or default if not found</span>
+<a id="__codelineno-0-944" name="__codelineno-0-944"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-945" name="__codelineno-0-945"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;temperature&quot;: 23.5, &quot;humidity&quot;: 65}&#39;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">temp</span> <span class="o">=</span> <span class="n">json_get_num</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.temperature&quot;</span><span class="p">)</span>  <span class="c1"># 23.5</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">pressure</span> <span class="o">=</span> <span class="n">json_get_num</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.pressure&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>  <span class="c1"># 0.0</span>
+</code></pre></div>
+<h3 id="json_get_bool">json_get_bool<a class="headerlink" href="#json_get_bool" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.json_get_bool" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">json_get_bool</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#cymongoose.json_get_bool" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Extract a boolean value from JSON by path.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON string or bytes</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON path (e.g., '$.enabled')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>default</code>
+            </td>
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="bool">bool</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Default value if not found or not a boolean</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="bool">bool</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Boolean value at path, or default if not found</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-947">947</a></span>
+<span class="normal"><a href="#__codelineno-0-948">948</a></span>
+<span class="normal"><a href="#__codelineno-0-949">949</a></span>
+<span class="normal"><a href="#__codelineno-0-950">950</a></span>
+<span class="normal"><a href="#__codelineno-0-951">951</a></span>
+<span class="normal"><a href="#__codelineno-0-952">952</a></span>
+<span class="normal"><a href="#__codelineno-0-953">953</a></span>
+<span class="normal"><a href="#__codelineno-0-954">954</a></span>
+<span class="normal"><a href="#__codelineno-0-955">955</a></span>
+<span class="normal"><a href="#__codelineno-0-956">956</a></span>
+<span class="normal"><a href="#__codelineno-0-957">957</a></span>
+<span class="normal"><a href="#__codelineno-0-958">958</a></span>
+<span class="normal"><a href="#__codelineno-0-959">959</a></span>
+<span class="normal"><a href="#__codelineno-0-960">960</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="k">def</span><span class="w"> </span><span class="nf">json_get_bool</span><span class="p">(</span>
+<a id="__codelineno-0-948" name="__codelineno-0-948"></a>    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a boolean value from JSON by path.</span>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">        data: JSON string or bytes</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">        path: JSON path (e.g., &#39;$.enabled&#39;)</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a><span class="sd">        default: Default value if not found or not a boolean</span>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a>
+<a id="__codelineno-0-957" name="__codelineno-0-957"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-958" name="__codelineno-0-958"></a><span class="sd">        Boolean value at path, or default if not found</span>
+<a id="__codelineno-0-959" name="__codelineno-0-959"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-960" name="__codelineno-0-960"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;enabled&quot;: true, &quot;debug&quot;: false}&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">enabled</span> <span class="o">=</span> <span class="n">json_get_bool</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.enabled&quot;</span><span class="p">)</span>  <span class="c1"># True</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">debug</span> <span class="o">=</span> <span class="n">json_get_bool</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.debug&quot;</span><span class="p">)</span>  <span class="c1"># False</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">missing</span> <span class="o">=</span> <span class="n">json_get_bool</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.other&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># False</span>
+</code></pre></div>
+<h3 id="json_get_long">json_get_long<a class="headerlink" href="#json_get_long" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.json_get_long" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">json_get_long</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#cymongoose.json_get_long" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Extract an integer value from JSON by path.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON string or bytes</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON path (e.g., '$.id')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>default</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Default value if not found or not an integer</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Integer value at path, or default if not found</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-962">962</a></span>
+<span class="normal"><a href="#__codelineno-0-963">963</a></span>
+<span class="normal"><a href="#__codelineno-0-964">964</a></span>
+<span class="normal"><a href="#__codelineno-0-965">965</a></span>
+<span class="normal"><a href="#__codelineno-0-966">966</a></span>
+<span class="normal"><a href="#__codelineno-0-967">967</a></span>
+<span class="normal"><a href="#__codelineno-0-968">968</a></span>
+<span class="normal"><a href="#__codelineno-0-969">969</a></span>
+<span class="normal"><a href="#__codelineno-0-970">970</a></span>
+<span class="normal"><a href="#__codelineno-0-971">971</a></span>
+<span class="normal"><a href="#__codelineno-0-972">972</a></span>
+<span class="normal"><a href="#__codelineno-0-973">973</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-962" name="__codelineno-0-962"></a><span class="k">def</span><span class="w"> </span><span class="nf">json_get_long</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-963" name="__codelineno-0-963"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract an integer value from JSON by path.</span>
+<a id="__codelineno-0-964" name="__codelineno-0-964"></a>
+<a id="__codelineno-0-965" name="__codelineno-0-965"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-966" name="__codelineno-0-966"></a><span class="sd">        data: JSON string or bytes</span>
+<a id="__codelineno-0-967" name="__codelineno-0-967"></a><span class="sd">        path: JSON path (e.g., &#39;$.id&#39;)</span>
+<a id="__codelineno-0-968" name="__codelineno-0-968"></a><span class="sd">        default: Default value if not found or not an integer</span>
+<a id="__codelineno-0-969" name="__codelineno-0-969"></a>
+<a id="__codelineno-0-970" name="__codelineno-0-970"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-971" name="__codelineno-0-971"></a><span class="sd">        Integer value at path, or default if not found</span>
+<a id="__codelineno-0-972" name="__codelineno-0-972"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-973" name="__codelineno-0-973"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;count&quot;: 12345, &quot;id&quot;: 9876543210}&#39;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">count</span> <span class="o">=</span> <span class="n">json_get_long</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.count&quot;</span><span class="p">)</span>  <span class="c1"># 12345</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">user_id</span> <span class="o">=</span> <span class="n">json_get_long</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.id&quot;</span><span class="p">)</span>  <span class="c1"># 9876543210</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">missing</span> <span class="o">=</span> <span class="n">json_get_long</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.other&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 0</span>
+</code></pre></div>
+<h3 id="json_get_str">json_get_str<a class="headerlink" href="#json_get_str" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.json_get_str" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">json_get_str</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></code>
+
+<a href="#cymongoose.json_get_str" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Extract a string value from JSON by path (automatically unescapes).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON string or bytes</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON path (e.g., '$.message')</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Unescaped string value at path, or None if not found</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-975">975</a></span>
+<span class="normal"><a href="#__codelineno-0-976">976</a></span>
+<span class="normal"><a href="#__codelineno-0-977">977</a></span>
+<span class="normal"><a href="#__codelineno-0-978">978</a></span>
+<span class="normal"><a href="#__codelineno-0-979">979</a></span>
+<span class="normal"><a href="#__codelineno-0-980">980</a></span>
+<span class="normal"><a href="#__codelineno-0-981">981</a></span>
+<span class="normal"><a href="#__codelineno-0-982">982</a></span>
+<span class="normal"><a href="#__codelineno-0-983">983</a></span>
+<span class="normal"><a href="#__codelineno-0-984">984</a></span>
+<span class="normal"><a href="#__codelineno-0-985">985</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-975" name="__codelineno-0-975"></a><span class="k">def</span><span class="w"> </span><span class="nf">json_get_str</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-976" name="__codelineno-0-976"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract a string value from JSON by path (automatically unescapes).</span>
+<a id="__codelineno-0-977" name="__codelineno-0-977"></a>
+<a id="__codelineno-0-978" name="__codelineno-0-978"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-979" name="__codelineno-0-979"></a><span class="sd">        data: JSON string or bytes</span>
+<a id="__codelineno-0-980" name="__codelineno-0-980"></a><span class="sd">        path: JSON path (e.g., &#39;$.message&#39;)</span>
+<a id="__codelineno-0-981" name="__codelineno-0-981"></a>
+<a id="__codelineno-0-982" name="__codelineno-0-982"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-983" name="__codelineno-0-983"></a><span class="sd">        Unescaped string value at path, or None if not found</span>
+<a id="__codelineno-0-984" name="__codelineno-0-984"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">json_str</span> <span class="o">=</span> <span class="s1">&#39;{&quot;message&quot;: &quot;Hello, World!&quot;, &quot;path&quot;: &quot;/home/user&quot;}&#39;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Automatically unescapes JSON strings</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">message</span> <span class="o">=</span> <span class="n">json_get_str</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.message&quot;</span><span class="p">)</span>  <span class="c1"># &quot;Hello, World!&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">path</span> <span class="o">=</span> <span class="n">json_get_str</span><span class="p">(</span><span class="n">json_str</span><span class="p">,</span> <span class="s2">&quot;$.path&quot;</span><span class="p">)</span>  <span class="c1"># &quot;/home/user&quot;</span>
+</code></pre></div>
+<h3 id="complete-json-parsing-example">Complete JSON Parsing Example<a class="headerlink" href="#complete-json-parsing-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">json_get</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">json_get_num</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">json_get_bool</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">json_get_long</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">json_get_str</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">if</span> <span class="n">ev</span> <span class="o">==</span> <span class="n">MG_EV_HTTP_MSG</span><span class="p">:</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">json_body</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">body_text</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="c1"># Parse different types</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="n">user_id</span> <span class="o">=</span> <span class="n">json_get_long</span><span class="p">(</span><span class="n">json_body</span><span class="p">,</span> <span class="s2">&quot;$.user.id&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="n">username</span> <span class="o">=</span> <span class="n">json_get_str</span><span class="p">(</span><span class="n">json_body</span><span class="p">,</span> <span class="s2">&quot;$.user.name&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="n">age</span> <span class="o">=</span> <span class="n">json_get_num</span><span class="p">(</span><span class="n">json_body</span><span class="p">,</span> <span class="s2">&quot;$.user.age&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        <span class="n">active</span> <span class="o">=</span> <span class="n">json_get_bool</span><span class="p">(</span><span class="n">json_body</span><span class="p">,</span> <span class="s2">&quot;$.user.active&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>        <span class="c1"># Build response</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>        <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">active</span><span class="p">,</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>        <span class="p">}</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</code></pre></div>
+<h2 id="url-encoding">URL Encoding<a class="headerlink" href="#url-encoding" title="Permanent link">&para;</a></h2>
+<h3 id="url_encode">url_encode<a class="headerlink" href="#url_encode" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.url_encode" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">url_encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#cymongoose.url_encode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>URL-encode a string.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>String to encode</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>URL-encoded string</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-987">987</a></span>
+<span class="normal"><a href="#__codelineno-0-988">988</a></span>
+<span class="normal"><a href="#__codelineno-0-989">989</a></span>
+<span class="normal"><a href="#__codelineno-0-990">990</a></span>
+<span class="normal"><a href="#__codelineno-0-991">991</a></span>
+<span class="normal"><a href="#__codelineno-0-992">992</a></span>
+<span class="normal"><a href="#__codelineno-0-993">993</a></span>
+<span class="normal"><a href="#__codelineno-0-994">994</a></span>
+<span class="normal"><a href="#__codelineno-0-995">995</a></span>
+<span class="normal"><a href="#__codelineno-0-996">996</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-987" name="__codelineno-0-987"></a><span class="k">def</span><span class="w"> </span><span class="nf">url_encode</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-988" name="__codelineno-0-988"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;URL-encode a string.</span>
+<a id="__codelineno-0-989" name="__codelineno-0-989"></a>
+<a id="__codelineno-0-990" name="__codelineno-0-990"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-991" name="__codelineno-0-991"></a><span class="sd">        data: String to encode</span>
+<a id="__codelineno-0-992" name="__codelineno-0-992"></a>
+<a id="__codelineno-0-993" name="__codelineno-0-993"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-994" name="__codelineno-0-994"></a><span class="sd">        URL-encoded string</span>
+<a id="__codelineno-0-995" name="__codelineno-0-995"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-996" name="__codelineno-0-996"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Encode query parameters</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">param</span> <span class="o">=</span> <span class="n">url_encode</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>  <span class="c1"># &quot;hello%20world&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">email</span> <span class="o">=</span> <span class="n">url_encode</span><span class="p">(</span><span class="s2">&quot;user@example.com&quot;</span><span class="p">)</span>  <span class="c1"># &quot;user%40example.com&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Build query string</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;name=</span><span class="si">{</span><span class="n">url_encode</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">&amp;email=</span><span class="si">{</span><span class="n">url_encode</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Make request</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://example.com/api?</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">http</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="multipart-form-data">Multipart Form Data<a class="headerlink" href="#multipart-form-data" title="Permanent link">&para;</a></h2>
+<h3 id="http_parse_multipart">http_parse_multipart<a class="headerlink" href="#http_parse_multipart" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.http_parse_multipart" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">http_parse_multipart</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
+
+<a href="#cymongoose.http_parse_multipart" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Parse the next multipart form part from HTTP body.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>body</code>
+            </td>
+            <td>
+                  <code><span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>HTTP body (str or bytes)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>offset</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Offset to start parsing from</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tuple of (next_offset, part_dict) where part_dict contains:</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Optional">Optional</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li>'name': form field name</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="typing.Optional">Optional</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]]]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li>'filename': filename (if file upload)</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="typing.Optional">Optional</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]]]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <ul>
+<li>'body': part data as bytes</li>
+</ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="typing.Optional">Optional</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="bytes">bytes</span>]]]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns (0, None) if no more parts.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-998"> 998</a></span>
+<span class="normal"><a href="#__codelineno-0-999"> 999</a></span>
+<span class="normal"><a href="#__codelineno-0-1000">1000</a></span>
+<span class="normal"><a href="#__codelineno-0-1001">1001</a></span>
+<span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
+<span class="normal"><a href="#__codelineno-0-1003">1003</a></span>
+<span class="normal"><a href="#__codelineno-0-1004">1004</a></span>
+<span class="normal"><a href="#__codelineno-0-1005">1005</a></span>
+<span class="normal"><a href="#__codelineno-0-1006">1006</a></span>
+<span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
+<span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
+<span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
+<span class="normal"><a href="#__codelineno-0-1010">1010</a></span>
+<span class="normal"><a href="#__codelineno-0-1011">1011</a></span>
+<span class="normal"><a href="#__codelineno-0-1012">1012</a></span>
+<span class="normal"><a href="#__codelineno-0-1013">1013</a></span>
+<span class="normal"><a href="#__codelineno-0-1014">1014</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="k">def</span><span class="w"> </span><span class="nf">http_parse_multipart</span><span class="p">(</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a>    <span class="n">body</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]]]]:</span>
+<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse the next multipart form part from HTTP body.</span>
+<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>
+<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a><span class="sd">        body: HTTP body (str or bytes)</span>
+<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a><span class="sd">        offset: Offset to start parsing from</span>
+<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>
+<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a><span class="sd">        Tuple of (next_offset, part_dict) where part_dict contains:</span>
+<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a><span class="sd">        - &#39;name&#39;: form field name</span>
+<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a><span class="sd">        - &#39;filename&#39;: filename (if file upload)</span>
+<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a><span class="sd">        - &#39;body&#39;: part data as bytes</span>
+<a id="__codelineno-0-1012" name="__codelineno-0-1012"></a><span class="sd">        Returns (0, None) if no more parts.</span>
+<a id="__codelineno-0-1013" name="__codelineno-0-1013"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-1014" name="__codelineno-0-1014"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="n">MG_EV_HTTP_MSG</span><span class="p">,</span> <span class="n">http_parse_multipart</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="k">if</span> <span class="n">ev</span> <span class="o">==</span> <span class="n">MG_EV_HTTP_MSG</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="c1"># Parse multipart form data</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>            <span class="n">offset</span><span class="p">,</span> <span class="n">part</span> <span class="o">=</span> <span class="n">http_parse_multipart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">body_bytes</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="k">if</span> <span class="n">part</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>                <span class="k">break</span>  <span class="c1"># No more parts</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>            <span class="c1"># Field name</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>            <span class="n">field_name</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>            <span class="c1"># File upload</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>            <span class="k">if</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]:</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>                <span class="n">filename</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>                <span class="n">file_data</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File upload: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>                <span class="c1"># Save file</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;uploads/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>                <span class="c1"># Regular form field</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>                <span class="n">field_value</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Field: </span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">field_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;{&quot;status&quot;: &quot;uploaded&quot;}&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">drain</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="file-upload-server-example">File Upload Server Example<a class="headerlink" href="#file-upload-server-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="n">Manager</span><span class="p">,</span> <span class="n">MG_EV_HTTP_MSG</span><span class="p">,</span> <span class="n">http_parse_multipart</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">if</span> <span class="n">ev</span> <span class="o">==</span> <span class="n">MG_EV_HTTP_MSG</span><span class="p">:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">uri</span> <span class="o">==</span> <span class="s2">&quot;/upload&quot;</span><span class="p">:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;uploads&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>            <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>            <span class="n">uploaded_files</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>                <span class="n">offset</span><span class="p">,</span> <span class="n">part</span> <span class="o">=</span> <span class="n">http_parse_multipart</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">body_bytes</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>                <span class="k">if</span> <span class="n">part</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>                    <span class="k">break</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>                <span class="k">if</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]:</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>                    <span class="c1"># Save uploaded file</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>                    <span class="n">filename</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>                    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;uploads&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">part</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">])</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>                    <span class="n">uploaded_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>            <span class="c1"># Return success response</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>            <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>            <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>                <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="n">uploaded_files</span><span class="p">,</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>            <span class="p">}</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>            <span class="n">conn</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>                      <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">})</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>            <span class="c1"># Serve upload form</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>            <span class="n">html</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="s2">            &lt;html&gt;</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="s2">            &lt;body&gt;</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="s2">                &lt;h1&gt;File Upload&lt;/h1&gt;</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="s2">                &lt;form method=&quot;POST&quot; action=&quot;/upload&quot;</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="s2">                      enctype=&quot;multipart/form-data&quot;&gt;</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="s2">                    &lt;input type=&quot;file&quot; name=&quot;files&quot; multiple&gt;</span>
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="s2">                    &lt;button type=&quot;submit&quot;&gt;Upload&lt;/button&gt;</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="s2">                &lt;/form&gt;</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="s2">            &lt;/body&gt;</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="s2">            &lt;/html&gt;</span>
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="s2">            &quot;&quot;&quot;</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>            <span class="n">conn</span><span class="o">.</span><span class="n">reply</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span>
+<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>                      <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;text/html&quot;</span><span class="p">})</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">drain</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="event-debugging">Event Debugging<a class="headerlink" href="#event-debugging" title="Permanent link">&para;</a></h2>
+<h3 id="event_name">event_name<a class="headerlink" href="#event_name" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.event_name" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">event_name</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span></code>
+
+<a href="#cymongoose.event_name" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Return a human-readable name for a Mongoose event constant.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ev</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Event constant (e.g., MG_EV_HTTP_MSG)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Event name string (e.g., "MG_EV_HTTP_MSG"). Returns</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>"MG_EV_USER+N" for user events and "MG_EV_UNKNOWN(N)" for</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>unrecognised values.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1029">1029</a></span>
+<span class="normal"><a href="#__codelineno-0-1030">1030</a></span>
+<span class="normal"><a href="#__codelineno-0-1031">1031</a></span>
+<span class="normal"><a href="#__codelineno-0-1032">1032</a></span>
+<span class="normal"><a href="#__codelineno-0-1033">1033</a></span>
+<span class="normal"><a href="#__codelineno-0-1034">1034</a></span>
+<span class="normal"><a href="#__codelineno-0-1035">1035</a></span>
+<span class="normal"><a href="#__codelineno-0-1036">1036</a></span>
+<span class="normal"><a href="#__codelineno-0-1037">1037</a></span>
+<span class="normal"><a href="#__codelineno-0-1038">1038</a></span>
+<span class="normal"><a href="#__codelineno-0-1039">1039</a></span>
+<span class="normal"><a href="#__codelineno-0-1040">1040</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="k">def</span><span class="w"> </span><span class="nf">event_name</span><span class="p">(</span><span class="n">ev</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-1030" name="__codelineno-0-1030"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a human-readable name for a Mongoose event constant.</span>
+<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a>
+<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a><span class="sd">        ev: Event constant (e.g., MG_EV_HTTP_MSG)</span>
+<a id="__codelineno-0-1034" name="__codelineno-0-1034"></a>
+<a id="__codelineno-0-1035" name="__codelineno-0-1035"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-1036" name="__codelineno-0-1036"></a><span class="sd">        Event name string (e.g., &quot;MG_EV_HTTP_MSG&quot;). Returns</span>
+<a id="__codelineno-0-1037" name="__codelineno-0-1037"></a><span class="sd">        &quot;MG_EV_USER+N&quot; for user events and &quot;MG_EV_UNKNOWN(N)&quot; for</span>
+<a id="__codelineno-0-1038" name="__codelineno-0-1038"></a><span class="sd">        unrecognised values.</span>
+<a id="__codelineno-0-1039" name="__codelineno-0-1039"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-1040" name="__codelineno-0-1040"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">MG_EV_HTTP_MSG</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event: </span><span class="si">{</span><span class="n">event_name</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &quot;MG_EV_HTTP_MSG&quot;</span>
+</code></pre></div>
+<h2 id="logging-control">Logging Control<a class="headerlink" href="#logging-control" title="Permanent link">&para;</a></h2>
+<p>Control the Mongoose C library's internal logging.</p>
+<h3 id="log_set">log_set<a class="headerlink" href="#log_set" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.log_set" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">log_set</span><span class="p">(</span><span class="n">level</span><span class="p">)</span></code>
+
+<a href="#cymongoose.log_set" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Set the Mongoose C library log verbosity level.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>level</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>One of MG_LL_NONE (0), MG_LL_ERROR (1), MG_LL_INFO (2),
+   MG_LL_DEBUG (3), MG_LL_VERBOSE (4)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1016">1016</a></span>
+<span class="normal"><a href="#__codelineno-0-1017">1017</a></span>
+<span class="normal"><a href="#__codelineno-0-1018">1018</a></span>
+<span class="normal"><a href="#__codelineno-0-1019">1019</a></span>
+<span class="normal"><a href="#__codelineno-0-1020">1020</a></span>
+<span class="normal"><a href="#__codelineno-0-1021">1021</a></span>
+<span class="normal"><a href="#__codelineno-0-1022">1022</a></span>
+<span class="normal"><a href="#__codelineno-0-1023">1023</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1016" name="__codelineno-0-1016"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_set</span><span class="p">(</span><span class="n">level</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1017" name="__codelineno-0-1017"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the Mongoose C library log verbosity level.</span>
+<a id="__codelineno-0-1018" name="__codelineno-0-1018"></a>
+<a id="__codelineno-0-1019" name="__codelineno-0-1019"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1020" name="__codelineno-0-1020"></a><span class="sd">        level: One of MG_LL_NONE (0), MG_LL_ERROR (1), MG_LL_INFO (2),</span>
+<a id="__codelineno-0-1021" name="__codelineno-0-1021"></a><span class="sd">               MG_LL_DEBUG (3), MG_LL_VERBOSE (4)</span>
+<a id="__codelineno-0-1022" name="__codelineno-0-1022"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-1023" name="__codelineno-0-1023"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><h3 id="log_get">log_get<a class="headerlink" href="#log_get" title="Permanent link">&para;</a></h3>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="cymongoose.log_get" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">cymongoose</span><span class="o">.</span><span class="n">log_get</span><span class="p">()</span></code>
+
+<a href="#cymongoose.log_get" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents first">
+
+        <p>Return the current Mongoose C library log verbosity level.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/cymongoose/_mongoose.pyi</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1025">1025</a></span>
+<span class="normal"><a href="#__codelineno-0-1026">1026</a></span>
+<span class="normal"><a href="#__codelineno-0-1027">1027</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1025" name="__codelineno-0-1025"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_get</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-1026" name="__codelineno-0-1026"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the current Mongoose C library log verbosity level.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-1027" name="__codelineno-0-1027"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div><p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="n">log_set</span><span class="p">,</span> <span class="n">log_get</span><span class="p">,</span> <span class="n">MG_LL_DEBUG</span><span class="p">,</span> <span class="n">MG_LL_NONE</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Enable debug logging</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">log_set</span><span class="p">(</span><span class="n">MG_LL_DEBUG</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Check current level</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">log_get</span><span class="p">())</span>  <span class="c1"># 3</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Disable logging</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">log_set</span><span class="p">(</span><span class="n">MG_LL_NONE</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">&para;</a></h2>
+<h3 id="event-types">Event Types<a class="headerlink" href="#event-types" title="Permanent link">&para;</a></h3>
+<p>See <a href="../../guide/">Guide</a> for event handling details.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">MG_EV_ERROR</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">MG_EV_OPEN</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">MG_EV_POLL</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">MG_EV_RESOLVE</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">MG_EV_CONNECT</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">MG_EV_ACCEPT</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="n">MG_EV_TLS_HS</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">MG_EV_READ</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">MG_EV_WRITE</span><span class="p">,</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="n">MG_EV_CLOSE</span><span class="p">,</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="n">MG_EV_HTTP_HDRS</span><span class="p">,</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="n">MG_EV_HTTP_MSG</span><span class="p">,</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">MG_EV_WS_OPEN</span><span class="p">,</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="n">MG_EV_WS_MSG</span><span class="p">,</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="n">MG_EV_WS_CTL</span><span class="p">,</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="n">MG_EV_MQTT_CMD</span><span class="p">,</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="n">MG_EV_MQTT_MSG</span><span class="p">,</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>    <span class="n">MG_EV_MQTT_OPEN</span><span class="p">,</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="n">MG_EV_SNTP_TIME</span><span class="p">,</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>    <span class="n">MG_EV_WAKEUP</span><span class="p">,</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>    <span class="n">MG_EV_USER</span><span class="p">,</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="p">)</span>
+</code></pre></div>
+<h3 id="websocket-opcodes">WebSocket Opcodes<a class="headerlink" href="#websocket-opcodes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">cymongoose</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">WEBSOCKET_OP_TEXT</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">WEBSOCKET_OP_BINARY</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">WEBSOCKET_OP_PING</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">WEBSOCKET_OP_PONG</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Use with ws_send()</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">conn</span><span class="o">.</span><span class="n">ws_send</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">WEBSOCKET_OP_TEXT</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">conn</span><span class="o">.</span><span class="n">ws_send</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x01\x02</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WEBSOCKET_OP_BINARY</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>HttpMessage</code> - HTTP message access</li>
+<li><code>Connection</code> - Connection methods</li>
+<li><a href="../../examples/">Examples</a> - Complete examples</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
