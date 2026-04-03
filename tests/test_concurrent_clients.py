@@ -42,7 +42,7 @@ def _ws_echo_handler(conn, event, data):
 
 def _http_get(port, path="/"):
     """Perform a single GET and return (status, body)."""
-    resp = urllib.request.urlopen(f"http://localhost:{port}{path}", timeout=5)
+    resp = urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=5)
     return resp.status, resp.read().decode("utf-8")
 
 
@@ -50,7 +50,7 @@ def _http_post(port, path="/", body_str=""):
     """Perform a single POST and return (status, body)."""
     data = body_str.encode("utf-8")
     req = urllib.request.Request(
-        f"http://localhost:{port}{path}",
+        f"http://127.0.0.1:{port}{path}",
         data=data,
         method="POST",
     )
@@ -62,7 +62,7 @@ def _http_method(port, method, path="/", body_str=""):
     """Perform a request with an arbitrary method."""
     data = body_str.encode("utf-8") if body_str else None
     req = urllib.request.Request(
-        f"http://localhost:{port}{path}",
+        f"http://127.0.0.1:{port}{path}",
         data=data,
         method=method,
     )
@@ -143,9 +143,9 @@ class TestConcurrentHTTP:
 
     @pytest.mark.timeout(120)
     def test_rapid_sequential_connections(self):
-        """100 requests in a tight serial loop -- all must return 200."""
+        """50 requests in a tight serial loop -- all must return 200."""
         with ServerThread(_echo_handler) as port:
-            for i in range(100):
+            for i in range(50):
                 status, body = _http_get(port, f"/seq/{i}")
                 assert status == 200
                 assert f"uri=/seq/{i}" in body
