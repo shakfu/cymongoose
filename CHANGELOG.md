@@ -17,6 +17,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.2.2]
+
 ### Added
 
 - **Micro web-framework example** (`tests/examples/http/http_web_framework.py`): Flask/Bottle-style framework built on cymongoose demonstrating decorator-based routing (`@app.get`, `@app.post`, etc.), path parameters with type conversion (`/items/<int:id>`), JSON request/response helpers, return-value coercion (`str`, `dict`, `tuple`, `Response`), before/after request hooks, and custom 404 handlers. 22 tests in `tests/examples/test_examples_web_framework.py`.
@@ -36,6 +38,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Fixed
 
+- **WSGI duplicate response headers**: Multiple headers with the same name (e.g. `Set-Cookie`) were collapsed into one value because the buffered path converted headers to a `dict` before calling `conn.reply()`. Replaced `conn.reply()` with raw `conn.send()` in `_send_buffered_response`, constructing the HTTP response from the header list directly. Both buffered and streaming paths now preserve all duplicate headers. 2 tests added.
+- **WSGI duplicate `Content-Length` header**: `_send_buffered_response` unconditionally appended `Content-Length`, producing a duplicate when the WSGI app already set it via `start_response`. Now checks `has_cl` before appending, matching the existing `has_ct` pattern for `Content-Type`.
+- **WSGI missing HTTP reason phrase**: Status lines were `HTTP/1.1 200` instead of `HTTP/1.1 200 OK`. Added `_REASON` lookup table and `_status_line()` helper used by both the buffered and streaming header formatters.
 - **Port TOCTOU race in `test_ws_message_invalidated_after_handler`**: Replaced `get_free_port()` + `listen(f"...:{port}")` with `listen("...:0")` + read port from `conn.local_addr[1]`, eliminating the window where another process could grab the port between allocation and binding.
 - **`wsgi.py` type annotations**: Added full type annotations to all functions and methods, resolving 23 mypy errors. Guarded nullable `conn.local_addr` access.
 - **Lint: `import io` at top of file in `test_wsgi.py`**: Moved stray `import io` from bottom of file to the top-level import block (E402).
@@ -148,14 +153,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **`AsyncManager` deadlock when calling methods from handlers**: Replaced `threading.Lock` with `threading.RLock` in `AsyncManager` (`aio.py`). Previously, calling any delegated method (`listen()`, `connect()`, `timer_add()`, etc.) from within a handler callback would deadlock because the non-reentrant lock was already held by the poll thread. `RLock` allows the same thread to re-acquire the lock.
 - **`Timer` use-after-free on garbage collection**: If the user discarded the `Timer` object returned by `timer_add()`, Python's GC could free it, leaving mongoose with a dangling callback pointer. The manager-side `_timers` registry now keeps timers alive for their full lifetime. `Manager._cleanup()` properly releases all timer references before `mg_mgr_free()` destroys the C structs.
 - **30 weak or missing test assertions across 9 test files**: Replaced trivial `assert False` patterns with `pytest.raises`, converted no-assertion smoke tests into behavioral tests that verify observable state, and strengthened import-compilation tests. Key changes:
-    - Adversarial tests (`test_adversarial.py`): 13 tests now explicitly assert on the `_check_server_alive` return value.
-    - Lifecycle tests (`test_medium_impact_refactors.py`, `test_high_impact_refactors.py`): Replaced `try/except assert False` with `pytest.raises(RuntimeError)` for post-close and context-manager tests.
-    - Error handler tests (`test_review_fixes.py`): Constructor acceptance tests now trigger real exceptions and verify the handler receives them (or stderr captures the traceback).
-    - Header constant test (`test_review_fixes.py`): Sends custom headers through an HTTP round-trip and verifies `headers()` returns them.
-    - Import tests (`test_examples_*.py`): Assert source contains `"cymongoose"` and compiled code object has the correct filename.
-    - `test_reply_json_custom_status`: Uses `pytest.raises(urllib.error.HTTPError)` with status code and body assertions.
-    - `test_no_default_handler_no_listener_handler`: Verifies `listener.is_listening` after adversarial input.
-    - `test_poll_runs_without_error`: Asserts `listener.is_listening` after polling.
+  - Adversarial tests (`test_adversarial.py`): 13 tests now explicitly assert on the `_check_server_alive` return value.
+  - Lifecycle tests (`test_medium_impact_refactors.py`, `test_high_impact_refactors.py`): Replaced `try/except assert False` with `pytest.raises(RuntimeError)` for post-close and context-manager tests.
+  - Error handler tests (`test_review_fixes.py`): Constructor acceptance tests now trigger real exceptions and verify the handler receives them (or stderr captures the traceback).
+  - Header constant test (`test_review_fixes.py`): Sends custom headers through an HTTP round-trip and verifies `headers()` returns them.
+  - Import tests (`test_examples_*.py`): Assert source contains `"cymongoose"` and compiled code object has the correct filename.
+  - `test_reply_json_custom_status`: Uses `pytest.raises(urllib.error.HTTPError)` with status code and body assertions.
+  - `test_no_default_handler_no_listener_handler`: Verifies `listener.is_listening` after adversarial input.
+  - `test_poll_runs_without_error`: Asserts `listener.is_listening` after polling.
 
 ## [0.1.11]
 
@@ -173,12 +178,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **`mkdocs.yml` repo URL**: Fixed placeholder `your-username` to `shakfu`.
 - **Mongoose version consistency check**: `CMakeLists.txt` now verifies at configure time that `MONGOOSE_VERSION` matches `MG_VERSION` in `mongoose.h`. Build fails with a clear error if they diverge.
 - **Documentation overhaul**: Comprehensive review and update of all docs:
-    - Added API documentation for `ws_connect()`, `run()`, `connections`, `reply_json()`, `error_handler`, `event_name()`, `log_set()`, and `log_get()`.
-    - Updated Manager examples to show `http=` auto-inference from URL scheme instead of explicit `http=True`.
-    - Simplified quick example in `index.md` to use `Manager.run()`.
-    - Updated `installation.md` to reflect scikit-build-core/CMake build system, current Makefile targets, and correct test count (309).
-    - Updated `dev/index.md` to reflect MkDocs (not Sphinx), `CMakeLists.txt` (not `setup.py`), and current build commands.
-    - Documented `reply()` default `Content-Type: text/plain` behavior in Connection API reference.
+  - Added API documentation for `ws_connect()`, `run()`, `connections`, `reply_json()`, `error_handler`, `event_name()`, `log_set()`, and `log_get()`.
+  - Updated Manager examples to show `http=` auto-inference from URL scheme instead of explicit `http=True`.
+  - Simplified quick example in `index.md` to use `Manager.run()`.
+  - Updated `installation.md` to reflect scikit-build-core/CMake build system, current Makefile targets, and correct test count (309).
+  - Updated `dev/index.md` to reflect MkDocs (not Sphinx), `CMakeLists.txt` (not `setup.py`), and current build commands.
+  - Documented `reply()` default `Content-Type: text/plain` behavior in Connection API reference.
 
 ### Fixed
 

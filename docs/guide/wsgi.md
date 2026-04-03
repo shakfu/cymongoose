@@ -135,7 +135,7 @@ server = WSGIServer(app, workers=4, error_handler=on_error)
 ### File Serving with `wsgi.file_wrapper`
 
 The adapter provides `wsgi.file_wrapper` in the environ, implementing
-the optional PEP 3333 protocol for file serving.  WSGI applications
+the optional PEP 3333 protocol for file serving. WSGI applications
 can use it to serve files efficiently:
 
 ```python
@@ -149,19 +149,19 @@ def file_app(environ, start_response):
 ```
 
 The wrapper reads the file in blocks and iterates through the standard
-WSGI response path.  The underlying file handle is closed automatically
+WSGI response path. The underlying file handle is closed automatically
 when iteration completes.
 
 ### Large Response Handling
 
 `Manager.wakeup()` transmits data over a socketpair with a non-blocking
-`send()`.  The effective socket buffer is small (~9 KB on macOS, ~64 KB
+`send()`. The effective socket buffer is small (~9 KB on macOS, ~64 KB
 on Linux), so the adapter **cannot send most responses inline**.
 
 Responses exceeding 8 KB are automatically stashed in a thread-safe
-dict keyed by UUID.  Only the short key (~33 bytes) goes through
+dict keyed by UUID. Only the short key (~33 bytes) goes through
 `wakeup()`, and the event loop thread retrieves the full response from
-the dict.  This is transparent to WSGI applications -- no special
+the dict. This is transparent to WSGI applications -- no special
 handling is needed.
 
 For applications that serve very large responses (file downloads,
@@ -171,7 +171,7 @@ in memory before sending.
 ### Chunked Streaming
 
 Responses under 1 MB are collected in memory and sent as a single
-buffered reply (fast path).  When the accumulated body exceeds 1 MB
+buffered reply (fast path). When the accumulated body exceeds 1 MB
 during iteration, the adapter automatically switches to **chunked
 transfer encoding**: it sends the HTTP headers immediately, then
 streams each body chunk as it is yielded by the WSGI iterator.
@@ -187,15 +187,6 @@ This means:
 
 Small chunks from fast generators are batched up to 256 KB before
 sending to avoid flooding the wakeup pipe.
-
-### Current Limitations
-
-Known limitations that may affect specific workloads:
-
-- **Duplicate headers**: multiple response headers with the same name
-  (e.g. `Set-Cookie`) are collapsed into the last value. A fix
-  requires extending the Cython `reply()` API to accept multi-value
-  headers.
 
 ## See Also
 

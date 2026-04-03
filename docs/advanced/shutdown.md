@@ -72,7 +72,7 @@ if __name__ == "__main__":
 ## AsyncManager Shutdown
 
 When using ``AsyncManager``, shutdown is handled automatically by
-``__aexit__``.  The ``shutdown_timeout`` parameter (default 30 seconds)
+``__aexit__``. The ``shutdown_timeout`` parameter (default 30 seconds)
 controls how long it waits for the poll thread to stop:
 
 1. ``__aexit__`` signals the thread to stop and sends a wakeup.

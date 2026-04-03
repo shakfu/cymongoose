@@ -713,6 +713,65 @@ class TestWSGIChunkedStreaming:
             assert len(srv_ctx.server._streams) == 0
 
 
+class TestWSGIDuplicateHeaders:
+    """PEP 3333 allows multiple headers with the same name."""
+
+    def test_duplicate_set_cookie_preserved(self):
+        """Multiple Set-Cookie headers should not be collapsed."""
+        import http.client
+
+        def app(environ, start_response):
+            start_response(
+                "200 OK",
+                [
+                    ("Content-Type", "text/plain"),
+                    ("Set-Cookie", "a=1; Path=/"),
+                    ("Set-Cookie", "b=2; Path=/"),
+                    ("Set-Cookie", "c=3; Path=/"),
+                ],
+            )
+            return [b"ok"]
+
+        with _ServerCtx(app) as srv:
+            conn = http.client.HTTPConnection("127.0.0.1", srv.port, timeout=2)
+            conn.request("GET", "/")
+            resp = conn.getresponse()
+            resp.read()
+
+            # getheaders() returns all values for the given name.
+            cookies = resp.getheaders()
+            set_cookie_values = [v for k, v in cookies if k == "Set-Cookie"]
+
+            assert len(set_cookie_values) == 3, (
+                f"Expected 3 Set-Cookie headers, got {len(set_cookie_values)}: "
+                f"{set_cookie_values}"
+            )
+            assert "a=1; Path=/" in set_cookie_values
+            assert "b=2; Path=/" in set_cookie_values
+            assert "c=3; Path=/" in set_cookie_values
+            conn.close()
+
+    def test_single_valued_headers_still_work(self):
+        """Normal single-valued headers should be unaffected."""
+
+        def app(environ, start_response):
+            start_response(
+                "200 OK",
+                [
+                    ("Content-Type", "application/json"),
+                    ("X-Request-Id", "abc-123"),
+                ],
+            )
+            return [b'{"ok": true}']
+
+        with _ServerCtx(app) as srv:
+            status, body, hdrs = _request(srv.port, "/")
+            assert status == 200
+            assert hdrs.get("Content-Type") == "application/json"
+            assert hdrs.get("X-Request-Id") == "abc-123"
+            assert body == '{"ok": true}'
+
+
 if __name__ == "__main__":
     result = pytest.main([__file__, "-v"])
     sys.exit(result)

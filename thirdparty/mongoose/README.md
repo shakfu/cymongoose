@@ -1,15 +1,15 @@
 # Mongoose - Embedded Web Server / Embedded Network Library
 
 [![License: GPLv2/Commercial](https://img.shields.io/badge/License-GPLv2%20or%20Commercial-green.svg)](https://opensource.org/licenses/gpl-2.0.php)
-[![Build Status]( https://github.com/cesanta/mongoose/actions/workflows/quicktest.yml/badge.svg)](https://github.com/cesanta/mongoose/actions)
+[![Build Status](https://github.com/cesanta/mongoose/actions/workflows/quicktest.yml/badge.svg)](https://github.com/cesanta/mongoose/actions)
 [![Code Coverage](https://codecov.io/gh/cesanta/mongoose/branch/master/graph/badge.svg)](https://codecov.io/gh/cesanta/mongoose)
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://issues.oss-fuzz.com/issues?sort=-opened&can=1&q=proj:mongoose)
 
-Mongoose is a network library for C/C++.  It provides event-driven non-blocking
-APIs for TCP, UDP, HTTP, WebSocket, MQTT, and other protocols.  It is designed
+Mongoose is a network library for C/C++. It provides event-driven non-blocking
+APIs for TCP, UDP, HTTP, WebSocket, MQTT, and other protocols. It is designed
 for connecting devices and bringing them online. On the market since 2004, used
 by vast number of open source and commercial products - it even runs on the
-International Space Station!  Mongoose makes embedded network programming fast,
+International Space Station! Mongoose makes embedded network programming fast,
 robust, and easy. Features include:
 
 - Cross-platform:
@@ -24,15 +24,15 @@ robust, and easy. Features include:
 - Easy to integrate: just copy [mongoose.c](https://raw.githubusercontent.com/cesanta/mongoose/master/mongoose.c)
   and [mongoose.h](https://raw.githubusercontent.com/cesanta/mongoose/master/mongoose.h) files to your source tree
 - Built-in TCP/IP stack with drivers for bare metal or RTOS systems
-   - Available drivers: STM32F, STM32H; NXP RT1xxx; TI TM4C; Microchip SAME54; Wiznet W5500
-   - A complete Web device dashboard on bare metal ST Nucleo boards is only 6 files
-   - For comparison, a CubeIDE generated HTTP example is 400+ files
+  - Available drivers: STM32F, STM32H; NXP RT1xxx; TI TM4C; Microchip SAME54; Wiznet W5500
+  - A complete Web device dashboard on bare metal ST Nucleo boards is only 6 files
+  - For comparison, a CubeIDE generated HTTP example is 400+ files
 - Can run on top of an existing TCP/IP stack with BSD API, e.g. lwIP, Zephyr, Azure, etc
 - Built-in TLS 1.3 ECC stack. Also can use external TLS libraries - mbedTLS, OpenSSL, or other
 - Does not depend on any other software to implement networking
 - Built-in firmware updates for STM32 H5, STM32 H7
 
-See https://mongoose.ws/ for complete documentation, videos, case studies, etc.
+See <https://mongoose.ws/> for complete documentation, videos, case studies, etc.
 
 ## Supported platforms
 
@@ -95,6 +95,7 @@ int main(void) {
 ```
 
 HTTP server implements a REST API that returns current time. JSON formatting:
+
 ```c
 static void ev_handler(struct mg_connection *c, int ev, void *ev_data) {
   if (ev == MG_EV_HTTP_MSG) {
@@ -160,6 +161,7 @@ int main() {
 ```
 
 ## Commercial use
+
 - Mongoose is used by hundreds of businesses, from Fortune500 giants like
   Siemens, Schneider Electric, Broadcom, Bosch, Google, Samsung, Qualcomm, Caterpillar to the small businesses
 - Used to solve a wide range of business needs, like implementing Web UI
@@ -172,10 +174,10 @@ int main() {
 - We provide [Evaluation and Commercial licensing](https://mongoose.ws/licensing/), [support](https://mongoose.ws/support/), consultancy and [integration
   services](https://mongoose.ws/integration/) - don't hesitate to [contact us](https://mongoose.ws/contact/)
 
-
 ## Security
 
 We take security seriously:
+
 1. Mongoose repository runs a
   [continuous integration test powered by GitHub](https://github.com/cesanta/mongoose/actions),
   which runs through hundreds of unit tests on every commit to the repository.
@@ -183,25 +185,30 @@ We take security seriously:
   are built with modern address sanitizer technologies, which help to find
   security vulnerabilities early
 2. Mongoose repository is integrated into Google's
-  [oss-fuzz continuous fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
-  which scans for potential vulnerabilities continuously
-3.  We receive periodic vulnerability reports from the independent security
-  groups like
-  [Cisco Talos](https://www.cisco.com/c/en/us/products/security/talos.html),
-  [Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc),
-  [MITRE Corporation](https://www.mitre.org/),
-  [Compass Security](https://www.compass-security.com/en/) and others.
-  In case of the vulnerability found, we act according to the industry best
-  practice: hold on to the publication, fix the software and notify all our
-  customers that have an appropriate subscription
-4. Some of our customers (for example NASA)
-  have specific security requirements and run independent security audits,
-  of which we get notified and in case of any issue, act similar to (3).
 
+   [oss-fuzz continuous fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
+   which scans for potential vulnerabilities continuously
+
+3. We receive periodic vulnerability reports from the independent security
+
+   groups like
+   [Cisco Talos](https://www.cisco.com/c/en/us/products/security/talos.html),
+   [Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc),
+   [MITRE Corporation](https://www.mitre.org/),
+   [Compass Security](https://www.compass-security.com/en/) and others.
+   In case of the vulnerability found, we act according to the industry best
+   practice: hold on to the publication, fix the software and notify all our
+   customers that have an appropriate subscription
+
+4. Some of our customers (for example NASA)
+
+   have specific security requirements and run independent security audits,
+   of which we get notified and in case of any issue, act similar to (3).
 
 ## Articles
 
 Technical guides and deep dives into embedded web servers, WebUI integration and embedded networking technologies:
+
 - [Embedded Web Server: A Comprehensive Guide for Modern Connected Devices](https://mongoose.ws/articles/embedded-web-server-a-comprehensive-guide-for-modern-connected-devices/)
 - [Building Embedded Web Device Dashboards](https://mongoose.ws/articles/building-embedded-web-device-dashboard/)
 - [ESP32 Device Dashboard: A Step-by-Step Guide for Developers](https://mongoose.ws/articles/esp32-device-dashboard/)
@@ -209,7 +216,6 @@ Technical guides and deep dives into embedded web servers, WebUI integration and
 - [STM32 WebSocket Guide](https://mongoose.ws/articles/stm32-websocket-guide/)
 - [Web File Manager on STM32, ESP32 and Embedded Linux](https://mongoose.ws/articles/building-a-web-file-manager-on-stm32-esp32-embedded-linux/)
 - [Web dashboard on Zephyr RTOS](https://mongoose.ws/articles/web-dashboard-on-zephyr-rtos/)
-
 
 ## Contributions
 

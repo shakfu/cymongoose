@@ -155,7 +155,7 @@ python tests/examples/http/http_server.py
 ## Vendored Mongoose Patches
 
 The vendored copy of mongoose (`thirdparty/mongoose/`) includes the following
-local patches on top of the upstream release.  These must be re-applied after
+local patches on top of the upstream release. These must be re-applied after
 upgrading the vendored source.
 
 | File | Description |

@@ -18,7 +18,7 @@ Or with more control::
 Architecture
 ------------
 Small responses (< 1 MB) are buffered in full and sent as a single
-``conn.reply()`` via wakeup.
+``conn.send()`` via wakeup.
 
 Large responses (>= 1 MB) switch to **chunked streaming**: the worker
 pushes chunks into a per-connection ``queue.Queue`` and sends a tiny
@@ -188,13 +188,30 @@ def _build_environ(
 
 
 # ---------------------------------------------------------------------------
-# Chunked header formatting
+# HTTP helpers
 # ---------------------------------------------------------------------------
+
+# Common HTTP reason phrases (RFC 7231).
+_REASON = {
+    200: "OK", 201: "Created", 202: "Accepted", 204: "No Content",
+    301: "Moved Permanently", 302: "Found", 304: "Not Modified",
+    400: "Bad Request", 401: "Unauthorized", 403: "Forbidden",
+    404: "Not Found", 405: "Method Not Allowed", 409: "Conflict",
+    413: "Content Too Large", 415: "Unsupported Media Type",
+    422: "Unprocessable Content", 429: "Too Many Requests",
+    500: "Internal Server Error", 502: "Bad Gateway",
+    503: "Service Unavailable", 504: "Gateway Timeout",
+}
+
+
+def _status_line(status_code: int) -> str:
+    reason = _REASON.get(status_code, "")
+    return f"HTTP/1.1 {status_code} {reason}"
 
 
 def _format_chunked_header(status_code: int, headers: list[tuple[str, str]]) -> bytes:
     """Build the raw HTTP header block for a chunked response."""
-    lines = [f"HTTP/1.1 {status_code}"]
+    lines = [_status_line(status_code)]
     has_te = False
     for name, value in headers:
         lines.append(f"{name}: {value}")
@@ -341,10 +358,29 @@ class WSGIServer:
             return
         newline = payload.index(b"\n")
         meta = json.loads(payload[:newline])
-        body = payload[newline + 1 :]
+        body = payload[newline + 1:]
         status_code: int = meta["s"]
-        headers: dict[str, str] = {k: v for k, v in meta["h"]}
-        conn.reply(status_code, body, headers=headers)
+        headers: list[list[str]] = meta["h"]
+
+        # Build the raw HTTP response to preserve duplicate headers
+        # (e.g. multiple Set-Cookie).  conn.reply() converts headers
+        # to a dict which collapses duplicates.
+        lines = [_status_line(status_code)]
+        has_ct = False
+        has_cl = False
+        for name, value in headers:
+            lower = name.lower()
+            if lower == "content-type":
+                has_ct = True
+            elif lower == "content-length":
+                has_cl = True
+            lines.append(f"{name}: {value}")
+        if not has_ct:
+            lines.append("Content-Type: text/plain")
+        if not has_cl:
+            lines.append(f"Content-Length: {len(body)}")
+        raw_header = ("\r\n".join(lines) + "\r\n\r\n").encode()
+        conn.send(raw_header + body)
 
     def _drain_stream(self, conn: Connection) -> None:
         """Drain all available chunks from this connection's stream queue."""

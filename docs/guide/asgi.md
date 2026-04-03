@@ -15,7 +15,7 @@ the [WSGI adapter](wsgi.md) supports synchronous frameworks.
 ## Architecture Notes
 
 The ASGI adapter will build on `AsyncManager` and cymongoose's native
-WebSocket support.  Unlike the WSGI adapter (which bridges blocking
+WebSocket support. Unlike the WSGI adapter (which bridges blocking
 callables via a thread pool), the ASGI adapter can run coroutines
 directly on the asyncio event loop, avoiding the thread-pool overhead.
 

@@ -194,7 +194,7 @@ manager.wakeup(conn_id, b"hello")  # OK
 ### 3. Wakeup Payload Size Limit
 
 `Manager.wakeup()` transmits data over a socketpair using a
-non-blocking `send()`.  If the payload exceeds the socket send buffer
+non-blocking `send()`. If the payload exceeds the socket send buffer
 the call succeeds (returns `True`) but **the data is silently dropped**.
 
 The effective limit depends on the OS:
@@ -204,7 +204,7 @@ The effective limit depends on the OS:
 | macOS    | ~9 KB             |
 | Linux    | ~64 KB            |
 
-**Keep wakeup payloads small** -- ideally under 8 KB.  For larger data,
+**Keep wakeup payloads small** -- ideally under 8 KB. For larger data,
 pass a key or identifier through `wakeup()` and store the actual data
 in a thread-safe structure (dict with a lock, `queue.Queue`, etc.):
 
