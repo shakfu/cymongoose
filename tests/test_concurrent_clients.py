@@ -141,6 +141,7 @@ class TestConcurrentHTTP:
                     assert status == 200
                     assert f"method={method}" in body
 
+    @pytest.mark.timeout(120)
     def test_rapid_sequential_connections(self):
         """100 requests in a tight serial loop -- all must return 200."""
         with ServerThread(_echo_handler) as port:

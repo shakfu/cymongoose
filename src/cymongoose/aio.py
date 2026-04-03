@@ -130,11 +130,17 @@ class AsyncManager:
 
     # -- poll loop (runs in background thread) -------------------------------
 
+    _MAX_POLL_MS = 200  # cap so the lock is never held too long
+
     def _run(self) -> None:
         while not self._stop.is_set():
             with self._lock:
                 if self._manager is not None:
-                    self._manager.poll(self._poll_interval)
+                    self._manager.poll(min(self._poll_interval, self._MAX_POLL_MS))
+            # Yield between polls so other threads can acquire the lock.
+            # Without this, the poll thread can starve callers of
+            # listen()/connect()/etc. on platforms with unfair mutexes.
+            self._stop.wait(0.001)
 
     # -- internal helpers ----------------------------------------------------
 
