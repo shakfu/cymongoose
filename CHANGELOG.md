@@ -22,6 +22,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Micro web-framework example** (`tests/examples/http/http_web_framework.py`): Flask/Bottle-style framework built on cymongoose demonstrating decorator-based routing (`@app.get`, `@app.post`, etc.), path parameters with type conversion (`/items/<int:id>`), JSON request/response helpers, return-value coercion (`str`, `dict`, `tuple`, `Response`), before/after request hooks, and custom 404 handlers. 22 tests in `tests/examples/test_examples_web_framework.py`.
 - **Framework routing benchmark** (`tests/benchmarks/bench_web_framework.py`): Measures the overhead of the framework routing layer vs. a raw handler. With `wrk -t4 -c100 -d10s`: raw handler 119,857 req/s, framework static route 102,255 req/s (85%), framework parameterised route 84,602 req/s (71%). Supports `--serve {raw,framework,framework-param}` mode for manual `wrk`/`ab` testing.
 - **Web framework section in `docs/examples.md`**: Documents the micro-framework API, includes a runnable CRUD example, and presents `wrk` benchmark results comparing routing overhead.
+- **WSGI server adapter** (`src/cymongoose/wsgi.py`): PEP 3333 WSGI server that runs any WSGI application (Flask, Django, Bottle, Falcon, Pyramid) on cymongoose's C event loop. Uses a `ThreadPoolExecutor` to dispatch blocking WSGI callables and `Manager.wakeup()` to return responses to the event loop thread. Provides `WSGIServer` class and `serve()` one-liner. 20 tests in `tests/test_wsgi.py` covering environ construction, status codes, headers, POST bodies, iterators, error handling, and concurrent requests. Smoke-tested with Flask 3.1.
+- **WSGI/ASGI guide** (`docs/guide/wsgi.md`): Documents the WSGI adapter API, architecture, threading model, error handling, and current limitations. Includes Flask quick-start example and notes on planned ASGI support.
+
+### Fixed
+
+- **Port TOCTOU race in `test_ws_message_invalidated_after_handler`**: Replaced `get_free_port()` + `listen(f"...:{port}")` with `listen("...:0")` + read port from `conn.local_addr[1]`, eliminating the window where another process could grab the port between allocation and binding.
+- **`wsgi.py` type annotations**: Added full type annotations to all functions and methods, resolving 23 mypy errors. Guarded nullable `conn.local_addr` access.
+- **Lint: `import io` at top of file in `test_wsgi.py`**: Moved stray `import io` from bottom of file to the top-level import block (E402).
 
 ## [0.2.1]
 

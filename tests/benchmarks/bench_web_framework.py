@@ -43,9 +43,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "examples" / "http"))
 
-from cymongoose import MG_EV_HTTP_MSG, Manager
-
 from http_web_framework import App, Response, json_response
+
+from cymongoose import MG_EV_HTTP_MSG, Manager
 
 # ---------------------------------------------------------------------------
 # Server configurations
@@ -96,6 +96,7 @@ def make_framework_param_server(port):
 # ---------------------------------------------------------------------------
 # Benchmark harness
 # ---------------------------------------------------------------------------
+
 
 def get_free_port():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -167,6 +168,7 @@ def report(label, latencies, wall_time):
 # Main
 # ---------------------------------------------------------------------------
 
+
 def run_benchmarks():
     is_windows = platform.system() == "Windows"
     seq_n = 200 if is_windows else 1000
@@ -233,8 +235,7 @@ def run_benchmarks():
     for name, (seq, conc) in all_results.items():
         seq_pct = (seq / raw_seq * 100) if raw_seq else 0
         conc_pct = (conc / raw_conc * 100) if raw_conc else 0
-        print(f"  {name:<30} {seq:>9,.0f} {conc:>11,.0f}  "
-              f"({seq_pct:.0f}% / {conc_pct:.0f}%)")
+        print(f"  {name:<30} {seq:>9,.0f} {conc:>11,.0f}  ({seq_pct:.0f}% / {conc_pct:.0f}%)")
 
     print("-" * 65)
     print("  Percentages are relative to raw handler (100% = no overhead)")
@@ -280,7 +281,8 @@ def serve_mode(mode):
 def main():
     parser = argparse.ArgumentParser(description="Web framework benchmark")
     parser.add_argument(
-        "--serve", choices=["raw", "framework", "framework-param"],
+        "--serve",
+        choices=["raw", "framework", "framework-param"],
         help="Start a single server for manual wrk/ab testing instead of running benchmarks",
     )
     args = parser.parse_args()

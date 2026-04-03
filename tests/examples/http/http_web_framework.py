@@ -76,8 +76,17 @@ def _compile_route(pattern):
 class Request:
     """Thin wrapper around an HttpMessage for framework consumers."""
 
-    __slots__ = ("method", "uri", "query", "headers_raw", "body_bytes", "body_text",
-                 "_hm", "path_params", "extras")
+    __slots__ = (
+        "method",
+        "uri",
+        "query",
+        "headers_raw",
+        "body_bytes",
+        "body_text",
+        "_hm",
+        "path_params",
+        "extras",
+    )
 
     def __init__(self, hm):
         self._hm = hm
@@ -293,8 +302,7 @@ items = []
 @app.get("/")
 def index(req):
     return Response(
-        "<h1>cymongoose micro-framework</h1>"
-        "<p>Try /greet/world, /items, POST /items</p>",
+        "<h1>cymongoose micro-framework</h1><p>Try /greet/world, /items, POST /items</p>",
         headers={"Content-Type": "text/html"},
     )
 
@@ -345,7 +353,9 @@ def custom_404(req):
 def main():
     parser = argparse.ArgumentParser(description="Micro-framework demo")
     parser.add_argument(
-        "-l", "--listen", default="http://127.0.0.1:8000",
+        "-l",
+        "--listen",
+        default="http://127.0.0.1:8000",
         help="Listen URL (default: http://127.0.0.1:8000)",
     )
     args = parser.parse_args()

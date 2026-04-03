@@ -68,6 +68,7 @@ nav:
       - MQTT: guide/mqtt.md
       - Network (TCP/UDP/DNS): guide/network.md
       - TLS/SSL: guide/tls.md
+      - WSGI/ASGI: guide/wsgi.md
   - API Reference:
       - Overview: api/index.md
       - Manager: api/manager.md

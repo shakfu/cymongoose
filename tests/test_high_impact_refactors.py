@@ -19,7 +19,7 @@ from cymongoose import (
     MG_EV_WS_MSG,
     Manager,
 )
-from tests.conftest import ServerThread, get_free_port
+from tests.conftest import ServerThread
 
 # ---------------------------------------------------------------------------
 # 1. URL scheme inference
@@ -340,8 +340,8 @@ class TestMessageViewInvalidation:
                 conn.ws_send("pong")
 
         mgr = Manager(handler)
-        port = get_free_port()
-        mgr.listen(f"http://0.0.0.0:{port}", http=True)
+        conn = mgr.listen("http://127.0.0.1:0", http=True)
+        port = conn.local_addr[1]
 
         stop = threading.Event()
 

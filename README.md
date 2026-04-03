@@ -16,6 +16,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 - **Event-driven** -- non-blocking I/O with a simple event loop
 - **GIL-free** -- 24 methods release the GIL for true parallel execution
 - **High performance** -- 60k+ req/sec (6-37x faster than pure Python frameworks)
+- **WSGI support** -- serve Flask, Django, Bottle apps on the C event loop
 - **Asyncio support** -- `AsyncManager` for asyncio integration
 - **Type hints** -- full `.pyi` stubs and `py.typed` marker
 
@@ -71,6 +72,17 @@ mgr = Manager()
 mgr.listen("http://127.0.0.1:8080", handler=api_handler)
 mgr.listen("http://127.0.0.1:8090", handler=web_handler)
 mgr.run()
+```
+
+### WSGI Framework Support
+
+Run existing Flask/Django/Bottle apps on cymongoose:
+
+```python
+from cymongoose.wsgi import serve
+from myapp import app  # any WSGI application
+
+serve(app, "http://127.0.0.1:8000", workers=8)
 ```
 
 See the [quickstart guide](https://shakfu.github.io/cymongoose/quickstart/) and [examples](https://shakfu.github.io/cymongoose/examples/) for more.

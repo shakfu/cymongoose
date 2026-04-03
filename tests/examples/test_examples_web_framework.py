@@ -13,14 +13,14 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 sys.path.insert(0, str(Path(__file__).parent / "http"))
 
-from cymongoose import MG_EV_HTTP_MSG, Manager
-
 from http_web_framework import App, Response, json_response
 
+from cymongoose import Manager
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _make_request(port, path, method="GET", body=None, headers=None):
     """Send an HTTP request and return (status, body_str, response_headers)."""
@@ -67,6 +67,7 @@ class _Server:
 # Tests
 # ---------------------------------------------------------------------------
 
+
 class TestRouting:
     """Basic route matching and method dispatch."""
 
@@ -104,8 +105,11 @@ class TestRouting:
     def test_post_echo(self):
         payload = json.dumps({"key": "value"})
         status, body, hdrs = _make_request(
-            self.port, "/echo", method="POST",
-            body=payload, headers={"Content-Type": "application/json"},
+            self.port,
+            "/echo",
+            method="POST",
+            body=payload,
+            headers={"Content-Type": "application/json"},
         )
         assert status == 201
         assert json.loads(body) == {"key": "value"}
@@ -191,8 +195,11 @@ class TestCRUD:
     def test_create_and_get(self):
         payload = json.dumps({"name": "widget"})
         s1, _, _ = _make_request(
-            self.port, "/items", method="POST",
-            body=payload, headers={"Content-Type": "application/json"},
+            self.port,
+            "/items",
+            method="POST",
+            body=payload,
+            headers={"Content-Type": "application/json"},
         )
         assert s1 == 201
 
@@ -203,8 +210,11 @@ class TestCRUD:
     def test_delete(self):
         payload = json.dumps({"name": "gizmo"})
         _make_request(
-            self.port, "/items", method="POST",
-            body=payload, headers={"Content-Type": "application/json"},
+            self.port,
+            "/items",
+            method="POST",
+            body=payload,
+            headers={"Content-Type": "application/json"},
         )
         s, body, _ = _make_request(self.port, "/items/0", method="DELETE")
         assert s == 200
