@@ -11,25 +11,34 @@
 
   Open items:
 
-  - [ ] **Chunked streaming for large responses** (Medium)
-    The entire response body is buffered before sending. For large
-    responses (file downloads, streaming generators) use chunked
-    transfer encoding to send chunks as the WSGI iterator yields them.
+  - [x] **Chunked streaming for large responses** (Medium)
+    Responses exceeding `_STREAM_THRESHOLD` (1 MB) now switch from
+    buffered mode to chunked transfer encoding.  The worker sends
+    HTTP headers via a `H` wakeup, then each body chunk via `C`
+    wakeups (always stashed), and a final `E` to close.  Small
+    chunks are batched up to 256 KB to avoid flooding the wakeup
+    pipe.  7 streaming tests added (34 total WSGI tests).
 
-  - [ ] **Wakeup payload size limits** (Low)
-    The response is serialised into a single `wakeup()` payload.
-    Investigate mongoose's internal buffer limits and add fallback
-    (e.g. shared-memory or temp file) for very large responses.
+  - [x] **Wakeup payload size limits** (Low)
+    `mg_wakeup()` uses `send()` with `MSG_NONBLOCKING` over a
+    socketpair; the effective send buffer is ~9.2 KB on macOS and
+    ~64 KB on Linux.  Payloads exceeding `_WAKEUP_MAX_BYTES` (8 KB)
+    are now stashed in a thread-safe dict keyed by UUID, and only
+    the short key is sent via wakeup.  3 tests added.
 
-  - [ ] **`wsgi.file_wrapper` support** (Low)
-    Implement the optional `wsgi.file_wrapper` optimisation for
-    efficient static file serving via `sendfile()`.
+  - [x] **`wsgi.file_wrapper` support** (Low)
+    Added `FileWrapper` class implementing the PEP 3333
+    `wsgi.file_wrapper` protocol.  Injected into `environ` so WSGI
+    apps can use it for efficient file serving.  4 tests added
+    (environ presence, file serving, large files, close() called).
 
   - [ ] **Duplicate response headers** (Medium)
     PEP 3333 allows multiple headers with the same name (e.g.
-    `Set-Cookie`). The current dict conversion loses duplicates.
-    Switch to a list-of-tuples pass-through or join with `, ` where
-    the HTTP spec permits.
+    `Set-Cookie`). The current dict conversion in `_handle_wakeup`
+    loses duplicates, and `conn.reply()` itself only accepts
+    `Dict[str, str]`. Full fix requires extending the Cython
+    `reply()` API to accept multi-value headers (list of tuples),
+    then updating the WSGI adapter to pass them through.
 
 - [ ] **ASGI adapter** (Medium)
   Implement an ASGI server (HTTP + WebSocket sub-protocols) on top of

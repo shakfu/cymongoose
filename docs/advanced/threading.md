@@ -191,7 +191,57 @@ manager.wakeup(conn_id, "hello")  # ERROR!
 manager.wakeup(conn_id, b"hello")  # OK
 ```
 
-### 3. Track Connections
+### 3. Wakeup Payload Size Limit
+
+`Manager.wakeup()` transmits data over a socketpair using a
+non-blocking `send()`.  If the payload exceeds the socket send buffer
+the call succeeds (returns `True`) but **the data is silently dropped**.
+
+The effective limit depends on the OS:
+
+| Platform | Approximate limit |
+|----------|-------------------|
+| macOS    | ~9 KB             |
+| Linux    | ~64 KB            |
+
+**Keep wakeup payloads small** -- ideally under 8 KB.  For larger data,
+pass a key or identifier through `wakeup()` and store the actual data
+in a thread-safe structure (dict with a lock, `queue.Queue`, etc.):
+
+```python
+import threading
+import uuid
+
+stash = {}
+stash_lock = threading.Lock()
+
+def worker(manager, conn_id, result_bytes):
+    if len(result_bytes) > 8000:
+        # Stash the data, send only the key
+        key = uuid.uuid4().hex
+        with stash_lock:
+            stash[key] = result_bytes
+        manager.wakeup(conn_id, b"KEY:" + key.encode())
+    else:
+        # Small enough to send inline
+        manager.wakeup(conn_id, result_bytes)
+
+def handler(conn, ev, data):
+    if ev == MG_EV_WAKEUP:
+        if data.startswith(b"KEY:"):
+            key = data[4:].decode()
+            with stash_lock:
+                result = stash.pop(key)
+            conn.reply(200, result)
+        else:
+            conn.reply(200, data)
+```
+
+!!! note
+    The WSGI adapter (`cymongoose.wsgi`) handles this automatically --
+    responses over 8 KB are stashed transparently.
+
+### 4. Track Connections
 
 ```python
 # Store connections by ID
@@ -211,7 +261,7 @@ def handler(conn, ev, data):
             process_result(conn)
 ```
 
-### 4. Use Queue for Communication
+### 5. Use Queue for Communication
 
 ```python
 import queue

@@ -1,6 +1,5 @@
 """Tests for the WSGI server adapter."""
 
-import io
 import json
 import sys
 import threading
@@ -13,7 +12,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from cymongoose.wsgi import WSGIServer, _build_environ, _call_wsgi_app
+from cymongoose.wsgi import WSGIServer, _build_environ
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -248,34 +247,6 @@ class TestBuildEnviron:
 
 
 # ---------------------------------------------------------------------------
-# Tests: _call_wsgi_app
-# ---------------------------------------------------------------------------
-
-
-class TestCallWSGIApp:
-    """Unit tests for the WSGI callable invocation."""
-
-    def test_hello(self):
-        environ = {"REQUEST_METHOD": "GET", "wsgi.input": io.BytesIO()}
-        status, headers, body = _call_wsgi_app(hello_app, environ)
-        assert status == 200
-        assert body == b"Hello, World!"
-        assert ("Content-Type", "text/plain") in headers
-
-    def test_error_returns_500(self):
-        environ = {"REQUEST_METHOD": "GET", "wsgi.input": io.BytesIO()}
-        status, headers, body = _call_wsgi_app(error_app, environ)
-        assert status == 500
-        assert b"Internal Server Error" in body
-
-    def test_multi_chunk_body(self):
-        environ = {"REQUEST_METHOD": "GET", "wsgi.input": io.BytesIO()}
-        status, headers, body = _call_wsgi_app(iterator_app, environ)
-        assert status == 200
-        assert body == b"chunk1chunk2chunk3"
-
-
-# ---------------------------------------------------------------------------
 # Tests: WSGIServer integration
 # ---------------------------------------------------------------------------
 
@@ -430,6 +401,316 @@ class TestWSGIServerConcurrent:
             # complete well under 4 * 0.2s = 0.8s sequential time
             assert elapsed < 0.6, f"Expected parallel execution, took {elapsed:.2f}s"
             assert all(r[0] == 200 for r in results)
+
+
+class TestWSGILargePayload:
+    """Responses exceeding _WAKEUP_MAX_BYTES use the stash fallback."""
+
+    def test_large_response_stash_fallback(self):
+        """A response larger than 8 KB but under 1 MB uses the stash path."""
+        # 500 KB -- above _WAKEUP_MAX_BYTES (8 KB) but below
+        # _STREAM_THRESHOLD (1 MB), so it takes the buffered+stash path.
+        big_body = b"X" * (500 * 1024)
+
+        def large_app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "application/octet-stream")])
+            return [big_body]
+
+        with _ServerCtx(large_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(big_body)
+            assert body == big_body.decode()
+
+    def test_small_response_inline(self):
+        """Responses under the threshold go through the inline path."""
+
+        def small_app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [b"tiny"]
+
+        with _ServerCtx(small_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "tiny"
+
+    def test_stash_cleaned_up_after_delivery(self):
+        """The stash entry is removed after the response is sent."""
+        big_body = b"Y" * (1024 * 1024)
+
+        def large_app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [big_body]
+
+        srv_ctx = _ServerCtx(large_app)
+        with srv_ctx as srv:
+            _request(srv.port, "/")
+            time.sleep(0.1)
+            # Stash should be empty after the response was delivered
+            assert len(srv_ctx.server._stash) == 0
+
+
+class TestWSGIFileWrapper:
+    """wsgi.file_wrapper support."""
+
+    def test_file_wrapper_in_environ(self):
+        """environ should contain wsgi.file_wrapper."""
+        from cymongoose.wsgi import FileWrapper
+
+        def check_app(environ, start_response):
+            assert "wsgi.file_wrapper" in environ
+            assert environ["wsgi.file_wrapper"] is FileWrapper
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [b"ok"]
+
+        with _ServerCtx(check_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+
+    def test_file_wrapper_serves_file(self, tmp_path):
+        """An app using wsgi.file_wrapper should serve file content."""
+        test_file = tmp_path / "test.txt"
+        test_content = b"Hello from file wrapper!"
+        test_file.write_bytes(test_content)
+
+        def file_app(environ, start_response):
+            wrapper = environ["wsgi.file_wrapper"]
+            fh = open(str(test_file), "rb")
+            start_response(
+                "200 OK",
+                [
+                    ("Content-Type", "text/plain"),
+                    ("Content-Length", str(len(test_content))),
+                ],
+            )
+            return wrapper(fh)
+
+        with _ServerCtx(file_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == test_content.decode()
+
+    def test_file_wrapper_large_file(self, tmp_path):
+        """File wrapper should handle files larger than the block size."""
+        test_file = tmp_path / "large.bin"
+        # 100 KB file (larger than default 8192 block size)
+        test_content = b"A" * (100 * 1024)
+        test_file.write_bytes(test_content)
+
+        def file_app(environ, start_response):
+            wrapper = environ["wsgi.file_wrapper"]
+            fh = open(str(test_file), "rb")
+            start_response("200 OK", [("Content-Type", "application/octet-stream")])
+            return wrapper(fh, blksize=4096)
+
+        with _ServerCtx(file_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(test_content)
+
+    def test_file_wrapper_close_called(self, tmp_path):
+        """File wrapper should call close() on the underlying file."""
+        test_file = tmp_path / "close_test.txt"
+        test_file.write_bytes(b"data")
+
+        closed = {"value": False}
+
+        class TrackingFile:
+            def __init__(self):
+                self._fh = open(str(test_file), "rb")
+
+            def read(self, size=-1):
+                return self._fh.read(size)
+
+            def close(self):
+                self._fh.close()
+                closed["value"] = True
+
+        def file_app(environ, start_response):
+            wrapper = environ["wsgi.file_wrapper"]
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return wrapper(TrackingFile())
+
+        with _ServerCtx(file_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "data"
+            time.sleep(0.1)
+            assert closed["value"] is True
+
+
+class TestWSGIChunkedStreaming:
+    """Responses exceeding _STREAM_THRESHOLD use chunked transfer encoding."""
+
+    def test_large_single_chunk_triggers_streaming(self):
+        """A single chunk > 1 MB triggers the streaming path."""
+        big_body = b"Z" * (2 * 1024 * 1024)  # 2 MB
+
+        def app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "application/octet-stream")])
+            return [big_body]
+
+        with _ServerCtx(app) as srv:
+            status, body, hdrs = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(big_body)
+
+    def test_many_small_chunks_trigger_streaming(self):
+        """Many small chunks that sum to > 1 MB trigger streaming."""
+        chunk_size = 64 * 1024  # 64 KB
+        num_chunks = 20  # 1.25 MB total
+
+        def app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [b"x" * chunk_size for _ in range(num_chunks)]
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == chunk_size * num_chunks
+
+    def test_streaming_with_generator(self):
+        """A generator that yields chunks lazily should stream correctly."""
+        chunk = b"CHUNK"
+        num_chunks = 300_000  # ~1.4 MB total
+
+        def app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+
+            def gen():
+                for _ in range(num_chunks):
+                    yield chunk
+
+            return gen()
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(chunk) * num_chunks
+
+    def test_streaming_preserves_headers(self):
+        """Custom response headers should be preserved in streaming mode."""
+        big_body = b"H" * (2 * 1024 * 1024)
+
+        def app(environ, start_response):
+            start_response(
+                "200 OK",
+                [
+                    ("Content-Type", "application/octet-stream"),
+                    ("X-Custom", "streaming-test"),
+                ],
+            )
+            return [big_body]
+
+        with _ServerCtx(app) as srv:
+            status, body, hdrs = _request(srv.port, "/")
+            assert status == 200
+            assert hdrs.get("X-Custom") == "streaming-test"
+            assert len(body) == len(big_body)
+
+    def test_small_response_stays_buffered(self):
+        """Responses under 1 MB should use the buffered path."""
+
+        def app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [b"small"]
+
+        with _ServerCtx(app) as srv:
+            status, body, hdrs = _request(srv.port, "/")
+            assert status == 200
+            assert body == "small"
+            # Buffered responses use Content-Length, not chunked
+            assert "Content-Length" in hdrs
+
+    def test_streaming_file_wrapper_large(self, tmp_path):
+        """FileWrapper serving a file > 1 MB should stream."""
+
+        test_file = tmp_path / "big.bin"
+        content = b"F" * (2 * 1024 * 1024)
+        test_file.write_bytes(content)
+
+        def app(environ, start_response):
+            wrapper = environ["wsgi.file_wrapper"]
+            fh = open(str(test_file), "rb")
+            start_response("200 OK", [("Content-Type", "application/octet-stream")])
+            return wrapper(fh, blksize=65536)
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(content)
+
+    def test_stash_cleaned_after_streaming(self):
+        """All stash entries should be cleaned up after streaming completes."""
+        big_body = b"C" * (2 * 1024 * 1024)
+
+        def app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+            return [big_body]
+
+        srv_ctx = _ServerCtx(app)
+        with srv_ctx as srv:
+            _request(srv.port, "/")
+            time.sleep(0.2)
+            assert len(srv_ctx.server._stash) == 0
+
+    def test_large_headers_via_stash(self):
+        """Response headers exceeding 8 KB should go through the stash path."""
+        big_body = b"B" * (2 * 1024 * 1024)
+        # Generate enough headers to exceed _WAKEUP_MAX_BYTES (8 KB).
+        # Each header is ~110 bytes, so 80 headers ~= 9 KB.
+        many_headers = [(f"X-Hdr-{i:03d}", "x" * 100) for i in range(80)]
+
+        def app(environ, start_response):
+            hdrs = [("Content-Type", "text/plain")] + many_headers
+            start_response("200 OK", hdrs)
+            return [big_body]
+
+        with _ServerCtx(app) as srv:
+            status, body, hdrs = _request(srv.port, "/")
+            assert status == 200
+            assert len(body) == len(big_body)
+            # Spot-check a few custom headers survived the round-trip.
+            assert hdrs.get("X-Hdr-000") == "x" * 100
+            assert hdrs.get("X-Hdr-079") == "x" * 100
+
+    def test_mid_stream_disconnect_no_deadlock(self):
+        """Worker should not deadlock if the connection closes mid-stream.
+
+        The worker uses q.put(timeout=5).  We verify that the worker
+        finishes promptly rather than hanging.
+        """
+
+        # App that yields chunks slowly -- gives us time to kill the connection.
+        def slow_stream_app(environ, start_response):
+            start_response("200 OK", [("Content-Type", "text/plain")])
+
+            def gen():
+                for i in range(100):
+                    yield b"X" * (64 * 1024)  # 64 KB chunks, 6.4 MB total
+                    time.sleep(0.05)
+
+            return gen()
+
+        srv_ctx = _ServerCtx(slow_stream_app)
+        with srv_ctx as srv:
+            # Start a request but close it immediately after reading
+            # a bit, simulating a client disconnect.
+            import http.client
+
+            conn = http.client.HTTPConnection("127.0.0.1", srv.port, timeout=2)
+            conn.request("GET", "/")
+            resp = conn.getresponse()
+            # Read just enough to confirm streaming started.
+            resp.read(1024)
+            conn.close()
+
+            # Wait a bit -- the worker should abort within
+            # _STREAM_PUT_TIMEOUT (5s), not hang forever.
+            time.sleep(1.0)
+
+            # The stream entry should be cleaned up.
+            assert len(srv_ctx.server._streams) == 0
 
 
 if __name__ == "__main__":

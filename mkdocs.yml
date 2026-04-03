@@ -68,7 +68,8 @@ nav:
       - MQTT: guide/mqtt.md
       - Network (TCP/UDP/DNS): guide/network.md
       - TLS/SSL: guide/tls.md
-      - WSGI/ASGI: guide/wsgi.md
+      - WSGI: guide/wsgi.md
+      - ASGI (Planned): guide/asgi.md
   - API Reference:
       - Overview: api/index.md
       - Manager: api/manager.md
@@ -89,3 +90,4 @@ nav:
       - Connection Draining: dev/connection_drain.md
       - Poll Timeout Guide: dev/poll_timeout_guide.md
       - Security: dev/security.md
+      - WSGI Internals: dev/wsgi.md

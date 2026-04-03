@@ -1,4 +1,4 @@
-# WSGI/ASGI Framework Support
+# WSGI Framework Support
 
 cymongoose can serve as the HTTP engine for standard Python web
 frameworks. Instead of writing raw event handlers, you can run your
@@ -72,6 +72,7 @@ server.run()
 | `app` | callable | (required) | PEP 3333 WSGI application |
 | `workers` | int | 4 | Thread pool size for concurrent requests |
 | `error_handler` | callable | None | Called on event loop errors (not app errors) |
+| `stream_timeout` | float | 5.0 | Seconds a streaming worker waits on a full queue before aborting (prevents deadlock on client disconnect) |
 
 **Methods:**
 
@@ -131,40 +132,74 @@ def on_error(exc):
 server = WSGIServer(app, workers=4, error_handler=on_error)
 ```
 
+### File Serving with `wsgi.file_wrapper`
+
+The adapter provides `wsgi.file_wrapper` in the environ, implementing
+the optional PEP 3333 protocol for file serving.  WSGI applications
+can use it to serve files efficiently:
+
+```python
+def file_app(environ, start_response):
+    wrapper = environ["wsgi.file_wrapper"]
+    fh = open("/path/to/file.bin", "rb")
+    start_response("200 OK", [
+        ("Content-Type", "application/octet-stream"),
+    ])
+    return wrapper(fh, blksize=8192)
+```
+
+The wrapper reads the file in blocks and iterates through the standard
+WSGI response path.  The underlying file handle is closed automatically
+when iteration completes.
+
+### Large Response Handling
+
+`Manager.wakeup()` transmits data over a socketpair with a non-blocking
+`send()`.  The effective socket buffer is small (~9 KB on macOS, ~64 KB
+on Linux), so the adapter **cannot send most responses inline**.
+
+Responses exceeding 8 KB are automatically stashed in a thread-safe
+dict keyed by UUID.  Only the short key (~33 bytes) goes through
+`wakeup()`, and the event loop thread retrieves the full response from
+the dict.  This is transparent to WSGI applications -- no special
+handling is needed.
+
+For applications that serve very large responses (file downloads,
+large JSON payloads), be aware that the full response body is buffered
+in memory before sending.
+
+### Chunked Streaming
+
+Responses under 1 MB are collected in memory and sent as a single
+buffered reply (fast path).  When the accumulated body exceeds 1 MB
+during iteration, the adapter automatically switches to **chunked
+transfer encoding**: it sends the HTTP headers immediately, then
+streams each body chunk as it is yielded by the WSGI iterator.
+
+This means:
+
+- **Small API responses** (JSON, HTML): sent as a single reply with
+  ``Content-Length`` -- no overhead.
+- **Large file downloads**: streamed in chunks -- constant memory
+  regardless of file size.
+- **Lazy generators**: chunks are sent as they are produced, reducing
+  time-to-first-byte for long-running responses.
+
+Small chunks from fast generators are batched up to 256 KB before
+sending to avoid flooding the wakeup pipe.
+
 ### Current Limitations
 
-The WSGI adapter is functional for typical web applications. Known
-limitations that may affect specific workloads:
+Known limitations that may affect specific workloads:
 
-- **Response buffering**: the full response body is collected before
-  sending. Streaming generators and large file downloads will buffer
-  in memory. Chunked transfer encoding is planned.
 - **Duplicate headers**: multiple response headers with the same name
-  (e.g. `Set-Cookie`) are collapsed into the last value. A fix is
-  planned.
-- **No `wsgi.file_wrapper`**: the optional `sendfile()` optimisation
-  is not implemented. Static file serving works but without
-  zero-copy I/O.
-
----
-
-## ASGI Server (Planned)
-
-An ASGI adapter for async frameworks (FastAPI, Starlette, Django async,
-Quart) is planned. It will build on `AsyncManager` and cymongoose's
-native WebSocket support.
-
-ASGI support will cover:
-
-- **HTTP sub-protocol**: async request/response lifecycle.
-- **WebSocket sub-protocol**: upgrade, send, receive, disconnect --
-  mapping directly to cymongoose's `ws_upgrade()` and `MG_EV_WS_MSG`.
-- **Lifespan sub-protocol**: application startup/shutdown hooks.
-
-Track progress in the project's `TODO.md`.
+  (e.g. `Set-Cookie`) are collapsed into the last value. A fix
+  requires extending the Cython `reply()` API to accept multi-value
+  headers.
 
 ## See Also
 
+- [ASGI Support](asgi.md) -- planned async framework adapter
 - [HTTP/HTTPS Guide](http.md) -- raw event handler approach
 - [Threading Guide](../advanced/threading.md) -- thread-safety details
 - [Performance Tuning](../advanced/performance.md) -- benchmarking tips
