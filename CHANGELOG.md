@@ -23,6 +23,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Windows CI test timeouts from `localhost` IPv6 fallback**: Tests using `localhost` on Windows could resolve to `::1` (IPv6) first, failing against the IPv4-only server before falling back to `127.0.0.1`. Changed test helpers and benchmarks to use `127.0.0.1` directly.
 - **Windows CI ephemeral port exhaustion in benchmarks/tests**: The test harness clients (`urllib.request.urlopen`) open hundreds of short-lived TCP connections in tight loops, exhausting Windows ephemeral ports due to aggressive `TIME_WAIT` (~2 minutes). This is a test client limitation, not a cymongoose server issue. Reduced test client iteration counts on Windows only: `quick_bench.py` (1000 -> 200), `simple_load_test.py` (5000/50 -> 500/20), `test_rapid_sequential_connections` (100 -> 50). Linux and macOS remain unchanged.
 
+### Security
+
+- **GitHub Actions workflow permissions**: Added explicit `permissions: contents: read` to all workflow files (`ci.yml`, `build-alt.yml`, `build-simple.yml`, `build-wheels.yml`). Workflows without explicit permissions default to broad read/write access.
+- **Test socket binding restricted to loopback**: Changed `get_free_port()` in `conftest.py` and all benchmark scripts to bind to `127.0.0.1` instead of `""` (all interfaces).
+- **Incomplete URL substring sanitization**: Changed `"example.com:443" in connect_received[0]` to exact equality check in `test_examples_advanced.py`.
+
 ### Changed
 
 - **`docs/dev/security.md` TLS section**: Replaced stale "future work" language and `mg_tls_opts` references with actual `TlsOpts` API usage, parameter table, and recommendations.

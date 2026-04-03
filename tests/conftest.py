@@ -7,7 +7,7 @@ import threading
 def get_free_port():
     """Get a free TCP port by binding to port 0 and letting the OS choose."""
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind(("", 0))
+    sock.bind(("127.0.0.1", 0))
     port = sock.getsockname()[1]
     sock.close()
     return port

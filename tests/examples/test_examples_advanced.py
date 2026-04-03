@@ -187,7 +187,7 @@ def test_http_proxy_connect_method():
         # Verify
         assert connect_sent.is_set(), "CONNECT request not received"
         assert len(connect_received) > 0
-        assert "example.com:443" in connect_received[0]
+        assert connect_received[0] == "example.com:443"
 
     finally:
         proxy_stop.set()
