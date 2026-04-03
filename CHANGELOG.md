@@ -17,6 +17,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Fixed
+
+- **AsyncManager poll loop lock starvation**: The `_run()` loop held the `RLock` for the entire duration of `poll()`, causing `listen()`/`connect()`/etc. to block indefinitely on lock acquisition. On Linux, unfair pthread mutexes allowed the poll thread to immediately re-acquire after release; on all platforms, large `poll_interval` values (e.g. 5000ms) held the lock for seconds. Fixed by capping internal poll duration at 200ms (`_MAX_POLL_MS`) and yielding between cycles (`_stop.wait(0.001)`).
+- **Windows CI test timeouts from `localhost` IPv6 fallback**: Tests using `localhost` on Windows could resolve to `::1` (IPv6) first, failing against the IPv4-only server before falling back to `127.0.0.1`. Changed test helpers and benchmarks to use `127.0.0.1` directly.
+- **Windows CI ephemeral port exhaustion in benchmarks/tests**: The test harness clients (`urllib.request.urlopen`) open hundreds of short-lived TCP connections in tight loops, exhausting Windows ephemeral ports due to aggressive `TIME_WAIT` (~2 minutes). This is a test client limitation, not a cymongoose server issue. Reduced test client iteration counts on Windows only: `quick_bench.py` (1000 -> 200), `simple_load_test.py` (5000/50 -> 500/20), `test_rapid_sequential_connections` (100 -> 50). Linux and macOS remain unchanged.
+
 ### Changed
 
 - **`docs/dev/security.md` TLS section**: Replaced stale "future work" language and `mg_tls_opts` references with actual `TlsOpts` API usage, parameter table, and recommendations.
