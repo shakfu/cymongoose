@@ -677,37 +677,41 @@ class TestWSGIChunkedStreaming:
     def test_mid_stream_disconnect_no_deadlock(self):
         """Worker should not deadlock if the connection closes mid-stream.
 
-        The worker uses q.put(timeout=5).  We verify that the worker
-        finishes promptly rather than hanging.
+        The worker uses q.put(timeout=stream_timeout).  We verify that
+        the worker finishes promptly rather than hanging.
         """
+        import socket as _socket
 
-        # App that yields chunks slowly -- gives us time to kill the connection.
+        # App that yields a large response slowly.  Use 512 KB chunks
+        # so the 1 MB streaming threshold is crossed after just 2 chunks,
+        # minimising the delay before headers are sent.
         def slow_stream_app(environ, start_response):
             start_response("200 OK", [("Content-Type", "text/plain")])
 
             def gen():
-                for i in range(100):
-                    yield b"X" * (64 * 1024)  # 64 KB chunks, 6.4 MB total
-                    time.sleep(0.05)
+                for _ in range(40):
+                    yield b"X" * (512 * 1024)  # 512 KB chunks, 20 MB total
+                    time.sleep(0.02)
 
             return gen()
 
+        # Use a short stream_timeout so the test doesn't wait 5 seconds.
         srv_ctx = _ServerCtx(slow_stream_app)
+        srv_ctx.server._stream_timeout = 1.0
         with srv_ctx as srv:
-            # Start a request but close it immediately after reading
-            # a bit, simulating a client disconnect.
-            import http.client
+            # Use a raw socket to avoid http.client's response parsing
+            # timeout -- we just need to connect, send a request, read
+            # a few bytes to confirm streaming started, then close.
+            sock = _socket.create_connection(("127.0.0.1", srv.port), timeout=5)
+            sock.sendall(b"GET / HTTP/1.1\r\nHost: localhost\r\n\r\n")
+            # Wait for the response to start arriving.
+            data = sock.recv(4096)
+            assert b"200" in data
+            sock.close()
 
-            conn = http.client.HTTPConnection("127.0.0.1", srv.port, timeout=2)
-            conn.request("GET", "/")
-            resp = conn.getresponse()
-            # Read just enough to confirm streaming started.
-            resp.read(1024)
-            conn.close()
-
-            # Wait a bit -- the worker should abort within
-            # _STREAM_PUT_TIMEOUT (5s), not hang forever.
-            time.sleep(1.0)
+            # Wait for the worker to notice the disconnect and abort.
+            # With stream_timeout=1.0, this should resolve quickly.
+            time.sleep(2.0)
 
             # The stream entry should be cleaned up.
             assert len(srv_ctx.server._streams) == 0
@@ -743,8 +747,7 @@ class TestWSGIDuplicateHeaders:
             set_cookie_values = [v for k, v in cookies if k == "Set-Cookie"]
 
             assert len(set_cookie_values) == 3, (
-                f"Expected 3 Set-Cookie headers, got {len(set_cookie_values)}: "
-                f"{set_cookie_values}"
+                f"Expected 3 Set-Cookie headers, got {len(set_cookie_values)}: {set_cookie_values}"
             )
             assert "a=1; Path=/" in set_cookie_values
             assert "b=2; Path=/" in set_cookie_values

@@ -193,14 +193,27 @@ def _build_environ(
 
 # Common HTTP reason phrases (RFC 7231).
 _REASON = {
-    200: "OK", 201: "Created", 202: "Accepted", 204: "No Content",
-    301: "Moved Permanently", 302: "Found", 304: "Not Modified",
-    400: "Bad Request", 401: "Unauthorized", 403: "Forbidden",
-    404: "Not Found", 405: "Method Not Allowed", 409: "Conflict",
-    413: "Content Too Large", 415: "Unsupported Media Type",
-    422: "Unprocessable Content", 429: "Too Many Requests",
-    500: "Internal Server Error", 502: "Bad Gateway",
-    503: "Service Unavailable", 504: "Gateway Timeout",
+    200: "OK",
+    201: "Created",
+    202: "Accepted",
+    204: "No Content",
+    301: "Moved Permanently",
+    302: "Found",
+    304: "Not Modified",
+    400: "Bad Request",
+    401: "Unauthorized",
+    403: "Forbidden",
+    404: "Not Found",
+    405: "Method Not Allowed",
+    409: "Conflict",
+    413: "Content Too Large",
+    415: "Unsupported Media Type",
+    422: "Unprocessable Content",
+    429: "Too Many Requests",
+    500: "Internal Server Error",
+    502: "Bad Gateway",
+    503: "Service Unavailable",
+    504: "Gateway Timeout",
 }
 
 
@@ -358,7 +371,7 @@ class WSGIServer:
             return
         newline = payload.index(b"\n")
         meta = json.loads(payload[:newline])
-        body = payload[newline + 1:]
+        body = payload[newline + 1 :]
         status_code: int = meta["s"]
         headers: list[list[str]] = meta["h"]
 
