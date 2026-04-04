@@ -1,10 +1,6 @@
 # cymongoose
 
-Python bindings for the Mongoose embedded networking library, built with Cython.
-
-## Overview
-
-**cymongoose** provides Pythonic access to [Mongoose](https://github.com/cesanta/mongoose), a lightweight embedded networking library written in C. It supports HTTP servers, WebSocket, TCP/UDP sockets, and more through a clean, event-driven API.
+**cymongoose** is a zero-dependency Python package that includes a [Cython](https://cython.org) wrapper for [Mongoose](https://github.com/cesanta/mongoose), a lightweight embedded networking library written in C. It supports HTTP servers, WebSockets, TCP/UDP sockets, and more through a clean, event-driven API.
 
 **[Documentation](https://shakfu.github.io/cymongoose/)** | **[API Reference](https://shakfu.github.io/cymongoose/api/)** | **[Examples](https://shakfu.github.io/cymongoose/examples/)**
 
