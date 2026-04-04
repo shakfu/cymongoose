@@ -1,129 +1,125 @@
-# ASGI Adapter: Design Analysis
+# ASGI Adapter Internals
 
-This document captures the complexity analysis and design considerations
-for a future ASGI server adapter. For the user-facing placeholder see
-[ASGI Framework Support](../guide/asgi.md).
+This document covers the internal architecture, design decisions, and
+known limitations of the `cymongoose.asgi` module.  For user-facing
+documentation see the [ASGI Guide](../guide/asgi.md).
 
-## WSGI vs ASGI Complexity
+## Architecture Overview
 
-WSGI is request-response: one function call, one return value. The
-adapter's complexity comes from bridging threads, not from the protocol.
+The ASGI adapter bridges cymongoose's C event loop (single-threaded,
+running in a background thread) with Python's asyncio event loop:
 
-```python
-# The entire WSGI contract
-def app(environ, start_response):
-    start_response("200 OK", headers)
-    return [body]
-```
+- **Mongoose thread**: receives HTTP/WS events via `MG_EV_*`, converts
+  them to ASGI `receive` messages, and pushes them into per-connection
+  `asyncio.Queue` instances via `loop.call_soon_threadsafe`.
+- **Asyncio thread**: runs ASGI application coroutines.  `send()` calls
+  serialise the response and route it back via `Manager.wakeup()`.
 
-ASGI is a bidirectional async protocol with three sub-protocols, each
-with its own state machine:
+Unlike the WSGI adapter (which uses a `ThreadPoolExecutor`), the ASGI
+adapter runs application code directly on the asyncio event loop -- no
+thread pool is needed for the application itself.
 
-```python
-# HTTP: 3 message types, ordered lifecycle
-async def app(scope, receive, send):
-    # scope = {"type": "http", "method": "GET", "path": "/", ...}
-    request = await receive()  # {"type": "http.request", "body": b"..."}
-    await send({"type": "http.response.start", "status": 200, "headers": [...]})
-    await send({"type": "http.response.body", "body": b"..."})
+## Wakeup Message Types
 
-# WebSocket: 6+ message types, stateful connection
-async def app(scope, receive, send):
-    # scope = {"type": "websocket", ...}
-    msg = await receive()  # {"type": "websocket.connect"}
-    await send({"type": "websocket.accept"})
-    while True:
-        msg = await receive()  # {"type": "websocket.receive", "text": "..."}
-        await send({"type": "websocket.send", "text": "echo"})
-        # also: websocket.disconnect, websocket.close
+| Prefix | Name | Payload | Description |
+|--------|------|---------|-------------|
+| `R` | Response inline | `<json>` | HTTP response, payload fits in wakeup buffer |
+| `r` | Response stash | `<uuid>` | HTTP response, payload in `_stash` dict |
+| `W` | WS send inline | `<json>` | WebSocket frame, payload fits in wakeup buffer |
+| `w` | WS send stash | `<uuid>` | WebSocket frame, payload in `_stash` dict |
+| `X` | WS close | (empty) | Close WebSocket connection |
 
-# Lifespan: startup/shutdown hooks
-async def app(scope, receive, send):
-    # scope = {"type": "lifespan"}
-    msg = await receive()  # {"type": "lifespan.startup"}
-    await send({"type": "lifespan.startup.complete"})
-    msg = await receive()  # {"type": "lifespan.shutdown"}
-    await send({"type": "lifespan.shutdown.complete"})
-```
+Payloads exceeding `_WAKEUP_MAX_BYTES` (8 KB) are stored in a
+thread-safe `_stash` dict and only a UUID key is sent via wakeup,
+reusing the same pattern as the WSGI adapter.
 
-## Comparison
+## Per-Connection State
 
-| Aspect | WSGI | ASGI |
-|---|---|---|
-| Concurrency model | Thread pool (implemented) | asyncio event loop -- need to bridge two event loops (mongoose + asyncio) |
-| Sub-protocols | 1 (HTTP) | 3 (HTTP, WebSocket, Lifespan) |
-| Message types | 1 in, 1 out | ~12 across sub-protocols |
-| Connection lifecycle | Stateless | Stateful (especially WebSocket) |
-| Streaming | Iterator (implemented) | Async generator via `receive()`/`send()` callbacks |
-| Request body | Available upfront in environ | May arrive in multiple `http.request` messages |
-| Response | Single `start_response` + body | Separate `response.start` and `response.body` messages |
+Each active connection gets a `_ConnState` instance stored in
+`_conns[conn.id]`:
 
-## The Hard Part: Bridging Two Event Loops
+- `scope`: the ASGI connection scope dict (HTTP or WebSocket)
+- `receive_queue`: `asyncio.Queue` fed by the mongoose thread
+- `task`: the `concurrent.futures.Future` running the ASGI app coroutine
+- `ws_accepted`: whether the WebSocket handshake completed
+- `response_started`: whether `http.response.start` has been received
 
-The core challenge is not any single message type -- it is bridging two
-event loops. cymongoose's `AsyncManager` runs mongoose's poll loop in a
-background thread while exposing an asyncio-friendly interface. The ASGI
-adapter would need to:
+Cleanup happens in `MG_EV_CLOSE`: the state is popped from `_conns`
+and a disconnect message is pushed to the queue so the app coroutine
+can exit cleanly.
 
-1. Receive HTTP/WS events from mongoose (C thread via `MG_EV_*`).
-2. Feed them into per-connection asyncio queues as ASGI `receive()`
-   messages.
-3. Accept ASGI `send()` messages from the application coroutine.
-4. Route them back to mongoose via `wakeup()` or direct `conn.*` calls.
+## WebSocket Upgrade: Eager Completion
 
-The WSGI adapter already solved a simpler version of this problem (thread
-pool + wakeup for responses). The ASGI version requires the same
-pattern but in both directions, with per-connection state tracking.
+cymongoose's `HttpMessage` views are invalidated after the event
+handler returns (the `_msg` pointer is set to NULL in
+`_event_bridge`).  This means `ws_upgrade(hm)` must be called
+inside the `MG_EV_HTTP_MSG` handler -- it cannot be deferred to a
+wakeup.
 
-## Sub-Protocol Notes
+The adapter calls `conn.ws_upgrade(hm)` immediately when it detects
+an `Upgrade: websocket` header.  The ASGI application's subsequent
+`websocket.accept` message is a no-op on the mongoose side (the
+upgrade is already done).
 
-### HTTP
+This is a deviation from the ASGI spec's intent (where the server
+waits for `websocket.accept` before completing the upgrade), but it
+is the only viable approach given cymongoose's message view lifetime.
+In practice this has no observable effect -- the app receives
+`websocket.connect`, responds with `websocket.accept`, and messaging
+proceeds normally.
 
-Most similar to the WSGI adapter. Key differences:
+## Thread Safety
 
-- Request body may arrive incrementally (`http.request` with
-  `more_body=True`). The WSGI adapter buffers the full body upfront
-  from `HttpMessage.body_bytes`; for ASGI, this is still acceptable
-  since mongoose delivers the complete message on `MG_EV_HTTP_MSG`.
-- Response is two messages (`response.start` + `response.body`) instead
-  of one. The adapter would buffer `response.start` and send the full
-  response on `response.body`, or start chunked encoding if
-  `more_body=True`.
+### Queue Access
 
-### WebSocket
+`asyncio.Queue` is not thread-safe on its own.  The mongoose thread
+uses `loop.call_soon_threadsafe(queue.put_nowait, msg)` to push
+messages, which schedules the put on the asyncio thread.  The ASGI
+app awaits `queue.get()` on the same asyncio thread.  Both operations
+run on the asyncio thread, so no lock is needed.
 
-The most natural mapping. cymongoose already has:
+### `_conns` Dict
 
-- `conn.ws_upgrade()` -> `websocket.accept`
-- `MG_EV_WS_MSG` -> `websocket.receive`
-- `conn.ws_send()` -> `websocket.send`
-- `MG_EV_CLOSE` -> `websocket.disconnect`
+Like the WSGI adapter's `_streams` dict, `_conns` is accessed from
+both threads without an explicit lock.  This relies on CPython's GIL
+making dict operations atomic.  See the WSGI internals doc for the
+full discussion of this assumption.
 
-The main work is wiring these into per-connection asyncio queues and
-managing the connection state machine (connecting -> open -> closing ->
-closed).
+### `_stash` Dict
 
-### Lifespan
+Protected by `_stash_lock`, same pattern as the WSGI adapter.
 
-Simplest sub-protocol (~30 lines). Fires startup/shutdown events when
-the server starts and stops. Maps to `AsyncManager.__aenter__` and
-`__aexit__`.
+## Known Limitations
 
-## Estimated Scope
+### No Lifespan Sub-Protocol
 
-- WSGI adapter: ~350 lines of code, ~35 tests.
-- ASGI adapter (estimated): ~600-800 lines, ~50-70 tests.
-- Bulk of the work: HTTP and WebSocket state machines, asyncio bridge.
-- Lifespan: ~30 lines.
+The ASGI lifespan sub-protocol (startup/shutdown events) is not
+implemented.  Applications that need it should handle startup and
+shutdown outside the ASGI server.
 
-## Prerequisites
+### No Streaming HTTP Responses
 
-Before implementing, the WSGI adapter should be validated in real-world
-use to confirm the wakeup transport, stash mechanism, and streaming
-design are solid. The ASGI adapter will reuse these patterns.
+`http.response.body` with `more_body=True` is not supported.  The
+adapter buffers the full response and sends it as a single reply.
+Chunked streaming (like the WSGI adapter's queue-based approach)
+is planned.
+
+### Eager WebSocket Upgrade
+
+As described above, `ws_upgrade()` is called before the ASGI app
+sends `websocket.accept`.  An app that inspects the `websocket.connect`
+event and decides to reject the connection cannot prevent the upgrade.
+The connection is upgraded regardless; a rejection would need to close
+it immediately after.
+
+### Response Body Encoding
+
+HTTP response bodies are serialised through JSON using latin-1
+encoding (`body.decode("latin-1")`).  This preserves arbitrary byte
+values but adds serialisation overhead for large binary responses.
 
 ## See Also
 
-- [ASGI Framework Support](../guide/asgi.md) -- user-facing placeholder
-- [WSGI Internals](wsgi.md) -- existing adapter architecture
+- [ASGI Guide](../guide/asgi.md) -- user-facing documentation
+- [WSGI Internals](wsgi.md) -- comparison adapter architecture
 - [AsyncManager API](../api/async_manager.md) -- asyncio integration

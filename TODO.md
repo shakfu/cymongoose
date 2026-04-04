@@ -39,9 +39,18 @@
     already used `conn.send()` for headers. Both paths now preserve
     duplicate headers (e.g. multiple `Set-Cookie`). 2 tests added.
 
-- [ ] **ASGI adapter** (Medium)
-  Implement an ASGI server (HTTP + WebSocket sub-protocols) on top of
-  AsyncManager. Covers FastAPI, Starlette, Django async, and Quart.
-  More complex protocol (lifespan, receive/send callables) but a
-  natural fit for cymongoose's async support and native WebSocket
-  handling.
+- [x] **ASGI adapter** (Medium)
+  Implemented in `src/cymongoose/asgi.py`. HTTP and WebSocket
+  sub-protocols on top of Manager with background poll thread.
+  Per-connection `asyncio.Queue` for receive, wakeup+stash for send.
+  14 tests in `tests/test_asgi.py`.
+
+  Open items:
+
+  - [ ] **Lifespan sub-protocol** (Low)
+    Implement ASGI lifespan events (startup/shutdown) for
+    applications that need them.
+
+  - [ ] **Streaming HTTP responses** (Medium)
+    Support `more_body=True` in `http.response.body` for chunked
+    streaming, similar to the WSGI streaming path.

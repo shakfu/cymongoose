@@ -17,6 +17,7 @@ Python bindings for the Mongoose embedded networking library, built with Cython.
 - **GIL-free** -- 24 methods release the GIL for true parallel execution
 - **High performance** -- 60k+ req/sec (6-37x faster than pure Python frameworks)
 - **WSGI support** -- serve Flask, Django, Bottle apps on the C event loop
+- **ASGI support** -- serve FastAPI, Starlette, Django async apps with WebSocket
 - **Asyncio support** -- `AsyncManager` for asyncio integration
 - **Type hints** -- full `.pyi` stubs and `py.typed` marker
 
@@ -83,6 +84,17 @@ from cymongoose.wsgi import serve
 from myapp import app  # any WSGI application
 
 serve(app, "http://127.0.0.1:8000", workers=8)
+```
+
+### ASGI Framework Support
+
+Run FastAPI/Starlette/Django async apps on cymongoose:
+
+```python
+from cymongoose.asgi import serve
+from myapp import app  # any ASGI application
+
+serve(app, "http://127.0.0.1:8000")
 ```
 
 See the [quickstart guide](https://shakfu.github.io/cymongoose/quickstart/) and [examples](https://shakfu.github.io/cymongoose/examples/) for more.

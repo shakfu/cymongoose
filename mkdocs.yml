@@ -69,7 +69,7 @@ nav:
       - Network (TCP/UDP/DNS): guide/network.md
       - TLS/SSL: guide/tls.md
       - WSGI: guide/wsgi.md
-      - ASGI (Planned): guide/asgi.md
+      - ASGI: guide/asgi.md
   - API Reference:
       - Overview: api/index.md
       - Manager: api/manager.md

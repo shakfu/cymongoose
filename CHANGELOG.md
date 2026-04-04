@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Added
+
+- **ASGI server adapter** (`src/cymongoose/asgi.py`): ASGI 3.0 server that runs any ASGI application (FastAPI, Starlette, Django async, Quart) on cymongoose's C event loop. Supports HTTP and WebSocket sub-protocols. Per-connection `asyncio.Queue` bridges mongoose events to ASGI `receive()`; `send()` routes back via `Manager.wakeup()` with stash fallback for payloads > 8 KB. WebSocket upgrade is completed eagerly in `MG_EV_HTTP_MSG` (HttpMessage views are invalidated after the handler returns). Provides `ASGIServer` class and `serve()` one-liner. 14 tests in `tests/test_asgi.py` covering HTTP request/response, status codes, headers, duplicate headers, error handling, WebSocket echo (text/binary/multiple messages), and scope construction.
+
 ## [0.2.2]
 
 ### Added
