@@ -13,28 +13,24 @@
       
       
       
-        <link rel="prev" href="../advanced/troubleshooting/">
-      
-      
-        <link rel="next" href="contributing/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>Setup - cymongoose</title>
+        <title>ASGI Adapter: Design Analysis - cymongoose</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#development-documentation" class="md-skip">
+        <a href="#asgi-adapter-design-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="cymongoose" class="md-header__button md-logo" aria-label="cymongoose" data-md-component="logo">
+    <a href="../.." title="cymongoose" class="md-header__button md-logo" aria-label="cymongoose" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setup
+              ASGI Adapter: Design Analysis
             
           </span>
         </div>
@@ -234,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="cymongoose" class="md-nav__button md-logo" aria-label="cymongoose" data-md-component="logo">
+    <a href="../.." title="cymongoose" class="md-nav__button md-logo" aria-label="cymongoose" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -264,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -353,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
@@ -381,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../quickstart/" class="md-nav__link">
         
   
   
@@ -409,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   
@@ -483,7 +479,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../guide/" class="md-nav__link ">
+            <a href="../../guide/" class="md-nav__link ">
               
   
   
@@ -527,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/http/" class="md-nav__link">
+      <a href="../../guide/http/" class="md-nav__link">
         
   
   
@@ -555,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/websocket/" class="md-nav__link">
+      <a href="../../guide/websocket/" class="md-nav__link">
         
   
   
@@ -583,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/mqtt/" class="md-nav__link">
+      <a href="../../guide/mqtt/" class="md-nav__link">
         
   
   
@@ -611,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/network/" class="md-nav__link">
+      <a href="../../guide/network/" class="md-nav__link">
         
   
   
@@ -639,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/tls/" class="md-nav__link">
+      <a href="../../guide/tls/" class="md-nav__link">
         
   
   
@@ -667,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/wsgi/" class="md-nav__link">
+      <a href="../../guide/wsgi/" class="md-nav__link">
         
   
   
@@ -695,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide/asgi/" class="md-nav__link">
+      <a href="../../guide/asgi/" class="md-nav__link">
         
   
   
@@ -765,7 +761,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../api/" class="md-nav__link ">
+            <a href="../../api/" class="md-nav__link ">
               
   
   
@@ -809,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/manager/" class="md-nav__link">
+      <a href="../../api/manager/" class="md-nav__link">
         
   
   
@@ -837,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/async_manager/" class="md-nav__link">
+      <a href="../../api/async_manager/" class="md-nav__link">
         
   
   
@@ -865,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/connection/" class="md-nav__link">
+      <a href="../../api/connection/" class="md-nav__link">
         
   
   
@@ -893,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/messages/" class="md-nav__link">
+      <a href="../../api/messages/" class="md-nav__link">
         
   
   
@@ -921,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api/utilities/" class="md-nav__link">
+      <a href="../../api/utilities/" class="md-nav__link">
         
   
   
@@ -1022,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/nogil/" class="md-nav__link">
+      <a href="../../advanced/nogil/" class="md-nav__link">
         
   
   
@@ -1050,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/performance/" class="md-nav__link">
+      <a href="../../advanced/performance/" class="md-nav__link">
         
   
   
@@ -1078,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/threading/" class="md-nav__link">
+      <a href="../../advanced/threading/" class="md-nav__link">
         
   
   
@@ -1106,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/shutdown/" class="md-nav__link">
+      <a href="../../advanced/shutdown/" class="md-nav__link">
         
   
   
@@ -1134,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/troubleshooting/" class="md-nav__link">
+      <a href="../../advanced/troubleshooting/" class="md-nav__link">
         
   
   
@@ -1166,8 +1162,6 @@
       
   
   
-    
-  
   
   
     
@@ -1198,15 +1192,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1224,13 +1220,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1250,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contributing/" class="md-nav__link">
+      <a href="../contributing/" class="md-nav__link">
         
   
   
@@ -1278,7 +1274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cleanup_and_shutdown/" class="md-nav__link">
+      <a href="../cleanup_and_shutdown/" class="md-nav__link">
         
   
   
@@ -1306,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="connection_drain/" class="md-nav__link">
+      <a href="../connection_drain/" class="md-nav__link">
         
   
   
@@ -1334,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="poll_timeout_guide/" class="md-nav__link">
+      <a href="../poll_timeout_guide/" class="md-nav__link">
         
   
   
@@ -1362,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -1390,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="wsgi/" class="md-nav__link">
+      <a href="../wsgi/" class="md-nav__link">
         
   
   
@@ -1445,22 +1441,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#development-setup" class="md-nav__link">
+  <a href="#wsgi-vs-asgi-complexity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Development Setup
+        WSGI vs ASGI Complexity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Development Setup">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hard-part-bridging-two-event-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hard Part: Bridging Two Event Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sub-protocol-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sub-Protocol Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sub-Protocol Notes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clone-and-install" class="md-nav__link">
+  <a href="#http" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Clone and Install
+        HTTP
       
     </span>
   </a>
@@ -1468,10 +1497,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-tests" class="md-nav__link">
+  <a href="#websocket" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Running Tests
+        WebSocket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifespan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifespan
       
     </span>
   </a>
@@ -1484,10 +1524,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-system" class="md-nav__link">
+  <a href="#estimated-scope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Build System
+        Estimated Scope
       
     </span>
   </a>
@@ -1495,132 +1535,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-structure" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-style" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code Style
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Style">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cython" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cython
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Releases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Releases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#version-numbering" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Numbering
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#release-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Release Checklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contributing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vendored-mongoose-patches" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vendored Mongoose Patches
+        Prerequisites
       
     </span>
   </a>
@@ -1658,153 +1576,151 @@
   
 
 
-<h1 id="development-documentation">Development Documentation<a class="headerlink" href="#development-documentation" title="Permanent link">&para;</a></h1>
-<p>This section contains documentation for contributors and developers.</p>
-<h2 id="development-setup">Development Setup<a class="headerlink" href="#development-setup" title="Permanent link">&para;</a></h2>
-<h3 id="clone-and-install">Clone and Install<a class="headerlink" href="#clone-and-install" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone repository</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/shakfu/cymongoose.git
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>cymongoose
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Install with uv (recommended)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>uv<span class="w"> </span>sync
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Or with pip</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+<h1 id="asgi-adapter-design-analysis">ASGI Adapter: Design Analysis<a class="headerlink" href="#asgi-adapter-design-analysis" title="Permanent link">&para;</a></h1>
+<p>This document captures the complexity analysis and design considerations
+for a future ASGI server adapter. For the user-facing placeholder see
+<a href="../../guide/asgi/">ASGI Framework Support</a>.</p>
+<h2 id="wsgi-vs-asgi-complexity">WSGI vs ASGI Complexity<a class="headerlink" href="#wsgi-vs-asgi-complexity" title="Permanent link">&para;</a></h2>
+<p>WSGI is request-response: one function call, one return value. The
+adapter's complexity comes from bridging threads, not from the protocol.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># The entire WSGI contract</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">start_response</span><span class="p">(</span><span class="s2">&quot;200 OK&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">body</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Run all tests</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>make<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Or with pytest directly</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>pytest<span class="w"> </span>tests/<span class="w"> </span>-v
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Run specific test file</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>pytest<span class="w"> </span>tests/test_http_server.py<span class="w"> </span>-v
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Run with coverage</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nv">PYTHONPATH</span><span class="o">=</span>src<span class="w"> </span>pytest<span class="w"> </span>tests/<span class="w"> </span>--cov<span class="o">=</span>cymongoose<span class="w"> </span>--cov-report<span class="o">=</span>html
+<p>ASGI is a bidirectional async protocol with three sub-protocols, each
+with its own state machine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># HTTP: 3 message types, ordered lifecycle</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="c1"># scope = {&quot;type&quot;: &quot;http&quot;, &quot;method&quot;: &quot;GET&quot;, &quot;path&quot;: &quot;/&quot;, ...}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">request</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;http.request&quot;, &quot;body&quot;: b&quot;...&quot;}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http.response.start&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]})</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http.response.body&quot;</span><span class="p">,</span> <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="sa">b</span><span class="s2">&quot;...&quot;</span><span class="p">})</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># WebSocket: 6+ message types, stateful connection</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="c1"># scope = {&quot;type&quot;: &quot;websocket&quot;, ...}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;websocket.connect&quot;}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;websocket.accept&quot;</span><span class="p">})</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;websocket.receive&quot;, &quot;text&quot;: &quot;...&quot;}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;websocket.send&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;echo&quot;</span><span class="p">})</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="c1"># also: websocket.disconnect, websocket.close</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Lifespan: startup/shutdown hooks</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">receive</span><span class="p">,</span> <span class="n">send</span><span class="p">):</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="c1"># scope = {&quot;type&quot;: &quot;lifespan&quot;}</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;lifespan.startup&quot;}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;lifespan.startup.complete&quot;</span><span class="p">})</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">receive</span><span class="p">()</span>  <span class="c1"># {&quot;type&quot;: &quot;lifespan.shutdown&quot;}</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">await</span> <span class="n">send</span><span class="p">({</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;lifespan.shutdown.complete&quot;</span><span class="p">})</span>
 </code></pre></div>
-<h2 id="build-system">Build System<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h2>
-<p>The project uses <strong>scikit-build-core</strong> with <strong>CMake</strong> as the build backend.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Build/rebuild extension</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>make<span class="w"> </span>build
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Build with AddressSanitizer</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>make<span class="w"> </span>build-asan
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Clean build artifacts</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>make<span class="w"> </span>clean
-</code></pre></div>
-<h2 id="code-structure">Code Structure<a class="headerlink" href="#code-structure" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cymongoose/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── src/
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│   └── cymongoose/
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│       ├── __init__.py
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│       ├── _mongoose.pyx      # Cython implementation
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│       ├── _mongoose.pyi      # Type stubs
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│       └── mongoose.pxd       # C declarations
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>├── tests/
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│   ├── test_*.py              # Unit tests
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│   └── examples/              # Example programs
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>├── thirdparty/
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│   └── mongoose/              # Mongoose library
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>├── docs/                      # MkDocs documentation
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>├── CMakeLists.txt             # Build configuration
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>└── pyproject.toml             # Package metadata
-</code></pre></div>
-<h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
-<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Format with ruff</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ruff<span class="w"> </span>format<span class="w"> </span>.
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Lint</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ruff<span class="w"> </span>check<span class="w"> </span>.
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Type check</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>mypy<span class="w"> </span>src/
-</code></pre></div>
-<h3 id="cython">Cython<a class="headerlink" href="#cython" title="Permanent link">&para;</a></h3>
-<ul>
-<li>4-space indentation</li>
-<li>100-character line limit</li>
-<li>Document all public functions</li>
-<li>Use type hints in .pyi files</li>
-</ul>
-<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Build docs</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>make<span class="w"> </span>docs
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Serve locally with live reload</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>make<span class="w"> </span>docs-serve
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Deploy to GitHub Pages</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>make<span class="w"> </span>docs-deploy
-</code></pre></div>
-<h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
-<h3 id="version-numbering">Version Numbering<a class="headerlink" href="#version-numbering" title="Permanent link">&para;</a></h3>
-<p>Follows semantic versioning: <code>MAJOR.MINOR.PATCH</code></p>
-<ul>
-<li><strong>MAJOR</strong>: Breaking changes</li>
-<li><strong>MINOR</strong>: New features (backward compatible)</li>
-<li><strong>PATCH</strong>: Bug fixes</li>
-</ul>
-<h3 id="release-checklist">Release Checklist<a class="headerlink" href="#release-checklist" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Update version in <code>pyproject.toml</code></li>
-<li>Update <code>CHANGELOG.md</code></li>
-<li>Run full test suite</li>
-<li>Build and test distribution</li>
-<li>Tag release</li>
-<li>Push to PyPI</li>
-</ol>
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>See <a href="contributing/">Contributing</a> for contribution guidelines.</p>
-<h2 id="useful-commands">Useful Commands<a class="headerlink" href="#useful-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Run tests</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>make<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Build extension</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>make<span class="w"> </span>build
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Clean build artifacts</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>make<span class="w"> </span>clean
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Format code</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>ruff<span class="w"> </span>format<span class="w"> </span>.
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Type check</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>mypy<span class="w"> </span>src/
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># Build docs</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>make<span class="w"> </span>docs
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="c1"># Run examples</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>python<span class="w"> </span>tests/examples/http/http_server.py
-</code></pre></div>
-<h2 id="vendored-mongoose-patches">Vendored Mongoose Patches<a class="headerlink" href="#vendored-mongoose-patches" title="Permanent link">&para;</a></h2>
-<p>The vendored copy of mongoose (<code>thirdparty/mongoose/</code>) includes the following
-local patches on top of the upstream release. These must be re-applied after
-upgrading the vendored source.</p>
+<h2 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Description</th>
+<th>Aspect</th>
+<th>WSGI</th>
+<th>ASGI</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>mongoose.c:12583</code></td>
-<td>Free PKCS8 key buffer before returning error in <code>mg_tls_init</code>. Upstream leaks the <code>mg_parse_pem</code> allocation when a PKCS8 key is rejected.</td>
+<td>Concurrency model</td>
+<td>Thread pool (implemented)</td>
+<td>asyncio event loop -- need to bridge two event loops (mongoose + asyncio)</td>
+</tr>
+<tr>
+<td>Sub-protocols</td>
+<td>1 (HTTP)</td>
+<td>3 (HTTP, WebSocket, Lifespan)</td>
+</tr>
+<tr>
+<td>Message types</td>
+<td>1 in, 1 out</td>
+<td>~12 across sub-protocols</td>
+</tr>
+<tr>
+<td>Connection lifecycle</td>
+<td>Stateless</td>
+<td>Stateful (especially WebSocket)</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Iterator (implemented)</td>
+<td>Async generator via <code>receive()</code>/<code>send()</code> callbacks</td>
+</tr>
+<tr>
+<td>Request body</td>
+<td>Available upfront in environ</td>
+<td>May arrive in multiple <code>http.request</code> messages</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>Single <code>start_response</code> + body</td>
+<td>Separate <code>response.start</code> and <code>response.body</code> messages</td>
 </tr>
 </tbody>
 </table>
+<h2 id="the-hard-part-bridging-two-event-loops">The Hard Part: Bridging Two Event Loops<a class="headerlink" href="#the-hard-part-bridging-two-event-loops" title="Permanent link">&para;</a></h2>
+<p>The core challenge is not any single message type -- it is bridging two
+event loops. cymongoose's <code>AsyncManager</code> runs mongoose's poll loop in a
+background thread while exposing an asyncio-friendly interface. The ASGI
+adapter would need to:</p>
+<ol>
+<li>Receive HTTP/WS events from mongoose (C thread via <code>MG_EV_*</code>).</li>
+<li>Feed them into per-connection asyncio queues as ASGI <code>receive()</code>
+   messages.</li>
+<li>Accept ASGI <code>send()</code> messages from the application coroutine.</li>
+<li>Route them back to mongoose via <code>wakeup()</code> or direct <code>conn.*</code> calls.</li>
+</ol>
+<p>The WSGI adapter already solved a simpler version of this problem (thread
+pool + wakeup for responses). The ASGI version requires the same
+pattern but in both directions, with per-connection state tracking.</p>
+<h2 id="sub-protocol-notes">Sub-Protocol Notes<a class="headerlink" href="#sub-protocol-notes" title="Permanent link">&para;</a></h2>
+<h3 id="http">HTTP<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<p>Most similar to the WSGI adapter. Key differences:</p>
+<ul>
+<li>Request body may arrive incrementally (<code>http.request</code> with
+  <code>more_body=True</code>). The WSGI adapter buffers the full body upfront
+  from <code>HttpMessage.body_bytes</code>; for ASGI, this is still acceptable
+  since mongoose delivers the complete message on <code>MG_EV_HTTP_MSG</code>.</li>
+<li>Response is two messages (<code>response.start</code> + <code>response.body</code>) instead
+  of one. The adapter would buffer <code>response.start</code> and send the full
+  response on <code>response.body</code>, or start chunked encoding if
+  <code>more_body=True</code>.</li>
+</ul>
+<h3 id="websocket">WebSocket<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h3>
+<p>The most natural mapping. cymongoose already has:</p>
+<ul>
+<li><code>conn.ws_upgrade()</code> -&gt; <code>websocket.accept</code></li>
+<li><code>MG_EV_WS_MSG</code> -&gt; <code>websocket.receive</code></li>
+<li><code>conn.ws_send()</code> -&gt; <code>websocket.send</code></li>
+<li><code>MG_EV_CLOSE</code> -&gt; <code>websocket.disconnect</code></li>
+</ul>
+<p>The main work is wiring these into per-connection asyncio queues and
+managing the connection state machine (connecting -&gt; open -&gt; closing -&gt;
+closed).</p>
+<h3 id="lifespan">Lifespan<a class="headerlink" href="#lifespan" title="Permanent link">&para;</a></h3>
+<p>Simplest sub-protocol (~30 lines). Fires startup/shutdown events when
+the server starts and stops. Maps to <code>AsyncManager.__aenter__</code> and
+<code>__aexit__</code>.</p>
+<h2 id="estimated-scope">Estimated Scope<a class="headerlink" href="#estimated-scope" title="Permanent link">&para;</a></h2>
+<ul>
+<li>WSGI adapter: ~350 lines of code, ~35 tests.</li>
+<li>ASGI adapter (estimated): ~600-800 lines, ~50-70 tests.</li>
+<li>Bulk of the work: HTTP and WebSocket state machines, asyncio bridge.</li>
+<li>Lifespan: ~30 lines.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before implementing, the WSGI adapter should be validated in real-world
+use to confirm the wakeup transport, stash mechanism, and streaming
+design are solid. The ASGI adapter will reuse these patterns.</p>
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="contributing/">Contributing</a> - Contribution guidelines</li>
-<li><a href="https://mongoose.ws/documentation/">Mongoose Documentation</a></li>
-<li><a href="https://cython.readthedocs.io/">Cython Documentation</a></li>
+<li><a href="../../guide/asgi/">ASGI Framework Support</a> -- user-facing placeholder</li>
+<li><a href="../wsgi/">WSGI Internals</a> -- existing adapter architecture</li>
+<li><a href="../../api/async_manager/">AsyncManager API</a> -- asyncio integration</li>
 </ul>
 
 
@@ -1861,10 +1777,10 @@ upgrading the vendored source.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

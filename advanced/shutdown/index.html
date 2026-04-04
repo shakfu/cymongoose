@@ -460,6 +460,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -643,6 +647,62 @@
     
   
     TLS/SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/wsgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSGI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/asgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASGI (Planned)
   
 
     
@@ -1500,6 +1560,8 @@
       
         
       
+        
+      
     
     
     
@@ -1683,6 +1745,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/wsgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSGI Internals
   
 
     
@@ -2141,7 +2231,7 @@
 </code></pre></div>
 <h2 id="asyncmanager-shutdown">AsyncManager Shutdown<a class="headerlink" href="#asyncmanager-shutdown" title="Permanent link">&para;</a></h2>
 <p>When using <code>AsyncManager</code>, shutdown is handled automatically by
-<code>__aexit__</code>.  The <code>shutdown_timeout</code> parameter (default 30 seconds)
+<code>__aexit__</code>. The <code>shutdown_timeout</code> parameter (default 30 seconds)
 controls how long it waits for the poll thread to stop:</p>
 <ol>
 <li><code>__aexit__</code> signals the thread to stop and sends a wakeup.</li>

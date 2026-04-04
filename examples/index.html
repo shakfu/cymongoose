@@ -575,6 +575,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#web-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micro-framework-with-decorator-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Micro-Framework with Decorator Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framework-routing-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Framework Routing Overhead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#advanced-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -673,6 +712,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -868,6 +911,62 @@
     
   
     TLS/SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/wsgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSGI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/asgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASGI (Planned)
   
 
     
@@ -1350,6 +1449,8 @@
       
         
       
+        
+      
     
     
     
@@ -1546,6 +1647,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/wsgi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSGI Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1674,6 +1803,45 @@
     <span class="md-ellipsis">
       
         Temperature Monitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micro-framework-with-decorator-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Micro-Framework with Decorator Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framework-routing-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Framework Routing Overhead
       
     </span>
   </a>
@@ -2150,6 +2318,108 @@ examples include proper signal handling for production use.</p>
 <a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 <a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>    <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
+<h2 id="web-framework">Web Framework<a class="headerlink" href="#web-framework" title="Permanent link">&para;</a></h2>
+<h3 id="micro-framework-with-decorator-routing">Micro-Framework with Decorator Routing<a class="headerlink" href="#micro-framework-with-decorator-routing" title="Permanent link">&para;</a></h3>
+<p>cymongoose ships with a minimal Flask/Bottle-style micro-framework example
+that layers decorator-based routing on top of the raw event loop. It lives
+in <code>tests/examples/http/http_web_framework.py</code> and demonstrates how little
+glue is needed to get a familiar web-framework feel while keeping the
+performance of a C event loop.</p>
+<p>Features:</p>
+<ul>
+<li><code>@app.get</code>, <code>@app.post</code>, <code>@app.put</code>, <code>@app.delete</code> decorators</li>
+<li>Path parameters with type conversion (<code>/items/&lt;int:id&gt;</code>)</li>
+<li>JSON request parsing (<code>req.json()</code>) and <code>json_response()</code> helper</li>
+<li>Return-value coercion -- handlers can return <code>str</code>, <code>dict</code>, <code>tuple</code>,
+  <code>Response</code>, or <code>None</code></li>
+<li>Before/after request hooks</li>
+<li>Custom 404 handler via <code>@app.not_found</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="sd">&quot;&quot;&quot;Micro-framework CRUD API.&quot;&quot;&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">http_web_framework</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">json_response</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">app</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">return</span> <span class="s2">&quot;&lt;h1&gt;Hello from cymongoose&lt;/h1&gt;&quot;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">list_items</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="k">return</span> <span class="n">json_response</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_item</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">body</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="k">if</span> <span class="n">body</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s2">&quot;Invalid JSON&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="k">return</span> <span class="n">json_response</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&lt;int:id&gt;&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">id</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>        <span class="k">return</span> <span class="n">json_response</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="nb">id</span><span class="p">])</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="k">return</span> <span class="n">json_response</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;not found&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/items/&lt;int:id&gt;&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="k">def</span><span class="w"> </span><span class="nf">delete_item</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">id</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>        <span class="k">return</span> <span class="n">json_response</span><span class="p">(</span><span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    <span class="k">return</span> <span class="n">json_response</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;not found&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>  <span class="c1"># http://0.0.0.0:8000</span>
+</code></pre></div>
+<p>Under the hood the <code>App</code> class compiles each route pattern into a regex,
+wraps the incoming <code>HttpMessage</code> in a lightweight <code>Request</code> object, and
+coerces handler return values into a <code>Response</code> that is sent via
+<code>conn.reply()</code>. The entire routing layer is ~120 lines of pure Python.</p>
+<h3 id="framework-routing-overhead">Framework Routing Overhead<a class="headerlink" href="#framework-routing-overhead" title="Permanent link">&para;</a></h3>
+<p>Benchmarked with <code>wrk -t4 -c100 -d10s</code> on Apple Silicon
+(see <code>tests/benchmarks/bench_web_framework.py</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Req/sec</th>
+<th>Avg Latency</th>
+<th>vs Raw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raw handler (no framework)</td>
+<td>119,857</td>
+<td>0.83 ms</td>
+<td>baseline</td>
+</tr>
+<tr>
+<td>Framework -- static route</td>
+<td>102,255</td>
+<td>0.97 ms</td>
+<td>85%</td>
+</tr>
+<tr>
+<td>Framework -- parameterised route</td>
+<td>84,602</td>
+<td>1.18 ms</td>
+<td>71%</td>
+</tr>
+</tbody>
+</table>
+<p>The routing layer adds 15--29% overhead depending on whether path
+parameters and JSON serialisation are involved. Even the slowest
+configuration (84k req/s) is 8x faster than FastAPI and 52x faster than
+Flask.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Run the benchmark yourself</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>tests/benchmarks/bench_web_framework.py
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Or use wrk for accurate throughput numbers</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>tests/benchmarks/bench_web_framework.py<span class="w"> </span>--serve<span class="w"> </span>framework
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>wrk<span class="w"> </span>-t4<span class="w"> </span>-c100<span class="w"> </span>-d10s<span class="w"> </span>http://localhost:8765/
+</code></pre></div>
 <h2 id="advanced-examples">Advanced Examples<a class="headerlink" href="#advanced-examples" title="Permanent link">&para;</a></h2>
 <h3 id="multi-threaded-request-handler">Multi-threaded Request Handler<a class="headerlink" href="#multi-threaded-request-handler" title="Permanent link">&para;</a></h3>
 <p>See <a href="../advanced/threading/">Threading Guide</a> for complete
@@ -2171,14 +2441,14 @@ covering all protocols:</p>
 <li><strong>Advanced</strong>: TLS/HTTPS, HTTP proxy, multi-threading</li>
 </ul>
 <p>All examples are runnable and include comprehensive tests:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Run HTTP server example</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>tests/examples/http/http_server.py
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Run WebSocket chat</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python<span class="w"> </span>tests/examples/websocket/websocket_server.py
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Run MQTT client</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>python<span class="w"> </span>tests/examples/mqtt/mqtt_client.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Run HTTP server example</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>tests/examples/http/http_server.py
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Run WebSocket chat</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>python<span class="w"> </span>tests/examples/websocket/websocket_server.py
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Run MQTT client</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>python<span class="w"> </span>tests/examples/mqtt/mqtt_client.py
 </code></pre></div>
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
