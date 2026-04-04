@@ -44,6 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Port TOCTOU race in `test_ws_message_invalidated_after_handler`**: Replaced `get_free_port()` + `listen(f"...:{port}")` with `listen("...:0")` + read port from `conn.local_addr[1]`, eliminating the window where another process could grab the port between allocation and binding.
 - **`wsgi.py` type annotations**: Added full type annotations to all functions and methods, resolving 23 mypy errors. Guarded nullable `conn.local_addr` access.
 - **Lint: `import io` at top of file in `test_wsgi.py`**: Moved stray `import io` from bottom of file to the top-level import block (E402).
+- **CI timeout in `test_mid_stream_disconnect_no_deadlock`**: `http.client.getresponse()` timed out on macOS CI (Python 3.12-3.14) because the streaming path needed 16 x 64 KB chunks with 50ms sleeps (~800ms) before sending headers. Fixed by using 512 KB chunks (headers sent after 2 chunks), a raw socket instead of `http.client`, and `stream_timeout=1.0` for faster worker abort.
 
 ## [0.2.1]
 
