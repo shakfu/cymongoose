@@ -775,6 +775,65 @@ class TestWSGIDuplicateHeaders:
             assert body == '{"ok": true}'
 
 
+class TestWSGIWrite:
+    """PEP 3333 write() callable returned by start_response."""
+
+    def test_write_returns_callable(self):
+        """start_response must return a write() callable."""
+        got_write = {}
+
+        def app(environ, start_response):
+            w = start_response("200 OK", [("Content-Type", "text/plain")])
+            got_write["fn"] = w
+            return [b"ok"]
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "ok"
+            assert callable(got_write["fn"])
+
+    def test_write_sends_body(self):
+        """Data written via write() appears in the response body."""
+
+        def app(environ, start_response):
+            write = start_response("200 OK", [("Content-Type", "text/plain")])
+            write(b"hello ")
+            write(b"via write")
+            return [b""]
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "hello via write"
+
+    def test_write_before_iterator(self):
+        """write() output appears before iterator output."""
+
+        def app(environ, start_response):
+            write = start_response("200 OK", [("Content-Type", "text/plain")])
+            write(b"first ")
+            return [b"second"]
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "first second"
+
+    def test_write_only_no_iterator_body(self):
+        """App uses only write(), returning empty iterator."""
+
+        def app(environ, start_response):
+            write = start_response("200 OK", [("Content-Type", "text/plain")])
+            write(b"all from write")
+            return iter([])
+
+        with _ServerCtx(app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "all from write"
+
+
 if __name__ == "__main__":
     result = pytest.main([__file__, "-v"])
     sys.exit(result)

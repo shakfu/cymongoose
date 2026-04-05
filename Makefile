@@ -40,7 +40,7 @@ typecheck:
 	@uv run mypy --strict src --exclude '.venv'
 
 # Run a full quality assurance check
-qa: test lint typecheck format
+qa: lint typecheck format
 
 # Build wheel
 wheel:

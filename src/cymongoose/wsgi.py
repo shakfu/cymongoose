@@ -31,6 +31,7 @@ is full.
 from __future__ import annotations
 
 import io
+import itertools
 import json
 import queue
 import signal
@@ -281,6 +282,9 @@ class WSGIServer:
         # Stash for buffered responses that exceed _WAKEUP_MAX_BYTES.
         self._stash: dict[str, bytes] = {}
         self._stash_lock = threading.Lock()
+        # Track which stash keys belong to which connection, so they
+        # can be purged if the connection closes before delivery.
+        self._stash_keys: dict[int, set[str]] = {}
 
         # Per-connection stream queues for chunked responses.
         # Key: conn_id, Value: Queue of (bytes | None).
@@ -336,11 +340,26 @@ class WSGIServer:
             # and its contents are garbage-collected; the worker will
             # get a broken-pipe or silently finish.
             self._streams.pop(conn.id, None)
+            # Purge any stash entries that were never delivered.
+            keys = self._stash_keys.pop(conn.id, None)
+            if keys:
+                with self._stash_lock:
+                    for key in keys:
+                        self._stash.pop(key, None)
 
     def _on_http_msg(self, conn: Connection, hm: HttpMessage) -> None:
         environ = _build_environ(hm, conn, self._server_name, self._server_port)
         conn_id = conn.id
         self._pool.submit(self._worker, environ, conn_id)
+
+    def _pop_stash(self, conn_id: int, key: str) -> bytes:
+        """Pop a stash entry and remove it from the connection's key set."""
+        with self._stash_lock:
+            payload = self._stash.pop(key, b"")
+        keys = self._stash_keys.get(conn_id)
+        if keys is not None:
+            keys.discard(key)
+        return payload
 
     def _on_wakeup(self, conn: Connection, data: bytes | str) -> None:
         raw = data if isinstance(data, bytes) else data.encode()
@@ -350,16 +369,12 @@ class WSGIServer:
         if prefix == _INLINE:
             self._send_buffered_response(conn, body)
         elif prefix == _STASH:
-            key = body.decode()
-            with self._stash_lock:
-                payload = self._stash.pop(key, b"")
+            payload = self._pop_stash(conn.id, body.decode())
             self._send_buffered_response(conn, payload)
         elif prefix == _STREAM_HDR_INLINE:
             conn.send(body)
         elif prefix == _STREAM_HDR_STASH:
-            key = body.decode()
-            with self._stash_lock:
-                hdr_bytes = self._stash.pop(key, b"")
+            hdr_bytes = self._pop_stash(conn.id, body.decode())
             if hdr_bytes:
                 conn.send(hdr_bytes)
         elif prefix == _DRAIN:
@@ -422,6 +437,13 @@ class WSGIServer:
         status_code = 500
         response_headers: list[tuple[str, str]] = []
         headers_set = False
+        write_parts: list[bytes] = []
+
+        def write(data: bytes) -> None:
+            """PEP 3333 write() callable (legacy interface)."""
+            if not headers_set:
+                raise AssertionError("write() called before start_response()")
+            write_parts.append(data if isinstance(data, bytes) else data.encode())
 
         def start_response(
             status: str,
@@ -429,7 +451,7 @@ class WSGIServer:
             exc_info: (
                 tuple[type[BaseException], BaseException, TracebackType | None] | None
             ) = None,
-        ) -> None:
+        ) -> Callable[[bytes], None]:
             nonlocal status_code, response_headers, headers_set
             if exc_info:
                 try:
@@ -440,6 +462,7 @@ class WSGIServer:
             status_code = int(status.split(" ", 1)[0])
             response_headers = list(headers)
             headers_set = True
+            return write
 
         try:
             result = self._app(environ, start_response)
@@ -451,7 +474,9 @@ class WSGIServer:
             return
 
         try:
-            self._worker_iterate(iter(result), conn_id, status_code, response_headers)
+            # Chain write() output before the iterator (PEP 3333).
+            it = itertools.chain(write_parts, result)
+            self._worker_iterate(iter(it), conn_id, status_code, response_headers)
         except Exception:
             traceback.print_exc()
             # If we've already started streaming, the connection is in a
@@ -582,6 +607,7 @@ class WSGIServer:
             key = uuid.uuid4().hex
             with self._stash_lock:
                 self._stash[key] = hdr_bytes
+            self._stash_keys.setdefault(conn_id, set()).add(key)
             msg = _STREAM_HDR_STASH + key.encode()
 
         try:
@@ -591,6 +617,9 @@ class WSGIServer:
             if msg[0:1] == _STREAM_HDR_STASH:
                 with self._stash_lock:
                     self._stash.pop(key, None)
+                keys = self._stash_keys.get(conn_id)
+                if keys is not None:
+                    keys.discard(key)
             return False
 
     # -- Wakeup helpers -------------------------------------------------------
@@ -612,6 +641,7 @@ class WSGIServer:
             key = uuid.uuid4().hex
             with self._stash_lock:
                 self._stash[key] = payload
+            self._stash_keys.setdefault(conn_id, set()).add(key)
             msg = _STASH + key.encode()
 
         try:
@@ -620,6 +650,9 @@ class WSGIServer:
             if msg[0:1] == _STASH:
                 with self._stash_lock:
                     self._stash.pop(key, None)
+                keys = self._stash_keys.get(conn_id)
+                if keys is not None:
+                    keys.discard(key)
 
     def _wakeup_drain(self, conn_id: int) -> None:
         """Send a tiny drain notification via wakeup."""

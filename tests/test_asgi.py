@@ -350,6 +350,65 @@ class TestASGIWebSocket:
                 assert ws.recv() == msg
             ws.close()
 
+    def test_ws_server_close_sends_frame(self):
+        """Server-initiated close sends a proper close frame with code/reason."""
+        if not self._ws_available():
+            pytest.skip("websocket-client not installed")
+
+        import struct
+
+        import websocket
+
+        async def close_after_connect(scope, receive, send):
+            if scope["type"] == "websocket":
+                msg = await receive()
+                assert msg["type"] == "websocket.connect"
+                await send({"type": "websocket.accept"})
+                await send(
+                    {
+                        "type": "websocket.close",
+                        "code": 4001,
+                        "reason": "going away",
+                    }
+                )
+
+        with _ServerCtx(close_after_connect) as srv:
+            ws = websocket.create_connection(f"ws://127.0.0.1:{srv.port}/ws", timeout=3)
+            # Receive the close frame.
+            opcode, data = ws.recv_data()
+            # opcode 8 = CLOSE
+            assert opcode == 8
+            # Close frame payload: 2-byte big-endian code + reason.
+            code = struct.unpack("!H", data[:2])[0]
+            reason = data[2:].decode("utf-8")
+            assert code == 4001
+            assert reason == "going away"
+            ws.close()
+
+    def test_ws_server_close_default_code(self):
+        """Server close without explicit code defaults to 1000."""
+        if not self._ws_available():
+            pytest.skip("websocket-client not installed")
+
+        import struct
+
+        import websocket
+
+        async def close_default(scope, receive, send):
+            if scope["type"] == "websocket":
+                msg = await receive()
+                assert msg["type"] == "websocket.connect"
+                await send({"type": "websocket.accept"})
+                await send({"type": "websocket.close"})
+
+        with _ServerCtx(close_default) as srv:
+            ws = websocket.create_connection(f"ws://127.0.0.1:{srv.port}/ws", timeout=3)
+            opcode, data = ws.recv_data()
+            assert opcode == 8
+            code = struct.unpack("!H", data[:2])[0]
+            assert code == 1000
+            ws.close()
+
 
 # ---------------------------------------------------------------------------
 # Tests: Scope
@@ -426,12 +485,8 @@ async def streaming_empty_final_app(scope, receive, send):
                 "headers": [[b"content-type", b"text/plain"]],
             }
         )
-        await send(
-            {"type": "http.response.body", "body": b"hello", "more_body": True}
-        )
-        await send(
-            {"type": "http.response.body", "body": b"", "more_body": False}
-        )
+        await send({"type": "http.response.body", "body": b"hello", "more_body": True})
+        await send({"type": "http.response.body", "body": b"", "more_body": False})
 
 
 async def streaming_large_app(scope, receive, send):
@@ -447,12 +502,8 @@ async def streaming_large_app(scope, receive, send):
         )
         # 10 KB chunk -- exceeds _WAKEUP_MAX_BYTES (8 KB)
         big_chunk = b"X" * (10 * 1024)
-        await send(
-            {"type": "http.response.body", "body": big_chunk, "more_body": True}
-        )
-        await send(
-            {"type": "http.response.body", "body": b"done", "more_body": False}
-        )
+        await send({"type": "http.response.body", "body": big_chunk, "more_body": True})
+        await send({"type": "http.response.body", "body": b"done", "more_body": False})
 
 
 async def streaming_custom_status_app(scope, receive, send):
@@ -469,12 +520,8 @@ async def streaming_custom_status_app(scope, receive, send):
                 ],
             }
         )
-        await send(
-            {"type": "http.response.body", "body": b"created-", "more_body": True}
-        )
-        await send(
-            {"type": "http.response.body", "body": b"ok", "more_body": False}
-        )
+        await send({"type": "http.response.body", "body": b"created-", "more_body": True})
+        await send({"type": "http.response.body", "body": b"ok", "more_body": False})
 
 
 # ---------------------------------------------------------------------------

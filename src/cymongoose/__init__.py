@@ -49,7 +49,7 @@ from ._mongoose import (  # noqa: F401
 )
 from .aio import AsyncManager
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 __all__ = [
     # Classes

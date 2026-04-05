@@ -17,12 +17,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.2.3]
+
 ### Added
 
 - **ASGI server adapter** (`src/cymongoose/asgi.py`): ASGI 3.0 server that runs any ASGI application (FastAPI, Starlette, Django async, Quart) on cymongoose's C event loop. Supports HTTP and WebSocket sub-protocols. Per-connection `asyncio.Queue` bridges mongoose events to ASGI `receive()`; `send()` routes back via `Manager.wakeup()` with stash fallback for payloads > 8 KB. WebSocket upgrade is completed eagerly in `MG_EV_HTTP_MSG` (HttpMessage views are invalidated after the handler returns). Provides `ASGIServer` class and `serve()` one-liner. 14 tests in `tests/test_asgi.py` covering HTTP request/response, status codes, headers, duplicate headers, error handling, WebSocket echo (text/binary/multiple messages), and scope construction.
 - **ASGI streaming HTTP responses**: Support for `more_body=True` in `http.response.body` enables chunked transfer encoding for streaming responses. Uses wakeup prefixes `S`/`C`/`E` for headers, body chunks, and end-of-stream. Reuses `_format_chunked_header` from the WSGI adapter. 6 streaming tests added.
 - **ASGI streaming backpressure**: An `asyncio.Semaphore` (capacity 16) on each streaming connection limits in-flight wakeups. The async `send()` acquires a permit before each header/chunk wakeup; the poll thread releases via `loop.call_soon_threadsafe` after processing. Prevents socketpair buffer exhaustion when apps send many chunks rapidly.
 - **ASGI lifespan sub-protocol**: Implements ASGI lifespan startup/shutdown events. The server runs the lifespan coroutine before binding the listener and waits for `lifespan.startup.complete` before accepting connections. On stop, sends `lifespan.shutdown` and waits up to 5s. Apps that don't support lifespan (raise an exception or return without signaling) are detected and the server proceeds normally. `lifespan.startup.failed` propagates as `RuntimeError` from `start()`. 5 tests added.
+- **WSGI `write()` callable**: `start_response` now returns a PEP 3333 `write(data)` callable. Data written via `write()` is prepended to the iterator output using `itertools.chain`. Apps and middleware that use the legacy `write()` interface (e.g. Django streaming, Bottle template streaming) now work correctly. 4 tests added.
+
+### Fixed
+
+- **ASGI WebSocket close frame**: `websocket.close` previously called `conn.close()` directly, sending a TCP FIN/RST without a WebSocket close frame. Now serializes the ASGI `code` (default 1000) and `reason` into a proper close frame payload and sends it via `ws_send(..., WEBSOCKET_OP_CLOSE)`. Removed the immediate `conn.close()` -- mongoose handles TCP teardown after the close handshake. 2 tests added.
+- **`AsyncManager.__aexit__` timeout tracking**: The shutdown loop added a fixed 5s interval to `elapsed` regardless of the actual `join()` wait requested, causing `elapsed` to overshoot the configured `shutdown_timeout`. Now computes `wait = min(interval, remaining)` and adds that to `elapsed`. The budget check is performed at the top of the loop before calling `join()`, preventing any call with a non-positive timeout.
+- **Stash memory leak on early disconnect** (ASGI and WSGI): If a client disconnected between `_wakeup_with_stash()` and the wakeup handler executing, the stashed payload was never popped and remained in memory indefinitely. Both adapters now track stash UUIDs per connection (`stash_keys` on `_ConnState` in ASGI, `_stash_keys` dict in WSGI) and purge undelivered entries in `MG_EV_CLOSE`. Delivered entries are cleaned up via a new `_pop_stash()` helper used by all stash handlers.
 
 ## [0.2.2]
 

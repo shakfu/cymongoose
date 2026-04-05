@@ -97,22 +97,24 @@ class AsyncManager:
             interval = 5.0  # seconds between retry attempts
             elapsed = 0.0
             while self._thread.is_alive():
+                remaining = self._shutdown_timeout - elapsed
+                if remaining <= 0:
+                    warnings.warn(
+                        f"AsyncManager poll thread did not stop within "
+                        f"{self._shutdown_timeout}s; abandoning thread. "
+                        f"A handler is likely blocked.",
+                        RuntimeWarning,
+                        stacklevel=2,
+                    )
+                    break
+                wait = min(interval, remaining)
                 await loop.run_in_executor(
                     None,
                     self._thread.join,
-                    min(interval, self._shutdown_timeout - elapsed),
+                    wait,
                 )
-                elapsed += interval
-                if self._thread.is_alive():
-                    if elapsed >= self._shutdown_timeout:
-                        warnings.warn(
-                            f"AsyncManager poll thread did not stop within "
-                            f"{self._shutdown_timeout}s; abandoning thread. "
-                            f"A handler is likely blocked.",
-                            RuntimeWarning,
-                            stacklevel=2,
-                        )
-                        break
+                elapsed += wait
+                if self._thread.is_alive() and elapsed < self._shutdown_timeout:
                     warnings.warn(
                         f"AsyncManager poll thread has not stopped after "
                         f"{elapsed:.0f}s; a handler may be blocking. "

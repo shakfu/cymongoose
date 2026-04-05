@@ -42,6 +42,7 @@ import asyncio
 import concurrent.futures
 import json
 import signal
+import struct
 import threading
 import traceback
 import uuid
@@ -77,7 +78,8 @@ _RESP = b"R"  # HTTP response (inline): R<json>
 _RESP_STASH = b"r"  # HTTP response (stash): r<uuid>
 _WS_SEND = b"W"  # WebSocket send (inline): W<json>
 _WS_SEND_STASH = b"w"  # WebSocket send (stash): w<uuid>
-_WS_CLOSE = b"X"  # WebSocket close
+_WS_CLOSE = b"X"  # WebSocket close: X<2-byte code>[reason]
+_WS_OP_CLOSE = 8  # WEBSOCKET_OP_CLOSE (not exported from Cython module)
 _STREAM_HDR = b"S"  # Chunked stream: headers (inline): S<raw_headers>
 _STREAM_HDR_STASH = b"s"  # Chunked stream: headers (stash): s<uuid>
 _STREAM_CHUNK = b"C"  # Chunked stream: body chunk (inline): C<data>
@@ -174,6 +176,7 @@ class _ConnState:
         "response_started",
         "streaming",
         "stream_sem",
+        "stash_keys",
     )
 
     def __init__(self, scope: dict[str, Any]) -> None:
@@ -185,6 +188,8 @@ class _ConnState:
         self.streaming = False
         # Created lazily on first streaming body; limits in-flight wakeups.
         self.stream_sem: asyncio.Semaphore | None = None
+        # Track stash keys so they can be purged on connection close.
+        self.stash_keys: set[str] = set()
 
 
 # ---------------------------------------------------------------------------
@@ -247,9 +252,7 @@ class ASGIServer:
         # Run lifespan startup before binding.
         await self._lifespan_startup()
         if self._lifespan_startup_failed:
-            raise RuntimeError(
-                f"ASGI lifespan startup failed: {self._lifespan_failure_message}"
-            )
+            raise RuntimeError(f"ASGI lifespan startup failed: {self._lifespan_failure_message}")
 
         self._manager = Manager(
             self._event_handler,
@@ -299,9 +302,12 @@ class ASGIServer:
         If the app doesn't support lifespan (raises an exception on the
         lifespan scope), we silently proceed without it.
         """
-        self._lifespan_receive = asyncio.Queue()
-        self._lifespan_startup_complete = asyncio.Event()
-        self._lifespan_shutdown_complete = asyncio.Event()
+        receive_queue: asyncio.Queue[dict[str, Any]] = asyncio.Queue()
+        startup_complete = asyncio.Event()
+        shutdown_complete = asyncio.Event()
+        self._lifespan_receive = receive_queue
+        self._lifespan_startup_complete = startup_complete
+        self._lifespan_shutdown_complete = shutdown_complete
 
         scope: dict[str, Any] = {
             "type": "lifespan",
@@ -311,19 +317,19 @@ class ASGIServer:
         async def lifespan_send(message: dict[str, Any]) -> None:
             msg_type = message["type"]
             if msg_type == "lifespan.startup.complete":
-                self._lifespan_startup_complete.set()
+                startup_complete.set()
             elif msg_type == "lifespan.startup.failed":
                 self._lifespan_startup_failed = True
                 self._lifespan_failure_message = message.get("message", "")
-                self._lifespan_startup_complete.set()  # unblock waiter
+                startup_complete.set()  # unblock waiter
             elif msg_type == "lifespan.shutdown.complete":
-                self._lifespan_shutdown_complete.set()
+                shutdown_complete.set()
             elif msg_type == "lifespan.shutdown.failed":
-                self._lifespan_shutdown_complete.set()  # unblock waiter
+                shutdown_complete.set()  # unblock waiter
 
         async def lifespan_coro() -> None:
             try:
-                await self._app(scope, self._lifespan_receive.get, lifespan_send)
+                await self._app(scope, receive_queue.get, lifespan_send)
             except Exception:
                 # App doesn't support lifespan -- that's fine.
                 self._lifespan_supported = False
@@ -331,16 +337,16 @@ class ASGIServer:
                 # If the app returned or raised without signaling
                 # startup.complete (e.g. it ignores the lifespan scope
                 # entirely), treat as "no lifespan support".
-                if not self._lifespan_startup_complete.is_set():
+                if not startup_complete.is_set():
                     self._lifespan_supported = False
-                self._lifespan_startup_complete.set()
-                self._lifespan_shutdown_complete.set()
+                startup_complete.set()
+                shutdown_complete.set()
 
         self._lifespan_task = asyncio.ensure_future(lifespan_coro())
 
         # Push the startup event and wait for the app to respond.
-        await self._lifespan_receive.put({"type": "lifespan.startup"})
-        await self._lifespan_startup_complete.wait()
+        await receive_queue.put({"type": "lifespan.startup"})
+        await startup_complete.wait()
 
     async def _lifespan_shutdown(self) -> None:
         """Run the ASGI lifespan shutdown sequence."""
@@ -445,6 +451,13 @@ class ASGIServer:
         if state is None:
             return
 
+        # Purge any stash entries that were never delivered.
+        if state.stash_keys:
+            with self._stash_lock:
+                for key in state.stash_keys:
+                    self._stash.pop(key, None)
+            state.stash_keys.clear()
+
         if state.scope["type"] == "websocket":
             self._schedule_put_orphan(state, {"type": "websocket.disconnect", "code": 1000})
         else:
@@ -468,14 +481,24 @@ class ASGIServer:
         elif prefix == _WS_SEND or prefix == _WS_SEND_STASH:
             self._handle_ws_send(conn, prefix, body)
         elif prefix == _WS_CLOSE:
-            conn.close()
+            # Send a proper WebSocket close frame.  Do not call
+            # conn.close() here -- mongoose will close the TCP
+            # connection after the close handshake completes.
+            conn.ws_send(body, _WS_OP_CLOSE)
+
+    def _pop_stash(self, conn_id: int, key: str) -> bytes:
+        """Pop a stash entry and remove it from the connection's key set."""
+        with self._stash_lock:
+            payload = self._stash.pop(key, b"")
+        state = self._conns.get(conn_id)
+        if state is not None:
+            state.stash_keys.discard(key)
+        return payload
 
     def _handle_http_response(self, conn: Connection, prefix: bytes, body: bytes) -> None:
         """Send a buffered HTTP response."""
         if prefix == _RESP_STASH:
-            key = body.decode()
-            with self._stash_lock:
-                payload = self._stash.pop(key, b"")
+            payload = self._pop_stash(conn.id, body.decode())
         else:
             payload = body
 
@@ -512,9 +535,7 @@ class ASGIServer:
     def _handle_stream_header(self, conn: Connection, prefix: bytes, body: bytes) -> None:
         """Send chunked stream HTTP headers."""
         if prefix == _STREAM_HDR_STASH:
-            key = body.decode()
-            with self._stash_lock:
-                raw = self._stash.pop(key, b"")
+            raw = self._pop_stash(conn.id, body.decode())
         else:
             raw = body
         if raw:
@@ -524,9 +545,7 @@ class ASGIServer:
     def _handle_stream_chunk(self, conn: Connection, prefix: bytes, body: bytes) -> None:
         """Send a single chunked body chunk."""
         if prefix == _STREAM_CHUNK_STASH:
-            key = body.decode()
-            with self._stash_lock:
-                chunk_data = self._stash.pop(key, b"")
+            chunk_data = self._pop_stash(conn.id, body.decode())
         else:
             chunk_data = body
         if chunk_data:
@@ -536,9 +555,7 @@ class ASGIServer:
     def _handle_ws_send(self, conn: Connection, prefix: bytes, body: bytes) -> None:
         """Send a WebSocket frame."""
         if prefix == _WS_SEND_STASH:
-            key = body.decode()
-            with self._stash_lock:
-                payload = self._stash.pop(key, b"")
+            payload = self._pop_stash(conn.id, body.decode())
         else:
             payload = body
 
@@ -614,13 +631,11 @@ class ASGIServer:
                 body = message.get("body", b"")
                 more_body = message.get("more_body", False)
 
-                if state.streaming:
+                if state.streaming and state.stream_sem is not None:
                     # Already in chunked streaming mode -- send chunk.
                     if body:
                         await state.stream_sem.acquire()
-                        self._wakeup_with_stash(
-                            conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body
-                        )
+                        self._wakeup_with_stash(conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body)
                     if not more_body:
                         self._wakeup_small(conn_id, _STREAM_END)
                         state.streaming = False
@@ -642,14 +657,10 @@ class ASGIServer:
 
                     hdr_bytes = _format_chunked_header(status, str_headers)
                     await state.stream_sem.acquire()
-                    self._wakeup_with_stash(
-                        conn_id, _STREAM_HDR, _STREAM_HDR_STASH, hdr_bytes
-                    )
+                    self._wakeup_with_stash(conn_id, _STREAM_HDR, _STREAM_HDR_STASH, hdr_bytes)
                     if body:
                         await state.stream_sem.acquire()
-                        self._wakeup_with_stash(
-                            conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body
-                        )
+                        self._wakeup_with_stash(conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body)
                 else:
                     # Single buffered response (no streaming).
                     status = pending_start.get("status", 200)
@@ -685,7 +696,11 @@ class ASGIServer:
                 self._wakeup_with_stash(conn_id, _WS_SEND, _WS_SEND_STASH, payload)
 
             elif msg_type == "websocket.close":
-                self._wakeup_small(conn_id, _WS_CLOSE)
+                code = message.get("code", 1000)
+                reason = message.get("reason", "")
+                # Build close frame payload: 2-byte big-endian code + reason.
+                close_payload = struct.pack("!H", code) + reason.encode("utf-8")
+                self._wakeup_small(conn_id, _WS_CLOSE + close_payload)
 
         return send
 
@@ -716,6 +731,11 @@ class ASGIServer:
             key = uuid.uuid4().hex
             with self._stash_lock:
                 self._stash[key] = payload
+            # Track key so _on_close can purge it if the wakeup
+            # is never delivered (connection dies before dispatch).
+            state = self._conns.get(conn_id)
+            if state is not None:
+                state.stash_keys.add(key)
             msg = stash_prefix + key.encode()
         try:
             self._manager.wakeup(conn_id, msg)
@@ -723,6 +743,8 @@ class ASGIServer:
             if msg[0:1] == stash_prefix:
                 with self._stash_lock:
                     self._stash.pop(key, None)
+                if state is not None:
+                    state.stash_keys.discard(key)
 
     def _send_error_response(self, conn_id: int) -> None:
         """Send a 500 response for unhandled app errors."""
