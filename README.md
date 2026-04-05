@@ -103,6 +103,10 @@ make test-asan      # Run with AddressSanitizer (memory safety)
 make qa             # Run tests + lint + type check + format
 ```
 
+## Project Status
+
+The feature set is considered complete as of v0.2.3. We would like to only consider bug fixes and further refinements of the current implementation. Upstream updates to the vendored Mongoose C library will continue to be tracked and integrated as needed. From this point on, the project will prioritize correctness, robustness, and stability. We welcome contributions to this end.
+
 ## Development
 
 ```sh
