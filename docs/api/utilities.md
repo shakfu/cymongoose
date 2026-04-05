@@ -1,6 +1,6 @@
 # Utility Functions
 
-cymongoose provides utility functions for JSON parsing, URL encoding, and multipart form handling.
+cymongoose provides utility functions for JSON parsing, URL parsing, pattern matching, hashing, encoding, and more.
 
 ## JSON Utilities
 
@@ -120,7 +120,7 @@ def handler(conn, ev, data):
         conn.reply(200, json.dumps(response).encode())
 ```
 
-## URL Encoding
+## URL Encoding and Parsing
 
 ### url_encode
 
@@ -141,6 +141,285 @@ query = f"name={url_encode(name)}&email={url_encode(email)}"
 # Make request
 url = f"http://example.com/api?{query}"
 conn = manager.connect(url, http=True)
+```
+
+### url_port
+
+::: cymongoose.url_port
+    options:
+      members: true
+
+### url_host
+
+::: cymongoose.url_host
+    options:
+      members: true
+
+### url_user
+
+::: cymongoose.url_user
+    options:
+      members: true
+
+### url_pass
+
+::: cymongoose.url_pass
+    options:
+      members: true
+
+### url_uri
+
+::: cymongoose.url_uri
+    options:
+      members: true
+
+### url_is_ssl
+
+::: cymongoose.url_is_ssl
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import url_port, url_host, url_user, url_pass, url_uri, url_is_ssl
+
+url = "https://admin:secret@example.com:8443/api/v1?key=abc"
+
+url_host(url)    # "example.com"
+url_port(url)    # 8443
+url_user(url)    # "admin"
+url_pass(url)    # "secret"
+url_uri(url)     # "/api/v1?key=abc"
+url_is_ssl(url)  # True
+
+# Default ports
+url_port("http://example.com")   # 80
+url_port("https://example.com")  # 443
+url_port("mqtt://broker.com")    # 1883
+```
+
+## HTTP Variable Extraction
+
+### http_var
+
+::: cymongoose.http_var
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import http_var
+
+# Extract from query string
+http_var("name=Alice&age=30", "name")  # "Alice"
+http_var("name=Alice&age=30", "age")   # "30"
+http_var("name=Alice", "missing")      # None
+
+# In an HTTP handler, pass the query or body directly
+def handler(conn, ev, data):
+    if ev == MG_EV_HTTP_MSG:
+        user = http_var(data.query, "user")
+```
+
+## Pattern Matching
+
+### match
+
+::: cymongoose.match
+    options:
+      members: true
+
+Pattern syntax:
+
+- `?` matches any single character (captures it)
+- `*` matches zero or more characters except `/` (captures them)
+- `#` matches zero or more characters including `/` (captures them)
+
+Example:
+
+```python
+from cymongoose import match
+
+# Exact match
+match("hello", "hello")          # (True, [])
+
+# Wildcard captures
+match("/api/users", "/api/*")    # (True, ["users"])
+match("/a/b/c", "#")             # (True, ["/a/b/c"])
+
+# Route matching with multiple captures
+match("/users/42", "/users/??"  )  # (True, ["4", "2"])
+match("/api/v1/items", "/api/*/items")  # (True, ["v1"])
+
+# No match
+match("foo/bar", "*")            # (False, []) -- * doesn't cross /
+```
+
+## JSON-RPC Framework
+
+### Rpc
+
+::: cymongoose.Rpc
+    options:
+      members: true
+      member-order: bysource
+
+### RpcReq
+
+::: cymongoose.RpcReq
+    options:
+      members: true
+      member-order: bysource
+
+Example:
+
+```python
+import json
+from cymongoose import Rpc, RpcReq, json_get_num, json_get_str, MG_EV_HTTP_MSG
+
+rpc = Rpc()
+
+def add(req):
+    a = json_get_num(req.frame, "$.params[0]")
+    b = json_get_num(req.frame, "$.params[1]")
+    req.ok(str(a + b))
+
+def greet(req):
+    name = json_get_str(req.frame, "$.params[0]")
+    req.ok(json.dumps(f"Hello, {name}!"))
+
+def fail(req):
+    req.err(-32000, "something went wrong")
+
+rpc.add("add", add)
+rpc.add("greet", greet)
+rpc.add("fail", fail)
+
+print(rpc.methods)  # ["fail", "greet", "add"]
+
+def handler(conn, ev, data):
+    if ev == MG_EV_HTTP_MSG and data.uri == "/rpc":
+        response = rpc.process(data.body_text)
+        conn.reply(200, response, {"Content-Type": "application/json"})
+        conn.drain()
+```
+
+## Hashing
+
+### md5
+
+::: cymongoose.md5
+    options:
+      members: true
+
+### sha1
+
+::: cymongoose.sha1
+    options:
+      members: true
+
+### sha256
+
+::: cymongoose.sha256
+    options:
+      members: true
+
+### hmac_sha256
+
+::: cymongoose.hmac_sha256
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import md5, sha1, sha256, hmac_sha256
+
+# Hash data (accepts str or bytes)
+md5("hello")           # 16-byte digest
+sha1("hello")          # 20-byte digest
+sha256("hello")        # 32-byte digest
+
+# HMAC for message authentication
+sig = hmac_sha256("secret-key", "message-to-sign")
+
+# Hex representation
+sha256(b"hello").hex()  # "2cf24dba5fb0a30e..."
+```
+
+## Base64
+
+### base64_encode
+
+::: cymongoose.base64_encode
+    options:
+      members: true
+
+### base64_decode
+
+::: cymongoose.base64_decode
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import base64_encode, base64_decode
+
+encoded = base64_encode(b"Hello, World!")  # "SGVsbG8sIFdvcmxkIQ=="
+decoded = base64_decode(encoded)            # b"Hello, World!"
+
+# Works with str input too
+base64_encode("binary data")
+```
+
+## Misc Utilities
+
+### millis
+
+::: cymongoose.millis
+    options:
+      members: true
+
+### random_bytes
+
+::: cymongoose.random_bytes
+    options:
+      members: true
+
+### random_str
+
+::: cymongoose.random_str
+    options:
+      members: true
+
+### crc32
+
+::: cymongoose.crc32
+    options:
+      members: true
+
+Example:
+
+```python
+from cymongoose import millis, random_bytes, random_str, crc32
+
+# Monotonic time
+start = millis()
+# ... do work ...
+elapsed = millis() - start
+
+# Random data
+token = random_str(32)       # e.g. "aB3kM9xQ..."
+nonce = random_bytes(16)     # 16 random bytes
+
+# CRC32 checksum
+checksum = crc32(b"hello")
+# Incremental
+crc = crc32(b"hel")
+crc = crc32(b"lo", crc)     # same as crc32(b"hello")
 ```
 
 ## Multipart Form Data
@@ -320,6 +599,20 @@ from cymongoose import (
     MG_EV_SNTP_TIME,
     MG_EV_WAKEUP,
     MG_EV_USER,
+)
+```
+
+### MQTT v5 Property Types
+
+```python
+from cymongoose import (
+    MQTT_PROP_TYPE_BYTE,
+    MQTT_PROP_TYPE_SHORT,
+    MQTT_PROP_TYPE_INT,
+    MQTT_PROP_TYPE_VARIABLE_INT,
+    MQTT_PROP_TYPE_STRING,
+    MQTT_PROP_TYPE_STRING_PAIR,
+    MQTT_PROP_TYPE_BINARY_DATA,
 )
 ```
 

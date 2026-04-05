@@ -322,6 +322,12 @@ def handler(conn, ev, data):
     options:
       members: true
 
+### Unsubscribe
+
+::: cymongoose.Connection.mqtt_unsub
+    options:
+      members: true
+
 ### Other Operations
 
 ::: cymongoose.Connection.mqtt_ping

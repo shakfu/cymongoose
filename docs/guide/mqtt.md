@@ -120,6 +120,13 @@ def handler(conn, ev, data):
         conn.mqtt_sub("alerts/#", qos=2)
 ```
 
+### Unsubscribing
+
+```python
+# Unsubscribe from a topic
+conn.mqtt_unsub("sensors/+/humidity")
+```
+
 ## Receiving Messages
 
 ### Message Properties
@@ -161,6 +168,30 @@ def handler(conn, ev, data):
         except (json.JSONDecodeError, KeyError):
             print("Invalid JSON message")
 ```
+
+## MQTT v5 Properties
+
+If the broker supports MQTT v5, messages may carry properties. Use `data.properties()` to iterate them:
+
+```python
+from cymongoose import (
+    MG_EV_MQTT_MSG,
+    MQTT_PROP_TYPE_STRING,
+    MQTT_PROP_TYPE_STRING_PAIR,
+)
+
+def handler(conn, ev, data):
+    if ev == MG_EV_MQTT_MSG:
+        for prop in data.properties():
+            prop_id = prop["id"]     # Property identifier (uint8)
+            int_val = prop["iv"]     # Integer value (for numeric types)
+            key = prop["key"]        # String key (user-property only)
+            val = prop["val"]        # String value (for string types)
+
+            print(f"Property {prop_id}: key={key!r} val={val!r} iv={int_val}")
+```
+
+Property type constants (`MQTT_PROP_TYPE_BYTE`, `MQTT_PROP_TYPE_STRING`, `MQTT_PROP_TYPE_STRING_PAIR`, `MQTT_PROP_TYPE_BINARY_DATA`, `MQTT_PROP_TYPE_VARIABLE_INT`, `MQTT_PROP_TYPE_INT`, `MQTT_PROP_TYPE_SHORT`) are available for identifying property types by their ID.
 
 ## Keep-Alive and Ping
 

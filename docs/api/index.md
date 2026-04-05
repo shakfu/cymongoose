@@ -146,25 +146,63 @@ from cymongoose import (
 )
 ```
 
+### JSON-RPC
+
+```python
+from cymongoose import Rpc, json_get_num
+
+rpc = Rpc()
+
+def add(req):
+    a = json_get_num(req.frame, "$.params[0]")
+    b = json_get_num(req.frame, "$.params[1]")
+    req.ok(str(a + b))
+
+rpc.add("add", add)
+
+# In your HTTP handler:
+response = rpc.process(data.body_text)
+conn.reply(200, response, {"Content-Type": "application/json"})
+```
+
 ### Utility Functions
 
 ```python
 from cymongoose import (
-    json_get,
-    json_get_num,
-    json_get_bool,
-    json_get_long,
-    json_get_str,
-    url_encode,
-    http_parse_multipart,
+    # JSON parsing
+    json_get, json_get_num, json_get_bool, json_get_long, json_get_str,
+    # URL encoding and parsing
+    url_encode, url_port, url_host, url_user, url_pass, url_uri, url_is_ssl,
+    # HTTP utilities
+    http_parse_multipart, http_var,
+    # Pattern matching
+    match,
+    # Hashing
+    md5, sha1, sha256, hmac_sha256,
+    # Encoding
+    base64_encode, base64_decode,
+    # Misc
+    millis, random_bytes, random_str, crc32,
 )
 
 # JSON parsing
 value = json_get(json_str, "$.user.name")
 count = json_get_num(json_str, "$.count", default=0)
 
-# URL encoding
+# URL encoding and parsing
 encoded = url_encode("hello world")  # "hello%20world"
+port = url_port("https://example.com:8443")  # 8443
+host = url_host("https://example.com/path")  # "example.com"
+
+# HTTP variable extraction
+val = http_var("foo=bar&baz=qux", "foo")  # "bar"
+
+# Pattern matching (glob-style)
+matched, caps = match("/api/users/42", "/api/*/??")
+# matched=True, caps=["users", "4", "2"]
+
+# Hashing
+digest = sha256(b"hello")  # 32-byte digest
 
 # Multipart forms
 offset, part = http_parse_multipart(body, 0)

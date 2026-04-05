@@ -111,9 +111,27 @@ def handler(conn, ev, data):
         import json
         payload = json.loads(data.text)
 
+        # MQTT v5 properties (if broker supports v5)
+        for prop in data.properties():
+            print(f"Property id={prop['id']}, val={prop['val']}")
+
     elif ev == MG_EV_MQTT_CMD:
         # MQTT command (CONNECT, SUBSCRIBE, etc.)
         print(f"Command: {data.cmd}")
+```
+
+### MQTT v5 Property Type Constants
+
+```python
+from cymongoose import (
+    MQTT_PROP_TYPE_BYTE,          # 8-bit integer
+    MQTT_PROP_TYPE_SHORT,         # 16-bit integer
+    MQTT_PROP_TYPE_INT,           # 32-bit integer
+    MQTT_PROP_TYPE_VARIABLE_INT,  # Variable-length integer
+    MQTT_PROP_TYPE_STRING,        # UTF-8 string
+    MQTT_PROP_TYPE_STRING_PAIR,   # Key-value string pair
+    MQTT_PROP_TYPE_BINARY_DATA,   # Binary data
+)
 ```
 
 ## TlsOpts
