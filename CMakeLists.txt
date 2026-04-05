@@ -4,7 +4,7 @@ project(${SKBUILD_PROJECT_NAME} VERSION ${SKBUILD_PROJECT_VERSION} LANGUAGES C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Vendored Mongoose C library version (thirdparty/mongoose/)
-set(MONGOOSE_VERSION "7.19")
+set(MONGOOSE_VERSION "7.21")
 
 # Verify MONGOOSE_VERSION matches MG_VERSION in mongoose.h
 file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mongoose/mongoose.h"

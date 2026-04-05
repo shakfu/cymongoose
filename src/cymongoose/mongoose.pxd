@@ -42,6 +42,8 @@ cdef extern from "mongoose.h":
         MG_EV_MQTT_OPEN
         MG_EV_SNTP_TIME
         MG_EV_WAKEUP
+        MG_EV_MDNS_REQ
+        MG_EV_MDNS_RESP
         MG_EV_USER
 
     cdef enum:
@@ -56,8 +58,13 @@ cdef extern from "mongoose.h":
         char *buf
         size_t len
 
-    cdef struct mg_addr:
+    cdef union mg_addr_union:
         uint8_t ip[16]
+        uint32_t ip4
+        uint64_t ip6[2]
+
+    cdef struct mg_addr:
+        mg_addr_union addr
         uint16_t port
         uint8_t scope_id
         bint is_ip6
@@ -216,9 +223,6 @@ cdef extern from "mongoose.h":
     # URL encoding
     cdef size_t mg_url_encode(const char *s, size_t n, char *buf, size_t len)
 
-    # Multipart forms
-    cdef size_t mg_http_next_multipart(mg_str body, size_t offset, mg_http_part *part)
-
     # MQTT - Note: 'pass' field renamed to 'password' to avoid Python keyword
     cdef struct mg_mqtt_opts "mg_mqtt_opts":
         mg_str user
@@ -250,6 +254,25 @@ cdef extern from "mongoose.h":
     cdef void mg_mqtt_ping(mg_connection *c) nogil
     cdef void mg_mqtt_pong(mg_connection *c) nogil
     cdef void mg_mqtt_disconnect(mg_connection *c, mg_mqtt_opts *opts) nogil
+    cdef void mg_mqtt_unsub(mg_connection *c, const mg_mqtt_opts *opts) nogil
+
+    # MQTT v5 property types
+    cdef enum:
+        MQTT_PROP_TYPE_BYTE
+        MQTT_PROP_TYPE_STRING
+        MQTT_PROP_TYPE_STRING_PAIR
+        MQTT_PROP_TYPE_BINARY_DATA
+        MQTT_PROP_TYPE_VARIABLE_INT
+        MQTT_PROP_TYPE_INT
+        MQTT_PROP_TYPE_SHORT
+
+    cdef struct mg_mqtt_prop:
+        uint8_t id
+        uint32_t iv
+        mg_str key
+        mg_str val
+
+    cdef size_t mg_mqtt_next_prop(mg_mqtt_message *msg, mg_mqtt_prop *prop, size_t ofs)
 
     # SNTP (Simple Network Time Protocol)
     cdef mg_connection *mg_sntp_connect(mg_mgr *mgr, const char *url, mg_event_handler_t fn, void *fn_data) nogil
@@ -278,5 +301,94 @@ cdef extern from "mongoose.h":
 
     cdef mg_timer *mg_timer_add(mg_mgr *mgr, uint64_t milliseconds, unsigned flags, mg_timer_fn_t fn, void *arg)
     cdef void mg_timer_free(mg_timer **head, mg_timer *timer)
+
+    # I/O buffer management
+    cdef void mg_iobuf_free(mg_iobuf *io)
+
+    # Output function type
+    ctypedef void (*mg_pfn_t)(char, void *)
+    cdef void mg_pfn_iobuf(char ch, void *param)
+
+    # RPC framework
+    cdef struct mg_rpc:
+        mg_rpc *next
+        mg_str method
+        void (*fn)(mg_rpc_req *)
+        void *fn_data
+
+    cdef struct mg_rpc_req:
+        mg_rpc **head
+        mg_rpc *rpc
+        mg_pfn_t pfn
+        void *pfn_data
+        void *req_data
+        mg_str frame
+
+    cdef void mg_rpc_add(mg_rpc **head, mg_str method,
+                         void (*handler)(mg_rpc_req *), void *handler_data)
+    cdef void mg_rpc_del(mg_rpc **head, void (*handler)(mg_rpc_req *))
+    cdef void mg_rpc_process(mg_rpc_req *req)
+    cdef void mg_rpc_ok(mg_rpc_req *req, const char *fmt, ...)
+    cdef void mg_rpc_err(mg_rpc_req *req, int code, const char *fmt, ...)
+    cdef void mg_rpc_list(mg_rpc_req *req)
+
+    # URL parsing
+    cdef unsigned short mg_url_port(const char *url)
+    cdef int mg_url_is_ssl(const char *url)
+    cdef mg_str mg_url_host(const char *url)
+    cdef mg_str mg_url_user(const char *url)
+    cdef mg_str mg_url_pass(const char *url)
+    cdef const char *mg_url_uri(const char *url)
+
+    # Pattern matching
+    cdef cbool mg_match(mg_str s, mg_str pattern, mg_str *caps)
+    cdef cbool mg_span(mg_str s, mg_str *a, mg_str *b, char delim)
+
+    # HTTP variable extraction (newer API)
+    cdef mg_str mg_http_var(mg_str buf, mg_str name)
+
+    # MD5 hashing
+    ctypedef struct mg_md5_ctx:
+        uint32_t buf[4]
+        uint32_t bits[2]
+        unsigned char in_[64]  # 'in' is a Python keyword
+
+    cdef void mg_md5_init(mg_md5_ctx *c)
+    cdef void mg_md5_update(mg_md5_ctx *c, const unsigned char *data, size_t len)
+    cdef void mg_md5_final(mg_md5_ctx *c, unsigned char *digest)
+
+    # SHA1 hashing
+    ctypedef struct mg_sha1_ctx:
+        uint32_t state[5]
+        uint32_t count[2]
+        unsigned char buffer[64]
+
+    cdef void mg_sha1_init(mg_sha1_ctx *ctx)
+    cdef void mg_sha1_update(mg_sha1_ctx *ctx, const unsigned char *data, size_t len)
+    cdef void mg_sha1_final(unsigned char *digest, mg_sha1_ctx *ctx)
+
+    # SHA256 hashing
+    ctypedef struct mg_sha256_ctx:
+        uint32_t state[8]
+        uint64_t bits
+        uint32_t len
+        unsigned char buffer[64]
+
+    cdef void mg_sha256_init(mg_sha256_ctx *ctx)
+    cdef void mg_sha256_update(mg_sha256_ctx *ctx, const unsigned char *data, size_t len)
+    cdef void mg_sha256_final(unsigned char *digest, mg_sha256_ctx *ctx)
+    cdef void mg_sha256(uint8_t *dst, uint8_t *data, size_t datasz)
+    cdef void mg_hmac_sha256(uint8_t *dst, uint8_t *key, size_t keysz,
+                             uint8_t *data, size_t datasz)
+
+    # Base64
+    cdef size_t mg_base64_encode(const unsigned char *p, size_t n, char *buf, size_t buf_len)
+    cdef size_t mg_base64_decode(const char *src, size_t n, char *dst, size_t dst_len)
+
+    # Misc utilities
+    cdef cbool mg_random(void *buf, size_t len)
+    cdef char *mg_random_str(char *buf, size_t len)
+    cdef uint32_t mg_crc32(uint32_t crc, const char *buf, size_t len)
+    cdef uint64_t mg_millis()
 
     void mg_free(void *ptr)

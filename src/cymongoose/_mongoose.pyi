@@ -41,6 +41,15 @@ MG_LL_INFO: int
 MG_LL_DEBUG: int
 MG_LL_VERBOSE: int
 
+# MQTT v5 property type constants
+MQTT_PROP_TYPE_BYTE: int
+MQTT_PROP_TYPE_STRING: int
+MQTT_PROP_TYPE_STRING_PAIR: int
+MQTT_PROP_TYPE_BINARY_DATA: int
+MQTT_PROP_TYPE_VARIABLE_INT: int
+MQTT_PROP_TYPE_INT: int
+MQTT_PROP_TYPE_SHORT: int
+
 class HttpMessage:
     """Lightweight view over a struct mg_http_message."""
 
@@ -183,6 +192,17 @@ class MqttMessage:
     @property
     def ack(self) -> int:
         """Acknowledgement field."""
+        ...
+
+    def properties(self) -> List[Dict[str, Any]]:
+        """Iterate MQTT v5 properties on this message.
+
+        Returns a list of dicts, each with keys:
+            id: property identifier (uint8)
+            iv: integer value (for byte/short/int/variable-int types)
+            key: string key (only for user-property type)
+            val: string value (for string/binary/user-property types)
+        """
         ...
 
 class TlsOpts:
@@ -474,6 +494,14 @@ class Connection:
         Args:
             topic: MQTT topic (can include wildcards)
             qos: Quality of service (0, 1, or 2)
+        """
+        ...
+
+    def mqtt_unsub(self, topic: str) -> None:
+        """Unsubscribe from an MQTT topic.
+
+        Args:
+            topic: MQTT topic to unsubscribe from
         """
         ...
 
@@ -1037,4 +1065,161 @@ def event_name(ev: int) -> str:
         "MG_EV_USER+N" for user events and "MG_EV_UNKNOWN(N)" for
         unrecognised values.
     """
+    ...
+
+# RPC framework
+
+class RpcReq:
+    """Request object passed to RPC handler callbacks."""
+
+    @property
+    def frame(self) -> str:
+        """The raw JSON-RPC request frame."""
+        ...
+
+    def ok(self, result_json: str) -> None:
+        """Send a successful JSON-RPC response.
+
+        Args:
+            result_json: Raw JSON value for the "result" field.
+        """
+        ...
+
+    def err(self, code: int, message: str) -> None:
+        """Send a JSON-RPC error response.
+
+        Args:
+            code: JSON-RPC error code
+            message: Human-readable error message
+        """
+        ...
+
+class Rpc:
+    """JSON-RPC dispatcher backed by mongoose's built-in RPC framework."""
+
+    def add(self, method: str, handler: Callable[[RpcReq], None]) -> None:
+        """Register an RPC method handler.
+
+        Args:
+            method: Method name or pattern
+            handler: Callable receiving an RpcReq argument
+        """
+        ...
+
+    def process(self, frame: Union[str, bytes]) -> str:
+        """Dispatch a JSON-RPC request frame and return the response.
+
+        Args:
+            frame: JSON-RPC request string (or bytes)
+
+        Returns:
+            JSON-RPC response string, or empty string for notifications
+        """
+        ...
+
+    @property
+    def methods(self) -> List[str]:
+        """Return list of registered method patterns."""
+        ...
+
+# URL parsing utilities
+
+def url_port(url: str) -> int:
+    """Return the port number from a URL, or default port for the scheme."""
+    ...
+
+def url_host(url: str) -> str:
+    """Return the host component of a URL."""
+    ...
+
+def url_user(url: str) -> str:
+    """Return the username from a URL, or empty string if absent."""
+    ...
+
+def url_pass(url: str) -> str:
+    """Return the password from a URL, or empty string if absent."""
+    ...
+
+def url_uri(url: str) -> str:
+    """Return the URI (path + query) from a URL."""
+    ...
+
+def url_is_ssl(url: str) -> bool:
+    """Return True if the URL scheme implies TLS."""
+    ...
+
+# Pattern matching
+
+def match(s: str, pattern: str) -> Tuple[bool, List[str]]:
+    """Match a string against a mongoose glob pattern.
+
+    Pattern syntax: ? (single char), * (segment), # (greedy across /).
+
+    Args:
+        s: String to match
+        pattern: Glob pattern
+
+    Returns:
+        (matched, captures) tuple
+    """
+    ...
+
+# HTTP variable extraction
+
+def http_var(buf: Union[str, bytes], name: str) -> Optional[str]:
+    """Extract a form/query variable from a buffer.
+
+    Args:
+        buf: Query string or form body
+        name: Variable name
+
+    Returns:
+        Value string, or None if not found
+    """
+    ...
+
+# Hashing utilities
+
+def md5(data: Union[str, bytes]) -> bytes:
+    """Compute MD5 hash. Returns 16-byte digest."""
+    ...
+
+def sha1(data: Union[str, bytes]) -> bytes:
+    """Compute SHA1 hash. Returns 20-byte digest."""
+    ...
+
+def sha256(data: Union[str, bytes]) -> bytes:
+    """Compute SHA256 hash. Returns 32-byte digest."""
+    ...
+
+def hmac_sha256(key: Union[str, bytes], data: Union[str, bytes]) -> bytes:
+    """Compute HMAC-SHA256. Returns 32-byte digest."""
+    ...
+
+# Base64
+
+def base64_encode(data: Union[str, bytes]) -> str:
+    """Base64-encode data. Returns encoded string."""
+    ...
+
+def base64_decode(data: str) -> bytes:
+    """Base64-decode a string. Returns decoded bytes."""
+    ...
+
+# Misc utilities
+
+def millis() -> int:
+    """Return milliseconds since boot (monotonic clock)."""
+    ...
+
+def random_bytes(length: int) -> bytes:
+    """Generate cryptographically random bytes."""
+    ...
+
+def random_str(length: int) -> str:
+    """Generate a random alphanumeric string."""
+    ...
+
+def crc32(data: Union[str, bytes], initial: int = 0) -> int:
+    """Compute CRC32 checksum."""
     ...

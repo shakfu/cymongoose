@@ -10,7 +10,7 @@ from cpython.ref cimport PyObject, Py_INCREF, Py_DECREF
 from cpython.bytes cimport PyBytes_FromStringAndSize
 from cpython.unicode cimport PyUnicode_DecodeUTF8
 from cpython.exc cimport PyErr_CheckSignals
-from libc.stdint cimport uintptr_t, uint16_t, uint64_t
+from libc.stdint cimport uintptr_t, uint8_t, uint16_t, uint32_t, uint64_t
 from libc.string cimport memset
 from libc.stddef cimport size_t
 from libc.stdlib cimport free, malloc
@@ -125,9 +125,19 @@ from .mongoose cimport (
     mg_mqtt_login,
     mg_mqtt_pub,
     mg_mqtt_sub,
+    mg_mqtt_unsub,
     mg_mqtt_ping,
     mg_mqtt_pong,
     mg_mqtt_disconnect,
+    mg_mqtt_prop,
+    mg_mqtt_next_prop,
+    MQTT_PROP_TYPE_BYTE as C_MQTT_PROP_TYPE_BYTE,
+    MQTT_PROP_TYPE_STRING as C_MQTT_PROP_TYPE_STRING,
+    MQTT_PROP_TYPE_STRING_PAIR as C_MQTT_PROP_TYPE_STRING_PAIR,
+    MQTT_PROP_TYPE_BINARY_DATA as C_MQTT_PROP_TYPE_BINARY_DATA,
+    MQTT_PROP_TYPE_VARIABLE_INT as C_MQTT_PROP_TYPE_VARIABLE_INT,
+    MQTT_PROP_TYPE_INT as C_MQTT_PROP_TYPE_INT,
+    MQTT_PROP_TYPE_SHORT as C_MQTT_PROP_TYPE_SHORT,
     mg_sntp_connect,
     mg_sntp_request,
     mg_sntp_parse,
@@ -136,6 +146,46 @@ from .mongoose cimport (
     mg_timer_add,
     mg_timer_free,
     mg_free,
+    mg_iobuf,
+    mg_iobuf_free,
+    mg_pfn_t,
+    mg_pfn_iobuf,
+    mg_rpc,
+    mg_rpc_req,
+    mg_rpc_add,
+    mg_rpc_del,
+    mg_rpc_process,
+    mg_rpc_ok,
+    mg_rpc_err,
+    mg_rpc_list,
+    mg_url_port,
+    mg_url_is_ssl,
+    mg_url_host,
+    mg_url_user,
+    mg_url_pass,
+    mg_url_uri,
+    mg_match,
+    mg_http_var,
+    mg_md5_ctx,
+    mg_md5_init,
+    mg_md5_update,
+    mg_md5_final,
+    mg_sha1_ctx,
+    mg_sha1_init,
+    mg_sha1_update,
+    mg_sha1_final,
+    mg_sha256_ctx,
+    mg_sha256_init,
+    mg_sha256_update,
+    mg_sha256_final,
+    mg_sha256,
+    mg_hmac_sha256,
+    mg_base64_encode,
+    mg_base64_decode,
+    mg_random,
+    mg_random_str,
+    mg_crc32,
+    mg_millis,
     MG_TIMER_ONCE,
     MG_TIMER_REPEAT,
     MG_TIMER_RUN_NOW,
@@ -146,6 +196,7 @@ from .mongoose cimport (
     WEBSOCKET_OP_PONG as C_WEBSOCKET_OP_PONG,
 )
 
+import json as _json
 import traceback
 from typing import Optional
 
@@ -192,11 +243,38 @@ __all__ = [
     "json_get_bool",
     "json_get_long",
     "json_get_str",
+    "Rpc",
+    "RpcReq",
     "url_encode",
+    "url_port",
+    "url_host",
+    "url_user",
+    "url_pass",
+    "url_uri",
+    "url_is_ssl",
+    "match",
     "http_parse_multipart",
     "event_name",
     "log_set",
     "log_get",
+    "http_var",
+    "sha256",
+    "hmac_sha256",
+    "sha1",
+    "md5",
+    "base64_encode",
+    "base64_decode",
+    "millis",
+    "random_bytes",
+    "random_str",
+    "crc32",
+    "MQTT_PROP_TYPE_BYTE",
+    "MQTT_PROP_TYPE_STRING",
+    "MQTT_PROP_TYPE_STRING_PAIR",
+    "MQTT_PROP_TYPE_BINARY_DATA",
+    "MQTT_PROP_TYPE_VARIABLE_INT",
+    "MQTT_PROP_TYPE_INT",
+    "MQTT_PROP_TYPE_SHORT",
     "MG_LL_NONE",
     "MG_LL_ERROR",
     "MG_LL_INFO",
@@ -236,6 +314,14 @@ MG_LL_ERROR = C_MG_LL_ERROR
 MG_LL_INFO = C_MG_LL_INFO
 MG_LL_DEBUG = C_MG_LL_DEBUG
 MG_LL_VERBOSE = C_MG_LL_VERBOSE
+
+MQTT_PROP_TYPE_BYTE = C_MQTT_PROP_TYPE_BYTE
+MQTT_PROP_TYPE_STRING = C_MQTT_PROP_TYPE_STRING
+MQTT_PROP_TYPE_STRING_PAIR = C_MQTT_PROP_TYPE_STRING_PAIR
+MQTT_PROP_TYPE_BINARY_DATA = C_MQTT_PROP_TYPE_BINARY_DATA
+MQTT_PROP_TYPE_VARIABLE_INT = C_MQTT_PROP_TYPE_VARIABLE_INT
+MQTT_PROP_TYPE_INT = C_MQTT_PROP_TYPE_INT
+MQTT_PROP_TYPE_SHORT = C_MQTT_PROP_TYPE_SHORT
 
 _EVENT_NAMES = {
     C_MG_EV_ERROR: "MG_EV_ERROR",
@@ -489,6 +575,33 @@ cdef class MqttMessage:
     def ack(self) -> int:
         return self._msg.ack if self._msg != NULL else 0
 
+    def properties(self) -> list:
+        """Iterate MQTT v5 properties on this message.
+
+        Returns a list of dicts, each with keys:
+            id: property identifier (uint8)
+            iv: integer value (for byte/short/int/variable-int types)
+            key: string key (only for user-property type)
+            val: string value (for string/binary/user-property types)
+        """
+        if self._msg == NULL:
+            return []
+        cdef mg_mqtt_prop prop
+        cdef size_t ofs = 0
+        result = []
+        while True:
+            ofs = mg_mqtt_next_prop(self._msg, &prop, ofs)
+            if ofs == 0:
+                break
+            entry = {
+                "id": prop.id,
+                "iv": prop.iv,
+                "key": _mg_str_to_text(prop.key),
+                "val": _mg_str_to_text(prop.val),
+            }
+            result.append(entry)
+        return result
+
 
 cdef class TlsOpts:
     """TLS configuration options for secure connections.
@@ -609,10 +722,10 @@ cdef class Connection:
         if is_ipv6:
             parts = []
             for i in range(8):
-                parts.append(f"{addr.ip[i*2]:02x}{addr.ip[i*2+1]:02x}")
+                parts.append(f"{addr.addr.ip[i*2]:02x}{addr.addr.ip[i*2+1]:02x}")
             ip_str = ":".join(parts)
         else:
-            ip_str = f"{addr.ip[0]}.{addr.ip[1]}.{addr.ip[2]}.{addr.ip[3]}"
+            ip_str = f"{addr.addr.ip[0]}.{addr.addr.ip[1]}.{addr.addr.ip[2]}.{addr.addr.ip[3]}"
         return (ip_str, host_port, bool(is_ipv6))
 
     @property
@@ -837,6 +950,22 @@ cdef class Connection:
         cdef mg_connection *conn = self._ptr()
         with nogil:
             mg_mqtt_sub(conn, &opts)
+
+    def mqtt_unsub(self, topic: str) -> None:
+        """Unsubscribe from an MQTT topic.
+
+        Args:
+            topic: MQTT topic to unsubscribe from
+        """
+        cdef mg_mqtt_opts opts
+        memset(&opts, 0, sizeof(mg_mqtt_opts))
+
+        cdef bytes topic_b = topic.encode("utf-8")
+        opts.topic = mg_str_n(topic_b, len(topic_b))
+
+        cdef mg_connection *conn = self._ptr()
+        with nogil:
+            mg_mqtt_unsub(conn, &opts)
 
     def mqtt_ping(self) -> None:
         """Send MQTT ping."""
@@ -1951,6 +2080,513 @@ def http_parse_multipart(body, offset=0) -> tuple:
     }
 
     return (next_offset, part_dict)
+
+
+# ---------------------------------------------------------------------------
+# RPC framework
+# ---------------------------------------------------------------------------
+
+cdef void _rpc_handler_bridge(mg_rpc_req *req) noexcept with gil:
+    """C callback that dispatches to the Python RPC handler."""
+    if req == NULL or req.rpc == NULL or req.rpc.fn_data == NULL:
+        return
+    cdef object handler = <object>req.rpc.fn_data
+    cdef bytes err_msg
+    py_req = RpcReq()
+    py_req._req = req
+    py_req._responded = False
+    try:
+        handler(py_req)
+        if not py_req._responded:
+            mg_rpc_err(req, -32603, "%.*s", 30,
+                       "\"handler produced no response\"")
+    except Exception as e:
+        if not py_req._responded:
+            err_msg = _json.dumps(str(e)).encode("utf-8")
+            mg_rpc_err(req, -32603, "%.*s", <int>len(err_msg), <const char*>err_msg)
+    finally:
+        py_req._req = NULL
+
+
+cdef class RpcReq:
+    """Request object passed to RPC handler callbacks."""
+
+    cdef mg_rpc_req *_req
+    cdef bint _responded
+
+    @property
+    def frame(self) -> str:
+        """The raw JSON-RPC request frame."""
+        if self._req == NULL:
+            return ""
+        return _mg_str_to_text(self._req.frame)
+
+    def ok(self, result_json: str) -> None:
+        """Send a successful JSON-RPC response.
+
+        Args:
+            result_json: Raw JSON value for the "result" field.
+                         Examples: '42', '"hello"', '[1,2,3]', '{"k":"v"}'
+        """
+        if self._req == NULL:
+            raise RuntimeError("RpcReq is no longer valid")
+        if self._responded:
+            raise RuntimeError("Response already sent")
+        cdef bytes b = result_json.encode("utf-8")
+        mg_rpc_ok(self._req, "%.*s", <int>len(b), <const char*>b)
+        self._responded = True
+
+    def err(self, int code, message: str) -> None:
+        """Send a JSON-RPC error response.
+
+        Args:
+            code: JSON-RPC error code (e.g. -32600 for invalid request)
+            message: Human-readable error message
+        """
+        if self._req == NULL:
+            raise RuntimeError("RpcReq is no longer valid")
+        if self._responded:
+            raise RuntimeError("Response already sent")
+        cdef bytes b = _json.dumps(message).encode("utf-8")
+        mg_rpc_err(self._req, code, "%.*s", <int>len(b), <const char*>b)
+        self._responded = True
+
+
+cdef class Rpc:
+    """JSON-RPC dispatcher backed by mongoose's built-in RPC framework.
+
+    Example::
+
+        rpc = Rpc()
+
+        def add_handler(req):
+            a = json_get_num(req.frame, "$.params[0]")
+            b = json_get_num(req.frame, "$.params[1]")
+            req.ok(str(a + b))
+
+        rpc.add("add", add_handler)
+
+        # In your MG_EV_HTTP_MSG handler:
+        response = rpc.process(msg.body_text)
+        conn.reply(200, response, {"Content-Type": "application/json"})
+    """
+
+    cdef mg_rpc *_head
+    cdef list _handlers  # prevent GC of Python callables
+
+    def __cinit__(self):
+        self._head = NULL
+        self._handlers = []
+
+    def __dealloc__(self):
+        if self._head != NULL:
+            mg_rpc_del(&self._head, NULL)
+            self._head = NULL
+        self._handlers = []
+
+    def add(self, method: str, handler) -> None:
+        """Register an RPC method handler.
+
+        Args:
+            method: Method name or pattern (supports mongoose glob matching)
+            handler: Callable receiving an RpcReq argument
+        """
+        cdef bytes method_b = method.encode("utf-8")
+        Py_INCREF(<object>handler)
+        self._handlers.append(handler)
+        mg_rpc_add(&self._head, mg_str_n(method_b, len(method_b)),
+                   _rpc_handler_bridge, <void*>handler)
+
+    def process(self, frame) -> str:
+        """Dispatch a JSON-RPC request frame and return the response.
+
+        Args:
+            frame: JSON-RPC request string (or bytes)
+
+        Returns:
+            JSON-RPC response string, or empty string for notifications
+        """
+        cdef bytes frame_b
+        if isinstance(frame, str):
+            frame_b = (<str>frame).encode("utf-8")
+        else:
+            frame_b = bytes(frame)
+
+        cdef mg_iobuf resp
+        memset(&resp, 0, sizeof(resp))
+        resp.align = 256
+
+        cdef mg_rpc_req req
+        memset(&req, 0, sizeof(req))
+        req.head = &self._head
+        req.pfn = mg_pfn_iobuf
+        req.pfn_data = &resp
+        req.frame = mg_str_n(frame_b, len(frame_b))
+
+        mg_rpc_process(&req)
+
+        cdef str result = ""
+        if resp.buf != NULL and resp.len > 0:
+            result = PyUnicode_DecodeUTF8(<char*>resp.buf, resp.len, "surrogateescape")
+        mg_iobuf_free(&resp)
+        return result
+
+    @property
+    def methods(self) -> list:
+        """Return list of registered method patterns."""
+        result = []
+        cdef mg_rpc *h = self._head
+        while h != NULL:
+            if h.method.len > 0:
+                result.append(_mg_str_to_text(h.method))
+            h = h.next
+        return result
+
+
+# ---------------------------------------------------------------------------
+# URL parsing utilities
+# ---------------------------------------------------------------------------
+
+def url_port(url: str) -> int:
+    """Return the port number from a URL, or default port for the scheme."""
+    cdef bytes url_b = url.encode("utf-8")
+    return mg_url_port(url_b)
+
+
+def url_host(url: str) -> str:
+    """Return the host component of a URL."""
+    cdef bytes url_b = url.encode("utf-8")
+    return _mg_str_to_text(mg_url_host(url_b))
+
+
+def url_user(url: str) -> str:
+    """Return the username from a URL, or empty string if absent."""
+    cdef bytes url_b = url.encode("utf-8")
+    return _mg_str_to_text(mg_url_user(url_b))
+
+
+def url_pass(url: str) -> str:
+    """Return the password from a URL, or empty string if absent."""
+    cdef bytes url_b = url.encode("utf-8")
+    return _mg_str_to_text(mg_url_pass(url_b))
+
+
+def url_uri(url: str) -> str:
+    """Return the URI (path + query) from a URL."""
+    cdef bytes url_b = url.encode("utf-8")
+    cdef const char *uri = mg_url_uri(url_b)
+    if uri == NULL:
+        return "/"
+    return uri.decode("utf-8", "surrogateescape")
+
+
+def url_is_ssl(url: str) -> bool:
+    """Return True if the URL scheme implies TLS (https, wss, mqtts, etc.)."""
+    cdef bytes url_b = url.encode("utf-8")
+    return mg_url_is_ssl(url_b) != 0
+
+
+# ---------------------------------------------------------------------------
+# Pattern matching
+# ---------------------------------------------------------------------------
+
+def match(s: str, pattern: str) -> tuple:
+    """Match a string against a mongoose glob pattern.
+
+    Pattern syntax:
+        ?   matches any single character
+        *   matches zero or more characters except '/'
+        #   matches zero or more characters including '/'
+
+    Each ?, *, or # in the pattern captures the matched substring.
+
+    Args:
+        s: String to match
+        pattern: Glob pattern
+
+    Returns:
+        (matched, captures) where matched is bool and captures is a
+        list of captured strings (one per wildcard in pattern).
+    """
+    cdef bytes s_b = s.encode("utf-8")
+    cdef bytes p_b = pattern.encode("utf-8")
+    cdef mg_str s_str = mg_str_n(s_b, len(s_b))
+    cdef mg_str p_str = mg_str_n(p_b, len(p_b))
+    # Max 20 capture slots (generous for any realistic pattern)
+    cdef mg_str caps[20]
+    memset(caps, 0, sizeof(caps))
+
+    cdef bint matched = mg_match(s_str, p_str, caps)
+
+    captures = []
+    if matched:
+        for i in range(20):
+            if caps[i].buf == NULL:
+                break
+            captures.append(_mg_str_to_text(caps[i]))
+
+    return (bool(matched), captures)
+
+
+# ---------------------------------------------------------------------------
+# HTTP variable extraction (newer API)
+# ---------------------------------------------------------------------------
+
+def http_var(buf, name: str) -> Optional[str]:
+    """Extract a form/query variable from a buffer using mg_http_var.
+
+    Unlike the older query_var() on HttpMessage (which uses a fixed 2048-byte
+    buffer), this returns an mg_str view with no size limit.
+
+    Args:
+        buf: The buffer to search (str, bytes, or an HttpMessage whose
+             query or body will NOT be auto-selected -- pass the specific
+             field, e.g. ``msg.query`` or ``msg.body_text``).
+        name: Variable name to look up.
+
+    Returns:
+        Decoded value string, or None if not found.
+    """
+    cdef bytes buf_b
+    if isinstance(buf, str):
+        buf_b = (<str>buf).encode("utf-8")
+    else:
+        buf_b = bytes(buf)
+    cdef bytes name_b = name.encode("utf-8")
+    cdef mg_str buf_str = mg_str_n(buf_b, len(buf_b))
+    cdef mg_str name_str = mg_str_n(name_b, len(name_b))
+    cdef mg_str result = mg_http_var(buf_str, name_str)
+    if result.buf == NULL:
+        return None
+    return _mg_str_to_text(result)
+
+
+# ---------------------------------------------------------------------------
+# Hashing utilities
+# ---------------------------------------------------------------------------
+
+def md5(data) -> bytes:
+    """Compute MD5 hash of data.
+
+    Args:
+        data: Input data (str or bytes)
+
+    Returns:
+        16-byte MD5 digest
+    """
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    cdef mg_md5_ctx ctx
+    cdef unsigned char digest[16]
+    mg_md5_init(&ctx)
+    mg_md5_update(&ctx, data_b, len(data_b))
+    mg_md5_final(&ctx, digest)
+    return PyBytes_FromStringAndSize(<char*>digest, 16)
+
+
+def sha1(data) -> bytes:
+    """Compute SHA1 hash of data.
+
+    Args:
+        data: Input data (str or bytes)
+
+    Returns:
+        20-byte SHA1 digest
+    """
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    cdef mg_sha1_ctx ctx
+    cdef unsigned char digest[20]
+    mg_sha1_init(&ctx)
+    mg_sha1_update(&ctx, data_b, len(data_b))
+    mg_sha1_final(digest, &ctx)
+    return PyBytes_FromStringAndSize(<char*>digest, 20)
+
+
+def sha256(data) -> bytes:
+    """Compute SHA256 hash of data.
+
+    Args:
+        data: Input data (str or bytes)
+
+    Returns:
+        32-byte SHA256 digest
+    """
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    cdef unsigned char digest[32]
+    mg_sha256(digest, <uint8_t*><const char*>data_b, len(data_b))
+    return PyBytes_FromStringAndSize(<char*>digest, 32)
+
+
+def hmac_sha256(key, data) -> bytes:
+    """Compute HMAC-SHA256.
+
+    Args:
+        key: HMAC key (str or bytes)
+        data: Input data (str or bytes)
+
+    Returns:
+        32-byte HMAC-SHA256 digest
+    """
+    cdef bytes key_b
+    if isinstance(key, str):
+        key_b = (<str>key).encode("utf-8")
+    else:
+        key_b = bytes(key)
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    cdef unsigned char digest[32]
+    mg_hmac_sha256(digest, <uint8_t*><const char*>key_b, len(key_b),
+                   <uint8_t*><const char*>data_b, len(data_b))
+    return PyBytes_FromStringAndSize(<char*>digest, 32)
+
+
+# ---------------------------------------------------------------------------
+# Base64
+# ---------------------------------------------------------------------------
+
+def base64_encode(data) -> str:
+    """Base64-encode data.
+
+    Args:
+        data: Input data (str or bytes)
+
+    Returns:
+        Base64-encoded string
+    """
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    cdef size_t src_len = len(data_b)
+    if src_len == 0:
+        return ""
+    # Base64 output is ceil(n/3)*4, plus room for NUL
+    cdef size_t buf_len = ((src_len + 2) // 3) * 4 + 1
+    cdef char *buf = <char*>malloc(buf_len)
+    cdef size_t out_len
+    if buf == NULL:
+        raise MemoryError("Failed to allocate buffer for base64 encoding")
+    try:
+        out_len = mg_base64_encode(
+            <const unsigned char*><const char*>data_b, src_len, buf, buf_len)
+        return buf[:out_len].decode("ascii")
+    finally:
+        free(buf)
+
+
+def base64_decode(data: str) -> bytes:
+    """Base64-decode a string.
+
+    Args:
+        data: Base64-encoded string
+
+    Returns:
+        Decoded bytes
+    """
+    cdef bytes data_b = data.encode("ascii")
+    cdef size_t src_len = len(data_b)
+    if src_len == 0:
+        return b""
+    # Decoded output is at most ceil(n/4)*3
+    cdef size_t buf_len = ((src_len + 3) // 4) * 3 + 1
+    cdef char *buf = <char*>malloc(buf_len)
+    cdef size_t out_len
+    if buf == NULL:
+        raise MemoryError("Failed to allocate buffer for base64 decoding")
+    try:
+        out_len = mg_base64_decode(data_b, src_len, buf, buf_len)
+        return PyBytes_FromStringAndSize(buf, out_len)
+    finally:
+        free(buf)
+
+
+# ---------------------------------------------------------------------------
+# Misc utilities
+# ---------------------------------------------------------------------------
+
+def millis() -> int:
+    """Return milliseconds since boot (monotonic clock)."""
+    return mg_millis()
+
+
+def random_bytes(size_t length) -> bytes:
+    """Generate cryptographically random bytes.
+
+    Args:
+        length: Number of random bytes to generate
+
+    Returns:
+        Random bytes
+    """
+    if length == 0:
+        return b""
+    cdef unsigned char *buf = <unsigned char*>malloc(length)
+    if buf == NULL:
+        raise MemoryError("Failed to allocate buffer for random bytes")
+    try:
+        if not mg_random(buf, length):
+            raise OSError("mg_random failed")
+        return PyBytes_FromStringAndSize(<char*>buf, length)
+    finally:
+        free(buf)
+
+
+def random_str(size_t length) -> str:
+    """Generate a random printable string.
+
+    Characters are drawn from 0-9, a-z, A-Z.
+
+    Args:
+        length: Desired string length (not including NUL)
+
+    Returns:
+        Random alphanumeric string
+    """
+    if length == 0:
+        return ""
+    # mg_random_str needs length+1 for NUL
+    cdef char *buf = <char*>malloc(length + 1)
+    if buf == NULL:
+        raise MemoryError("Failed to allocate buffer for random string")
+    try:
+        mg_random_str(buf, length + 1)
+        return buf[:length].decode("ascii")
+    finally:
+        free(buf)
+
+
+def crc32(data, uint32_t initial=0) -> int:
+    """Compute CRC32 checksum.
+
+    Args:
+        data: Input data (str or bytes)
+        initial: Initial CRC value (default 0)
+
+    Returns:
+        CRC32 checksum as unsigned integer
+    """
+    cdef bytes data_b
+    if isinstance(data, str):
+        data_b = (<str>data).encode("utf-8")
+    else:
+        data_b = bytes(data)
+    return mg_crc32(initial, data_b, len(data_b))
+
 
 # Timer callback bridge - called from C, needs to acquire GIL
 cdef void _timer_callback(void *arg) noexcept with gil:

@@ -17,6 +17,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Changed
+
+- **Upgraded mongoose from 7.19 to 7.21**. Key upstream fixes: HTTP fast closure handling, `mg_aton()` IPv6 scope ID fix, certificate verification reliability, `mg_queue_vprintf` va_args fix, and CVE-2025-65502 (`SSL_CTX_get_cert_store()` crash under low RAM, OpenSSL only). Updated `mg_addr` struct in the Cython binding to match the new union-based layout (`addr.ip` -> `addr.addr.ip`). All 460 existing tests pass without changes; the `c->loc` semantic change (actual local address on accepted connections vs. bind address) is compatible with existing expectations.
+
+### Added
+
+- **MQTT `conn.mqtt_unsub(topic)`**: Exposes `mg_mqtt_unsub()` added in mongoose 7.21 for MQTT topic unsubscribe.
+- **MQTT v5 property access**: `MqttMessage.properties()` iterates MQTT v5 properties via `mg_mqtt_next_prop()`, returning a list of dicts with `id`, `iv`, `key`, `val` fields. `MQTT_PROP_TYPE_*` constants exported for identifying property types.
+- **JSON-RPC framework**: `Rpc` class backed by mongoose's built-in RPC dispatcher. `rpc.add(method, handler)` registers Python handlers; `rpc.process(frame)` dispatches a JSON-RPC request and returns the response string. `RpcReq` passed to handlers provides `.frame`, `.ok(json)`, `.err(code, msg)`. Exceptions auto-convert to JSON-RPC errors; double-response and missing-response are handled.
+- **URL parsing utilities**: `url_port()`, `url_host()`, `url_user()`, `url_pass()`, `url_uri()`, `url_is_ssl()` wrapping mongoose's URL parser. Returns sensible defaults (e.g. port 80 for http, 443 for https).
+- **Pattern matching**: `match(s, pattern)` wrapping `mg_match()`. Supports `?` (single char), `*` (segment), `#` (greedy across `/`) with capture extraction.
+- **HTTP variable extraction**: `http_var(buf, name)` wrapping `mg_http_var()`, the newer alternative to `query_var()` without a fixed buffer size limit.
+- **Hashing utilities**: `md5()`, `sha1()`, `sha256()`, `hmac_sha256()` wrapping mongoose's built-in hash functions. All validated against Python's `hashlib`/`hmac`.
+- **Base64**: `base64_encode()`, `base64_decode()` wrapping mongoose's base64 implementation.
+- **Misc utilities**: `millis()` (monotonic ms since boot), `random_bytes()`, `random_str()` (alphanumeric), `crc32()` (with incremental support).
+
 ## [0.2.3]
 
 ### Added
