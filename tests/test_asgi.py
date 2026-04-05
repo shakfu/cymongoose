@@ -387,6 +387,308 @@ class TestASGIScope:
         assert any(h[0] == b"x-foo" and h[1] == b"bar" for h in captured["headers"])
 
 
+# ---------------------------------------------------------------------------
+# Streaming ASGI apps
+# ---------------------------------------------------------------------------
+
+
+async def streaming_app(scope, receive, send):
+    """Sends response in multiple chunks with more_body=True."""
+    if scope["type"] == "http":
+        await receive()
+        await send(
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [[b"content-type", b"text/plain"]],
+            }
+        )
+        chunks = [b"chunk1", b"chunk2", b"chunk3"]
+        for i, chunk in enumerate(chunks):
+            is_last = i == len(chunks) - 1
+            await send(
+                {
+                    "type": "http.response.body",
+                    "body": chunk,
+                    "more_body": not is_last,
+                }
+            )
+
+
+async def streaming_empty_final_app(scope, receive, send):
+    """Sends chunks, then an empty final body (more_body=False)."""
+    if scope["type"] == "http":
+        await receive()
+        await send(
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [[b"content-type", b"text/plain"]],
+            }
+        )
+        await send(
+            {"type": "http.response.body", "body": b"hello", "more_body": True}
+        )
+        await send(
+            {"type": "http.response.body", "body": b"", "more_body": False}
+        )
+
+
+async def streaming_large_app(scope, receive, send):
+    """Streams a large response exceeding the wakeup stash threshold."""
+    if scope["type"] == "http":
+        await receive()
+        await send(
+            {
+                "type": "http.response.start",
+                "status": 200,
+                "headers": [[b"content-type", b"application/octet-stream"]],
+            }
+        )
+        # 10 KB chunk -- exceeds _WAKEUP_MAX_BYTES (8 KB)
+        big_chunk = b"X" * (10 * 1024)
+        await send(
+            {"type": "http.response.body", "body": big_chunk, "more_body": True}
+        )
+        await send(
+            {"type": "http.response.body", "body": b"done", "more_body": False}
+        )
+
+
+async def streaming_custom_status_app(scope, receive, send):
+    """Streams with a 201 status code."""
+    if scope["type"] == "http":
+        await receive()
+        await send(
+            {
+                "type": "http.response.start",
+                "status": 201,
+                "headers": [
+                    [b"content-type", b"text/plain"],
+                    [b"x-custom", b"val"],
+                ],
+            }
+        )
+        await send(
+            {"type": "http.response.body", "body": b"created-", "more_body": True}
+        )
+        await send(
+            {"type": "http.response.body", "body": b"ok", "more_body": False}
+        )
+
+
+# ---------------------------------------------------------------------------
+# Tests: Streaming HTTP
+# ---------------------------------------------------------------------------
+
+
+class TestASGIHTTPStreaming:
+    """Chunked streaming via more_body=True."""
+
+    def test_streaming_basic(self):
+        """Multiple chunks are concatenated in the response."""
+        with _ServerCtx(streaming_app) as srv:
+            status, body, headers = _request(srv.port, "/")
+            assert status == 200
+            assert body == "chunk1chunk2chunk3"
+            te = headers.get("Transfer-Encoding", "").lower()
+            assert "chunked" in te
+
+    def test_streaming_empty_final(self):
+        """Empty final body terminates the chunked stream."""
+        with _ServerCtx(streaming_empty_final_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "hello"
+
+    def test_streaming_large_chunk(self):
+        """Large chunks (> 8 KB) go through the stash path."""
+        with _ServerCtx(streaming_large_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            expected = ("X" * (10 * 1024)) + "done"
+            assert body == expected
+
+    def test_streaming_preserves_status_and_headers(self):
+        """Status code and custom headers are preserved in streaming mode."""
+        import http.client
+
+        with _ServerCtx(streaming_custom_status_app) as srv:
+            conn = http.client.HTTPConnection("127.0.0.1", srv.port, timeout=3)
+            conn.request("GET", "/")
+            resp = conn.getresponse()
+            body = resp.read().decode()
+            assert resp.status == 201
+            assert resp.getheader("x-custom") == "val"
+            assert body == "created-ok"
+            conn.close()
+
+    def test_streaming_many_chunks_backpressure(self):
+        """Many chunks (> semaphore limit) complete without deadlock or data loss."""
+        num_chunks = 64  # 4x the _STREAM_CONCURRENCY limit (16)
+
+        async def many_chunks_app(scope, receive, send):
+            if scope["type"] == "http":
+                await receive()
+                await send(
+                    {
+                        "type": "http.response.start",
+                        "status": 200,
+                        "headers": [[b"content-type", b"text/plain"]],
+                    }
+                )
+                for i in range(num_chunks):
+                    is_last = i == num_chunks - 1
+                    await send(
+                        {
+                            "type": "http.response.body",
+                            "body": f"{i:04d}".encode(),
+                            "more_body": not is_last,
+                        }
+                    )
+
+        with _ServerCtx(many_chunks_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            expected = "".join(f"{i:04d}" for i in range(num_chunks))
+            assert body == expected
+
+    def test_buffered_still_works(self):
+        """Non-streaming (no more_body) responses are unaffected."""
+        with _ServerCtx(hello_app) as srv:
+            status, body, headers = _request(srv.port, "/")
+            assert status == 200
+            assert body == "Hello, World!"
+            # Buffered responses should NOT use chunked TE.
+            te = headers.get("Transfer-Encoding", "")
+            assert "chunked" not in te.lower()
+
+
+# ---------------------------------------------------------------------------
+# Tests: Lifespan
+# ---------------------------------------------------------------------------
+
+
+class TestASGILifespan:
+    """ASGI lifespan sub-protocol."""
+
+    def test_lifespan_startup_shutdown(self):
+        """App receives startup and shutdown events in order."""
+        events = []
+
+        async def lifespan_app(scope, receive, send):
+            if scope["type"] == "lifespan":
+                msg = await receive()
+                assert msg["type"] == "lifespan.startup"
+                events.append("startup")
+                await send({"type": "lifespan.startup.complete"})
+                msg = await receive()
+                assert msg["type"] == "lifespan.shutdown"
+                events.append("shutdown")
+                await send({"type": "lifespan.shutdown.complete"})
+            elif scope["type"] == "http":
+                await receive()
+                await send(
+                    {
+                        "type": "http.response.start",
+                        "status": 200,
+                        "headers": [[b"content-type", b"text/plain"]],
+                    }
+                )
+                await send({"type": "http.response.body", "body": b"ok"})
+
+        with _ServerCtx(lifespan_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "ok"
+
+        assert "startup" in events
+        assert "shutdown" in events
+
+    def test_lifespan_state_available_to_requests(self):
+        """State initialised during lifespan.startup is visible to handlers."""
+        shared = {}
+
+        async def stateful_app(scope, receive, send):
+            if scope["type"] == "lifespan":
+                msg = await receive()
+                assert msg["type"] == "lifespan.startup"
+                shared["db"] = "connected"
+                await send({"type": "lifespan.startup.complete"})
+                msg = await receive()
+                assert msg["type"] == "lifespan.shutdown"
+                shared.pop("db", None)
+                await send({"type": "lifespan.shutdown.complete"})
+            elif scope["type"] == "http":
+                await receive()
+                body = shared.get("db", "missing").encode()
+                await send(
+                    {
+                        "type": "http.response.start",
+                        "status": 200,
+                        "headers": [[b"content-type", b"text/plain"]],
+                    }
+                )
+                await send({"type": "http.response.body", "body": body})
+
+        with _ServerCtx(stateful_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "connected"
+
+    def test_no_lifespan_support(self):
+        """App that doesn't handle lifespan scope -- server proceeds normally."""
+
+        async def no_lifespan_app(scope, receive, send):
+            if scope["type"] == "lifespan":
+                raise NotImplementedError("no lifespan")
+            if scope["type"] == "http":
+                await receive()
+                await send(
+                    {
+                        "type": "http.response.start",
+                        "status": 200,
+                        "headers": [[b"content-type", b"text/plain"]],
+                    }
+                )
+                await send({"type": "http.response.body", "body": b"works"})
+
+        with _ServerCtx(no_lifespan_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "works"
+
+    def test_lifespan_startup_failed(self):
+        """App that signals startup failure -- server raises RuntimeError."""
+
+        async def failing_app(scope, receive, send):
+            if scope["type"] == "lifespan":
+                msg = await receive()
+                assert msg["type"] == "lifespan.startup"
+                await send(
+                    {
+                        "type": "lifespan.startup.failed",
+                        "message": "db unreachable",
+                    }
+                )
+
+        server = ASGIServer(failing_app)
+        loop = asyncio.new_event_loop()
+        try:
+            with pytest.raises(RuntimeError, match="db unreachable"):
+                loop.run_until_complete(server.start("http://127.0.0.1:0"))
+        finally:
+            loop.run_until_complete(server.stop())
+            loop.close()
+
+    def test_apps_without_lifespan_unaffected(self):
+        """Existing apps (like hello_app) that ignore lifespan still work."""
+        with _ServerCtx(hello_app) as srv:
+            status, body, _ = _request(srv.port, "/")
+            assert status == 200
+            assert body == "Hello, World!"
+
+
 if __name__ == "__main__":
     result = pytest.main([__file__, "-v"])
     sys.exit(result)

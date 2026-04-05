@@ -6,16 +6,16 @@
 
 ## Features
 
-- **HTTP/HTTPS, WebSocket/WSS, MQTT/MQTTS** -- full protocol support with TLS
-- **TCP/UDP, DNS, SNTP** -- raw sockets and network utilities
-- **Timers** -- periodic callbacks with thread-safe cancellation
-- **Event-driven** -- non-blocking I/O with a simple event loop
-- **GIL-free** -- 24 methods release the GIL for true parallel execution
-- **High performance** -- 60k+ req/sec (6-37x faster than pure Python frameworks)
-- **WSGI support** -- serve Flask, Django, Bottle apps on the C event loop
-- **ASGI support** -- serve FastAPI, Starlette, Django async apps with WebSocket
-- **Asyncio support** -- `AsyncManager` for asyncio integration
-- **Type hints** -- full `.pyi` stubs and `py.typed` marker
+- **HTTP/HTTPS, WebSocket/WSS, MQTT/MQTTS**: full protocol support with TLS
+- **TCP/UDP, DNS, SNTP**: raw sockets and network utilities
+- **Timers**: periodic callbacks with thread-safe cancellation
+- **Event-driven**: non-blocking I/O with a simple event loop
+- **GIL-free**: 24 methods release the GIL for true parallel execution
+- **High performance**: 60k+ req/sec (6-37x faster than pure Python frameworks)
+- **WSGI support**: serve Flask, Django, Bottle apps on the C event loop
+- **ASGI support**: serve FastAPI, Starlette, Django async apps with WebSocket, streaming, and lifespan
+- **Asyncio support**: `AsyncManager` for asyncio integration
+- **Type hints**: full `.pyi` stubs and `py.typed` marker
 
 ## Installation
 
@@ -98,7 +98,7 @@ See the [quickstart guide](https://shakfu.github.io/cymongoose/quickstart/) and 
 ## Testing
 
 ```sh
-make test           # Run all tests (366 tests)
+make test           # Run all tests (454 tests)
 make test-asan      # Run with AddressSanitizer (memory safety)
 make qa             # Run tests + lint + type check + format
 ```

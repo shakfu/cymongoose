@@ -70,6 +70,7 @@ ASGIApp = Callable[..., Any]
 # ---------------------------------------------------------------------------
 
 _WAKEUP_MAX_BYTES = 8 * 1024  # 8 KB
+_STREAM_CONCURRENCY = 16  # max in-flight streaming wakeups per connection
 
 # Wakeup message types.
 _RESP = b"R"  # HTTP response (inline): R<json>
@@ -77,6 +78,11 @@ _RESP_STASH = b"r"  # HTTP response (stash): r<uuid>
 _WS_SEND = b"W"  # WebSocket send (inline): W<json>
 _WS_SEND_STASH = b"w"  # WebSocket send (stash): w<uuid>
 _WS_CLOSE = b"X"  # WebSocket close
+_STREAM_HDR = b"S"  # Chunked stream: headers (inline): S<raw_headers>
+_STREAM_HDR_STASH = b"s"  # Chunked stream: headers (stash): s<uuid>
+_STREAM_CHUNK = b"C"  # Chunked stream: body chunk (inline): C<data>
+_STREAM_CHUNK_STASH = b"c"  # Chunked stream: body chunk (stash): c<uuid>
+_STREAM_END = b"E"  # Chunked stream: end (no payload)
 
 
 # ---------------------------------------------------------------------------
@@ -160,7 +166,15 @@ def _build_ws_scope(
 class _ConnState:
     """Tracks ASGI state for a single connection."""
 
-    __slots__ = ("scope", "receive_queue", "task", "ws_accepted", "response_started")
+    __slots__ = (
+        "scope",
+        "receive_queue",
+        "task",
+        "ws_accepted",
+        "response_started",
+        "streaming",
+        "stream_sem",
+    )
 
     def __init__(self, scope: dict[str, Any]) -> None:
         self.scope = scope
@@ -168,6 +182,9 @@ class _ConnState:
         self.task: concurrent.futures.Future[None] | None = None
         self.ws_accepted = False
         self.response_started = False
+        self.streaming = False
+        # Created lazily on first streaming body; limits in-flight wakeups.
+        self.stream_sem: asyncio.Semaphore | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -208,6 +225,15 @@ class ASGIServer:
         self._stash: dict[str, bytes] = {}
         self._stash_lock = threading.Lock()
 
+        # Lifespan state.
+        self._lifespan_receive: asyncio.Queue[dict[str, Any]] | None = None
+        self._lifespan_startup_complete: asyncio.Event | None = None
+        self._lifespan_startup_failed = False
+        self._lifespan_failure_message: str = ""
+        self._lifespan_shutdown_complete: asyncio.Event | None = None
+        self._lifespan_task: asyncio.Task[None] | None = None
+        self._lifespan_supported = True
+
     @property
     def manager(self) -> Manager:
         if self._manager is None:
@@ -217,6 +243,13 @@ class ASGIServer:
     async def start(self, url: str = "http://127.0.0.1:8000") -> Connection:
         """Start the server.  Must be called from an async context."""
         self._loop = asyncio.get_running_loop()
+
+        # Run lifespan startup before binding.
+        await self._lifespan_startup()
+        if self._lifespan_startup_failed:
+            raise RuntimeError(
+                f"ASGI lifespan startup failed: {self._lifespan_failure_message}"
+            )
 
         self._manager = Manager(
             self._event_handler,
@@ -252,7 +285,83 @@ class ASGIServer:
         if self._manager is not None:
             self._manager.close()
             self._manager = None
+
+        # Run lifespan shutdown after connections are closed.
+        await self._lifespan_shutdown()
+
         self._loop = None
+
+    # -- Lifespan protocol ------------------------------------------------------
+
+    async def _lifespan_startup(self) -> None:
+        """Run the ASGI lifespan startup sequence.
+
+        If the app doesn't support lifespan (raises an exception on the
+        lifespan scope), we silently proceed without it.
+        """
+        self._lifespan_receive = asyncio.Queue()
+        self._lifespan_startup_complete = asyncio.Event()
+        self._lifespan_shutdown_complete = asyncio.Event()
+
+        scope: dict[str, Any] = {
+            "type": "lifespan",
+            "asgi": {"version": "3.0", "spec_version": "2.0"},
+        }
+
+        async def lifespan_send(message: dict[str, Any]) -> None:
+            msg_type = message["type"]
+            if msg_type == "lifespan.startup.complete":
+                self._lifespan_startup_complete.set()
+            elif msg_type == "lifespan.startup.failed":
+                self._lifespan_startup_failed = True
+                self._lifespan_failure_message = message.get("message", "")
+                self._lifespan_startup_complete.set()  # unblock waiter
+            elif msg_type == "lifespan.shutdown.complete":
+                self._lifespan_shutdown_complete.set()
+            elif msg_type == "lifespan.shutdown.failed":
+                self._lifespan_shutdown_complete.set()  # unblock waiter
+
+        async def lifespan_coro() -> None:
+            try:
+                await self._app(scope, self._lifespan_receive.get, lifespan_send)
+            except Exception:
+                # App doesn't support lifespan -- that's fine.
+                self._lifespan_supported = False
+            finally:
+                # If the app returned or raised without signaling
+                # startup.complete (e.g. it ignores the lifespan scope
+                # entirely), treat as "no lifespan support".
+                if not self._lifespan_startup_complete.is_set():
+                    self._lifespan_supported = False
+                self._lifespan_startup_complete.set()
+                self._lifespan_shutdown_complete.set()
+
+        self._lifespan_task = asyncio.ensure_future(lifespan_coro())
+
+        # Push the startup event and wait for the app to respond.
+        await self._lifespan_receive.put({"type": "lifespan.startup"})
+        await self._lifespan_startup_complete.wait()
+
+    async def _lifespan_shutdown(self) -> None:
+        """Run the ASGI lifespan shutdown sequence."""
+        if not self._lifespan_supported or self._lifespan_receive is None:
+            return
+        if self._lifespan_shutdown_complete is None:
+            return
+
+        await self._lifespan_receive.put({"type": "lifespan.shutdown"})
+        try:
+            await asyncio.wait_for(self._lifespan_shutdown_complete.wait(), timeout=5)
+        except asyncio.TimeoutError:
+            pass
+
+        # Clean up the lifespan task.
+        if self._lifespan_task is not None and not self._lifespan_task.done():
+            self._lifespan_task.cancel()
+            try:
+                await self._lifespan_task
+            except (asyncio.CancelledError, Exception):
+                pass
 
     def _poll_loop(self) -> None:
         """Background thread: run mongoose poll loop."""
@@ -350,6 +459,12 @@ class ASGIServer:
 
         if prefix == _RESP or prefix == _RESP_STASH:
             self._handle_http_response(conn, prefix, body)
+        elif prefix == _STREAM_HDR or prefix == _STREAM_HDR_STASH:
+            self._handle_stream_header(conn, prefix, body)
+        elif prefix == _STREAM_CHUNK or prefix == _STREAM_CHUNK_STASH:
+            self._handle_stream_chunk(conn, prefix, body)
+        elif prefix == _STREAM_END:
+            conn.http_chunk(b"")
         elif prefix == _WS_SEND or prefix == _WS_SEND_STASH:
             self._handle_ws_send(conn, prefix, body)
         elif prefix == _WS_CLOSE:
@@ -394,6 +509,30 @@ class ASGIServer:
         raw_header = ("\r\n".join(lines) + "\r\n\r\n").encode()
         conn.send(raw_header + body_bytes)
 
+    def _handle_stream_header(self, conn: Connection, prefix: bytes, body: bytes) -> None:
+        """Send chunked stream HTTP headers."""
+        if prefix == _STREAM_HDR_STASH:
+            key = body.decode()
+            with self._stash_lock:
+                raw = self._stash.pop(key, b"")
+        else:
+            raw = body
+        if raw:
+            conn.send(raw)
+        self._release_stream_sem(conn.id)
+
+    def _handle_stream_chunk(self, conn: Connection, prefix: bytes, body: bytes) -> None:
+        """Send a single chunked body chunk."""
+        if prefix == _STREAM_CHUNK_STASH:
+            key = body.decode()
+            with self._stash_lock:
+                chunk_data = self._stash.pop(key, b"")
+        else:
+            chunk_data = body
+        if chunk_data:
+            conn.http_chunk(chunk_data)
+        self._release_stream_sem(conn.id)
+
     def _handle_ws_send(self, conn: Connection, prefix: bytes, body: bytes) -> None:
         """Send a WebSocket frame."""
         if prefix == _WS_SEND_STASH:
@@ -409,6 +548,15 @@ class ASGIServer:
         elif "bytes" in meta:
             frame_bytes = meta["bytes"].encode("latin-1")
             conn.ws_send(frame_bytes, WEBSOCKET_OP_BINARY)
+
+    def _release_stream_sem(self, conn_id: int) -> None:
+        """Release one streaming permit after the poll thread processes a wakeup."""
+        if self._loop is None:
+            return
+        state = self._conns.get(conn_id)
+        if state is None or state.stream_sem is None:
+            return
+        self._loop.call_soon_threadsafe(state.stream_sem.release)
 
     # -- Asyncio helpers (called from poll thread) ----------------------------
 
@@ -463,24 +611,64 @@ class ASGIServer:
                 pending_start.update(message)
 
             elif msg_type == "http.response.body":
-                status = pending_start.get("status", 200)
-                headers = pending_start.get("headers", [])
                 body = message.get("body", b"")
-                # Convert ASGI headers (list of [bytes, bytes]) to
-                # list of [str, str] for JSON serialisation.
-                str_headers = []
-                for h in headers:
-                    name = h[0].decode() if isinstance(h[0], bytes) else h[0]
-                    value = h[1].decode() if isinstance(h[1], bytes) else h[1]
-                    str_headers.append([name, value])
+                more_body = message.get("more_body", False)
 
-                meta = {
-                    "status": status,
-                    "headers": str_headers,
-                    "body": body.decode("latin-1") if body else "",
-                }
-                payload = json.dumps(meta).encode()
-                self._wakeup_with_stash(conn_id, _RESP, _RESP_STASH, payload)
+                if state.streaming:
+                    # Already in chunked streaming mode -- send chunk.
+                    if body:
+                        await state.stream_sem.acquire()
+                        self._wakeup_with_stash(
+                            conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body
+                        )
+                    if not more_body:
+                        self._wakeup_small(conn_id, _STREAM_END)
+                        state.streaming = False
+                elif more_body:
+                    # First body message with more_body=True: start
+                    # chunked streaming.  Send headers with
+                    # Transfer-Encoding: chunked, then the first chunk.
+                    state.streaming = True
+                    state.stream_sem = asyncio.Semaphore(_STREAM_CONCURRENCY)
+                    status = pending_start.get("status", 200)
+                    headers = pending_start.get("headers", [])
+                    str_headers: list[tuple[str, str]] = []
+                    for h in headers:
+                        name = h[0].decode() if isinstance(h[0], bytes) else h[0]
+                        value = h[1].decode() if isinstance(h[1], bytes) else h[1]
+                        str_headers.append((name, value))
+
+                    from .wsgi import _format_chunked_header
+
+                    hdr_bytes = _format_chunked_header(status, str_headers)
+                    await state.stream_sem.acquire()
+                    self._wakeup_with_stash(
+                        conn_id, _STREAM_HDR, _STREAM_HDR_STASH, hdr_bytes
+                    )
+                    if body:
+                        await state.stream_sem.acquire()
+                        self._wakeup_with_stash(
+                            conn_id, _STREAM_CHUNK, _STREAM_CHUNK_STASH, body
+                        )
+                else:
+                    # Single buffered response (no streaming).
+                    status = pending_start.get("status", 200)
+                    headers = pending_start.get("headers", [])
+                    # Convert ASGI headers (list of [bytes, bytes]) to
+                    # list of [str, str] for JSON serialisation.
+                    str_headers_json = []
+                    for h in headers:
+                        name = h[0].decode() if isinstance(h[0], bytes) else h[0]
+                        value = h[1].decode() if isinstance(h[1], bytes) else h[1]
+                        str_headers_json.append([name, value])
+
+                    meta = {
+                        "status": status,
+                        "headers": str_headers_json,
+                        "body": body.decode("latin-1") if body else "",
+                    }
+                    payload = json.dumps(meta).encode()
+                    self._wakeup_with_stash(conn_id, _RESP, _RESP_STASH, payload)
 
             elif msg_type == "websocket.accept":
                 # Upgrade was already completed in _on_http (while the

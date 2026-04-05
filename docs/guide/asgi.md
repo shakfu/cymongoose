@@ -134,7 +134,8 @@ Full request/response cycle:
 - `http.request` -- delivered with the complete request body
   (mongoose buffers the full body before firing `MG_EV_HTTP_MSG`)
 - `http.response.start` -- buffered until `http.response.body` arrives
-- `http.response.body` -- triggers the actual HTTP response
+- `http.response.body` -- triggers the actual HTTP response.  Supports
+  `more_body=True` for chunked streaming (see below)
 - `http.disconnect` -- delivered on `MG_EV_CLOSE`
 
 ### WebSocket
@@ -150,8 +151,68 @@ Full bidirectional messaging:
 
 ### Lifespan
 
-Not yet implemented.  Applications that require lifespan events
-should handle startup/shutdown outside the ASGI server.
+The server implements the ASGI lifespan sub-protocol for applications
+that need startup/shutdown hooks (e.g. initialising a database pool):
+
+- `lifespan.startup` -- sent before the listener binds
+- `lifespan.startup.complete` -- unblocks `start()` and begins
+  accepting connections
+- `lifespan.startup.failed` -- propagated as `RuntimeError` from
+  `start()`
+- `lifespan.shutdown` -- sent during `stop()` after all connections
+  are closed
+- `lifespan.shutdown.complete` -- unblocks `stop()`
+
+Applications that don't handle the lifespan scope (raise an exception
+or return without sending a message) are detected automatically and
+the server proceeds normally.
+
+```python
+from starlette.applications import Starlette
+
+app = Starlette(
+    on_startup=[lambda: print("Starting up...")],
+    on_shutdown=[lambda: print("Shutting down...")],
+)
+```
+
+### Streaming HTTP Responses
+
+Applications can send responses incrementally using chunked transfer
+encoding by setting `more_body=True` on `http.response.body`:
+
+```python
+async def streaming_app(scope, receive, send):
+    await receive()
+    await send({
+        "type": "http.response.start",
+        "status": 200,
+        "headers": [[b"content-type", b"text/plain"]],
+    })
+
+    for chunk in generate_data():
+        await send({
+            "type": "http.response.body",
+            "body": chunk,
+            "more_body": True,
+        })
+
+    # Final message: more_body=False (or omitted) ends the stream.
+    await send({"type": "http.response.body", "body": b"", "more_body": False})
+```
+
+The first `http.response.body` with `more_body=True` triggers chunked
+transfer encoding.  Subsequent body messages send individual HTTP
+chunks.  A final message with `more_body=False` (or omitted) sends the
+terminating empty chunk.
+
+Responses without `more_body=True` use the original buffered path
+(single `Content-Length` response).
+
+**Backpressure:** An `asyncio.Semaphore` (capacity 16) limits in-flight
+wakeups per streaming connection.  If the application sends chunks
+faster than the poll thread can drain them, `await send()` blocks
+until a permit is released, preventing socketpair buffer exhaustion.
 
 ## Error Handling
 
@@ -170,7 +231,8 @@ server = ASGIServer(app, error_handler=lambda exc: print(f"Error: {exc}"))
 | Frameworks | Flask, Django, Bottle | FastAPI, Starlette, Django async |
 | Concurrency | Thread pool | asyncio coroutines |
 | WebSocket | Not supported | Supported |
-| Streaming | Chunked (> 1 MB) | Via `more_body` flag (planned) |
+| Streaming | Chunked (> 1 MB auto) | Chunked (via `more_body`) |
+| Lifespan | N/A | Supported |
 | Import | `from cymongoose.wsgi import serve` | `from cymongoose.asgi import serve` |
 
 ## See Also
@@ -178,3 +240,4 @@ server = ASGIServer(app, error_handler=lambda exc: print(f"Error: {exc}"))
 - [WSGI Support](wsgi.md) -- synchronous framework adapter
 - [HTTP/HTTPS Guide](http.md) -- raw event handler approach
 - [AsyncManager API](../api/async_manager.md) -- asyncio integration
+- [ASGI Internals](../dev/asgi.md) -- wakeup types, thread safety, design decisions

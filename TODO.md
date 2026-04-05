@@ -2,55 +2,20 @@
 
 ## Framework Adapters
 
-- [x] **WSGI adapter** (High)
-  Implemented in `src/cymongoose/wsgi.py`. Thread-pool dispatch with
-  `wakeup()` return path, environ construction (PEP 3333), status codes,
-  headers, POST bodies, multi-chunk iterators, closeable iterators, and
-  error handling. 20 tests in `tests/test_wsgi.py`. Smoke-tested with
-  Flask 3.1.
+- [x] **ASGI: Lifespan sub-protocol** (Low)
+  Implemented ASGI lifespan startup/shutdown events. The server runs the
+  lifespan coroutine before binding and waits for `startup.complete`.
+  Apps that don't support lifespan (raise or return without signaling)
+  are detected and the server proceeds normally. Shutdown sends
+  `lifespan.shutdown` and waits up to 5s. 5 tests.
 
-  Open items:
+- [x] **ASGI: Streaming HTTP responses** (Medium)
+  Implemented chunked transfer encoding via `more_body=True` in
+  `http.response.body`. Uses wakeup prefixes S/C/E for headers, chunks,
+  and end-of-stream. Reuses `_format_chunked_header` from WSGI. 5 tests.
 
-  - [x] **Chunked streaming for large responses** (Medium)
-    Responses exceeding `_STREAM_THRESHOLD` (1 MB) now switch from
-    buffered mode to chunked transfer encoding. The worker sends
-    HTTP headers via a `H` wakeup, then each body chunk via `C`
-    wakeups (always stashed), and a final `E` to close. Small
-    chunks are batched up to 256 KB to avoid flooding the wakeup
-    pipe. 7 streaming tests added (34 total WSGI tests).
-
-  - [x] **Wakeup payload size limits** (Low)
-    `mg_wakeup()` uses `send()` with `MSG_NONBLOCKING` over a
-    socketpair; the effective send buffer is ~9.2 KB on macOS and
-    ~64 KB on Linux. Payloads exceeding `_WAKEUP_MAX_BYTES` (8 KB)
-    are now stashed in a thread-safe dict keyed by UUID, and only
-    the short key is sent via wakeup. 3 tests added.
-
-  - [x] **`wsgi.file_wrapper` support** (Low)
-    Added `FileWrapper` class implementing the PEP 3333
-    `wsgi.file_wrapper` protocol. Injected into `environ` so WSGI
-    apps can use it for efficient file serving. 4 tests added
-    (environ presence, file serving, large files, close() called).
-
-  - [x] **Duplicate response headers** (Medium)
-    Replaced `conn.reply()` (which takes `Dict[str, str]`) with raw
-    `conn.send()` in `_send_buffered_response`, constructing the
-    HTTP response manually from the header list. The streaming path
-    already used `conn.send()` for headers. Both paths now preserve
-    duplicate headers (e.g. multiple `Set-Cookie`). 2 tests added.
-
-- [x] **ASGI adapter** (Medium)
-  Implemented in `src/cymongoose/asgi.py`. HTTP and WebSocket
-  sub-protocols on top of Manager with background poll thread.
-  Per-connection `asyncio.Queue` for receive, wakeup+stash for send.
-  14 tests in `tests/test_asgi.py`.
-
-  Open items:
-
-  - [ ] **Lifespan sub-protocol** (Low)
-    Implement ASGI lifespan events (startup/shutdown) for
-    applications that need them.
-
-  - [ ] **Streaming HTTP responses** (Medium)
-    Support `more_body=True` in `http.response.body` for chunked
-    streaming, similar to the WSGI streaming path.
+- [x] **ASGI: Streaming backpressure** (Low)
+  `asyncio.Semaphore(_STREAM_CONCURRENCY=16)` on `_ConnState` limits
+  in-flight streaming wakeups. `send()` acquires before each header/chunk
+  wakeup; poll thread releases via `call_soon_threadsafe` after processing.
+  1 backpressure test (64 chunks, 4x the limit).

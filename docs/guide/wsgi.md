@@ -190,7 +190,8 @@ sending to avoid flooding the wakeup pipe.
 
 ## See Also
 
-- [ASGI Support](asgi.md) -- planned async framework adapter
+- [ASGI Support](asgi.md) -- async framework adapter (FastAPI, Starlette, Quart)
+- [WSGI Internals](../dev/wsgi.md) -- wakeup types, streaming design, thread safety
 - [HTTP/HTTPS Guide](http.md) -- raw event handler approach
 - [Threading Guide](../advanced/threading.md) -- thread-safety details
 - [Performance Tuning](../advanced/performance.md) -- benchmarking tips
