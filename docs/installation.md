@@ -3,21 +3,25 @@
 ## Requirements
 
 - Python 3.10 or higher
+
 - C compiler (gcc, clang, or MSVC)
+
 - CMake 3.15+
 
 ### Dependencies
 
-cymongoose has **zero runtime dependencies**. Build dependencies are handled
-automatically:
+cymongoose has **zero runtime dependencies**. Build dependencies are handled automatically:
 
 - **Cython** (>=3.0) - Compiles `.pyx` to C
+
 - **scikit-build-core** - CMake-based build backend
 
 Optional dependencies for development:
 
 - **pytest** - Running tests
+
 - **websocket-client** - WebSocket client tests
+
 - **aiohttp, fastapi, uvicorn, flask** - Benchmark comparisons
 
 ## Install from PyPI
@@ -28,8 +32,7 @@ The easiest way to install cymongoose is from PyPI:
 pip install cymongoose
 ```
 
-This will download and install the latest stable release along with all
-required dependencies.
+This will download and install the latest stable release along with all required dependencies.
 
 ## Install from Source
 
@@ -45,8 +48,7 @@ pip install -e .
 
 ### Using uv (Recommended for Development)
 
-[uv](https://github.com/astral-sh/uv) is a fast Python package installer
-and resolver:
+[uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver:
 
 ```bash
 git clone https://github.com/shakfu/cymongoose.git
@@ -57,8 +59,11 @@ uv sync
 This will:
 
 1. Create a virtual environment
+
 2. Install all dependencies
+
 3. Build the Cython extension
+
 4. Install cymongoose in editable mode
 
 ### Using CMake (Alternative)
@@ -115,8 +120,7 @@ make coverage
 uv run pytest tests/ -v
 ```
 
-All 366 tests should pass. If you encounter failures, please report them
-on the [issue tracker](https://github.com/shakfu/cymongoose/issues).
+All 366 tests should pass. If you encounter failures, please report them on the [issue tracker](https://github.com/shakfu/cymongoose/issues).
 
 ### Common Makefile Commands
 
@@ -127,7 +131,7 @@ make build          # Rebuild extension
 make test           # Run tests
 make lint           # Lint with ruff
 make typecheck      # Type check with mypy
-make qa             # Full quality assurance
+make qa             # Lint, type check, and format (run make test separately)
 make docs           # Build documentation
 make docs-serve     # Serve docs locally with live reload
 make docs-deploy    # Deploy docs to GitHub Pages
@@ -151,13 +155,14 @@ pip install cython
 Install a C compiler:
 
 - **Linux**: `sudo apt-get install build-essential`
+
 - **macOS**: `xcode-select --install`
+
 - **Windows**: Install Visual Studio with C++ tools
 
 **Error: "mongoose.h not found"**
 
-The Mongoose library is vendored in `thirdparty/mongoose/`. Ensure
-you've cloned the repository completely:
+The Mongoose library is vendored in `thirdparty/mongoose/`. Ensure you've cloned the repository completely:
 
 ```bash
 git clone --recursive https://github.com/shakfu/cymongoose.git
@@ -193,5 +198,7 @@ For more help, see the [Troubleshooting](advanced/troubleshooting.md) guide.
 ## Next Steps
 
 - Follow the [Quickstart](quickstart.md) guide to build your first application
+
 - Browse [Examples](examples.md) for common use cases
+
 - Read the [User Guide](guide/index.md) for protocol-specific documentation

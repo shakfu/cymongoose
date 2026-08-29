@@ -330,15 +330,23 @@ manager.mqtt_connect('mqtts://broker.example.com:8883')
 ## Best Practices
 
 1. **Use QoS 1 or 2** for important messages
+
 2. **Set appropriate keep-alive** (default 60 seconds)
+
 3. **Handle reconnection** with timers
+
 4. **Use topic hierarchy** for organization
+
 5. **Validate JSON** before parsing
+
 6. **Monitor connection status** via `MG_EV_MQTT_OPEN`
+
 7. **Clean up subscriptions** on disconnect
 
 ## See Also
 
 - [TLS Guide](tls.md) - Secure MQTT (MQTTS)
+
 - [Examples](../examples.md) - Complete MQTT examples
+
 - [Connection API](../api/connection.md) - Connection API

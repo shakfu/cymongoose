@@ -39,7 +39,7 @@ format:
 typecheck:
 	@uv run mypy --strict src --exclude '.venv'
 
-# Run a full quality assurance check
+# Run lint, type check, and format (run `make test` separately)
 qa: lint typecheck format
 
 # Build wheel
@@ -172,7 +172,7 @@ help:
 	@echo "  lint         - Lint with ruff"
 	@echo "  format       - Format with ruff"
 	@echo "  typecheck    - Type check with mypy"
-	@echo "  qa           - Run full quality assurance (test, lint, typecheck, format)"
+	@echo "  qa           - Run lint, typecheck, and format"
 	@echo "  wheel        - Build wheel distribution"
 	@echo "  sdist        - Build source distribution"
 	@echo "  dist         - Build both wheel and sdist"

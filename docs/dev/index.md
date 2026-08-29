@@ -87,8 +87,11 @@ mypy src/
 ### Cython
 
 - 4-space indentation
+
 - 100-character line limit
+
 - Document all public functions
+
 - Use type hints in .pyi files
 
 ### Documentation
@@ -111,16 +114,23 @@ make docs-deploy
 Follows semantic versioning: `MAJOR.MINOR.PATCH`
 
 - **MAJOR**: Breaking changes
+
 - **MINOR**: New features (backward compatible)
+
 - **PATCH**: Bug fixes
 
 ### Release Checklist
 
 1. Update version in `pyproject.toml`
+
 2. Update `CHANGELOG.md`
+
 3. Run full test suite
+
 4. Build and test distribution
+
 5. Tag release
+
 6. Push to PyPI
 
 ## Contributing
@@ -154,9 +164,7 @@ python tests/examples/http/http_server.py
 
 ## Vendored Mongoose Patches
 
-The vendored copy of mongoose (`thirdparty/mongoose/`) includes the following
-local patches on top of the upstream release. These must be re-applied after
-upgrading the vendored source.
+The vendored copy of mongoose (`thirdparty/mongoose/`) includes the following local patches on top of the upstream release. These must be re-applied after upgrading the vendored source.
 
 | File | Description |
 |------|-------------|
@@ -165,5 +173,7 @@ upgrading the vendored source.
 ## See Also
 
 - [Contributing](contributing.md) - Contribution guidelines
+
 - [Mongoose Documentation](https://mongoose.ws/documentation/)
+
 - [Cython Documentation](https://cython.readthedocs.io/)

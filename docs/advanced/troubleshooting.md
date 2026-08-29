@@ -30,7 +30,9 @@ error: Microsoft Visual C++ 14.0 or greater is required
 **Solutions**:
 
 - **Linux**: `sudo apt-get install build-essential`
+
 - **macOS**: `xcode-select --install`
+
 - **Windows**: Install Visual Studio with C++ tools
 
 ### "mongoose.h not found"
@@ -162,21 +164,7 @@ conn.drain()  # Graceful close
 
 **Checks**:
 
-1. **Verify nogil is enabled**:
-
-    ```text
-    # Should see at startup:
-    USE_NOGIL=1
-    ```
-
-    If not, rebuild:
-
-    ```bash
-    rm src/cymongoose/_mongoose.c
-    pip install -e . --force-reinstall
-    ```
-
-2. **Check poll timeout**:
+1. **Check poll timeout**:
 
     ```python
     # Bad: Long timeout doesn't affect throughput
@@ -187,7 +175,7 @@ conn.drain()  # Graceful close
     manager.poll(100)
     ```
 
-3. **Profile handler**:
+2. **Profile handler**:
 
     ```python
     import time
@@ -282,7 +270,9 @@ def handler(conn, ev, data):
 **Causes**:
 
 1. Broker not running
+
 2. Wrong port (1883 for MQTT, 8883 for MQTTS)
+
 3. Firewall blocking connection
 
 **Solution**: Test with mosquitto_sub:
@@ -312,7 +302,9 @@ def handler(conn, ev, data):
 **Causes**:
 
 1. CA bundle doesn't include root certificate
+
 2. Certificate expired
+
 3. Hostname mismatch
 
 **Solutions**:
@@ -373,8 +365,11 @@ manager = Manager(handler, enable_wakeup=True)
 ## Getting Help
 
 1. **Check logs**: Enable verbose logging
+
 2. **Search issues**: <https://github.com/shakfu/cymongoose/issues>
+
 3. **Minimal reproduction**: Create smallest example that shows the issue
+
 4. **System info**: Python version, OS, cymongoose version
 
 Reporting Issues:
@@ -389,5 +384,7 @@ uname -a
 ## See Also
 
 - [Graceful shutdown patterns](shutdown.md)
+
 - [nogil optimization](nogil.md)
+
 - [Performance tuning](performance.md)

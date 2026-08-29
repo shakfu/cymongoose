@@ -9,8 +9,11 @@ cymongoose supports multi-threading through the `wakeup()` mechanism, which allo
 **Use Cases:**
 
 - Offload CPU-intensive work
+
 - Background database queries
+
 - File I/O operations
+
 - External API calls
 
 ## Basic Pattern
@@ -193,9 +196,7 @@ manager.wakeup(conn_id, b"hello")  # OK
 
 ### 3. Wakeup Payload Size Limit
 
-`Manager.wakeup()` transmits data over a socketpair using a
-non-blocking `send()`. If the payload exceeds the socket send buffer
-the call succeeds (returns `True`) but **the data is silently dropped**.
+`Manager.wakeup()` transmits data over a socketpair using a non-blocking `send()`. If the payload exceeds the socket send buffer the call succeeds (returns `True`) but **the data is silently dropped**.
 
 The effective limit depends on the OS:
 
@@ -204,9 +205,7 @@ The effective limit depends on the OS:
 | macOS    | ~9 KB             |
 | Linux    | ~64 KB            |
 
-**Keep wakeup payloads small** -- ideally under 8 KB. For larger data,
-pass a key or identifier through `wakeup()` and store the actual data
-in a thread-safe structure (dict with a lock, `queue.Queue`, etc.):
+**Keep wakeup payloads small** -- ideally under 8 KB. For larger data, pass a key or identifier through `wakeup()` and store the actual data in a thread-safe structure (dict with a lock, `queue.Queue`, etc.):
 
 ```python
 import threading
@@ -237,9 +236,7 @@ def handler(conn, ev, data):
             conn.reply(200, data)
 ```
 
-!!! note
-    The WSGI adapter (`cymongoose.wsgi`) handles this automatically --
-    responses over 8 KB are stashed transparently.
+!!! note The WSGI adapter (`cymongoose.wsgi`) handles this automatically -- responses over 8 KB are stashed transparently.
 
 ### 4. Track Connections
 
@@ -364,16 +361,25 @@ manager.close()
 ## Best Practices
 
 1. **Enable wakeup** when creating Manager
+
 2. **Pass conn.id** to threads, not Connection objects
+
 3. **Use thread-safe queues** for communication
+
 4. **Track connections** by ID in a dict
+
 5. **Clean up** on MG_EV_CLOSE
+
 6. **Limit worker count** (2-4x CPU cores)
+
 7. **Handle errors** in worker threads
+
 8. **Implement timeouts** to prevent hangs
 
 ## See Also
 
 - [GIL-free performance](nogil.md)
+
 - [Performance optimization](performance.md)
+
 - [Graceful shutdown patterns](shutdown.md)

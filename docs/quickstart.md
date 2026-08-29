@@ -1,7 +1,6 @@
 # Quickstart Guide
 
-This guide will help you create your first cymongoose application in
-just a few minutes.
+This guide will help you create your first cymongoose application in just a few minutes.
 
 ## Basic HTTP Server
 
@@ -71,16 +70,19 @@ curl http://localhost:8000
 
 ### Understanding the Code
 
-1. **Signal Handler**: Uses signal handlers instead of try/except for
-   Ctrl+C. This is required because `poll()` releases the GIL for
-   performance.
+1. **Signal Handler**: Uses signal handlers instead of try/except for Ctrl+C. This is required because `poll()` releases the GIL for performance.
+
 2. **Event Handler**: The `handler()` function receives:
+
    - `conn`: `Connection` object
+
    - `ev`: Event type constant (`MG_EV_HTTP_MSG`, etc.)
+
    - `data`: Event-specific data (`HttpMessage` for HTTP events)
+
 3. **Manager**: The `Manager` manages the event loop.
-4. **Graceful Shutdown**: `conn.drain()` ensures the response is sent
-   before closing.
+
+4. **Graceful Shutdown**: `conn.drain()` ensures the response is sent before closing.
 
 ## Routing Requests
 
@@ -314,6 +316,9 @@ openssl req -x509 -newkey rsa:2048 -keyout server.key \
 Now that you've built your first cymongoose application, explore:
 
 - [Examples](examples.md) - More complete examples for all protocols
+
 - [User Guide](guide/index.md) - In-depth protocol guides
+
 - [API Reference](api/index.md) - Full API reference
+
 - [Performance](advanced/performance.md) - Performance optimization tips

@@ -119,7 +119,7 @@ Automated scripts require extra dependencies: `uv add --dev aiohttp fastapi uvic
 1. **Mongoose C library** -- battle-tested embedded networking with hand-optimized event loop.
 2. **Cython bindings** -- near-zero overhead Python-to-C calls, direct memory access to
    C structs.
-3. **nogil optimization** -- 21 methods release the GIL for true parallel processing.
+3. **nogil optimization** -- 24 methods release the GIL for true parallel processing.
 4. **Event-driven architecture** -- single-threaded, non-blocking I/O, no context switching.
 5. **Zero-copy design** -- HttpMessage/WsMessage wrap C pointers directly; no data copying
    until the user accesses a property.
@@ -206,7 +206,7 @@ Transfer/sec:    306.68KB
 - **wrk not found:** `brew install wrk` (macOS) or build from source:
   `git clone https://github.com/wg/wrk && cd wrk && make`
 - **Low performance:** Close other applications, try `wrk -t8 -c200 -d10s ...`,
-  verify `USE_NOGIL` is enabled.
+  and profile Python handler code (nogil is always enabled).
 
 ---
 

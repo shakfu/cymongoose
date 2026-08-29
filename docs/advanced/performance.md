@@ -19,14 +19,9 @@ Benchmarked with `wrk -t4 -c100 -d10s` on Apple Silicon:
 
 ### 1. nogil Optimization
 
-Ensure nogil is enabled (default):
+nogil is always enabled — 24 methods release the GIL on every build.
 
-```bash
-# Check at startup
-USE_NOGIL=1  # Should see this message
-```
-
-**Impact**: ~88k+ req/sec (vs ~35k with nogil disabled)
+**Impact**: ~88k+ req/sec on Apple Silicon (see benchmarks in [nogil](nogil.md))
 
 See [nogil](nogil.md) for details.
 
@@ -173,17 +168,11 @@ make bench-server   # Start server for manual wrk/ab testing
 make bench-compare  # Automated framework comparison (requires ab)
 ```
 
-The Python-based benchmarks (`bench-quick`, `bench-load`) measure end-to-end
-throughput including Python's HTTP client overhead. They are useful for
-regression testing but underreport the server's actual capacity by ~20x
-due to client-side bottlenecks (connection setup, GIL contention, no
-connection reuse).
+The Python-based benchmarks (`bench-quick`, `bench-load`) measure end-to-end throughput including Python's HTTP client overhead. They are useful for regression testing but underreport the server's actual capacity by ~20x due to client-side bottlenecks (connection setup, GIL contention, no connection reuse).
 
 ### Measuring True Server Throughput with wrk
 
-For accurate server performance numbers, use
-[wrk](https://github.com/wg/wrk) -- an industry-standard HTTP
-benchmarking tool that uses persistent connections and C-level efficiency:
+For accurate server performance numbers, use [wrk](https://github.com/wg/wrk) -- an industry-standard HTTP benchmarking tool that uses persistent connections and C-level efficiency:
 
 ```bash
 # Install wrk
@@ -219,8 +208,7 @@ ab -n 10000 -c 100 http://localhost:8000/
 
 ### Framework Comparison
 
-To compare cymongoose against other Python frameworks, start each server
-in a separate terminal and benchmark with wrk:
+To compare cymongoose against other Python frameworks, start each server in a separate terminal and benchmark with wrk:
 
 ```bash
 # cymongoose
@@ -286,9 +274,10 @@ manager.poll(100)
 
 **Causes & Fixes**:
 
-- nogil disabled -- Rebuild with `USE_NOGIL=1`
 - Long poll timeout -- Use `poll(100)`
+
 - Slow handler -- Profile and optimize
+
 - Small buffers -- Increase `MG_IO_SIZE` (rebuild required)
 
 ### 4. Memory Leaks
@@ -298,7 +287,9 @@ manager.poll(100)
 **Causes**:
 
 - Not removing closed connections from lists
+
 - Storing references to closed connections
+
 - Timer callbacks holding references
 
 **Fix**:
@@ -345,16 +336,22 @@ manager = Manager(handler, enable_wakeup=True)
 
 ## Best Practices
 
-1. **Enable nogil** (default)
-2. **Use poll(100)** for event loop
-3. **Use conn.drain()** for graceful close
-4. **Monitor buffer sizes** to detect backpressure
-5. **Profile regularly** to find bottlenecks
-6. **Load test** before production deployment
-7. **Scale horizontally** with multiple processes
+1. **Use poll(100)** for event loop
+
+2. **Use conn.drain()** for graceful close
+
+3. **Monitor buffer sizes** to detect backpressure
+
+4. **Profile regularly** to find bottlenecks
+
+5. **Load test** before production deployment
+
+6. **Scale horizontally** with multiple processes
 
 ## See Also
 
 - [nogil optimization details](nogil.md)
+
 - [Multi-threading guide](threading.md)
+
 - [Graceful shutdown patterns](shutdown.md)

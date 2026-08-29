@@ -11,7 +11,9 @@ The `Connection.http_basic_auth()` method implements HTTP Basic Authentication (
 ### Security Model
 
 - **Base64 is encoding, not encryption** - credentials can be trivially decoded by anyone who intercepts them
+
 - **Safe over HTTPS/TLS** - the TLS layer encrypts all traffic including the Authorization header
+
 - **Unsafe over HTTP** - credentials are transmitted in plaintext and visible to network observers
 
 ### Recommended Usage
@@ -37,8 +39,11 @@ conn.http_basic_auth("username", "password")  # DANGEROUS
 For production applications, consider:
 
 - **Token-based auth** - OAuth 2.0, JWT tokens
+
 - **API keys** - In headers (still requires HTTPS)
+
 - **Mutual TLS** - Certificate-based authentication
+
 - **Custom authentication** - Application-specific protocols
 
 ## TLS/HTTPS Security
@@ -76,7 +81,9 @@ opts = TlsOpts(
 ### Recommendations
 
 - Always validate certificates in production (`skip_verification=False`, the default)
+
 - Only skip verification for development/testing with trusted local servers
+
 - Use `name` for SNI when connecting to hosts behind shared IPs or load balancers
 
 ## Connection Security
@@ -84,14 +91,19 @@ opts = TlsOpts(
 ### Transport Encryption
 
 - **TCP/HTTP** - No encryption, all data visible on network
+
 - **TLS/HTTPS/WSS** - Encrypted transport, protects data in transit
+
 - **UDP** - No built-in encryption
 
 ### Recommendations
 
 1. **Use TLS for sensitive data** - Always encrypt connections carrying credentials, personal data, or confidential information
+
 2. **Validate inputs** - Sanitize all data received from network connections
+
 3. **Rate limiting** - Use connection flow control (`is_full`, `is_draining`) to prevent resource exhaustion
+
 4. **Authentication** - Verify client identity for sensitive operations
 
 ## Error Handling
@@ -113,7 +125,9 @@ conn.error("Authentication failed")
 Error events (`MG_EV_ERROR`) may contain:
 
 - Network error details
+
 - Connection state information
+
 - Protocol-specific error messages
 
 **Recommendation:** Log detailed errors server-side, but send generic messages to clients.
@@ -125,13 +139,17 @@ Error events (`MG_EV_ERROR`) may contain:
 The `Connection.resolve()` method performs DNS lookups which are vulnerable to:
 
 - **DNS cache poisoning**
+
 - **Man-in-the-middle attacks**
+
 - **DNS rebinding attacks**
 
 ### Mitigations
 
 1. **Use DNSSEC** - When available, provides cryptographic validation
+
 2. **Validate resolved addresses** - Check resolved IPs against expected ranges
+
 3. **Use TLS** - Even if DNS is spoofed, TLS certificate validation prevents connection to wrong server
 
 ```python
@@ -164,6 +182,7 @@ def ws_handler(conn, ev, data):
 ### WSS (WebSocket Secure)
 
 - Always use `wss://` (WebSocket over TLS) for sensitive data
+
 - Never use `ws://` for authentication tokens or personal information
 
 ## MQTT Security
@@ -184,7 +203,9 @@ conn = manager.mqtt_connect(
 **Security Considerations:**
 
 1. **Use MQTT over TLS** - Use `mqtts://` or port 8883 for encrypted transport
+
 2. **Strong passwords** - MQTT passwords are often stored in plaintext on broker
+
 3. **Client ID randomization** - Prevent client ID spoofing
 
 ```python
@@ -338,18 +359,31 @@ conn.reply(200, f"<html>Hello {safe_input}</html>")
 ### For Production Deployments
 
 - [ ] Use HTTPS/TLS for all sensitive data transmission
+
 - [ ] Validate server certificates (don't skip TLS verification)
+
 - [ ] Implement proper authentication and authorization
+
 - [ ] Validate and sanitize all user inputs
+
 - [ ] Set connection and resource limits
+
 - [ ] Implement rate limiting and backpressure handling
+
 - [ ] Use secure WebSocket (WSS) and MQTT (MQTTS) connections
+
 - [ ] Validate WebSocket origins
+
 - [ ] Escape output to prevent XSS
+
 - [ ] Prevent path traversal in file serving
+
 - [ ] Log security events without exposing sensitive data
+
 - [ ] Keep Mongoose library updated
+
 - [ ] Review error messages for information disclosure
+
 - [ ] Implement timeout mechanisms for all network operations
 
 ## Reporting Security Issues
@@ -357,17 +391,27 @@ conn.reply(200, f"<html>Hello {safe_input}</html>")
 If you discover a security vulnerability in cymongoose:
 
 1. **Do not** open a public issue
+
 2. Email security concerns to the maintainers
+
 3. Include:
+
    - Description of the vulnerability
+
    - Steps to reproduce
+
    - Potential impact
+
    - Suggested fix (if available)
 
 ## References
 
 - [HTTP Basic Authentication (RFC 7617)](https://tools.ietf.org/html/rfc7617)
+
 - [TLS/SSL Best Practices](https://wiki.mozilla.org/Security/Server_Side_TLS)
+
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+
 - [WebSocket Security](https://datatracker.ietf.org/doc/html/rfc6455#section-10)
+
 - [MQTT Security Fundamentals](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127)

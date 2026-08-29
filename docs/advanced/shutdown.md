@@ -71,17 +71,17 @@ if __name__ == "__main__":
 
 ## AsyncManager Shutdown
 
-When using ``AsyncManager``, shutdown is handled automatically by
-``__aexit__``. The ``shutdown_timeout`` parameter (default 30 seconds)
-controls how long it waits for the poll thread to stop:
+When using ``AsyncManager``, shutdown is handled automatically by ``__aexit__``. The ``shutdown_timeout`` parameter (default 30 seconds) controls how long it waits for the poll thread to stop:
 
 1. ``__aexit__`` signals the thread to stop and sends a wakeup.
+
 2. Waits 5 seconds for the thread to join.
-3. If still alive: emits a ``RuntimeWarning``, retries the wakeup,
-   and waits another 5 seconds.
+
+3. If still alive: emits a ``RuntimeWarning``, retries the wakeup, and waits another 5 seconds.
+
 4. Repeats step 3 until ``shutdown_timeout`` is reached.
-5. At the hard limit: emits a final warning and moves on without
-   calling ``Manager.close()``.
+
+5. At the hard limit: emits a final warning and moves on without calling ``Manager.close()``.
 
 ```python
 # Tune the timeout for your application
@@ -91,9 +91,7 @@ async with AsyncManager(handler, shutdown_timeout=10) as am:
 # __aexit__ handles shutdown automatically
 ```
 
-The warnings surface in logs so operators can identify blocked handlers.
-If a handler finishes before the timeout, shutdown completes normally
-and ``Manager.close()`` is called.
+The warnings surface in logs so operators can identify blocked handlers. If a handler finishes before the timeout, shutdown completes normally and ``Manager.close()`` is called.
 
 ## Connection Draining
 
@@ -114,8 +112,11 @@ def handler(conn, ev, data):
 ### What `drain()` Does
 
 1. Sets `is_draining = 1`
+
 2. Stops reading from socket
+
 3. Continues sending buffered data
+
 4. Closes connection when send buffer is empty
 
 ## Server Shutdown
@@ -203,9 +204,7 @@ finally:
 
 ## Timers
 
-One-shot timers are automatically freed after firing (`MG_TIMER_AUTODELETE` flag).
-Repeating timers can be stopped early with `cancel()`, or they are freed when
-the manager closes:
+One-shot timers are automatically freed after firing (`MG_TIMER_AUTODELETE` flag). Repeating timers can be stopped early with `cancel()`, or they are freed when the manager closes:
 
 ```python
 timer = manager.timer_add(1000, callback, repeat=True)
@@ -344,11 +343,17 @@ manager.timer_add(1000, check_timeouts, repeat=True)
 ## Best Practices
 
 1. **Use signal handlers**, not try/except for Ctrl+C
+
 2. **Handle SIGTERM** for systemd/Docker compatibility
+
 3. **Use conn.drain()**, not conn.close()
+
 4. **Close active connections** on shutdown
+
 5. **Stop worker threads** with poison pills
+
 6. **Set timeouts** for graceful shutdown (30 seconds)
+
 7. **Test shutdown** under load
 
 ## Common Issues
@@ -370,18 +375,25 @@ manager.timer_add(1000, check_timeouts, repeat=True)
 **Causes**:
 
 - Long poll timeout
+
 - Connections not draining
+
 - Workers not stopping
 
 **Fixes**:
 
 - Use `poll(100)`
+
 - Use `conn.drain()`
+
 - Send poison pills to workers
+
 - Set timeouts
 
 ## See Also
 
 - [Why signal handlers are needed](nogil.md)
+
 - [Poll timeout recommendations](performance.md)
+
 - [Connection draining patterns](../guide/index.md)

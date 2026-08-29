@@ -1,7 +1,6 @@
 # Examples
 
-This page contains complete, runnable examples for common use cases. All
-examples include proper signal handling for production use.
+This page contains complete, runnable examples for common use cases. All examples include proper signal handling for production use.
 
 ## Basic Examples
 
@@ -395,20 +394,20 @@ if __name__ == "__main__":
 
 ### Micro-Framework with Decorator Routing
 
-cymongoose ships with a minimal Flask/Bottle-style micro-framework example
-that layers decorator-based routing on top of the raw event loop. It lives
-in `tests/examples/http/http_web_framework.py` and demonstrates how little
-glue is needed to get a familiar web-framework feel while keeping the
-performance of a C event loop.
+cymongoose ships with a minimal Flask/Bottle-style micro-framework example that layers decorator-based routing on top of the raw event loop. It lives in `tests/examples/http/http_web_framework.py` and demonstrates how little glue is needed to get a familiar web-framework feel while keeping the performance of a C event loop.
 
 Features:
 
 - `@app.get`, `@app.post`, `@app.put`, `@app.delete` decorators
+
 - Path parameters with type conversion (`/items/<int:id>`)
+
 - JSON request parsing (`req.json()`) and `json_response()` helper
-- Return-value coercion -- handlers can return `str`, `dict`, `tuple`,
-  `Response`, or `None`
+
+- Return-value coercion -- handlers can return `str`, `dict`, `tuple`, `Response`, or `None`
+
 - Before/after request hooks
+
 - Custom 404 handler via `@app.not_found`
 
 ```python
@@ -450,15 +449,11 @@ if __name__ == "__main__":
     app.run()  # http://0.0.0.0:8000
 ```
 
-Under the hood the `App` class compiles each route pattern into a regex,
-wraps the incoming `HttpMessage` in a lightweight `Request` object, and
-coerces handler return values into a `Response` that is sent via
-`conn.reply()`. The entire routing layer is ~120 lines of pure Python.
+Under the hood the `App` class compiles each route pattern into a regex, wraps the incoming `HttpMessage` in a lightweight `Request` object, and coerces handler return values into a `Response` that is sent via `conn.reply()`. The entire routing layer is ~120 lines of pure Python.
 
 ### Framework Routing Overhead
 
-Benchmarked with `wrk -t4 -c100 -d10s` on Apple Silicon
-(see `tests/benchmarks/bench_web_framework.py`):
+Benchmarked with `wrk -t4 -c100 -d10s` on Apple Silicon (see `tests/benchmarks/bench_web_framework.py`):
 
 | Configuration | Req/sec | Avg Latency | vs Raw |
 |---|---|---|---|
@@ -466,10 +461,7 @@ Benchmarked with `wrk -t4 -c100 -d10s` on Apple Silicon
 | Framework -- static route | 102,255 | 0.97 ms | 85% |
 | Framework -- parameterised route | 84,602 | 1.18 ms | 71% |
 
-The routing layer adds 15--29% overhead depending on whether path
-parameters and JSON serialisation are involved. Even the slowest
-configuration (84k req/s) is 8x faster than FastAPI and 52x faster than
-Flask.
+The routing layer adds 15--29% overhead depending on whether path parameters and JSON serialisation are involved. Even the slowest configuration (84k req/s) is 8x faster than FastAPI and 52x faster than Flask.
 
 ```bash
 # Run the benchmark yourself
@@ -484,28 +476,28 @@ wrk -t4 -c100 -d10s http://localhost:8765/
 
 ### Multi-threaded Request Handler
 
-See [Threading Guide](advanced/threading.md) for complete
-example of offloading work to background threads.
+See [Threading Guide](advanced/threading.md) for complete example of offloading work to background threads.
 
 ### HTTPS Reverse Proxy
 
-See `tests/examples/advanced/http_proxy_client.py` for a complete HTTP
-proxy implementation.
+See `tests/examples/advanced/http_proxy_client.py` for a complete HTTP proxy implementation.
 
 ### TLS/HTTPS Server
 
-See `tests/examples/advanced/tls_https_server.py` for production TLS
-configuration.
+See `tests/examples/advanced/tls_https_server.py` for production TLS configuration.
 
 ## More Examples
 
-The `tests/examples/` directory contains 17 complete, tested examples
-covering all protocols:
+The `tests/examples/` directory contains 17 complete, tested examples covering all protocols:
 
 - **HTTP**: Server, client, streaming, file upload, RESTful API, SSE
+
 - **WebSocket**: Server, broadcasting
+
 - **MQTT**: Client, server/broker
+
 - **Network**: TCP echo, UDP echo, DNS resolution, SNTP time sync
+
 - **Advanced**: TLS/HTTPS, HTTP proxy, multi-threading
 
 All examples are runnable and include comprehensive tests:
@@ -524,5 +516,7 @@ python tests/examples/mqtt/mqtt_client.py
 ## See Also
 
 - [Quickstart](quickstart.md) - Basic tutorial
+
 - [User Guide](guide/index.md) - Protocol guides
+
 - [API Reference](api/index.md) - API reference

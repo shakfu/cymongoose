@@ -4,16 +4,16 @@ cymongoose achieves C-level performance through the `nogil` optimization.
 
 ## Overview
 
-The **nogil** (no-GIL) optimization allows 21 performance-critical methods to release Python's Global Interpreter Lock (GIL) during execution, enabling true parallel execution and minimizing Python overhead.
+The **nogil** (no-GIL) optimization allows 24 performance-critical methods to release Python's Global Interpreter Lock (GIL) during execution, enabling true parallel execution and minimizing Python overhead.
 
 **Performance Impact**: Achieves 60k+ req/sec (6-37x faster than pure Python frameworks)
 
 ## How It Works
 
-When `USE_NOGIL=1` (default), critical operations release the GIL:
+All critical C API calls unconditionally release the GIL (since v0.2.0):
 
 ```python
-# With nogil optimization
+# Critical operations release the GIL
 manager.poll(100)  # Releases GIL - other threads can execute
 
 # Network operations release GIL
@@ -23,83 +23,80 @@ conn.reply(...)    # Releases GIL during C call
 
 ## Methods with nogil
 
-The following 21 methods release the GIL for parallel execution:
+The following 24 methods release the GIL for parallel execution:
 
 **Network Operations:**
 
 - `send()`
+
 - `close()`
+
 - `resolve()`
+
 - `resolve_cancel()`
 
 **WebSocket:**
 
 - `ws_send()`
+
 - `ws_upgrade()`
 
 **MQTT:**
 
 - `mqtt_pub()`
+
 - `mqtt_sub()`
+
+- `mqtt_unsub()`
+
 - `mqtt_ping()`
+
 - `mqtt_pong()`
+
 - `mqtt_disconnect()`
 
 **HTTP:**
 
 - `reply()`
+
 - `serve_dir()`
+
 - `serve_file()`
+
 - `http_chunk()`
+
 - `http_sse()`
 
 **TLS:**
 
 - `tls_init()`
+
 - `tls_free()`
 
 **Utilities:**
 
 - `sntp_request()`
+
 - `http_basic_auth()`
+
 - `error()`
 
-**Properties:**
+**Manager:**
 
-- `local_addr`
-- `remote_addr`
+- `poll()`
 
-**Thread-safe:**
+- `wakeup()` (thread-safe)
 
-- `Manager.wakeup()`
+## Always Enabled
 
-## Checking nogil Status
+nogil is **unconditional** — there is no compile-time or runtime switch to disable it. Every build releases the GIL on the methods listed above. Prior versions (before v0.2.0) supported a `USE_NOGIL` compile flag; that path was removed because it was always enabled in practice.
 
-At startup, cymongoose prints:
-
-```text
-USE_NOGIL=1  # nogil enabled
-USE_NOGIL=0  # nogil disabled
-```
-
-## Build Configuration
-
-### Enable/Disable
+### Rebuild After Code Changes
 
 ```bash
-# Enable nogil (default)
-pip install -e .
-
-# Disable nogil
-USE_NOGIL=0 pip install -e .
-```
-
-### Rebuild After Changes
-
-```bash
-# Force recompilation
-rm src/cymongoose/_mongoose.c
-pip install -e . --force-reinstall
+make build          # Rebuild the Cython extension
+# or
+uv sync --reinstall-package cymongoose
 ```
 
 ## Performance Comparison
@@ -108,9 +105,10 @@ Benchmark results (Apple Silicon, `wrk -t4 -c100 -d10s`):
 
 | Configuration | Req/sec | Performance |
 |---|---|---|
-| nogil enabled | 88,710 | 100% (baseline) |
-| nogil disabled | ~35,000 | ~40% (slower) |
+| cymongoose (nogil) | 88,710 | 100% (baseline) |
 | Pure Python (aiohttp) | 42,452 | ~48% |
+
+Historical note: early builds with nogil accidentally disabled achieved ~35k req/sec (~40% of baseline). That misconfiguration is no longer possible.
 
 ## Thread Safety
 
@@ -119,7 +117,9 @@ Benchmark results (Apple Silicon, `wrk -t4 -c100 -d10s`):
 nogil works safely with Mongoose's built-in TLS because:
 
 1. TLS operations are event-loop based (no background threads)
+
 2. No internal locks in Mongoose TLS implementation
+
 3. All TLS state is per-connection (no shared state)
 
 ```python
@@ -170,11 +170,8 @@ conn.send(data)  # Pointer to data.buf is valid during nogil
 ### Cython Code
 
 ```cython
-# With nogil
-IF USE_NOGIL:
-    with nogil:
-        result = mg_send(conn, buf, length)
-ELSE:
+# Unconditional nogil on every C API call
+with nogil:
     result = mg_send(conn, buf, length)
 ```
 
@@ -187,39 +184,30 @@ cdef extern from "mongoose.h":
 
 ## Best Practices
 
-1. **Keep nogil enabled** for production (default)
-2. **Use signal handlers** for Ctrl+C, not try/except
-3. **Don't access Python objects** from background threads without GIL
-4. **Verify nogil at startup** (check USE_NOGIL=1 message)
-5. **Benchmark** with nogil on/off to measure impact
+1. **Use signal handlers** for Ctrl+C, not try/except
+
+2. **Don't access Python objects** from background threads without GIL
+
+3. **Use `AsyncManager` or `Manager.wakeup()`** for cross-thread communication
+
+4. **Benchmark** against pure-Python frameworks to validate performance gains
 
 ## Troubleshooting
 
-### nogil Not Working
-
-Check startup message:
-
-```text
-USE_NOGIL=1  # Working
-USE_NOGIL=0  # Not enabled
-```
-
-Rebuild if needed:
-
-```bash
-rm src/cymongoose/_mongoose.c
-pip install -e . --force-reinstall
-```
-
 ### Performance Lower Than Expected
 
-1. Verify nogil is enabled (USE_NOGIL=1)
-2. Check poll timeout (use 100ms, not 5000ms)
-3. Ensure TLS is needed (disable if not: USE_TLS=0)
-4. Run benchmarks to compare
+1. Check poll timeout (use 100ms, not 5000ms)
+
+2. Profile handler code — Python business logic dominates real workloads
+
+3. Ensure TLS is only used when needed
+
+4. Run benchmarks (`make bench-quick`) to establish a baseline
 
 ## See Also
 
 - [Performance tuning guide](performance.md)
+
 - [Multi-threading patterns](threading.md)
+
 - [Signal handling best practices](shutdown.md)

@@ -183,5 +183,7 @@ manager.timer_add(10000, sync_time, repeat=True, run_now=True)
 ## See Also
 
 - [TLS Guide](tls.md) - Secure TCP with TLS
+
 - [Connection API](../api/connection.md) - Connection API
+
 - [Examples](../examples.md) - Complete examples

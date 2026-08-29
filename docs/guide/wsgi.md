@@ -1,14 +1,10 @@
 # WSGI Framework Support
 
-cymongoose can serve as the HTTP engine for standard Python web
-frameworks. Instead of writing raw event handlers, you can run your
-existing Flask, Django, Bottle, or Falcon application on cymongoose's
-C event loop and get a significant performance boost with no code changes.
+cymongoose can serve as the HTTP engine for standard Python web frameworks. Instead of writing raw event handlers, you can run your existing Flask, Django, Bottle, or Falcon application on cymongoose's C event loop and get a significant performance boost with no code changes.
 
 ## WSGI Server
 
-The `cymongoose.wsgi` module implements a PEP 3333 WSGI server. Any
-WSGI-compatible application works out of the box.
+The `cymongoose.wsgi` module implements a PEP 3333 WSGI server. Any WSGI-compatible application works out of the box.
 
 ### Quick Start
 
@@ -85,32 +81,31 @@ server.run()
 
 ### Architecture
 
-The WSGI adapter bridges cymongoose's non-blocking event loop with
-WSGI's synchronous, blocking model:
+The WSGI adapter bridges cymongoose's non-blocking event loop with WSGI's synchronous, blocking model:
 
 1. HTTP request arrives via `MG_EV_HTTP_MSG`.
-2. A WSGI `environ` dict is built from the `HttpMessage`.
-3. The WSGI callable is submitted to a `ThreadPoolExecutor`.
-4. The worker thread calls the application, collects the response
-   (status, headers, body iterator).
-5. The worker serialises the result and calls `Manager.wakeup()` to
-   hand it back to the event loop.
-6. On `MG_EV_WAKEUP` the handler sends the HTTP response via
-   `conn.reply()`.
 
-This keeps the event loop non-blocking while WSGI applications are free
-to block in their handlers (database queries, file I/O, etc.).
+2. A WSGI `environ` dict is built from the `HttpMessage`.
+
+3. The WSGI callable is submitted to a `ThreadPoolExecutor`.
+
+4. The worker thread calls the application, collects the response (status, headers, body iterator).
+
+5. The worker serialises the result and calls `Manager.wakeup()` to hand it back to the event loop.
+
+6. On `MG_EV_WAKEUP` the handler sends the HTTP response via `conn.reply()`.
+
+This keeps the event loop non-blocking while WSGI applications are free to block in their handlers (database queries, file I/O, etc.).
 
 ### Threading Model
 
-Each incoming request is dispatched to a thread from the pool.
-The `workers` parameter controls concurrency:
+Each incoming request is dispatched to a thread from the pool. The `workers` parameter controls concurrency:
 
 - **CPU-bound apps**: set `workers` close to your core count.
-- **I/O-bound apps** (database, external APIs): set `workers` higher
-  (16-32) since threads will mostly be waiting.
-- The event loop thread itself never blocks -- it only does HTTP
-  parsing and response sending.
+
+- **I/O-bound apps** (database, external APIs): set `workers` higher (16-32) since threads will mostly be waiting.
+
+- The event loop thread itself never blocks -- it only does HTTP parsing and response sending.
 
 ```python
 # High concurrency for I/O-bound Flask app
@@ -119,10 +114,7 @@ server = WSGIServer(app, workers=32)
 
 ### Error Handling
 
-Application exceptions are caught and returned as `500 Internal Server
-Error` responses. The traceback is written to `sys.stderr`. The server
-continues running -- a single failing request does not crash the event
-loop.
+Application exceptions are caught and returned as `500 Internal Server Error` responses. The traceback is written to `sys.stderr`. The server continues running -- a single failing request does not crash the event loop.
 
 ```python
 # Optional: handle event loop errors (not app errors)
@@ -134,9 +126,7 @@ server = WSGIServer(app, workers=4, error_handler=on_error)
 
 ### File Serving with `wsgi.file_wrapper`
 
-The adapter provides `wsgi.file_wrapper` in the environ, implementing
-the optional PEP 3333 protocol for file serving. WSGI applications
-can use it to serve files efficiently:
+The adapter provides `wsgi.file_wrapper` in the environ, implementing the optional PEP 3333 protocol for file serving. WSGI applications can use it to serve files efficiently:
 
 ```python
 def file_app(environ, start_response):
@@ -148,51 +138,40 @@ def file_app(environ, start_response):
     return wrapper(fh, blksize=8192)
 ```
 
-The wrapper reads the file in blocks and iterates through the standard
-WSGI response path. The underlying file handle is closed automatically
-when iteration completes.
+The wrapper reads the file in blocks and iterates through the standard WSGI response path. The underlying file handle is closed automatically when iteration completes.
 
 ### Large Response Handling
 
-`Manager.wakeup()` transmits data over a socketpair with a non-blocking
-`send()`. The effective socket buffer is small (~9 KB on macOS, ~64 KB
-on Linux), so the adapter **cannot send most responses inline**.
+`Manager.wakeup()` transmits data over a socketpair with a non-blocking `send()`. The effective socket buffer is small (~9 KB on macOS, ~64 KB on Linux), so the adapter **cannot send most responses inline**.
 
-Responses exceeding 8 KB are automatically stashed in a thread-safe
-dict keyed by UUID. Only the short key (~33 bytes) goes through
-`wakeup()`, and the event loop thread retrieves the full response from
-the dict. This is transparent to WSGI applications -- no special
-handling is needed.
+Responses exceeding 8 KB are automatically stashed in a thread-safe dict keyed by UUID. Only the short key (~33 bytes) goes through `wakeup()`, and the event loop thread retrieves the full response from the dict. This is transparent to WSGI applications -- no special handling is needed.
 
-For applications that serve very large responses (file downloads,
-large JSON payloads), be aware that the full response body is buffered
-in memory before sending.
+For applications that serve very large responses (file downloads, large JSON payloads), be aware that the full response body is buffered in memory before sending.
 
 ### Chunked Streaming
 
-Responses under 1 MB are collected in memory and sent as a single
-buffered reply (fast path). When the accumulated body exceeds 1 MB
-during iteration, the adapter automatically switches to **chunked
-transfer encoding**: it sends the HTTP headers immediately, then
-streams each body chunk as it is yielded by the WSGI iterator.
+Responses under 1 MB are collected in memory and sent as a single buffered reply (fast path). When the accumulated body exceeds 1 MB during iteration, the adapter automatically switches to **chunked transfer encoding**: it sends the HTTP headers immediately, then streams each body chunk as it is yielded by the WSGI iterator.
 
 This means:
 
-- **Small API responses** (JSON, HTML): sent as a single reply with
-  ``Content-Length`` -- no overhead.
-- **Large file downloads**: streamed in chunks -- constant memory
-  regardless of file size.
-- **Lazy generators**: chunks are sent as they are produced, reducing
-  time-to-first-byte for long-running responses.
+- **Small API responses** (JSON, HTML): sent as a single reply with ``Content-Length`` -- no overhead.
 
-Small chunks from fast generators are batched up to 256 KB before
-sending to avoid flooding the wakeup pipe.
+- **Large file downloads**: streamed in chunks -- constant memory regardless of file size.
+
+- **Lazy generators**: chunks are sent as they are produced, reducing time-to-first-byte for long-running responses.
+
+Small chunks from fast generators are batched up to 256 KB before sending to avoid flooding the wakeup pipe.
 
 ## See Also
 
 - [ASGI Support](asgi.md) -- async framework adapter (FastAPI, Starlette, Quart)
+
 - [WSGI Internals](../dev/wsgi.md) -- wakeup types, streaming design, thread safety
+
 - [HTTP/HTTPS Guide](http.md) -- raw event handler approach
+
 - [Threading Guide](../advanced/threading.md) -- thread-safety details
+
 - [Performance Tuning](../advanced/performance.md) -- benchmarking tips
+
 - [Examples](../examples.md) -- micro-framework and other examples

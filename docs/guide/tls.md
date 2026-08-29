@@ -200,11 +200,17 @@ opts = TlsOpts(cert=cert, key=key)
 ## Best Practices
 
 1. **Never skip verification** in production
+
 2. **Use strong certificates** (2048-bit RSA minimum)
+
 3. **Keep private keys secure** (file permissions 600)
+
 4. **Rotate certificates** before expiry
+
 5. **Use SNI** for virtual hosting
+
 6. **Monitor certificate expiry** dates
+
 7. **Test with real certificates** before deployment
 
 ## Troubleshooting
@@ -212,19 +218,27 @@ opts = TlsOpts(cert=cert, key=key)
 ### Certificate Verification Failed
 
 - Check CA bundle includes root certificate
+
 - Verify certificate chain is complete
+
 - Check certificate expiry date
+
 - Ensure SNI name matches certificate
 
 ### Connection Refused
 
 - Verify TLS port (443 for HTTPS, 8883 for MQTTS)
+
 - Check firewall rules
+
 - Ensure certificates are loaded correctly
 
 ## See Also
 
 - [HTTP Guide](http.md) - HTTPS server/client
+
 - [WebSocket Guide](websocket.md) - Secure WebSocket
+
 - [MQTT Guide](mqtt.md) - Secure MQTT
+
 - [Troubleshooting](../advanced/troubleshooting.md) - Debugging TLS issues

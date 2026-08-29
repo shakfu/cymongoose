@@ -150,9 +150,13 @@ def handler(conn, ev, data):
 See the protocol-specific guides for detailed information:
 
 - [HTTP/HTTPS](http.md) - HTTP/HTTPS servers and clients
+
 - [WebSocket](websocket.md) - WebSocket communication
+
 - [MQTT](mqtt.md) - MQTT publish/subscribe
+
 - [Network](network.md) - TCP/UDP, DNS, SNTP
+
 - [TLS](tls.md) - TLS/SSL configuration
 
 ## Advanced Topics
@@ -160,12 +164,17 @@ See the protocol-specific guides for detailed information:
 For performance optimization, threading, and other advanced topics:
 
 - [GIL-free Performance](../advanced/nogil.md) - GIL-free performance optimization
+
 - [Threading](../advanced/threading.md) - Multi-threaded patterns
+
 - [Performance](../advanced/performance.md) - Performance tuning
+
 - [Shutdown](../advanced/shutdown.md) - Proper shutdown handling
 
 ## Next Steps
 
 - Follow the [HTTP](http.md) guide for web servers
+
 - See [WebSocket](websocket.md) for real-time communication
+
 - Check [Examples](../examples.md) for complete examples

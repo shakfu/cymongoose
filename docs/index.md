@@ -1,29 +1,24 @@
 # cymongoose: Python Bindings for the Mongoose Networking Library
 
-[![PyPI version](https://img.shields.io/pypi/v/cymongoose.svg)](https://pypi.org/project/cymongoose/)
-[![Python versions](https://img.shields.io/pypi/pyversions/cymongoose.svg)](https://pypi.org/project/cymongoose/)
+[![PyPI version](https://img.shields.io/pypi/v/cymongoose.svg)](https://pypi.org/project/cymongoose/) [![Python versions](https://img.shields.io/pypi/pyversions/cymongoose.svg)](https://pypi.org/project/cymongoose/)
 
-**cymongoose** is a high-performance Cython-based Python wrapper around
-the [Mongoose](https://github.com/cesanta/mongoose) embedded networking
-library. It provides Pythonic bindings to Mongoose's comprehensive
-networking capabilities with C-level performance.
+**cymongoose** is a high-performance Cython-based Python wrapper around the [Mongoose](https://github.com/cesanta/mongoose) embedded networking library. It provides Pythonic bindings to Mongoose's comprehensive networking capabilities with C-level performance.
 
 ## Key Features
 
-- **High Performance**: Achieves 60k+ req/sec with nogil optimization
-  (6-37x faster than pure Python frameworks)
-- **Comprehensive Protocol Support**: HTTP/HTTPS, WebSocket/WSS,
-  MQTT/MQTTS, TCP/UDP, DNS, SNTP
-- **TLS/SSL Support**: Full certificate-based encryption for all
-  protocols
-- **Production Ready**: Signal handling, graceful shutdown, connection
-  draining
-- **Zero-copy Design**: Efficient memory usage with view objects over C
-  structs
-- **Thread-safe Operations**: 21 methods with GIL release for true
-  parallel execution
-- **Pythonic API**: Clean, intuitive interface with comprehensive type
-  hints
+- **High Performance**: Achieves 60k+ req/sec with nogil optimization (6-37x faster than pure Python frameworks)
+
+- **Comprehensive Protocol Support**: HTTP/HTTPS, WebSocket/WSS, MQTT/MQTTS, TCP/UDP, DNS, SNTP
+
+- **TLS/SSL Support**: Full certificate-based encryption for all protocols
+
+- **Production Ready**: Signal handling, graceful shutdown, connection draining
+
+- **Zero-copy Design**: Efficient memory usage with view objects over C structs
+
+- **Thread-safe Operations**: 24 methods with GIL release for true parallel execution
+
+- **Pythonic API**: Clean, intuitive interface with comprehensive type hints
 
 ## Quick Example
 
@@ -55,12 +50,13 @@ Benchmarked with `wrk -t4 -c100 -d10s` on an M1 Macbook Air laptop:
 ## Project Links
 
 - **GitHub**: <https://github.com/shakfu/cymongoose>
+
 - **PyPI**: <https://pypi.org/project/cymongoose/>
+
 - **Issue Tracker**: <https://github.com/shakfu/cymongoose/issues>
+
 - **Mongoose Library**: <https://github.com/cesanta/mongoose>
 
 ## License
 
-This project is licensed under GPL-2.0-or-later, matching the Mongoose
-library's open-source license. Commercial licensing is available from
-[Cesanta](https://mongoose.ws/) for proprietary use.
+This project is licensed under GPL-2.0-or-later, matching the Mongoose library's open-source license. Commercial licensing is available from [Cesanta](https://mongoose.ws/) for proprietary use.

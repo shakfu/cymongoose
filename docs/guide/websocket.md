@@ -341,16 +341,25 @@ const ws = new WebSocket('wss://localhost:8443/ws');
 ## Best Practices
 
 1. **Always track clients** in a list for broadcasting
+
 2. **Copy client list** before iterating (`clients[:]`)
+
 3. **Handle closed connections** with try/except
+
 4. **Use JSON** for structured messages
+
 5. **Validate message format** before processing
+
 6. **Set user state** with `conn.userdata`
+
 7. **Clean up** on `MG_EV_CLOSE`
 
 ## See Also
 
 - [HTTP Guide](http.md) - HTTP/HTTPS guide
+
 - [TLS Guide](tls.md) - Secure WebSocket (WSS)
+
 - [Examples](../examples.md) - Complete chat room example
+
 - [Connection API](../api/connection.md) - Connection API

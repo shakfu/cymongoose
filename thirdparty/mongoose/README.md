@@ -184,6 +184,7 @@ We take security seriously:
   Our [unit tests](https://github.com/cesanta/mongoose/tree/master/test)
   are built with modern address sanitizer technologies, which help to find
   security vulnerabilities early
+
 2. Mongoose repository is integrated into Google's
 
    [oss-fuzz continuous fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)

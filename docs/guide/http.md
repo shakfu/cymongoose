@@ -369,15 +369,23 @@ manager.connect('https://example.com:443', http=True)
 ## Best Practices
 
 1. **Always use `http=True`** flag for HTTP protocols
+
 2. **Use `conn.drain()`** for graceful connection close
+
 3. **Set proper Content-Type** headers
+
 4. **Handle errors** with appropriate status codes
+
 5. **Use chunked encoding** for large responses
+
 6. **Validate input** from query params and body
 
 ## See Also
 
 - [WebSocket Guide](websocket.md) - WebSocket upgrade from HTTP
+
 - [TLS Guide](tls.md) - TLS/SSL configuration
+
 - [Connection API](../api/connection.md) - Connection API reference
+
 - [Examples](../examples.md) - Complete examples

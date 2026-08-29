@@ -5,6 +5,7 @@
 When closing HTTP connections from the server side, there are two methods:
 
 - **`conn.close()`**: Immediate close (may lose buffered data)
+
 - **`conn.drain()`**: Graceful close (flushes data first) [x] **Recommended**
 
 ## The Problem
@@ -36,8 +37,11 @@ def handler(conn, ev, data):
 ### What drain() Does
 
 1. **Sets `conn.is_draining = 1`** - Marks connection for closure
+
 2. **Stops reading** - No more data accepted from client
+
 3. **Flushes send buffer** - Continues sending buffered data
+
 4. **Closes when empty** - Connection closes after all data sent
 
 This is the **Mongoose-recommended pattern** for server-initiated closes.
@@ -52,7 +56,9 @@ def drain(self):
 
     Sets is_draining=1, which tells Mongoose to:
     1. Stop reading from the socket
+
     2. Flush any buffered outgoing data
+
     3. Close the connection after send buffer is empty
 
     This is the recommended way to close connections from the server side.
@@ -62,7 +68,9 @@ def drain(self):
 **When to use**:
 
 - [x] After sending HTTP response
+
 - [x] After sending last WebSocket message
+
 - [x] When you want client to receive all data
 
 ### conn.close()
@@ -78,7 +86,9 @@ def close(self):
 **When to use**:
 
 - [!] Handling protocol violations
+
 - [!] Malicious connections (timeout/abuse)
+
 - [!] Emergency shutdown
 
 **Avoid for normal responses** - use `drain()` instead.
@@ -253,6 +263,7 @@ def handler(conn, ev, data):
 ### Drain vs Close Performance
 
 - **`drain()`**: Adds ~1-10ms latency (time to flush buffers)
+
 - **`close()`**: Instant, but may lose data
 
 For most HTTP responses (< 10KB), the difference is negligible (< 1ms).
@@ -262,6 +273,7 @@ For most HTTP responses (< 10KB), the difference is negligible (< 1ms).
 HTTP/1.1 keep-alive reuses connections:
 
 - **Without drain**: ~60,000 req/sec (benchmark result)
+
 - **With drain every request**: ~45,000 req/sec (more TCP overhead)
 
 **Best practice**: Only drain when actually closing the connection (e.g., WebSocket disconnect, server shutdown, or explicit "Connection: close" header).
@@ -271,8 +283,11 @@ HTTP/1.1 keep-alive reuses connections:
 What Mongoose does when `is_draining = 1`:
 
 1. **`MG_EV_POLL` events continue** - Connection stays in event loop
+
 2. **`mg_iobuf_del(&c->recv, c->recv.len)`** - Clear receive buffer
+
 3. **`mg_send()` still works** - Can still send data
+
 4. **When `c->send.len == 0`**: Calls `mg_close_conn()`
 
 This ensures buffered data is flushed before closing.
@@ -292,4 +307,5 @@ This ensures buffered data is flushed before closing.
 See also:
 
 - [Cleanup & Shutdown](cleanup_and_shutdown.md) - Manager cleanup
+
 - [Graceful Shutdown](../advanced/shutdown.md) - Graceful server shutdown

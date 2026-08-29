@@ -7,14 +7,19 @@ Best practices for properly shutting down cymongoose servers and cleaning up res
 The `Manager` object owns C resources that must be explicitly freed:
 
 - Network sockets and connections
+
 - Internal Mongoose event structures
+
 - Memory allocated by the C library
+
 - Timer callbacks
 
 **Not calling `manager.close()` can lead to**:
 
 - Resource leaks (file descriptors, memory)
+
 - Socket CLOSE_WAIT states
+
 - Segfaults if Manager is freed while connections are active
 
 ## Basic Pattern: try/finally
@@ -48,9 +53,13 @@ manager.close()
 ```
 
 1. Closes all open connections
+
 2. Frees all listeners (listening sockets)
+
 3. Cancels all timers
+
 4. Frees internal Mongoose structures
+
 5. Sets `manager._freed = True` to prevent further use
 
 After `close()`, the Manager is unusable:
@@ -253,23 +262,33 @@ manager.close()  # [x] Safe to close now
 ## Graceful Shutdown Checklist
 
 1. **Signal shutdown intent**
+
    - Set flag or call signal handler
+
    - Use `stop_flag.is_set()` in poll loop
 
 2. **Stop accepting new connections** (optional)
+
    - Let existing connections finish
+
    - Implement timeout for long-lived connections
 
 3. **Wait for polling to stop**
+
    - Join background threads
+
    - Exit poll loop
 
 4. **Close Manager**
+
    - Call `manager.close()`
+
    - Verify cleanup complete
 
 5. **Log shutdown**
+
    - Confirm clean exit
+
    - Log any errors
 
 ## Example: Complete Production Server
@@ -380,10 +399,15 @@ lsof -p $SERVER_PID  # Should show "No such process"
 ## Summary
 
 - [x] **Always use try/finally** to ensure `manager.close()` is called
+
 - [x] **Handle both SIGINT and SIGTERM** for production servers
+
 - [x] **Stop polling before closing** in multi-threaded code
+
 - [x] **Log shutdown events** for debugging
+
 - [X] **Never reuse** a closed Manager
+
 - [X] **Never close** while another thread is polling
 
 **Template for new servers**:
