@@ -26,7 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Changed
 
-- **Upgraded mongoose from 7.19 to 7.21**. Key upstream fixes: HTTP fast closure handling, `mg_aton()` IPv6 scope ID fix, certificate verification reliability, `mg_queue_vprintf` va_args fix, and CVE-2025-65502 (`SSL_CTX_get_cert_store()` crash under low RAM, OpenSSL only). Updated `mg_addr` struct in the Cython binding to match the new union-based layout (`addr.ip` -> `addr.addr.ip`). All 460 existing tests pass without changes; the `c->loc` semantic change (actual local address on accepted connections vs. bind address) is compatible with existing expectations.
+- **Upgraded mongoose from 7.19 to 7.21**. Key upstream fixes: HTTP fast closure handling, `mg_aton()` IPv6 scope ID fix, certificate verification reliability, `mg_queue_vprintf` va_args fix, and CVE-2025-65502 (`SSL_CTX_get_cert_store()` crash under low RAM, OpenSSL only). Updated `mg_addr` struct in the Cython binding to match the new union-based layout (`addr.ip` -> `addr.addr.ip`). All 562 existing tests pass without changes; the `c->loc` semantic change (actual local address on accepted connections vs. bind address) is compatible with existing expectations.
 
 ### Added
 
@@ -47,6 +47,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 - **Base64**: `base64_encode()`, `base64_decode()` wrapping mongoose's base64 implementation.
 
 - **Misc utilities**: `millis()` (monotonic ms since boot), `random_bytes()`, `random_str()` (alphanumeric), `crc32()` (with incremental support).
+
+- **`patches/`**: modifications to vendored mongoose are now recorded as applyable diffs, so a future update cannot drop them silently. Contains `0001-tls-pad-short-ecdsa-r-s.patch` for the TLS fix below, a standalone C reproducer, and a drafted upstream issue for cesanta/mongoose. Each patched site carries a `cymongoose patch NNNN` comment, so `grep -rn "cymongoose patch" thirdparty/mongoose/` after an update shows what survived.
+
+- **TLS short-signature regression test**: `tests/certs/short_sig_*` commits a P-256 pair whose CA signature has a 31-byte `r`, since a randomly generated pair exercises that case in only 0.8% of runs. `test_tls_verify_chain_with_short_sig` performs full chain verification against it; `test_short_sig_fixture_still_has_short_r_or_s` parses the leaf signature and fails if the fixture is ever regenerated without the short case.
+
+### Fixed
+
+- **TLS: chain verification rejected roughly 1 in 128 valid EC certificates.** Mongoose's `mg_tls_verify_cert_signature()` builds the fixed 64-byte `r||s` buffer that `mg_uecc_verify()` requires. DER INTEGERs are minimally encoded, so `r` and `s` occupy 33 bytes when the top bit is set and 31 or fewer when the top byte is zero. The code trimmed the long form but still copied 32 bytes for a short one, left-aligning the integer and appending bytes read from the following TLV. Only clients passing `ca` reach this path, so it presented as an intermittent `failed to verify CA`. Mongoose already handles the short case correctly in `mg_tls_recv_cert_verify()`; the fix makes the two consistent. Present in 7.19 and 7.21, so not a regression from the 7.21 upgrade.
 
 ## [0.2.3]
 

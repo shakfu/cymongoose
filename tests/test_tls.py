@@ -1,11 +1,14 @@
 """Tests for TLS configuration."""
 
+import ssl
 import subprocess
 import time
+from pathlib import Path
 
 import pytest
 
 from cymongoose import (
+    MG_EV_ACCEPT,
     MG_EV_CONNECT,
     MG_EV_ERROR,
     MG_EV_HTTP_MSG,
@@ -455,5 +458,107 @@ def test_tls_is_tls_flag_set_after_handshake(tls_certs):
 
         assert events["done"], "Handshake + HTTP exchange did not complete"
         assert events["client_is_tls"] is True
+    finally:
+        mgr.close()
+
+
+# --- Regression: short ECDSA r/s in a CA signature (patches/0001) -------------
+
+CERT_DIR = Path(__file__).parent / "certs"
+
+
+def _der_tlv(buf, i):
+    """Read one DER TLV at offset i. Return (contents, offset after it)."""
+    i += 1  # tag
+    n = buf[i]
+    i += 1
+    if n & 0x80:
+        k = n & 0x7F
+        n = int.from_bytes(buf[i : i + k], "big")
+        i += k
+    return buf[i : i + n], i + n
+
+
+def _ecdsa_rs_lengths(pem: bytes):
+    """Return the encoded byte lengths of r and s in a cert's ECDSA signature."""
+    der = ssl.PEM_cert_to_DER_cert(pem.decode())
+    cert, _ = _der_tlv(der, 0)  # Certificate ::= SEQUENCE
+    _, i = _der_tlv(cert, 0)  # tbsCertificate
+    _, i = _der_tlv(cert, i)  # signatureAlgorithm
+    sigbits, _ = _der_tlv(cert, i)  # signatureValue BIT STRING
+    sig, _ = _der_tlv(sigbits[1:], 0)  # skip unused-bits octet; ECDSA-Sig-Value
+    r, j = _der_tlv(sig, 0)
+    s, _ = _der_tlv(sig, j)
+    return len(r), len(s)
+
+
+def test_short_sig_fixture_still_has_short_r_or_s():
+    """Guard the fixture's defining property.
+
+    If these certs are ever regenerated without preserving a short r or s,
+    test_tls_verify_chain_with_short_sig below silently stops covering the bug.
+    """
+    r, s = _ecdsa_rs_lengths((CERT_DIR / "short_sig_server.crt").read_bytes())
+    assert min(r, s) < 32, f"fixture no longer exercises the short case: r={r} s={s}"
+
+
+def test_tls_verify_chain_with_short_sig():
+    """Verify a chain whose CA signature has a short r or s.
+
+    DER INTEGERs are minimally encoded, so r and s drop a leading zero byte
+    about 1 time in 128. Mongoose's mg_tls_verify_cert_signature() left-aligned
+    such values instead of left-padding them, so verification failed. Committed
+    certs pin the case; a randomly generated pair hits it only ~0.8% of runs.
+    See patches/0001-tls-pad-short-ecdsa-r-s.patch.
+    """
+    port = get_free_port()
+    events = {"client_response": None, "error": None, "client_tls_hs": False}
+
+    server_opts = TlsOpts(
+        cert=(CERT_DIR / "short_sig_server.crt").read_bytes(),
+        key=(CERT_DIR / "short_sig_server.key").read_bytes(),
+    )
+
+    def handler(conn, ev, data):
+        if ev == MG_EV_ACCEPT:
+            conn.tls_init(server_opts)
+        elif ev == MG_EV_HTTP_MSG:
+            conn.reply(200, b"short-sig ok")
+
+    def client_handler(conn, ev, data):
+        if ev == MG_EV_CONNECT:
+            # No skip_verification: the CA signature over the leaf is checked.
+            conn.tls_init(
+                TlsOpts(
+                    ca=(CERT_DIR / "short_sig_ca.crt").read_bytes(),
+                    name=b"localhost",
+                )
+            )
+        elif ev == MG_EV_TLS_HS:
+            events["client_tls_hs"] = True
+            conn.send(b"GET / HTTP/1.1\r\nHost: localhost\r\n\r\n")
+        elif ev == MG_EV_HTTP_MSG:
+            events["client_response"] = data.body_bytes
+        elif ev == MG_EV_ERROR:
+            events["error"] = repr(data)
+
+    mgr = Manager(handler)
+    try:
+        mgr.listen(f"https://127.0.0.1:{port}", http=True)
+        mgr.poll(10)
+
+        mgr.connect(f"https://127.0.0.1:{port}", handler=client_handler, http=True)
+
+        deadline = time.monotonic() + 10
+        while (
+            events["client_response"] is None
+            and events["error"] is None
+            and time.monotonic() < deadline
+        ):
+            mgr.poll(10)
+
+        assert events["error"] is None, f"TLS error: {events['error']}"
+        assert events["client_tls_hs"], "TLS handshake did not complete"
+        assert events["client_response"] == b"short-sig ok"
     finally:
         mgr.close()

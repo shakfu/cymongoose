@@ -14248,8 +14248,12 @@ static int mg_tls_verify_cert_signature(const struct mg_tls_cert *cert,
       const uint32_t N = 32;
       if (a.len > N) a.value += (a.len - N), a.len = N;
       if (b.len > N) b.value += (b.len - N), b.len = N;
-      memmove(sig, a.value, N);
-      memmove(sig + N, b.value, N);
+      // cymongoose patch 0001 (see patches/): r and s are DER INTEGERs,
+      // minimally encoded, so a leading zero byte is dropped and they may be
+      // shorter than N. Left-pad them; do not left-align.
+      memset(sig, 0, 2 * N);
+      memmove(sig + N - a.len, a.value, a.len);
+      memmove(sig + 2 * N - b.len, b.value, b.len);
       return mg_uecc_verify((uint8_t *) issuer->pubkey.buf, cert->tbshash,
                             (unsigned) cert->tbshashsz, sig,
                             mg_uecc_secp256r1());
