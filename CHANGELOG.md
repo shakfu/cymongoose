@@ -22,6 +22,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.2.5]
+
+### Changed
+
+- **Upgraded mongoose from 7.21 to 7.23**. 7.22 and 7.23 together resolve roughly 60 vulnerabilities, many on code paths cymongoose exposes directly (see Security below). Cherry-picking that many fixes into a pinned 7.21 was not maintainable, so the vendored tree moves wholesale. All 562 tests pass with no test changes attributable to the upgrade, as do the AddressSanitizer and `leaks` runs.
+
+- **`MG_EV_USER` changed value from 22 to 23**. 7.23 inserts `MG_EV_MODBUS_REQ` ahead of it. Code that derives custom event IDs from `MG_EV_USER` is unaffected; code that hardcodes 22 is not.
+
+- Cython declarations corrected for 7.23 signature changes: `mg_json_unescape()` gained a JSONPath argument and returns a byte count instead of a bool; `mg_url_is_ssl()` and `mg_tls_opts.skip_verification` are now `bool` rather than `int`. No call site changed behaviour -- `mg_json_unescape()` was declared but never called.
+
+- Dropped `MG_ENABLE_PACKED_FS=0` from `CMakeLists.txt`. 7.23 removes the macro and always compiles the embedded filesystem, which is activated by assigning the `mg_mem_files` global rather than by a build flag.
+
+### Security
+
+- Upstream fixes now included that affect paths cymongoose exposes: `mg_random()` used `rand()` as a fallback **for TLS secrets** (CVE-2026-52075); HTTP/1.0 detection off-by-one enabling request smuggling (CVE-2026-73256, CVE-2026-73257); multipart boundary scan causing data corruption and Content-Type bypass (CVE-2026-73258); `skip_chunk` off-by-one OOB read in chunked HTTP (CVE-2026-52056); SSI path traversal giving arbitrary file read (CVE-2026-73255); stored XSS via unescaped filenames in directory listings (CVE-2026-73254, CVE-2026-73259); `mg_http_get_header_var()` OOB read; MQTT v5 property bounds check comparing a relative offset against an absolute position (CVE-2026-52048), which is the path `MqttMessage.properties()` added in 0.2.4 sits on; sequential DNS transaction IDs enabling response injection (CVE-2026-52064); and a dozen further DER and TLS handshake parsing fixes.
+
+### Removed
+
+- `patches/0001-tls-pad-short-ecdsa-r-s.patch`, fixed upstream in 7.22 as CVE-2026-52071. `tests/test_tls.py::test_tls_verify_chain_with_short_sig` and `test_short_sig_fixture_still_has_short_r_or_s` are retained as upstream regression coverage; they pass against unpatched 7.23. The same defect remains in 7.23 for secp384r1, which 7.22 introduced -- see `patches/README.md`.
+
+### Fixed
+
+- `tests/examples/test_examples_protocols.py::test_udp_echo_functionality` created its client on the main thread while a poll thread drove the same `Manager`, contrary to the poll-thread-only constraint in `docs/advanced/threading.md`. The resulting race aborted the process in 4 of 5 AddressSanitizer runs and had made `make test-asan` unusable since before the mongoose upgrade. The test now uses separate server and client managers, matching `test_tcp_echo_functionality`.
+
 ## [0.2.4]
 
 ### Changed

@@ -238,33 +238,46 @@ def test_udp_echo_functionality():
                 received_data.append(recv_data)
                 echo_received.set()
 
-    manager = Manager()
+    # Separate managers: poll() is poll-thread only, so the client must not be
+    # created on the main thread while a poll thread drives the same manager.
+    server_manager = Manager()
+    client_manager = None
 
     try:
         # Start UDP server
-        listener = manager.listen("udp://127.0.0.1:0", handler=server_handler)
+        listener = server_manager.listen("udp://127.0.0.1:0", handler=server_handler)
         port = listener.local_addr[1]
 
-        # Run in background
-        stop = threading.Event()
+        # Run server in background
+        server_stop = threading.Event()
 
-        def poll_loop():
-            while not stop.is_set():
-                manager.poll(50)
+        def server_poll():
+            while not server_stop.is_set():
+                server_manager.poll(50)
 
-        poll_thread = threading.Thread(target=poll_loop, daemon=True)
-        poll_thread.start()
+        server_thread = threading.Thread(target=server_poll, daemon=True)
+        server_thread.start()
         time.sleep(0.2)
 
-        # Connect UDP client
-        client = manager.connect(f"udp://127.0.0.1:{port}", handler=client_handler)
-        time.sleep(0.1)
-
-        # Send datagram
+        # Connect UDP client and queue the datagram before its poll thread runs
+        client_manager = Manager()
+        client = client_manager.connect(
+            f"udp://127.0.0.1:{port}", handler=client_handler
+        )
         client.send(b"Hello UDP!")
 
+        # Run client in background
+        client_stop = threading.Event()
+
+        def client_poll():
+            while not client_stop.is_set():
+                client_manager.poll(50)
+
+        client_thread = threading.Thread(target=client_poll, daemon=True)
+        client_thread.start()
+
         # Wait for echo
-        echo_received.wait(timeout=2)
+        echo_received.wait(timeout=3)
 
         # Verify echo
         assert echo_received.is_set(), "UDP echo not received"
@@ -272,10 +285,18 @@ def test_udp_echo_functionality():
         assert received_data[0] == b"Hello UDP!"
 
     finally:
-        # Stop polling thread first
-        stop.set()
-        poll_thread.join(timeout=1)
-        manager.close()
+        # Stop polling threads first
+        if "server_stop" in locals():
+            server_stop.set()
+        if "client_stop" in locals():
+            client_stop.set()
+        if "client_thread" in locals():
+            client_thread.join(timeout=1)
+        if "server_thread" in locals():
+            server_thread.join(timeout=1)
+        server_manager.close()
+        if client_manager:
+            client_manager.close()
 
 
 if __name__ == "__main__":

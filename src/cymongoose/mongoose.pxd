@@ -44,6 +44,7 @@ cdef extern from "mongoose.h":
         MG_EV_WAKEUP
         MG_EV_MDNS_REQ
         MG_EV_MDNS_RESP
+        MG_EV_MODBUS_REQ
         MG_EV_USER
 
     cdef enum:
@@ -178,7 +179,7 @@ cdef extern from "mongoose.h":
         mg_str cert
         mg_str key
         mg_str name
-        int skip_verification
+        cbool skip_verification
 
     cdef void mg_tls_init(mg_connection *conn, const mg_tls_opts *opts) nogil
     cdef void mg_tls_free(mg_connection *conn) nogil
@@ -210,7 +211,7 @@ cdef extern from "mongoose.h":
     cdef char *mg_json_get_str(mg_str json, const char *path)
     cdef char *mg_json_get_hex(mg_str json, const char *path, int *len)
     cdef char *mg_json_get_b64(mg_str json, const char *path, int *len)
-    cdef bint mg_json_unescape(mg_str str, char *buf, size_t len)
+    cdef size_t mg_json_unescape(mg_str json, const char *path, char *buf, size_t len)
     cdef size_t mg_json_next(mg_str obj, size_t ofs, mg_str *key, mg_str *val)
 
     # Additional HTTP functions
@@ -334,7 +335,7 @@ cdef extern from "mongoose.h":
 
     # URL parsing
     cdef unsigned short mg_url_port(const char *url)
-    cdef int mg_url_is_ssl(const char *url)
+    cdef cbool mg_url_is_ssl(const char *url)
     cdef mg_str mg_url_host(const char *url)
     cdef mg_str mg_url_user(const char *url)
     cdef mg_str mg_url_pass(const char *url)

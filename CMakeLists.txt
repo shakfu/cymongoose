@@ -4,7 +4,7 @@ project(${SKBUILD_PROJECT_NAME} VERSION ${SKBUILD_PROJECT_VERSION} LANGUAGES C)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Vendored Mongoose C library version (thirdparty/mongoose/)
-set(MONGOOSE_VERSION "7.21")
+set(MONGOOSE_VERSION "7.23")
 
 # Verify MONGOOSE_VERSION matches MG_VERSION in mongoose.h
 file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/mongoose/mongoose.h"
@@ -49,7 +49,6 @@ target_include_directories(_mongoose PRIVATE
 # Preprocessor defines
 target_compile_definitions(_mongoose PRIVATE
     MG_TLS=MG_TLS_BUILTIN
-    MG_ENABLE_PACKED_FS=0
 )
 
 # AddressSanitizer option
