@@ -391,5 +391,6 @@ cdef extern from "mongoose.h":
     cdef char *mg_random_str(char *buf, size_t len)
     cdef uint32_t mg_crc32(uint32_t crc, const char *buf, size_t len)
     cdef uint64_t mg_millis()
+    uint64_t mg_boot_timestamp_ms
 
     void mg_free(void *ptr)

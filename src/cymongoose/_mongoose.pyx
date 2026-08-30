@@ -186,6 +186,7 @@ from .mongoose cimport (
     mg_random_str,
     mg_crc32,
     mg_millis,
+    mg_boot_timestamp_ms,
     MG_TIMER_ONCE,
     MG_TIMER_REPEAT,
     MG_TIMER_RUN_NOW,
@@ -197,6 +198,7 @@ from .mongoose cimport (
 )
 
 import json as _json
+import time as _time
 import traceback
 from typing import Optional
 
@@ -204,6 +206,13 @@ from typing import Optional
 # trace output.  Default to MG_LL_NONE for Python users; they can opt in
 # with log_set(MG_LL_DEBUG) if needed.
 mg_log_level = C_MG_LL_NONE
+
+# mg_now() -- which mongoose 7.23 uses to check certificate notBefore/notAfter
+# -- is mg_millis() (uptime) plus mg_boot_timestamp_ms, and the latter is zero
+# until an SNTP sync.  Left at zero, every certificate reads as not yet valid,
+# and mg_tls_init() silently dials time.google.com whenever a CA is supplied.
+# Desktop hosts have a wall clock, so seed the offset from it at import.
+mg_boot_timestamp_ms = <uint64_t> (<uint64_t> (_time.time() * 1000) - mg_millis())
 
 __all__ = [
     "Manager",

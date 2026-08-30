@@ -153,9 +153,12 @@ clean:
 	@rm -rf *.egg-info/
 	@rm -rf src/*.egg-info/
 	@rm -rf .pytest_cache/
-	@find . -name "*.so" -delete
-	@find . -name "*.pyd" -delete
-	@find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
+	@# Prune .venv: it holds every installed package's compiled extensions, and
+	@# `build-asan: clean` would otherwise strip them (mypy's librt, for one).
+	@# rm -f rather than -delete, which implies -depth and so voids -prune.
+	@find . -path ./.venv -prune -o -name "*.so" -exec rm -f {} +
+	@find . -path ./.venv -prune -o -name "*.pyd" -exec rm -f {} +
+	@find . -path ./.venv -prune -o -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
 
 # Clean everything including CMake cache
 distclean: clean

@@ -261,9 +261,7 @@ def test_udp_echo_functionality():
 
         # Connect UDP client and queue the datagram before its poll thread runs
         client_manager = Manager()
-        client = client_manager.connect(
-            f"udp://127.0.0.1:{port}", handler=client_handler
-        )
+        client = client_manager.connect(f"udp://127.0.0.1:{port}", handler=client_handler)
         client.send(b"Hello UDP!")
 
         # Run client in background

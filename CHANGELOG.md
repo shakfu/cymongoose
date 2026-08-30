@@ -22,6 +22,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Fixed
+
+- **TLS certificate validity checks always failed.** 7.23 checks `notBefore`/`notAfter` against `mg_now()`, which is uptime plus `mg_boot_timestamp_ms`, and that offset is 0 until an SNTP sync -- so every certificate parsed as "not yet valid" and the handshake aborted. When a CA was supplied, `mg_tls_init()` hid the defect by dialling `time.google.com`, so `test_tls_verify_chain_with_short_sig` passed only with outbound UDP while the three tests using `skip_verification` failed on every platform. `mg_boot_timestamp_ms` is now seeded from the host clock at import; hosts running cymongoose have a wall clock, unlike the embedded targets the SNTP path is written for.
+
+- **`make clean` deleted every `.so` under `.venv`.** The sweep ran from the repo root with no prune, so `make test-asan` -- whose `build-asan` target depends on `clean` -- stripped the compiled extensions of every installed package and then reinstalled only cymongoose. `make typecheck` failed on the wreckage with `ModuleNotFoundError: No module named 'librt.internal'`, mypy 1.19's mypyc runtime. The sweeps now prune `.venv`, and use `rm -f` rather than `-delete`, which implies `-depth` and would void the prune.
+
+- `ServerThread` in `tests/conftest.py` allowed 5 seconds for thread start plus `Manager()` and `listen()`, none of which the tests using it measure. A run started straight after a full rebuild overran it and failed `test_concurrent_different_paths`. Raised to 15 seconds, still inside the 60-second pytest timeout.
+
 ## [0.2.5]
 
 ### Changed

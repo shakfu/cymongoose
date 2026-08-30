@@ -38,8 +38,12 @@ class ServerThread:
         self.thread = threading.Thread(target=run_server, daemon=True)
         self.thread.start()
 
-        if not self.ready.wait(timeout=5):
-            raise RuntimeError("Server failed to start within 5 seconds")
+        # 15s, not 5: the wait covers thread start plus Manager() and listen(),
+        # none of which the tests are measuring. A loaded machine (a rebuild
+        # still settling, Windows CI at 2.6x Linux runtime) overran 5s and
+        # failed an unrelated test. Still under the 60s pytest timeout.
+        if not self.ready.wait(timeout=15):
+            raise RuntimeError("Server failed to start within 15 seconds")
 
         return self.port
 
