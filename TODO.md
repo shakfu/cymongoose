@@ -1,6 +1,16 @@
 # TODO
 
-## Upstream: Mongoose 7.19 -> 7.21
+## Critical
+
+## High
+
+## Medium
+
+## Low
+
+## Done
+
+### Upstream: Mongoose 7.19 -> 7.21
 
 - [x] **Vendor mongoose 7.21** (High) Replace `thirdparty/mongoose/mongoose.{c,h}` with 7.21 sources. Rebuild and run full test suite. Key bug fixes:
 
@@ -18,7 +28,7 @@
 
 - [x] **Expose `mg_mqtt_unsub()`** (Low) 7.21 adds `mg_mqtt_unsub()` for MQTT unsubscribe. Bind it in `_mongoose.pyx` and expose as `conn.mqtt_unsub()`. This completes the existing MQTT API surface rather than adding a new protocol.
 
-## Feature Gaps (mongoose API not yet exposed)
+### Feature Gaps (mongoose API not yet exposed)
 
 - [x] **MQTT v5 property access** (High) Expose `mg_mqtt_next_prop()` and the `mg_mqtt_prop` struct so users can iterate MQTT v5 properties. The `is_mqtt5` flag is already on `Connection` but there is no way to read properties from messages.
 
