@@ -22,9 +22,10 @@ jobs:
         python-version: "3.11"
 
     - name: Install uv
-      run: |
-        curl -LsSf https://astral.sh/uv/install.sh | sh
-        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4
+
+    - name: Bet cargo bin path
+      run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
     - name: Install dependencies
       run: uv sync
